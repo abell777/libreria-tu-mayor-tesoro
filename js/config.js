@@ -17,9 +17,9 @@ var firebaseConfig = {
 
 // 2) EmailJS → Account → General (Public Key) y Email Services / Email Templates
 var emailjsConfig = {
-  publicKey: "TU_PUBLIC_KEY",
-  serviceId: "TU_SERVICE_ID",
-  customerTemplateId: "TU_TEMPLATE_CLIENTE",
-  ownerTemplateId: "TU_TEMPLATE_TIENDA",
+  publicKey: "Z8d0FXpZong8v6zMg",
+  serviceId: "service_35rkith",
+  customerTemplateId: "template_q9dhnch",
+  ownerTemplateId: "template_iai6flh",
   ownerEmail: "libreriamayortesoro@gmail.com"
 };

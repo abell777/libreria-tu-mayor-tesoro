@@ -52,6 +52,10 @@ window.Cart = (function () {
     return getItems().reduce(function (sum, i) { return sum + i.qty * i.price; }, 0);
   }
 
+  function clearItems() {
+    saveItems([]);
+  }
+
   function updateBadge() {
     var badge = document.querySelector('[data-cart-count]');
     if (!badge) return;
@@ -65,6 +69,7 @@ window.Cart = (function () {
     addItem: addItem,
     removeItem: removeItem,
     setQty: setQty,
+    clear: clearItems,
     totalCount: totalCount,
     totalPrice: totalPrice,
     updateBadge: updateBadge
@@ -227,10 +232,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  var checkoutBtn = document.getElementById('checkoutBtn');
-  if (checkoutBtn) {
-    checkoutBtn.addEventListener('click', function () {
-      alert('Aquí conectaría el flujo de pago (pasarela, dirección de envío, etc.).');
-    });
-  }
+  // El botón "Finalizar compra" lo gestiona js/checkout.js
+  // (comprueba la sesión, pide los datos de envío y guarda el pedido).
 });

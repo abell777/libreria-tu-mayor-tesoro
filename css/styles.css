@@ -1068,3 +1068,146 @@ body.no-scroll { overflow: hidden; }
   .shop-toolbar { flex-direction: column; align-items: stretch; }
   .shop-sort { margin-left: 0; }
 }
+
+/* ==========================================================================
+   7. CUENTA, LOGIN Y PEDIDOS
+   ========================================================================== */
+.icon-btn.is-logged-in { position: relative; color: var(--navy); }
+.icon-btn.is-logged-in::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--card);
+}
+
+.account-page { max-width: 480px; padding-block: 40px 80px; }
+.account-intro { color: var(--muted-foreground); margin: -10px 0 26px; font-size: 0.95rem; }
+
+.auth-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+}
+.auth-tabs { display: flex; gap: 4px; background: var(--muted); border-radius: var(--radius-md); padding: 4px; margin-bottom: 22px; }
+.auth-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 10px;
+  border-radius: calc(var(--radius-md) - 3px);
+  font-size: 0.87rem;
+  font-weight: 700;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: background 0.16s ease, color 0.16s ease;
+}
+.auth-tab.is-active { background: var(--card); color: var(--navy); box-shadow: var(--shadow-soft); }
+
+.auth-form { display: flex; flex-direction: column; gap: 14px; }
+.auth-form label { display: flex; flex-direction: column; gap: 6px; font-size: 0.83rem; font-weight: 600; color: var(--foreground); }
+.auth-form input {
+  font: inherit;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--background);
+  color: var(--foreground);
+}
+.auth-form input:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+.auth-form button[type="submit"] { margin-top: 4px; }
+.auth-error { color: #b3402a; font-size: 0.83rem; background: oklch(0.96 0.05 30); border-radius: var(--radius-sm); padding: 9px 11px; }
+
+.auth-divider { display: flex; align-items: center; gap: 12px; margin: 20px 0 16px; color: var(--muted-foreground); font-size: 0.8rem; }
+.auth-divider::before, .auth-divider::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+
+.auth-google { display: inline-flex; align-items: center; justify-content: center; gap: 10px; }
+.auth-google-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--parchment);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+
+.account-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 30px; }
+.account-email { color: var(--muted-foreground); font-size: 0.9rem; margin-top: 2px; }
+
+.orders-heading { font-size: 1.1rem; margin-bottom: 14px; }
+.orders-list { display: flex; flex-direction: column; gap: 12px; }
+.orders-empty { color: var(--muted-foreground); font-size: 0.92rem; }
+
+.order-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px 18px; }
+.order-card-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 4px; }
+.order-number { font-weight: 700; color: var(--navy); font-size: 0.92rem; }
+.order-status { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 10px; border-radius: 999px; background: var(--muted); color: var(--muted-foreground); }
+.order-status--pendiente { background: oklch(0.95 0.06 85); color: oklch(0.42 0.09 75); }
+.order-status--enviado { background: oklch(0.94 0.05 230); color: oklch(0.4 0.1 250); }
+.order-status--entregado { background: oklch(0.93 0.06 150); color: oklch(0.38 0.1 150); }
+.order-date { color: var(--muted-foreground); font-size: 0.8rem; margin-bottom: 8px; }
+.order-items { list-style: none; padding: 0; margin: 0 0 8px; font-size: 0.86rem; color: var(--foreground); display: flex; flex-direction: column; gap: 3px; }
+.order-total { font-weight: 700; color: var(--navy); font-size: 0.9rem; }
+
+/* ---- Aviso de login y formulario de envío en el carrito ---- */
+.checkout-login-notice {
+  margin-top: 26px;
+  background: oklch(0.96 0.05 85);
+  border: 1px solid oklch(0.85 0.07 80);
+  color: oklch(0.4 0.08 75);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  font-size: 0.9rem;
+}
+.checkout-login-notice a { font-weight: 700; text-decoration: underline; }
+
+.checkout-shipping {
+  margin-top: 30px;
+  max-width: 480px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+}
+.checkout-shipping h2 { font-size: 1.1rem; margin-bottom: 16px; }
+.shipping-form { display: flex; flex-direction: column; gap: 14px; }
+.shipping-form label { display: flex; flex-direction: column; gap: 6px; font-size: 0.83rem; font-weight: 600; }
+.shipping-form input {
+  font: inherit;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--background);
+}
+.shipping-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.checkout-note { font-size: 0.78rem; color: var(--muted-foreground); margin-top: 2px; }
+
+.order-confirmation {
+  margin-top: 30px;
+  max-width: 480px;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 30px;
+  color: var(--navy);
+}
+.order-confirmation svg { color: var(--gold); margin-bottom: 14px; }
+.order-confirmation h2 { font-size: 1.3rem; margin-bottom: 10px; }
+.order-confirmation p { color: var(--muted-foreground); font-size: 0.92rem; margin-bottom: 6px; }
+.order-confirmation .btn { margin-top: 16px; }
+
+@media (max-width: 560px) {
+  .shipping-form-row { grid-template-columns: 1fr; }
+  .account-head { flex-direction: column; }
+}
