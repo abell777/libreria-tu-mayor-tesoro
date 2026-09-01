@@ -25,7 +25,28 @@
       shippingSection.hidden = false;
       shippingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+    precargarDireccionGuardada(user);
   });
+
+  // Si el cliente tiene una dirección guardada en su panel de cuenta
+  // (predeterminada, o la única que tenga), se precarga en el formulario.
+  function precargarDireccionGuardada(user) {
+    if (!window.fbDb || !shippingForm) return;
+    window.fbDb.collection('usuarios').doc(user.uid).get().then(function (doc) {
+      if (!doc.exists) return;
+      var direcciones = doc.data().direcciones || [];
+      if (direcciones.length === 0) return;
+      var elegida = direcciones.filter(function (d) { return d.predeterminada; })[0] || direcciones[0];
+      if (!elegida) return;
+      shippingForm.elements.nombre.value = elegida.nombre || user.displayName || '';
+      shippingForm.elements.direccion.value = elegida.direccion || '';
+      shippingForm.elements.ciudad.value = elegida.ciudad || '';
+      shippingForm.elements.cp.value = elegida.cp || '';
+      shippingForm.elements.telefono.value = elegida.telefono || '';
+    }).catch(function (err) {
+      console.error('Error al precargar la dirección guardada', err);
+    });
+  }
 
   if (shippingForm) {
     shippingForm.addEventListener('submit', function (e) {
