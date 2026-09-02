@@ -1294,3 +1294,64 @@ body.no-scroll { overflow: hidden; }
   .account-stats { grid-template-columns: 1fr; }
   .account-form-row { grid-template-columns: 1fr; }
 }
+
+/* ==========================================================================
+   Panel de administración (admin.html)
+   ========================================================================== */
+.admin-page { padding-top: 10px; }
+.admin-guard { text-align: center; padding: 80px 20px; }
+.admin-denied { font-size: 1rem; color: var(--muted-foreground); }
+.admin-denied a { color: var(--navy); font-weight: 700; text-decoration: underline; }
+
+.admin-stats { margin-top: 20px; }
+
+.admin-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin: 28px 0 18px; }
+.admin-filter-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.admin-filter-btn {
+  padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border);
+  background: var(--card); color: var(--foreground); font-size: 0.83rem; font-weight: 600;
+  cursor: pointer; transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+}
+.admin-filter-btn:hover { border-color: var(--gold); }
+.admin-filter-btn.is-active { background: var(--navy); border-color: var(--navy); color: var(--parchment); }
+.admin-search {
+  flex: 1 1 260px; max-width: 340px; padding: 9px 14px;
+  border: 1px solid var(--border); border-radius: var(--radius-md);
+  font-family: var(--font-sans); font-size: 0.88rem; background: var(--card); color: var(--foreground);
+}
+
+.admin-orders-list { display: flex; flex-direction: column; gap: 10px; }
+.admin-order-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+.admin-order-card summary {
+  list-style: none; cursor: pointer;
+  display: grid; grid-template-columns: 90px 1.6fr 1fr 100px 110px; align-items: center; gap: 14px;
+  padding: 14px 18px;
+}
+.admin-order-card summary::-webkit-details-marker { display: none; }
+.admin-order-card summary::before {
+  content: '›'; justify-self: end; order: 99; font-size: 1.2rem; color: var(--muted-foreground);
+  transition: transform 0.15s ease;
+}
+.admin-order-card[open] summary::before { transform: rotate(90deg); }
+.admin-order-numero { font-weight: 700; color: var(--navy); font-size: 0.88rem; }
+.admin-order-cliente { display: flex; flex-direction: column; font-size: 0.87rem; font-weight: 600; }
+.admin-order-cliente small { font-weight: 400; color: var(--muted-foreground); font-size: 0.78rem; }
+.admin-order-fecha { font-size: 0.8rem; color: var(--muted-foreground); }
+.admin-order-total { font-weight: 700; color: var(--navy); font-size: 0.88rem; }
+
+.admin-order-body { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; padding: 4px 18px 22px; border-top: 1px solid var(--border); }
+.admin-order-col h4 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted-foreground); margin-bottom: 8px; }
+.admin-order-col p, .admin-order-col ul { font-size: 0.87rem; line-height: 1.6; color: var(--foreground); }
+.admin-order-line { margin: 0; color: var(--muted-foreground); }
+.admin-order-line--total { color: var(--navy); font-weight: 700; margin-top: 4px; }
+.admin-order-actions { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.admin-order-actions select {
+  padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border);
+  font-family: var(--font-sans); font-size: 0.85rem; background: var(--background); color: var(--foreground);
+}
+.admin-save-flash { color: oklch(0.42 0.09 150); font-size: 0.8rem; font-weight: 600; }
+
+@media (max-width: 720px) {
+  .admin-order-card summary { grid-template-columns: 1fr auto; grid-template-areas: "numero estado" "cliente cliente" "fecha total"; row-gap: 4px; }
+  .admin-order-body { grid-template-columns: 1fr; }
+}

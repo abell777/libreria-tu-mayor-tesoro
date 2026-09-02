@@ -23,3 +23,13 @@ var emailjsConfig = {
   ownerTemplateId: "template_iai6flh",
   ownerEmail: "libreriamayortesoro@gmail.com"
 };
+
+// 3) Panel de administración (admin.html) — UID(s) de Firebase Authentication
+// que pueden entrar a gestionar los pedidos. Consíguelo en:
+// Firebase Console → Authentication → Users → columna "User UID" (copia el
+// de la cuenta con la que quieras administrar la tienda) y pégalo aquí.
+// Puedes añadir varios UIDs separados por comas si más de una persona
+// gestiona los pedidos.
+var ADMIN_UIDS = [
+  "PON_AQUI_TU_UID_DE_FIREBASE"
+];
