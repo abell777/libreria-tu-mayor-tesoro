@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tu carrito — Librería tu mayor tesoro</title>
-<meta name="description" content="Revisa los libros de tu carrito antes de finalizar la compra en Librería tu mayor tesoro.">
+<title>Quiénes somos — Librería tu mayor tesoro</title>
+<meta name="description" content="Conoce la historia, misión y valores de Librería tu mayor tesoro. Literatura cristiana, Biblias y obras de Elena G. White.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
@@ -12,6 +12,9 @@
 </head>
 <body>
 
+<!-- ==========================================================================
+     1. HEADER — buscador + menú de categorías
+     ========================================================================== -->
 <header class="site-header">
   <div class="container header-top">
     <a href="index.html" class="brand">
@@ -42,7 +45,7 @@
   <nav class="category-nav" id="categoryNav" aria-label="Categorías">
     <div class="container">
       <ul class="category-list">
-        <li><a href="categoria.html" class="is-active">Todas las categorías</a></li>
+        <li><a href="categoria.html">Todas las categorías</a></li>
         <li class="has-dropdown">
           <a href="categoria.html?cat=libros" class="dropdown-toggle">Libros
             <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
@@ -65,75 +68,98 @@
 </header>
 
 <main>
-  <div class="container cart-page">
-    <nav class="breadcrumb" aria-label="Ruta de navegación">
-      <a href="index.html">Inicio</a>
-      <span>/</span>
-      <span class="breadcrumb-current">Carrito</span>
-    </nav>
+  <!-- ========================================================================
+       2. CABECERA DE LA PÁGINA (Estilo idéntico a las secciones principales)
+       ======================================================================== -->
+  <section class="section" style="padding-bottom: 2rem;">
+    <div class="container">
+      <div class="section-head" style="margin-bottom: 0;">
+        <div>
+          <span class="eyebrow">Nuestra historia y propósito</span>
+          <h1 class="section-title">Quiénes somos</h1>
+          <p class="section-lede">Somos un proyecto dedicado a la difusión de la literatura cristiana y la artesanía textil. Nacemos con el propósito de poner al alcance de cada hogar la Palabra de Dios y los escritos de Elena G. White, acompañados por un trabajo de confección manual único. Cada una de nuestras Biblias y libros puede complementarse con fundas y recubrimientos artesanales, elaborados a mano cuidando cada detalle para ofrecer piezas perdurables que dignifican la lectura de la fe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <h1 class="section-title">Tu carrito</h1>
-
-    <div class="cart-layout" id="cartLayout">
-      <div class="cart-items" id="cartItems">
-        <!-- Las filas del carrito se generan dinámicamente con js/cart.js -->
+  <!-- ========================================================================
+       3. CONTENIDO PRINCIPAL: QUIÉNES SOMOS (Uso de tarjetas y rejillas oficiales)
+       ======================================================================== -->
+  <section class="section section--muted" style="padding-top: 2rem;">
+    <div class="container">
+      
+      <!-- Bloque introductorio -->
+      <div style="max-width: 800px; margin-bottom: 3rem; font-size: 1.1rem; line-height: 1.7; color: var(--foreground);">
+        <p style="margin-bottom: 1.5rem;">
+          En <strong>Librería tu mayor tesoro</strong> concebimos la lectura no solo como un hábito cultural, sino como una herramienta fundamental para la edificación personal y comunitaria. Trabajamos cuidadosamente para ofrecer un catálogo enfocado en la fidelidad doctrinal, el estudio profundo de las Escrituras y el bienestar integral.
+        </p>
+        <p>
+          Ponemos a disposición de nuestros lectores ediciones cuidadas de las obras completas de Elena G. White, una amplia variedad de Biblias en distintas versiones y recursos prácticos para el hogar, la salud y la familia.
+        </p>
       </div>
 
-      <aside class="cart-summary">
-        <h2>Resumen del pedido</h2>
-        <div class="summary-row"><span>Subtotal</span><span id="summarySubtotal">0,00&nbsp;€</span></div>
-        <div class="summary-row"><span>Envío</span><span id="summaryShipping">Gratis</span></div>
-        <div class="summary-row summary-total"><span>Total</span><span id="summaryTotal">0,00&nbsp;€</span></div>
+      <!-- Tarjetas de Misión y Valores (Aprovechando la estructura de .category-grid o .trust-strip) -->
+      <div class="category-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-bottom: 3rem;">
+        
+        <a href="nuestra-mision.html" class="category-card" style="text-decoration: none; color: inherit;">
+          <span class="cat-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5c-1.5-2-4.5-3-8-3V5c3.5 0 6.5 1 8 3"/><path d="M12 20.5c1.5-2 4.5-3 8-3V5c-3.5 0-6.5 1-8 3"/></svg>
+          </span>
+          <h3>Nuestra Misión</h3>
+          <p>Facilitar el acceso a literatura cristiana de alta calidad y contenido doctrinal sólido que inspire, instruya y fortalezca la vida espiritual de cada creyente y su hogar.</p>
+          <span class="cat-count" style="margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.3rem;">Saber más
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
 
-        <form class="promo-form" id="promoForm">
-          <input type="text" placeholder="Código promocional" aria-label="Código promocional">
-          <button type="submit" class="btn btn--outline btn--sm">Aplicar</button>
-        </form>
+        <a href="nuestro-compromiso.html" class="category-card" style="text-decoration: none; color: inherit;">
+          <span class="cat-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </span>
+          <h3>Nuestro Compromiso</h3>
+          <p>Ofrecer una atención cercana y personalizada, garantizando selecciones editoriales cuidadas y un servicio de envío eficiente y transparente en cada pedido.</p>
+          <span class="cat-count" style="margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.3rem;">Saber más
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
 
-        <button type="button" class="btn btn--primary btn--block" id="checkoutBtn">Finalizar compra</button>
-        <a href="categoria.html" class="continue-shopping">← Seguir comprando</a>
-      </aside>
     </div>
 
-    <p class="checkout-login-notice" id="checkoutLoginNotice" hidden>
-      Para finalizar la compra necesitas <a href="cuenta.html">iniciar sesión o crear una cuenta</a>. Así podrás recibir la confirmación por correo y hacer seguimiento de tu pedido.
-    </p>
-
-    <section class="checkout-shipping" id="checkoutShipping" hidden>
-      <h2>Datos de envío</h2>
-      <form id="shippingForm" class="shipping-form">
-        <label>Nombre y apellidos<input type="text" name="nombre" required autocomplete="name"></label>
-        <label>Dirección<input type="text" name="direccion" required autocomplete="street-address"></label>
-        <div class="shipping-form-row">
-          <label>Ciudad<input type="text" name="ciudad" required autocomplete="address-level2"></label>
-          <label>Código postal<input type="text" name="cp" required autocomplete="postal-code"></label>
-        </div>
-        <label>Teléfono<input type="tel" name="telefono" required autocomplete="tel"></label>
-        <button type="submit" class="btn btn--primary btn--block">Confirmar pedido</button>
-        <p class="checkout-note">Al confirmar no se realiza ningún cobro todavía — nos pondremos en contacto contigo para acordar el pago y el envío, y recibirás la confirmación en tu correo.</p>
-      </form>
-    </section>
-
-    <div class="order-confirmation" id="orderConfirmation" hidden>
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
-      <h2>¡Pedido confirmado!</h2>
-      <p>Tu número de pedido es <strong data-order-number></strong>, por un total de <strong data-order-total></strong>.</p>
-      <p>Te hemos enviado la confirmación por correo, y puedes consultar el estado en cualquier momento desde <a href="cuenta.html">Mi cuenta</a>.</p>
-      <a href="categoria.html" class="btn btn--primary">Seguir explorando</a>
     </div>
+  </section>
 
-    <div class="cart-empty" id="cartEmpty" hidden>
-      <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-      <p>Tu carrito está vacío todavía.</p>
-      <a href="categoria.html" class="btn btn--primary">Explorar catálogo</a>
+  <!-- Banda de confianza (Mantenida idéntica a la home para conservar la coherencia visual) -->
+  <div class="container">
+    <div class="trust-strip">
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div><h4>Envíos a toda España</h4><p>Recíbelo en casa en pocos días</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div><h4>Ediciones garantizadas</h4><p>Textos fieles y cuidados</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <div><h4>Atención cercana</h4><p>Te ayudamos a elegir</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <div><h4>Devoluciones sencillas</h4><p>30 días para cambios</p></div>
+      </div>
     </div>
   </div>
+
 </main>
 
+<!-- ==========================================================================
+     4. FOOTER
+     ========================================================================== -->
 <footer class="site-footer">
   <div class="container footer-top">
     <div class="footer-brand">
-      <a href="#" class="brand">
+      <a href="index.html" class="brand">
         <span class="brand-mark">L</span>
         <span class="brand-name">Librería<span style="color:oklch(0.97 0.015 85 / 0.55)">tu mayor tesoro</span></span>
       </a>
@@ -151,7 +177,7 @@
         <li><a href="quienes-somos.html">Quiénes somos</a></li>
         <li><a href="nuestra-mision.html">Nuestra misión</a></li>
         <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
-        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
+        <li><a href="#">Trabaja con nosotros</a></li>
       </ul>
     </div>
 
@@ -184,7 +210,6 @@
     </div>
   </div>
 
-
   <div class="footer-contact-banner">
     <div class="container">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
@@ -208,7 +233,6 @@
 <script src="js/config.js"></script>
 <script src="js/auth.js"></script>
 <script src="js/cart.js"></script>
-<script src="js/checkout.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
