@@ -98,6 +98,18 @@ function flashAdded(btn) {
   }, 1300);
 }
 
+// Función auxiliar para asociar la imagen según el título del libro
+function getBookImage(title) {
+  const imageMap = {
+    "El Conflicto de los Siglos": "img/el-conflicto-de-los-siglos.jpg",
+    "El Deseado de Todas las Gentes": "img/el-deseado-de-todas-las-gentes.jpg",
+    "Historia de los Patriarcas y Profetas": "img/historia-de-los-patriarcas-y-profetas.jpg",
+    "Profetas y Reyes": "img/profetas-y-reyes.jpg"
+  };
+  
+  return imageMap[title] || "img/default-book.jpg";
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   Cart.updateBadge();
 
@@ -110,18 +122,21 @@ document.addEventListener('DOMContentLoaded', function () {
       var titleEl = card.querySelector('.book-title');
       var authorEl = card.querySelector('.book-author');
       var priceEl = card.querySelector('.book-price');
-      var coverEl = card.querySelector('.book-cover');
       var title = titleEl ? titleEl.textContent.trim() : 'Libro';
       var author = authorEl ? authorEl.textContent.trim() : '';
       var priceText = priceEl ? priceEl.childNodes[0].textContent : '0';
       var price = parseFloat(priceText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
-      var coverClass = 'cover--1';
-      if (coverEl) {
-        coverEl.classList.forEach(function (c) { if (c.indexOf('cover--') === 0) coverClass = c; });
-      }
       var id = card.dataset.productId || slugify(title);
 
-      Cart.addItem({ id: id, title: title, author: author, price: price, format: 'Estándar', cover: coverClass, qty: 1 });
+      Cart.addItem({ 
+        id: id, 
+        title: title, 
+        author: author, 
+        price: price, 
+        format: 'Estándar', 
+        cover: getBookImage(title), 
+        qty: 1 
+      });
       flashAdded(btn);
     });
   });
@@ -142,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
         author: mainAddBtn.dataset.author,
         price: activePill ? parseFloat(activePill.dataset.price) : parseFloat(mainAddBtn.dataset.price),
         format: activePill ? activePill.dataset.format : (mainAddBtn.dataset.format || 'Estándar'),
-        cover: mainAddBtn.dataset.cover || 'cover--1',
+        cover: getBookImage(mainAddBtn.dataset.title),
         qty: qty
       });
       flashAdded(mainAddBtn);
@@ -170,9 +185,13 @@ document.addEventListener('DOMContentLoaded', function () {
     if (emptyState) emptyState.hidden = true;
 
     cartItemsEl.innerHTML = items.map(function (item) {
+      // Usamos item.cover si ya viene guardado, o comprobamos con getBookImage si falta
+      var imagePath = item.cover && item.cover.startsWith('img/') ? item.cover : getBookImage(item.title);
+
       return (
         '<article class="cart-item" data-id="' + item.id + '" data-format="' + item.format + '">' +
-          '<div class="cart-item-cover ' + item.cover + '"></div>' +
+          '<img src="' + imagePath + '" alt="' + item.title + '" class="cart-item-img">' +
+          
           '<div class="cart-item-info">' +
             '<h3>' + item.title + '</h3>' +
             '<p class="cart-item-format">' + item.author + (item.format && item.format !== 'Estándar' ? ' · ' + item.format : '') + '</p>' +
@@ -231,7 +250,4 @@ document.addEventListener('DOMContentLoaded', function () {
       setTimeout(function () { btn.textContent = original; }, 1800);
     });
   }
-
-  // El botón "Finalizar compra" lo gestiona js/checkout.js
-  // (comprueba la sesión, pide los datos de envío y guarda el pedido).
 });
