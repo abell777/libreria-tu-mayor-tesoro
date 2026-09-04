@@ -79,4 +79,31 @@
     });
     if (typeof window.onAuthReady === 'function') window.onAuthReady(user);
   });
+
+  // ---- Lógica para alternar las pestañas de Iniciar Sesión / Crear Cuenta ----
+  document.addEventListener('DOMContentLoaded', function () {
+    var authTabs = document.querySelectorAll('.auth-tab');
+    var authForms = document.querySelectorAll('.auth-card .auth-form');
+
+    if (authTabs.length > 0) {
+      authTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var targetPanel = tab.getAttribute('data-auth-tab');
+
+          // Cambiar clase activa en los botones
+          authTabs.forEach(function (t) { t.classList.remove('is-active'); });
+          tab.classList.add('is-active');
+
+          // Mostrar/Ocultar el formulario correspondiente
+          authForms.forEach(function (form) {
+            if (form.getAttribute('data-panel') === targetPanel) {
+              form.hidden = false;
+            } else {
+              form.hidden = true;
+            }
+          });
+        });
+      });
+    }
+  });
 })();
