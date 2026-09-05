@@ -18,6 +18,7 @@
   var applyMobileBtn = document.getElementById('filtersApplyMobile');
   var shopTitle = document.querySelector('[data-shop-title]');
   var breadcrumbCurrent = document.querySelector('[data-breadcrumb-current]');
+  var searchInput = document.querySelector('.search-form input[name="q"]');
 
   var CATEGORY_LABELS = {
     biblias: 'Biblias',
@@ -46,6 +47,7 @@
   function applyFilters() {
     var groups = groupedChecks();
     var visibleCount = 0;
+    var query = (searchInput && searchInput.value ? searchInput.value : '').trim().toLowerCase();
 
     cards.forEach(function (card) {
       var cat = card.dataset.category;
@@ -57,8 +59,9 @@
       var matchPrice = !groups.price || groups.price.some(function (r) { return priceInRange(price, r); });
       var matchFormat = !groups.format || groups.format.indexOf(format) !== -1;
       var matchAuthor = !groups.author || groups.author.indexOf(author) !== -1;
+      var matchQuery = !query || cardText(card).indexOf(query) !== -1;
 
-      var visible = matchCategory && matchPrice && matchFormat && matchAuthor;
+      var visible = matchCategory && matchPrice && matchFormat && matchAuthor && matchQuery;
       card.hidden = !visible;
       if (visible) visibleCount++;
     });
@@ -69,7 +72,19 @@
     if (emptyResults) emptyResults.hidden = visibleCount !== 0;
 
     renderActiveChips();
-    updateTitle(groups.category);
+    updateTitle(groups.category, query);
+  }
+
+  // Texto de título + autor + categoría de una tarjeta, en minúsculas, para buscar por coincidencia simple.
+  function cardText(card) {
+    var titleEl = card.querySelector('.book-title');
+    var authorEl = card.querySelector('.book-author');
+    var catEl = card.querySelector('.book-category');
+    return [
+      titleEl ? titleEl.textContent : '',
+      authorEl ? authorEl.textContent : '',
+      catEl ? catEl.textContent : ''
+    ].join(' ').toLowerCase();
   }
 
   function renderActiveChips() {
@@ -92,9 +107,12 @@
     activeFiltersWrap.hidden = !any;
   }
 
-  function updateTitle(activeCategories) {
+  function updateTitle(activeCategories, query) {
     if (!shopTitle) return;
-    if (activeCategories && activeCategories.length === 1) {
+    if (query) {
+      shopTitle.textContent = 'Resultados para «' + query + '»';
+      if (breadcrumbCurrent) breadcrumbCurrent.textContent = 'Búsqueda';
+    } else if (activeCategories && activeCategories.length === 1) {
       var label = CATEGORY_LABELS[activeCategories[0]] || 'Catálogo';
       shopTitle.textContent = label;
       if (breadcrumbCurrent) breadcrumbCurrent.textContent = label;
@@ -122,9 +140,11 @@
 
   checkboxes.forEach(function (cb) { cb.addEventListener('change', applyFilters); });
   if (sortSelect) sortSelect.addEventListener('change', applySort);
+  if (searchInput) searchInput.addEventListener('input', applyFilters);
   if (clearBtn) {
     clearBtn.addEventListener('click', function () {
       checkboxes.forEach(function (cb) { cb.checked = false; });
+      if (searchInput) searchInput.value = '';
       applyFilters();
     });
   }
@@ -144,12 +164,16 @@
     });
   }
 
-  // ---- Preselección desde la URL (?cat=biblias) al llegar desde la Home ----
+  // ---- Preselección desde la URL (?cat=biblias, ?q=texto) al llegar desde la Home o el buscador ----
   var params = new URLSearchParams(window.location.search);
   var catParam = params.get('cat');
+  var qParam = params.get('q');
   if (catParam) {
     var match = checkboxes.filter(function (c) { return c.name === 'category' && c.value === catParam; })[0];
     if (match) match.checked = true;
+  }
+  if (qParam && searchInput) {
+    searchInput.value = qParam;
   }
 
   applyFilters();
