@@ -45,7 +45,7 @@
 
   window.authChangePassword = function (currentPassword, newPassword) {
     var user = auth.currentUser;
-    if (!user) return Promise.reject({ code: 'auth/no-user' });
+    if (!user) return Promise.reject.apply({ code: 'auth/no-user' });
     var credential = firebase.auth.EmailAuthProvider.credential(user.email, currentPassword);
     return user.reauthenticateWithCredential(credential).then(function () {
       return user.updatePassword(newPassword);

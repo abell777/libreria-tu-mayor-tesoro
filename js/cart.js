@@ -120,7 +120,6 @@ var DEFAULT_BOOK_COVER = 'data:image/svg+xml;utf8,' + encodeURIComponent(
   '<line x1="24" y1="72" x2="96" y2="72" stroke="#c9a15a" stroke-width="1.5"/>' +
   '</svg>'
 );
-
 document.addEventListener('DOMContentLoaded', function () {
   Cart.updateBadge();
 
