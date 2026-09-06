@@ -1717,3 +1717,46 @@ h2.cart-title,
   .product-actions { flex-direction: column; align-items: stretch; }
   .product-actions .btn { width: 100%; text-align: center; justify-content: center; }
 }
+
+/* ==========================================================================
+   Buscador con autocompletado (header)
+   ========================================================================== */
+.search-form { position: relative; }
+.search-suggestions {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lift);
+  padding: 6px;
+  max-height: 420px;
+  overflow-y: auto;
+  z-index: 60;
+}
+.search-suggestion {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--foreground);
+}
+.search-suggestion:hover, .search-suggestion.is-active { background: var(--muted); }
+.search-suggestion img { width: 34px; height: 46px; object-fit: cover; border-radius: 4px; flex-shrink: 0; }
+.search-suggestion-info { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.search-suggestion-info strong { font-size: 0.88rem; color: var(--navy); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.search-suggestion-info small { font-size: 0.76rem; color: var(--muted-foreground); }
+.search-suggestion-price { font-size: 0.82rem; font-weight: 700; color: var(--navy); white-space: nowrap; }
+.search-suggestion--all {
+  justify-content: center; font-weight: 700; font-size: 0.85rem; color: var(--navy);
+  border-top: 1px solid var(--border); margin-top: 4px; padding-top: 10px; border-radius: 0;
+}
+.search-suggestions-empty { padding: 10px 8px 4px; font-size: 0.85rem; color: var(--muted-foreground); }
+
+@media (max-width: 640px) {
+  .search-suggestions { left: -8px; right: -8px; }
+}

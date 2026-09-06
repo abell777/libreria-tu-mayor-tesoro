@@ -44,6 +44,7 @@ window.Wishlist = (function () {
       }
       return Promise.resolve();
     }
+    var previous = ids.slice();
     var isActive = ids.indexOf(id) !== -1;
     ids = isActive ? ids.filter(function (i) { return i !== id; }) : ids.concat([id]);
     notify(); // actualización optimista
@@ -51,6 +52,9 @@ window.Wishlist = (function () {
       .set({ items: ids }, { merge: true })
       .catch(function (err) {
         console.error('Error al guardar la lista de deseos', err);
+        ids = previous; // revertir si Firestore lo rechaza
+        notify();
+        window.alert('No se ha podido guardar en tu lista de deseos (' + (err && err.code ? err.code : 'error') + '). Revisa las reglas de Firestore de la colección "deseos".');
       });
   }
 
