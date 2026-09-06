@@ -212,6 +212,18 @@ h1, h2, h3, h4 {
   font-weight: 600;
 }
 
+/* Sobre el footer (fondo oscuro) el acento de la marca necesita más contraste
+   que el gris pensado para fondo claro; se aplica aquí en vez de repetirlo
+   como estilo inline en cada una de las páginas. */
+.footer-brand .brand-name span { color: oklch(0.97 0.015 85 / 0.55); }
+
+/* Botón outline pensado para usarse sobre fondos oscuros (p. ej. el hero) */
+.btn--outline-light {
+  border-color: var(--parchment);
+  color: var(--parchment);
+}
+.btn--outline-light:hover { background: var(--parchment); color: var(--navy-deep); }
+
 .search-form {
   flex: 1;
   max-width: 520px;
