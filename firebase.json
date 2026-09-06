@@ -33,6 +33,15 @@
           { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
         ]
       }
+    ],
+    "rewrites": [
+      {
+        "source": "/producto.html",
+        "function": {
+          "functionId": "productoMeta",
+          "region": "us-central1"
+        }
+      }
     ]
   },
   "firestore": {
