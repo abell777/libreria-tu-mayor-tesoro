@@ -1,6 +1,9 @@
 // ==========================================================================
-// Checkout — exige sesión iniciada, pide los datos de envío, guarda el
-// pedido en Firestore y envía los correos de confirmación (cliente + tienda).
+// Checkout — exige sesión iniciada, pide los datos de envío y llama a la
+// Cloud Function "crearPedido" (functions/index.js), que recalcula el
+// precio real en el servidor, guarda el pedido en Firestore y devuelve
+// los datos ya verificados. Después se envían los correos de confirmación
+// (cliente + tienda) con esos datos reales.
 // ==========================================================================
 (function () {
   var checkoutBtn = document.getElementById('checkoutBtn');
@@ -66,46 +69,45 @@
         telefono: fd.get('telefono')
       };
 
-      var subtotal = Cart.totalPrice();
-      var envioGratis = subtotal >= 40;
-      var gastosEnvio = envioGratis ? 0 : 3.95;
-      var total = subtotal + gastosEnvio;
-      var numero = 'LT-' + Date.now().toString().slice(-6);
-
       var submitBtn = shippingForm.querySelector('button[type="submit"]');
       var textoOriginal = submitBtn.textContent;
+      var checkoutErrorEl = document.getElementById('checkoutError');
+      if (checkoutErrorEl) checkoutErrorEl.hidden = true;
       submitBtn.disabled = true;
       submitBtn.textContent = 'Procesando…';
 
-      var pedido = {
-        numero: numero,
-        uid: user.uid,
-        clienteNombre: user.displayName || envio.nombre,
-        clienteEmail: user.email,
-        envio: envio,
-        items: items.map(function (i) {
-          return { titulo: i.title, formato: i.format, cantidad: i.qty, precio: i.price };
-        }),
-        subtotal: subtotal,
-        gastosEnvio: gastosEnvio,
-        total: total,
-        estado: 'pendiente',
-        createdAt: firebase.firestore.FieldValue.serverTimestamp()
-      };
+      // Al servidor solo le mandamos el id y la cantidad de cada libro:
+      // el precio, el título y el formato los decide siempre la Cloud
+      // Function "crearPedido" a partir de su propio catálogo. Así nadie
+      // puede manipular el precio desde la consola del navegador.
+      var itemsParaEnviar = items.map(function (i) {
+        return { id: i.id, qty: i.qty };
+      });
 
-      (window.fbDb ? window.fbDb.collection('pedidos').add(pedido) : Promise.resolve())
-        .then(function () {
-          return enviarCorreos(pedido);
+      var crearPedido = firebase.functions().httpsCallable('crearPedido');
+
+      crearPedido({ items: itemsParaEnviar, envio: envio })
+        .then(function (result) {
+          var pedido = result.data;
+          // El pedido ya está guardado: si fallan los correos, no es motivo
+          // para decirle al cliente que su compra no se ha registrado.
+          return enviarCorreos(pedido).catch(function (err) {
+            console.error('Error al enviar los correos de confirmación', err);
+          }).then(function () {
+            Cart.clear();
+            mostrarConfirmacion(pedido.numero, pedido.total);
+            shippingForm.reset();
+          });
         })
         .catch(function (err) {
+          // Aquí sí ha fallado el propio pedido: no lo confirmamos ni
+          // vaciamos el carrito, para que el cliente pueda reintentarlo.
           console.error('Error al guardar el pedido', err);
+          if (checkoutErrorEl) checkoutErrorEl.hidden = false;
         })
         .then(function () {
-          Cart.clear();
-          mostrarConfirmacion(numero, total);
           submitBtn.disabled = false;
           submitBtn.textContent = textoOriginal;
-          shippingForm.reset();
         });
     });
   }
