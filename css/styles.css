@@ -1935,3 +1935,54 @@ h2.cart-title,
 @media (prefers-reduced-motion: reduce) {
   .cart-drawer, .cart-drawer-overlay { transition: none; }
 }
+
+/* ==========================================================================
+   Páginas de contenido (institucional / legal / ayuda)
+   Clases reutilizables para no repetir estilos inline en cada página
+   (preguntas-frecuentes, privacidad, términos, envíos, devoluciones...).
+   ========================================================================== */
+.pt-lg { padding-top: 2rem; }
+.pb-lg { padding-bottom: 2rem; }
+.mt-lg { margin-top: 1.5rem; }
+.mb-lg { margin-bottom: 1.5rem; }
+.mb-0 { margin-bottom: 0; }
+.text-align-left { text-align: left; }
+
+.content-lede {
+  max-width: 800px;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--foreground);
+}
+
+.content-narrow-left { max-width: 800px; margin: 0 auto; text-align: left; }
+.content-narrow-section { max-width: 800px; margin: 0 auto 3rem auto; }
+.content-narrow-grid { max-width: 800px; margin-bottom: 3rem; display: grid; gap: 2rem; }
+
+.content-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+}
+.content-card--lg { padding: 2.5rem; }
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+}
+.card-title--tight { margin-bottom: 0.75rem; }
+
+.text-block { color: var(--foreground); line-height: 1.7; margin-bottom: 1.25rem; }
+.text-block--end { margin: 0; }
+.text-block--loose { line-height: 1.9; padding-left: 1.2rem; }
+
+.link-inline { color: var(--navy); text-decoration: underline; }
+.link-inline--strong { font-weight: 600; }
+.link-plain { text-decoration: none; color: inherit; }
+
+.inline-cta-link { margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.3rem; }
+.auto-grid-300 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-bottom: 3rem; }
