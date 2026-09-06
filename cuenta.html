@@ -119,9 +119,168 @@
       </div>
     </div>
 
-    <!-- ---- Con sesión iniciada (Se mantiene igual que lo tenías) ---- -->
+    <!-- ---- Con sesión iniciada ---- -->
     <div id="authLoggedIn" hidden>
-       <!-- ... tu panel de usuario logueado ... -->
+      <div class="account-dashboard">
+        <aside class="account-sidebar">
+          <div class="account-sidebar-user">
+            <span class="account-avatar" id="accountAvatar">?</span>
+            <div>
+              <p class="account-sidebar-name" id="accountNameHead">Cliente</p>
+              <p class="account-sidebar-email" id="accountEmail"></p>
+            </div>
+          </div>
+          <nav class="account-nav">
+            <button type="button" class="account-nav-btn is-active" data-account-panel="resumen">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              Resumen
+            </button>
+            <button type="button" class="account-nav-btn" data-account-panel="pedidos">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              Mis pedidos
+            </button>
+            <button type="button" class="account-nav-btn" data-account-panel="datos">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+              Datos personales
+            </button>
+            <button type="button" class="account-nav-btn" data-account-panel="direcciones">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Direcciones
+            </button>
+            <button type="button" class="account-nav-btn" data-account-panel="deseos">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+              Lista de deseos
+            </button>
+            <button type="button" class="account-nav-btn" data-account-panel="seguridad">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Seguridad
+            </button>
+          </nav>
+          <button type="button" class="account-logout" id="logoutBtn">Cerrar sesión</button>
+        </aside>
+
+        <div class="account-content">
+          <!-- Resumen -->
+          <section class="account-panel is-active" data-panel="resumen">
+            <div class="account-panel-head">
+              <div>
+                <span class="eyebrow">Mi cuenta</span>
+                <h1 class="section-title">Hola, <span id="accountName">cliente</span></h1>
+              </div>
+            </div>
+            <div class="account-stats">
+              <div class="account-stat-card">
+                <span class="account-stat-value" id="statPedidos">0</span>
+                <span class="account-stat-label">Pedidos</span>
+              </div>
+              <div class="account-stat-card">
+                <span class="account-stat-value" id="statTotal">0,00&nbsp;€</span>
+                <span class="account-stat-label">Total gastado</span>
+              </div>
+              <div class="account-stat-card">
+                <span class="account-stat-value" id="statDesde">—</span>
+                <span class="account-stat-label">Cliente desde</span>
+              </div>
+            </div>
+            <h2 class="account-subheading">Tu último pedido</h2>
+            <div id="lastOrderPreview"></div>
+            <p id="lastOrderEmpty" class="reviews-empty">Todavía no has hecho ningún pedido. <a href="categoria.html">Explora el catálogo</a>.</p>
+          </section>
+
+          <!-- Pedidos -->
+          <section class="account-panel" data-panel="pedidos" hidden>
+            <div class="account-panel-head">
+              <h1 class="section-title">Mis pedidos</h1>
+            </div>
+            <div id="ordersList" class="orders-list"></div>
+            <p id="ordersEmpty" class="reviews-empty">Todavía no has hecho ningún pedido.</p>
+          </section>
+
+          <!-- Datos personales -->
+          <section class="account-panel" data-panel="datos" hidden>
+            <div class="account-panel-head">
+              <h1 class="section-title">Datos personales</h1>
+            </div>
+            <form id="datosForm" class="account-form">
+              <div class="account-form-row">
+                <label>Nombre<input type="text" name="nombre" id="datosNombre" required></label>
+                <label>Correo electrónico<input type="email" id="datosEmail" disabled></label>
+              </div>
+              <label>Teléfono<input type="tel" name="telefono" id="datosTelefono" autocomplete="tel"></label>
+              <p class="auth-error" id="datosError" hidden></p>
+              <p class="auth-success" id="datosSuccess" hidden>Tus datos se han guardado.</p>
+              <div class="account-form-actions">
+                <button type="submit" class="btn btn--primary">Guardar cambios</button>
+              </div>
+            </form>
+          </section>
+
+          <!-- Direcciones -->
+          <section class="account-panel" data-panel="direcciones" hidden>
+            <div class="account-panel-head">
+              <h1 class="section-title">Direcciones</h1>
+              <button type="button" class="btn btn--outline btn--sm" id="addAddressBtn">+ Añadir dirección</button>
+            </div>
+            <div id="addressList" class="address-list"></div>
+            <p id="addressEmpty" class="reviews-empty">Todavía no tienes ninguna dirección guardada.</p>
+
+            <form id="addressForm" class="account-form" hidden>
+              <h2 class="account-subheading">Dirección de envío</h2>
+              <input type="hidden" name="addressId">
+              <div class="account-form-row">
+                <label>Etiqueta<input type="text" name="etiqueta" placeholder="Casa, trabajo…" required></label>
+                <label>Nombre y apellidos<input type="text" name="nombre" required></label>
+              </div>
+              <label>Dirección<input type="text" name="direccion" required></label>
+              <div class="account-form-row">
+                <label>Código postal<input type="text" name="cp" required></label>
+                <label>Ciudad<input type="text" name="ciudad" required></label>
+              </div>
+              <label>Teléfono<input type="tel" name="telefono" required></label>
+              <label class="checkbox-label"><input type="checkbox" name="predeterminada"> Usar como dirección predeterminada</label>
+              <p class="auth-error" id="addressError" hidden></p>
+              <div class="account-form-actions">
+                <button type="button" class="btn btn--outline" id="cancelAddressBtn">Cancelar</button>
+                <button type="submit" class="btn btn--primary">Guardar dirección</button>
+              </div>
+            </form>
+          </section>
+
+          <!-- Lista de deseos -->
+          <section class="account-panel" data-panel="deseos" hidden>
+            <div class="account-panel-head">
+              <h1 class="section-title">Lista de deseos</h1>
+            </div>
+            <div id="wishlistGrid" class="book-grid"></div>
+            <p id="wishlistEmpty" class="reviews-empty">Todavía no has guardado ningún libro. Pulsa el corazón de un libro para añadirlo aquí.</p>
+          </section>
+
+          <!-- Seguridad -->
+          <section class="account-panel" data-panel="seguridad" hidden>
+            <div class="account-panel-head">
+              <h1 class="section-title">Seguridad</h1>
+            </div>
+            <p class="review-login-notice" id="googleAccountNotice" hidden>Has iniciado sesión con Google, así que tu contraseña se gestiona desde tu cuenta de Google.</p>
+            <div id="passwordBlock">
+              <form id="passwordForm" class="account-form">
+                <h2 class="account-subheading">Cambiar contraseña</h2>
+                <label>Contraseña actual<input type="password" name="actual" required autocomplete="current-password"></label>
+                <label>Nueva contraseña<input type="password" name="nueva" required minlength="6" autocomplete="new-password"></label>
+                <p class="auth-error" id="passwordError" hidden></p>
+                <p class="auth-success" id="passwordSuccess" hidden>Tu contraseña se ha actualizado.</p>
+                <div class="account-form-actions">
+                  <button type="submit" class="btn btn--primary">Actualizar contraseña</button>
+                </div>
+              </form>
+            </div>
+            <div class="account-danger-zone">
+              <h2 class="account-subheading">Eliminar cuenta</h2>
+              <p>Esta acción es permanente y no se puede deshacer.</p>
+              <button type="button" class="btn btn--danger" id="deleteAccountBtn">Eliminar mi cuenta</button>
+            </div>
+          </section>
+        </div>
+      </div>
     </div>
   </div>
 </main>
@@ -210,6 +369,8 @@
 <script src="js/config.js"></script>
 <script src="js/auth.js"></script>
 <script src="js/cart.js"></script>
+<script src="js/books-data.js"></script>
+<script src="js/wishlist.js"></script>
 <script src="js/account.js"></script>
 <script src="js/main.js"></script>
 </body>

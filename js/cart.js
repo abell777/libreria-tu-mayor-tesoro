@@ -98,8 +98,14 @@ function flashAdded(btn) {
   }, 1300);
 }
 
-// Función auxiliar para asociar la imagen según el título del libro
+// Función auxiliar para asociar la imagen según el título del libro.
+// Primero mira en el catálogo centralizado (js/books-data.js); si un libro
+// no está ahí (o esa página no lo carga), usa este mapa de respaldo.
 function getBookImage(title) {
+  if (window.BOOKS) {
+    var match = window.BOOKS.filter(function (b) { return b.title === title; })[0];
+    if (match) return match.cover;
+  }
   const imageMap = {
     "El Conflicto de los Siglos": "img/el-conflicto-de-los-siglos.jpg",
     "El Deseado de Todas las Gentes": "img/el-deseado-de-todas-las-gentes.jpg",
@@ -167,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
         author: mainAddBtn.dataset.author,
         price: activePill ? parseFloat(activePill.dataset.price) : parseFloat(mainAddBtn.dataset.price),
         format: activePill ? activePill.dataset.format : (mainAddBtn.dataset.format || 'Estándar'),
-        cover: getBookImage(mainAddBtn.dataset.title),
+        cover: mainAddBtn.dataset.cover || getBookImage(mainAddBtn.dataset.title),
         qty: qty
       });
       flashAdded(mainAddBtn);

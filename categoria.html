@@ -22,38 +22,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "itemListElement": [
-    {
-      "@type": "Product", "position": 1,
-      "name": "El Conflicto de los Siglos",
-      "brand": { "@type": "Brand", "name": "Elena G. White" },
-      "offers": { "@type": "Offer", "priceCurrency": "EUR", "price": "18.54", "availability": "https://schema.org/InStock" }
-    },
-    {
-      "@type": "Product", "position": 2,
-      "name": "El Deseado de Todas las Gentes",
-      "brand": { "@type": "Brand", "name": "Elena G. White" },
-      "offers": { "@type": "Offer", "priceCurrency": "EUR", "price": "13.20", "availability": "https://schema.org/InStock" }
-    },
-    {
-      "@type": "Product", "position": 3,
-      "name": "Historia de los Patriarcas y Profetas",
-      "brand": { "@type": "Brand", "name": "Elena G. White" },
-      "offers": { "@type": "Offer", "priceCurrency": "EUR", "price": "25.20", "availability": "https://schema.org/InStock" }
-    },
-    {
-      "@type": "Product", "position": 4,
-      "name": "Profetas y Reyes",
-      "brand": { "@type": "Brand", "name": "Elena G. White" },
-      "offers": { "@type": "Offer", "priceCurrency": "EUR", "price": "10.83", "availability": "https://schema.org/InStock" }
-    }
-  ]
-}
-</script>
 </head>
 <body>
 
@@ -189,66 +157,7 @@
         <p class="empty-results" id="emptyResults" hidden>No hay libros que coincidan con los filtros seleccionados. Prueba a quitar alguno.</p>
 
         <div class="book-grid" id="bookGrid">
-        <article class="book-card" data-category="elena-white" data-price="18.54" data-format="tapa-dura" data-author="elena-g-white" data-product-id="el-conflicto-de-los-siglos">
-          <div class="book-cover book-cover--photo">
-            <img src="img/el-conflicto-de-los-siglos.jpg" alt="Portada de «El Conflicto de los Siglos», de Elena G. White" loading="lazy">
-          </div>
-          <div class="book-info">
-            <span class="book-category">Elena G. White</span>
-            <h3 class="book-title">El Conflicto de los Siglos</h3>
-            <p class="book-author">Elena G. White · Tapa dura</p>
-            <div class="book-footer">
-              <span class="book-price">18,54&nbsp;€<small>IVA incluido</small></span>
-              <button class="btn btn--primary btn--sm">Añadir</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="book-card" data-category="elena-white" data-price="13.20" data-format="rustica" data-author="elena-g-white" data-product-id="el-deseado-de-todas-las-gentes">
-          <div class="book-cover book-cover--photo">
-            <img src="img/el-deseado-de-todas-las-gentes.jpg" alt="Portada de «El Deseado de Todas las Gentes», de Elena G. White" loading="lazy">
-          </div>
-          <div class="book-info">
-            <span class="book-category">Elena G. White</span>
-            <h3 class="book-title">El Deseado de Todas las Gentes</h3>
-            <p class="book-author">Elena G. White · Tapa blanda, A5</p>
-            <div class="book-footer">
-              <span class="book-price">13,20&nbsp;€<small>Envío incluido</small></span>
-              <button class="btn btn--primary btn--sm">Añadir</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="book-card" data-category="elena-white" data-price="25.20" data-format="tapa-dura" data-author="elena-g-white" data-product-id="historia-de-los-patriarcas-y-profetas">
-          <div class="book-cover book-cover--photo">
-            <img src="img/historia-de-los-patriarcas-y-profetas.jpg" alt="Portada de «Historia de los Patriarcas y Profetas», de Elena G. White" loading="lazy">
-          </div>
-          <div class="book-info">
-            <span class="book-category">Elena G. White</span>
-            <h3 class="book-title">Historia de los Patriarcas y Profetas</h3>
-            <p class="book-author">Elena G. White · Edición tapa dura</p>
-            <div class="book-footer">
-              <span class="book-price">25,20&nbsp;€<small>IVA incluido</small></span>
-              <button class="btn btn--primary btn--sm">Añadir</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="book-card" data-category="elena-white" data-price="10.83" data-format="rustica" data-author="elena-g-white" data-product-id="profetas-y-reyes">
-          <div class="book-cover book-cover--photo">
-            <span class="badge">Nuevo</span>
-            <img src="img/profetas-y-reyes.jpg" alt="Portada de «Profetas y Reyes», de Elena G. White" loading="lazy">
-          </div>
-          <div class="book-info">
-            <span class="book-category">Elena G. White</span>
-            <h3 class="book-title">Profetas y Reyes</h3>
-            <p class="book-author">Elena G. White · Edición tapa blanda</p>
-            <div class="book-footer">
-              <span class="book-price">10,83&nbsp;€<small>IVA incluido</small></span>
-              <button class="btn btn--primary btn--sm">Añadir</button>
-            </div>
-          </div>
-        </article>
+        <!-- shop.js rellena este grid con el catálogo de js/books-data.js -->
         </div>  
 
         <nav class="pagination" aria-label="Paginación">
@@ -346,6 +255,8 @@
 <script src="js/config.js"></script>
 <script src="js/auth.js"></script>
 <script src="js/cart.js"></script>
+<script src="js/books-data.js"></script>
+<script src="js/wishlist.js"></script>
 <script src="js/shop.js"></script>
 <script src="js/main.js"></script>
 </body>

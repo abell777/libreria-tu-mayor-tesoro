@@ -4,42 +4,25 @@
 <script src="js/cookies.js" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biblia de Estudio Reina-Valera 1960 — Librería tu mayor tesoro</title>
-<meta name="description" content="Biblia de Estudio Reina-Valera 1960 con notas, mapas a color y concordancia. Disponible en tapa dura y símil piel. Envío a toda España.">
-<link rel="canonical" href="https://www.libreriatumayortesoro.com/producto.html">
+<title id="pageTitle">Ficha de producto — Librería tu mayor tesoro</title>
+<meta id="metaDescription" name="description" content="Descubre este título en Librería tu mayor tesoro: Biblias, obras de Elena G. White y literatura afín.">
+<link id="canonicalLink" rel="canonical" href="https://www.libreriatumayortesoro.com/producto.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Librería tu mayor tesoro">
-<meta property="og:title" content="Biblia de Estudio Reina-Valera 1960 — Librería tu mayor tesoro">
-<meta property="og:description" content="Biblia de Estudio Reina-Valera 1960 con notas, mapas a color y concordancia. Disponible en tapa dura y símil piel. Envío a toda España.">
-<meta property="og:url" content="https://www.libreriatumayortesoro.com/producto.html">
+<meta id="ogTitle" property="og:title" content="Librería tu mayor tesoro">
+<meta id="ogDescription" property="og:description" content="Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.">
+<meta id="ogUrl" property="og:url" content="https://www.libreriatumayortesoro.com/producto.html">
 <meta property="og:image" content="https://www.libreriatumayortesoro.com/img/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Biblia de Estudio Reina-Valera 1960 — Librería tu mayor tesoro">
-<meta name="twitter:description" content="Biblia de Estudio Reina-Valera 1960 con notas, mapas a color y concordancia. Disponible en tapa dura y símil piel. Envío a toda España.">
+<meta id="twitterTitle" name="twitter:title" content="Librería tu mayor tesoro">
+<meta id="twitterDescription" name="twitter:description" content="Biblias, obras de Elena G. White y literatura afín.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Biblia de Estudio Reina-Valera 1960",
-  "image": "https://www.libreriatumayortesoro.com/img/og-image.jpg",
-  "description": "Biblia de Estudio Reina-Valera 1960 con notas, mapas a color y concordancia. Disponible en tapa dura y símil piel.",
-  "brand": { "@type": "Brand", "name": "Sociedades Bíblicas Unidas" },
-  "offers": {
-    "@type": "Offer",
-    "url": "https://www.libreriatumayortesoro.com/producto.html",
-    "priceCurrency": "EUR",
-    "price": "34.90",
-    "availability": "https://schema.org/InStock",
-    "seller": { "@type": "Organization", "name": "Librería tu mayor tesoro" }
-  }
-}
-</script>
+<!-- product.js genera aquí el JSON-LD del producto real (con su valoración media si tiene reseñas) -->
 </head>
 <body>
 
@@ -100,47 +83,37 @@
     <nav class="breadcrumb" aria-label="Ruta de navegación">
       <a href="index.html">Inicio</a>
       <span>/</span>
-      <a href="categoria.html?cat=biblias">Biblias</a>
+      <a href="categoria.html" id="breadcrumbCategory">Catálogo</a>
       <span>/</span>
-      <span class="breadcrumb-current">Biblia de Estudio RV60</span>
+      <span class="breadcrumb-current" id="breadcrumbTitle">Ficha de producto</span>
     </nav>
 
-    <div class="product-layout">
+    <!-- Se muestra si la URL no trae ?id= o el id no existe en el catálogo -->
+    <div id="productNotFound" class="empty-results" hidden>
+      No se ha encontrado este libro. <a href="categoria.html">Volver al catálogo</a>.
+    </div>
+
+    <div class="product-layout" id="productLayout" hidden>
       <div class="product-gallery">
-        <div class="product-cover cover--1" id="mainCover">
-          <span class="badge">Más vendido</span>
-          <span class="rule"></span>
-          <span class="cover-title">Biblia de Estudio Reina-Valera 1960</span>
-          <span class="cover-tag">Tapa dura</span>
-        </div>
-        <div class="product-thumbs">
-          <button class="thumb cover--1 is-active" data-cover="cover--1" aria-label="Ver portada, variante 1"></button>
-          <button class="thumb cover--4" data-cover="cover--4" aria-label="Ver portada, variante 2"></button>
-          <button class="thumb cover--5" data-cover="cover--5" aria-label="Ver portada, variante 3"></button>
+        <div class="product-cover-photo">
+          <span class="badge" id="productBadge" hidden></span>
+          <img id="productCoverImg" src="" alt="">
         </div>
       </div>
 
       <div class="product-info-block" data-product-block>
-        <span class="book-category">Biblias</span>
-        <h1 class="product-title">Biblia de Estudio Reina-Valera 1960</h1>
-        <p class="product-author">Sociedades Bíblicas Unidas</p>
+        <span class="book-category" id="productCategory">Categoría</span>
+        <h1 class="product-title" id="productTitle">Título del libro</h1>
+        <p class="product-author" id="productAuthor">Autor</p>
 
-        <div class="product-rating">
-          <span class="stars" aria-hidden="true">★★★★★</span>
-          <span class="rating-count">4.8 · 236 valoraciones</span>
+        <div class="product-rating" id="productRating" hidden>
+          <span class="stars" id="productStars" aria-hidden="true">★★★★★</span>
+          <span class="rating-count" id="productRatingCount">0 valoraciones</span>
         </div>
 
-        <p class="product-price">34,90&nbsp;€ <small>IVA incluido</small></p>
+        <p class="product-price" id="productPrice">0,00&nbsp;€ <small id="productPriceNote">IVA incluido</small></p>
 
-        <p class="product-desc">Edición de estudio con notas explicativas, mapas a color, concordancia y referencias cruzadas. Un texto fiel a la Reina-Valera 1960, pensado para acompañar tanto la lectura devocional diaria como el estudio profundo de las Escrituras.</p>
-
-        <div class="option-group">
-          <span class="option-label">Formato</span>
-          <div class="option-pills">
-            <button type="button" class="option-pill is-active" data-format="Tapa dura" data-price="34.90">Tapa dura — 34,90&nbsp;€</button>
-            <button type="button" class="option-pill" data-format="Símil piel" data-price="44.90">Símil piel — 44,90&nbsp;€</button>
-          </div>
-        </div>
+        <p class="product-desc" id="productDesc">Descripción del libro.</p>
 
         <div class="product-actions">
           <div class="qty-stepper">
@@ -148,8 +121,12 @@
             <input type="number" class="qty-input" data-qty-input value="1" min="1" max="20" aria-label="Cantidad">
             <button type="button" class="qty-btn" data-qty-increase aria-label="Sumar cantidad">+</button>
           </div>
-          <button type="button" class="btn btn--primary" data-add-to-cart data-id="biblia-rv60" data-title="Biblia de Estudio Reina-Valera 1960" data-author="Sociedades Bíblicas Unidas" data-price="34.90" data-cover="cover--1">Añadir al carrito</button>
+          <button type="button" class="btn btn--primary" id="addToCartBtn" data-add-to-cart>Añadir al carrito</button>
           <a href="carrito.html" class="btn btn--outline">Comprar ahora</a>
+          <button type="button" class="btn btn--outline product-fav" id="productFavBtn" data-fav-toggle aria-pressed="false" aria-label="Añadir a mi lista de deseos">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+            <span>Lista de deseos</span>
+          </button>
         </div>
 
         <ul class="product-trust">
@@ -162,21 +139,46 @@
           <div class="tab-buttons" role="tablist">
             <button type="button" class="tab-btn is-active" role="tab" data-tab="descripcion">Descripción</button>
             <button type="button" class="tab-btn" role="tab" data-tab="detalles">Detalles</button>
+            <button type="button" class="tab-btn" role="tab" data-tab="opiniones">Opiniones <span id="tabReviewCount"></span></button>
             <button type="button" class="tab-btn" role="tab" data-tab="envio">Envío y devoluciones</button>
           </div>
 
           <div class="tab-panel is-active" data-tab-panel="descripcion">
-            <p>Esta Biblia de Estudio Reina-Valera 1960 incluye introducciones a cada libro, notas al pie con contexto histórico y cultural, mapas a color del mundo bíblico y un sistema de referencias cruzadas para facilitar el estudio comparado. Su encuadernación en tapa dura está pensada para un uso diario y duradero.</p>
+            <p id="productDescLong">Descripción del libro.</p>
           </div>
           <div class="tab-panel" data-tab-panel="detalles">
-            <ul class="spec-list">
-              <li><span>Editorial</span><span>Sociedades Bíblicas Unidas</span></li>
-              <li><span>Encuadernación</span><span>Tapa dura</span></li>
-              <li><span>Páginas</span><span>1.664</span></li>
-              <li><span>Idioma</span><span>Español</span></li>
-              <li><span>Dimensiones</span><span>16 × 23 cm</span></li>
-              <li><span>ISBN</span><span>978-84-XXXX-XXX-X</span></li>
-            </ul>
+            <ul class="spec-list" id="productSpecList"></ul>
+          </div>
+          <div class="tab-panel" data-tab-panel="opiniones">
+            <div id="reviewSummary" class="review-summary" hidden>
+              <span class="review-summary-value" id="reviewAvgValue">0.0</span>
+              <div>
+                <span class="stars" id="reviewAvgStars" aria-hidden="true">★★★★★</span>
+                <span class="rating-count" id="reviewAvgCount">0 valoraciones</span>
+              </div>
+            </div>
+
+            <div id="reviewsList" class="reviews-list"></div>
+            <p id="reviewsEmpty" class="reviews-empty">Todavía no hay opiniones sobre este libro. ¡Sé el primero en dejar la tuya!</p>
+
+            <div id="reviewLoginNotice" class="review-login-notice" hidden>
+              <a href="cuenta.html">Inicia sesión</a> para dejar tu opinión sobre este libro.
+            </div>
+
+            <form id="reviewForm" class="review-form" hidden>
+              <h3 class="account-subheading">Deja tu opinión</h3>
+              <div class="review-stars-input" role="radiogroup" aria-label="Valoración">
+                <button type="button" class="review-star-btn" data-star="1" aria-label="1 estrella">★</button>
+                <button type="button" class="review-star-btn" data-star="2" aria-label="2 estrellas">★</button>
+                <button type="button" class="review-star-btn" data-star="3" aria-label="3 estrellas">★</button>
+                <button type="button" class="review-star-btn" data-star="4" aria-label="4 estrellas">★</button>
+                <button type="button" class="review-star-btn" data-star="5" aria-label="5 estrellas">★</button>
+              </div>
+              <input type="hidden" name="valoracion" id="reviewRatingInput" value="0" required>
+              <textarea name="comentario" id="reviewComment" placeholder="Cuéntanos qué te ha parecido este libro…" rows="3" required maxlength="600"></textarea>
+              <p class="auth-error" id="reviewError" hidden></p>
+              <button type="submit" class="btn btn--primary">Publicar opinión</button>
+            </form>
           </div>
           <div class="tab-panel" data-tab-panel="envio">
             <p>Envíos a toda España en 2–5 días laborables. Gratuitos a partir de 40&nbsp;€ de compra; por debajo de ese importe, el envío estándar tiene un coste de 3,95&nbsp;€. Dispones de 30 días desde la recepción del pedido para solicitar una devolución o un cambio, siempre que el libro se encuentre en su estado original.</p>
@@ -185,82 +187,14 @@
       </div>
     </div>
 
-    <section class="related-products">
+    <section class="related-products" id="relatedSection" hidden>
       <div class="section-head">
         <div>
           <span class="eyebrow">También te puede interesar</span>
           <h2 class="section-title">Productos relacionados</h2>
         </div>
       </div>
-      <div class="book-grid">
-        <article class="book-card">
-          <a href="producto.html" class="book-cover cover--4">
-            <span class="rule"></span>
-            <span class="cover-title">Biblia de Estudio Andrews</span>
-            <span class="cover-tag">Con mapas</span>
-          </a>
-          <div class="book-info">
-            <span class="book-category">Biblias</span>
-            <h3 class="book-title"><a href="producto.html">Biblia de Estudio Andrews</a></h3>
-            <p class="book-author">Andrews University</p>
-            <div class="book-footer">
-              <span class="book-price">42,00&nbsp;€<small>IVA incluido</small></span>
-              <button class="btn btn--primary btn--sm">Añadir</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="book-card">
-          <a href="producto.html" class="book-cover cover--8">
-            <span class="rule"></span>
-            <span class="cover-title">Biblia Interlineal Hebreo-Griego</span>
-            <span class="cover-tag">Estudio avanzado</span>
-          </a>
-          <div class="book-info">
-            <span class="book-category">Biblias</span>
-            <h3 class="book-title"><a href="producto.html">Biblia Interlineal Hebreo-Griego</a></h3>
-            <p class="book-author">Varios autores</p>
-            <div class="book-footer">
-              <span class="book-price">54,00&nbsp;€<small>IVA incluido</small></span>
-              <button class="btn btn--primary btn--sm">Añadir</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="book-card">
-          <a href="producto.html" class="book-cover cover--1">
-            <span class="rule"></span>
-            <span class="cover-title">Nueva Versión Internacional Letra Grande</span>
-            <span class="cover-tag">Letra grande</span>
-          </a>
-          <div class="book-info">
-            <span class="book-category">Biblias</span>
-            <h3 class="book-title"><a href="producto.html">Nueva Versión Internacional Letra Grande</a></h3>
-            <p class="book-author">Sociedades Bíblicas Unidas</p>
-            <div class="book-footer">
-              <span class="book-price">27,50&nbsp;€<small>IVA incluido</small></span>
-              <button class="btn btn--primary btn--sm">Añadir</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="book-card">
-          <a href="producto.html" class="book-cover cover--5">
-            <span class="rule"></span>
-            <span class="cover-title">El Deseado de Todas las Gentes</span>
-            <span class="cover-tag">Ilustrada</span>
-          </a>
-          <div class="book-info">
-            <span class="book-category">Elena G. White</span>
-            <h3 class="book-title"><a href="producto.html">El Deseado de Todas las Gentes</a></h3>
-            <p class="book-author">Elena G. White</p>
-            <div class="book-footer">
-              <span class="book-price">19,90&nbsp;€<small>IVA incluido</small></span>
-              <button class="btn btn--primary btn--sm">Añadir</button>
-            </div>
-          </div>
-        </article>
-      </div>
+      <div class="book-grid" id="relatedGrid"></div>
     </section>
   </div>
 </main>
@@ -350,6 +284,8 @@
 <script src="js/config.js"></script>
 <script src="js/auth.js"></script>
 <script src="js/cart.js"></script>
+<script src="js/books-data.js"></script>
+<script src="js/wishlist.js"></script>
 <script src="js/product.js"></script>
 <script src="js/main.js"></script>
 </body>

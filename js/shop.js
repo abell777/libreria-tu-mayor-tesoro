@@ -1,10 +1,72 @@
 // ==========================================================================
-// Página de listado/categoría: filtros, orden, chips activos y drawer móvil.
-// Solo se ejecuta si existe el grid de resultados (#bookGrid).
+// Página de listado/categoría: pinta el catálogo desde window.BOOKS y
+// aplica filtros, orden, chips activos y buscador sobre TODO el catálogo
+// (antes solo se filtraban los 4 libros que estuvieran escritos a mano en
+// este HTML). Solo se ejecuta si existe el grid de resultados (#bookGrid).
 // ==========================================================================
 (function () {
   var grid = document.getElementById('bookGrid');
-  if (!grid) return;
+  if (!grid || !window.BOOKS) return;
+
+  var CATEGORY_LABELS = {
+    biblias: 'Biblias',
+    'elena-white': 'Elena G. White',
+    salud: 'Salud y familia',
+    profecia: 'Profecía',
+    devocionales: 'Devocionales',
+    infantil: 'Infantil y juvenil'
+  };
+
+  function fmtPrice(n) {
+    return n.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function bookCardHTML(book) {
+    return (
+      '<article class="book-card" data-category="' + book.category + '" data-price="' + book.price +
+      '" data-format="' + book.formatSlug + '" data-author="' + book.authorSlug + '" data-product-id="' + book.id + '">' +
+        '<a href="producto.html?id=' + book.id + '" class="book-cover book-cover--photo">' +
+          (book.badge ? '<span class="badge">' + book.badge + '</span>' : '') +
+          '<img src="' + book.cover + '" alt="Portada de «' + book.title + '», de ' + book.author + '" loading="lazy">' +
+        '</a>' +
+        '<button type="button" class="book-fav" data-fav-toggle data-id="' + book.id + '" aria-pressed="false" aria-label="Añadir a mi lista de deseos">' +
+          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>' +
+        '</button>' +
+        '<div class="book-info">' +
+          '<span class="book-category">' + book.categoryLabel + '</span>' +
+          '<h3 class="book-title"><a href="producto.html?id=' + book.id + '">' + book.title + '</a></h3>' +
+          '<p class="book-author">' + book.author + ' · ' + book.format + '</p>' +
+          '<div class="book-footer">' +
+            '<span class="book-price">' + fmtPrice(book.price) + '&nbsp;€<small>' + book.priceNote + '</small></span>' +
+            '<button class="btn btn--primary btn--sm">Añadir</button>' +
+          '</div>' +
+        '</div>' +
+      '</article>'
+    );
+  }
+
+  grid.innerHTML = window.BOOKS.map(bookCardHTML).join('');
+  if (window.Wishlist) window.Wishlist.refresh();
+  document.addEventListener('wishlist:change', function () { if (window.Wishlist) window.Wishlist.refresh(); });
+
+  // ---- JSON-LD dinámico para SEO (lista de productos real) ----
+  var ld = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: window.BOOKS.map(function (b, i) {
+      return {
+        '@type': 'Product',
+        position: i + 1,
+        name: b.title,
+        brand: { '@type': 'Brand', name: b.author },
+        offers: { '@type': 'Offer', priceCurrency: 'EUR', price: String(b.price), availability: 'https://schema.org/InStock' }
+      };
+    })
+  };
+  var ldScript = document.createElement('script');
+  ldScript.type = 'application/ld+json';
+  ldScript.textContent = JSON.stringify(ld);
+  document.head.appendChild(ldScript);
 
   var cards = Array.prototype.slice.call(grid.querySelectorAll('.book-card'));
   var checkboxes = Array.prototype.slice.call(document.querySelectorAll('.shop-filters input[type="checkbox"]'));
@@ -19,15 +81,6 @@
   var shopTitle = document.querySelector('[data-shop-title]');
   var breadcrumbCurrent = document.querySelector('[data-breadcrumb-current]');
   var searchInput = document.querySelector('.search-form input[name="q"]');
-
-  var CATEGORY_LABELS = {
-    biblias: 'Biblias',
-    'elena-white': 'Elena G. White',
-    salud: 'Salud y familia',
-    profecia: 'Profecía',
-    devocionales: 'Devocionales',
-    infantil: 'Infantil y juvenil'
-  };
 
   function groupedChecks() {
     var groups = {};
