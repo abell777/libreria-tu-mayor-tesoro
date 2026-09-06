@@ -68,6 +68,27 @@ h1, h2, h3, h4 {
   outline-offset: 3px;
 }
 
+/* Enlace "Saltar al contenido" — invisible hasta que se navega con teclado (Tab).
+   Permite a usuarios de lector de pantalla o teclado saltarse el menú y el
+   buscador del header en cada página, en vez de tener que recorrerlos siempre. */
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 12px;
+  z-index: 10000;
+  background: var(--navy-deep, #1f2b45);
+  color: var(--parchment, #f7f2e7);
+  padding: 12px 18px;
+  border-radius: var(--radius-sm, 6px);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 12px;
+}
+
 .container {
   width: 100%;
   max-width: var(--container);
