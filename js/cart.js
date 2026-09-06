@@ -77,6 +77,18 @@ window.Cart = (function () {
 })();
 
 // ---- Utilidades -----------------------------------------------------------
+// Escapa HTML antes de insertar cualquier texto con innerHTML. Se usa en
+// todo el sitio (carrito, opiniones, panel de admin) para que un nombre,
+// dirección o comentario con < > " ' nunca se interprete como código.
+function escapeHTML(str) {
+  return String(str == null ? '' : str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 function fmtEUR(value) {
   return value.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '\u00A0€';
 }
@@ -205,12 +217,12 @@ document.addEventListener('DOMContentLoaded', function () {
       var imagePath = item.cover && item.cover.startsWith('img/') ? item.cover : getBookImage(item.title);
 
       return (
-        '<article class="cart-item" data-id="' + item.id + '" data-format="' + item.format + '">' +
-          '<img src="' + imagePath + '" alt="' + item.title + '" class="cart-item-img">' +
+        '<article class="cart-item" data-id="' + escapeHTML(item.id) + '" data-format="' + escapeHTML(item.format) + '">' +
+          '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '" class="cart-item-img">' +
           
           '<div class="cart-item-info">' +
-            '<h3>' + item.title + '</h3>' +
-            '<p class="cart-item-format">' + item.author + (item.format && item.format !== 'Estándar' ? ' · ' + item.format : '') + '</p>' +
+            '<h3>' + escapeHTML(item.title) + '</h3>' +
+            '<p class="cart-item-format">' + escapeHTML(item.author) + (item.format && item.format !== 'Estándar' ? ' · ' + escapeHTML(item.format) : '') + '</p>' +
             '<button class="cart-item-remove" type="button" data-remove>Eliminar</button>' +
           '</div>' +
           '<div class="qty-stepper">' +

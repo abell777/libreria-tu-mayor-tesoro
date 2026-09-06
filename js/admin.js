@@ -29,17 +29,17 @@
       : 'Procesando…';
     var envio = pedido.envio || {};
     var items = (pedido.items || []).map(function (it) {
-      return '<li>' + it.cantidad + ' × ' + it.titulo + (it.formato ? ' (' + it.formato + ')' : '') + ' — ' + fmtEUR(it.precio * it.cantidad) + '</li>';
+      return '<li>' + it.cantidad + ' × ' + escapeHTML(it.titulo) + (it.formato ? ' (' + escapeHTML(it.formato) + ')' : '') + ' — ' + fmtEUR(it.precio * it.cantidad) + '</li>';
     }).join('');
 
     return (
-      '<details class="admin-order-card" data-id="' + pedido._id + '">' +
+      '<details class="admin-order-card" data-id="' + escapeHTML(pedido._id) + '">' +
         '<summary>' +
-          '<span class="admin-order-numero">#' + pedido.numero + '</span>' +
-          '<span class="admin-order-cliente">' + (pedido.clienteNombre || '') + '<small>' + (pedido.clienteEmail || '') + '</small></span>' +
+          '<span class="admin-order-numero">#' + escapeHTML(pedido.numero) + '</span>' +
+          '<span class="admin-order-cliente">' + escapeHTML(pedido.clienteNombre || '') + '<small>' + escapeHTML(pedido.clienteEmail || '') + '</small></span>' +
           '<span class="admin-order-fecha">' + fecha + '</span>' +
           '<span class="admin-order-total">' + fmtEUR(pedido.total) + '</span>' +
-          '<span class="order-status order-status--' + pedido.estado + '">' + capitaliza(pedido.estado) + '</span>' +
+          '<span class="order-status order-status--' + escapeHTML(pedido.estado) + '">' + capitaliza(pedido.estado) + '</span>' +
         '</summary>' +
         '<div class="admin-order-body">' +
           '<div class="admin-order-col">' +
@@ -51,7 +51,7 @@
           '</div>' +
           '<div class="admin-order-col">' +
             '<h4>Dirección de envío</h4>' +
-            '<p>' + (envio.nombre || '') + '<br>' + (envio.direccion || '') + '<br>' + (envio.cp || '') + ' ' + (envio.ciudad || '') + '<br>' + (envio.telefono || '') + '</p>' +
+            '<p>' + escapeHTML(envio.nombre || '') + '<br>' + escapeHTML(envio.direccion || '') + '<br>' + escapeHTML(envio.cp || '') + ' ' + escapeHTML(envio.ciudad || '') + '<br>' + escapeHTML(envio.telefono || '') + '</p>' +
           '</div>' +
           '<div class="admin-order-col admin-order-actions">' +
             '<label>Estado del pedido' +

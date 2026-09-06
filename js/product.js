@@ -146,6 +146,53 @@
   }
 
   // ==========================================================================
+  // Vistos recientemente — historial local (localStorage), sin backend.
+  // Guarda hasta 12 ids y muestra hasta 4, excluyendo el libro actual.
+  // ==========================================================================
+  (function recentlyViewed() {
+    var STORAGE_KEY = 'fundamento_recent';
+    var recentSection = document.getElementById('recentSection');
+    var recentGrid = document.getElementById('recentGrid');
+
+    var ids = [];
+    try { ids = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch (e) { ids = []; }
+
+    // Pinta la sección con lo que había guardado ANTES de visitar este libro.
+    if (recentSection && recentGrid) {
+      var toShow = ids.filter(function (id) { return id !== book.id; })
+        .map(function (id) { return window.BooksCatalog.getById(id); })
+        .filter(Boolean)
+        .slice(0, 4);
+
+      if (toShow.length) {
+        recentGrid.innerHTML = toShow.map(function (b) {
+          return (
+            '<article class="book-card">' +
+              '<a href="producto.html?id=' + b.id + '" class="book-cover book-cover--photo">' +
+                '<img src="' + b.cover + '" alt="Portada de «' + escapeHTML(b.title) + '», de ' + escapeHTML(b.author) + '" loading="lazy">' +
+              '</a>' +
+              '<div class="book-info">' +
+                '<span class="book-category">' + escapeHTML(b.categoryLabel) + '</span>' +
+                '<h3 class="book-title"><a href="producto.html?id=' + b.id + '">' + escapeHTML(b.title) + '</a></h3>' +
+                '<p class="book-author">' + escapeHTML(b.author) + '</p>' +
+                '<div class="book-footer">' +
+                  '<span class="book-price">' + fmtPrice(b.price) + '&nbsp;€<small>' + escapeHTML(b.priceNote) + '</small></span>' +
+                  '<button class="btn btn--primary btn--sm">Añadir</button>' +
+                '</div>' +
+              '</div>' +
+            '</article>'
+          );
+        }).join('');
+        recentSection.hidden = false;
+      }
+    }
+
+    // Ahora sí, actualiza el historial con el libro actual en primer lugar.
+    ids = [book.id].concat(ids.filter(function (id) { return id !== book.id; })).slice(0, 12);
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(ids)); } catch (e) {}
+  })();
+
+  // ==========================================================================
   // Opiniones (reseñas) — colección Firestore "resenas"
   // ==========================================================================
   var reviewsList = document.getElementById('reviewsList');
@@ -166,11 +213,11 @@
     return (
       '<article class="review-card">' +
         '<div class="review-card-head">' +
-          '<span class="review-author">' + (r.nombre || 'Cliente') + '</span>' +
+          '<span class="review-author">' + escapeHTML(r.nombre || 'Cliente') + '</span>' +
           '<span class="stars" aria-hidden="true">' + starString(r.valoracion || 0) + '</span>' +
         '</div>' +
         '<p class="review-date">' + fecha + '</p>' +
-        '<p class="review-comment">' + (r.comentario || '') + '</p>' +
+        '<p class="review-comment">' + escapeHTML(r.comentario || '') + '</p>' +
       '</article>'
     );
   }

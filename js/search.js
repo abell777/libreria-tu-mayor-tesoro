@@ -45,7 +45,7 @@
       return (
         '<a href="producto.html?id=' + b.id + '" class="search-suggestion" role="option" data-index="' + i + '">' +
           '<img src="' + b.cover + '" alt="" loading="lazy">' +
-          '<span class="search-suggestion-info"><strong>' + b.title + '</strong><small>' + b.author + '</small></span>' +
+          '<span class="search-suggestion-info"><strong>' + escapeHTML(b.title) + '</strong><small>' + escapeHTML(b.author) + '</small></span>' +
           '<span class="search-suggestion-price">' + fmtPrice(b.price) + '&nbsp;€</span>' +
         '</a>'
       );
