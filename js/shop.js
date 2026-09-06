@@ -26,18 +26,18 @@
       '<article class="book-card" data-category="' + book.category + '" data-price="' + book.price +
       '" data-format="' + book.formatSlug + '" data-author="' + book.authorSlug + '" data-product-id="' + book.id + '">' +
         '<a href="producto.html?id=' + book.id + '" class="book-cover book-cover--photo">' +
-          (book.badge ? '<span class="badge">' + book.badge + '</span>' : '') +
-          '<img src="' + book.cover + '" alt="Portada de «' + book.title + '», de ' + book.author + '" loading="lazy">' +
+          (book.badge ? '<span class="badge">' + escapeHTML(book.badge) + '</span>' : '') +
+          '<img src="' + book.cover + '" alt="Portada de «' + escapeHTML(book.title) + '», de ' + escapeHTML(book.author) + '" loading="lazy">' +
         '</a>' +
         '<button type="button" class="book-fav" data-fav-toggle data-id="' + book.id + '" aria-pressed="false" aria-label="Añadir a mi lista de deseos">' +
           '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>' +
         '</button>' +
         '<div class="book-info">' +
-          '<span class="book-category">' + book.categoryLabel + '</span>' +
-          '<h3 class="book-title"><a href="producto.html?id=' + book.id + '">' + book.title + '</a></h3>' +
-          '<p class="book-author">' + book.author + ' · ' + book.format + '</p>' +
+          '<span class="book-category">' + escapeHTML(book.categoryLabel) + '</span>' +
+          '<h3 class="book-title"><a href="producto.html?id=' + book.id + '">' + escapeHTML(book.title) + '</a></h3>' +
+          '<p class="book-author">' + escapeHTML(book.author) + ' · ' + escapeHTML(book.format) + '</p>' +
           '<div class="book-footer">' +
-            '<span class="book-price">' + fmtPrice(book.price) + '&nbsp;€<small>' + book.priceNote + '</small></span>' +
+            '<span class="book-price">' + fmtPrice(book.price) + '&nbsp;€<small>' + escapeHTML(book.priceNote) + '</small></span>' +
             '<button class="btn btn--primary btn--sm">Añadir</button>' +
           '</div>' +
         '</div>' +

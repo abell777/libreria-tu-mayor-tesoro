@@ -31,5 +31,5 @@ var emailjsConfig = {
 // Puedes añadir varios UIDs separados por comas si más de una persona
 // gestiona los pedidos.
 var ADMIN_UIDS = [
-  "PON_AQUI_TU_UID_DE_FIREBASE"
+  "EPkK3ItKBRhA5bNeqs9PKbM0svB3"
 ];

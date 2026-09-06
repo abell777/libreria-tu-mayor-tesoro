@@ -140,6 +140,7 @@ var DEFAULT_BOOK_COVER = 'data:image/svg+xml;utf8,' + encodeURIComponent(
 );
 document.addEventListener('DOMContentLoaded', function () {
   Cart.updateBadge();
+  setupCartDrawer();
 
   // ---- Botones "Añadir" en tarjetas de libro (Home / Catálogo / relacionados) ----
   document.querySelectorAll('.book-card').forEach(function (card) {
@@ -166,6 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
         qty: 1 
       });
       flashAdded(btn);
+      openCartDrawer();
     });
   });
 
@@ -189,6 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
         qty: qty
       });
       flashAdded(mainAddBtn);
+      openCartDrawer();
     });
   }
 
@@ -279,3 +282,137 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+// ==========================================================================
+// Mini-carrito lateral (drawer) — se crea una sola vez y se reutiliza en
+// todas las páginas. Se abre al pulsar el icono del carrito del header o
+// justo después de añadir un libro, sin salir de la página en la que
+// estés. En carrito.html, el icono sigue llevando a la página completa.
+// ==========================================================================
+var cartDrawerOverlay = null;
+
+function setupCartDrawer() {
+  // No hace falta el drawer si ya estamos en la página del carrito.
+  if (document.getElementById('cartItems')) return;
+
+  var cartLink = document.querySelector('a.icon-btn[href="carrito.html"]');
+  if (!cartLink) return;
+
+  buildCartDrawer();
+
+  cartLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    openCartDrawer();
+  });
+
+  document.addEventListener('cart:change', function () {
+    if (cartDrawerOverlay && cartDrawerOverlay.classList.contains('is-open')) {
+      renderCartDrawer();
+    }
+  });
+}
+
+function buildCartDrawer() {
+  cartDrawerOverlay = document.createElement('div');
+  cartDrawerOverlay.className = 'cart-drawer-overlay';
+  cartDrawerOverlay.innerHTML =
+    '<aside class="cart-drawer" role="dialog" aria-modal="true" aria-label="Tu carrito">' +
+      '<div class="cart-drawer-header">' +
+        '<h2>Tu carrito</h2>' +
+        '<button type="button" class="cart-drawer-close" aria-label="Cerrar carrito">' +
+          '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>' +
+        '</button>' +
+      '</div>' +
+      '<div class="cart-drawer-body" id="cartDrawerBody"></div>' +
+      '<div class="cart-drawer-footer" id="cartDrawerFooter"></div>' +
+    '</aside>';
+
+  document.body.appendChild(cartDrawerOverlay);
+
+  cartDrawerOverlay.addEventListener('click', function (e) {
+    if (e.target === cartDrawerOverlay) closeCartDrawer();
+  });
+  cartDrawerOverlay.querySelector('.cart-drawer-close').addEventListener('click', closeCartDrawer);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && cartDrawerOverlay && cartDrawerOverlay.classList.contains('is-open')) {
+      closeCartDrawer();
+    }
+  });
+}
+
+function renderCartDrawer() {
+  var items = Cart.getItems();
+  var body = document.getElementById('cartDrawerBody');
+  var footer = document.getElementById('cartDrawerFooter');
+  if (!body || !footer) return;
+
+  if (items.length === 0) {
+    body.innerHTML =
+      '<div class="cart-drawer-empty">' +
+        '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' +
+        '<p>Tu carrito está vacío.</p>' +
+      '</div>';
+    footer.innerHTML = '<a href="categoria.html" class="btn btn--primary">Ver el catálogo</a>';
+    return;
+  }
+
+  body.innerHTML = items.map(function (item) {
+    var imagePath = item.cover && item.cover.startsWith('img/') ? item.cover : getBookImage(item.title);
+    return (
+      '<article class="cart-drawer-item" data-id="' + escapeHTML(item.id) + '" data-format="' + escapeHTML(item.format) + '">' +
+        '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '">' +
+        '<div class="cart-drawer-item-info">' +
+          '<h3>' + escapeHTML(item.title) + '</h3>' +
+          '<p>' + escapeHTML(item.format && item.format !== 'Estándar' ? item.format : '') + '</p>' +
+          '<div class="cart-drawer-item-actions">' +
+            '<div class="qty-stepper">' +
+              '<button type="button" class="qty-btn" data-decrease aria-label="Restar cantidad">−</button>' +
+              '<input type="number" class="qty-input" data-qty value="' + item.qty + '" min="1" max="20" aria-label="Cantidad">' +
+              '<button type="button" class="qty-btn" data-increase aria-label="Sumar cantidad">+</button>' +
+            '</div>' +
+            '<button type="button" class="cart-drawer-item-remove" data-remove>Eliminar</button>' +
+          '</div>' +
+        '</div>' +
+        '<div class="cart-drawer-item-price">' + fmtEUR(item.price * item.qty) + '</div>' +
+      '</article>'
+    );
+  }).join('');
+
+  body.querySelectorAll('.cart-drawer-item').forEach(function (row) {
+    var id = row.dataset.id;
+    var format = row.dataset.format;
+    var qtyInput = row.querySelector('[data-qty]');
+
+    row.querySelector('[data-remove]').addEventListener('click', function () {
+      Cart.removeItem(id, format);
+    });
+    row.querySelector('[data-decrease]').addEventListener('click', function () {
+      Cart.setQty(id, format, parseInt(qtyInput.value, 10) - 1);
+    });
+    row.querySelector('[data-increase]').addEventListener('click', function () {
+      Cart.setQty(id, format, parseInt(qtyInput.value, 10) + 1);
+    });
+    qtyInput.addEventListener('change', function () {
+      Cart.setQty(id, format, parseInt(qtyInput.value, 10) || 1);
+    });
+  });
+
+  var subtotal = Cart.totalPrice();
+  footer.innerHTML =
+    '<div class="cart-drawer-subtotal"><span>Subtotal</span><span>' + fmtEUR(subtotal) + '</span></div>' +
+    '<a href="carrito.html" class="btn btn--outline">Ver carrito</a>' +
+    '<a href="carrito.html" class="btn btn--primary">Finalizar compra</a>';
+}
+
+function openCartDrawer() {
+  if (!cartDrawerOverlay) return;
+  renderCartDrawer();
+  cartDrawerOverlay.classList.add('is-open');
+  document.body.classList.add('no-scroll');
+}
+
+function closeCartDrawer() {
+  if (!cartDrawerOverlay) return;
+  cartDrawerOverlay.classList.remove('is-open');
+  document.body.classList.remove('no-scroll');
+}
