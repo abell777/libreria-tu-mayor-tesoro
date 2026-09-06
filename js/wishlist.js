@@ -10,6 +10,7 @@ window.Wishlist = (function () {
   var currentUser = null;
   var ids = [];
   var ready = false;
+  var loadError = null;
 
   function refreshButtons() {
     document.querySelectorAll('[data-fav-toggle]').forEach(function (btn) {
@@ -27,6 +28,7 @@ window.Wishlist = (function () {
 
   function loadFromFirestore(uid) {
     if (!window.fbDb) return Promise.resolve([]);
+    loadError = null;
     return window.fbDb.collection(COLLECTION).doc(uid).get().then(function (doc) {
       ids = (doc.exists && doc.data().items) || [];
       ready = true;
@@ -34,6 +36,9 @@ window.Wishlist = (function () {
       return ids;
     }).catch(function (err) {
       console.error('Error al cargar la lista de deseos', err);
+      loadError = (err && err.code) || 'error';
+      ready = true;
+      notify();
     });
   }
 
@@ -85,6 +90,7 @@ window.Wishlist = (function () {
     getIds: function () { return ids.slice(); },
     isReady: function () { return ready; },
     isLoggedIn: function () { return !!currentUser; },
+    hasError: function () { return loadError; },
     toggle: toggle,
     refresh: refreshButtons
   };

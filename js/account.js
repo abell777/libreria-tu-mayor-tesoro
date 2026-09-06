@@ -412,9 +412,21 @@
     var grid = document.getElementById('wishlistGrid');
     var empty = document.getElementById('wishlistEmpty');
     if (!grid || !window.Wishlist || !window.BooksCatalog) return;
+    var error = window.Wishlist.hasError && window.Wishlist.hasError();
+    if (error) {
+      grid.innerHTML = '';
+      if (empty) {
+        empty.hidden = false;
+        empty.textContent = 'No se ha podido cargar tu lista de deseos (error: ' + error + '). Revisa que las reglas de Firestore permitan LEER la colección "deseos" al propio usuario.';
+      }
+      return;
+    }
     var books = window.Wishlist.getIds().map(function (id) { return window.BooksCatalog.getById(id); }).filter(Boolean);
     grid.innerHTML = books.map(wishlistCardHTML).join('');
-    if (empty) empty.hidden = books.length > 0;
+    if (empty) {
+      empty.hidden = books.length > 0;
+      empty.textContent = 'Todavía no has guardado ningún libro. Pulsa el corazón de un libro para añadirlo aquí.';
+    }
   }
   document.addEventListener('wishlist:change', renderWishlist);
   renderWishlist();
