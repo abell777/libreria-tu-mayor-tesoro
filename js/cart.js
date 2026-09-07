@@ -262,13 +262,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function updateSummary() {
     var subtotal = Cart.totalPrice();
-    var shippingFree = subtotal >= 40 || subtotal === 0;
+    var SHIPPING = 6;
     var subtotalEl = document.getElementById('summarySubtotal');
     var shippingEl = document.getElementById('summaryShipping');
     var totalEl = document.getElementById('summaryTotal');
     if (subtotalEl) subtotalEl.textContent = fmtEUR(subtotal);
-    if (shippingEl) shippingEl.textContent = shippingFree ? 'Gratis' : fmtEUR(3.95);
-    if (totalEl) totalEl.textContent = fmtEUR(subtotal + (shippingFree ? 0 : 3.95));
+    if (shippingEl) shippingEl.textContent = fmtEUR(SHIPPING);
+    if (totalEl) totalEl.textContent = fmtEUR(subtotal + SHIPPING);
   }
 
   var promoForm = document.getElementById('promoForm');

@@ -38,8 +38,30 @@
   setMeta('ogUrl', 'https://www.libreriatumayortesoro.com/producto.html?id=' + book.id);
   setMeta('twitterTitle', pageTitle);
   setMeta('twitterDescription', book.description.slice(0, 155));
+  var coverUrl = 'https://www.libreriatumayortesoro.com/' + book.cover;
+  setMeta('ogImage', coverUrl);
+  setMeta('twitterImage', coverUrl);
   var canonical = document.getElementById('canonicalLink');
   if (canonical) canonical.setAttribute('href', 'https://www.libreriatumayortesoro.com/producto.html?id=' + book.id);
+
+  // Migas de pan estructuradas (Inicio > Categoría > Libro): Google las usa
+  // para mostrar la ruta de navegación en el resultado de búsqueda.
+  (function injectBreadcrumbJsonLd() {
+    var data = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://www.libreriatumayortesoro.com/' },
+        { '@type': 'ListItem', position: 2, name: book.categoryLabel, item: 'https://www.libreriatumayortesoro.com/categoria.html?cat=' + book.category },
+        { '@type': 'ListItem', position: 3, name: book.title, item: 'https://www.libreriatumayortesoro.com/producto.html?id=' + book.id }
+      ]
+    };
+    var script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'breadcrumbJsonLd';
+    script.textContent = JSON.stringify(data);
+    document.head.appendChild(script);
+  })();
 
   var breadcrumbCategory = document.getElementById('breadcrumbCategory');
   if (breadcrumbCategory) {
