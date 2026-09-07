@@ -155,6 +155,13 @@
   });
 
   // ---- Comprobación de acceso ---------------------------------------------------
+  var logoutBtn = document.getElementById('adminLogoutBtn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', function () {
+      window.authLogout();
+    });
+  }
+
   window.fbAuth.onAuthStateChanged(function (user) {
     var esAdmin = user && typeof ADMIN_UIDS !== 'undefined' && ADMIN_UIDS.indexOf(user.uid) !== -1;
     if (esAdmin) {
