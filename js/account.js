@@ -231,10 +231,10 @@
 
   function addressCardHTML(dir) {
     return (
-      '<article class="address-card' + (dir.predeterminada ? ' is-default' : '') + '" data-id="' + dir.id + '">' +
+      '<article class="address-card' + (dir.predeterminada ? ' is-default' : '') + '" data-id="' + escapeHTML(dir.id) + '">' +
         (dir.predeterminada ? '<span class="address-badge">Predeterminada</span>' : '') +
-        '<p class="address-label">' + dir.etiqueta + '</p>' +
-        '<p class="address-details">' + dir.nombre + '<br>' + dir.direccion + '<br>' + dir.cp + ' ' + dir.ciudad + '<br>' + dir.telefono + '</p>' +
+        '<p class="address-label">' + escapeHTML(dir.etiqueta) + '</p>' +
+        '<p class="address-details">' + escapeHTML(dir.nombre) + '<br>' + escapeHTML(dir.direccion) + '<br>' + escapeHTML(dir.cp) + ' ' + escapeHTML(dir.ciudad) + '<br>' + escapeHTML(dir.telefono) + '</p>' +
         '<div class="address-actions">' +
           '<button type="button" data-edit-address>Editar</button>' +
           (dir.predeterminada ? '' : '<button type="button" data-set-default>Predeterminada</button>') +
@@ -390,18 +390,18 @@
     return (
       '<article class="book-card" data-product-id="' + book.id + '">' +
         '<a href="producto.html?id=' + book.id + '" class="book-cover book-cover--photo">' +
-          '<img src="' + book.cover + '" alt="Portada de «' + book.title + '», de ' + book.author + '" loading="lazy">' +
+          '<img src="' + toWebp(book.cover) + '" onerror="this.onerror=null;this.src=\'' + book.cover + '\'" alt="Portada de «' + escapeHTML(book.title) + '», de ' + escapeHTML(book.author) + '" loading="lazy" decoding="async">' +
         '</a>' +
         '<button type="button" class="book-fav is-active" data-fav-toggle data-id="' + book.id + '" aria-pressed="true" aria-label="Quitar de mi lista de deseos">' +
           '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>' +
         '</button>' +
         '<div class="book-info">' +
-          '<span class="book-category">' + book.categoryLabel + '</span>' +
-          '<h3 class="book-title"><a href="producto.html?id=' + book.id + '">' + book.title + '</a></h3>' +
-          '<p class="book-author">' + book.author + '</p>' +
+          '<span class="book-category">' + escapeHTML(book.categoryLabel) + '</span>' +
+          '<h3 class="book-title"><a href="producto.html?id=' + book.id + '">' + escapeHTML(book.title) + '</a></h3>' +
+          '<p class="book-author">' + escapeHTML(book.author) + '</p>' +
           '<div class="book-footer">' +
-            '<span class="book-price">' + fmtPrice(book.price) + '&nbsp;€<small>' + book.priceNote + '</small></span>' +
-            '<button class="btn btn--primary btn--sm" data-add-to-cart data-id="' + book.id + '" data-title="' + book.title + '" data-author="' + book.author + '" data-price="' + book.price + '" data-format="' + book.format + '" data-cover="' + book.cover + '">Añadir</button>' +
+            '<span class="book-price">' + fmtPrice(book.price) + '&nbsp;€<small>' + escapeHTML(book.priceNote) + '</small></span>' +
+            '<button class="btn btn--primary btn--sm" data-add-to-cart data-id="' + book.id + '" data-title="' + escapeHTML(book.title) + '" data-author="' + escapeHTML(book.author) + '" data-price="' + book.price + '" data-format="' + escapeHTML(book.format) + '" data-cover="' + book.cover + '">Añadir</button>' +
           '</div>' +
         '</div>' +
       '</article>'

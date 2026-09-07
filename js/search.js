@@ -56,14 +56,14 @@
       activeIndex = -1;
 
       if (!results.length) {
-        panel.innerHTML = '<p class="search-suggestions-empty">Sin resultados para «' + query + '».</p>' +
+        panel.innerHTML = '<p class="search-suggestions-empty">Sin resultados para «' + escapeHTML(query) + '».</p>' +
           '<a href="categoria.html?q=' + encodeURIComponent(query) + '" class="search-suggestion search-suggestion--all">Buscar en todo el catálogo</a>';
         panel.hidden = false;
         return;
       }
 
       panel.innerHTML = results.map(suggestionHTML).join('') +
-        '<a href="categoria.html?q=' + encodeURIComponent(query) + '" class="search-suggestion search-suggestion--all">Ver todos los resultados para «' + query + '»</a>';
+        '<a href="categoria.html?q=' + encodeURIComponent(query) + '" class="search-suggestion search-suggestion--all">Ver todos los resultados para «' + escapeHTML(query) + '»</a>';
       panel.hidden = false;
     }
 
