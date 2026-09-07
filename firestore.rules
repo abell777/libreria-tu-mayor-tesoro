@@ -1,0 +1,127 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      // 👉 Sustituye estos valores por tus UID reales de Firebase Authentication
+      return isSignedIn() && request.auth.uid in [
+        'EPkK3ItKBRhA5bNeqs9PKbM0svB3'
+      ];
+    }
+
+    // Cadena no vacía y por debajo de un tamaño razonable (evita spam/abuso
+    // de almacenamiento a través de campos de texto libre).
+    function isReasonableString(value, maxLen) {
+      return value is string && value.size() > 0 && value.size() <= maxLen;
+    }
+
+    // ---- usuarios/{uid} — perfil y direcciones guardadas ------------------
+    // Solo el propio usuario puede leer o escribir su documento. Se limita
+    // el tamaño de "direcciones" para que nadie pueda usar el documento
+    // como almacén gratuito de datos arbitrarios.
+    match /usuarios/{uid} {
+      allow read: if isSignedIn() && request.auth.uid == uid;
+      allow write: if isSignedIn() && request.auth.uid == uid &&
+        (!('direcciones' in request.resource.data) ||
+          (request.resource.data.direcciones is list &&
+           request.resource.data.direcciones.size() <= 10)) &&
+        (!('nombre' in request.resource.data) ||
+          isReasonableString(request.resource.data.nombre, 120)) &&
+        (!('telefono' in request.resource.data) ||
+          isReasonableString(request.resource.data.telefono, 40));
+    }
+
+    // ---- pedidos/{pedidoId} — encargos realizados en el checkout ----------
+    match /pedidos/{pedidoId} {
+      // Un cliente solo puede ver SUS pedidos; el admin los ve todos.
+      allow read: if isSignedIn() &&
+        (resource.data.uid == request.auth.uid || isAdmin());
+
+      // Crear un pedido: debe llevar tu propio uid, empezar "pendiente",
+      // traer importes numéricos no negativos y una lista de artículos
+      // razonable. Esto no sustituye a un cálculo de precios en servidor
+      // (para eso haría falta una Cloud Function), pero evita los envíos
+      // más obvios de datos manipulados o basura.
+      allow create: if isSignedIn() &&
+        request.resource.data.uid == request.auth.uid &&
+        request.resource.data.estado == 'pendiente' &&
+        request.resource.data.createdAt == request.time &&
+        isReasonableString(request.resource.data.numero, 40) &&
+        isReasonableString(request.resource.data.clienteEmail, 200) &&
+        request.resource.data.subtotal is number &&
+        request.resource.data.subtotal >= 0 &&
+        request.resource.data.subtotal <= 5000 &&
+        request.resource.data.gastosEnvio is number &&
+        request.resource.data.gastosEnvio >= 0 &&
+        request.resource.data.gastosEnvio <= 20 &&
+        request.resource.data.total is number &&
+        request.resource.data.total == request.resource.data.subtotal + request.resource.data.gastosEnvio &&
+        request.resource.data.items is list &&
+        request.resource.data.items.size() > 0 &&
+        request.resource.data.items.size() <= 30 &&
+        request.resource.data.envio is map &&
+        isReasonableString(request.resource.data.envio.nombre, 120) &&
+        isReasonableString(request.resource.data.envio.direccion, 200) &&
+        isReasonableString(request.resource.data.envio.ciudad, 120) &&
+        isReasonableString(request.resource.data.envio.cp, 20) &&
+        isReasonableString(request.resource.data.envio.telefono, 40);
+
+      // Actualizar un pedido: solo el admin (para cambiar el estado desde
+      // el panel), solo puede tocar "estado", y solo a uno de los tres
+      // valores válidos del flujo de pedidos.
+      allow update: if isAdmin() &&
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['estado']) &&
+        request.resource.data.estado in ['pendiente', 'enviado', 'entregado'];
+
+      // Nadie puede borrar pedidos (ni siquiera el admin, para conservar
+      // el historial). Si algún día quieres permitirlo, cambia esta línea
+      // a "if isAdmin();".
+      allow delete: if false;
+    }
+
+    // ---- resenas/{resenaId} — opiniones de clientes sobre los libros -----
+    match /resenas/{resenaId} {
+      // Las opiniones son públicas: cualquiera puede leerlas, incluso sin
+      // haber iniciado sesión (así se ven en la ficha de producto).
+      allow read: if true;
+
+      // Crear una opinión: debe ir firmada con tu propio uid, referenciar
+      // un producto, con una valoración de 1 a 5 y un comentario de
+      // longitud razonable (evita spam/abusos).
+      allow create: if isSignedIn() &&
+        request.resource.data.uid == request.auth.uid &&
+        request.resource.data.createdAt == request.time &&
+        isReasonableString(request.resource.data.productId, 120) &&
+        isReasonableString(request.resource.data.nombre, 120) &&
+        request.resource.data.valoracion is number &&
+        request.resource.data.valoracion >= 1 &&
+        request.resource.data.valoracion <= 5 &&
+        isReasonableString(request.resource.data.comentario, 600);
+
+      // Solo el autor puede editar o borrar su propia opinión — y al
+      // editarla, sigue teniendo que cumplir las mismas reglas de
+      // valoración/comentario (antes se podía "editar" para saltárselas).
+      allow update: if isSignedIn() && resource.data.uid == request.auth.uid &&
+        request.resource.data.uid == request.auth.uid &&
+        request.resource.data.valoracion is number &&
+        request.resource.data.valoracion >= 1 &&
+        request.resource.data.valoracion <= 5 &&
+        isReasonableString(request.resource.data.comentario, 600);
+      allow delete: if isSignedIn() && resource.data.uid == request.auth.uid;
+    }
+
+    // ---- deseos/{uid} — lista de deseos (1 documento por usuario) --------
+    // No estaba cubierta por las reglas anteriores: sin esta entrada,
+    // Firestore la deniega por defecto y la lista de deseos no funciona
+    // para nadie. Solo el propio usuario puede leer o escribir la suya.
+    match /deseos/{uid} {
+      allow read, write: if isSignedIn() && request.auth.uid == uid &&
+        (!('items' in request.resource.data) ||
+          (request.resource.data.items is list && request.resource.data.items.size() <= 200));
+    }
+  }
+}
