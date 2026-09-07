@@ -41,34 +41,16 @@ service cloud.firestore {
       allow read: if isSignedIn() &&
         (resource.data.uid == request.auth.uid || isAdmin());
 
-      // Crear un pedido: debe llevar tu propio uid, empezar "pendiente",
-      // traer importes numéricos no negativos y una lista de artículos
-      // razonable. Esto no sustituye a un cálculo de precios en servidor
-      // (para eso haría falta una Cloud Function), pero evita los envíos
-      // más obvios de datos manipulados o basura.
-      allow create: if isSignedIn() &&
-        request.resource.data.uid == request.auth.uid &&
-        request.resource.data.estado == 'pendiente' &&
-        request.resource.data.createdAt == request.time &&
-        isReasonableString(request.resource.data.numero, 40) &&
-        isReasonableString(request.resource.data.clienteEmail, 200) &&
-        request.resource.data.subtotal is number &&
-        request.resource.data.subtotal >= 0 &&
-        request.resource.data.subtotal <= 5000 &&
-        request.resource.data.gastosEnvio is number &&
-        request.resource.data.gastosEnvio >= 0 &&
-        request.resource.data.gastosEnvio <= 20 &&
-        request.resource.data.total is number &&
-        request.resource.data.total == request.resource.data.subtotal + request.resource.data.gastosEnvio &&
-        request.resource.data.items is list &&
-        request.resource.data.items.size() > 0 &&
-        request.resource.data.items.size() <= 30 &&
-        request.resource.data.envio is map &&
-        isReasonableString(request.resource.data.envio.nombre, 120) &&
-        isReasonableString(request.resource.data.envio.direccion, 200) &&
-        isReasonableString(request.resource.data.envio.ciudad, 120) &&
-        isReasonableString(request.resource.data.envio.cp, 20) &&
-        isReasonableString(request.resource.data.envio.telefono, 40);
+      // Crear un pedido: SOLO puede hacerlo la Cloud Function "crearPedido"
+      // (functions/index.js), que usa el SDK de administrador y por tanto
+      // se salta estas reglas por diseño. Por eso aquí se deniega siempre:
+      // si un cliente pudiera escribir un pedido directamente, se saltaría
+      // el recálculo de precios en el servidor y podría fabricar pedidos
+      // con precios/artículos inventados a mano desde la consola del
+      // navegador (antes había aquí una regla que lo "limitaba" pero no lo
+      // impedía del todo). Ahora el único camino para crear un pedido es
+      // pasar por esa función, que sí es de confianza.
+      allow create: if false;
 
       // Actualizar un pedido: solo el admin (para cambiar el estado desde
       // el panel), solo puede tocar "estado", y solo a uno de los tres

@@ -35,6 +35,9 @@
   window.authLogout = function () {
     return auth.signOut();
   };
+  window.authResetPassword = function (email) {
+    return auth.sendPasswordResetEmail(email);
+  };
 
   // ---- Panel de cuenta: perfil, contraseña y baja de cuenta ----------------
   window.authUpdateProfileName = function (nombre) {

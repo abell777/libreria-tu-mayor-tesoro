@@ -29,7 +29,9 @@
       'auth/invalid-credential': 'Correo o contraseña incorrectos.',
       'auth/popup-closed-by-user': 'Se cerró la ventana de Google antes de terminar.',
       'auth/requires-recent-login': 'Por seguridad, cierra sesión y vuelve a entrar antes de repetir esta acción.',
-      'auth/no-user': 'No hay ninguna sesión activa.'
+      'auth/no-user': 'No hay ninguna sesión activa.',
+      'auth/too-many-requests': 'Demasiados intentos. Espera unos minutos antes de volver a intentarlo.',
+      'auth/network-request-failed': 'No se ha podido conectar. Comprueba tu conexión a internet.'
     };
     return mapa[code] || 'Ha ocurrido un error. Inténtalo de nuevo.';
   }
@@ -55,6 +57,40 @@
       errorEl.hidden = true;
       window.authLogin(fd.get('email'), fd.get('password')).catch(function (err) {
         mostrarError(errorEl, err);
+      });
+    });
+  }
+
+  // ---- "¿Olvidaste tu contraseña?" ------------------------------------------
+  var forgotBtn = document.getElementById('forgotPasswordBtn');
+  if (forgotBtn && loginForm) {
+    forgotBtn.addEventListener('click', function () {
+      var email = (loginForm.elements.email.value || '').trim();
+      var errorEl = document.getElementById('loginError');
+      var successEl = document.getElementById('resetSuccess');
+      if (errorEl) errorEl.hidden = true;
+      if (!email) {
+        if (errorEl) {
+          errorEl.textContent = 'Escribe tu correo electrónico arriba y vuelve a pulsar el enlace.';
+          errorEl.hidden = false;
+        }
+        loginForm.elements.email.focus();
+        return;
+      }
+      forgotBtn.disabled = true;
+      window.authResetPassword(email).then(function () {
+        mostrarExito(successEl, 6000);
+      }).catch(function (err) {
+        // Por privacidad, Firebase a veces indica que el correo no existe;
+        // no distinguimos ese caso para no revelar qué correos están
+        // registrados en la tienda.
+        if (err && err.code === 'auth/user-not-found') {
+          mostrarExito(successEl, 6000);
+        } else {
+          mostrarError(errorEl, err);
+        }
+      }).then(function () {
+        forgotBtn.disabled = false;
       });
     });
   }

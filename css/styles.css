@@ -1146,6 +1146,8 @@ body.no-scroll { overflow: hidden; }
 .auth-form input:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
 .auth-form button[type="submit"] { margin-top: 4px; }
 .auth-error { color: #b3402a; font-size: 0.83rem; background: oklch(0.96 0.05 30); border-radius: var(--radius-sm); padding: 9px 11px; }
+.auth-forgot-link { display: block; background: none; border: none; padding: 0; margin: -6px 0 14px; font-size: 0.83rem; color: var(--muted-foreground); text-decoration: underline; cursor: pointer; text-align: left; }
+.auth-forgot-link:hover { color: var(--foreground); }
 
 .auth-divider { display: flex; align-items: center; gap: 12px; margin: 20px 0 16px; color: var(--muted-foreground); font-size: 0.8rem; }
 .auth-divider::before, .auth-divider::after { content: ""; flex: 1; height: 1px; background: var(--border); }
