@@ -1285,9 +1285,28 @@ body.no-scroll { overflow: hidden; }
 .account-stat-label { display: block; font-size: 0.78rem; color: var(--muted-foreground); margin-top: 4px; }
 
 .account-form { max-width: 420px; }
+.account-form label { display: flex; flex-direction: column; gap: 6px; font-size: 0.83rem; font-weight: 600; }
+.account-form input {
+  font: inherit;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--background);
+  color: var(--foreground);
+}
 .account-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .account-form-actions { display: flex; gap: 10px; margin-top: 4px; }
-.checkbox-label { flex-direction: row !important; align-items: center; gap: 8px !important; font-weight: 500 !important; }
+/* Especificidad igual a ".account-form label"/".auth-form label"/".shipping-form label"
+   (dos clases) y declarada después en el archivo, así gana la cascada sin necesitar
+   !important — antes anulaba esas reglas "a la fuerza" en vez de por especificidad real. */
+.account-form .checkbox-label,
+.auth-form .checkbox-label,
+.shipping-form .checkbox-label {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
 .checkbox-label input { width: auto; }
 .auth-success { color: oklch(0.42 0.09 150); font-size: 0.83rem; background: oklch(0.95 0.05 150); border-radius: var(--radius-sm); padding: 9px 11px; }
 
@@ -1555,46 +1574,46 @@ h2.cart-title,
 }
 
 .promo-form {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-  margin-bottom: 1.25rem !important;
-  width: 100% !important;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  width: 100%;
   box-sizing: border-box;
 }
 
 .promo-form input,
 .promo-form input[type="text"] {
-  flex: 1 !important;
-  width: auto !important;
-  min-width: 0 !important;
-  padding: 0.6rem 0.75rem !important;
-  border: 1px solid var(--border, #d1d5db) !important;
-  border-radius: 8px !important;
-  font-size: 0.875rem !important;
-  background: var(--background, #ffffff) !important;
-  color: var(--foreground, #111827) !important;
+  flex: 1;
+  width: auto;
+  min-width: 0;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border, #d1d5db);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  background: var(--background, #ffffff);
+  color: var(--foreground, #111827);
 }
 
 .promo-form button,
 .promo-form .btn {
-  flex: 0 0 auto !important;
-  width: auto !important;
-  min-width: unset !important;
-  padding: 0.6rem 1rem !important;
-  border-radius: 8px !important;
-  border: 1px solid var(--border, #d1d5db) !important;
-  background: #f3f4f6 !important;
-  color: var(--foreground, #111827) !important;
-  font-weight: 600 !important;
-  font-size: 0.875rem !important;
+  flex: 0 0 auto;
+  width: auto;
+  min-width: unset;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border, #d1d5db);
+  background: #f3f4f6;
+  color: var(--foreground, #111827);
+  font-weight: 600;
+  font-size: 0.875rem;
   cursor: pointer;
   white-space: nowrap;
 }
 
 .promo-form button:hover {
-  background: #e5e7eb !important;
+  background: #e5e7eb;
 }
 
 .cart-summary .btn--primary,
@@ -1618,8 +1637,6 @@ h2.cart-title,
   .cart-container {
     grid-template-columns: 1fr;
   }
-}
-
 }
 
 /* ==========================================================================

@@ -8,6 +8,16 @@
 // archivos: aparecerá solo en el catálogo, en el buscador y en su propia
 // ficha de producto (producto.html?id=tu-id).
 // ==========================================================================
+
+// Devuelve la ruta .webp de una portada (mismo nombre, sin la extensión
+// .jpg). Todas las portadas tienen ya su copia .webp generada en /img
+// (más ligera). Si por lo que sea faltara esa copia, el atributo
+// onerror="" de cada <img> hace que el navegador recupere el .jpg original
+// automáticamente, así que esto nunca puede dejar una portada rota.
+window.toWebp = function (coverPath) {
+  return coverPath.replace(/\.jpg$/i, '.webp');
+};
+
 window.BOOKS = [
   {
     id: 'el-conflicto-de-los-siglos',

@@ -78,7 +78,12 @@
     else badgeEl.hidden = true;
   }
   var coverImg = document.getElementById('productCoverImg');
-  if (coverImg) { coverImg.src = book.cover; coverImg.alt = 'Portada de «' + book.title + '», de ' + book.author; }
+  if (coverImg) {
+    coverImg.onerror = function () { coverImg.onerror = null; coverImg.src = book.cover; };
+    coverImg.src = toWebp(book.cover);
+    coverImg.alt = 'Portada de «' + book.title + '», de ' + book.author;
+    coverImg.setAttribute('fetchpriority', 'high');
+  }
 
   document.getElementById('productCategory').textContent = book.categoryLabel;
   document.getElementById('productTitle').textContent = book.title;
@@ -150,7 +155,7 @@
       return (
         '<article class="book-card">' +
           '<a href="producto.html?id=' + b.id + '" class="book-cover book-cover--photo">' +
-            '<img src="' + b.cover + '" alt="Portada de «' + b.title + '», de ' + b.author + '" loading="lazy">' +
+            '<img src="' + toWebp(b.cover) + '" onerror="this.onerror=null;this.src=\'' + b.cover + '\'" alt="Portada de «' + b.title + '», de ' + b.author + '" loading="lazy" decoding="async">' +
           '</a>' +
           '<div class="book-info">' +
             '<span class="book-category">' + b.categoryLabel + '</span>' +
@@ -191,7 +196,7 @@
           return (
             '<article class="book-card">' +
               '<a href="producto.html?id=' + b.id + '" class="book-cover book-cover--photo">' +
-                '<img src="' + b.cover + '" alt="Portada de «' + escapeHTML(b.title) + '», de ' + escapeHTML(b.author) + '" loading="lazy">' +
+                '<img src="' + toWebp(b.cover) + '" onerror="this.onerror=null;this.src=\'' + b.cover + '\'" alt="Portada de «' + escapeHTML(b.title) + '», de ' + escapeHTML(b.author) + '" loading="lazy" decoding="async">' +
               '</a>' +
               '<div class="book-info">' +
                 '<span class="book-category">' + escapeHTML(b.categoryLabel) + '</span>' +
