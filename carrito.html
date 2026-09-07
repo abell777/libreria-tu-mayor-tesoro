@@ -7,6 +7,7 @@
 <title>Tu carrito — Librería tu mayor tesoro</title>
 <meta name="description" content="Revisa los libros de tu carrito antes de finalizar la compra en Librería tu mayor tesoro.">
 <link rel="canonical" href="https://www.libreriatumayortesoro.com/carrito.html">
+<meta name="robots" content="noindex, follow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Librería tu mayor tesoro">
 <meta property="og:title" content="Tu carrito — Librería tu mayor tesoro">
@@ -124,14 +125,26 @@
         </div>
         <label>Teléfono<input type="tel" name="telefono" required autocomplete="tel"></label>
         <p class="auth-error" id="checkoutError" role="alert" hidden>No se ha podido registrar tu pedido. Comprueba tu conexión e inténtalo de nuevo; si el problema continúa, escríbenos a libreriamayortesoro@gmail.com.</p>
-        <button type="submit" class="btn btn--primary btn--block">Confirmar pedido</button>
-        <p class="checkout-note">Al confirmar no se realiza ningún cobro todavía — nos pondremos en contacto contigo para acordar el pago y el envío, y recibirás la confirmación en tu correo.</p>
+        <button type="submit" class="btn btn--primary btn--block">Ir a pagar</button>
+        <p class="checkout-note">Pago seguro con tarjeta o Bizum a través de Stripe. Se te redirigirá a una página de pago segura y volverás aquí en cuanto termines.</p>
       </form>
     </section>
 
+    <div class="order-confirmation" id="paymentPending" hidden>
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <h2>Confirmando tu pago…</h2>
+      <p>Un momento, estamos confirmando el pago con Stripe. No cierres ni recargues esta página.</p>
+    </div>
+
+    <div class="order-confirmation" id="paymentCancelled" hidden>
+      <h2>Pago cancelado</h2>
+      <p>No te hemos cobrado nada. Tu pedido se ha guardado y puedes reintentar el pago cuando quieras.</p>
+      <button type="button" class="btn btn--primary" id="retryPaymentBtn">Reintentar pago</button>
+    </div>
+
     <div class="order-confirmation" id="orderConfirmation" hidden>
       <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
-      <h2>¡Pedido confirmado!</h2>
+      <h2>¡Pedido confirmado y pagado!</h2>
       <p>Tu número de pedido es <strong data-order-number></strong>, por un total de <strong data-order-total></strong>.</p>
       <p>Te hemos enviado la confirmación por correo, y puedes consultar el estado en cualquier momento desde <a href="cuenta.html">Mi cuenta</a>.</p>
       <a href="categoria.html" class="btn btn--primary">Seguir explorando</a>

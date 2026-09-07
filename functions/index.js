@@ -17,12 +17,22 @@
 // ==========================================================================
 const { onCall, onRequest, HttpsError } = require("firebase-functions/v2/https");
 const { setGlobalOptions } = require("firebase-functions/v2");
+const { defineSecret } = require("firebase-functions/params");
 const admin = require("firebase-admin");
 
 admin.initializeApp();
 const db = admin.firestore();
 
 setGlobalOptions({ region: "us-central1", maxInstances: 10 });
+
+// URL pública del sitio (se usa aquí y también más abajo en "productoMeta").
+const SITE_URL = "https://www.libreriatumayortesoro.com";
+
+// Claves de Stripe: NUNCA se escriben aquí. Se guardan de forma cifrada con
+// "firebase functions:secrets:set STRIPE_SECRET_KEY" (y STRIPE_WEBHOOK_SECRET),
+// y solo se leen dentro de la función en el momento de usarlas.
+const STRIPE_SECRET_KEY = defineSecret("STRIPE_SECRET_KEY");
+const STRIPE_WEBHOOK_SECRET = defineSecret("STRIPE_WEBHOOK_SECRET");
 
 // ---- Catálogo oficial (debe coincidir con js/books-data.js) ----
 // Incluye también description/cover/category/author porque "productoMeta"
@@ -502,6 +512,10 @@ exports.crearPedido = onCall(async (request) => {
     gastosEnvio,
     total,
     estado: "pendiente",
+    // "pagado" es independiente de "estado" (que refleja el envío del
+    // pedido, no el cobro). Empieza en false y solo lo cambia a true el
+    // webhook de Stripe, cuando el pago se ha confirmado de verdad.
+    pagado: false,
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
   };
 
@@ -521,6 +535,119 @@ exports.crearPedido = onCall(async (request) => {
     clienteEmail: pedido.clienteEmail,
     envio: pedido.envio,
   };
+});
+
+// ==========================================================================
+// "crearSesionPago" — a partir de un pedido ya creado (por "crearPedido"),
+// abre una sesión de pago real en Stripe (tarjeta, Bizum, y lo que hayas
+// activado en el Dashboard de Stripe) y devuelve la URL a la que hay que
+// redirigir al cliente para pagar.
+//
+// El importe SIEMPRE se recalcula aquí a partir de lo guardado en Firestore
+// (que a su vez viene del catálogo de "crearPedido"), nunca de lo que mande
+// el navegador — así nadie puede manipular el precio a pagar.
+// ==========================================================================
+exports.crearSesionPago = onCall({ secrets: [STRIPE_SECRET_KEY] }, async (request) => {
+  const auth = request.auth;
+  if (!auth) {
+    throw new HttpsError("unauthenticated", "Debes iniciar sesión para pagar.");
+  }
+
+  const pedidoId = request.data && request.data.pedidoId;
+  if (!pedidoId || typeof pedidoId !== "string") {
+    throw new HttpsError("invalid-argument", "Falta el identificador del pedido.");
+  }
+
+  const ref = db.collection("pedidos").doc(pedidoId);
+  const snap = await ref.get();
+  if (!snap.exists) {
+    throw new HttpsError("not-found", "Ese pedido no existe.");
+  }
+  const pedido = snap.data();
+
+  if (pedido.uid !== auth.uid) {
+    throw new HttpsError("permission-denied", "Este pedido no te pertenece.");
+  }
+  if (pedido.pagado) {
+    throw new HttpsError("failed-precondition", "Este pedido ya está pagado.");
+  }
+
+  const stripe = require("stripe")(STRIPE_SECRET_KEY.value());
+
+  const lineItems = (pedido.items || []).map(function (it) {
+    return {
+      price_data: {
+        currency: "eur",
+        unit_amount: Math.round(it.precio * 100),
+        product_data: { name: it.titulo + (it.formato ? " (" + it.formato + ")" : "") },
+      },
+      quantity: it.cantidad,
+    };
+  });
+
+  if (pedido.gastosEnvio) {
+    lineItems.push({
+      price_data: {
+        currency: "eur",
+        unit_amount: Math.round(pedido.gastosEnvio * 100),
+        product_data: { name: "Gastos de envío" },
+      },
+      quantity: 1,
+    });
+  }
+
+  const session = await stripe.checkout.sessions.create({
+    mode: "payment",
+    payment_method_types: ["card"],
+    line_items: lineItems,
+    customer_email: pedido.clienteEmail || undefined,
+    client_reference_id: pedidoId,
+    metadata: { pedidoId: pedidoId },
+    success_url: SITE_URL + "/carrito.html?pago=exito&pedido=" + encodeURIComponent(pedidoId) + "&session_id={CHECKOUT_SESSION_ID}",
+    cancel_url: SITE_URL + "/carrito.html?pago=cancelado&pedido=" + encodeURIComponent(pedidoId),
+  });
+
+  return { url: session.url };
+});
+
+// ==========================================================================
+// "stripeWebhook" — Stripe llama aquí cuando un pago se completa de verdad.
+// Es la ÚNICA forma en que un pedido pasa a "pagado": nunca se fía de lo
+// que diga el navegador (el navegador podría "fingir" haber pagado).
+//
+// Hay que registrar esta URL en el Dashboard de Stripe (Desarrolladores →
+// Webhooks) después de desplegar, y guardar el "Signing secret" que Stripe
+// genera como STRIPE_WEBHOOK_SECRET con "firebase functions:secrets:set".
+// ==========================================================================
+exports.stripeWebhook = onRequest({ secrets: [STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET] }, async (req, res) => {
+  const stripe = require("stripe")(STRIPE_SECRET_KEY.value());
+
+  let event;
+  try {
+    event = stripe.webhooks.constructEvent(req.rawBody, req.headers["stripe-signature"], STRIPE_WEBHOOK_SECRET.value());
+  } catch (err) {
+    console.error("Firma de webhook de Stripe inválida:", err.message);
+    res.status(400).send("Firma inválida");
+    return;
+  }
+
+  if (event.type === "checkout.session.completed") {
+    const session = event.data.object;
+    const pedidoId = session.metadata && session.metadata.pedidoId;
+    if (pedidoId) {
+      try {
+        await db.collection("pedidos").doc(pedidoId).update({
+          pagado: true,
+          pagoConfirmadoEn: admin.firestore.FieldValue.serverTimestamp(),
+          stripeSessionId: session.id,
+        });
+      } catch (err) {
+        console.error("No se pudo marcar el pedido " + pedidoId + " como pagado:", err);
+      }
+    }
+  }
+
+  res.status(200).send("ok");
 });
 
 // ==========================================================================
@@ -547,8 +674,6 @@ exports.crearPedido = onCall(async (request) => {
 // canonicalLink, ogTitle, ogDescription, ogUrl, ogImage, twitterTitle,
 // twitterDescription, twitterImage).
 // ==========================================================================
-const SITE_URL = "https://www.libreriatumayortesoro.com";
-
 function escapeHtml(str) {
   return String(str)
     .replace(/&/g, "&amp;")

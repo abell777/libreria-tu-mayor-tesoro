@@ -54,7 +54,11 @@ service cloud.firestore {
 
       // Actualizar un pedido: solo el admin (para cambiar el estado desde
       // el panel), solo puede tocar "estado", y solo a uno de los tres
-      // valores válidos del flujo de pedidos.
+      // valores válidos del flujo de pedidos. Nótese que "pagado" NO está
+      // en la lista de campos permitidos aquí a propósito: ni el cliente
+      // ni el admin pueden marcarlo desde el navegador. Solo lo cambia la
+      // Cloud Function "stripeWebhook" (SDK de administrador, se salta
+      // estas reglas), cuando Stripe confirma que el pago es real.
       allow update: if isAdmin() &&
         request.resource.data.diff(resource.data).affectedKeys().hasOnly(['estado']) &&
         request.resource.data.estado in ['pendiente', 'enviado', 'entregado'];

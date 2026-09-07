@@ -39,6 +39,7 @@
           '<span class="admin-order-cliente">' + escapeHTML(pedido.clienteNombre || '') + '<small>' + escapeHTML(pedido.clienteEmail || '') + '</small></span>' +
           '<span class="admin-order-fecha">' + fecha + '</span>' +
           '<span class="admin-order-total">' + fmtEUR(pedido.total) + '</span>' +
+          '<span class="pay-badge pay-badge--' + (pedido.pagado ? 'ok' : 'pendiente') + '">' + (pedido.pagado ? 'Pagado' : 'Pago pendiente') + '</span>' +
           '<span class="order-status order-status--' + escapeHTML(pedido.estado) + '">' + capitaliza(pedido.estado) + '</span>' +
         '</summary>' +
         '<div class="admin-order-body">' +

@@ -1,35 +1,45 @@
 // ==========================================================================
-// Checkout — exige sesión iniciada, pide los datos de envío y llama a la
-// Cloud Function "crearPedido" (functions/index.js), que recalcula el
-// precio real en el servidor, guarda el pedido en Firestore y devuelve
-// los datos ya verificados. Después se envían los correos de confirmación
-// (cliente + tienda) con esos datos reales.
+// Checkout — exige sesión iniciada, pide los datos de envío, llama a la
+// Cloud Function "crearPedido" (functions/index.js) para guardar el pedido
+// con el precio recalculado en servidor, y luego a "crearSesionPago" para
+// abrir una sesión de pago REAL en Stripe (tarjeta, Bizum, y lo que tengas
+// activado en tu panel de Stripe). El cliente paga en la página de Stripe
+// y vuelve aquí mismo (carrito.html?pago=exito|cancelado&pedido=ID).
+//
+// El pedido NO se da por pagado hasta que Firestore confirma "pagado: true"
+// — ese campo solo lo puede cambiar la Cloud Function "stripeWebhook"
+// cuando Stripe avisa de que el cobro se ha completado de verdad. Así que
+// aunque alguien cierre la pestaña o manipule la URL de vuelta, nunca se
+// muestra "pedido confirmado" ni se envían los correos sin un pago real.
 // ==========================================================================
 (function () {
   var checkoutBtn = document.getElementById('checkoutBtn');
-  if (!checkoutBtn) return;
-
   var loginNotice = document.getElementById('checkoutLoginNotice');
   var shippingSection = document.getElementById('checkoutShipping');
   var shippingForm = document.getElementById('shippingForm');
   var confirmation = document.getElementById('orderConfirmation');
+  var paymentPending = document.getElementById('paymentPending');
+  var paymentCancelled = document.getElementById('paymentCancelled');
+  var retryPaymentBtn = document.getElementById('retryPaymentBtn');
   var cartLayout = document.getElementById('cartLayout');
 
-  checkoutBtn.addEventListener('click', function () {
-    var user = window.fbAuth ? window.fbAuth.currentUser : null;
-    if (!user) {
-      if (loginNotice) loginNotice.hidden = false;
-      if (shippingSection) shippingSection.hidden = true;
-      if (loginNotice) loginNotice.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
-    }
-    if (loginNotice) loginNotice.hidden = true;
-    if (shippingSection) {
-      shippingSection.hidden = false;
-      shippingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    precargarDireccionGuardada(user);
-  });
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', function () {
+      var user = window.fbAuth ? window.fbAuth.currentUser : null;
+      if (!user) {
+        if (loginNotice) loginNotice.hidden = false;
+        if (shippingSection) shippingSection.hidden = true;
+        if (loginNotice) loginNotice.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      if (loginNotice) loginNotice.hidden = true;
+      if (shippingSection) {
+        shippingSection.hidden = false;
+        shippingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      precargarDireccionGuardada(user);
+    });
+  }
 
   // Si el cliente tiene una dirección guardada en su panel de cuenta
   // (predeterminada, o la única que tenga), se precarga en el formulario.
@@ -85,29 +95,43 @@
       });
 
       var crearPedido = firebase.functions().httpsCallable('crearPedido');
+      var crearSesionPago = firebase.functions().httpsCallable('crearSesionPago');
 
       crearPedido({ items: itemsParaEnviar, envio: envio })
         .then(function (result) {
           var pedido = result.data;
-          // El pedido ya está guardado: si fallan los correos, no es motivo
-          // para decirle al cliente que su compra no se ha registrado.
-          return enviarCorreos(pedido).catch(function (err) {
-            console.error('Error al enviar los correos de confirmación', err);
-          }).then(function () {
-            Cart.clear();
-            mostrarConfirmacion(pedido.numero, pedido.total);
-            shippingForm.reset();
+          return crearSesionPago({ pedidoId: pedido.id }).then(function (sesion) {
+            // Redirige a la página de pago real de Stripe. El carrito se
+            // vacía y se confirma el pedido solo cuando el cliente vuelva
+            // aquí con el pago ya confirmado (ver comprobarVueltaDeStripe).
+            window.location.href = sesion.data.url;
           });
         })
         .catch(function (err) {
-          // Aquí sí ha fallado el propio pedido: no lo confirmamos ni
-          // vaciamos el carrito, para que el cliente pueda reintentarlo.
-          console.error('Error al guardar el pedido', err);
+          console.error('Error al preparar el pago', err);
           if (checkoutErrorEl) checkoutErrorEl.hidden = false;
-        })
-        .then(function () {
           submitBtn.disabled = false;
           submitBtn.textContent = textoOriginal;
+        });
+    });
+  }
+
+  if (retryPaymentBtn) {
+    retryPaymentBtn.addEventListener('click', function () {
+      var params = new URLSearchParams(window.location.search);
+      var pedidoId = params.get('pedido');
+      if (!pedidoId) return;
+      retryPaymentBtn.disabled = true;
+      retryPaymentBtn.textContent = 'Redirigiendo…';
+      var crearSesionPago = firebase.functions().httpsCallable('crearSesionPago');
+      crearSesionPago({ pedidoId: pedidoId })
+        .then(function (sesion) {
+          window.location.href = sesion.data.url;
+        })
+        .catch(function (err) {
+          console.error('Error al reintentar el pago', err);
+          retryPaymentBtn.disabled = false;
+          retryPaymentBtn.textContent = 'Reintentar pago';
         });
     });
   }
@@ -151,9 +175,18 @@
     });
   }
 
-  function mostrarConfirmacion(numero, total) {
+  function ocultarTodo() {
     if (cartLayout) cartLayout.hidden = true;
     if (shippingSection) shippingSection.hidden = true;
+    if (paymentPending) paymentPending.hidden = true;
+    if (paymentCancelled) paymentCancelled.hidden = true;
+    if (confirmation) confirmation.hidden = true;
+    var loginNoticeEl = document.getElementById('checkoutLoginNotice');
+    if (loginNoticeEl) loginNoticeEl.hidden = true;
+  }
+
+  function mostrarConfirmacion(numero, total) {
+    ocultarTodo();
     if (confirmation) {
       confirmation.hidden = false;
       var num = confirmation.querySelector('[data-order-number]');
@@ -163,4 +196,88 @@
       confirmation.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
+
+  // ------------------------------------------------------------------------
+  // Vuelta desde Stripe: carrito.html?pago=exito&pedido=ID&session_id=...
+  // o carrito.html?pago=cancelado&pedido=ID
+  // ------------------------------------------------------------------------
+  function comprobarVueltaDeStripe() {
+    var params = new URLSearchParams(window.location.search);
+    var pago = params.get('pago');
+    var pedidoId = params.get('pedido');
+    if (!pago || !pedidoId) return;
+
+    if (pago === 'cancelado') {
+      ocultarTodo();
+      if (paymentCancelled) {
+        paymentCancelled.hidden = false;
+        paymentCancelled.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      return;
+    }
+
+    if (pago !== 'exito') return;
+
+    ocultarTodo();
+    if (paymentPending) paymentPending.hidden = false;
+
+    if (!window.fbAuth || !window.fbDb) return;
+
+    // Espera a que sepamos si hay sesión iniciada antes de leer el pedido
+    // (las reglas de Firestore exigen ser el dueño del pedido para leerlo).
+    var yaProcesado = false;
+    window.fbAuth.onAuthStateChanged(function (user) {
+      if (!user || yaProcesado) return;
+      esperarConfirmacionDePago(pedidoId);
+    });
+  }
+
+  // Sondea Firestore hasta que el webhook de Stripe marque el pedido como
+  // pagado (normalmente tarda muy pocos segundos), con un tiempo máximo de
+  // espera para no dejar a alguien mirando la pantalla indefinidamente.
+  function esperarConfirmacionDePago(pedidoId) {
+    var intentos = 0;
+    var maxIntentos = 20; // ~30s en total
+    var flagCorreo = 'correoEnviado:' + pedidoId;
+
+    function intentar() {
+      intentos++;
+      window.fbDb.collection('pedidos').doc(pedidoId).get().then(function (doc) {
+        if (!doc.exists) return;
+        var pedido = doc.data();
+
+        if (pedido.pagado) {
+          if (!sessionStorage.getItem(flagCorreo)) {
+            sessionStorage.setItem(flagCorreo, '1');
+            enviarCorreos(pedido).catch(function (err) {
+              console.error('Error al enviar los correos de confirmación', err);
+            });
+          }
+          Cart.clear();
+          mostrarConfirmacion(pedido.numero, pedido.total);
+          // Limpia la URL para que un refresco no vuelva a disparar esto.
+          history.replaceState(null, '', 'carrito.html');
+          return;
+        }
+
+        if (intentos < maxIntentos) {
+          setTimeout(intentar, 1500);
+        } else {
+          // El webhook puede tardar más de lo normal (poco frecuente). No
+          // asustamos al cliente: el pago en Stripe puede haberse completado
+          // igualmente y el pedido se actualizará solo en cuanto llegue.
+          if (paymentPending) {
+            var texto = paymentPending.querySelector('p');
+            if (texto) texto.textContent = 'Estamos terminando de confirmar tu pago. Si tarda más de un minuto, escríbenos a libreriamayortesoro@gmail.com con tu número de pedido y no te preocupes: no se te cobrará dos veces.';
+          }
+        }
+      }).catch(function (err) {
+        console.error('Error al comprobar el estado del pedido', err);
+      });
+    }
+
+    intentar();
+  }
+
+  comprobarVueltaDeStripe();
 })();
