@@ -440,7 +440,7 @@ const CATALOGO = {
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
-    cover: "img/portada-proximamente.jpg",
+    cover: "img/la-historia-de-la-redencion.jpg",
     description: "Un recorrido por el gran plan de salvación desde la caída hasta la restauración final, contado como una sola historia continua. Edición en tapa blanda con acabado brillo, pensada para el estudio personal y para regalar.",
   },
   "la-iglesia-remanente": {
@@ -450,7 +450,7 @@ const CATALOGO = {
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
-    cover: "img/portada-proximamente.jpg",
+    cover: "img/la-iglesia-remanente.jpg",
     description: "Una reflexión sobre la identidad y la misión del pueblo de Dios en el tiempo del fin, a partir de los escritos de la autora. Edición en tapa blanda con acabado brillo, ideal para el estudio personal.",
   },
   "la-maravillosa-gracia-de-dios": {
@@ -460,7 +460,7 @@ const CATALOGO = {
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
-    cover: "img/portada-proximamente.jpg",
+    cover: "img/la-maravillosa-gracia-de-dios.jpg",
     description: "Un compendio devocional sobre la gracia de Dios y su obra en la vida del creyente, con lecturas breves pensadas para acompañar el día a día. Edición en tapa blanda con acabado brillo.",
   },
   "la-musica": {
@@ -470,7 +470,7 @@ const CATALOGO = {
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
-    cover: "img/portada-proximamente.jpg",
+    cover: "img/la-musica.jpg",
     description: "Una recopilación de los escritos de la autora sobre el lugar de la música en el culto y en la vida cristiana. Edición en tapa blanda con acabado brillo, cuidada y de fácil lectura.",
   },
   "la-oracion": {
@@ -480,7 +480,7 @@ const CATALOGO = {
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
-    cover: "img/portada-proximamente.jpg",
+    cover: "img/la-oracion.jpg",
     description: "Un devocional que reúne enseñanzas sobre la vida de oración, pensado para fortalecer la comunión diaria con Dios. Edición en tapa blanda con acabado brillo.",
   },
   "la-segunda-venida-y-el-cielo": {
@@ -490,7 +490,7 @@ const CATALOGO = {
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
-    cover: "img/portada-proximamente.jpg",
+    cover: "img/la-segunda-venida-y-el-cielo.jpg",
     description: "Una mirada esperanzadora a las promesas bíblicas sobre el regreso de Cristo y la vida eterna, explicadas con un lenguaje claro y devocional. Edición en tapa blanda con acabado brillo.",
   },
   "biblia-bilingue-rvr-nkjv-marron": {
