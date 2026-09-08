@@ -100,7 +100,7 @@
       ['Autor', book.author],
       ['Formato', book.format],
       ['Idioma', book.idioma]
-    ].map(function (row) { return '<li><span>' + row[0] + '</span><span>' + row[1] + '</span></li>'; }).join('');
+    ].map(function (row) { return '<li><span>' + escapeHTML(row[0]) + '</span><span>' + escapeHTML(row[1]) + '</span></li>'; }).join('');
   }
 
   // ---- Botón "Añadir al carrito" (la lógica de añadir vive en cart.js) ----
@@ -155,14 +155,14 @@
       return (
         '<article class="book-card">' +
           '<a href="producto.html?id=' + b.id + '" class="book-cover book-cover--photo">' +
-            '<img src="' + toWebp(b.cover) + '" onerror="this.onerror=null;this.src=\'' + b.cover + '\'" alt="Portada de «' + b.title + '», de ' + b.author + '" loading="lazy" decoding="async">' +
+            '<img src="' + toWebp(b.cover) + '" onerror="this.onerror=null;this.src=\'' + b.cover + '\'" alt="Portada de «' + escapeHTML(b.title) + '», de ' + escapeHTML(b.author) + '" loading="lazy" decoding="async">' +
           '</a>' +
           '<div class="book-info">' +
-            '<span class="book-category">' + b.categoryLabel + '</span>' +
-            '<h3 class="book-title"><a href="producto.html?id=' + b.id + '">' + b.title + '</a></h3>' +
-            '<p class="book-author">' + b.author + '</p>' +
+            '<span class="book-category">' + escapeHTML(b.categoryLabel) + '</span>' +
+            '<h3 class="book-title"><a href="producto.html?id=' + b.id + '">' + escapeHTML(b.title) + '</a></h3>' +
+            '<p class="book-author">' + escapeHTML(b.author) + '</p>' +
             '<div class="book-footer">' +
-              '<span class="book-price">' + fmtPrice(b.price) + '&nbsp;€<small>' + b.priceNote + '</small></span>' +
+              '<span class="book-price">' + fmtPrice(b.price) + '&nbsp;€<small>' + escapeHTML(b.priceNote) + '</small></span>' +
               '<button class="btn btn--primary btn--sm">Añadir</button>' +
             '</div>' +
           '</div>' +
