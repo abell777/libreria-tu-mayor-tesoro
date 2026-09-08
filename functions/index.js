@@ -44,7 +44,7 @@ const CATALOGO = {
   "el-conflicto-de-los-siglos": {
     title: "El Conflicto de los Siglos",
     format: "Tapa dura",
-    price: 19.54,
+    price: 18.54,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -54,7 +54,7 @@ const CATALOGO = {
   "el-deseado-de-todas-las-gentes": {
     title: "El Deseado de Todas las Gentes",
     format: "Tapa blanda, A5",
-    price: 14.20,
+    price: 13.20,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -64,7 +64,7 @@ const CATALOGO = {
   "historia-de-los-patriarcas-y-profetas": {
     title: "Historia de los Patriarcas y Profetas",
     format: "Edición tapa dura",
-    price: 26.20,
+    price: 25.20,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -74,7 +74,7 @@ const CATALOGO = {
   "profetas-y-reyes": {
     title: "Profetas y Reyes",
     format: "Edición tapa blanda",
-    price: 11.83,
+    price: 10.83,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -84,7 +84,7 @@ const CATALOGO = {
   "la-fe-por-la-cual-vivo": {
     title: "La Fe por la Cual Vivo",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.14,
+    price: 8.14,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -94,7 +94,7 @@ const CATALOGO = {
   "la-educacion": {
     title: "La Educación",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 8.05,
+    price: 7.05,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -104,7 +104,7 @@ const CATALOGO = {
   "edificacion-del-caracter": {
     title: "Edificación del Carácter",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 6.52,
+    price: 5.52,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -114,7 +114,7 @@ const CATALOGO = {
   "hijos-e-hijas-de-dios": {
     title: "Hijos e Hijas de Dios",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.21,
+    price: 8.21,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -124,7 +124,7 @@ const CATALOGO = {
   "exaltad-a-jesus": {
     title: "Exaltad a Jesús",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.22,
+    price: 8.22,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -134,7 +134,7 @@ const CATALOGO = {
   "en-los-lugares-celestiales": {
     title: "En los Lugares Celestiales",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.12,
+    price: 8.12,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -144,7 +144,7 @@ const CATALOGO = {
   "fe-y-obras": {
     title: "Fe y Obras",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 6.75,
+    price: 5.75,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -154,7 +154,7 @@ const CATALOGO = {
   "el-otro-poder": {
     title: "El Otro Poder",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 7.03,
+    price: 6.03,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -164,7 +164,7 @@ const CATALOGO = {
   "el-ministerio-pastoral": {
     title: "El Ministerio Pastoral",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 8.57,
+    price: 7.57,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -174,7 +174,7 @@ const CATALOGO = {
   "el-deseado-de-todas-las-gentes-tapa-blanda": {
     title: "El Deseado de Todas las Gentes",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 10.32,
+    price: 9.32,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -184,7 +184,7 @@ const CATALOGO = {
   "el-ministerio-de-publicaciones": {
     title: "El Ministerio de Publicaciones",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.14,
+    price: 8.14,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -194,7 +194,7 @@ const CATALOGO = {
   "el-ministerio-de-la-bondad": {
     title: "El Ministerio de la Bondad",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 8.23,
+    price: 7.23,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -204,7 +204,7 @@ const CATALOGO = {
   "el-ministerio-medico": {
     title: "El Ministerio Médico",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 10.94,
+    price: 9.94,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -214,7 +214,7 @@ const CATALOGO = {
   "el-hogar-cristiano": {
     title: "El Hogar Cristiano",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.68,
+    price: 8.68,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -224,7 +224,7 @@ const CATALOGO = {
   "el-evangelismo": {
     title: "El Evangelismo",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 10.76,
+    price: 9.76,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -234,7 +234,7 @@ const CATALOGO = {
   "el-conflicto-inminente": {
     title: "El Conflicto Inminente",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 6.84,
+    price: 5.84,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -244,7 +244,7 @@ const CATALOGO = {
   "el-colportor-evangelico": {
     title: "El Colportor Evangélico",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 7.49,
+    price: 6.49,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -254,7 +254,7 @@ const CATALOGO = {
   "dios-nos-cuida": {
     title: "Dios Nos Cuida",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.31,
+    price: 8.31,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -264,7 +264,7 @@ const CATALOGO = {
   "de-la-ciudad-al-campo": {
     title: "De la Ciudad al Campo",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 6.63,
+    price: 5.63,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -274,7 +274,7 @@ const CATALOGO = {
   "la-pasion-del-amor": {
     title: "La Pasión del Amor",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 8.01,
+    price: 7.01,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -284,7 +284,7 @@ const CATALOGO = {
   "cristo-nuestro-salvador": {
     title: "Cristo Nuestro Salvador",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 6.93,
+    price: 5.93,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -294,7 +294,7 @@ const CATALOGO = {
   "cristo-en-su-santuario": {
     title: "Cristo en Su Santuario",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 6.93,
+    price: 5.93,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -304,7 +304,7 @@ const CATALOGO = {
   "el-deseado-de-todas-las-gentes-tapa-dura": {
     title: "El Deseado de Todas las Gentes",
     format: "Tapa dura, 155 x 235 mm",
-    price: 17.58,
+    price: 16.58,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -314,7 +314,7 @@ const CATALOGO = {
   "consejos-sobre-la-mayordomia-cristiana": {
     title: "Consejos sobre la Mayordomía Cristiana",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 8.51,
+    price: 7.51,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -324,7 +324,7 @@ const CATALOGO = {
   "consejos-sobre-la-obra-de-escuela-sabatica": {
     title: "Consejos sobre la Obra de Escuela Sabática",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 7.69,
+    price: 6.69,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -334,7 +334,7 @@ const CATALOGO = {
   "consejos-para-los-maestros": {
     title: "Consejos para los Maestros",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.65,
+    price: 8.65,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -344,7 +344,7 @@ const CATALOGO = {
   "consejos-para-la-iglesia": {
     title: "Consejos para la Iglesia",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.96,
+    price: 8.96,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -354,7 +354,7 @@ const CATALOGO = {
   "conflicto-y-valor": {
     title: "Conflicto y Valor",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.15,
+    price: 8.15,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -364,7 +364,7 @@ const CATALOGO = {
   "cada-dia-con-dios": {
     title: "Cada Día con Dios",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.13,
+    price: 8.13,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -374,7 +374,7 @@ const CATALOGO = {
   "creencias-de-los-adventistas-del-septimo-dia": {
     title: "Creencias de los Adventistas del Séptimo Día",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.52,
+    price: 8.52,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -384,7 +384,7 @@ const CATALOGO = {
   "alza-tus-ojos": {
     title: "Alza Tus Ojos",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.12,
+    price: 8.12,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -394,7 +394,7 @@ const CATALOGO = {
   "a-fin-de-conocerle": {
     title: "A Fin de Conocerle",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.20,
+    price: 8.2,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -404,7 +404,7 @@ const CATALOGO = {
   "review-and-herald": {
     title: "Review and Herald",
     format: "Tapa dura, 155 x 235 mm",
-    price: 15.74,
+    price: 14.74,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -414,7 +414,7 @@ const CATALOGO = {
   "la-verdad-acerca-de-los-angeles": {
     title: "La Verdad Acerca de los Ángeles",
     format: "Tapa blanda, 155 x 235 mm",
-    price: 7.90,
+    price: 6.9,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -424,319 +424,13 @@ const CATALOGO = {
   "consejos-sobre-la-salud": {
     title: "Consejos sobre la Salud",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 11.64,
+    price: 10.64,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
     cover: "img/consejos-sobre-la-salud.jpg",
     description: "Un compendio de principios sobre alimentación, ejercicio y estilo de vida saludable, entendidos como parte integral del bienestar espiritual. Sigue siendo una referencia dentro de la reforma pro salud adventista.",
-  },
-
-  // ---- Nuevos libros de Elena G. White y Biblias (añadidos) ----
-  "la-historia-de-la-redencion": {
-    title: "La Historia de la Redención",
-    format: "Tapa blanda, 148 x 210 mm",
-    price: 9.86,
-    author: "Elena G. White",
-    category: "elena-white",
-    categoryLabel: "Elena G. White",
-    cover: "img/la-historia-de-la-redencion.jpg",
-    description: "Un recorrido por el gran plan de salvación desde la caída hasta la restauración final, contado como una sola historia continua. Edición en tapa blanda con acabado brillo, pensada para el estudio personal y para regalar.",
-  },
-  "la-iglesia-remanente": {
-    title: "La Iglesia Remanente",
-    format: "Tapa blanda, 148 x 210 mm",
-    price: 6.48,
-    author: "Elena G. White",
-    category: "elena-white",
-    categoryLabel: "Elena G. White",
-    cover: "img/la-iglesia-remanente.jpg",
-    description: "Una reflexión sobre la identidad y la misión del pueblo de Dios en el tiempo del fin, a partir de los escritos de la autora. Edición en tapa blanda con acabado brillo, ideal para el estudio personal.",
-  },
-  "la-maravillosa-gracia-de-dios": {
-    title: "La Maravillosa Gracia de Dios",
-    format: "Tapa blanda, 148 x 210 mm",
-    price: 9.15,
-    author: "Elena G. White",
-    category: "elena-white",
-    categoryLabel: "Elena G. White",
-    cover: "img/la-maravillosa-gracia-de-dios.jpg",
-    description: "Un compendio devocional sobre la gracia de Dios y su obra en la vida del creyente, con lecturas breves pensadas para acompañar el día a día. Edición en tapa blanda con acabado brillo.",
-  },
-  "la-musica": {
-    title: "La Música",
-    format: "Tapa blanda, 148 x 210 mm",
-    price: 6.44,
-    author: "Elena G. White",
-    category: "elena-white",
-    categoryLabel: "Elena G. White",
-    cover: "img/la-musica.jpg",
-    description: "Una recopilación de los escritos de la autora sobre el lugar de la música en el culto y en la vida cristiana. Edición en tapa blanda con acabado brillo, cuidada y de fácil lectura.",
-  },
-  "la-oracion": {
-    title: "La Oración",
-    format: "Tapa blanda, 148 x 210 mm",
-    price: 8.7,
-    author: "Elena G. White",
-    category: "elena-white",
-    categoryLabel: "Elena G. White",
-    cover: "img/la-oracion.jpg",
-    description: "Un devocional que reúne enseñanzas sobre la vida de oración, pensado para fortalecer la comunión diaria con Dios. Edición en tapa blanda con acabado brillo.",
-  },
-  "la-segunda-venida-y-el-cielo": {
-    title: "La Segunda Venida y el Cielo",
-    format: "Tapa blanda, 148 x 210 mm",
-    price: 7.05,
-    author: "Elena G. White",
-    category: "elena-white",
-    categoryLabel: "Elena G. White",
-    cover: "img/la-segunda-venida-y-el-cielo.jpg",
-    description: "Una mirada esperanzadora a las promesas bíblicas sobre el regreso de Cristo y la vida eterna, explicadas con un lenguaje claro y devocional. Edición en tapa blanda con acabado brillo.",
-  },
-  "biblia-bilingue-rvr-nkjv-marron": {
-    title: "Biblia Bilingüe RVR/NKJV, Marrón",
-    format: "Tapa dura entelada, dos tonos",
-    price: 38.99,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/biblia-bilingue-rvr-nkjv-marron.jpg",
-    description: "Biblia bilingüe con el texto de la Reina Valera Revisada y la New King James Version en columnas, cubierta en dos tonos de marrón. Pensada tanto para el estudio comparado como para practicar inglés junto a la lectura bíblica.",
-    freeShipping: true,
-  },
-  "biblia-compacta-fucsia-floral-cierre": {
-    title: "Biblia Compacta Letra Grande, Fucsia Floral con Cremallera",
-    format: "Tapa blanda, cierre de cremallera",
-    price: 27.99,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/biblia-compacta-fucsia-floral-cierre.jpg",
-    description: "Reina-Valera 1960 en formato compacto y letra grande (11 puntos), con cubierta floral en tono fucsia, cremallera e índice lateral. Ideal para llevar cada día.",
-    freeShipping: true,
-  },
-  "biblia-apuntes-rosa-floreada": {
-    title: "Biblia de Apuntes Tapa Dura Entelada, Rosa Floreada",
-    format: "Tapa dura entelada, con banda elástica",
-    price: 38.99,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/biblia-apuntes-rosa-floreada.jpg",
-    description: "Reina-Valera 1960, letra de 8,5 puntos, en edición de apuntes: márgenes amplios para anotar, cubierta entelada floral en tono rosa y cierre con banda elástica.",
-    freeShipping: true,
-  },
-  "biblia-apuntes-negro": {
-    title: "Biblia de Apuntes Tapa Dura, Negro",
-    format: "Tapa dura, con banda elástica",
-    price: 38.04,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/biblia-apuntes-negro.jpg",
-    description: "Reina-Valera 1960, letra de 8,5 puntos, en edición de apuntes: márgenes amplios para anotar, cubierta lisa en negro y cierre con banda elástica.",
-    freeShipping: true,
-  },
-  "biblia-apuntes-negro-oro": {
-    title: "Biblia de Apuntes Tapa Dura, Negro/Oro",
-    format: "Tapa dura",
-    price: 35.2,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/portada-proximamente.jpg",
-    description: "Reina-Valera 1960, edición de apuntes con márgenes amplios para anotar, cubierta en negro con detalles dorados.",
-  },
-  "biblia-apuntes-blanco-negro-floral": {
-    title: "Biblia de Apuntes Tapa Dura, Blanco/Negro Floral",
-    format: "Tapa dura",
-    price: 34.24,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/portada-proximamente.jpg",
-    description: "Reina-Valera 1960, edición de apuntes con márgenes amplios para anotar, cubierta floral en blanco y negro.",
-  },
-  "biblia-apuntes-azul-oscuro-floral": {
-    title: "Biblia de Apuntes Tapa Dura, Azul Oscuro Floral",
-    format: "Tapa dura",
-    price: 34.2,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/portada-proximamente.jpg",
-    description: "Reina-Valera 1960, edición de apuntes con márgenes amplios para anotar, cubierta floral en azul oscuro.",
-  },
-  "biblia-apuntes-azul-celeste-floral": {
-    title: "Biblia de Apuntes Tapa Dura, Azul Celeste Floral",
-    format: "Tapa dura",
-    price: 34.2,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/portada-proximamente.jpg",
-    description: "Reina-Valera 1960, edición de apuntes con márgenes amplios para anotar, cubierta floral en azul celeste.",
-  },
-  "biblia-apuntes-rosa-floral": {
-    title: "Biblia de Apuntes Tapa Dura, Rosa Floral",
-    format: "Tapa dura",
-    price: 34.2,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/portada-proximamente.jpg",
-    description: "Reina-Valera 1960, edición de apuntes con márgenes amplios para anotar, cubierta floral en tono rosa.",
-  },
-  "biblia-apuntes-vino-tinto": {
-    title: "Biblia de Apuntes Tapa Dura, Vino Tinto",
-    format: "Tapa dura",
-    price: 34.2,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/portada-proximamente.jpg",
-    description: "Reina-Valera 1960, edición de apuntes con márgenes amplios para anotar, cubierta lisa en vino tinto.",
-  },
-  "biblia-rvr60-cafe": {
-    title: "Biblia RVR60 Letra Grande, Café",
-    format: "Tapa dura, imitación piel",
-    price: 15.24,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/biblia-rvr60-cafe.jpg",
-    description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Canto dorado. Cubierta en imitación piel dos tonos grabada, color café.",
-  },
-  "biblia-rvr60-verde-mariposas": {
-    title: "Biblia RVR60 Letra Grande, Verde Mariposas",
-    format: "Tapa dura, imitación piel",
-    price: 15.24,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/biblia-rvr60-verde-mariposas.jpg",
-    description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Canto dorado. Cubierta en tono verde menta con motivo de mariposas.",
-  },
-  "biblia-rvr60-negro": {
-    title: "Biblia RVR60 Letra Grande, Negro",
-    format: "Tapa dura, imitación piel",
-    price: 16.2,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/biblia-rvr60-negro.jpg",
-    description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Incluye introducciones y abreviaturas de C.H. Spurgeon y J.C. Ryle, y concordancia de 120 páginas. Cubierta negra con canto dorado.",
-  },
-  "biblia-rvr60-marron": {
-    title: "Biblia RVR60 Letra Grande, Marrón",
-    format: "Tapa dura, imitación piel",
-    price: 16.2,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/biblia-rvr60-marron.jpg",
-    description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Incluye introducciones y abreviaturas de C.H. Spurgeon y J.C. Ryle, y concordancia de 120 páginas. Cubierta marrón dos tonos con canto dorado.",
-  },
-  "biblia-rvr60-beige": {
-    title: "Biblia RVR60 Letra Grande, Beige",
-    format: "Tapa dura, imitación piel",
-    price: 15.24,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/portada-proximamente.jpg",
-    description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Incluye introducciones y abreviaturas de C.H. Spurgeon y J.C. Ryle, y concordancia de 120 páginas. Cubierta en tono beige.",
-  },
-  "biblia-rvr60-amarillo-abejas-cierre": {
-    title: "Biblia RVR60 Letra Grande, Amarillo Abejas, con Cierre",
-    format: "Tapa dura, con cierre de cremallera",
-    price: 19.99,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/biblia-rvr60-amarillo-abejas-cierre.jpg",
-    description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta amarilla con motivo de panal y abejas.",
-  },
-  "biblia-rvr60-verde-olivo-cierre": {
-    title: "Biblia RVR60 Letra Grande, Verde Olivo, con Cierre",
-    format: "Tapa dura, con cierre de cremallera",
-    price: 19.99,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/biblia-rvr60-verde-olivo-cierre.jpg",
-    description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta en tono verde olivo con motivo vegetal.",
-  },
-  "biblia-rvr60-marron-elegante-cierre": {
-    title: "Biblia RVR60 Letra Grande, Marrón Elegante, con Cierre",
-    format: "Tapa dura, con cierre de cremallera",
-    price: 19.99,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/biblia-rvr60-marron-elegante-cierre.jpg",
-    description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta en dos tonos de marrón.",
-  },
-  "biblia-rvr60-cafe-cierre": {
-    title: "Biblia RVR60 Letra Grande, Café, con Cierre",
-    format: "Tapa dura, con cierre de cremallera",
-    price: 19.99,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/biblia-rvr60-cafe-cierre.jpg",
-    description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta café con bordes ornamentales grabados.",
-  },
-  "biblia-rvr60-beige-floral-cierre": {
-    title: "Biblia RVR60 Letra Grande, Beige Floral, con Cierre",
-    format: "Tapa dura, con cierre de cremallera",
-    price: 19.99,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/biblia-rvr60-beige-floral-cierre.jpg",
-    description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera y canto de color. Cubierta beige con motivo de hojas grabado, imitación piel de alta calidad.",
-  },
-  "biblia-rvr60-morado-flor-dorada-cierre": {
-    title: "Biblia RVR60 Letra Grande, Morado con Flor Dorada, con Cierre",
-    format: "Tapa dura, con cierre de cremallera",
-    price: 19.99,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/biblia-rvr60-morado-flor-dorada-cierre.jpg",
-    description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta morada con motivo floral en dorado y negro.",
-  },
-  "biblia-rvr60-rosa-floral-cierre": {
-    title: "Biblia RVR60 Letra Grande, Rosa Floral, con Cierre",
-    format: "Tapa dura, con cierre de cremallera",
-    price: 19.99,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/portada-proximamente.jpg",
-    description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta rosa con motivo floral.",
-  },
-  "biblia-rvr60-negro-cierre": {
-    title: "Biblia RVR60 Letra Grande, Negro, con Cierre",
-    format: "Tapa dura, con cierre de cremallera",
-    price: 19.99,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/biblia-rvr60-negro-cierre.jpg",
-    description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta negra con textura geométrica grabada.",
-  },
-  "biblia-rvr60-aguila-cierre": {
-    title: "Biblia RVR60 Letra Grande, Águila, con Cierre",
-    format: "Tapa dura, con cierre de cremallera",
-    price: 19.99,
-    author: "Sociedades Bíblicas Unidas",
-    category: "biblias",
-    categoryLabel: "Biblias",
-    cover: "img/biblia-rvr60-aguila-cierre.jpg",
-    description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta marrón grabada con un águila y el texto de Isaías 40:31.",
-  },
+  }
 };
 
 const MAX_ITEMS = 30;
@@ -747,28 +441,7 @@ function textoValido(v, max) {
   return typeof v === "string" && v.trim().length > 0 && v.trim().length <= max;
 }
 
-// Para campos opcionales (como el teléfono): vale que venga vacío, pero si
-// se manda algo, tiene que ser texto y no pasarse del máximo.
-function textoValidoOpcional(v, max) {
-  return typeof v === "string" && v.trim().length <= max;
-}
-
 exports.crearPedido = onCall(async (request) => {
-  try {
-    return await crearPedidoInterno(request);
-  } catch (err) {
-    // Si ya es un HttpsError (carrito vacío, datos de envío mal, etc.) lo
-    // dejamos pasar tal cual, con su mensaje pensado para el cliente.
-    if (err instanceof HttpsError) throw err;
-    // Cualquier otro fallo (Firestore, Admin Auth, un bug...) se registra
-    // aquí COMPLETO — así aparece en Firebase Console → Functions →
-    // crearPedido → Registros, en vez de quedarse como un "INTERNAL" mudo.
-    console.error("crearPedido: fallo inesperado", err);
-    throw new HttpsError("internal", "No se ha podido registrar el pedido. Vuelve a intentarlo o escríbenos.");
-  }
-});
-
-async function crearPedidoInterno(request) {
   const auth = request.auth;
   if (!auth) {
     throw new HttpsError("unauthenticated", "Debes iniciar sesión para completar la compra.");
@@ -789,7 +462,7 @@ async function crearPedidoInterno(request) {
     !textoValido(envio.direccion, 200) ||
     !textoValido(envio.ciudad, 120) ||
     !textoValido(envio.cp, 20) ||
-    !textoValidoOpcional(envio.telefono, 40)
+    !textoValido(envio.telefono, 40)
   ) {
     throw new HttpsError("invalid-argument", "Faltan datos de envío, o son demasiado largos.");
   }
@@ -797,7 +470,6 @@ async function crearPedidoInterno(request) {
   // Recalcula CADA artículo contra el catálogo de arriba: precio, título
   // y formato siempre vienen de aquí, nunca de lo que mande el navegador.
   const itemsFinales = [];
-  let todosEnvioGratis = true;
   for (const item of itemsSolicitados) {
     const libro = item && CATALOGO[item.id];
     if (!libro) {
@@ -811,14 +483,10 @@ async function crearPedidoInterno(request) {
       precio: libro.price,
       cantidad: cantidad,
     });
-    if (!libro.freeShipping) todosEnvioGratis = false;
   }
 
   const subtotal = itemsFinales.reduce((sum, it) => sum + it.precio * it.cantidad, 0);
-  // Envío gratis solo si TODOS los artículos del pedido lo tienen marcado en
-  // el catálogo (libro.freeShipping); si hay aunque sea uno sin esa marca,
-  // se cobran los gastos de envío normales.
-  const gastosEnvio = todosEnvioGratis ? 0 : SHIPPING_COST;
+  const gastosEnvio = SHIPPING_COST;
   const subtotalRedondeado = Math.round(subtotal * 100) / 100;
   const total = Math.round((subtotal + gastosEnvio) * 100) / 100;
 
@@ -867,7 +535,7 @@ async function crearPedidoInterno(request) {
     clienteEmail: pedido.clienteEmail,
     envio: pedido.envio,
   };
-}
+});
 
 // ==========================================================================
 // "crearSesionPago" — a partir de un pedido ya creado (por "crearPedido"),
@@ -880,16 +548,6 @@ async function crearPedidoInterno(request) {
 // el navegador — así nadie puede manipular el precio a pagar.
 // ==========================================================================
 exports.crearSesionPago = onCall({ secrets: [STRIPE_SECRET_KEY] }, async (request) => {
-  try {
-    return await crearSesionPagoInterno(request);
-  } catch (err) {
-    if (err instanceof HttpsError) throw err;
-    console.error("crearSesionPago: fallo inesperado", err);
-    throw new HttpsError("internal", "No se ha podido abrir la pasarela de pago. Vuelve a intentarlo o escríbenos.");
-  }
-});
-
-async function crearSesionPagoInterno(request) {
   const auth = request.auth;
   if (!auth) {
     throw new HttpsError("unauthenticated", "Debes iniciar sesión para pagar.");
@@ -914,7 +572,10 @@ async function crearSesionPagoInterno(request) {
     throw new HttpsError("failed-precondition", "Este pedido ya está pagado.");
   }
 
-  const stripe = require("stripe")(STRIPE_SECRET_KEY.value());
+  // .trim() por si el secreto se guardó con un espacio o salto de línea de
+  // más (muy fácil que pase al copiar/pegar) — un carácter así basta para
+  // que Stripe rechace la clave con un error de autenticación.
+  const stripe = require("stripe")(STRIPE_SECRET_KEY.value().trim());
 
   const lineItems = (pedido.items || []).map(function (it) {
     return {
@@ -938,19 +599,29 @@ async function crearSesionPagoInterno(request) {
     });
   }
 
-  const session = await stripe.checkout.sessions.create({
-    mode: "payment",
-    payment_method_types: ["card"],
-    line_items: lineItems,
-    customer_email: pedido.clienteEmail || undefined,
-    client_reference_id: pedidoId,
-    metadata: { pedidoId: pedidoId },
-    success_url: SITE_URL + "/carrito.html?pago=exito&pedido=" + encodeURIComponent(pedidoId) + "&session_id={CHECKOUT_SESSION_ID}",
-    cancel_url: SITE_URL + "/carrito.html?pago=cancelado&pedido=" + encodeURIComponent(pedidoId),
-  });
+  let session;
+  try {
+    session = await stripe.checkout.sessions.create({
+      mode: "payment",
+      payment_method_types: ["card"],
+      line_items: lineItems,
+      customer_email: pedido.clienteEmail || undefined,
+      client_reference_id: pedidoId,
+      metadata: { pedidoId: pedidoId },
+      success_url: SITE_URL + "/carrito.html?pago=exito&pedido=" + encodeURIComponent(pedidoId) + "&session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: SITE_URL + "/carrito.html?pago=cancelado&pedido=" + encodeURIComponent(pedidoId),
+    });
+  } catch (err) {
+    // Antes este error se perdía y el cliente solo veía "500 internal".
+    // Ahora queda escrito claramente en los registros de "crearSesionPago"
+    // (busca "STRIPE ERROR" con severidad Error) con el motivo exacto que
+    // da Stripe, y el cliente recibe un mensaje algo más útil.
+    console.error("STRIPE ERROR al crear la sesión de pago:", err.type || "", err.message || err);
+    throw new HttpsError("internal", "Stripe no ha podido abrir el pago (" + (err.type || "error desconocido") + "). Revisa la clave de Stripe.");
+  }
 
   return { url: session.url };
-}
+});
 
 // ==========================================================================
 // "stripeWebhook" — Stripe llama aquí cuando un pago se completa de verdad.
