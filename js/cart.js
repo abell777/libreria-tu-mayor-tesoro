@@ -262,12 +262,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function updateSummary() {
     var subtotal = Cart.totalPrice();
-    var SHIPPING = 6;
+    // Envío gratis solo si TODOS los libros del carrito lo tienen marcado
+    // en el catálogo (book.freeShipping); si hay alguno sin esa marca, o si
+    // el catálogo aún no ha cargado, se cobran los 6€ de siempre.
+    var items = Cart.getItems();
+    var todosEnvioGratis = items.length > 0 && window.BooksCatalog && items.every(function (item) {
+      var libro = window.BooksCatalog.getById(item.id);
+      return !!(libro && libro.freeShipping);
+    });
+    var SHIPPING = todosEnvioGratis ? 0 : 6;
     var subtotalEl = document.getElementById('summarySubtotal');
     var shippingEl = document.getElementById('summaryShipping');
     var totalEl = document.getElementById('summaryTotal');
     if (subtotalEl) subtotalEl.textContent = fmtEUR(subtotal);
-    if (shippingEl) shippingEl.textContent = fmtEUR(SHIPPING);
+    if (shippingEl) shippingEl.textContent = SHIPPING === 0 ? 'Gratis' : fmtEUR(SHIPPING);
     if (totalEl) totalEl.textContent = fmtEUR(subtotal + SHIPPING);
   }
 
