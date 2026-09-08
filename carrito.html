@@ -119,6 +119,7 @@
 
     <section class="checkout-shipping" id="checkoutShipping" hidden>
       <h2>Datos de envío</h2>
+      <p class="checkout-shipping-sub">Son los datos a los que enviaremos tu pedido.</p>
       <form id="shippingForm" class="shipping-form">
         <label>Nombre y apellidos<input type="text" name="nombre" required autocomplete="name"></label>
         <label>Dirección<input type="text" name="direccion" required autocomplete="street-address"></label>
@@ -126,9 +127,12 @@
           <label>Ciudad<input type="text" name="ciudad" required autocomplete="address-level2"></label>
           <label>Código postal<input type="text" name="cp" required autocomplete="postal-code"></label>
         </div>
-        <label>Teléfono<input type="tel" name="telefono" required autocomplete="tel"></label>
+        <label>Teléfono <span class="label-optional">(opcional)</span><input type="tel" name="telefono" autocomplete="tel" placeholder="Por si el transportista necesita avisarte"></label>
         <p class="auth-error" id="checkoutError" role="alert" hidden>No se ha podido registrar tu pedido. Comprueba tu conexión e inténtalo de nuevo; si el problema continúa, escríbenos a libreriamayortesoro@gmail.com.</p>
-        <button type="submit" class="btn btn--primary btn--block">Ir a pagar</button>
+        <button type="submit" class="btn btn--primary btn--block">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Ir a pagar
+        </button>
         <p class="checkout-note">Pago seguro con tarjeta o Bizum a través de Stripe. Se te redirigirá a una página de pago segura y volverás aquí en cuanto termines.</p>
       </form>
     </section>

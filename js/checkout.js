@@ -61,6 +61,24 @@
     });
   }
 
+  // Traduce el error que devuelve Firebase a un mensaje que el cliente
+  // entienda. "internal"/"unavailable" suele ser un problema temporal de
+  // conexión o del servidor; el resto son casos concretos (carrito vacío,
+  // datos incorrectos, sesión caducada...) que conviene explicar tal cual.
+  function mensajeErrorPedido(err) {
+    var codigo = err && err.code;
+    if (codigo === 'unauthenticated') {
+      return 'Tu sesión ha caducado. Vuelve a iniciar sesión e inténtalo de nuevo.';
+    }
+    if (codigo === 'invalid-argument' && err.message) {
+      return err.message;
+    }
+    if (codigo === 'internal' || codigo === 'unavailable' || codigo === 'deadline-exceeded') {
+      return 'No se ha podido registrar tu pedido. Comprueba tu conexión e inténtalo de nuevo; si el problema continúa, escríbenos a libreriamayortesoro@gmail.com.';
+    }
+    return (err && err.message) || 'No se ha podido registrar tu pedido. Inténtalo de nuevo o escríbenos a libreriamayortesoro@gmail.com.';
+  }
+
   if (shippingForm) {
     shippingForm.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -109,7 +127,11 @@
         })
         .catch(function (err) {
           console.error('Error al preparar el pago', err);
-          if (checkoutErrorEl) checkoutErrorEl.hidden = false;
+          if (checkoutErrorEl) {
+            checkoutErrorEl.textContent = mensajeErrorPedido(err);
+            checkoutErrorEl.hidden = false;
+            checkoutErrorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
           submitBtn.disabled = false;
           submitBtn.textContent = textoOriginal;
         });

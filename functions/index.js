@@ -441,6 +441,12 @@ function textoValido(v, max) {
   return typeof v === "string" && v.trim().length > 0 && v.trim().length <= max;
 }
 
+// Para campos opcionales (como el teléfono): vale que venga vacío, pero si
+// se manda algo, tiene que ser texto y no pasarse del máximo.
+function textoValidoOpcional(v, max) {
+  return typeof v === "string" && v.trim().length <= max;
+}
+
 exports.crearPedido = onCall(async (request) => {
   const auth = request.auth;
   if (!auth) {
@@ -462,7 +468,7 @@ exports.crearPedido = onCall(async (request) => {
     !textoValido(envio.direccion, 200) ||
     !textoValido(envio.ciudad, 120) ||
     !textoValido(envio.cp, 20) ||
-    !textoValido(envio.telefono, 40)
+    !textoValidoOpcional(envio.telefono, 40)
   ) {
     throw new HttpsError("invalid-argument", "Faltan datos de envío, o son demasiado largos.");
   }
