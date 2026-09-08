@@ -863,8 +863,6 @@ h1, h2, h3, h4 {
   color: oklch(0.97 0.015 85 / 0.75);
 }
 .footer-contact svg { flex-shrink: 0; margin-top: 2px; color: var(--gold); }
-.footer-tel-link { color: inherit; text-decoration: none; }
-.footer-tel-link:hover, .footer-tel-link:focus-visible { color: var(--gold); text-decoration: underline; }
 
 .footer-bottom {
   border-top: 1px solid oklch(1 0 0 / 0.1);
@@ -1043,13 +1041,6 @@ h1, h2, h3, h4 {
   border: 1px dashed var(--border);
   border-radius: var(--radius-lg);
 }
-.empty-results-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin-top: 18px;
-}
 
 .pagination {
   display: flex;
@@ -1211,32 +1202,20 @@ body.no-scroll { overflow: hidden; }
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 28px;
-  box-shadow: var(--shadow-card);
+  padding: 26px;
 }
-.checkout-shipping h2 { font-size: 1.1rem; margin-bottom: 4px; color: var(--navy); }
-.checkout-shipping-sub { font-size: 0.85rem; color: var(--muted-foreground); margin-bottom: 20px; }
+.checkout-shipping h2 { font-size: 1.1rem; margin-bottom: 16px; }
 .shipping-form { display: flex; flex-direction: column; gap: 14px; }
-.shipping-form label { display: flex; flex-direction: column; gap: 6px; font-size: 0.83rem; font-weight: 600; color: var(--foreground); }
-.label-optional { font-weight: 400; color: var(--muted-foreground); text-transform: none; }
+.shipping-form label { display: flex; flex-direction: column; gap: 6px; font-size: 0.83rem; font-weight: 600; }
 .shipping-form input {
   font: inherit;
   padding: 11px 13px;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background: var(--background);
-  color: var(--foreground);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
-}
-.shipping-form input::placeholder { color: var(--muted-foreground); font-weight: 400; }
-.shipping-form input:focus-visible {
-  outline: none;
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px oklch(0.64 0.10 78 / 0.18);
 }
 .shipping-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.checkout-note { font-size: 0.78rem; color: var(--muted-foreground); margin-top: 2px; text-align: center; }
-.shipping-form button[type="submit"] { margin-top: 4px; }
+.checkout-note { font-size: 0.78rem; color: var(--muted-foreground); margin-top: 2px; }
 
 .order-confirmation {
   margin-top: 30px;
@@ -1247,7 +1226,6 @@ body.no-scroll { overflow: hidden; }
   border-radius: var(--radius-lg);
   padding: 40px 30px;
   color: var(--navy);
-  box-shadow: var(--shadow-card);
 }
 .order-confirmation svg { color: var(--gold); margin-bottom: 14px; }
 .order-confirmation h2 { font-size: 1.3rem; margin-bottom: 10px; }
@@ -1736,8 +1714,8 @@ h2.cart-title,
 .product-trust li { display: flex; align-items: center; gap: 10px; font-size: 0.86rem; color: var(--muted-foreground); }
 .product-trust svg { flex-shrink: 0; color: var(--gold); }
 
-.product-tabs { border-top: 1px solid var(--border); padding-top: 20px; }
-.tab-buttons { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.product-tabs { border-top: 1px solid var(--border); padding-top: 24px; }
+.tab-buttons { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 22px; }
 .tab-btn {
   background: none; border: 1px solid var(--border); border-radius: 999px;
   padding: 8px 16px; font-size: 0.86rem; font-weight: 600; color: var(--muted-foreground);
@@ -1745,8 +1723,10 @@ h2.cart-title,
 }
 .tab-btn:hover { border-color: var(--gold); color: var(--navy); }
 .tab-btn.is-active { background: var(--navy); border-color: var(--navy); color: var(--parchment); }
-.tab-panel { display: none; line-height: 1.65; color: var(--foreground); }
+.tab-panel { display: none; font-size: 1rem; line-height: 1.8; color: var(--foreground); max-width: 640px; }
 .tab-panel.is-active { display: block; }
+.tab-panel p { margin: 0 0 14px; }
+.tab-panel p:last-child { margin-bottom: 0; }
 
 .spec-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0; }
 .spec-list li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
