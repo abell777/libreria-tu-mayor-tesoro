@@ -89,18 +89,43 @@
       if (items.length === 0) return;
 
       var fd = new FormData(shippingForm);
+      // .trim() aquí: si algún campo llega con solo espacios (o con
+      // espacios de más al principio/final por el autocompletado del
+      // navegador), que no cuente como "vacío" de forma silenciosa en el
+      // servidor. Así lo que ve el cliente y lo que valida el servidor
+      // coincide siempre.
       var envio = {
-        nombre: fd.get('nombre'),
-        direccion: fd.get('direccion'),
-        ciudad: fd.get('ciudad'),
-        cp: fd.get('cp'),
-        telefono: fd.get('telefono')
+        nombre: (fd.get('nombre') || '').trim(),
+        direccion: (fd.get('direccion') || '').trim(),
+        ciudad: (fd.get('ciudad') || '').trim(),
+        cp: (fd.get('cp') || '').trim(),
+        telefono: (fd.get('telefono') || '').trim()
       };
 
       var submitBtn = shippingForm.querySelector('button[type="submit"]');
       var textoOriginal = submitBtn.textContent;
       var checkoutErrorEl = document.getElementById('checkoutError');
       if (checkoutErrorEl) checkoutErrorEl.hidden = true;
+
+      // Comprobación rápida en el propio navegador, ANTES de llamar al
+      // servidor: así, si falta algo, se ve al instante y no hace falta
+      // esperar una ida y vuelta al servidor para saberlo.
+      var camposObligatorios = [
+        ['nombre', 'el nombre y apellidos'],
+        ['direccion', 'la dirección'],
+        ['ciudad', 'la ciudad'],
+        ['cp', 'el código postal']
+      ];
+      var campoVacio = camposObligatorios.filter(function (c) { return !envio[c[0]]; })[0];
+      if (campoVacio) {
+        if (checkoutErrorEl) {
+          checkoutErrorEl.textContent = 'Falta ' + campoVacio[1] + '.';
+          checkoutErrorEl.hidden = false;
+          checkoutErrorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
+
       submitBtn.disabled = true;
       submitBtn.textContent = 'Procesando…';
 
