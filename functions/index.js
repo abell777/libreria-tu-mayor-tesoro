@@ -754,6 +754,21 @@ function textoValidoOpcional(v, max) {
 }
 
 exports.crearPedido = onCall(async (request) => {
+  try {
+    return await crearPedidoInterno(request);
+  } catch (err) {
+    // Si ya es un HttpsError (carrito vacío, datos de envío mal, etc.) lo
+    // dejamos pasar tal cual, con su mensaje pensado para el cliente.
+    if (err instanceof HttpsError) throw err;
+    // Cualquier otro fallo (Firestore, Admin Auth, un bug...) se registra
+    // aquí COMPLETO — así aparece en Firebase Console → Functions →
+    // crearPedido → Registros, en vez de quedarse como un "INTERNAL" mudo.
+    console.error("crearPedido: fallo inesperado", err);
+    throw new HttpsError("internal", "No se ha podido registrar el pedido. Vuelve a intentarlo o escríbenos.");
+  }
+});
+
+async function crearPedidoInterno(request) {
   const auth = request.auth;
   if (!auth) {
     throw new HttpsError("unauthenticated", "Debes iniciar sesión para completar la compra.");
@@ -852,7 +867,7 @@ exports.crearPedido = onCall(async (request) => {
     clienteEmail: pedido.clienteEmail,
     envio: pedido.envio,
   };
-});
+}
 
 // ==========================================================================
 // "crearSesionPago" — a partir de un pedido ya creado (por "crearPedido"),
@@ -865,6 +880,16 @@ exports.crearPedido = onCall(async (request) => {
 // el navegador — así nadie puede manipular el precio a pagar.
 // ==========================================================================
 exports.crearSesionPago = onCall({ secrets: [STRIPE_SECRET_KEY] }, async (request) => {
+  try {
+    return await crearSesionPagoInterno(request);
+  } catch (err) {
+    if (err instanceof HttpsError) throw err;
+    console.error("crearSesionPago: fallo inesperado", err);
+    throw new HttpsError("internal", "No se ha podido abrir la pasarela de pago. Vuelve a intentarlo o escríbenos.");
+  }
+});
+
+async function crearSesionPagoInterno(request) {
   const auth = request.auth;
   if (!auth) {
     throw new HttpsError("unauthenticated", "Debes iniciar sesión para pagar.");
@@ -925,7 +950,7 @@ exports.crearSesionPago = onCall({ secrets: [STRIPE_SECRET_KEY] }, async (reques
   });
 
   return { url: session.url };
-});
+}
 
 // ==========================================================================
 // "stripeWebhook" — Stripe llama aquí cuando un pago se completa de verdad.
