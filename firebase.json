@@ -8,8 +8,6 @@
       ".firebaserc",
       "skills-lock.json",
       "README.md",
-      "package.json",
-      "package-lock.json",
       "functions/**",
       ".claude/**",
       ".agents/**",
@@ -40,7 +38,7 @@
         "headers": [
           {
             "key": "Content-Security-Policy-Report-Only",
-            "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://cdn.jsdelivr.net https://www.googletagmanager.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://*.cloudfunctions.net https://*.a.run.app https://www.googleapis.com https://api.emailjs.com https://www.google-analytics.com https://www.googletagmanager.com https://apis.google.com; frame-src https://libreria-tu-mayor-tesoro.firebaseapp.com https://accounts.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
+            "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://cdn.jsdelivr.net https://www.googletagmanager.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://*.cloudfunctions.net https://*.a.run.app https://www.googleapis.com https://api.emailjs.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://apis.google.com; frame-src https://libreria-tu-mayor-tesoro.firebaseapp.com https://accounts.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
           }
         ]
       }
@@ -56,7 +54,7 @@
     ]
   },
   "firestore": {
-    "database": "(default)",
+    "database": "default",
     "location": "eur3",
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
