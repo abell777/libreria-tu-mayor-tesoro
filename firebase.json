@@ -8,6 +8,8 @@
       ".firebaserc",
       "skills-lock.json",
       "README.md",
+      "package.json",
+      "package-lock.json",
       "functions/**",
       ".claude/**",
       ".agents/**",

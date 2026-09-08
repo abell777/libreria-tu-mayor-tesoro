@@ -191,16 +191,18 @@
     sorted.forEach(function (card) { grid.appendChild(card); });
   }
 
+  function clearAllFilters() {
+    checkboxes.forEach(function (cb) { cb.checked = false; });
+    if (searchInput) searchInput.value = '';
+    applyFilters();
+  }
+
   checkboxes.forEach(function (cb) { cb.addEventListener('change', applyFilters); });
   if (sortSelect) sortSelect.addEventListener('change', applySort);
   if (searchInput) searchInput.addEventListener('input', applyFilters);
-  if (clearBtn) {
-    clearBtn.addEventListener('click', function () {
-      checkboxes.forEach(function (cb) { cb.checked = false; });
-      if (searchInput) searchInput.value = '';
-      applyFilters();
-    });
-  }
+  if (clearBtn) clearBtn.addEventListener('click', clearAllFilters);
+  var emptyResultsClearBtn = document.getElementById('emptyResultsClear');
+  if (emptyResultsClearBtn) emptyResultsClearBtn.addEventListener('click', clearAllFilters);
 
   if (filterToggle && filters) {
     filterToggle.addEventListener('click', function () {

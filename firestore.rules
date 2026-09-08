@@ -100,6 +100,20 @@ service cloud.firestore {
       allow delete: if isSignedIn() && resource.data.uid == request.auth.uid;
     }
 
+    // ---- newsletter/{docId} — altas del formulario del footer ------------
+    // No estaba cubierta por las reglas anteriores: sin esta entrada,
+    // Firestore la deniega por defecto y el formulario "Avísame" del pie de
+    // página falla siempre con "No se ha podido guardar" (js/main.js).
+    // Cualquier visitante puede darse de alta (no requiere sesión), pero
+    // nadie puede leer, editar ni borrar la lista desde el navegador — para
+    // consultarla o exportarla, usa la consola de Firebase (Firestore).
+    match /newsletter/{docId} {
+      allow create: if isReasonableString(request.resource.data.email, 200) &&
+        request.resource.data.keys().hasOnly(['email', 'createdAt']) &&
+        request.resource.data.createdAt == request.time;
+      allow read, update, delete: if false;
+    }
+
     // ---- deseos/{uid} — lista de deseos (1 documento por usuario) --------
     // No estaba cubierta por las reglas anteriores: sin esta entrada,
     // Firestore la deniega por defecto y la lista de deseos no funciona
