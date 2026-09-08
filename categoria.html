@@ -158,6 +158,17 @@
         <div class="shop-toolbar">
           <div class="active-filters" id="activeFilters" hidden></div>
           <div class="shop-sort">
+            <label for="perPageSelect">Ver</label>
+            <select id="perPageSelect">
+              <option value="10">10 por página</option>
+              <option value="20" selected>20 por página</option>
+              <option value="40">40 por página</option>
+              <option value="60">60 por página</option>
+              <option value="80">80 por página</option>
+              <option value="100">100 por página</option>
+            </select>
+          </div>
+          <div class="shop-sort">
             <label for="sortSelect">Ordenar por</label>
             <select id="sortSelect">
               <option value="relevance">Relevancia</option>
@@ -180,10 +191,8 @@
         <!-- shop.js rellena este grid con el catálogo de js/books-data.js -->
         </div>  
 
-        <nav class="pagination" aria-label="Paginación">
-          <a href="#" class="page-link is-disabled" aria-disabled="true">‹ Anterior</a>
-          <a href="#" class="page-link is-active">1</a>
-          <a href="#" class="page-link is-disabled" aria-disabled="true">Siguiente ›</a>
+        <nav class="pagination" id="pagination" aria-label="Paginación">
+          <!-- shop.js genera aquí los enlaces de página según el nº de resultados y el "por página" elegido -->
         </nav>
       </div>
     </div>

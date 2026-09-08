@@ -1,8 +1,7 @@
 // ==========================================================================
 // Página de listado/categoría: pinta el catálogo desde window.BOOKS y
-// aplica filtros, orden, chips activos y buscador sobre TODO el catálogo
-// (antes solo se filtraban los 4 libros que estuvieran escritos a mano en
-// este HTML). Solo se ejecuta si existe el grid de resultados (#bookGrid).
+// aplica filtros, orden, chips activos, buscador y PAGINACIÓN sobre TODO
+// el catálogo. Solo se ejecuta si existe el grid de resultados (#bookGrid).
 // ==========================================================================
 (function () {
   var grid = document.getElementById('bookGrid');
@@ -16,6 +15,9 @@
     devocionales: 'Devocionales',
     infantil: 'Infantil y juvenil'
   };
+
+  var PER_PAGE_STORAGE_KEY = 'fundamento_per_page';
+  var DEFAULT_PAGE_SIZE = 20;
 
   function fmtPrice(n) {
     return n.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -71,6 +73,7 @@
   var cards = Array.prototype.slice.call(grid.querySelectorAll('.book-card'));
   var checkboxes = Array.prototype.slice.call(document.querySelectorAll('.shop-filters input[type="checkbox"]'));
   var sortSelect = document.getElementById('sortSelect');
+  var perPageSelect = document.getElementById('perPageSelect');
   var resultsCount = document.getElementById('resultsCount');
   var emptyResults = document.getElementById('emptyResults');
   var activeFiltersWrap = document.getElementById('activeFilters');
@@ -81,6 +84,25 @@
   var shopTitle = document.querySelector('[data-shop-title]');
   var breadcrumbCurrent = document.querySelector('[data-breadcrumb-current]');
   var searchInput = document.querySelector('.search-form input[name="q"]');
+  var paginationNav = document.getElementById('pagination');
+
+  var currentPage = 1;
+
+  function readStoredPageSize() {
+    try {
+      var stored = parseInt(localStorage.getItem(PER_PAGE_STORAGE_KEY), 10);
+      if ([10, 20, 40, 60, 80, 100].indexOf(stored) !== -1) return stored;
+    } catch (e) {}
+    return DEFAULT_PAGE_SIZE;
+  }
+
+  if (perPageSelect) {
+    perPageSelect.value = String(readStoredPageSize());
+  }
+
+  function pageSize() {
+    return perPageSelect ? parseInt(perPageSelect.value, 10) || DEFAULT_PAGE_SIZE : DEFAULT_PAGE_SIZE;
+  }
 
   function groupedChecks() {
     var groups = {};
@@ -97,12 +119,23 @@
     return price >= parts[0] && price <= parts[1];
   }
 
-  function applyFilters() {
+  // Texto de título + autor + categoría de una tarjeta, en minúsculas, para buscar por coincidencia simple.
+  function cardText(card) {
+    var titleEl = card.querySelector('.book-title');
+    var authorEl = card.querySelector('.book-author');
+    var catEl = card.querySelector('.book-category');
+    return [
+      titleEl ? titleEl.textContent : '',
+      authorEl ? authorEl.textContent : '',
+      catEl ? catEl.textContent : ''
+    ].join(' ').toLowerCase();
+  }
+
+  function getMatches() {
     var groups = groupedChecks();
-    var visibleCount = 0;
     var query = (searchInput && searchInput.value ? searchInput.value : '').trim().toLowerCase();
 
-    cards.forEach(function (card) {
+    return cards.filter(function (card) {
       var cat = card.dataset.category;
       var price = parseFloat(card.dataset.price);
       var format = card.dataset.format;
@@ -114,30 +147,23 @@
       var matchAuthor = !groups.author || groups.author.indexOf(author) !== -1;
       var matchQuery = !query || cardText(card).indexOf(query) !== -1;
 
-      var visible = matchCategory && matchPrice && matchFormat && matchAuthor && matchQuery;
-      card.hidden = !visible;
-      if (visible) visibleCount++;
+      return matchCategory && matchPrice && matchFormat && matchAuthor && matchQuery;
     });
-
-    if (resultsCount) {
-      resultsCount.textContent = visibleCount + (visibleCount === 1 ? ' resultado' : ' resultados');
-    }
-    if (emptyResults) emptyResults.hidden = visibleCount !== 0;
-
-    renderActiveChips();
-    updateTitle(groups.category, query);
   }
 
-  // Texto de título + autor + categoría de una tarjeta, en minúsculas, para buscar por coincidencia simple.
-  function cardText(card) {
-    var titleEl = card.querySelector('.book-title');
-    var authorEl = card.querySelector('.book-author');
-    var catEl = card.querySelector('.book-category');
-    return [
-      titleEl ? titleEl.textContent : '',
-      authorEl ? authorEl.textContent : '',
-      catEl ? catEl.textContent : ''
-    ].join(' ').toLowerCase();
+  function sortMatches(matches) {
+    var value = sortSelect ? sortSelect.value : 'relevance';
+    if (value === 'relevance') return matches;
+    return matches.slice().sort(function (a, b) {
+      if (value === 'price-asc') return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+      if (value === 'price-desc') return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+      if (value === 'title-asc') {
+        var ta = a.querySelector('.book-title').textContent.trim();
+        var tb = b.querySelector('.book-title').textContent.trim();
+        return ta.localeCompare(tb, 'es');
+      }
+      return 0;
+    });
   }
 
   function renderActiveChips() {
@@ -153,7 +179,8 @@
       chip.innerHTML = cb.nextElementSibling.textContent + ' <span aria-hidden="true">×</span>';
       chip.addEventListener('click', function () {
         cb.checked = false;
-        applyFilters();
+        currentPage = 1;
+        render();
       });
       activeFiltersWrap.appendChild(chip);
     });
@@ -175,32 +202,119 @@
     }
   }
 
-  function applySort() {
-    var value = sortSelect ? sortSelect.value : 'relevance';
-    if (value === 'relevance') return;
-    var sorted = cards.slice().sort(function (a, b) {
-      if (value === 'price-asc') return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
-      if (value === 'price-desc') return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
-      if (value === 'title-asc') {
-        var ta = a.querySelector('.book-title').textContent.trim();
-        var tb = b.querySelector('.book-title').textContent.trim();
-        return ta.localeCompare(tb, 'es');
+  // ---- Paginación --------------------------------------------------------
+  function renderPagination(totalItems, totalPages) {
+    if (!paginationNav) return;
+    paginationNav.innerHTML = '';
+    if (totalPages <= 1) return;
+
+    function makeLink(label, page, opts) {
+      opts = opts || {};
+      var a = document.createElement('a');
+      a.href = '#';
+      a.className = 'page-link' + (opts.active ? ' is-active' : '') + (opts.disabled ? ' is-disabled' : '');
+      if (opts.disabled) a.setAttribute('aria-disabled', 'true');
+      if (opts.active) a.setAttribute('aria-current', 'page');
+      a.textContent = label;
+      if (!opts.disabled) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          currentPage = page;
+          render();
+          var shopResults = document.querySelector('.shop-results');
+          if (shopResults) shopResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
       }
-      return 0;
+      return a;
+    }
+
+    paginationNav.appendChild(makeLink('‹ Anterior', currentPage - 1, { disabled: currentPage === 1 }));
+
+    // Números de página: si son muchas, se muestran los extremos + un
+    // rango alrededor de la página actual, con "…" para el resto.
+    var pagesToShow = [];
+    var windowSize = 2;
+    for (var p = 1; p <= totalPages; p++) {
+      if (p === 1 || p === totalPages || (p >= currentPage - windowSize && p <= currentPage + windowSize)) {
+        pagesToShow.push(p);
+      }
+    }
+
+    var lastShown = 0;
+    pagesToShow.forEach(function (p) {
+      if (lastShown && p - lastShown > 1) {
+        var ellipsis = document.createElement('span');
+        ellipsis.className = 'page-link is-disabled';
+        ellipsis.textContent = '…';
+        paginationNav.appendChild(ellipsis);
+      }
+      paginationNav.appendChild(makeLink(String(p), p, { active: p === currentPage }));
+      lastShown = p;
     });
-    sorted.forEach(function (card) { grid.appendChild(card); });
+
+    paginationNav.appendChild(makeLink('Siguiente ›', currentPage + 1, { disabled: currentPage === totalPages }));
+  }
+
+  // ---- Render principal: filtra, ordena, pagina y pinta ------------------
+  function render() {
+    var groups = groupedChecks();
+    var query = (searchInput && searchInput.value ? searchInput.value : '').trim().toLowerCase();
+
+    var matches = getMatches();
+    matches = sortMatches(matches);
+
+    var size = pageSize();
+    var totalItems = matches.length;
+    var totalPages = Math.max(1, Math.ceil(totalItems / size));
+    if (currentPage > totalPages) currentPage = totalPages;
+    if (currentPage < 1) currentPage = 1;
+
+    var start = (currentPage - 1) * size;
+    var pageItems = matches.slice(start, start + size);
+    var pageIdSet = {};
+    pageItems.forEach(function (card) { pageIdSet[card.dataset.productId] = true; });
+
+    // Oculta todo, muestra solo lo de esta página, y las reordena en el
+    // DOM según el orden ya calculado (relevancia u orden elegido).
+    cards.forEach(function (card) { card.hidden = !pageIdSet[card.dataset.productId]; });
+    pageItems.forEach(function (card) { grid.appendChild(card); });
+
+    if (resultsCount) {
+      if (totalItems === 0) {
+        resultsCount.textContent = '0 resultados';
+      } else {
+        var desde = start + 1;
+        var hasta = Math.min(start + size, totalItems);
+        resultsCount.textContent = totalItems === 1
+          ? '1 resultado'
+          : (desde + '–' + hasta + ' de ' + totalItems + ' resultados');
+      }
+    }
+    if (emptyResults) emptyResults.hidden = totalItems !== 0;
+
+    renderActiveChips();
+    updateTitle(groups.category, query);
+    renderPagination(totalItems, totalPages);
   }
 
   function clearAllFilters() {
     checkboxes.forEach(function (cb) { cb.checked = false; });
     if (searchInput) searchInput.value = '';
-    applyFilters();
+    currentPage = 1;
+    render();
   }
 
-  checkboxes.forEach(function (cb) { cb.addEventListener('change', applyFilters); });
-  if (sortSelect) sortSelect.addEventListener('change', applySort);
-  if (searchInput) searchInput.addEventListener('input', applyFilters);
+  checkboxes.forEach(function (cb) { cb.addEventListener('change', function () { currentPage = 1; render(); }); });
+  if (sortSelect) sortSelect.addEventListener('change', function () { currentPage = 1; render(); });
+  if (searchInput) searchInput.addEventListener('input', function () { currentPage = 1; render(); });
   if (clearBtn) clearBtn.addEventListener('click', clearAllFilters);
+  if (perPageSelect) {
+    perPageSelect.addEventListener('change', function () {
+      currentPage = 1;
+      try { localStorage.setItem(PER_PAGE_STORAGE_KEY, perPageSelect.value); } catch (e) {}
+      render();
+    });
+  }
   var emptyResultsClearBtn = document.getElementById('emptyResultsClear');
   if (emptyResultsClearBtn) emptyResultsClearBtn.addEventListener('click', clearAllFilters);
 
@@ -231,5 +345,5 @@
     searchInput.value = qParam;
   }
 
-  applyFilters();
+  render();
 })();
