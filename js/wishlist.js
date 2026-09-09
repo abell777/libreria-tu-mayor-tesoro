@@ -27,14 +27,30 @@ window.Wishlist = (function () {
   }
 
   function loadFromFirestore(uid) {
-    if (!window.fbDb) return Promise.resolve([]);
+    if (!window.fbDb) {
+      // Si la base de datos no está instanciada aún, reintentar en 100ms
+      setTimeout(function () {
+        if (currentUser && currentUser.uid === uid) {
+          loadFromFirestore(uid);
+        }
+      }, 100);
+      return Promise.resolve([]);
+    }
+
     loadError = null;
     return window.fbDb.collection(COLLECTION).doc(uid).get().then(function (doc) {
-      ids = (doc.exists && doc.data().items) || [];
+      ids = (doc.exists && doc.data() && doc.data().items) || [];
       ready = true;
       notify();
       return ids;
     }).catch(function (err) {
+      // Si el error es por permisos insuficientes al desloguearse durante la carga
+      if (err && err.code === 'permission-denied' && !currentUser) {
+        ids = [];
+        ready = true;
+        notify();
+        return;
+      }
       console.error('Error al cargar la lista de deseos', err);
       loadError = (err && err.code) || 'error';
       ready = true;
@@ -49,10 +65,13 @@ window.Wishlist = (function () {
       }
       return Promise.resolve();
     }
+    if (!window.fbDb) return Promise.resolve();
+
     var previous = ids.slice();
     var isActive = ids.indexOf(id) !== -1;
     ids = isActive ? ids.filter(function (i) { return i !== id; }) : ids.concat([id]);
     notify(); // actualización optimista
+
     return window.fbDb.collection(COLLECTION).doc(currentUser.uid)
       .set({ items: ids }, { merge: true })
       .catch(function (err) {
@@ -71,7 +90,10 @@ window.Wishlist = (function () {
   });
 
   function init() {
-    if (typeof firebase === 'undefined' || !window.fbAuth) { setTimeout(init, 60); return; }
+    if (typeof firebase === 'undefined' || !window.fbAuth) {
+      setTimeout(init, 60);
+      return;
+    }
     window.fbAuth.onAuthStateChanged(function (user) {
       currentUser = user;
       if (user) {
@@ -79,11 +101,18 @@ window.Wishlist = (function () {
       } else {
         ids = [];
         ready = true;
+        loadError = null;
         notify();
       }
     });
   }
-  init();
+
+  // Asegurar que la inicialización comience tras cargar el DOM
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 
   return {
     has: function (id) { return ids.indexOf(id) !== -1; },
