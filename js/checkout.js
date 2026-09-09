@@ -56,8 +56,37 @@
       shippingForm.elements.ciudad.value = elegida.ciudad || '';
       shippingForm.elements.cp.value = elegida.cp || '';
       shippingForm.elements.telefono.value = elegida.telefono || '';
+      if (shippingForm.elements.addressId) shippingForm.elements.addressId.value = elegida.id || '';
     }).catch(function (err) {
       console.error('Error al precargar la dirección guardada', err);
+    });
+  }
+
+  // Guarda (o actualiza, si ya venía de una dirección precargada) la
+  // dirección de envío en el panel de cuenta del cliente, para que la
+  // próxima vez no tenga que volver a escribirla. No bloquea el pago si
+  // falla: es una comodidad, no un requisito para completar la compra.
+  function guardarDireccionSiProcede(user, envio, addressId) {
+    if (!window.fbDb) return Promise.resolve();
+    return window.fbDb.collection('usuarios').doc(user.uid).get().then(function (doc) {
+      var direcciones = (doc.exists && doc.data().direcciones) || [];
+      var existente = addressId && direcciones.filter(function (d) { return d.id === addressId; })[0];
+      var nueva = {
+        id: addressId || (Date.now().toString(36) + Math.random().toString(36).slice(2, 6)),
+        etiqueta: (existente && existente.etiqueta) || 'Dirección de envío',
+        nombre: envio.nombre,
+        direccion: envio.direccion,
+        ciudad: envio.ciudad,
+        cp: envio.cp,
+        telefono: envio.telefono,
+        predeterminada: true
+      };
+      var siguientes = direcciones.filter(function (d) { return d.id !== nueva.id; });
+      siguientes.forEach(function (d) { d.predeterminada = false; });
+      siguientes.push(nueva);
+      return window.fbDb.collection('usuarios').doc(user.uid).set({ direcciones: siguientes }, { merge: true });
+    }).catch(function (err) {
+      console.error('No se pudo guardar la dirección para la próxima compra', err);
     });
   }
 
@@ -96,6 +125,9 @@
         cp: fd.get('cp'),
         telefono: fd.get('telefono')
       };
+      var guardarDireccion = fd.get('guardarDireccion') === 'on';
+      var addressIdActual = fd.get('addressId') || '';
+      if (guardarDireccion) guardarDireccionSiProcede(user, envio, addressIdActual);
 
       var submitBtn = shippingForm.querySelector('button[type="submit"]');
       var textoOriginal = submitBtn.textContent;

@@ -87,26 +87,33 @@
   document.addEventListener('DOMContentLoaded', function () {
     var authTabs = document.querySelectorAll('.auth-tab');
     var authForms = document.querySelectorAll('.auth-card .auth-form');
+    var authTabsBar = document.querySelector('.auth-tabs');
+
+    function mostrarPanel(targetPanel) {
+      authTabs.forEach(function (t) {
+        t.classList.toggle('is-active', t.getAttribute('data-auth-tab') === targetPanel);
+      });
+      authForms.forEach(function (form) {
+        form.hidden = form.getAttribute('data-panel') !== targetPanel;
+      });
+      // Al entrar en "Crear cuenta" quitamos las pestañas del todo: solo queda
+      // el formulario de registro con un enlace pequeño para volver a iniciar
+      // sesión, en vez de dejar la pestaña "Iniciar sesión" siempre a la vista.
+      if (authTabsBar) authTabsBar.hidden = targetPanel === 'register';
+    }
 
     if (authTabs.length > 0) {
       authTabs.forEach(function (tab) {
         tab.addEventListener('click', function () {
-          var targetPanel = tab.getAttribute('data-auth-tab');
-
-          // Cambiar clase activa en los botones
-          authTabs.forEach(function (t) { t.classList.remove('is-active'); });
-          tab.classList.add('is-active');
-
-          // Mostrar/Ocultar el formulario correspondiente
-          authForms.forEach(function (form) {
-            if (form.getAttribute('data-panel') === targetPanel) {
-              form.hidden = false;
-            } else {
-              form.hidden = true;
-            }
-          });
+          mostrarPanel(tab.getAttribute('data-auth-tab'));
         });
       });
     }
+
+    document.querySelectorAll('[data-auth-switch]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mostrarPanel(link.getAttribute('data-auth-switch'));
+      });
+    });
   });
 })();

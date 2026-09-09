@@ -1174,6 +1174,10 @@ body.no-scroll { overflow: hidden; }
 .auth-forgot-link { display: block; background: none; border: none; padding: 0; margin: -6px 0 14px; font-size: 0.83rem; color: var(--muted-foreground); text-decoration: underline; cursor: pointer; text-align: left; }
 .auth-forgot-link:hover { color: var(--foreground); }
 
+.auth-switch { text-align: center; font-size: 0.85rem; color: var(--muted-foreground); margin-top: 14px; }
+.auth-switch-link { background: none; border: none; padding: 0; margin: 0; font: inherit; font-weight: 700; color: var(--navy); text-decoration: underline; cursor: pointer; }
+.auth-switch-link:hover { color: var(--gold); }
+
 .auth-divider { display: flex; align-items: center; gap: 12px; margin: 20px 0 16px; color: var(--muted-foreground); font-size: 0.8rem; }
 .auth-divider::before, .auth-divider::after { content: ""; flex: 1; height: 1px; background: var(--border); }
 
@@ -1429,30 +1433,14 @@ body.no-scroll { overflow: hidden; }
    Rediseño moderno para la página del Carrito
    ========================================================================== */
 
-.cart-page,
-main > .container,
-.cart-container {
+.cart-page {
   display: block;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem 4rem 1.5rem;
 }
 
-.cart-page h1,
-.cart-page > h2:first-child,
-h2.cart-title,
-.cart-container > h2:first-child {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--navy, #111827);
-  margin-bottom: 1.5rem;
-  width: 100%;
-}
-
-.cart-layout,
-.cart-grid,
-.cart-page form,
-#cartList {
+.cart-layout {
   display: grid;
   grid-template-columns: 1fr 380px;
   gap: 2.5rem;
@@ -1657,13 +1645,7 @@ h2.cart-title,
 }
 
 @media (max-width: 900px) {
-  .cart-layout,
-  .cart-grid,
-  .cart-page form,
-  #cartList,
-  .cart-page,
-  main > .container,
-  .cart-container {
+  .cart-layout {
     grid-template-columns: 1fr;
   }
 }
