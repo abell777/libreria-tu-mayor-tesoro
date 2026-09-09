@@ -827,14 +827,56 @@ exports.crearPedido = onCall(async (request) => {
 });
 
 // ==========================================================================
+// "crearIntentPago" — crea un PaymentIntent en Stripe para procesar
+// el cobro nativo dentro de la propia web mediante Stripe Elements.
+// ==========================================================================
+exports.crearIntentPago = onCall({ secrets: [STRIPE_SECRET_KEY] }, async (request) => {
+  const auth = request.auth;
+  if (!auth) {
+    throw new HttpsError("unauthenticated", "Debes iniciar sesión para pagar.");
+  }
+
+  const pedidoId = request.data && request.data.pedidoId;
+  if (!pedidoId || typeof pedidoId !== "string") {
+    throw new HttpsError("invalid-argument", "Falta el identificador del pedido.");
+  }
+
+  const ref = db.collection("pedidos").doc(pedidoId);
+  const snap = await ref.get();
+  if (!snap.exists) {
+    throw new HttpsError("not-found", "Ese pedido no existe.");
+  }
+  const pedido = snap.data();
+
+  if (pedido.uid !== auth.uid) {
+    throw new HttpsError("permission-denied", "Este pedido no te pertenece.");
+  }
+  if (pedido.pagado) {
+    throw new HttpsError("failed-precondition", "Este pedido ya está pagado.");
+  }
+
+  const stripe = require("stripe")(STRIPE_SECRET_KEY.value().trim());
+
+  try {
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: Math.round(pedido.total * 100), // Importe en céntimos
+      currency: "eur",
+      receipt_email: pedido.clienteEmail || undefined,
+      metadata: { pedidoId: pedidoId },
+      automatic_payment_methods: { enabled: true },
+    });
+
+    return { clientSecret: paymentIntent.client_secret };
+  } catch (err) {
+    console.error("STRIPE ERROR al crear PaymentIntent:", err.type || "", err.message || err);
+    throw new HttpsError("internal", "No se pudo iniciar el proceso de pago seguro.");
+  }
+});
+
+// ==========================================================================
 // "crearSesionPago" — a partir de un pedido ya creado (por "crearPedido"),
-// abre una sesión de pago real en Stripe (tarjeta, Bizum, y lo que hayas
-// activado en el Dashboard de Stripe) y devuelve la URL a la que hay que
-// redirigir al cliente para pagar.
-//
-// El importe SIEMPRE se recalcula aquí a partir de lo guardado en Firestore
-// (que a su vez viene del catálogo de "crearPedido"), nunca de lo que mande
-// el navegador — así nadie puede manipular el precio a pagar.
+// abre una sesión de pago redireccionada en Stripe Checkout. Se conserva
+// por compatibilidad con métodos de pago externos si los necesitas.
 // ==========================================================================
 exports.crearSesionPago = onCall({ secrets: [STRIPE_SECRET_KEY] }, async (request) => {
   const auth = request.auth;
@@ -861,9 +903,6 @@ exports.crearSesionPago = onCall({ secrets: [STRIPE_SECRET_KEY] }, async (reques
     throw new HttpsError("failed-precondition", "Este pedido ya está pagado.");
   }
 
-  // .trim() por si el secreto se guardó con un espacio o salto de línea de
-  // más (muy fácil que pase al copiar/pegar) — un carácter así basta para
-  // que Stripe rechace la clave con un error de autenticación.
   const stripe = require("stripe")(STRIPE_SECRET_KEY.value().trim());
 
   const lineItems = (pedido.items || []).map(function (it) {
@@ -901,10 +940,6 @@ exports.crearSesionPago = onCall({ secrets: [STRIPE_SECRET_KEY] }, async (reques
       cancel_url: SITE_URL + "/carrito.html?pago=cancelado&pedido=" + encodeURIComponent(pedidoId),
     });
   } catch (err) {
-    // Antes este error se perdía y el cliente solo veía "500 internal".
-    // Ahora queda escrito claramente en los registros de "crearSesionPago"
-    // (busca "STRIPE ERROR" con severidad Error) con el motivo exacto que
-    // da Stripe, y el cliente recibe un mensaje algo más útil.
     console.error("STRIPE ERROR al crear la sesión de pago:", err.type || "", err.message || err);
     throw new HttpsError("internal", "Stripe no ha podido abrir el pago (" + (err.type || "error desconocido") + "). Revisa la clave de Stripe.");
   }
@@ -916,10 +951,6 @@ exports.crearSesionPago = onCall({ secrets: [STRIPE_SECRET_KEY] }, async (reques
 // "stripeWebhook" — Stripe llama aquí cuando un pago se completa de verdad.
 // Es la ÚNICA forma en que un pedido pasa a "pagado": nunca se fía de lo
 // que diga el navegador (el navegador podría "fingir" haber pagado).
-//
-// Hay que registrar esta URL en el Dashboard de Stripe (Desarrolladores →
-// Webhooks) después de desplegar, y guardar el "Signing secret" que Stripe
-// genera como STRIPE_WEBHOOK_SECRET con "firebase functions:secrets:set".
 // ==========================================================================
 exports.stripeWebhook = onRequest({ secrets: [STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET] }, async (req, res) => {
   const stripe = require("stripe")(STRIPE_SECRET_KEY.value());
@@ -933,15 +964,15 @@ exports.stripeWebhook = onRequest({ secrets: [STRIPE_SECRET_KEY, STRIPE_WEBHOOK_
     return;
   }
 
-  if (event.type === "checkout.session.completed") {
-    const session = event.data.object;
-    const pedidoId = session.metadata && session.metadata.pedidoId;
+  if (event.type === "checkout.session.completed" || event.type === "payment_intent.succeeded") {
+    const object = event.data.object;
+    const pedidoId = object.metadata && object.metadata.pedidoId;
     if (pedidoId) {
       try {
         await db.collection("pedidos").doc(pedidoId).update({
           pagado: true,
           pagoConfirmadoEn: admin.firestore.FieldValue.serverTimestamp(),
-          stripeSessionId: session.id,
+          stripePaymentId: object.id,
         });
       } catch (err) {
         console.error("No se pudo marcar el pedido " + pedidoId + " como pagado:", err);
@@ -953,28 +984,7 @@ exports.stripeWebhook = onRequest({ secrets: [STRIPE_SECRET_KEY, STRIPE_WEBHOOK_
 });
 
 // ==========================================================================
-// "productoMeta" — sirve la ficha de producto (URL pública /producto.html)
-//
-// La página real vive en el archivo estático "producto-app.html". Esta
-// función la lee, sustituye los bloques de metadatos (title, description,
-// og:*, twitter:*, canonical) por los datos reales del libro pedido en
-// ?id=, añade su JSON-LD (Product + BreadcrumbList) y devuelve el HTML ya
-// completo. Así, cuando alguien comparte un enlace de un libro por
-// WhatsApp, Facebook o Twitter, esas apps ven directamente el título, la
-// portada y el resumen del libro — no tienen que ejecutar JavaScript para
-// enterarse (cosa que la mayoría de esas apps no hace).
-//
-// El archivo firebase.json redirige internamente /producto.html hacia esta
-// función (ver "rewrites"), así que para el visitante la URL sigue siendo
-// siempre la misma: /producto.html?id=el-id-del-libro
-//
-// 👉 Si cambias el DISEÑO o la ESTRUCTURA de producto-app.html (añadir
-// secciones, cambiar el <head>, etc.), no hace falta tocar nada aquí: esta
-// función solo reemplaza el contenido de las etiquetas con id="..." que ya
-// existen, así que sigue funcionando igual. Solo tendrías que avisarme si
-// alguna vez cambias o quitas esos id (pageTitle, metaDescription,
-// canonicalLink, ogTitle, ogDescription, ogUrl, ogImage, twitterTitle,
-// twitterDescription, twitterImage).
+// "productoMeta" — sirve la ficha de producto con metadatos pre-renderizados
 // ==========================================================================
 function escapeHtml(str) {
   return String(str)
@@ -994,8 +1004,6 @@ exports.productoMeta = onRequest(async (req, res) => {
     if (!respuesta.ok) throw new Error("HTTP " + respuesta.status);
     html = await respuesta.text();
   } catch (err) {
-    // Si por lo que sea la plantilla no se puede leer, no dejamos a la
-    // persona colgada: la mandamos directa a la página real.
     res.redirect(302, "/producto-app.html" + (id ? "?id=" + encodeURIComponent(id) : ""));
     return;
   }
@@ -1050,8 +1058,6 @@ exports.productoMeta = onRequest(async (req, res) => {
   }
 
   res.set("Content-Type", "text/html; charset=UTF-8");
-  // Se cachea un rato: así, si un libro se comparte muchas veces seguidas,
-  // no hace falta volver a generar la página cada vez.
   res.set("Cache-Control", "public, max-age=600, s-maxage=3600");
   res.status(200).send(html);
 });
