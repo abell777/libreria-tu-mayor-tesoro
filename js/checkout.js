@@ -29,7 +29,7 @@
     if (!cardElementContainer) return;
 
     // Sustituye con tu Clave Publicable de Stripe (pk_live_... o pk_test_...)
-    stripe = Stripe('TU_STRIPE_PUBLIC_KEY');
+    stripe = Stripe('pk_test_51UADO2L8aFj5g4tzYon8DA5gIizvUtSPZq5y6NNiU7EIfccqmxEPET6KDxVTwfZ2dxTzmwmAJDGZ2G2Vzy8jSgAi002G7ZSP9f');
     elements = stripe.elements();
 
     var style = {
