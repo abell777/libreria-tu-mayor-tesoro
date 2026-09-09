@@ -117,6 +117,16 @@
     });
   }
 
+  // Con signInWithRedirect, un posible error de Google llega después de
+  // volver a esta página (ver auth.js), no en el momento del clic.
+  if (window.authGoogleRedirectError) {
+    mostrarError(document.getElementById('loginError'), window.authGoogleRedirectError);
+    window.authGoogleRedirectError = null;
+  }
+  window.onGoogleRedirectError = function (err) {
+    mostrarError(document.getElementById('loginError'), err);
+  };
+
   var logoutBtn = document.getElementById('logoutBtn');
   if (logoutBtn) {
     logoutBtn.addEventListener('click', function () {

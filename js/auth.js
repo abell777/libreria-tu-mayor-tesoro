@@ -30,7 +30,13 @@
     return auth.signInWithEmailAndPassword(email, password);
   };
   window.authGoogleLogin = function () {
-    return auth.signInWithPopup(googleProvider);
+    // signInWithPopup depende de cookies de terceros para comunicar la
+    // ventana emergente con la página; los navegadores actuales (Chrome,
+    // Safari) las bloquean cada vez más a menudo, lo que hace que la
+    // ventana se cierre sola sin completar el inicio de sesión.
+    // signInWithRedirect evita ese problema por completo: te lleva a
+    // Google en la misma pestaña y vuelve aquí ya con la sesión iniciada.
+    return auth.signInWithRedirect(googleProvider);
   };
   window.authLogout = function () {
     return auth.signOut();
@@ -38,6 +44,19 @@
   window.authResetPassword = function (email) {
     return auth.sendPasswordResetEmail(email);
   };
+
+  // Al volver de Google tras signInWithRedirect, Firebase ya deja la
+  // sesión iniciada por su cuenta (se refleja arriba en onAuthStateChanged);
+  // aquí solo capturamos un posible error para poder mostrarlo en pantalla.
+  // Como esto ocurre de forma asíncrona, guardamos el error en
+  // "window.authGoogleRedirectError" y avisamos por si cuenta.html ya
+  // registró "window.onGoogleRedirectError" para pintarlo con su propio
+  // mensaje traducido; si no, lo dejamos ahí para que lo compruebe al cargar.
+  auth.getRedirectResult().catch(function (err) {
+    window.authGoogleRedirectError = err;
+    if (typeof window.onGoogleRedirectError === 'function') window.onGoogleRedirectError(err);
+    console.error('Error al iniciar sesión con Google', err);
+  });
 
   // ---- Panel de cuenta: perfil, contraseña y baja de cuenta ----------------
   window.authUpdateProfileName = function (nombre) {
