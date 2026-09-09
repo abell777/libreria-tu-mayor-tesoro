@@ -32,7 +32,7 @@ window.BOOKS = [
     priceNote: 'IVA incluido',
     cover: 'img/el-conflicto-de-los-siglos.jpg',
     badge: null,
-    description: 'Un recorrido por la gran lucha entre el bien y el mal a través de la historia, desde la destrucción de Jerusalén hasta la restauración final de la tierra. Un clásico de la literatura devocional adventista, con un lenguaje claro pensado tanto para el estudio personal como para el regalo.',
+    description: 'Un recorrido por la gran lucha entre el bien y el mal a través de la historia, desde la destrucción de Jerusalén hasta la restauración final de la tierra. Un clásico de la literatura devocional, con un lenguaje claro pensado tanto para el estudio personal como para el regalo.',
     idioma: 'Español'
   },
   {
@@ -46,9 +46,12 @@ window.BOOKS = [
     format: 'Tapa blanda, A5',
     formatSlug: 'rustica',
     priceNote: 'Envío incluido',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    freeShipping: true,
     cover: 'img/el-deseado-de-todas-las-gentes.jpg',
     badge: null,
-    description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato bíblico con reflexiones devocionales. Uno de los libros más leídos de Elena G. White, en una edición manejable en tapa blanda tamaño A5.',
+    description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Uno de los libros más leídos de Elena G. White, en una edición manejable de tamaño A5.',
     idioma: 'Español'
   },
   {
@@ -78,9 +81,11 @@ window.BOOKS = [
     format: 'Edición tapa blanda',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
     cover: 'img/profetas-y-reyes.jpg',
     badge: 'Nuevo',
-    description: 'Continúa el relato bíblico a través de los reinos de Israel y Judá, la obra de Elías, Eliseo, Isaías y los profetas mayores, hasta el regreso del cautiverio babilónico. Una edición cuidada en tapa blanda, ideal para el estudio diario.',
+    description: 'Continúa el relato de la Biblia a través de los reinos de Israel y Judá, la obra de Elías, Eliseo, Isaías y los profetas mayores, hasta el regreso del cautiverio babilónico. Una edición cuidada, ideal para el estudio diario.',
     idioma: 'Español'
   },
   {
@@ -94,9 +99,11 @@ window.BOOKS = [
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
     cover: 'img/la-fe-por-la-cual-vivo.jpg',
     badge: null,
-    description: 'Un repaso claro y ordenado de las creencias fundamentales que sostienen la fe cristiana, escrito para fortalecer la confianza del lector en las promesas de Dios. Ideal como libro de estudio personal o para compartir con quien empieza a explorar la fe.',
+    description: 'Un repaso claro y ordenado de las creencias fundamentales que fundamentan la fe cristiana, escrito para fortalecer la confianza del lector en las promesas de Dios. Ideal como libro de estudio personal o para compartir con quien empieza a explorar la fe.',
     idioma: 'Español'
   },
   {
@@ -238,9 +245,11 @@ window.BOOKS = [
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
     cover: 'img/el-deseado-de-todas-las-gentes-tapa-blanda.jpg',
     badge: null,
-    description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato bíblico con reflexiones devocionales. Uno de los libros más leídos de Elena G. White, en esta edición en tapa blanda.',
+    description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Uno de los libros más leídos de Elena G. White.',
     idioma: 'Español'
   },
   {
@@ -254,9 +263,11 @@ window.BOOKS = [
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
     cover: 'img/el-ministerio-de-publicaciones.jpg',
     badge: null,
-    description: 'Reúne consejos sobre la obra de impresión y distribución de literatura cristiana, un pilar histórico de la difusión del mensaje adventista. De interés especial para quienes trabajan en editoriales o en la venta de libros religiosos.',
+    description: 'Reúne consejos sobre la obra de impresión y distribución de literatura cristiana, un pilar histórico de la difusión del mensaje. De interés especial para quienes trabajan en editoriales o en la venta de libros religiosos.',
     idioma: 'Español'
   },
   {
@@ -302,9 +313,11 @@ window.BOOKS = [
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
     cover: 'img/el-hogar-cristiano.jpg',
     badge: null,
-    description: 'Un manual clásico sobre la vida familiar: el matrimonio, la crianza de los hijos y la atmósfera espiritual del hogar. Sigue siendo, décadas después, una de las obras más consultadas sobre la familia cristiana.',
+    description: 'Un manual clásico sobre la vida familiar: el matrimonio, la crianza de los hijos y la atmósfera del hogar. Sigue siendo, décadas después, una de las obras más consultadas sobre la familia cristiana.',
     idioma: 'Español'
   },
   {
@@ -334,9 +347,11 @@ window.BOOKS = [
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
     cover: 'img/el-conflicto-inminente.jpg',
     badge: null,
-    description: 'Analiza los grandes acontecimientos finales descritos en la profecía bíblica y su relevancia para la vida cristiana actual. Un libro de estudio para quienes se interesan por la escatología bíblica.',
+    description: 'Analiza los grandes acontecimientos finales descritos en la profecía de la Biblia y su relevancia para la vida cristiana actual. Un libro de estudio para quienes se interesan por la escatología bíblica.',
     idioma: 'Español'
   },
   {
@@ -350,9 +365,11 @@ window.BOOKS = [
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
     cover: 'img/el-colportor-evangelico.jpg',
     badge: null,
-    description: 'Dirigido a quienes se dedican a la venta y distribución de literatura cristiana puerta a puerta, con consejos prácticos y motivación espiritual para esa labor. Un clásico dentro de la tradición del colportaje.',
+    description: 'Dirigido a quienes se dedican a la venta y distribución de literatura cristiana puerta a puerta, con consejos prácticos y motivación para esa labor. Un clásico dentro de la tradición del colportaje.',
     idioma: 'Español'
   },
   {
@@ -382,9 +399,11 @@ window.BOOKS = [
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
     cover: 'img/de-la-ciudad-al-campo.jpg',
     badge: null,
-    description: 'Reflexiona sobre las ventajas de la vida sencilla en contacto con la naturaleza frente al ritmo agitado de la ciudad. Un libro que invita a repensar el estilo de vida desde una perspectiva cristiana.',
+    description: 'Reflexiona sobre las ventajas de la vida sencilla en contacto con la naturaleza frente al ritmo agitado de la ciudad. Un libro que insta a repensar el estilo de vida desde una perspectiva cristiana.',
     idioma: 'Español'
   },
   {
@@ -430,9 +449,11 @@ window.BOOKS = [
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
     cover: 'img/cristo-en-su-santuario.jpg',
     badge: null,
-    description: 'Explica el simbolismo del santuario bíblico y su cumplimiento en la obra de Cristo, un tema central de la teología adventista. Un libro de estudio para profundizar en la doctrina del santuario.',
+    description: 'Explica el simbolismo del santuario de la Biblia y su cumplimiento en la obra de Cristo. Un libro de estudio para profundizar en la doctrina del santuario.',
     idioma: 'Español'
   },
   {
@@ -448,7 +469,7 @@ window.BOOKS = [
     priceNote: 'IVA incluido',
     cover: 'img/el-deseado-de-todas-las-gentes-tapa-dura.jpg',
     badge: null,
-    description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato bíblico con reflexiones devocionales. Esta edición en tapa dura, de mayor formato, está pensada para quienes buscan un ejemplar más duradero o para regalo.',
+    description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Pensada para quienes buscan un ejemplar más duradero o para regalo.',
     idioma: 'Español'
   },
   {
@@ -516,22 +537,6 @@ window.BOOKS = [
     idioma: 'Español'
   },
   {
-    id: 'conflicto-y-valor',
-    title: 'Conflicto y Valor',
-    author: 'Elena G. White',
-    authorSlug: 'elena-g-white',
-    category: 'elena-white',
-    categoryLabel: 'Elena G. White',
-    price: 9.15,
-    format: 'Tapa blanda, 148 x 210 mm',
-    formatSlug: 'rustica',
-    priceNote: 'IVA incluido',
-    cover: 'img/conflicto-y-valor.jpg',
-    badge: null,
-    description: 'Un devocional diario que combina textos bíblicos y meditaciones breves sobre la lucha entre el bien y el mal en la vida cristiana. Pensado para fortalecer la fe día a día.',
-    idioma: 'Español'
-  },
-  {
     id: 'cada-dia-con-dios',
     title: 'Cada Día con Dios',
     author: 'Elena G. White',
@@ -550,14 +555,16 @@ window.BOOKS = [
   {
     id: 'creencias-de-los-adventistas-del-septimo-dia',
     title: 'Creencias de los Adventistas del Séptimo Día',
-    author: 'Elena G. White',
-    authorSlug: 'elena-g-white',
-    category: 'elena-white',
-    categoryLabel: 'Elena G. White',
+    author: 'Iglesia Adventista del Séptimo Día',
+    authorSlug: 'iglesia-adventista-del-septimo-dia',
+    category: 'doctrina',
+    categoryLabel: 'Doctrina y creencias',
     price: 9.52,
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
     cover: 'img/creencias-de-los-adventistas-del-septimo-dia.jpg',
     badge: null,
     description: 'Una exposición clara de las doctrinas fundamentales de la Iglesia Adventista del Séptimo Día, pensada tanto para miembros como para quienes se acercan por primera vez a estas creencias.',
@@ -608,7 +615,7 @@ window.BOOKS = [
     priceNote: 'IVA incluido',
     cover: 'img/review-and-herald.jpg',
     badge: null,
-    description: 'Una recopilación de artículos publicados originalmente en la histórica revista adventista Review and Herald, con reflexiones sobre la fe, la iglesia y la misión. Edición en tapa dura de gran formato.',
+    description: 'Una recopilación de artículos publicados originalmente en la histórica revista Review and Herald, con reflexiones sobre la fe, la iglesia y la misión.',
     idioma: 'Español'
   },
   {
@@ -619,12 +626,14 @@ window.BOOKS = [
     category: 'elena-white',
     categoryLabel: 'Elena G. White',
     price: 7.90,
-    format: 'Tapa blanda, 155 x 235 mm',
+    format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
     cover: 'img/la-verdad-acerca-de-los-angeles.jpg',
     badge: null,
-    description: 'Reúne lo que la Biblia y los escritos de la autora enseñan sobre la existencia y la obra de los ángeles, su papel en la historia bíblica y en la vida del creyente hoy.',
+    description: 'Reúne lo que la Biblia y los escritos de la autora enseñan sobre la existencia y la obra de los ángeles, su desempeño en la historia y en la vida del creyente hoy.',
     idioma: 'Español'
   },
   {
@@ -638,9 +647,11 @@ window.BOOKS = [
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
     cover: 'img/consejos-sobre-la-salud.jpg',
     badge: null,
-    description: 'Un compendio de principios sobre alimentación, ejercicio y estilo de vida saludable, entendidos como parte integral del bienestar espiritual. Sigue siendo una referencia dentro de la reforma pro salud adventista.',
+    description: 'Un compendio de principios sobre alimentación, ejercicio y estilo de vida saludable, entendidos como parte integral del bienestar espiritual. Es una óptima referencia dentro de la reforma pro salud.',
     idioma: 'Español'
   },
 
@@ -710,22 +721,6 @@ window.BOOKS = [
     idioma: 'Español',
   },
   {
-    id: 'la-oracion',
-    title: 'La Oración',
-    author: 'Elena G. White',
-    authorSlug: 'elena-g-white',
-    category: 'elena-white',
-    categoryLabel: 'Elena G. White',
-    price: 8.7,
-    format: 'Tapa blanda, 148 x 210 mm',
-    formatSlug: 'rustica',
-    priceNote: 'IVA incluido',
-    cover: 'img/la-oracion.jpg',
-    badge: 'Nuevo',
-    description: 'Un devocional que reúne enseñanzas sobre la vida de oración, pensado para fortalecer la comunión diaria con Dios. Edición en tapa blanda con acabado brillo.',
-    idioma: 'Español',
-  },
-  {
     id: 'la-segunda-venida-y-el-cielo',
     title: 'La Segunda Venida y el Cielo',
     author: 'Elena G. White',
@@ -736,9 +731,11 @@ window.BOOKS = [
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
     cover: 'img/la-segunda-venida-y-el-cielo.jpg',
     badge: 'Nuevo',
-    description: 'Una mirada esperanzadora a las promesas bíblicas sobre el regreso de Cristo y la vida eterna, explicadas con un lenguaje claro y devocional. Edición en tapa blanda con acabado brillo.',
+    description: 'Una mirada esperanzadora a las promesas de la Biblia sobre el regreso de Cristo y la vida eterna, explicadas con un lenguaje claro y devocional.',
     idioma: 'Español',
   },
 

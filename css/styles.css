@@ -730,6 +730,31 @@ h1, h2, h3, h4 {
   border-radius: 999px;
 }
 
+/* Sello de encuadernación (tapa dura / tapa blanda) sobre la portada */
+.binding-tag {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: oklch(1 0 0 / 0.92);
+  color: var(--navy);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 4px 9px 4px 7px;
+  border-radius: 999px;
+  box-shadow: 0 1px 4px oklch(0 0 0 / 0.2);
+}
+.binding-tag svg { flex-shrink: 0; }
+.binding-tag--tapa-dura { color: var(--navy-deep); }
+.binding-tag--rustica,
+.binding-tag--tapa-blanda { color: var(--navy); }
+.product-cover-photo .binding-tag { left: 14px; bottom: 14px; font-size: 0.72rem; padding: 5px 11px 5px 8px; }
+.product-cover-photo .binding-tag svg { width: 13px; height: 13px; }
+
 .book-info {
   padding: 18px;
   display: flex;

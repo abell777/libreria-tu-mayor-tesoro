@@ -49,17 +49,18 @@ const CATALOGO = {
     category: "elena-white",
     categoryLabel: "Elena G. White",
     cover: "img/el-conflicto-de-los-siglos.jpg",
-    description: "Un recorrido por la gran lucha entre el bien y el mal a través de la historia, desde la destrucción de Jerusalén hasta la restauración final de la tierra. Un clásico de la literatura devocional adventista, con un lenguaje claro pensado tanto para el estudio personal como para el regalo.",
+    description: "Un recorrido por la gran lucha entre el bien y el mal a través de la historia, desde la destrucción de Jerusalén hasta la restauración final de la tierra. Un clásico de la literatura devocional, con un lenguaje claro pensado tanto para el estudio personal como para el regalo.",
   },
   "el-deseado-de-todas-las-gentes": {
     title: "El Deseado de Todas las Gentes",
     format: "Tapa blanda, A5",
     price: 14.20,
+    freeShipping: true,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
     cover: "img/el-deseado-de-todas-las-gentes.jpg",
-    description: "Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato bíblico con reflexiones devocionales. Uno de los libros más leídos de Elena G. White, en una edición manejable en tapa blanda tamaño A5.",
+    description: "Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Uno de los libros más leídos de Elena G. White, en una edición manejable de tamaño A5.",
   },
   "historia-de-los-patriarcas-y-profetas": {
     title: "Historia de los Patriarcas y Profetas",
@@ -79,7 +80,7 @@ const CATALOGO = {
     category: "elena-white",
     categoryLabel: "Elena G. White",
     cover: "img/profetas-y-reyes.jpg",
-    description: "Continúa el relato bíblico a través de los reinos de Israel y Judá, la obra de Elías, Eliseo, Isaías y los profetas mayores, hasta el regreso del cautiverio babilónico. Una edición cuidada en tapa blanda, ideal para el estudio diario.",
+    description: "Continúa el relato de la Biblia a través de los reinos de Israel y Judá, la obra de Elías, Eliseo, Isaías y los profetas mayores, hasta el regreso del cautiverio babilónico. Una edición cuidada, ideal para el estudio diario.",
   },
   "la-fe-por-la-cual-vivo": {
     title: "La Fe por la Cual Vivo",
@@ -89,7 +90,7 @@ const CATALOGO = {
     category: "elena-white",
     categoryLabel: "Elena G. White",
     cover: "img/la-fe-por-la-cual-vivo.jpg",
-    description: "Un repaso claro y ordenado de las creencias fundamentales que sostienen la fe cristiana, escrito para fortalecer la confianza del lector en las promesas de Dios. Ideal como libro de estudio personal o para compartir con quien empieza a explorar la fe.",
+    description: "Un repaso claro y ordenado de las creencias fundamentales que fundamentan la fe cristiana, escrito para fortalecer la confianza del lector en las promesas de Dios. Ideal como libro de estudio personal o para compartir con quien empieza a explorar la fe.",
   },
   "la-educacion": {
     title: "La Educación",
@@ -179,7 +180,7 @@ const CATALOGO = {
     category: "elena-white",
     categoryLabel: "Elena G. White",
     cover: "img/el-deseado-de-todas-las-gentes-tapa-blanda.jpg",
-    description: "Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato bíblico con reflexiones devocionales. Uno de los libros más leídos de Elena G. White, en esta edición en tapa blanda.",
+    description: "Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Uno de los libros más leídos de Elena G. White.",
   },
   "el-ministerio-de-publicaciones": {
     title: "El Ministerio de Publicaciones",
@@ -189,7 +190,7 @@ const CATALOGO = {
     category: "elena-white",
     categoryLabel: "Elena G. White",
     cover: "img/el-ministerio-de-publicaciones.jpg",
-    description: "Reúne consejos sobre la obra de impresión y distribución de literatura cristiana, un pilar histórico de la difusión del mensaje adventista. De interés especial para quienes trabajan en editoriales o en la venta de libros religiosos.",
+    description: "Reúne consejos sobre la obra de impresión y distribución de literatura cristiana, un pilar histórico de la difusión del mensaje. De interés especial para quienes trabajan en editoriales o en la venta de libros religiosos.",
   },
   "el-ministerio-de-la-bondad": {
     title: "El Ministerio de la Bondad",
@@ -219,7 +220,7 @@ const CATALOGO = {
     category: "elena-white",
     categoryLabel: "Elena G. White",
     cover: "img/el-hogar-cristiano.jpg",
-    description: "Un manual clásico sobre la vida familiar: el matrimonio, la crianza de los hijos y la atmósfera espiritual del hogar. Sigue siendo, décadas después, una de las obras más consultadas sobre la familia cristiana.",
+    description: "Un manual clásico sobre la vida familiar: el matrimonio, la crianza de los hijos y la atmósfera del hogar. Sigue siendo, décadas después, una de las obras más consultadas sobre la familia cristiana.",
   },
   "el-evangelismo": {
     title: "El Evangelismo",
@@ -239,7 +240,7 @@ const CATALOGO = {
     category: "elena-white",
     categoryLabel: "Elena G. White",
     cover: "img/el-conflicto-inminente.jpg",
-    description: "Analiza los grandes acontecimientos finales descritos en la profecía bíblica y su relevancia para la vida cristiana actual. Un libro de estudio para quienes se interesan por la escatología bíblica.",
+    description: "Analiza los grandes acontecimientos finales descritos en la profecía de la Biblia y su relevancia para la vida cristiana actual. Un libro de estudio para quienes se interesan por la escatología bíblica.",
   },
   "el-colportor-evangelico": {
     title: "El Colportor Evangélico",
@@ -249,7 +250,7 @@ const CATALOGO = {
     category: "elena-white",
     categoryLabel: "Elena G. White",
     cover: "img/el-colportor-evangelico.jpg",
-    description: "Dirigido a quienes se dedican a la venta y distribución de literatura cristiana puerta a puerta, con consejos prácticos y motivación espiritual para esa labor. Un clásico dentro de la tradición del colportaje.",
+    description: "Dirigido a quienes se dedican a la venta y distribución de literatura cristiana puerta a puerta, con consejos prácticos y motivación para esa labor. Un clásico dentro de la tradición del colportaje.",
   },
   "dios-nos-cuida": {
     title: "Dios Nos Cuida",
@@ -269,7 +270,7 @@ const CATALOGO = {
     category: "elena-white",
     categoryLabel: "Elena G. White",
     cover: "img/de-la-ciudad-al-campo.jpg",
-    description: "Reflexiona sobre las ventajas de la vida sencilla en contacto con la naturaleza frente al ritmo agitado de la ciudad. Un libro que invita a repensar el estilo de vida desde una perspectiva cristiana.",
+    description: "Reflexiona sobre las ventajas de la vida sencilla en contacto con la naturaleza frente al ritmo agitado de la ciudad. Un libro que insta a repensar el estilo de vida desde una perspectiva cristiana.",
   },
   "la-pasion-del-amor": {
     title: "La Pasión del Amor",
@@ -299,7 +300,7 @@ const CATALOGO = {
     category: "elena-white",
     categoryLabel: "Elena G. White",
     cover: "img/cristo-en-su-santuario.jpg",
-    description: "Explica el simbolismo del santuario bíblico y su cumplimiento en la obra de Cristo, un tema central de la teología adventista. Un libro de estudio para profundizar en la doctrina del santuario.",
+    description: "Explica el simbolismo del santuario de la Biblia y su cumplimiento en la obra de Cristo. Un libro de estudio para profundizar en la doctrina del santuario.",
   },
   "el-deseado-de-todas-las-gentes-tapa-dura": {
     title: "El Deseado de Todas las Gentes",
@@ -309,7 +310,7 @@ const CATALOGO = {
     category: "elena-white",
     categoryLabel: "Elena G. White",
     cover: "img/el-deseado-de-todas-las-gentes-tapa-dura.jpg",
-    description: "Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato bíblico con reflexiones devocionales. Esta edición en tapa dura, de mayor formato, está pensada para quienes buscan un ejemplar más duradero o para regalo.",
+    description: "Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Pensada para quienes buscan un ejemplar más duradero o para regalo.",
   },
   "consejos-sobre-la-mayordomia-cristiana": {
     title: "Consejos sobre la Mayordomía Cristiana",
@@ -351,16 +352,6 @@ const CATALOGO = {
     cover: "img/consejos-para-la-iglesia.jpg",
     description: "Una recopilación de consejos sobre la vida y la organización de la congregación local, pensada para líderes y miembros comprometidos con la salud espiritual de su iglesia.",
   },
-  "conflicto-y-valor": {
-    title: "Conflicto y Valor",
-    format: "Tapa blanda, 148 x 210 mm",
-    price: 9.15,
-    author: "Elena G. White",
-    category: "elena-white",
-    categoryLabel: "Elena G. White",
-    cover: "img/conflicto-y-valor.jpg",
-    description: "Un devocional diario que combina textos bíblicos y meditaciones breves sobre la lucha entre el bien y el mal en la vida cristiana. Pensado para fortalecer la fe día a día.",
-  },
   "cada-dia-con-dios": {
     title: "Cada Día con Dios",
     format: "Tapa blanda, 148 x 210 mm",
@@ -375,9 +366,9 @@ const CATALOGO = {
     title: "Creencias de los Adventistas del Séptimo Día",
     format: "Tapa blanda, 148 x 210 mm",
     price: 9.52,
-    author: "Elena G. White",
-    category: "elena-white",
-    categoryLabel: "Elena G. White",
+    author: "Iglesia Adventista del Séptimo Día",
+    category: "doctrina",
+    categoryLabel: "Doctrina y creencias",
     cover: "img/creencias-de-los-adventistas-del-septimo-dia.jpg",
     description: "Una exposición clara de las doctrinas fundamentales de la Iglesia Adventista del Séptimo Día, pensada tanto para miembros como para quienes se acercan por primera vez a estas creencias.",
   },
@@ -409,17 +400,17 @@ const CATALOGO = {
     category: "elena-white",
     categoryLabel: "Elena G. White",
     cover: "img/review-and-herald.jpg",
-    description: "Una recopilación de artículos publicados originalmente en la histórica revista adventista Review and Herald, con reflexiones sobre la fe, la iglesia y la misión. Edición en tapa dura de gran formato.",
+    description: "Una recopilación de artículos publicados originalmente en la histórica revista Review and Herald, con reflexiones sobre la fe, la iglesia y la misión.",
   },
   "la-verdad-acerca-de-los-angeles": {
     title: "La Verdad Acerca de los Ángeles",
-    format: "Tapa blanda, 155 x 235 mm",
+    format: "Tapa blanda, 148 x 210 mm",
     price: 7.90,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
     cover: "img/la-verdad-acerca-de-los-angeles.jpg",
-    description: "Reúne lo que la Biblia y los escritos de la autora enseñan sobre la existencia y la obra de los ángeles, su papel en la historia bíblica y en la vida del creyente hoy.",
+    description: "Reúne lo que la Biblia y los escritos de la autora enseñan sobre la existencia y la obra de los ángeles, su desempeño en la historia y en la vida del creyente hoy.",
   },
   "consejos-sobre-la-salud": {
     title: "Consejos sobre la Salud",
@@ -429,10 +420,8 @@ const CATALOGO = {
     category: "elena-white",
     categoryLabel: "Elena G. White",
     cover: "img/consejos-sobre-la-salud.jpg",
-    description: "Un compendio de principios sobre alimentación, ejercicio y estilo de vida saludable, entendidos como parte integral del bienestar espiritual. Sigue siendo una referencia dentro de la reforma pro salud adventista.",
+    description: "Un compendio de principios sobre alimentación, ejercicio y estilo de vida saludable, entendidos como parte integral del bienestar espiritual. Es una óptima referencia dentro de la reforma pro salud.",
   },
-
-  // ---- Nuevos libros de Elena G. White y Biblias (añadidos) ----
   "la-historia-de-la-redencion": {
     title: "La Historia de la Redención",
     format: "Tapa blanda, 148 x 210 mm",
@@ -473,16 +462,6 @@ const CATALOGO = {
     cover: "img/la-musica.jpg",
     description: "Una recopilación de los escritos de la autora sobre el lugar de la música en el culto y en la vida cristiana. Edición en tapa blanda con acabado brillo, cuidada y de fácil lectura.",
   },
-  "la-oracion": {
-    title: "La Oración",
-    format: "Tapa blanda, 148 x 210 mm",
-    price: 8.7,
-    author: "Elena G. White",
-    category: "elena-white",
-    categoryLabel: "Elena G. White",
-    cover: "img/la-oracion.jpg",
-    description: "Un devocional que reúne enseñanzas sobre la vida de oración, pensado para fortalecer la comunión diaria con Dios. Edición en tapa blanda con acabado brillo.",
-  },
   "la-segunda-venida-y-el-cielo": {
     title: "La Segunda Venida y el Cielo",
     format: "Tapa blanda, 148 x 210 mm",
@@ -491,51 +470,51 @@ const CATALOGO = {
     category: "elena-white",
     categoryLabel: "Elena G. White",
     cover: "img/la-segunda-venida-y-el-cielo.jpg",
-    description: "Una mirada esperanzadora a las promesas bíblicas sobre el regreso de Cristo y la vida eterna, explicadas con un lenguaje claro y devocional. Edición en tapa blanda con acabado brillo.",
+    description: "Una mirada esperanzadora a las promesas de la Biblia sobre el regreso de Cristo y la vida eterna, explicadas con un lenguaje claro y devocional.",
   },
   "biblia-bilingue-rvr-nkjv-marron": {
     title: "Biblia Bilingüe RVR/NKJV, Marrón",
     format: "Tapa dura entelada, dos tonos",
     price: 38.99,
+    freeShipping: true,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
     cover: "img/biblia-bilingue-rvr-nkjv-marron.jpg",
     description: "Biblia bilingüe con el texto de la Reina Valera Revisada y la New King James Version en columnas, cubierta en dos tonos de marrón. Pensada tanto para el estudio comparado como para practicar inglés junto a la lectura bíblica.",
-    freeShipping: true,
   },
   "biblia-compacta-fucsia-floral-cierre": {
     title: "Biblia Compacta Letra Grande, Fucsia Floral con Cremallera",
     format: "Tapa blanda, cierre de cremallera",
     price: 27.99,
+    freeShipping: true,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
     cover: "img/biblia-compacta-fucsia-floral-cierre.jpg",
     description: "Reina-Valera 1960 en formato compacto y letra grande (11 puntos), con cubierta floral en tono fucsia, cremallera e índice lateral. Ideal para llevar cada día.",
-    freeShipping: true,
   },
   "biblia-apuntes-rosa-floreada": {
     title: "Biblia de Apuntes Tapa Dura Entelada, Rosa Floreada",
     format: "Tapa dura entelada, con banda elástica",
     price: 38.99,
+    freeShipping: true,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
     cover: "img/biblia-apuntes-rosa-floreada.jpg",
     description: "Reina-Valera 1960, letra de 8,5 puntos, en edición de apuntes: márgenes amplios para anotar, cubierta entelada floral en tono rosa y cierre con banda elástica.",
-    freeShipping: true,
   },
   "biblia-apuntes-negro": {
     title: "Biblia de Apuntes Tapa Dura, Negro",
     format: "Tapa dura, con banda elástica",
     price: 38.04,
+    freeShipping: true,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
     cover: "img/biblia-apuntes-negro.jpg",
     description: "Reina-Valera 1960, letra de 8,5 puntos, en edición de apuntes: márgenes amplios para anotar, cubierta lisa en negro y cierre con banda elástica.",
-    freeShipping: true,
   },
   "biblia-apuntes-negro-oro": {
     title: "Biblia de Apuntes Tapa Dura, Negro/Oro",
@@ -736,7 +715,7 @@ const CATALOGO = {
     categoryLabel: "Biblias",
     cover: "img/biblia-rvr60-aguila-cierre.jpg",
     description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta marrón grabada con un águila y el texto de Isaías 40:31.",
-  },
+  }
 };
 
 const MAX_ITEMS = 30;
@@ -747,28 +726,7 @@ function textoValido(v, max) {
   return typeof v === "string" && v.trim().length > 0 && v.trim().length <= max;
 }
 
-// Para campos opcionales (como el teléfono): vale que venga vacío, pero si
-// se manda algo, tiene que ser texto y no pasarse del máximo.
-function textoValidoOpcional(v, max) {
-  return typeof v === "string" && v.trim().length <= max;
-}
-
 exports.crearPedido = onCall(async (request) => {
-  try {
-    return await crearPedidoInterno(request);
-  } catch (err) {
-    // Si ya es un HttpsError (carrito vacío, datos de envío mal, etc.) lo
-    // dejamos pasar tal cual, con su mensaje pensado para el cliente.
-    if (err instanceof HttpsError) throw err;
-    // Cualquier otro fallo (Firestore, Admin Auth, un bug...) se registra
-    // aquí COMPLETO — así aparece en Firebase Console → Functions →
-    // crearPedido → Registros, en vez de quedarse como un "INTERNAL" mudo.
-    console.error("crearPedido: fallo inesperado", err);
-    throw new HttpsError("internal", "No se ha podido registrar el pedido. Vuelve a intentarlo o escríbenos.");
-  }
-});
-
-async function crearPedidoInterno(request) {
   const auth = request.auth;
   if (!auth) {
     throw new HttpsError("unauthenticated", "Debes iniciar sesión para completar la compra.");
@@ -784,29 +742,19 @@ async function crearPedidoInterno(request) {
   if (itemsSolicitados.length > MAX_ITEMS) {
     throw new HttpsError("invalid-argument", "Hay demasiados artículos distintos en el pedido.");
   }
-  // Se valida cada campo por separado para poder decir EXACTAMENTE cuál
-  // falla (antes daba un mensaje genérico y era imposible saber si el
-  // problema era el nombre, la dirección, la ciudad o el código postal).
-  if (!textoValido(envio.nombre, 120)) {
-    throw new HttpsError("invalid-argument", "Falta el nombre y apellidos, o es demasiado largo.");
-  }
-  if (!textoValido(envio.direccion, 200)) {
-    throw new HttpsError("invalid-argument", "Falta la dirección, o es demasiado larga.");
-  }
-  if (!textoValido(envio.ciudad, 120)) {
-    throw new HttpsError("invalid-argument", "Falta la ciudad, o es demasiado larga.");
-  }
-  if (!textoValido(envio.cp, 20)) {
-    throw new HttpsError("invalid-argument", "Falta el código postal, o es demasiado largo.");
-  }
-  if (!textoValidoOpcional(envio.telefono, 40)) {
-    throw new HttpsError("invalid-argument", "El teléfono es demasiado largo.");
+  if (
+    !textoValido(envio.nombre, 120) ||
+    !textoValido(envio.direccion, 200) ||
+    !textoValido(envio.ciudad, 120) ||
+    !textoValido(envio.cp, 20) ||
+    !textoValido(envio.telefono, 40)
+  ) {
+    throw new HttpsError("invalid-argument", "Faltan datos de envío, o son demasiado largos.");
   }
 
   // Recalcula CADA artículo contra el catálogo de arriba: precio, título
   // y formato siempre vienen de aquí, nunca de lo que mande el navegador.
   const itemsFinales = [];
-  let todosEnvioGratis = true;
   for (const item of itemsSolicitados) {
     const libro = item && CATALOGO[item.id];
     if (!libro) {
@@ -819,14 +767,14 @@ async function crearPedidoInterno(request) {
       formato: libro.format,
       precio: libro.price,
       cantidad: cantidad,
+      envioGratis: !!libro.freeShipping,
     });
-    if (!libro.freeShipping) todosEnvioGratis = false;
   }
 
   const subtotal = itemsFinales.reduce((sum, it) => sum + it.precio * it.cantidad, 0);
-  // Envío gratis solo si TODOS los artículos del pedido lo tienen marcado en
-  // el catálogo (libro.freeShipping); si hay aunque sea uno sin esa marca,
-  // se cobran los gastos de envío normales.
+  // Envío gratis solo si TODOS los libros del pedido lo llevan incluido
+  // (mismo criterio que en js/cart.js); si no, se cobran los 6€ habituales.
+  const todosEnvioGratis = itemsFinales.every((it) => it.envioGratis);
   const gastosEnvio = todosEnvioGratis ? 0 : SHIPPING_COST;
   const subtotalRedondeado = Math.round(subtotal * 100) / 100;
   const total = Math.round((subtotal + gastosEnvio) * 100) / 100;
@@ -876,7 +824,7 @@ async function crearPedidoInterno(request) {
     clienteEmail: pedido.clienteEmail,
     envio: pedido.envio,
   };
-}
+});
 
 // ==========================================================================
 // "crearSesionPago" — a partir de un pedido ya creado (por "crearPedido"),
@@ -889,16 +837,6 @@ async function crearPedidoInterno(request) {
 // el navegador — así nadie puede manipular el precio a pagar.
 // ==========================================================================
 exports.crearSesionPago = onCall({ secrets: [STRIPE_SECRET_KEY] }, async (request) => {
-  try {
-    return await crearSesionPagoInterno(request);
-  } catch (err) {
-    if (err instanceof HttpsError) throw err;
-    console.error("crearSesionPago: fallo inesperado", err);
-    throw new HttpsError("internal", "No se ha podido abrir la pasarela de pago. Vuelve a intentarlo o escríbenos.");
-  }
-});
-
-async function crearSesionPagoInterno(request) {
   const auth = request.auth;
   if (!auth) {
     throw new HttpsError("unauthenticated", "Debes iniciar sesión para pagar.");
@@ -923,7 +861,10 @@ async function crearSesionPagoInterno(request) {
     throw new HttpsError("failed-precondition", "Este pedido ya está pagado.");
   }
 
-  const stripe = require("stripe")(STRIPE_SECRET_KEY.value());
+  // .trim() por si el secreto se guardó con un espacio o salto de línea de
+  // más (muy fácil que pase al copiar/pegar) — un carácter así basta para
+  // que Stripe rechace la clave con un error de autenticación.
+  const stripe = require("stripe")(STRIPE_SECRET_KEY.value().trim());
 
   const lineItems = (pedido.items || []).map(function (it) {
     return {
@@ -947,19 +888,29 @@ async function crearSesionPagoInterno(request) {
     });
   }
 
-  const session = await stripe.checkout.sessions.create({
-    mode: "payment",
-    payment_method_types: ["card"],
-    line_items: lineItems,
-    customer_email: pedido.clienteEmail || undefined,
-    client_reference_id: pedidoId,
-    metadata: { pedidoId: pedidoId },
-    success_url: SITE_URL + "/carrito.html?pago=exito&pedido=" + encodeURIComponent(pedidoId) + "&session_id={CHECKOUT_SESSION_ID}",
-    cancel_url: SITE_URL + "/carrito.html?pago=cancelado&pedido=" + encodeURIComponent(pedidoId),
-  });
+  let session;
+  try {
+    session = await stripe.checkout.sessions.create({
+      mode: "payment",
+      payment_method_types: ["card"],
+      line_items: lineItems,
+      customer_email: pedido.clienteEmail || undefined,
+      client_reference_id: pedidoId,
+      metadata: { pedidoId: pedidoId },
+      success_url: SITE_URL + "/carrito.html?pago=exito&pedido=" + encodeURIComponent(pedidoId) + "&session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: SITE_URL + "/carrito.html?pago=cancelado&pedido=" + encodeURIComponent(pedidoId),
+    });
+  } catch (err) {
+    // Antes este error se perdía y el cliente solo veía "500 internal".
+    // Ahora queda escrito claramente en los registros de "crearSesionPago"
+    // (busca "STRIPE ERROR" con severidad Error) con el motivo exacto que
+    // da Stripe, y el cliente recibe un mensaje algo más útil.
+    console.error("STRIPE ERROR al crear la sesión de pago:", err.type || "", err.message || err);
+    throw new HttpsError("internal", "Stripe no ha podido abrir el pago (" + (err.type || "error desconocido") + "). Revisa la clave de Stripe.");
+  }
 
   return { url: session.url };
-}
+});
 
 // ==========================================================================
 // "stripeWebhook" — Stripe llama aquí cuando un pago se completa de verdad.

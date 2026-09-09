@@ -13,7 +13,8 @@
     salud: 'Salud y familia',
     profecia: 'Profecía',
     devocionales: 'Devocionales',
-    infantil: 'Infantil y juvenil'
+    infantil: 'Infantil y juvenil',
+    doctrina: 'Doctrina y creencias'
   };
 
   var PER_PAGE_STORAGE_KEY = 'fundamento_per_page';
@@ -23,12 +24,20 @@
     return n.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
 
+  var BINDING_ICON = {
+    'tapa-dura': '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h13a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3V4z"/><path d="M4 4v13a3 3 0 0 0 3 3h13"/><line x1="8" y1="8" x2="15" y2="8"/></svg>',
+    rustica: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5.5S5 4 12 6c7-2 10-0.5 10-0.5v13S19 17 12 19c-7-2-10-0.5-10-0.5z"/><line x1="12" y1="6" x2="12" y2="19"/></svg>'
+  };
+  var BINDING_LABEL = { 'tapa-dura': 'Tapa dura', rustica: 'Tapa blanda' };
+
   function bookCardHTML(book) {
+    var bindingIcon = BINDING_ICON[book.formatSlug];
     return (
       '<article class="book-card" data-category="' + book.category + '" data-price="' + book.price +
       '" data-format="' + book.formatSlug + '" data-author="' + book.authorSlug + '" data-product-id="' + book.id + '">' +
         '<a href="producto.html?id=' + book.id + '" class="book-cover book-cover--photo">' +
           (book.badge ? '<span class="badge">' + escapeHTML(book.badge) + '</span>' : '') +
+          (bindingIcon ? '<span class="binding-tag binding-tag--' + book.formatSlug + '">' + bindingIcon + '<span>' + BINDING_LABEL[book.formatSlug] + '</span></span>' : '') +
           '<img src="' + toWebp(book.cover) + '" onerror="this.onerror=null;this.src=\'' + book.cover + '\'" alt="Portada de «' + escapeHTML(book.title) + '», de ' + escapeHTML(book.author) + '" loading="lazy" decoding="async">' +
         '</a>' +
         '<button type="button" class="book-fav" data-fav-toggle data-id="' + book.id + '" aria-pressed="false" aria-label="Añadir a mi lista de deseos">' +

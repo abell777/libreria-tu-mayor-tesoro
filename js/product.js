@@ -95,12 +95,28 @@
 
   var specList = document.getElementById('productSpecList');
   if (specList) {
-    specList.innerHTML = [
+    var specRows = [
       ['Categoría', book.categoryLabel],
       ['Autor', book.author],
       ['Formato', book.format],
       ['Idioma', book.idioma]
-    ].map(function (row) { return '<li><span>' + escapeHTML(row[0]) + '</span><span>' + escapeHTML(row[1]) + '</span></li>'; }).join('');
+    ];
+    if (book.finish) specRows.push(['Acabado de cubierta', book.finish]);
+    if (book.paper) specRows.push(['Tipo de papel', book.paper]);
+    specList.innerHTML = specRows
+      .map(function (row) { return '<li><span>' + escapeHTML(row[0]) + '</span><span>' + escapeHTML(row[1]) + '</span></li>'; }).join('');
+  }
+
+  // ---- Sello de encuadernación sobre la portada (tapa dura / tapa blanda) ----
+  var bindingEl = document.getElementById('productBinding');
+  if (bindingEl) {
+    var isHardcover = book.formatSlug === 'tapa-dura';
+    bindingEl.className = 'binding-tag binding-tag--' + book.formatSlug;
+    bindingEl.innerHTML = (isHardcover
+      ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h13a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3V4z"/><path d="M4 4v13a3 3 0 0 0 3 3h13"/><line x1="8" y1="8" x2="15" y2="8"/></svg>'
+      : '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5.5S5 4 12 6c7-2 10-0.5 10-0.5v13S19 17 12 19c-7-2-10-0.5-10-0.5z"/><line x1="12" y1="6" x2="12" y2="19"/></svg>'
+    ) + '<span>' + (isHardcover ? 'Tapa dura' : 'Tapa blanda') + '</span>';
+    bindingEl.hidden = false;
   }
 
   // ---- Botón "Añadir al carrito" (la lógica de añadir vive en cart.js) ----
