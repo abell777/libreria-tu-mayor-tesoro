@@ -77,9 +77,3 @@ propaga a toda la página.
 Puntos de corte principales: `980px` (grids pasan a 2 columnas), `900px` (hero y footer pasan
 a una columna), `860px` (menú de categorías se convierte en desplegable móvil), `560px`
 (grids a 1 columna). Probado visualmente en móvil y escritorio.
-
-## Siguiente paso natural
-
-Cuando quieras seguir, lo lógico sería: página de listado/categoría con filtros, ficha de
-producto, carrito. Aquí solo entregué lo que pediste (Home con las 5 secciones) para no
-adelantarme.
