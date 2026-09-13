@@ -46,7 +46,7 @@
       }
     };
 
-    card = elements.create('card', { style: style });
+    card = elements.create('card', { style: style, hidePostalCode: true });
     card.mount('#card-element');
 
     card.on('change', function (event) {

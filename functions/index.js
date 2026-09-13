@@ -746,10 +746,14 @@ exports.crearPedido = onCall(async (request) => {
     !textoValido(envio.nombre, 120) ||
     !textoValido(envio.direccion, 200) ||
     !textoValido(envio.ciudad, 120) ||
-    !textoValido(envio.cp, 20) ||
-    !textoValido(envio.telefono, 40)
+    !textoValido(envio.cp, 20)
   ) {
     throw new HttpsError("invalid-argument", "Faltan datos de envío, o son demasiado largos.");
+  }
+  // El teléfono es opcional (así se indica en el formulario): solo se
+  // valida su longitud si el cliente ha escrito algo.
+  if (envio.telefono && !textoValido(envio.telefono, 40)) {
+    throw new HttpsError("invalid-argument", "El teléfono no es válido.");
   }
 
   // Recalcula CADA artículo contra el catálogo de arriba: precio, título
@@ -794,7 +798,7 @@ exports.crearPedido = onCall(async (request) => {
       direccion: envio.direccion.trim(),
       ciudad: envio.ciudad.trim(),
       cp: envio.cp.trim(),
-      telefono: envio.telefono.trim(),
+      telefono: envio.telefono ? envio.telefono.trim() : "",
     },
     items: itemsFinales,
     subtotal: subtotalRedondeado,
