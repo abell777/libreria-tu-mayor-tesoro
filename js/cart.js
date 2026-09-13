@@ -4,6 +4,7 @@
 // ==========================================================================
 window.Cart = (function () {
   var STORAGE_KEY = 'fundamento_cart';
+  var PROMO_STORAGE_KEY = 'fundamento_promo';
 
   function getItems() {
     try {
@@ -16,6 +17,30 @@ window.Cart = (function () {
   function saveItems(items) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
     updateBadge();
+    document.dispatchEvent(new CustomEvent('cart:change'));
+  }
+
+  // ---- Código promocional aplicado ----------------------------------------
+  // Solo guarda el código + su tipo/valor, tal como los devolvió
+  // "validarPromo" — nunca un importe de descuento ya calculado, para que
+  // el resumen se recalcule siempre a partir del subtotal actual. El
+  // descuento DE VERDAD (el que se cobra) siempre lo decide el servidor
+  // en "crearPedido", esto es solo para mostrarlo en el carrito.
+  function getPromo() {
+    try {
+      return JSON.parse(sessionStorage.getItem(PROMO_STORAGE_KEY)) || null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function setPromo(promo) {
+    sessionStorage.setItem(PROMO_STORAGE_KEY, JSON.stringify(promo));
+    document.dispatchEvent(new CustomEvent('cart:change'));
+  }
+
+  function clearPromo() {
+    sessionStorage.removeItem(PROMO_STORAGE_KEY);
     document.dispatchEvent(new CustomEvent('cart:change'));
   }
 
@@ -72,7 +97,10 @@ window.Cart = (function () {
     clear: clearItems,
     totalCount: totalCount,
     totalPrice: totalPrice,
-    updateBadge: updateBadge
+    updateBadge: updateBadge,
+    getPromo: getPromo,
+    setPromo: setPromo,
+    clearPromo: clearPromo
   };
 })();
 
@@ -271,22 +299,92 @@ document.addEventListener('DOMContentLoaded', function () {
       return !!(libro && libro.freeShipping);
     });
     var SHIPPING = todosEnvioGratis ? 0 : 6;
+
+    // El descuento se recalcula aquí a partir del subtotal actual (nunca se
+    // guarda un importe fijo), así que si cambias cantidades en el carrito
+    // se actualiza solo. Es solo una vista previa: el importe que de verdad
+    // se cobra lo vuelve a calcular el servidor al crear el pedido.
+    var promo = Cart.getPromo();
+    var descuento = 0;
+    if (promo && items.length) {
+      var bruto = promo.tipo === 'porcentaje' ? subtotal * (promo.valor / 100) : promo.valor;
+      descuento = Math.max(0, Math.min(subtotal, Math.round(bruto * 100) / 100));
+    }
+
     var subtotalEl = document.getElementById('summarySubtotal');
     var shippingEl = document.getElementById('summaryShipping');
     var totalEl = document.getElementById('summaryTotal');
+    var discountRow = document.getElementById('summaryDiscountRow');
+    var discountEl = document.getElementById('summaryDiscount');
+
     if (subtotalEl) subtotalEl.textContent = fmtEUR(subtotal);
     if (shippingEl) shippingEl.textContent = SHIPPING === 0 ? 'Gratis' : fmtEUR(SHIPPING);
-    if (totalEl) totalEl.textContent = fmtEUR(subtotal + SHIPPING);
+    if (discountRow) discountRow.hidden = descuento <= 0;
+    if (discountEl) discountEl.textContent = '−' + fmtEUR(descuento);
+    if (totalEl) totalEl.textContent = fmtEUR(Math.max(0, subtotal + SHIPPING - descuento));
   }
 
+  // ---- Formulario de código promocional -----------------------------------
   var promoForm = document.getElementById('promoForm');
   if (promoForm) {
+    var promoInput = promoForm.querySelector('input');
+    var promoBtn = promoForm.querySelector('button');
+    var promoMsg = document.getElementById('promoMessage');
+
+    function pintarEstadoPromo() {
+      var promo = Cart.getPromo();
+      if (promo) {
+        promoInput.value = promo.codigo;
+        promoInput.disabled = true;
+        promoBtn.textContent = 'Quitar';
+      } else {
+        promoInput.disabled = false;
+        promoBtn.textContent = 'Aplicar';
+      }
+    }
+    pintarEstadoPromo();
+    document.addEventListener('cart:change', pintarEstadoPromo);
+
     promoForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      var btn = promoForm.querySelector('button');
-      var original = btn.textContent;
-      btn.textContent = 'Código no válido';
-      setTimeout(function () { btn.textContent = original; }, 1800);
+
+      // Si ya hay un código aplicado, este mismo botón sirve para quitarlo.
+      if (Cart.getPromo()) {
+        Cart.clearPromo();
+        promoInput.value = '';
+        if (promoMsg) promoMsg.hidden = true;
+        return;
+      }
+
+      var codigo = promoInput.value.trim();
+      if (!codigo) return;
+      if (!window.firebase || !firebase.functions) return;
+
+      promoBtn.disabled = true;
+      promoBtn.textContent = 'Comprobando…';
+      if (promoMsg) promoMsg.hidden = true;
+
+      var itemsParaValidar = Cart.getItems().map(function (i) { return { id: i.id, qty: i.qty }; });
+      var validarPromoFn = firebase.functions().httpsCallable('validarPromo');
+
+      validarPromoFn({ codigo: codigo, items: itemsParaValidar }).then(function (res) {
+        Cart.setPromo({ codigo: res.data.codigo, tipo: res.data.tipo, valor: res.data.valor });
+        if (promoMsg) {
+          promoMsg.textContent = 'Código "' + res.data.codigo + '" aplicado: −' + fmtEUR(res.data.descuento) + '.';
+          promoMsg.classList.remove('is-error');
+          promoMsg.hidden = false;
+        }
+      }).catch(function (err) {
+        Cart.clearPromo();
+        if (promoMsg) {
+          promoMsg.textContent = (err && err.message) || 'Ese código no es válido.';
+          promoMsg.classList.add('is-error');
+          promoMsg.hidden = false;
+        }
+      }).finally(function () {
+        promoBtn.disabled = false;
+        pintarEstadoPromo();
+      });
     });
   }
 });

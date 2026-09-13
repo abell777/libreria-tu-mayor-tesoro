@@ -180,6 +180,11 @@
           telefono: fd.get('telefono') || (document.getElementById('shippingPhone') ? document.getElementById('shippingPhone').value : '')
         };
 
+        // Código promocional aplicado en el carrito (si hay). El descuento
+        // real lo vuelve a calcular "crearPedido" en el servidor: aquí solo
+        // le decimos QUÉ código usar, nunca cuánto debería descontar.
+        var promoActual = Cart.getPromo();
+
         var guardarDireccion = fd.get('guardarDireccion') === 'on';
         var addressIdActual = fd.get('addressId') || '';
         if (guardarDireccion) guardarDireccionSiProcede(user, envio, addressIdActual);
@@ -190,7 +195,7 @@
 
         // Step 1: Crear pedido en backend
         var crearPedidoFn = firebase.functions().httpsCallable('crearPedido');
-        var resultadoPedido = await crearPedidoFn({ items: itemsParaEnviar, envio: envio });
+        var resultadoPedido = await crearPedidoFn({ items: itemsParaEnviar, envio: envio, codigoPromo: promoActual ? promoActual.codigo : '' });
         var pedidoId = resultadoPedido.data.id;
 
         // Step 2: Obtener Client Secret de Stripe
@@ -350,6 +355,7 @@
             });
           }
           Cart.clear();
+          Cart.clearPromo();
           mostrarConfirmacion(pedido.numero, pedido.total);
           history.replaceState(null, '', 'carrito.html');
           return;

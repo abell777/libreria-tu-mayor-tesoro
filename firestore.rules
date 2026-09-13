@@ -114,6 +114,23 @@ service cloud.firestore {
       allow read, update, delete: if false;
     }
 
+    // ---- promos/{codigo} — códigos de descuento --------------------------
+    // Se crean y editan a mano desde la consola de Firebase (Firestore);
+    // todavía no hay pantalla en la web para gestionarlos. El navegador
+    // nunca lee ni escribe aquí directamente: solo lo hacen las Cloud
+    // Functions "validarPromo" y "crearPedido" (SDK de administrador, se
+    // saltan estas reglas). Por eso se deniega todo desde el cliente — así
+    // nadie puede fabricarse un descuento a mano ni ver qué códigos existen
+    // inspeccionando Firestore desde el navegador. Lo mismo aplica a la
+    // subcolección "usos" (cuenta cuántas veces ha usado cada cliente cada
+    // código).
+    match /promos/{codigo} {
+      allow read, write: if false;
+      match /usos/{uid} {
+        allow read, write: if false;
+      }
+    }
+
     // ---- deseos/{uid} — lista de deseos (1 documento por usuario) --------
     // No estaba cubierta por las reglas anteriores: sin esta entrada,
     // Firestore la deniega por defecto y la lista de deseos no funciona

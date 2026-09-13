@@ -1640,6 +1640,16 @@ body.no-scroll { overflow: hidden; }
   background: #e5e7eb;
 }
 
+.promo-message {
+  margin: -0.75rem 0 1.25rem;
+  font-size: 0.85rem;
+  color: var(--gold, #8a6d1f);
+}
+.promo-message.is-error { color: #b3261e; }
+
+#summaryDiscountRow span:last-child { color: #1c7a3c; font-weight: 600; }
+
+
 .cart-summary .btn--primary,
 .checkout-btn {
   width: 100%;

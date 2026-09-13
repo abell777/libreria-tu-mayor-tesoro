@@ -104,12 +104,14 @@
         <h2>Resumen del pedido</h2>
         <div class="cart-summary-row"><span>Subtotal</span><span id="summarySubtotal">0,00&nbsp;€</span></div>
         <div class="cart-summary-row"><span>Envío</span><span id="summaryShipping">6,00&nbsp;€</span></div>
+        <div class="cart-summary-row" id="summaryDiscountRow" hidden><span>Descuento</span><span id="summaryDiscount">−0,00&nbsp;€</span></div>
         <div class="cart-summary-row total"><span>Total</span><span id="summaryTotal">0,00&nbsp;€</span></div>
 
         <form class="promo-form" id="promoForm">
           <input type="text" placeholder="Código promocional" aria-label="Código promocional">
           <button type="submit" class="btn btn--outline btn--sm">Aplicar</button>
         </form>
+        <p class="promo-message" id="promoMessage" hidden></p>
 
         <button type="button" class="btn btn--primary btn--block" id="checkoutBtn">Finalizar compra</button>
         <a href="categoria.html" class="continue-shopping">← Seguir comprando</a>

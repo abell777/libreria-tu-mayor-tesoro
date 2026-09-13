@@ -781,53 +781,185 @@ exports.crearPedido = onCall(async (request) => {
   const todosEnvioGratis = itemsFinales.every((it) => it.envioGratis);
   const gastosEnvio = todosEnvioGratis ? 0 : SHIPPING_COST;
   const subtotalRedondeado = Math.round(subtotal * 100) / 100;
-  const total = Math.round((subtotal + gastosEnvio) * 100) / 100;
 
   // Nombre y correo del cliente: se leen de la cuenta autenticada, no del
   // formulario, para que nadie pueda hacerse pasar por otra persona.
   const usuario = await admin.auth().getUser(auth.uid);
   const numero = "LT-" + Date.now().toString().slice(-6);
+  const ref = db.collection("pedidos").doc();
 
-  const pedido = {
-    numero,
-    uid: auth.uid,
-    clienteNombre: usuario.displayName || envio.nombre.trim(),
-    clienteEmail: usuario.email || "",
-    envio: {
-      nombre: envio.nombre.trim(),
-      direccion: envio.direccion.trim(),
-      ciudad: envio.ciudad.trim(),
-      cp: envio.cp.trim(),
-      telefono: envio.telefono ? envio.telefono.trim() : "",
-    },
-    items: itemsFinales,
-    subtotal: subtotalRedondeado,
-    gastosEnvio,
-    total,
-    estado: "pendiente",
-    // "pagado" es independiente de "estado" (que refleja el envío del
-    // pedido, no el cobro). Empieza en false y solo lo cambia a true el
-    // webhook de Stripe, cuando el pago se ha confirmado de verdad.
-    pagado: false,
-    createdAt: admin.firestore.FieldValue.serverTimestamp(),
-  };
+  // ---- Código promocional (opcional) ------------------------------------
+  // Se comprueba y se "gasta" (contador de usos) dentro de la MISMA
+  // transacción en la que se guarda el pedido: así, si dos compras con el
+  // mismo código de usos limitados llegan a la vez, nunca pueden agotar
+  // entre las dos más usos de los que el código permite en realidad.
+  const codigoPromo = typeof data.codigoPromo === "string" ? data.codigoPromo.trim().toUpperCase() : "";
+  let descuento = 0;
+  let promoAplicada = null;
 
-  const ref = await db.collection("pedidos").add(pedido);
+  function construirPedido() {
+    const total = Math.max(0, Math.round((subtotalRedondeado + gastosEnvio - descuento) * 100) / 100);
+    return {
+      numero,
+      uid: auth.uid,
+      clienteNombre: usuario.displayName || envio.nombre.trim(),
+      clienteEmail: usuario.email || "",
+      envio: {
+        nombre: envio.nombre.trim(),
+        direccion: envio.direccion.trim(),
+        ciudad: envio.ciudad.trim(),
+        cp: envio.cp.trim(),
+        telefono: envio.telefono ? envio.telefono.trim() : "",
+      },
+      items: itemsFinales,
+      subtotal: subtotalRedondeado,
+      gastosEnvio,
+      descuento,
+      promoAplicada,
+      total,
+      estado: "pendiente",
+      // "pagado" es independiente de "estado" (que refleja el envío del
+      // pedido, no el cobro). Empieza en false y solo lo cambia a true el
+      // webhook de Stripe, cuando el pago se ha confirmado de verdad.
+      pagado: false,
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    };
+  }
+
+  if (codigoPromo) {
+    const promoRef = db.collection("promos").doc(codigoPromo);
+    const usoRef = promoRef.collection("usos").doc(auth.uid);
+
+    await db.runTransaction(async (tx) => {
+      const promoSnap = await tx.get(promoRef);
+      if (!promoSnap.exists) {
+        throw new HttpsError("failed-precondition", "Ese código promocional no existe.");
+      }
+      const promo = promoSnap.data();
+
+      if (!promo.activo) {
+        throw new HttpsError("failed-precondition", "Ese código promocional ya no está activo.");
+      }
+      if (promo.caduca && promo.caduca.toMillis() < Date.now()) {
+        throw new HttpsError("failed-precondition", "Ese código promocional ha caducado.");
+      }
+      if (typeof promo.minimoCompra === "number" && subtotalRedondeado < promo.minimoCompra) {
+        throw new HttpsError(
+          "failed-precondition",
+          "Ese código requiere una compra mínima de " + promo.minimoCompra.toFixed(2).replace(".", ",") + " €."
+        );
+      }
+      if (typeof promo.maxUsos === "number" && (promo.usosTotales || 0) >= promo.maxUsos) {
+        throw new HttpsError("failed-precondition", "Ese código promocional ha alcanzado su límite de usos.");
+      }
+      if (typeof promo.usosPorCliente === "number") {
+        const usoSnap = await tx.get(usoRef);
+        const usosCliente = usoSnap.exists ? (usoSnap.data().veces || 0) : 0;
+        if (usosCliente >= promo.usosPorCliente) {
+          throw new HttpsError("failed-precondition", "Ya has usado ese código promocional el máximo de veces permitido.");
+        }
+      }
+
+      const bruto = promo.tipo === "porcentaje" ? subtotalRedondeado * (promo.valor / 100) : promo.valor;
+      // El descuento nunca puede ser negativo ni superar el propio
+      // subtotal, así el pedido nunca puede salir a coste negativo.
+      descuento = Math.max(0, Math.min(subtotalRedondeado, Math.round(bruto * 100) / 100));
+      promoAplicada = { codigo: codigoPromo, tipo: promo.tipo, valor: promo.valor, descuento };
+
+      tx.update(promoRef, { usosTotales: admin.firestore.FieldValue.increment(1) });
+      tx.set(
+        usoRef,
+        { veces: admin.firestore.FieldValue.increment(1), ultimoUso: admin.firestore.FieldValue.serverTimestamp() },
+        { merge: true }
+      );
+      tx.set(ref, construirPedido());
+    });
+  } else {
+    await ref.set(construirPedido());
+  }
+
+  const pedidoFinal = construirPedido();
 
   // Devolvemos al navegador el pedido ya calculado por el servidor, para
   // que pueda mostrar la confirmación y enviar los correos con estos
   // datos reales (no con los que él mismo había propuesto).
   return {
     id: ref.id,
-    numero: pedido.numero,
-    items: pedido.items,
-    subtotal: pedido.subtotal,
-    gastosEnvio: pedido.gastosEnvio,
-    total: pedido.total,
-    clienteNombre: pedido.clienteNombre,
-    clienteEmail: pedido.clienteEmail,
-    envio: pedido.envio,
+    numero: pedidoFinal.numero,
+    items: pedidoFinal.items,
+    subtotal: pedidoFinal.subtotal,
+    gastosEnvio: pedidoFinal.gastosEnvio,
+    descuento: pedidoFinal.descuento,
+    total: pedidoFinal.total,
+    clienteNombre: pedidoFinal.clienteNombre,
+    clienteEmail: pedidoFinal.clienteEmail,
+    envio: pedidoFinal.envio,
   };
+});
+
+// ==========================================================================
+// "validarPromo" — vista previa de un código promocional antes de pagar
+// (se llama desde el carrito, según el cliente escribe el código). Solo
+// COMPRUEBA si el código es válido y cuánto descuento daría: no gasta
+// ningún uso. Eso solo ocurre de verdad dentro de "crearPedido", cuando
+// el pedido llega a crearse. Por eso es normal poder "previsualizar" un
+// código varias veces sin gastarlo.
+//
+// El subtotal se recalcula aquí desde el catálogo real (igual que en
+// "crearPedido"): nunca nos fiamos de un subtotal que mande el navegador,
+// para que la comprobación de "compra mínima" no se pueda falsear.
+// ==========================================================================
+exports.validarPromo = onCall(async (request) => {
+  const data = request.data || {};
+  const codigo = typeof data.codigo === "string" ? data.codigo.trim().toUpperCase() : "";
+  if (!codigo) {
+    throw new HttpsError("invalid-argument", "Escribe un código.");
+  }
+
+  const itemsSolicitados = Array.isArray(data.items) ? data.items : [];
+  let subtotal = 0;
+  for (const item of itemsSolicitados) {
+    const libro = item && CATALOGO[item.id];
+    if (!libro) continue;
+    const cantidad = Math.min(MAX_QTY, Math.max(1, parseInt(item.qty, 10) || 1));
+    subtotal += libro.price * cantidad;
+  }
+  subtotal = Math.round(subtotal * 100) / 100;
+
+  const promoRef = db.collection("promos").doc(codigo);
+  const promoSnap = await promoRef.get();
+  if (!promoSnap.exists) {
+    throw new HttpsError("not-found", "Ese código no existe.");
+  }
+  const promo = promoSnap.data();
+
+  if (!promo.activo) {
+    throw new HttpsError("failed-precondition", "Ese código ya no está activo.");
+  }
+  if (promo.caduca && promo.caduca.toMillis() < Date.now()) {
+    throw new HttpsError("failed-precondition", "Ese código ha caducado.");
+  }
+  if (typeof promo.minimoCompra === "number" && subtotal < promo.minimoCompra) {
+    throw new HttpsError(
+      "failed-precondition",
+      "Ese código requiere una compra mínima de " + promo.minimoCompra.toFixed(2).replace(".", ",") + " €."
+    );
+  }
+  if (typeof promo.maxUsos === "number" && (promo.usosTotales || 0) >= promo.maxUsos) {
+    throw new HttpsError("failed-precondition", "Ese código ha alcanzado su límite de usos.");
+  }
+  if (request.auth && typeof promo.usosPorCliente === "number") {
+    const usoSnap = await promoRef.collection("usos").doc(request.auth.uid).get();
+    const usosCliente = usoSnap.exists ? (usoSnap.data().veces || 0) : 0;
+    if (usosCliente >= promo.usosPorCliente) {
+      throw new HttpsError("failed-precondition", "Ya has usado ese código el máximo de veces permitido.");
+    }
+  }
+
+  const bruto = promo.tipo === "porcentaje" ? subtotal * (promo.valor / 100) : promo.valor;
+  const descuento = Math.max(0, Math.min(subtotal, Math.round(bruto * 100) / 100));
+
+  return { codigo, tipo: promo.tipo, valor: promo.valor, descuento, subtotal };
 });
 
 // ==========================================================================
