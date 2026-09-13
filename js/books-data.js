@@ -24,6 +24,66 @@ window.toWebp = function (coverPath) {
   return coverPath.replace(/\.jpg$/i, '.webp');
 };
 
+// ---- Subcategorías temáticas (solo libros de Elena G. White) --------------
+// Cada libro puede llevar 1 o 2 slugs en su campo "subcategory". Sirven
+// para los botones de subcategoría y el filtro "Tema" en categoria.html.
+window.SUBCATEGORY_LABELS = {
+  'vida-de-cristo': 'Vida de Cristo',
+  'historia-biblica': 'Historia bíblica',
+  'doctrina-y-fe': 'Doctrina y fe',
+  'familia-y-hogar': 'Familia y hogar',
+  'educacion': 'Educación',
+  'salud': 'Salud',
+  'ministerio-y-evangelismo': 'Ministerio y evangelismo',
+  'mayordomia': 'Mayordomía cristiana',
+  'profecia-y-ultimos-tiempos': 'Profecía y últimos tiempos',
+  'devocionales': 'Devocionales',
+  'vida-cristiana': 'Vida cristiana',
+  'musica': 'Música'
+};
+
+// ---- Facetas de Biblias (solo categoría "biblias") -------------------------
+window.BIBLE_VERSION_LABELS = {
+  'reina-valera-1960': 'Reina-Valera 1960',
+  'bilingue-rvr-nkjv': 'Bilingüe (RVR / NKJV)'
+};
+window.BIBLE_EDITION_LABELS = {
+  'estandar': 'Estándar',
+  'apuntes': 'De apuntes',
+  'compacta': 'Compacta',
+  'bilingue': 'Bilingüe'
+};
+window.BIBLE_CLOSURE_LABELS = {
+  'cremallera': 'Con cierre de cremallera',
+  'elastico': 'Con banda elástica',
+  'ninguno': 'Sin cierre'
+};
+window.BIBLE_SIZE_LABELS = {
+  'compacta': 'Compacta',
+  'manual': 'Tamaño manual (22×15×3 cm)'
+};
+window.BIBLE_COLOR_LABELS = {
+  'marron': 'Marrón',
+  'fucsia-floral': 'Fucsia floral',
+  'rosa-floreada': 'Rosa floreada',
+  'negro': 'Negro',
+  'negro-oro': 'Negro/Oro',
+  'blanco-negro-floral': 'Blanco/Negro floral',
+  'azul-oscuro-floral': 'Azul oscuro floral',
+  'azul-celeste-floral': 'Azul celeste floral',
+  'rosa-floral': 'Rosa floral',
+  'vino-tinto': 'Vino tinto',
+  'cafe': 'Café',
+  'verde-mariposas': 'Verde mariposas',
+  'beige': 'Beige',
+  'amarillo-abejas': 'Amarillo abejas',
+  'verde-olivo': 'Verde olivo',
+  'marron-elegante': 'Marrón elegante',
+  'beige-floral': 'Beige floral',
+  'morado-con-flor-dorada': 'Morado con flor dorada',
+  'aguila': 'Águila'
+};
+
 window.BOOKS = [
   {
     id: 'el-conflicto-de-los-siglos',
@@ -39,7 +99,8 @@ window.BOOKS = [
     cover: 'img/el-conflicto-de-los-siglos.jpg',
     badge: null,
     description: 'Un recorrido por la gran lucha entre el bien y el mal a través de la historia, desde la destrucción de Jerusalén hasta la restauración final de la tierra. Un clásico de la literatura devocional, con un lenguaje claro pensado tanto para el estudio personal como para el regalo.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['historia-biblica', 'profecia-y-ultimos-tiempos'],
   },
   {
     id: 'el-deseado-de-todas-las-gentes',
@@ -58,7 +119,8 @@ window.BOOKS = [
     cover: 'img/el-deseado-de-todas-las-gentes.jpg',
     badge: null,
     description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Uno de los libros más leídos de Elena G. White, en una edición manejable de tamaño A5.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['vida-de-cristo', 'historia-biblica'],
   },
   {
     id: 'historia-de-los-patriarcas-y-profetas',
@@ -74,7 +136,8 @@ window.BOOKS = [
     cover: 'img/historia-de-los-patriarcas-y-profetas.jpg',
     badge: null,
     description: 'Repasa los grandes relatos del Antiguo Testamento, desde la creación hasta el rey David, iluminando el carácter de Dios a través de la vida de los patriarcas y los primeros profetas. Edición en tapa dura, pensada para durar en tu biblioteca.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['historia-biblica'],
   },
   {
     id: 'profetas-y-reyes',
@@ -92,7 +155,8 @@ window.BOOKS = [
     cover: 'img/profetas-y-reyes.jpg',
     badge: 'Nuevo',
     description: 'Continúa el relato de la Biblia a través de los reinos de Israel y Judá, la obra de Elías, Eliseo, Isaías y los profetas mayores, hasta el regreso del cautiverio babilónico. Una edición cuidada, ideal para el estudio diario.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['historia-biblica'],
   },
   {
     id: 'la-fe-por-la-cual-vivo',
@@ -110,7 +174,8 @@ window.BOOKS = [
     cover: 'img/la-fe-por-la-cual-vivo.jpg',
     badge: null,
     description: 'Un repaso claro y ordenado de las creencias fundamentales que fundamentan la fe cristiana, escrito para fortalecer la confianza del lector en las promesas de Dios. Ideal como libro de estudio personal o para compartir con quien empieza a explorar la fe.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['doctrina-y-fe'],
   },
   {
     id: 'la-educacion',
@@ -126,7 +191,8 @@ window.BOOKS = [
     cover: 'img/la-educacion.jpg',
     badge: null,
     description: 'Un clásico sobre el propósito real de la enseñanza: formar el carácter, no solo llenar la mente de datos. Plantea un modelo educativo que integra mente, cuerpo y espíritu, con ideas tan vigentes hoy como cuando se escribieron.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['educacion'],
   },
   {
     id: 'edificacion-del-caracter',
@@ -142,7 +208,8 @@ window.BOOKS = [
     cover: 'img/edificacion-del-caracter.jpg',
     badge: null,
     description: 'Una guía práctica para crecer, paso a paso, en las virtudes cristianas: fe, virtud, conocimiento, templanza, paciencia, piedad, amor fraternal y caridad. Cada capítulo invita a examinar la propia vida y avanzar hacia un carácter más firme.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['educacion'],
   },
   {
     id: 'hijos-e-hijas-de-dios',
@@ -158,7 +225,8 @@ window.BOOKS = [
     cover: 'img/hijos-e-hijas-de-dios.jpg',
     badge: null,
     description: 'Una colección de meditaciones breves sobre la identidad del creyente como hijo de Dios, pensada para el devocional diario. Anima a vivir con la seguridad de quien sabe a quién pertenece.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['familia-y-hogar'],
   },
   {
     id: 'exaltad-a-jesus',
@@ -174,7 +242,8 @@ window.BOOKS = [
     cover: 'img/exaltad-a-jesus.jpg',
     badge: null,
     description: 'Un devocional centrado por completo en la persona de Cristo: su carácter, su amor y su obra de salvación. Cada lectura busca acercar al lector a una relación más cercana con Jesús.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['vida-de-cristo', 'devocionales'],
   },
   {
     id: 'en-los-lugares-celestiales',
@@ -190,7 +259,8 @@ window.BOOKS = [
     cover: 'img/en-los-lugares-celestiales.jpg',
     badge: null,
     description: 'Meditaciones diarias inspiradas en la idea de que el creyente ya vive, en cierto sentido, en comunión con el cielo. Un libro pensado para empezar el día con una mirada puesta en lo eterno.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['devocionales'],
   },
   {
     id: 'fe-y-obras',
@@ -206,7 +276,8 @@ window.BOOKS = [
     cover: 'img/fe-y-obras.jpg',
     badge: null,
     description: 'Explora la relación entre la fe que salva y las obras que la acompañan, un tema clásico del cristianismo. Ayuda a entender que una fe viva se traduce siempre en una vida transformada.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['vida-cristiana'],
   },
   {
     id: 'el-otro-poder',
@@ -222,7 +293,8 @@ window.BOOKS = [
     cover: 'img/el-otro-poder.jpg',
     badge: null,
     description: 'Reflexiona sobre el poder del amor, el hogar y la influencia personal frente a otras formas de poder más visibles. Un libro sobre cómo las decisiones cotidianas moldean el carácter y la familia.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['vida-cristiana'],
   },
   {
     id: 'el-ministerio-pastoral',
@@ -238,7 +310,8 @@ window.BOOKS = [
     cover: 'img/el-ministerio-pastoral.jpg',
     badge: null,
     description: 'Dirigido a pastores y líderes de iglesia, reúne consejos prácticos sobre el cuidado de la congregación, la predicación y el ejemplo personal. Un manual de referencia para quienes ejercen el ministerio.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['ministerio-y-evangelismo'],
   },
   {
     id: 'el-deseado-de-todas-las-gentes-tapa-blanda',
@@ -256,7 +329,8 @@ window.BOOKS = [
     cover: 'img/el-deseado-de-todas-las-gentes-tapa-blanda.jpg',
     badge: null,
     description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Uno de los libros más leídos de Elena G. White.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['vida-de-cristo', 'historia-biblica'],
   },
   {
     id: 'el-ministerio-de-publicaciones',
@@ -274,7 +348,8 @@ window.BOOKS = [
     cover: 'img/el-ministerio-de-publicaciones.jpg',
     badge: null,
     description: 'Reúne consejos sobre la obra de impresión y distribución de literatura cristiana, un pilar histórico de la difusión del mensaje. De interés especial para quienes trabajan en editoriales o en la venta de libros religiosos.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['ministerio-y-evangelismo'],
   },
   {
     id: 'el-ministerio-de-la-bondad',
@@ -290,7 +365,8 @@ window.BOOKS = [
     cover: 'img/el-ministerio-de-la-bondad.jpg',
     badge: null,
     description: 'Un llamado a vivir el evangelio a través de actos concretos de bondad y ayuda al necesitado. Muestra cómo la compasión práctica abre puertas que la sola predicación no siempre alcanza.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['ministerio-y-evangelismo'],
   },
   {
     id: 'el-ministerio-medico',
@@ -306,7 +382,8 @@ window.BOOKS = [
     cover: 'img/el-ministerio-medico.jpg',
     badge: null,
     description: 'Aborda la relación entre la salud física y la obra evangélica, con consejos sobre el cuidado del cuerpo como parte del mensaje cristiano integral. Un referente para quienes trabajan en el área de la salud desde la fe.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['salud'],
   },
   {
     id: 'el-hogar-cristiano',
@@ -324,7 +401,8 @@ window.BOOKS = [
     cover: 'img/el-hogar-cristiano.jpg',
     badge: null,
     description: 'Un manual clásico sobre la vida familiar: el matrimonio, la crianza de los hijos y la atmósfera del hogar. Sigue siendo, décadas después, una de las obras más consultadas sobre la familia cristiana.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['familia-y-hogar'],
   },
   {
     id: 'el-evangelismo',
@@ -340,7 +418,8 @@ window.BOOKS = [
     cover: 'img/el-evangelismo.jpg',
     badge: null,
     description: 'Reúne principios y métodos para compartir la fe de forma eficaz, con énfasis en el amor y el respeto hacia quien escucha el mensaje. Un recurso práctico para quienes participan en la obra misionera de la iglesia.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['ministerio-y-evangelismo'],
   },
   {
     id: 'el-conflicto-inminente',
@@ -358,7 +437,8 @@ window.BOOKS = [
     cover: 'img/el-conflicto-inminente.jpg',
     badge: null,
     description: 'Analiza los grandes acontecimientos finales descritos en la profecía de la Biblia y su relevancia para la vida cristiana actual. Un libro de estudio para quienes se interesan por la escatología bíblica.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['profecia-y-ultimos-tiempos'],
   },
   {
     id: 'el-colportor-evangelico',
@@ -376,7 +456,8 @@ window.BOOKS = [
     cover: 'img/el-colportor-evangelico.jpg',
     badge: null,
     description: 'Dirigido a quienes se dedican a la venta y distribución de literatura cristiana puerta a puerta, con consejos prácticos y motivación para esa labor. Un clásico dentro de la tradición del colportaje.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['ministerio-y-evangelismo'],
   },
   {
     id: 'dios-nos-cuida',
@@ -392,7 +473,8 @@ window.BOOKS = [
     cover: 'img/dios-nos-cuida.jpg',
     badge: null,
     description: 'Un devocional matutino breve, pensado para leer cada mañana y empezar el día recordando el cuidado providencial de Dios. Fácil de intercalar en cualquier rutina, aunque sea apretada.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['devocionales'],
   },
   {
     id: 'de-la-ciudad-al-campo',
@@ -410,7 +492,8 @@ window.BOOKS = [
     cover: 'img/de-la-ciudad-al-campo.jpg',
     badge: null,
     description: 'Reflexiona sobre las ventajas de la vida sencilla en contacto con la naturaleza frente al ritmo agitado de la ciudad. Un libro que insta a repensar el estilo de vida desde una perspectiva cristiana.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['vida-cristiana'],
   },
   {
     id: 'la-pasion-del-amor',
@@ -426,7 +509,8 @@ window.BOOKS = [
     cover: 'img/la-pasion-del-amor.jpg',
     badge: null,
     description: 'Una meditación sobre el amor de Dios manifestado en la cruz, y lo que ese amor significa para la vida diaria del creyente. Un libro breve pensado para la reflexión personal.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['vida-de-cristo'],
   },
   {
     id: 'cristo-nuestro-salvador',
@@ -442,7 +526,8 @@ window.BOOKS = [
     cover: 'img/cristo-nuestro-salvador.jpg',
     badge: null,
     description: 'Una introducción sencilla y accesible a la vida y la obra de Jesús, pensada tanto para nuevos creyentes como para quienes desean repasar lo esencial del evangelio. Ideal como primer libro de estudio sobre la persona de Cristo.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['vida-de-cristo', 'devocionales'],
   },
   {
     id: 'cristo-en-su-santuario',
@@ -460,7 +545,8 @@ window.BOOKS = [
     cover: 'img/cristo-en-su-santuario.jpg',
     badge: null,
     description: 'Explica el simbolismo del santuario de la Biblia y su cumplimiento en la obra de Cristo. Un libro de estudio para profundizar en la doctrina del santuario.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['vida-de-cristo', 'doctrina-y-fe'],
   },
   {
     id: 'el-deseado-de-todas-las-gentes-tapa-dura',
@@ -476,7 +562,8 @@ window.BOOKS = [
     cover: 'img/el-deseado-de-todas-las-gentes-tapa-dura.jpg',
     badge: null,
     description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Pensada para quienes buscan un ejemplar más duradero o para regalo.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['vida-de-cristo', 'historia-biblica'],
   },
   {
     id: 'consejos-sobre-la-mayordomia-cristiana',
@@ -492,7 +579,8 @@ window.BOOKS = [
     cover: 'img/consejos-sobre-la-mayordomia-cristiana.jpg',
     badge: null,
     description: 'Reúne principios sobre el uso responsable del tiempo, el dinero y los talentos como parte de la vida de fe. Plantea la mayordomía no como obligación, sino como una forma de vivir con propósito.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['mayordomia'],
   },
   {
     id: 'consejos-sobre-la-obra-de-escuela-sabatica',
@@ -508,7 +596,8 @@ window.BOOKS = [
     cover: 'img/consejos-sobre-la-obra-de-escuela-sabatica.jpg',
     badge: null,
     description: 'Dirigido a maestros y líderes de Escuela Sabática, ofrece orientación práctica para enseñar la Biblia de forma clara y relevante a todas las edades. Un recurso de referencia para quienes sirven en esa área de la iglesia.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['educacion'],
   },
   {
     id: 'consejos-para-los-maestros',
@@ -524,7 +613,8 @@ window.BOOKS = [
     cover: 'img/consejos-para-los-maestros.jpg',
     badge: null,
     description: 'Consejos prácticos sobre la vocación docente desde una perspectiva cristiana, con énfasis en la formación del carácter tanto como del intelecto. Útil para educadores en escuelas de la iglesia y también para padres.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['educacion'],
   },
   {
     id: 'consejos-para-la-iglesia',
@@ -540,7 +630,8 @@ window.BOOKS = [
     cover: 'img/consejos-para-la-iglesia.jpg',
     badge: null,
     description: 'Una recopilación de consejos sobre la vida y la organización de la congregación local, pensada para líderes y miembros comprometidos con la salud espiritual de su iglesia.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['ministerio-y-evangelismo'],
   },
   {
     id: 'cada-dia-con-dios',
@@ -556,7 +647,8 @@ window.BOOKS = [
     cover: 'img/cada-dia-con-dios.jpg',
     badge: null,
     description: 'Un devocional diario, con una lectura breve para cada mañana del año, pensado para acompañar el tiempo personal de oración y estudio.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['devocionales'],
   },
   {
     id: 'creencias-de-los-adventistas-del-septimo-dia',
@@ -590,7 +682,8 @@ window.BOOKS = [
     cover: 'img/alza-tus-ojos.jpg',
     badge: null,
     description: 'Un devocional que invita a mirar más allá de las circunstancias diarias hacia la esperanza cristiana, con lecturas breves pensadas para el ánimo y la reflexión.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['devocionales'],
   },
   {
     id: 'a-fin-de-conocerle',
@@ -606,7 +699,8 @@ window.BOOKS = [
     cover: 'img/a-fin-de-conocerle.jpg',
     badge: null,
     description: 'Un devocional centrado en el deseo de conocer más profundamente el carácter de Cristo a través de la lectura diaria y la meditación.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['devocionales'],
   },
   {
     id: 'review-and-herald',
@@ -622,7 +716,8 @@ window.BOOKS = [
     cover: 'img/review-and-herald.jpg',
     badge: null,
     description: 'Una recopilación de artículos publicados originalmente en la histórica revista Review and Herald, con reflexiones sobre la fe, la iglesia y la misión.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['vida-cristiana'],
   },
   {
     id: 'la-verdad-acerca-de-los-angeles',
@@ -640,7 +735,8 @@ window.BOOKS = [
     cover: 'img/la-verdad-acerca-de-los-angeles.jpg',
     badge: null,
     description: 'Reúne lo que la Biblia y los escritos de la autora enseñan sobre la existencia y la obra de los ángeles, su desempeño en la historia y en la vida del creyente hoy.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['doctrina-y-fe'],
   },
   {
     id: 'consejos-sobre-la-salud',
@@ -658,7 +754,8 @@ window.BOOKS = [
     cover: 'img/consejos-sobre-la-salud.jpg',
     badge: null,
     description: 'Un compendio de principios sobre alimentación, ejercicio y estilo de vida saludable, entendidos como parte integral del bienestar espiritual. Es una óptima referencia dentro de la reforma pro salud.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['salud'],
   },
 
 // ---- Nuevos libros de Elena G. White (añadidos) ----
@@ -677,6 +774,7 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Un recorrido por el gran plan de salvación desde la caída hasta la restauración final, contado como una sola historia continua. Edición en tapa blanda con acabado brillo, pensada para el estudio personal y para regalar.',
     idioma: 'Español',
+    subcategory: ['historia-biblica'],
   },
   {
     id: 'la-iglesia-remanente',
@@ -693,6 +791,7 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Una reflexión sobre la identidad y la misión del pueblo de Dios en el tiempo del fin, a partir de los escritos de la autora. Edición en tapa blanda con acabado brillo, ideal para el estudio personal.',
     idioma: 'Español',
+    subcategory: ['doctrina-y-fe'],
   },
   {
     id: 'la-maravillosa-gracia-de-dios',
@@ -709,6 +808,7 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Un compendio devocional sobre la gracia de Dios y su obra en la vida del creyente, con lecturas breves pensadas para acompañar el día a día. Edición en tapa blanda con acabado brillo.',
     idioma: 'Español',
+    subcategory: ['devocionales'],
   },
   {
     id: 'la-musica',
@@ -725,6 +825,7 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Una recopilación de los escritos de la autora sobre el lugar de la música en el culto y en la vida cristiana. Edición en tapa blanda con acabado brillo, cuidada y de fácil lectura.',
     idioma: 'Español',
+    subcategory: ['musica'],
   },
   {
     id: 'la-segunda-venida-y-el-cielo',
@@ -743,6 +844,7 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Una mirada esperanzadora a las promesas de la Biblia sobre el regreso de Cristo y la vida eterna, explicadas con un lenguaje claro y devocional.',
     idioma: 'Español',
+    subcategory: ['profecia-y-ultimos-tiempos'],
   },
 
 // ---- Biblias ----
@@ -761,6 +863,10 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Biblia bilingüe con el texto de la Reina Valera Revisada y la New King James Version en columnas, cubierta en dos tonos de marrón. Pensada tanto para el estudio comparado como para practicar inglés junto a la lectura bíblica.',
     idioma: 'Español',
+    bibleVersion: 'bilingue-rvr-nkjv',
+    bibleEdition: 'bilingue',
+    bibleClosure: 'ninguno',
+    bibleColor: 'marron',
     freeShipping: true,
   },
   {
@@ -778,6 +884,11 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960 en formato compacto y letra grande (11 puntos), con cubierta floral en tono fucsia, cremallera e índice lateral. Ideal para llevar cada día.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'compacta',
+    bibleClosure: 'cremallera',
+    bibleColor: 'fucsia-floral',
+    bibleSize: 'compacta',
     freeShipping: true,
   },
   {
@@ -795,6 +906,10 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, letra de 8,5 puntos, en edición de apuntes: márgenes amplios para anotar, cubierta entelada floral en tono rosa y cierre con banda elástica.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'apuntes',
+    bibleClosure: 'elastico',
+    bibleColor: 'rosa-floreada',
     freeShipping: true,
   },
   {
@@ -812,6 +927,10 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, letra de 8,5 puntos, en edición de apuntes: márgenes amplios para anotar, cubierta lisa en negro y cierre con banda elástica.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'apuntes',
+    bibleClosure: 'elastico',
+    bibleColor: 'negro',
     freeShipping: true,
   },
   {
@@ -829,6 +948,10 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de apuntes con márgenes amplios para anotar, cubierta en negro con detalles dorados.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'apuntes',
+    bibleClosure: 'ninguno',
+    bibleColor: 'negro-oro',
   },
   {
     id: 'biblia-apuntes-blanco-negro-floral',
@@ -845,6 +968,10 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de apuntes con márgenes amplios para anotar, cubierta floral en blanco y negro.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'apuntes',
+    bibleClosure: 'ninguno',
+    bibleColor: 'blanco-negro-floral',
   },
   {
     id: 'biblia-apuntes-azul-oscuro-floral',
@@ -861,6 +988,10 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de apuntes con márgenes amplios para anotar, cubierta floral en azul oscuro.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'apuntes',
+    bibleClosure: 'ninguno',
+    bibleColor: 'azul-oscuro-floral',
   },
   {
     id: 'biblia-apuntes-azul-celeste-floral',
@@ -877,6 +1008,10 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de apuntes con márgenes amplios para anotar, cubierta floral en azul celeste.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'apuntes',
+    bibleClosure: 'ninguno',
+    bibleColor: 'azul-celeste-floral',
   },
   {
     id: 'biblia-apuntes-rosa-floral',
@@ -893,6 +1028,10 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de apuntes con márgenes amplios para anotar, cubierta floral en tono rosa.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'apuntes',
+    bibleClosure: 'ninguno',
+    bibleColor: 'rosa-floral',
   },
   {
     id: 'biblia-apuntes-vino-tinto',
@@ -909,6 +1048,10 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de apuntes con márgenes amplios para anotar, cubierta lisa en vino tinto.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'apuntes',
+    bibleClosure: 'ninguno',
+    bibleColor: 'vino-tinto',
   },
   {
     id: 'biblia-rvr60-cafe',
@@ -925,6 +1068,11 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Canto dorado. Cubierta en imitación piel dos tonos grabada, color café.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'estandar',
+    bibleClosure: 'ninguno',
+    bibleColor: 'cafe',
+    bibleSize: 'manual',
   },
   {
     id: 'biblia-rvr60-verde-mariposas',
@@ -941,6 +1089,11 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Canto dorado. Cubierta en tono verde menta con motivo de mariposas.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'estandar',
+    bibleClosure: 'ninguno',
+    bibleColor: 'verde-mariposas',
+    bibleSize: 'manual',
   },
   {
     id: 'biblia-rvr60-negro',
@@ -957,6 +1110,11 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Incluye introducciones y abreviaturas de C.H. Spurgeon y J.C. Ryle, y concordancia de 120 páginas. Cubierta negra con canto dorado.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'estandar',
+    bibleClosure: 'ninguno',
+    bibleColor: 'negro',
+    bibleSize: 'manual',
   },
   {
     id: 'biblia-rvr60-marron',
@@ -973,6 +1131,11 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Incluye introducciones y abreviaturas de C.H. Spurgeon y J.C. Ryle, y concordancia de 120 páginas. Cubierta marrón dos tonos con canto dorado.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'estandar',
+    bibleClosure: 'ninguno',
+    bibleColor: 'marron',
+    bibleSize: 'manual',
   },
   {
     id: 'biblia-rvr60-beige',
@@ -989,6 +1152,11 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Incluye introducciones y abreviaturas de C.H. Spurgeon y J.C. Ryle, y concordancia de 120 páginas. Cubierta en tono beige.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'estandar',
+    bibleClosure: 'ninguno',
+    bibleColor: 'beige',
+    bibleSize: 'manual',
   },
   {
     id: 'biblia-rvr60-amarillo-abejas-cierre',
@@ -1005,6 +1173,11 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta amarilla con motivo de panal y abejas.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'estandar',
+    bibleClosure: 'cremallera',
+    bibleColor: 'amarillo-abejas',
+    bibleSize: 'manual',
   },
   {
     id: 'biblia-rvr60-verde-olivo-cierre',
@@ -1021,6 +1194,11 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta en tono verde olivo con motivo vegetal.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'estandar',
+    bibleClosure: 'cremallera',
+    bibleColor: 'verde-olivo',
+    bibleSize: 'manual',
   },
   {
     id: 'biblia-rvr60-marron-elegante-cierre',
@@ -1037,6 +1215,11 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta en dos tonos de marrón.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'estandar',
+    bibleClosure: 'cremallera',
+    bibleColor: 'marron-elegante',
+    bibleSize: 'manual',
   },
   {
     id: 'biblia-rvr60-cafe-cierre',
@@ -1053,6 +1236,11 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta café con bordes ornamentales grabados.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'estandar',
+    bibleClosure: 'cremallera',
+    bibleColor: 'cafe',
+    bibleSize: 'manual',
   },
   {
     id: 'biblia-rvr60-beige-floral-cierre',
@@ -1069,6 +1257,11 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera y canto de color. Cubierta beige con motivo de hojas grabado, imitación piel de alta calidad.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'estandar',
+    bibleClosure: 'cremallera',
+    bibleColor: 'beige-floral',
+    bibleSize: 'manual',
   },
   {
     id: 'biblia-rvr60-morado-flor-dorada-cierre',
@@ -1085,6 +1278,11 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta morada con motivo floral en dorado y negro.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'estandar',
+    bibleClosure: 'cremallera',
+    bibleColor: 'morado-con-flor-dorada',
+    bibleSize: 'manual',
   },
   {
     id: 'biblia-rvr60-rosa-floral-cierre',
@@ -1101,6 +1299,11 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta rosa con motivo floral.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'estandar',
+    bibleClosure: 'cremallera',
+    bibleColor: 'rosa-floral',
+    bibleSize: 'manual',
   },
   {
     id: 'biblia-rvr60-negro-cierre',
@@ -1117,6 +1320,11 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta negra con textura geométrica grabada.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'estandar',
+    bibleClosure: 'cremallera',
+    bibleColor: 'negro',
+    bibleSize: 'manual',
   },
   {
     id: 'biblia-rvr60-aguila-cierre',
@@ -1133,6 +1341,11 @@ window.BOOKS = [
     badge: 'Nuevo',
     description: 'Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta marrón grabada con un águila y el texto de Isaías 40:31.',
     idioma: 'Español',
+    bibleVersion: 'reina-valera-1960',
+    bibleEdition: 'estandar',
+    bibleClosure: 'cremallera',
+    bibleColor: 'aguila',
+    bibleSize: 'manual',
   },
 ];
 

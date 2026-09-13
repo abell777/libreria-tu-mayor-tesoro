@@ -118,6 +118,15 @@
     if (bindingLabel) specRows.push(['Encuadernación', bindingLabel]);
     if (book.finish) specRows.push(['Acabado de cubierta', book.finish]);
     if (book.paper) specRows.push(['Tipo de papel', book.paper]);
+    if (Array.isArray(book.subcategory) && book.subcategory.length && window.SUBCATEGORY_LABELS) {
+      var temas = book.subcategory.map(function (s) { return window.SUBCATEGORY_LABELS[s] || s; }).join(', ');
+      specRows.push(['Tema', temas]);
+    }
+    if (book.bibleVersion && window.BIBLE_VERSION_LABELS) specRows.push(['Versión', window.BIBLE_VERSION_LABELS[book.bibleVersion] || book.bibleVersion]);
+    if (book.bibleEdition && window.BIBLE_EDITION_LABELS) specRows.push(['Edición', window.BIBLE_EDITION_LABELS[book.bibleEdition] || book.bibleEdition]);
+    if (book.bibleColor && window.BIBLE_COLOR_LABELS) specRows.push(['Color de cubierta', window.BIBLE_COLOR_LABELS[book.bibleColor] || book.bibleColor]);
+    if (book.bibleClosure && window.BIBLE_CLOSURE_LABELS) specRows.push(['Cierre', window.BIBLE_CLOSURE_LABELS[book.bibleClosure] || book.bibleClosure]);
+    if (book.bibleSize && window.BIBLE_SIZE_LABELS) specRows.push(['Tamaño', window.BIBLE_SIZE_LABELS[book.bibleSize] || book.bibleSize]);
     specRows.push(['Formato', book.format]);
     specRows.push(['Categoría', book.categoryLabel]);
     specRows.push(['Autor', book.author]);

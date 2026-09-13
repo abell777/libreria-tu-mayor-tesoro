@@ -32,9 +32,16 @@
 
   function bookCardHTML(book) {
     var bindingIcon = BINDING_ICON[book.formatSlug];
+    var subcatAttr = Array.isArray(book.subcategory) ? book.subcategory.join(' ') : '';
     return (
       '<article class="book-card" data-category="' + book.category + '" data-price="' + book.price +
-      '" data-format="' + book.formatSlug + '" data-author="' + book.authorSlug + '" data-product-id="' + book.id + '">' +
+      '" data-format="' + book.formatSlug + '" data-author="' + book.authorSlug + '" data-product-id="' + book.id +
+      '" data-subcategory="' + escapeHTML(subcatAttr) +
+      '" data-bible-version="' + escapeHTML(book.bibleVersion || '') +
+      '" data-bible-edition="' + escapeHTML(book.bibleEdition || '') +
+      '" data-bible-closure="' + escapeHTML(book.bibleClosure || '') +
+      '" data-bible-color="' + escapeHTML(book.bibleColor || '') +
+      '" data-bible-size="' + escapeHTML(book.bibleSize || '') + '">' +
         '<a href="producto.html?id=' + book.id + '" class="book-cover book-cover--photo">' +
           (book.badge ? '<span class="badge">' + escapeHTML(book.badge) + '</span>' : '') +
           (bindingIcon ? '<span class="binding-tag binding-tag--' + book.formatSlug + '">' + bindingIcon + '<span>' + BINDING_LABEL[book.formatSlug] + '</span></span>' : '') +
@@ -80,7 +87,18 @@
   document.head.appendChild(ldScript);
 
   var cards = Array.prototype.slice.call(grid.querySelectorAll('.book-card'));
-  var checkboxes = Array.prototype.slice.call(document.querySelectorAll('.shop-filters input[type="checkbox"]'));
+
+  // Checkboxes "fijos" (categoría, precio, formato, autor) más los que
+  // shop.js va creando/destruyendo dinámicamente según la categoría activa
+  // (barra de subcategorías/edición + grupos extra de Biblias en el aside).
+  function allFilterInputs() {
+    return Array.prototype.slice.call(
+      document.querySelectorAll('#shopFilters input[type="checkbox"], #subcategoryBar input[type="checkbox"]')
+    );
+  }
+  var checkboxes = allFilterInputs();
+  var subcategoryBarEl = document.getElementById('subcategoryBar');
+  var dynamicGroupsEl = document.getElementById('dynamicFilterGroups');
   var sortSelect = document.getElementById('sortSelect');
   var perPageSelect = document.getElementById('perPageSelect');
   var resultsCount = document.getElementById('resultsCount');
@@ -115,12 +133,85 @@
 
   function groupedChecks() {
     var groups = {};
-    checkboxes.forEach(function (cb) {
+    allFilterInputs().forEach(function (cb) {
       if (!cb.checked) return;
       groups[cb.name] = groups[cb.name] || [];
       groups[cb.name].push(cb.value);
     });
     return groups;
+  }
+
+  // ---- Filtros dinámicos según la categoría activa -----------------------
+  // "Tema" (subcategoría) para Elena G. White; "Edición" como botones
+  // rápidos + "Versión", "Cierre" y "Color" en el aside para Biblias.
+  function countInCategory(field, value, catSlug) {
+    return window.BOOKS.filter(function (b) {
+      if (b.category !== catSlug) return false;
+      return Array.isArray(b[field]) ? b[field].indexOf(value) !== -1 : b[field] === value;
+    }).length;
+  }
+
+  function presentPairs(labels, field, catSlug) {
+    return Object.keys(labels || {})
+      .map(function (key) { return [key, labels[key], countInCategory(field, key, catSlug)]; })
+      .filter(function (p) { return p[2] > 0; });
+  }
+
+  function pillsHTML(name, pairs) {
+    return pairs.map(function (p) {
+      return '<label class="subcategory-pill"><input type="checkbox" name="' + name + '" value="' + p[0] + '">' +
+        '<span>' + escapeHTML(p[1]) + ' <small>(' + p[2] + ')</small></span></label>';
+    }).join('');
+  }
+
+  function checkGroupHTML(title, name, pairs) {
+    if (!pairs.length) return '';
+    var html = '<div class="filter-group"><h3>' + escapeHTML(title) + '</h3>';
+    pairs.forEach(function (p) {
+      html += '<label class="filter-check"><input type="checkbox" name="' + name + '" value="' + p[0] + '">' +
+        '<span>' + escapeHTML(p[1]) + ' <small class="filter-count">(' + p[2] + ')</small></span></label>';
+    });
+    html += '</div>';
+    return html;
+  }
+
+  var lastDynamicCategory; // undefined al inicio para forzar la primera construcción
+
+  function ensureDynamicFilters(catSlug) {
+    if (catSlug === lastDynamicCategory) return;
+    lastDynamicCategory = catSlug;
+
+    var barHTML = '';
+    var groupsHTML = '';
+
+    if (catSlug === 'elena-white') {
+      var subPairs = presentPairs(window.SUBCATEGORY_LABELS, 'subcategory', catSlug);
+      barHTML = pillsHTML('subcategory', subPairs);
+    } else if (catSlug === 'biblias') {
+      var edPairs = presentPairs(window.BIBLE_EDITION_LABELS, 'bibleEdition', catSlug);
+      barHTML = pillsHTML('bibleEdition', edPairs);
+
+      var verPairs = presentPairs(window.BIBLE_VERSION_LABELS, 'bibleVersion', catSlug);
+      var closPairs = presentPairs(window.BIBLE_CLOSURE_LABELS, 'bibleClosure', catSlug);
+      var colorPairs = presentPairs(window.BIBLE_COLOR_LABELS, 'bibleColor', catSlug);
+      if (verPairs.length > 1) groupsHTML += checkGroupHTML('Versión', 'bibleVersion', verPairs);
+      if (closPairs.length > 1) groupsHTML += checkGroupHTML('Cierre', 'bibleClosure', closPairs);
+      groupsHTML += checkGroupHTML('Color de cubierta', 'bibleColor', colorPairs);
+    }
+
+    if (subcategoryBarEl) {
+      subcategoryBarEl.innerHTML = barHTML;
+      subcategoryBarEl.hidden = !barHTML;
+    }
+    if (dynamicGroupsEl) dynamicGroupsEl.innerHTML = groupsHTML;
+
+    // Los checkboxes recién creados necesitan su propio listener de cambio.
+    [subcategoryBarEl, dynamicGroupsEl].forEach(function (wrap) {
+      if (!wrap) return;
+      Array.prototype.slice.call(wrap.querySelectorAll('input[type="checkbox"]')).forEach(function (cb) {
+        cb.addEventListener('change', function () { currentPage = 1; render(); });
+      });
+    });
   }
 
   function priceInRange(price, range) {
@@ -149,14 +240,21 @@
       var price = parseFloat(card.dataset.price);
       var format = card.dataset.format;
       var author = card.dataset.author;
+      var subcats = (card.dataset.subcategory || '').split(' ');
 
       var matchCategory = !groups.category || groups.category.indexOf(cat) !== -1;
       var matchPrice = !groups.price || groups.price.some(function (r) { return priceInRange(price, r); });
       var matchFormat = !groups.format || groups.format.indexOf(format) !== -1;
       var matchAuthor = !groups.author || groups.author.indexOf(author) !== -1;
+      var matchSubcategory = !groups.subcategory || groups.subcategory.some(function (s) { return subcats.indexOf(s) !== -1; });
+      var matchBibleVersion = !groups.bibleVersion || groups.bibleVersion.indexOf(card.dataset.bibleVersion) !== -1;
+      var matchBibleEdition = !groups.bibleEdition || groups.bibleEdition.indexOf(card.dataset.bibleEdition) !== -1;
+      var matchBibleClosure = !groups.bibleClosure || groups.bibleClosure.indexOf(card.dataset.bibleClosure) !== -1;
+      var matchBibleColor = !groups.bibleColor || groups.bibleColor.indexOf(card.dataset.bibleColor) !== -1;
       var matchQuery = !query || cardText(card).indexOf(query) !== -1;
 
-      return matchCategory && matchPrice && matchFormat && matchAuthor && matchQuery;
+      return matchCategory && matchPrice && matchFormat && matchAuthor && matchSubcategory &&
+        matchBibleVersion && matchBibleEdition && matchBibleClosure && matchBibleColor && matchQuery;
     });
   }
 
@@ -179,13 +277,14 @@
     if (!activeFiltersWrap) return;
     activeFiltersWrap.innerHTML = '';
     var any = false;
-    checkboxes.forEach(function (cb) {
+    allFilterInputs().forEach(function (cb) {
       if (!cb.checked) return;
       any = true;
+      var label = cb.nextElementSibling.textContent.replace(/\s*\(\d+\)\s*$/, '');
       var chip = document.createElement('button');
       chip.type = 'button';
       chip.className = 'filter-chip';
-      chip.innerHTML = cb.nextElementSibling.textContent + ' <span aria-hidden="true">×</span>';
+      chip.innerHTML = escapeHTML(label) + ' <span aria-hidden="true">×</span>';
       chip.addEventListener('click', function () {
         cb.checked = false;
         currentPage = 1;
@@ -267,6 +366,11 @@
   // ---- Render principal: filtra, ordena, pagina y pinta ------------------
   function render() {
     var groups = groupedChecks();
+    var singleCategory = (groups.category && groups.category.length === 1) ? groups.category[0] : null;
+    ensureDynamicFilters(singleCategory);
+    // Vuelve a leer el estado: si la categoría cambió, los checkboxes
+    // dinámicos son otros (o han desaparecido) y hay que reflejarlo.
+    groups = groupedChecks();
     var query = (searchInput && searchInput.value ? searchInput.value : '').trim().toLowerCase();
 
     var matches = getMatches();
@@ -307,7 +411,7 @@
   }
 
   function clearAllFilters() {
-    checkboxes.forEach(function (cb) { cb.checked = false; });
+    allFilterInputs().forEach(function (cb) { cb.checked = false; });
     if (searchInput) searchInput.value = '';
     currentPage = 1;
     render();
