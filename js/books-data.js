@@ -7,6 +7,12 @@
 // único, sin espacios) y rellena sus campos. No hace falta tocar más
 // archivos: aparecerá solo en el catálogo, en el buscador y en su propia
 // ficha de producto (producto.html?id=tu-id).
+//
+// Campos opcionales de la ficha técnica (se muestran solo si existen):
+//   finish: 'Brillo' | 'Mate'                → acabado de la cubierta
+//   paper: 'Blanco offset' | 'Crema' | 'Blanco semi brillante' (o el que sea)
+//   highlights: ['Frase corta 1', 'Frase corta 2', ...] → puntos destacados
+//               en viñetas, encima del párrafo de descripción
 // ==========================================================================
 
 // Devuelve la ruta .webp de una portada (mismo nombre, sin la extensión

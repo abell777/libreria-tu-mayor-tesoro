@@ -42,15 +42,6 @@
           }
         ]
       }
-    ],
-    "rewrites": [
-      {
-        "source": "/producto.html",
-        "function": {
-          "functionId": "productoMeta",
-          "region": "us-central1"
-        }
-      }
     ]
   },
   "firestore": {

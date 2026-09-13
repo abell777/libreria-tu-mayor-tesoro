@@ -93,16 +93,35 @@
   document.getElementById('productDesc').textContent = book.description;
   document.getElementById('productDescLong').textContent = book.description;
 
+  // ---- Puntos destacados (opcional): lista de viñetas por encima o por
+  // debajo de la descripción larga. Solo aparece si el libro define
+  // "highlights" (array de frases cortas) en js/books-data.js; si no,
+  // la pestaña "Descripción" se queda solo con el párrafo, como hasta ahora.
+  var descPanel = document.querySelector('[data-tab-panel="descripcion"]');
+  var existingHighlights = document.getElementById('productHighlights');
+  if (existingHighlights) existingHighlights.remove();
+  if (descPanel && Array.isArray(book.highlights) && book.highlights.length) {
+    var ul = document.createElement('ul');
+    ul.id = 'productHighlights';
+    ul.className = 'product-highlights';
+    ul.innerHTML = book.highlights.map(function (h) { return '<li>' + escapeHTML(h) + '</li>'; }).join('');
+    descPanel.appendChild(ul);
+  }
+
+  // ---- Ficha técnica: encuadernación, acabado y papel primero (lo más
+  // relevante a la hora de comprar un libro físico), y solo se muestran
+  // las filas cuyo dato exista para este libro en concreto.
   var specList = document.getElementById('productSpecList');
   if (specList) {
-    var specRows = [
-      ['Categoría', book.categoryLabel],
-      ['Autor', book.author],
-      ['Formato', book.format],
-      ['Idioma', book.idioma]
-    ];
+    var bindingLabel = { 'tapa-dura': 'Tapa dura', rustica: 'Tapa blanda' }[book.formatSlug];
+    var specRows = [];
+    if (bindingLabel) specRows.push(['Encuadernación', bindingLabel]);
     if (book.finish) specRows.push(['Acabado de cubierta', book.finish]);
     if (book.paper) specRows.push(['Tipo de papel', book.paper]);
+    specRows.push(['Formato', book.format]);
+    specRows.push(['Categoría', book.categoryLabel]);
+    specRows.push(['Autor', book.author]);
+    specRows.push(['Idioma', book.idioma]);
     specList.innerHTML = specRows
       .map(function (row) { return '<li><span>' + escapeHTML(row[0]) + '</span><span>' + escapeHTML(row[1]) + '</span></li>'; }).join('');
   }

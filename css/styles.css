@@ -38,6 +38,13 @@
 
 /* ---- Reset base ---------------------------------------------------------- */
 * { box-sizing: border-box; }
+
+/* Corrección: varios elementos (tarjetas de libro, filtros, etc.) fijan su
+   propio "display" con la misma especificidad que la regla del navegador
+   para [hidden], así que sin esta regla el atributo hidden="" no ocultaba
+   nada (por eso la paginación no limitaba resultados). !important asegura
+   que "hidden" siempre gane, se use donde se use. */
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
 
 body {
@@ -1734,6 +1741,15 @@ body.no-scroll { overflow: hidden; }
 .tab-panel.is-active { display: block; }
 .tab-panel p { margin: 0 0 14px; }
 .tab-panel p:last-child { margin-bottom: 0; }
+
+.product-highlights { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-direction: column; gap: 10px; }
+.product-highlights li { position: relative; padding-left: 22px; font-size: 0.95rem; line-height: 1.55; }
+.product-highlights li::before {
+  content: '';
+  position: absolute; left: 0; top: 0.55em;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold);
+}
 
 .spec-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0; }
 .spec-list li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
