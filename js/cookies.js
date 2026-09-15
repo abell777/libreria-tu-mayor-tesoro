@@ -5,7 +5,7 @@
 // ==========================================================================
 (function () {
   var STORAGE_KEY = 'cookie_consent'; // 'accepted' | 'rejected'
-  var GTM_ID = 'GTM-WBV9C38V';
+  var GTM_ID = 'GTM-P58DMKWH';
 
   function loadGTM() {
     if (window.__gtmLoaded) return;
