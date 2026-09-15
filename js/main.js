@@ -81,3 +81,55 @@
     });
   });
 })();
+
+// ==========================================================================
+// Red de seguridad para las portadas de los libros
+// --------------------------------------------------------------------------
+// Las portadas se piden primero en .webp y solo caen al .jpg gracias al
+// onerror="" de cada <img>. Si ese atributo no llega a ejecutarse (HTML
+// cacheado antiguo, contenido inyectado, extensión del navegador…), la
+// portada se queda rota. Este oyente global escucha los errores de carga de
+// cualquier imagen de la página — en fase de captura, porque el evento
+// "error" de <img> no burbujea — y reintenta con el .jpg original.
+// ==========================================================================
+(function () {
+  document.addEventListener('error', function (e) {
+    var img = e.target;
+    if (!img || img.tagName !== 'IMG') return;
+
+    var src = img.getAttribute('src') || '';
+
+    // 1er intento: .webp → .jpg
+    if (/\.webp(\?|$)/i.test(src) && img.dataset.fallbackDone !== '1') {
+      img.dataset.fallbackDone = '1';
+      img.onerror = null;
+      img.src = src.replace(/\.webp(\?|$)/i, '.jpg$1');
+      return;
+    }
+
+    // 2º intento fallido: ocultamos el icono roto y dejamos el fondo limpio.
+    img.classList.add('img-failed');
+  }, true);
+})();
+
+// ==========================================================================
+// Enlaces directos a las secciones de "Mi cuenta"
+// --------------------------------------------------------------------------
+// El menú de la cabecera enlaza a cuenta.html#pedidos, #deseos, etc.
+// Aquí abrimos la pestaña correspondiente del panel de cuenta.
+// ==========================================================================
+(function () {
+  function abrirPanelDesdeHash() {
+    var hash = (window.location.hash || '').replace('#', '');
+    if (!/^[a-z-]+$/.test(hash)) return;
+    var btn = document.querySelector('[data-account-panel="' + hash + '"]');
+    if (btn) btn.click();
+  }
+
+  if (document.querySelector('[data-account-panel]')) {
+    abrirPanelDesdeHash();
+    window.addEventListener('hashchange', abrirPanelDesdeHash);
+    // El panel se rellena cuando Firebase confirma la sesión; reintentamos.
+    setTimeout(abrirPanelDesdeHash, 800);
+  }
+})();

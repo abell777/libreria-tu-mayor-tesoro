@@ -99,7 +99,119 @@
         el.classList.remove('is-logged-in');
       }
     });
+    renderAccountMenu(user);
     if (typeof window.onAuthReady === 'function') window.onAuthReady(user);
+  });
+
+  // ==========================================================================
+  // Menú de cuenta en la cabecera (todas las páginas)
+  // --------------------------------------------------------------------------
+  // Antes solo se podía cerrar sesión desde el panel lateral de cuenta.html,
+  // así que mucha gente no encontraba la opción. Ahora, con la sesión iniciada,
+  // el icono de persona de la cabecera abre un menú con el perfil, los pedidos,
+  // la lista de deseos y el botón de "Cerrar sesión", en cualquier página.
+  // Se inyecta desde JS para no tener que tocar el HTML de cada página.
+  // ==========================================================================
+  var accountMenuBuilt = false;
+  var pendingUser = null;
+
+  function initials(user) {
+    var base = (user.displayName || user.email || '?').trim();
+    return base.charAt(0).toUpperCase();
+  }
+
+  function buildAccountMenu(link) {
+    var wrap = document.createElement('div');
+    wrap.className = 'account-menu';
+    link.parentNode.insertBefore(wrap, link);
+    wrap.appendChild(link);
+
+    var panel = document.createElement('div');
+    panel.className = 'account-menu-panel';
+    panel.hidden = true;
+    panel.innerHTML =
+      '<div class="account-menu-head">' +
+        '<span class="account-menu-avatar" data-menu-avatar>?</span>' +
+        '<div class="account-menu-id">' +
+          '<p class="account-menu-name" data-menu-name></p>' +
+          '<p class="account-menu-email" data-menu-email></p>' +
+        '</div>' +
+      '</div>' +
+      '<nav class="account-menu-links">' +
+        '<a href="cuenta.html#resumen">Mi perfil</a>' +
+        '<a href="cuenta.html#pedidos">Mis pedidos</a>' +
+        '<a href="cuenta.html#deseos">Lista de deseos</a>' +
+        '<a href="cuenta.html#datos">Datos personales</a>' +
+        '<a href="cuenta.html#seguridad">Seguridad</a>' +
+      '</nav>' +
+      '<button type="button" class="account-menu-logout" data-menu-logout>Cerrar sesión</button>';
+    wrap.appendChild(panel);
+
+    function closeMenu() {
+      panel.hidden = true;
+      link.setAttribute('aria-expanded', 'false');
+    }
+    function openMenu() {
+      panel.hidden = false;
+      link.setAttribute('aria-expanded', 'true');
+    }
+
+    link.addEventListener('click', function (e) {
+      // Sin sesión, el icono sigue llevando a cuenta.html como siempre.
+      if (!link.classList.contains('is-logged-in')) return;
+      e.preventDefault();
+      if (panel.hidden) openMenu(); else closeMenu();
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!panel.hidden && !wrap.contains(e.target)) closeMenu();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    panel.querySelector('[data-menu-logout]').addEventListener('click', function () {
+      closeMenu();
+      window.authLogout().then(function () {
+        window.location.href = 'index.html';
+      });
+    });
+
+    accountMenuBuilt = true;
+    return panel;
+  }
+
+  function renderAccountMenu(user) {
+    var link = document.querySelector('[data-account-link]');
+    if (!link) { pendingUser = user; return; }
+
+    var wrap = link.closest('.account-menu');
+    if (!wrap) {
+      if (!user) return; // sin sesión no hace falta construir nada
+      buildAccountMenu(link);
+      wrap = link.closest('.account-menu');
+    }
+    var panel = wrap.querySelector('.account-menu-panel');
+
+    if (!user) {
+      panel.hidden = true;
+      link.removeAttribute('aria-expanded');
+      link.removeAttribute('aria-haspopup');
+      return;
+    }
+
+    link.setAttribute('aria-haspopup', 'true');
+    link.setAttribute('aria-expanded', 'false');
+    panel.querySelector('[data-menu-avatar]').textContent = initials(user);
+    panel.querySelector('[data-menu-name]').textContent = user.displayName || 'Mi cuenta';
+    panel.querySelector('[data-menu-email]').textContent = user.email || '';
+  }
+
+  // Si el estado de sesión llegó antes de que el DOM estuviera listo,
+  // reintentamos al cargar la página.
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!accountMenuBuilt && pendingUser !== null) renderAccountMenu(pendingUser);
+    else if (!accountMenuBuilt && auth.currentUser) renderAccountMenu(auth.currentUser);
   });
 
   // ---- Lógica para alternar las pestañas de Iniciar Sesión / Crear Cuenta ----
@@ -113,7 +225,12 @@
         t.classList.toggle('is-active', t.getAttribute('data-auth-tab') === targetPanel);
       });
       authForms.forEach(function (form) {
-        form.hidden = form.getAttribute('data-panel') !== targetPanel;
+        var oculto = form.getAttribute('data-panel') !== targetPanel;
+        form.hidden = oculto;
+        // Refuerzo: si la hoja de estilos llega cacheada/antigua, el atributo
+        // "hidden" puede perder frente a ".auth-form { display:flex }" y los
+        // dos formularios se ven solapados. Con esto nunca pasa.
+        form.style.display = oculto ? 'none' : '';
       });
       // Al entrar en "Crear cuenta" quitamos las pestañas del todo: solo queda
       // el formulario de registro con un enlace pequeño para volver a iniciar
@@ -122,6 +239,8 @@
     }
 
     if (authTabs.length > 0) {
+      // Estado inicial explícito: solo "Iniciar sesión" visible.
+      mostrarPanel('login');
       authTabs.forEach(function (tab) {
         tab.addEventListener('click', function () {
           mostrarPanel(tab.getAttribute('data-auth-tab'));

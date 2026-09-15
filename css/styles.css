@@ -2076,3 +2076,115 @@ body.no-scroll { overflow: hidden; }
 
 .inline-cta-link { margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.3rem; }
 .auto-grid-300 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-bottom: 3rem; }
+
+/* ==========================================================================
+   14. MENÚ DE CUENTA EN LA CABECERA  +  REFUERZOS
+   ========================================================================== */
+
+/* ---- Refuerzo de "hidden" ------------------------------------------------
+   Repetimos la regla para los elementos que fijan su propio "display", por si
+   alguien tiene cacheada una versión antigua de esta hoja. Sin esto, en
+   cuenta.html se veían a la vez el formulario de "Iniciar sesión" y el de
+   "Crear cuenta", uno encima del otro. */
+.auth-form[hidden],
+.auth-tabs[hidden],
+.account-panel[hidden],
+.account-menu-panel[hidden] { display: none !important; }
+
+/* ---- Portada de libro que no carga ---------------------------------------
+   Si la imagen falla (webp y jpg), la ocultamos y dejamos el fondo de la
+   tarjeta, en vez del icono roto del navegador. */
+img.img-failed { visibility: hidden; }
+
+/* ---- Menú desplegable de cuenta ------------------------------------------ */
+.account-menu { position: relative; display: inline-flex; }
+
+.account-menu-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 60;
+  width: 258px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 14px;
+  text-align: left;
+}
+
+.account-menu-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.account-menu-avatar {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.account-menu-id { min-width: 0; }
+
+.account-menu-name {
+  margin: 0;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--navy);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.account-menu-email {
+  margin: 0;
+  font-size: 0.76rem;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.account-menu-links { display: flex; flex-direction: column; }
+
+.account-menu-links a {
+  padding: 8px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.86rem;
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.account-menu-links a:hover { background: var(--muted); color: var(--navy); }
+
+.account-menu-logout {
+  margin-top: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+.account-menu-logout:hover { border-color: var(--gold); background: var(--muted); }
+
+@media (max-width: 480px) {
+  .account-menu-panel { width: min(258px, calc(100vw - 32px)); }
+}
