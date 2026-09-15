@@ -60,9 +60,66 @@
   // ------------------------------------------------------------------------
   // 2. Interacción inicial y gestión de direcciones
   // ------------------------------------------------------------------------
+  // ------------------------------------------------------------------------
+  // Estado de sesión (arreglo)
+  // ------------------------------------------------------------------------
+  // Firebase restaura la sesión de forma ASÍNCRONA al cargar la página: durante
+  // el primer segundo, "fbAuth.currentUser" todavía es null aunque el cliente
+  // sí haya iniciado sesión. Antes se leía ese valor directamente al pulsar
+  // "Finalizar compra", así que quien añadía al carrito, iniciaba sesión y
+  // volvía al carrito se encontraba otra vez el aviso de "inicia sesión" y no
+  // podía continuar. Al borrar y volver a añadir el artículo pasaba el tiempo
+  // suficiente y ya funcionaba — de ahí el comportamiento raro.
+  // Ahora escuchamos el estado real de la sesión y, si aún no se ha resuelto,
+  // esperamos a que lo haga antes de decidir nada.
+  var authResuelto = false;
+  var usuarioActual = null;
+  var accionPendiente = null;
+
+  function esperandoBoton(activo) {
+    if (!checkoutBtn) return;
+    if (activo) {
+      checkoutBtn.dataset.textoOriginal = checkoutBtn.dataset.textoOriginal || checkoutBtn.textContent;
+      checkoutBtn.disabled = true;
+      checkoutBtn.textContent = 'Comprobando tu sesión…';
+    } else {
+      checkoutBtn.disabled = false;
+      if (checkoutBtn.dataset.textoOriginal) checkoutBtn.textContent = checkoutBtn.dataset.textoOriginal;
+    }
+  }
+
+  function marcarSesion(user) {
+    authResuelto = true;
+    usuarioActual = user || null;
+    if (user && loginNotice) loginNotice.hidden = true;
+    if (accionPendiente) {
+      var pendiente = accionPendiente;
+      accionPendiente = null;
+      esperandoBoton(false);
+      pendiente(usuarioActual);
+    }
+  }
+
+  if (window.fbAuth && window.fbAuth.onAuthStateChanged) {
+    window.fbAuth.onAuthStateChanged(marcarSesion);
+  } else {
+    // Si Firebase no ha cargado, no dejamos la interfaz bloqueada para siempre.
+    setTimeout(function () { marcarSesion(null); }, 3000);
+  }
+
+  function conSesion(callback) {
+    if (authResuelto) return callback(usuarioActual);
+    accionPendiente = callback;
+    esperandoBoton(true);
+    // Red de seguridad por si Firebase no responde.
+    setTimeout(function () {
+      if (!authResuelto) marcarSesion(window.fbAuth ? window.fbAuth.currentUser : null);
+    }, 6000);
+  }
+
   if (checkoutBtn) {
     checkoutBtn.addEventListener('click', function () {
-      var user = window.fbAuth ? window.fbAuth.currentUser : null;
+      conSesion(function (user) {
       if (!user) {
         if (loginNotice) loginNotice.hidden = false;
         if (shippingSection) shippingSection.hidden = true;
@@ -75,6 +132,7 @@
         shippingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
       precargarDireccionGuardada(user);
+      });
     });
   }
 
@@ -144,7 +202,7 @@
     checkoutForm.addEventListener('submit', async function (e) {
       e.preventDefault();
 
-      var user = window.fbAuth ? window.fbAuth.currentUser : null;
+      var user = usuarioActual || (window.fbAuth ? window.fbAuth.currentUser : null);
       var paymentErrors = document.getElementById('payment-errors') || document.getElementById('checkoutError');
       var btnSubmit = document.getElementById('btnSubmitOrder') || checkoutForm.querySelector('button[type="submit"]');
       var textoOriginal = btnSubmit ? btnSubmit.textContent : 'Pagar y completar pedido';
