@@ -2188,3 +2188,198 @@ img.img-failed { visibility: hidden; }
 @media (max-width: 480px) {
   .account-menu-panel { width: min(258px, calc(100vw - 32px)); }
 }
+
+/* ==========================================================================
+   15. PEDIDOS PERSONALIZADOS (personalizado.html)
+   ========================================================================== */
+
+.custom-page { padding-bottom: 3.5rem; }
+
+.custom-hero { max-width: 720px; margin: 0 0 2.2rem; }
+.custom-intro { color: var(--muted-foreground); font-size: 1rem; margin-top: 0.4rem; }
+
+.custom-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 0;
+  margin: 0 0 2.4rem;
+}
+.custom-steps li {
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+}
+.custom-step-num {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+.custom-steps h2 { font-family: var(--font-serif); font-size: 1.02rem; margin: 0 0 4px; color: var(--navy); }
+.custom-steps p { margin: 0; font-size: 0.86rem; color: var(--muted-foreground); }
+
+.custom-login-notice {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  box-shadow: var(--shadow-card);
+  padding: 28px;
+  max-width: 560px;
+}
+.custom-login-notice p { color: var(--muted-foreground); margin-bottom: 1rem; }
+
+.custom-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 28px;
+  align-items: start;
+}
+
+.custom-form { max-width: none; }
+.custom-form select,
+.custom-form textarea,
+.custom-form input[type="file"] {
+  font: inherit;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--background);
+  color: var(--foreground);
+  width: 100%;
+}
+.custom-form textarea { resize: vertical; min-height: 96px; }
+.custom-form input:focus-visible,
+.custom-form select:focus-visible,
+.custom-form textarea:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+
+.custom-block {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  padding: 22px 24px;
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.custom-block .account-subheading { margin: 0; }
+
+.custom-help { font-size: 0.82rem; color: var(--muted-foreground); margin: 0; }
+.custom-optional { font-weight: 400; color: var(--muted-foreground); }
+
+.custom-preview { display: flex; gap: 14px; align-items: center; margin-top: 12px; }
+.custom-preview img {
+  width: 92px;
+  height: 128px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+.custom-preview-name { font-size: 0.8rem; color: var(--muted-foreground); margin: 0 0 8px; }
+
+.custom-quote {
+  border: 1px solid var(--gold-soft);
+  background: var(--parchment);
+  border-radius: var(--radius-lg);
+  padding: 18px 22px;
+  margin-bottom: 18px;
+}
+.custom-quote-label { display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted-foreground); }
+.custom-quote-value { font-family: var(--font-serif); font-size: 1.7rem; color: var(--navy); }
+.custom-quote-note { font-size: 0.78rem; color: var(--muted-foreground); margin: 6px 0 0; }
+
+.custom-progress { margin-bottom: 14px; }
+.custom-progress-bar { height: 6px; background: var(--muted); border-radius: 99px; overflow: hidden; margin-bottom: 6px; }
+.custom-progress-bar span { display: block; height: 100%; width: 0; background: var(--gold); transition: width 0.25s ease; }
+
+.custom-actions { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+.custom-aside { display: flex; flex-direction: column; gap: 18px; position: sticky; top: 16px; }
+.custom-aside-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--muted);
+  padding: 20px;
+}
+.custom-aside-card .account-subheading { margin-top: 0; }
+.custom-aside-card p { font-size: 0.85rem; color: var(--muted-foreground); }
+
+.custom-list { display: flex; flex-direction: column; gap: 12px; }
+.custom-list-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+}
+.custom-list-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.custom-list-head h3 { font-family: var(--font-serif); font-size: 0.95rem; margin: 0 0 4px; color: var(--navy); }
+.custom-list-meta { font-size: 0.78rem; color: var(--muted-foreground); margin: 0; }
+.custom-list-precio { font-size: 0.85rem; margin: 6px 0 0; }
+
+.custom-badge {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 99px;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+.custom-badge--en-revision { background: var(--gold-soft); color: var(--navy-deep); }
+.custom-badge--presupuestado,
+.custom-badge--aceptado { background: oklch(0.92 0.06 150); color: oklch(0.35 0.09 150); }
+.custom-badge--cancelado { background: oklch(0.93 0.05 25); color: oklch(0.42 0.14 25); }
+
+.custom-done {
+  max-width: 620px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  box-shadow: var(--shadow-card);
+  padding: 34px;
+  text-align: center;
+  margin: 0 auto;
+}
+.custom-done-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  font-size: 1.5rem;
+}
+.custom-done p { color: var(--muted-foreground); }
+.custom-done-actions { display: flex; gap: 10px; justify-content: center; margin-top: 1.2rem; flex-wrap: wrap; }
+
+/* Bloque de encargos dentro del panel de administración */
+.admin-encargos { margin-top: 3rem; }
+.admin-encargo-img {
+  width: 120px;
+  height: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 900px) {
+  .custom-layout { grid-template-columns: 1fr; }
+  .custom-aside { position: static; }
+  .custom-steps { grid-template-columns: 1fr; }
+}
+
+.custom-cta-section { background: var(--parchment); padding: 2.6rem 0; margin-top: 2rem; }
+.custom-cta { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.custom-cta p { color: var(--muted-foreground); margin: 0.4rem 0 0; max-width: 620px; }
+.custom-cta .section-title { margin: 0; }

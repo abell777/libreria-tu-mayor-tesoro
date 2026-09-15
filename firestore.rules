@@ -69,6 +69,41 @@ service cloud.firestore {
       allow delete: if false;
     }
 
+    // ---- encargos/{encargoId} — pedidos personalizados --------------------
+    // Solicitudes del formulario de personalizado.html. El cliente las crea
+    // siempre "en-revision" y NUNCA puede escribir un precio: el precio final
+    // solo lo anota el administrador desde el panel, después de montar la
+    // portada. Así nadie puede fabricarse un encargo ya presupuestado.
+    match /encargos/{encargoId} {
+      allow read: if isSignedIn() &&
+        (resource.data.uid == request.auth.uid || isAdmin());
+
+      allow create: if isSignedIn() &&
+        request.resource.data.uid == request.auth.uid &&
+        request.resource.data.estado == 'en-revision' &&
+        request.resource.data.createdAt == request.time &&
+        isReasonableString(request.resource.data.libroTitulo, 200) &&
+        isReasonableString(request.resource.data.clienteNombre, 140) &&
+        isReasonableString(request.resource.data.clienteEmail, 200) &&
+        isReasonableString(request.resource.data.portadaUrl, 1000) &&
+        request.resource.data.cantidad is number &&
+        request.resource.data.cantidad >= 1 &&
+        request.resource.data.cantidad <= 50 &&
+        (!('notas' in request.resource.data) || request.resource.data.notas.size() <= 800) &&
+        (!('textoPortada' in request.resource.data) || request.resource.data.textoPortada.size() <= 120) &&
+        !('precioFinal' in request.resource.data);
+
+      // El administrador solo puede tocar el estado, el precio final y un
+      // mensaje para el cliente. Nada más.
+      allow update: if isAdmin() &&
+        request.resource.data.diff(resource.data).affectedKeys()
+          .hasOnly(['estado', 'precioFinal', 'mensajeAdmin']) &&
+        request.resource.data.estado in
+          ['en-revision', 'presupuestado', 'aceptado', 'en-produccion', 'enviado', 'cancelado'];
+
+      allow delete: if false;
+    }
+
     // ---- resenas/{resenaId} — opiniones de clientes sobre los libros -----
     match /resenas/{resenaId} {
       // Las opiniones son públicas: cualquiera puede leerlas, incluso sin

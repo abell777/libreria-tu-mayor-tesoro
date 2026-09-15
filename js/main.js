@@ -133,3 +133,33 @@
     setTimeout(abrirPanelDesdeHash, 800);
   }
 })();
+
+// ==========================================================================
+// Enlace a "Pedidos personalizados" en el menú y en el pie
+// --------------------------------------------------------------------------
+// Se inyecta desde aquí para que aparezca en todas las páginas sin tener que
+// editar el HTML de cada una. Si algún día lo pones a mano en el menú,
+// borra este bloque para que no salga dos veces.
+// ==========================================================================
+(function () {
+  if (document.getElementById('adminGuard')) return; // no en admin.html
+  var URL_PERSONALIZADO = 'personalizado.html';
+  var actual = window.location.pathname.split('/').pop();
+
+  // --- Menú de categorías ---
+  var lista = document.querySelector('.category-list');
+  if (lista && !lista.querySelector('a[href="' + URL_PERSONALIZADO + '"]')) {
+    var li = document.createElement('li');
+    li.innerHTML = '<a href="' + URL_PERSONALIZADO + '">Personalizados</a>';
+    if (actual === URL_PERSONALIZADO) li.querySelector('a').classList.add('is-active');
+    lista.appendChild(li);
+  }
+
+  // --- Pie de página (columna "Institucional") ---
+  var footerList = document.querySelector('.footer-links');
+  if (footerList && !footerList.querySelector('a[href="' + URL_PERSONALIZADO + '"]')) {
+    var liPie = document.createElement('li');
+    liPie.innerHTML = '<a href="' + URL_PERSONALIZADO + '">Pedidos personalizados</a>';
+    footerList.appendChild(liPie);
+  }
+})();

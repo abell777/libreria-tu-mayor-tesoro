@@ -4,6 +4,7 @@
     "ignore": [
       "firebase.json",
       "firestore.rules",
+      "storage.rules",
       "firestore.indexes.json",
       ".firebaserc",
       "skills-lock.json",
@@ -51,6 +52,9 @@
         ]
       }
     ]
+  },
+  "storage": {
+    "rules": "storage.rules"
   },
   "firestore": {
     "database": "default",

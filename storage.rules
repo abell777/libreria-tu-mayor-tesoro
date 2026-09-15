@@ -1,0 +1,40 @@
+rules_version = '2';
+
+// ==========================================================================
+// Reglas de Firebase Storage
+// --------------------------------------------------------------------------
+// Aquí solo se guardan las imágenes que los clientes suben para la portada
+// de sus pedidos personalizados (personalizado.html). Cada cliente escribe
+// únicamente dentro de su propia carpeta, con un límite de tamaño y solo
+// imágenes, para que nadie pueda usar el almacenamiento como disco gratis.
+// ==========================================================================
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isAdmin() {
+      // 👉 Los mismos UID que en firestore.rules y en js/config.js
+      return request.auth != null && request.auth.uid in [
+        'EPkK3ItKBRhA5bNeqs9PKbM0svB3'
+      ];
+    }
+
+    match /encargos/{uid}/{archivo} {
+      allow read: if request.auth != null &&
+        (request.auth.uid == uid || isAdmin());
+
+      allow create: if request.auth != null &&
+        request.auth.uid == uid &&
+        request.resource.size < 8 * 1024 * 1024 &&
+        request.resource.contentType.matches('image/(jpeg|png|webp)');
+
+      // Una vez subida, la imagen no se modifica ni se borra desde la web
+      // (así queda constancia de lo que pidió el cliente).
+      allow update, delete: if false;
+    }
+
+    // Todo lo demás, cerrado.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
