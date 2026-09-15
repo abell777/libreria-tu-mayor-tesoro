@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<script src="js/cookies.js" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Panel de administración — Librería tu mayor tesoro</title>
-<meta name="description" content="Panel privado de gestión de pedidos de Librería tu mayor tesoro.">
-<meta name="robots" content="noindex, nofollow">
+<title>Qué regalar en un bautismo cristiano — 5 ideas con sentido</title>
+<meta name="description" content="Cinco ideas de regalo para un bautismo cristiano que de verdad se usan: Biblias de apuntes, devocionales y libros que acompañan durante años.">
+<link rel="canonical" href="https://www.libreriatumayortesoro.com/que-regalar-en-un-bautismo-cristiano.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Librería tu mayor tesoro">
+<meta property="og:title" content="Qué regalar en un bautismo cristiano — 5 ideas con sentido">
+<meta property="og:description" content="Cinco ideas de regalo para un bautismo cristiano que de verdad se usan: Biblias de apuntes, devocionales y libros que acompañan durante años.">
+<meta property="og:url" content="https://www.libreriatumayortesoro.com/que-regalar-en-un-bautismo-cristiano.html">
+<meta property="og:image" content="https://www.libreriatumayortesoro.com/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Qué regalar en un bautismo cristiano — 5 ideas con sentido">
+<meta name="twitter:description" content="Cinco ideas de regalo para un bautismo cristiano que de verdad se usan: Biblias de apuntes, devocionales y libros que acompañan durante años.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,6 +25,30 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Qué regalar en un bautismo cristiano: 5 ideas con sentido",
+  "description": "Cinco ideas de regalo para un bautismo cristiano que de verdad se usan: Biblias de apuntes, devocionales y libros que acompañan durante años.",
+  "image": "https://www.libreriatumayortesoro.com/img/og-image.jpg",
+  "author": {"@type": "Organization", "name": "Librería tu mayor tesoro"},
+  "publisher": {"@type": "Organization", "name": "Librería tu mayor tesoro", "logo": {"@type": "ImageObject", "url": "https://www.libreriatumayortesoro.com/favicon.svg"}},
+  "datePublished": "2026-09-15",
+  "mainEntityOfPage": "https://www.libreriatumayortesoro.com/que-regalar-en-un-bautismo-cristiano.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.libreriatumayortesoro.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.libreriatumayortesoro.com/blog.html"},
+    {"@type": "ListItem", "position": 3, "name": "Qué regalar en un bautismo cristiano: 5 ideas con sentido", "item": "https://www.libreriatumayortesoro.com/que-regalar-en-un-bautismo-cristiano.html"}
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -49,7 +83,7 @@
   <nav class="category-nav" id="categoryNav" aria-label="Categorías">
     <div class="container">
       <ul class="category-list">
-        <li><a href="categoria.html" class="is-active">Todas las categorías</a></li>
+        <li><a href="categoria.html">Todas las categorías</a></li>
         <li class="has-dropdown">
           <a href="categoria.html?cat=libros" class="dropdown-toggle">Libros
             <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
@@ -73,51 +107,55 @@
 </header>
 
 <main id="main-content">
-  <div class="container admin-page">
+  <section class="section pb-lg">
+    <div class="container">
+      <nav class="breadcrumb mb-lg" aria-label="Ruta de navegación">
+        <a href="index.html">Inicio</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="blog.html">Blog</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span data-breadcrumb-current>Qué regalar en un bautismo cristiano: 5 ideas con sentido</span>
+      </nav>
 
-    <div id="adminGuard" class="admin-guard">
-      <p>Comprobando tu acceso…</p>
-    </div>
-
-    <div id="adminDashboard" hidden>
-      <div class="admin-dashboard-head">
+      <div class="section-head mb-0">
         <div>
-          <h1 class="section-title">Panel de administración</h1>
-          <p class="account-intro">Gestiona todos los pedidos de la tienda: consulta el detalle y actualiza su estado de envío.</p>
-        </div>
-        <button type="button" class="account-logout" id="adminLogoutBtn">Cerrar sesión</button>
-      </div>
-
-      <div class="account-stats admin-stats">
-        <div class="account-stat-card">
-          <span class="account-stat-value" id="adminStatTotal">0</span>
-          <span class="account-stat-label">Pedidos totales</span>
-        </div>
-        <div class="account-stat-card">
-          <span class="account-stat-value" id="adminStatIngresos">0,00&nbsp;€</span>
-          <span class="account-stat-label">Ingresos totales</span>
-        </div>
-        <div class="account-stat-card">
-          <span class="account-stat-value" id="adminStatPendientes">0</span>
-          <span class="account-stat-label">Pedidos pendientes</span>
+          <span class="eyebrow">Guía de regalo</span>
+          <h1 class="section-title">Qué regalar en un bautismo cristiano: 5 ideas con sentido</h1>
         </div>
       </div>
-
-      <div class="admin-toolbar">
-        <div class="admin-filter-tabs" id="adminFilterTabs">
-          <button type="button" class="admin-filter-btn is-active" data-status-filter="todos">Todos</button>
-          <button type="button" class="admin-filter-btn" data-status-filter="pendiente">Pendientes</button>
-          <button type="button" class="admin-filter-btn" data-status-filter="enviado">Enviados</button>
-          <button type="button" class="admin-filter-btn" data-status-filter="entregado">Entregados</button>
-        </div>
-        <input type="search" id="adminSearch" class="admin-search" placeholder="Buscar por nº de pedido, nombre o email…">
-      </div>
-
-      <div id="adminOrdersList" class="admin-orders-list"></div>
-      <p class="orders-empty" id="adminOrdersEmpty" hidden>No hay pedidos que coincidan con la búsqueda.</p>
     </div>
+  </section>
 
-  </div>
+  <section class="section section--muted pt-lg">
+    <div class="container">
+      <div style="max-width: 720px; margin: 0 auto;" class="text-block">
+
+        <p class="text-block">Elegir un regalo para un bautismo cristiano no tiene por qué ser complicado. Lo que mejor funciona es algo que la persona pueda usar durante años, no algo decorativo que acabe en un cajón. Aquí tienes cinco ideas con sentido, de distintos precios.</p>
+
+        <h2 class="card-title" style="margin-top:2rem;">1. Una Biblia de apuntes, para toda la vida</h2>
+        <p class="text-block">Es el regalo de bautismo por excelencia. Una <a href="producto.html?id=biblia-apuntes-negro-oro" class="link-inline">Biblia de Apuntes Tapa Dura</a> con espacio en los márgenes para escribir notas acompaña a la persona en cada lectura durante años, y se convierte en un objeto con historia propia según se va usando. Tenemos varios acabados y colores, desde los más sobrios hasta los florales.</p>
+
+        <h2 class="card-title" style="margin-top:2rem;">2. Un devocional para el día a día</h2>
+        <p class="text-block"><a href="producto.html?id=cada-dia-con-dios" class="link-inline">Cada Día con Dios</a> es una lectura breve para cada jornada del año — perfecto para alguien que empieza su camino de fe y quiere un hábito diario sencillo, sin agobios.</p>
+
+        <h2 class="card-title" style="margin-top:2rem;">3. Un libro que acompañe en momentos difíciles</h2>
+        <p class="text-block"><a href="producto.html?id=dios-nos-cuida" class="link-inline">Dios Nos Cuida</a> reúne reflexiones sobre la providencia y el cuidado de Dios en la vida cotidiana — un regalo con un mensaje de fondo muy claro, ideal para acompañar el paso que se acaba de dar.</p>
+
+        <h2 class="card-title" style="margin-top:2rem;">4. La vida de Jesús, contada de principio a fin</h2>
+        <p class="text-block"><a href="producto.html?id=el-deseado-de-todas-las-gentes" class="link-inline">El Deseado de Todas las Gentes</a> es, para muchos, la mejor introducción posible a la figura de Jesús — un regalo con mucho más recorrido que una tarjeta o un adorno.</p>
+
+        <h2 class="card-title" style="margin-top:2rem;">5. Una guía breve de lo que se cree y por qué</h2>
+        <p class="text-block">Para quien quiere entender bien en qué consiste el paso que ha dado, <a href="producto.html?id=la-fe-por-la-cual-vivo" class="link-inline">La Fe por la Cual Vivo</a> explica de forma clara y corta las creencias fundamentales — ni muy técnico ni muy largo.</p>
+
+        <h2 class="card-title" style="margin-top:2rem;">Un consejo final</h2>
+        <p class="text-block text-block--end">Si no sabes cuál elegir, la combinación más segura es una Biblia de apuntes + un devocional corto: uno para leer hoy, el otro para acompañar cada día que viene.</p>
+
+      </div>
+      <div class="text-align-left" style="max-width: 720px; margin: 2rem auto 0;">
+        <a href="blog.html" class="btn btn--outline">Volver al blog</a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">
@@ -172,6 +210,13 @@
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
           <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
         </li>
+        <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Horario de atención - Todos los días, 24 horas
+        </li>
       </ul>
     </div>
   </div>
@@ -185,9 +230,9 @@
   <div class="container footer-bottom">
     <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
     <div class="legal-links">
-      <a href="privacidad.html">Privacidad</a>
+      <a href="privacidad.html">Privacidad </a>
       <a href="terminos.html">Términos</a>
-      <a href="index.html">Cookies</a>
+      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
     </div>
   </div>
 </footer>
@@ -195,10 +240,10 @@
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script src="js/config.js"></script>
 <script src="js/auth.js"></script>
 <script src="js/cart.js"></script>
-<script src="js/admin.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
