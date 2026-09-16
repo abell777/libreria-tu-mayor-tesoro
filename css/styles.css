@@ -1471,6 +1471,63 @@ body.no-scroll { overflow: hidden; }
 }
 
 /* ==========================================================================
+   Panel de administración — pestañas y estadísticas
+   ========================================================================== */
+.admin-view-tabs { display: flex; gap: 6px; margin-top: 18px; border-bottom: 1px solid var(--border); }
+.admin-view-tab {
+  padding: 10px 4px; margin-bottom: -1px; border: none; border-bottom: 2px solid transparent; background: none;
+  font-family: var(--font-sans); font-size: 0.92rem; font-weight: 700; color: var(--muted-foreground); cursor: pointer;
+}
+.admin-view-tab + .admin-view-tab { margin-left: 18px; }
+.admin-view-tab:hover { color: var(--navy); }
+.admin-view-tab.is-active { color: var(--navy); border-bottom-color: var(--gold); }
+
+.admin-stats-toolbar { display: flex; align-items: center; gap: 10px; margin: 22px 0 4px; }
+.admin-stats-toolbar label { font-size: 0.85rem; font-weight: 600; color: var(--muted-foreground); }
+.admin-stats-toolbar select {
+  padding: 7px 10px; border-radius: var(--radius-sm); border: 1px solid var(--border);
+  font-family: var(--font-sans); font-size: 0.85rem; background: var(--background); color: var(--foreground);
+}
+
+.admin-panel {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-md);
+  padding: 20px 22px; margin-top: 18px;
+}
+.admin-panel-title { font-family: var(--font-serif); font-size: 1.15rem; color: var(--navy); margin: 0 0 2px; }
+.admin-panel-sub { font-size: 0.82rem; color: var(--muted-foreground); margin: 0 0 18px; }
+.admin-panel-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 18px; align-items: start; }
+.admin-panel-grid .admin-panel { margin-top: 0; }
+
+/* ---- Gráfico de ventas por semana (barras en CSS puro, sin librerías) ---- */
+.admin-chart { display: flex; align-items: flex-end; gap: 10px; height: 200px; padding-top: 6px; overflow-x: auto; }
+.admin-chart-col { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; flex: 1 0 34px; height: 100%; min-width: 34px; }
+.admin-chart-value { font-size: 0.68rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; white-space: nowrap; }
+.admin-chart-bar { flex: 1; width: 100%; max-width: 30px; display: flex; align-items: flex-end; }
+.admin-chart-bar-fill {
+  width: 100%; background: linear-gradient(180deg, var(--gold) 0%, var(--navy) 130%);
+  border-radius: 4px 4px 0 0; min-height: 3px; transition: height 0.2s ease;
+}
+.admin-chart-label { font-size: 0.72rem; color: var(--muted-foreground); margin-top: 6px; white-space: nowrap; }
+
+/* ---- Ranking de libros más vendidos ---- */
+.admin-top-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.admin-top-item-head { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 5px; }
+.admin-top-item-titulo { font-size: 0.86rem; font-weight: 600; color: var(--foreground); }
+.admin-top-item-cantidad { font-size: 0.78rem; color: var(--muted-foreground); white-space: nowrap; }
+.admin-top-item-track { height: 7px; border-radius: 4px; background: var(--muted); overflow: hidden; }
+.admin-top-item-fill { height: 100%; background: var(--gold); border-radius: 4px; }
+
+/* ---- Resumen del periodo ---- */
+.admin-summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.admin-summary-item { background: var(--muted); border-radius: var(--radius-sm); padding: 14px; text-align: center; }
+.admin-summary-value { display: block; font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; color: var(--navy); }
+.admin-summary-label { display: block; font-size: 0.74rem; color: var(--muted-foreground); margin-top: 2px; }
+
+@media (max-width: 900px) {
+  .admin-panel-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
    Rediseño moderno para la página del Carrito
    ========================================================================== */
 

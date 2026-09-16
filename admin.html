@@ -91,45 +91,108 @@
         <button type="button" class="account-logout" id="adminLogoutBtn">Cerrar sesión</button>
       </div>
 
-      <div class="account-stats admin-stats">
-        <div class="account-stat-card">
-          <span class="account-stat-value" id="adminStatTotal">0</span>
-          <span class="account-stat-label">Pedidos totales</span>
-        </div>
-        <div class="account-stat-card">
-          <span class="account-stat-value" id="adminStatIngresos">0,00&nbsp;€</span>
-          <span class="account-stat-label">Ingresos totales</span>
-        </div>
-        <div class="account-stat-card">
-          <span class="account-stat-value" id="adminStatPendientes">0</span>
-          <span class="account-stat-label">Pedidos pendientes</span>
-        </div>
+      <div class="admin-view-tabs" id="adminViewTabs">
+        <button type="button" class="admin-view-tab is-active" data-view-tab="pedidos">Pedidos</button>
+        <button type="button" class="admin-view-tab" data-view-tab="estadisticas">Estadísticas</button>
       </div>
 
-      <div class="admin-toolbar">
-        <div class="admin-filter-tabs" id="adminFilterTabs">
-          <button type="button" class="admin-filter-btn is-active" data-status-filter="todos">Todos</button>
-          <button type="button" class="admin-filter-btn" data-status-filter="pendiente">Pendientes</button>
-          <button type="button" class="admin-filter-btn" data-status-filter="enviado">Enviados</button>
-          <button type="button" class="admin-filter-btn" data-status-filter="entregado">Entregados</button>
-        </div>
-        <input type="search" id="adminSearch" class="admin-search" placeholder="Buscar por nº de pedido, nombre o email…">
-      </div>
+      <!-- ==================== VISTA: PEDIDOS ==================== -->
+      <div id="adminViewPedidos">
 
-      <div id="adminOrdersList" class="admin-orders-list"></div>
-      <p class="orders-empty" id="adminOrdersEmpty" hidden>No hay pedidos que coincidan con la búsqueda.</p>
-
-      <!-- ---- Encargos personalizados ---- -->
-      <section id="adminEncargos" class="admin-encargos">
-        <div class="admin-dashboard-head">
-          <div>
-            <span class="eyebrow">Pedidos personalizados</span>
-            <h2 class="section-title">Encargos en revisión</h2>
+        <div class="account-stats admin-stats">
+          <div class="account-stat-card">
+            <span class="account-stat-value" id="adminStatTotal">0</span>
+            <span class="account-stat-label">Pedidos totales</span>
+          </div>
+          <div class="account-stat-card">
+            <span class="account-stat-value" id="adminStatIngresos">0,00&nbsp;€</span>
+            <span class="account-stat-label">Ingresos totales</span>
+          </div>
+          <div class="account-stat-card">
+            <span class="account-stat-value" id="adminStatPendientes">0</span>
+            <span class="account-stat-label">Pedidos pendientes</span>
           </div>
         </div>
-        <div id="adminEncargosList" class="admin-orders-list"></div>
-        <p class="orders-empty" id="adminEncargosEmpty" hidden>Todavía no hay encargos personalizados.</p>
-      </section>
+
+        <div class="admin-toolbar">
+          <div class="admin-filter-tabs" id="adminFilterTabs">
+            <button type="button" class="admin-filter-btn is-active" data-status-filter="todos">Todos</button>
+            <button type="button" class="admin-filter-btn" data-status-filter="pendiente">Pendientes</button>
+            <button type="button" class="admin-filter-btn" data-status-filter="enviado">Enviados</button>
+            <button type="button" class="admin-filter-btn" data-status-filter="entregado">Entregados</button>
+          </div>
+          <input type="search" id="adminSearch" class="admin-search" placeholder="Buscar por nº de pedido, nombre o email…">
+        </div>
+
+        <div id="adminOrdersList" class="admin-orders-list"></div>
+        <p class="orders-empty" id="adminOrdersEmpty" hidden>No hay pedidos que coincidan con la búsqueda.</p>
+
+        <!-- ---- Encargos personalizados ---- -->
+        <section id="adminEncargos" class="admin-encargos">
+          <div class="admin-dashboard-head">
+            <div>
+              <span class="eyebrow">Pedidos personalizados</span>
+              <h2 class="section-title">Encargos en revisión</h2>
+            </div>
+          </div>
+          <div id="adminEncargosList" class="admin-orders-list"></div>
+          <p class="orders-empty" id="adminEncargosEmpty" hidden>Todavía no hay encargos personalizados.</p>
+        </section>
+
+      </div>
+
+      <!-- ==================== VISTA: ESTADÍSTICAS ==================== -->
+      <div id="adminViewEstadisticas" hidden>
+
+        <div class="admin-stats-toolbar">
+          <label for="adminStatsRango">Periodo</label>
+          <select id="adminStatsRango">
+            <option value="8">Últimas 8 semanas</option>
+            <option value="12">Últimas 12 semanas</option>
+            <option value="26">Últimas 26 semanas</option>
+            <option value="52">Último año</option>
+          </select>
+        </div>
+
+        <section class="admin-panel">
+          <h2 class="admin-panel-title">Ventas por semana</h2>
+          <p class="admin-panel-sub">Solo se cuentan los pedidos ya pagados. Pasa el ratón (o toca) cada barra para ver el detalle.</p>
+          <div id="adminChartSemanas" class="admin-chart"></div>
+        </section>
+
+        <div class="admin-panel-grid">
+          <section class="admin-panel">
+            <h2 class="admin-panel-title">Libros más vendidos</h2>
+            <p class="admin-panel-sub">Por unidades, en pedidos pagados del periodo seleccionado.</p>
+            <ol id="adminTopLibros" class="admin-top-list"></ol>
+            <p class="orders-empty" id="adminTopLibrosEmpty" hidden>Todavía no hay ventas pagadas en este periodo.</p>
+          </section>
+
+          <section class="admin-panel">
+            <h2 class="admin-panel-title">Resumen del periodo</h2>
+            <div class="admin-summary-grid">
+              <div class="admin-summary-item">
+                <span class="admin-summary-value" id="adminResumenPedidos">0</span>
+                <span class="admin-summary-label">Pedidos pagados</span>
+              </div>
+              <div class="admin-summary-item">
+                <span class="admin-summary-value" id="adminResumenIngresos">0,00&nbsp;€</span>
+                <span class="admin-summary-label">Ingresos</span>
+              </div>
+              <div class="admin-summary-item">
+                <span class="admin-summary-value" id="adminResumenTicket">0,00&nbsp;€</span>
+                <span class="admin-summary-label">Ticket medio</span>
+              </div>
+              <div class="admin-summary-item">
+                <span class="admin-summary-value" id="adminResumenUnidades">0</span>
+                <span class="admin-summary-label">Libros vendidos</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+      </div>
+
     </div>
 
   </div>
@@ -214,6 +277,7 @@
 <script src="js/auth.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/admin.js"></script>
+<script src="js/admin-stats.js"></script>
 <script src="js/admin-encargos.js"></script>
 <script src="js/main.js"></script>
 </body>

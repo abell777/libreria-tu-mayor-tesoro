@@ -94,6 +94,10 @@
   }
 
   // ---- Carga de pedidos -------------------------------------------------------
+  // pedidosCache se comparte con js/admin-stats.js (mismo array, por
+  // referencia) a través de window.__adminPedidos + el evento
+  // 'admin-pedidos-cargados', para que el panel de estadísticas no tenga
+  // que volver a leer Firestore por su cuenta.
   function cargarPedidosAdmin() {
     document.getElementById('adminOrdersList').innerHTML = '<p class="orders-empty">Cargando pedidos…</p>';
     window.fbDb.collection('pedidos').orderBy('createdAt', 'desc').get()
@@ -106,6 +110,8 @@
         });
         actualizarEstadisticas();
         renderLista();
+        window.__adminPedidos = pedidosCache;
+        window.dispatchEvent(new CustomEvent('admin-pedidos-cargados', { detail: pedidosCache }));
       })
       .catch(function (err) {
         console.error('Error al cargar los pedidos', err);
@@ -144,6 +150,7 @@
         badge.className = 'order-status order-status--' + nuevoEstado;
         badge.textContent = capitaliza(nuevoEstado);
         actualizarEstadisticas();
+        window.dispatchEvent(new CustomEvent('admin-pedidos-cargados', { detail: pedidosCache }));
         if (flash) {
           flash.hidden = false;
           setTimeout(function () { flash.hidden = true; }, 1800);
@@ -160,6 +167,23 @@
   if (logoutBtn) {
     logoutBtn.addEventListener('click', function () {
       window.authLogout();
+    });
+  }
+
+  // ---- Pestañas "Pedidos" / "Estadísticas" ---------------------------------
+  var viewTabs = document.getElementById('adminViewTabs');
+  if (viewTabs) {
+    viewTabs.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-view-tab]');
+      if (!btn) return;
+      var vista = btn.getAttribute('data-view-tab');
+      viewTabs.querySelectorAll('.admin-view-tab').forEach(function (b) { b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      document.getElementById('adminViewPedidos').hidden = vista !== 'pedidos';
+      document.getElementById('adminViewEstadisticas').hidden = vista !== 'estadisticas';
+      if (vista === 'estadisticas' && window.adminStats) {
+        window.adminStats.refrescar();
+      }
     });
   }
 
