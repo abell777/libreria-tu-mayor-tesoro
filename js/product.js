@@ -86,7 +86,10 @@
   }
 
   document.getElementById('productCategory').textContent = book.categoryLabel;
-  document.getElementById('productTitle').textContent = book.title;
+  var titleEl = document.getElementById('productTitle');
+  titleEl.textContent = book.title;
+  var lang = window.idiomaToLang ? window.idiomaToLang(book.idioma) : 'es';
+  if (lang !== 'es') titleEl.setAttribute('lang', lang); else titleEl.removeAttribute('lang');
   document.getElementById('productAuthor').textContent = book.author;
   document.getElementById('productPrice').childNodes[0].textContent = fmtPrice(book.price) + '\u00A0€ ';
   document.getElementById('productPriceNote').textContent = book.priceNote;
@@ -147,6 +150,20 @@
     bindingEl.hidden = false;
   }
 
+  // ---- Aviso de stock (opcional; ver window.stockInfo en js/books-data.js) ----
+  var stockEl = document.getElementById('productStock');
+  var stock = window.stockInfo ? window.stockInfo(book) : null;
+  var agotado = !!(stock && stock.estado === 'agotado');
+  if (stockEl) {
+    if (stock && stock.texto) {
+      stockEl.textContent = stock.texto;
+      stockEl.className = 'stock-badge stock-badge--' + stock.estado;
+      stockEl.hidden = false;
+    } else {
+      stockEl.hidden = true;
+    }
+  }
+
   // ---- Botón "Añadir al carrito" (la lógica de añadir vive en cart.js) ----
   var addBtn = document.getElementById('addToCartBtn');
   if (addBtn) {
@@ -156,6 +173,20 @@
     addBtn.dataset.price = book.price;
     addBtn.dataset.format = book.format;
     addBtn.dataset.cover = book.cover;
+    if (agotado) {
+      addBtn.disabled = true;
+      addBtn.textContent = 'Agotado';
+    }
+  }
+  var buyNowLink = document.querySelector('.product-actions a.btn--outline');
+  if (agotado && buyNowLink) {
+    buyNowLink.classList.add('is-disabled-link');
+    buyNowLink.setAttribute('aria-disabled', 'true');
+    buyNowLink.addEventListener('click', function (e) { e.preventDefault(); });
+  }
+  var qtyBlockEl = document.querySelector('[data-product-block] .qty-stepper');
+  if (agotado && qtyBlockEl) {
+    qtyBlockEl.querySelectorAll('button, input').forEach(function (el) { el.disabled = true; });
   }
 
   // ---- Botón de lista de deseos (la lógica vive en wishlist.js) ----

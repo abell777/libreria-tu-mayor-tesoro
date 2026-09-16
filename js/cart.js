@@ -321,7 +321,37 @@ document.addEventListener('DOMContentLoaded', function () {
     if (shippingEl) shippingEl.textContent = SHIPPING === 0 ? 'Gratis' : fmtEUR(SHIPPING);
     if (discountRow) discountRow.hidden = descuento <= 0;
     if (discountEl) discountEl.textContent = '−' + fmtEUR(descuento);
-    if (totalEl) totalEl.textContent = fmtEUR(Math.max(0, subtotal + SHIPPING - descuento));
+    var total = Math.max(0, subtotal + SHIPPING - descuento);
+    if (totalEl) totalEl.textContent = fmtEUR(total);
+
+    // ---- Desglose de IVA (solo informativo) --------------------------------
+    // 👉 OJO: los tipos de aquí abajo son los habituales en España para
+    // libros impresos (4%, tipo superreducido) y para el envío como
+    // servicio aparte (21%, tipo general) — pero esto NO es asesoramiento
+    // fiscal. Coméntalo con tu gestor/asesor antes de darlo por bueno,
+    // sobre todo si algún día vendes algo que no sea un libro en papel
+    // (por ejemplo, un ebook lleva otro tratamiento). Si te confirman
+    // tipos distintos, cambia las dos constantes de aquí abajo y ya.
+    var IVA_LIBROS = 0.04;
+    var IVA_ENVIO = 0.21;
+    var baseLibros = subtotal / (1 + IVA_LIBROS);
+    var ivaLibros = subtotal - baseLibros;
+    var baseEnvio = SHIPPING > 0 ? SHIPPING / (1 + IVA_ENVIO) : 0;
+    var ivaEnvio = SHIPPING - baseEnvio;
+    // El descuento se resta de la base de los libros (nunca del IVA).
+    var baseFinal = Math.max(0, baseLibros - descuento) + baseEnvio;
+    var ivaFinal = Math.max(0, total - baseFinal);
+
+    var vatAmountEl = document.getElementById('summaryVatAmount');
+    var baseAmountEl = document.getElementById('summaryBaseAmount');
+    var vatNoteEl = document.getElementById('summaryVatNote');
+    if (vatAmountEl) vatAmountEl.textContent = fmtEUR(ivaFinal);
+    if (baseAmountEl) baseAmountEl.textContent = fmtEUR(baseFinal);
+    if (vatNoteEl) {
+      vatNoteEl.textContent = (SHIPPING > 0 && ivaEnvio > 0)
+        ? '4% libros + 21% envío'
+        : '4%';
+    }
   }
 
   // ---- Formulario de código promocional -----------------------------------

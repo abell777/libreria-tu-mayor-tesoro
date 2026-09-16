@@ -24,6 +24,42 @@ window.toWebp = function (coverPath) {
   return coverPath.replace(/\.jpg$/i, '.webp');
 };
 
+// ---- Idioma del libro → código de idioma HTML (atributo lang) -------------
+// Todo el catálogo es en español hoy, pero la categoría "Otros idiomas" del
+// menú está pensada para cuando añadas ediciones en otras lenguas. Cuando
+// llegue ese día, basta con poner el "idioma" correspondiente en el libro
+// (ej. idioma: 'Inglés') y el título/descripción de ese libro se marcarán
+// automáticamente con el lang="en" correcto — así un lector de pantalla lo
+// pronuncia bien y Google entiende que ese contenido concreto no es español.
+// (Esto NO es lo mismo que "hreflang": hreflang enlaza páginas completas que
+// son traducción una de otra; aquí es un único catálogo con libros sueltos
+// en distintos idiomas, así que lo correcto es marcar el idioma por libro
+// con "lang", no con etiquetas hreflang a nivel de página.)
+window.IDIOMA_LANG = {
+  'Español': 'es', 'Inglés': 'en', 'Portugués': 'pt', 'Francés': 'fr', 'Italiano': 'it'
+};
+window.idiomaToLang = function (idioma) {
+  return window.IDIOMA_LANG[idioma] || 'es';
+};
+
+// ---- Aviso de stock (opcional) --------------------------------------------
+// Por defecto ningún libro lleva control de stock (igual que hasta ahora:
+// no aparece ningún aviso). Si para un libro en concreto quieres avisar de
+// que quedan pocas unidades o que se ha agotado, añádele el campo "stock"
+// con el número de ejemplares que quedan:
+//   stock: 3   → se muestra "Últimas 3 unidades" y se puede seguir comprando
+//   stock: 0   → se muestra "Agotado" y se desactiva el botón de comprar
+// Si no pones "stock", el libro se comporta exactamente igual que siempre.
+window.STOCK_LOW_THRESHOLD = 5;
+window.stockInfo = function (book) {
+  if (typeof book.stock !== 'number') return null;
+  if (book.stock <= 0) return { estado: 'agotado', texto: 'Agotado' };
+  if (book.stock <= window.STOCK_LOW_THRESHOLD) {
+    return { estado: 'poco', texto: book.stock === 1 ? 'Última unidad' : 'Últimas ' + book.stock + ' unidades' };
+  }
+  return { estado: 'ok', texto: '' };
+};
+
 // ---- Subcategorías temáticas (solo libros de Elena G. White) --------------
 // Cada libro puede llevar 1 o 2 slugs en su campo "subcategory". Sirven
 // para los botones de subcategoría y el filtro "Tema" en categoria.html.

@@ -2383,3 +2383,148 @@ img.img-failed { visibility: hidden; }
 .custom-cta { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 .custom-cta p { color: var(--muted-foreground); margin: 0.4rem 0 0; max-width: 620px; }
 .custom-cta .section-title { margin: 0; }
+
+/* ==========================================================================
+   16. AVISO DE STOCK, DESGLOSE DE IVA Y VARIOS
+   ========================================================================== */
+
+/* ---- Aviso de stock (tarjetas y ficha de producto) ------------------------ */
+.stock-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 3px 9px;
+  border-radius: 99px;
+}
+/* Sobre la portada de la tarjeta (catálogo/home) */
+.book-cover--photo .stock-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+}
+/* Bajo el precio, en la ficha de producto */
+#productStock { margin: -6px 0 4px; }
+
+.stock-badge--poco { background: var(--gold-soft); color: var(--navy-deep); }
+.stock-badge--agotado { background: oklch(0.93 0.05 25); color: oklch(0.42 0.14 25); }
+
+.book-card.is-out-of-stock .book-cover--photo img { opacity: 0.55; }
+.book-card.is-out-of-stock .btn[disabled] { opacity: 0.6; cursor: not-allowed; }
+
+.is-disabled-link { opacity: 0.5; pointer-events: none; cursor: not-allowed; }
+
+/* ---- Desglose informativo de IVA (carrito/checkout) ----------------------- */
+.cart-summary-vat {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+  margin: -0.4rem 0 0.6rem;
+}
+.cart-summary-vat-hint {
+  font-size: 0.74rem;
+  color: var(--muted-foreground);
+  margin: 0 0 1rem;
+}
+
+/* ---- Insignia de pago (admin.html y seguimiento.html) --------------------
+   Existía en el HTML/JS del panel de administración pero le faltaba estilo
+   propio: se veía como texto suelto en vez de una insignia. */
+.pay-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+.pay-badge--ok { background: oklch(0.92 0.06 150); color: oklch(0.35 0.09 150); }
+.pay-badge--pendiente { background: var(--gold-soft); color: var(--navy-deep); }
+
+/* ==========================================================================
+   17. SEGUIMIENTO DE PEDIDO (seguimiento.html)
+   ========================================================================== */
+
+.tracking-page { max-width: 720px; padding-bottom: 3.5rem; }
+.tracking-hero { margin-bottom: 1.6rem; }
+.tracking-intro { color: var(--muted-foreground); margin-top: 0.4rem; }
+
+.tracking-form {
+  max-width: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  box-shadow: var(--shadow-card);
+  padding: 26px 28px;
+}
+.tracking-help { font-size: 0.86rem; color: var(--muted-foreground); margin-top: 1rem; }
+
+.tracking-result {
+  margin-top: 2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  box-shadow: var(--shadow-card);
+  padding: 26px 28px;
+}
+.tracking-result-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 1.2rem;
+}
+.tracking-result-head h2 { margin: 4px 0 0; }
+
+.tracking-steps {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  padding: 0;
+  margin: 0 0 1.6rem;
+}
+.tracking-steps li {
+  flex: 1;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--muted-foreground);
+  position: relative;
+  padding-top: 26px;
+}
+.tracking-step-dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--border);
+}
+.tracking-steps li::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  background: var(--border);
+  z-index: -1;
+}
+.tracking-steps li:first-child::before { display: none; }
+.tracking-steps li.is-done { color: var(--navy); font-weight: 600; }
+.tracking-steps li.is-done .tracking-step-dot,
+.tracking-steps li.is-done::before { background: var(--gold); }
+
+.tracking-result-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 1.4rem;
+}
+
+@media (max-width: 640px) {
+  .tracking-result-cols { grid-template-columns: 1fr; }
+}

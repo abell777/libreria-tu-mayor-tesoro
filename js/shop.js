@@ -33,8 +33,18 @@
   function bookCardHTML(book) {
     var bindingIcon = BINDING_ICON[book.formatSlug];
     var subcatAttr = Array.isArray(book.subcategory) ? book.subcategory.join(' ') : '';
+    var lang = window.idiomaToLang ? window.idiomaToLang(book.idioma) : 'es';
+    var langAttr = lang !== 'es' ? ' lang="' + lang + '"' : '';
+    var stock = window.stockInfo ? window.stockInfo(book) : null;
+    var agotado = !!(stock && stock.estado === 'agotado');
+    var stockBadgeHTML = stock && stock.texto
+      ? '<span class="stock-badge stock-badge--' + stock.estado + '">' + escapeHTML(stock.texto) + '</span>'
+      : '';
+    var addBtnHTML = agotado
+      ? '<button class="btn btn--outline btn--sm" disabled>Agotado</button>'
+      : '<button class="btn btn--primary btn--sm">Añadir</button>';
     return (
-      '<article class="book-card" data-category="' + book.category + '" data-price="' + book.price +
+      '<article class="book-card' + (agotado ? ' is-out-of-stock' : '') + '" data-category="' + book.category + '" data-price="' + book.price +
       '" data-format="' + book.formatSlug + '" data-author="' + book.authorSlug + '" data-product-id="' + book.id +
       '" data-subcategory="' + escapeHTML(subcatAttr) +
       '" data-bible-version="' + escapeHTML(book.bibleVersion || '') +
@@ -45,18 +55,19 @@
         '<a href="producto.html?id=' + book.id + '" class="book-cover book-cover--photo">' +
           (book.badge ? '<span class="badge">' + escapeHTML(book.badge) + '</span>' : '') +
           (bindingIcon ? '<span class="binding-tag binding-tag--' + book.formatSlug + '">' + bindingIcon + '<span>' + BINDING_LABEL[book.formatSlug] + '</span></span>' : '') +
-          '<img src="' + toWebp(book.cover) + '" onerror="this.onerror=null;this.src=\'' + book.cover + '\'" alt="Portada de «' + escapeHTML(book.title) + '», de ' + escapeHTML(book.author) + '" loading="lazy" decoding="async">' +
+          stockBadgeHTML +
+          '<img src="' + toWebp(book.cover) + '" onerror="this.onerror=null;this.src=\'' + book.cover + '\'" alt="Portada de «' + escapeHTML(book.title) + '», de ' + escapeHTML(book.author) + '" width="400" height="600" loading="lazy" decoding="async">' +
         '</a>' +
         '<button type="button" class="book-fav" data-fav-toggle data-id="' + book.id + '" aria-pressed="false" aria-label="Añadir a mi lista de deseos">' +
           '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>' +
         '</button>' +
         '<div class="book-info">' +
           '<span class="book-category">' + escapeHTML(book.categoryLabel) + '</span>' +
-          '<h3 class="book-title"><a href="producto.html?id=' + book.id + '">' + escapeHTML(book.title) + '</a></h3>' +
+          '<h3 class="book-title"' + langAttr + '><a href="producto.html?id=' + book.id + '">' + escapeHTML(book.title) + '</a></h3>' +
           '<p class="book-author">' + escapeHTML(book.author) + ' · ' + escapeHTML(book.format) + '</p>' +
           '<div class="book-footer">' +
             '<span class="book-price">' + fmtPrice(book.price) + '&nbsp;€<small>' + escapeHTML(book.priceNote) + '</small></span>' +
-            '<button class="btn btn--primary btn--sm">Añadir</button>' +
+            addBtnHTML +
           '</div>' +
         '</div>' +
       '</article>'

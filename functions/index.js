@@ -1120,6 +1120,61 @@ exports.stripeWebhook = onRequest({ secrets: [STRIPE_SECRET_KEY, STRIPE_WEBHOOK_
 });
 
 // ==========================================================================
+// "buscarPedidoPublico" — seguimiento de pedido sin iniciar sesión
+// --------------------------------------------------------------------------
+// Página seguimiento.html: el cliente escribe su número de pedido (el que
+// recibe por correo, tipo "LT-123456") y el email con el que compró. Esos
+// dos datos juntos hacen de "contraseña" del pedido — por eso esta función
+// no requiere sesión iniciada (funciona igual para invitados) pero SÍ exige
+// que ambos coincidan con el pedido real antes de devolver nada.
+// Solo se devuelven los campos necesarios para mostrar el estado: nunca el
+// uid del cliente ni nada que no sea de ese pedido en concreto.
+// ==========================================================================
+exports.buscarPedidoPublico = onCall(async (request) => {
+  const data = request.data || {};
+  const numero = typeof data.numero === "string" ? data.numero.trim().toUpperCase() : "";
+  const email = typeof data.email === "string" ? data.email.trim().toLowerCase() : "";
+
+  if (!numero || !email || numero.length > 40 || email.length > 200) {
+    throw new HttpsError("invalid-argument", "Escribe el número de pedido y el correo con el que compraste.");
+  }
+
+  const snap = await db.collection("pedidos").where("numero", "==", numero).limit(1).get();
+  if (snap.empty) {
+    throw new HttpsError("not-found", "No hemos encontrado ningún pedido con ese número.");
+  }
+
+  const pedido = snap.docs[0].data();
+  if ((pedido.clienteEmail || "").trim().toLowerCase() !== email) {
+    // A propósito, el mismo mensaje que "no encontrado": no queremos que
+    // alguien pueda usar esto para averiguar si un número de pedido existe.
+    throw new HttpsError("not-found", "No hemos encontrado ningún pedido con ese número.");
+  }
+
+  const fecha = pedido.createdAt && pedido.createdAt.toDate ? pedido.createdAt.toDate().toISOString() : null;
+
+  return {
+    numero: pedido.numero,
+    estado: pedido.estado,
+    pagado: !!pedido.pagado,
+    createdAt: fecha,
+    items: (pedido.items || []).map((it) => ({
+      titulo: it.titulo, formato: it.formato, cantidad: it.cantidad, precio: it.precio,
+    })),
+    subtotal: pedido.subtotal,
+    gastosEnvio: pedido.gastosEnvio,
+    descuento: pedido.descuento || 0,
+    total: pedido.total,
+    envio: {
+      nombre: (pedido.envio && pedido.envio.nombre) || "",
+      direccion: (pedido.envio && pedido.envio.direccion) || "",
+      ciudad: (pedido.envio && pedido.envio.ciudad) || "",
+      cp: (pedido.envio && pedido.envio.cp) || "",
+    },
+  };
+});
+
+// ==========================================================================
 // "productoMeta" — sirve la ficha de producto con metadatos pre-renderizados
 // ==========================================================================
 function escapeHtml(str) {

@@ -162,4 +162,20 @@
     liPie.innerHTML = '<a href="' + URL_PERSONALIZADO + '">Pedidos personalizados</a>';
     footerList.appendChild(liPie);
   }
+
+  // --- Pie de página: "Seguimiento de pedido" en la columna "Ayuda" ---
+  // La columna "Ayuda" es la SEGUNDA lista ".footer-links" de la página
+  // (la primera es "Institucional", donde acabamos de meter el enlace de
+  // arriba), así que la buscamos explícitamente por su encabezado.
+  var URL_SEGUIMIENTO = 'seguimiento.html';
+  document.querySelectorAll('.footer-col').forEach(function (col) {
+    var heading = col.querySelector('.footer-heading');
+    var lista = col.querySelector('.footer-links');
+    if (!heading || !lista) return;
+    if (heading.textContent.trim() !== 'Ayuda') return;
+    if (lista.querySelector('a[href="' + URL_SEGUIMIENTO + '"]')) return;
+    var li = document.createElement('li');
+    li.innerHTML = '<a href="' + URL_SEGUIMIENTO + '">Seguimiento de pedido</a>';
+    lista.insertBefore(li, lista.firstChild);
+  });
 })();
