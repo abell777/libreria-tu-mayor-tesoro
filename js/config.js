@@ -24,7 +24,24 @@ var emailjsConfig = {
   ownerEmail: "libreriamayortesoro@gmail.com"
 };
 
-// 3) Panel de administración (admin.html) — UID(s) de Firebase Authentication
+// 3) App Check (opcional, pero muy recomendable) — protege tus funciones y
+// tu base de datos de bots y scripts automáticos que intenten llamarlas
+// sin pasar por tu web de verdad (spam de pedidos, fuerza bruta, etc.).
+// Pasos para activarlo:
+//   a) Firebase Console → Compilación → App Check → Apps → tu app web →
+//      "Registrar" → proveedor "reCAPTCHA v3" → te da una clave de sitio.
+//   b) Pega esa clave aquí abajo, entre las comillas.
+//   c) Sube los cambios y espera a ver tráfico verificado en el panel de
+//      App Check (columna "Solicitudes verificadas") durante uno o dos días.
+//   d) SOLO cuando veas que la mayoría del tráfico ya llega verificado,
+//      activa la aplicación forzosa ("Enforce") en App Check para
+//      Firestore, Storage y Functions. Hazlo en ese orden y no antes,
+//      o corres el riesgo de bloquear a clientes reales por error.
+// Mientras esta clave esté vacía, App Check simplemente no se activa y la
+// web sigue funcionando exactamente igual que ahora.
+var APPCHECK_SITE_KEY = "";
+
+// 4) Panel de administración (admin.html) — UID(s) de Firebase Authentication
 // que pueden entrar a gestionar los pedidos. Consíguelo en:
 // Firebase Console → Authentication → Users → columna "User UID" (copia el
 // de la cuenta con la que quieras administrar la tienda) y pégalo aquí.

@@ -10,6 +10,19 @@
     firebase.initializeApp(firebaseConfig);
   }
 
+  // App Check: solo se activa si has pegado tu clave de reCAPTCHA v3 en
+  // js/config.js (ver las instrucciones allí). Envuelto en try/catch y en
+  // una comprobación de que el SDK esté cargado, para que si algún día
+  // quitas el script de App Check de una página suelta, esa página no se
+  // rompa por ello — simplemente no queda protegida.
+  if (typeof APPCHECK_SITE_KEY !== 'undefined' && APPCHECK_SITE_KEY && typeof firebase.appCheck === 'function') {
+    try {
+      firebase.appCheck().activate(APPCHECK_SITE_KEY, true);
+    } catch (e) {
+      console.error('No se pudo activar App Check', e);
+    }
+  }
+
   var auth = firebase.auth();
   var db = firebase.firestore();
   window.fbAuth = auth;
