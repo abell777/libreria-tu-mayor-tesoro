@@ -176,6 +176,37 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
+    // ---- carritosAbandonados/{uid} — snapshot del carrito para el aviso --
+    // ---- por correo de "carrito abandonado" (1 documento por usuario) ----
+    // Lo escribe js/cart.js, solo mientras hay sesión iniciada (sin sesión
+    // no hay email al que avisar). Nunca guarda precios — solo id, título
+    // y cantidad; el precio real lo vuelve a calcular la Cloud Function
+    // "recordatorioCarritoAbandonado" contra el catálogo del servidor,
+    // igual que "crearPedido". Nadie puede leerlo desde el navegador (ni
+    // siquiera el propio dueño): solo lo lee esa Cloud Function, con el
+    // SDK de administrador, que se salta estas reglas.
+    match /carritosAbandonados/{uid} {
+      allow read: if false;
+
+      allow create, update: if isSignedIn() && request.auth.uid == uid &&
+        request.resource.data.uid == uid &&
+        isReasonableString(request.resource.data.email, 200) &&
+        (!('nombre' in request.resource.data) || request.resource.data.nombre is string) &&
+        request.resource.data.items is list &&
+        request.resource.data.items.size() > 0 &&
+        request.resource.data.items.size() <= 30 &&
+        // Solo puede llegar como "false": el aviso de que el correo YA se
+        // envió (true) lo pone exclusivamente la Cloud Function (SDK de
+        // administrador), nunca el navegador.
+        request.resource.data.recordatorioEnviado == false &&
+        // Fuerza a que sea la marca de tiempo real del servidor, nunca una
+        // fecha inventada por el cliente (mismo patrón que "encargos").
+        request.resource.data.actualizadoEn == request.time;
+
+      // Al vaciar el carrito, js/cart.js borra este documento directamente.
+      allow delete: if isSignedIn() && request.auth.uid == uid;
+    }
+
     // ---- deseos/{uid} — lista de deseos (1 documento por usuario) --------
     // No estaba cubierta por las reglas anteriores: sin esta entrada,
     // Firestore la deniega por defecto y la lista de deseos no funciona

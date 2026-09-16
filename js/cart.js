@@ -104,6 +104,76 @@ window.Cart = (function () {
   };
 })();
 
+// ==========================================================================
+// Sincronización del "carrito abandonado" — solo con sesión iniciada
+// --------------------------------------------------------------------------
+// Cada vez que cambia el carrito (con sesión iniciada), guarda una copia
+// mínima en Firestore (colección "carritosAbandonados/{uid}"): solo el id,
+// el título y la cantidad de cada libro — NUNCA el precio, que siempre lo
+// vuelve a calcular el servidor contra el catálogo real antes de mandar
+// cualquier correo. Sin sesión no se guarda nada (no tendríamos a qué
+// email escribir). Al vaciar el carrito, se borra el documento.
+//
+// La Cloud Function "recordatorioCarritoAbandonado" (functions/index.js)
+// revisa esta colección una vez por hora y, si el carrito lleva varias
+// horas sin cambios, manda un correo recordándolo — no hace falta tocar
+// nada más aquí para que funcione.
+// ==========================================================================
+(function () {
+  var SYNC_DEBOUNCE_MS = 4000;
+  var syncTimer = null;
+  var usuarioActual = null;
+
+  function sincronizarCarritoAbandonado() {
+    if (!window.fbDb || !usuarioActual || typeof firebase === 'undefined') return;
+    var ref = window.fbDb.collection('carritosAbandonados').doc(usuarioActual.uid);
+    var items = Cart.getItems();
+
+    if (items.length === 0) {
+      ref.delete().catch(function () {});
+      return;
+    }
+
+    var itemsParaGuardar = items.slice(0, 30).map(function (item) {
+      return {
+        id: item.id || '',
+        titulo: (item.title || '').slice(0, 200),
+        cantidad: Math.max(1, Math.min(20, item.qty || 1))
+      };
+    });
+
+    ref.set({
+      uid: usuarioActual.uid,
+      email: usuarioActual.email || '',
+      nombre: usuarioActual.displayName || '',
+      items: itemsParaGuardar,
+      actualizadoEn: firebase.firestore.FieldValue.serverTimestamp(),
+      recordatorioEnviado: false
+    }).catch(function (err) {
+      console.error('No se pudo guardar el carrito para el recordatorio', err);
+    });
+  }
+
+  function programarSync() {
+    if (!usuarioActual) return;
+    clearTimeout(syncTimer);
+    syncTimer = setTimeout(sincronizarCarritoAbandonado, SYNC_DEBOUNCE_MS);
+  }
+
+  document.addEventListener('cart:change', programarSync);
+
+  if (window.fbAuth) {
+    window.fbAuth.onAuthStateChanged(function (user) {
+      usuarioActual = user || null;
+      // Al iniciar sesión con libros ya en el carrito (añadidos como
+      // invitado), los sincroniza también; sin sesión, no hay nada que
+      // sincronizar (y "sincronizarCarritoAbandonado" no hace nada, por
+      // el "if (!usuarioActual)" de arriba).
+      if (usuarioActual) programarSync();
+    });
+  }
+})();
+
 // ---- Utilidades -----------------------------------------------------------
 // Escapa HTML antes de insertar cualquier texto con innerHTML. Se usa en
 // todo el sitio (carrito, opiniones, panel de admin) para que un nombre,
