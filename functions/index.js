@@ -726,11 +726,67 @@ function textoValido(v, max) {
   return typeof v === "string" && v.trim().length > 0 && v.trim().length <= max;
 }
 
+// ==========================================================================
+// Límite de intentos (rate limiting) para funciones públicas
+// --------------------------------------------------------------------------
+// Sin esto, nada impide que alguien (o un script) llame miles de veces
+// seguidas a una función pública probando combinaciones — números de
+// pedido, códigos promocionales, etc. Se lleva la cuenta en Firestore, en
+// la colección "limites", con una ventana de tiempo fija: pasados los
+// minutos indicados, el contador de esa clave se reinicia solo.
+// No hace falta ninguna configuración extra ni servicio de pago.
+// ==========================================================================
+async function dentroDelLimite(clave, maxIntentos, ventanaMs) {
+  const ref = db.collection("limites").doc(clave);
+  const ahora = Date.now();
+  return db.runTransaction(async (tx) => {
+    const snap = await tx.get(ref);
+    const data = snap.exists ? snap.data() : null;
+    if (!data || ahora - data.inicio > ventanaMs) {
+      tx.set(ref, { inicio: ahora, intentos: 1 });
+      return true;
+    }
+    if (data.intentos >= maxIntentos) {
+      return false;
+    }
+    tx.update(ref, { intentos: admin.firestore.FieldValue.increment(1) });
+    return true;
+  });
+}
+
+// Lanza un error si se ha superado el límite; si no, deja continuar.
+async function aplicarLimite(clave, maxIntentos, ventanaMs) {
+  const permitido = await dentroDelLimite(clave, maxIntentos, ventanaMs);
+  if (!permitido) {
+    throw new HttpsError(
+      "resource-exhausted",
+      "Demasiados intentos seguidos. Espera unos minutos y vuelve a intentarlo."
+    );
+  }
+}
+
+// IP del que llama, tal y como la ve Cloud Functions detrás del proxy de
+// Firebase/Google. Si por lo que sea no está disponible, se usa un valor
+// fijo (mejor limitar "a todos los desconocidos juntos" que no limitar).
+function ipDelSolicitante(request) {
+  const req = request.rawRequest;
+  if (!req) return "desconocida";
+  const forwarded = req.headers && req.headers["x-forwarded-for"];
+  if (typeof forwarded === "string" && forwarded.trim()) {
+    return forwarded.split(",")[0].trim();
+  }
+  return req.ip || "desconocida";
+}
+
 exports.crearPedido = onCall(async (request) => {
   const auth = request.auth;
   if (!auth) {
     throw new HttpsError("unauthenticated", "Debes iniciar sesión para completar la compra.");
   }
+  // Máximo 8 pedidos cada 10 minutos por cliente — de sobra para una compra
+  // normal (incluso si falla y lo reintenta), pero frena un script que
+  // intente crear pedidos en bucle.
+  await aplicarLimite("crearPedido_" + auth.uid, 8, 10 * 60 * 1000);
 
   const data = request.data || {};
   const itemsSolicitados = Array.isArray(data.items) ? data.items : [];
@@ -910,6 +966,10 @@ exports.crearPedido = onCall(async (request) => {
 // para que la comprobación de "compra mínima" no se pueda falsear.
 // ==========================================================================
 exports.validarPromo = onCall(async (request) => {
+  // Máximo 15 códigos probados cada 5 minutos por IP — dos o tres códigos
+  // fallidos son normales, miles seguidos ya no.
+  await aplicarLimite("validarPromo_" + ipDelSolicitante(request), 15, 5 * 60 * 1000);
+
   const data = request.data || {};
   const codigo = typeof data.codigo === "string" ? data.codigo.trim().toUpperCase() : "";
   if (!codigo) {
@@ -1131,6 +1191,11 @@ exports.stripeWebhook = onRequest({ secrets: [STRIPE_SECRET_KEY, STRIPE_WEBHOOK_
 // uid del cliente ni nada que no sea de ese pedido en concreto.
 // ==========================================================================
 exports.buscarPedidoPublico = onCall(async (request) => {
+  // Máximo 10 intentos cada 5 minutos por IP: de sobra si alguien se
+  // equivoca al escribir el número o el email varias veces, pero corta en
+  // seco a quien intente adivinar números de pedido por fuerza bruta.
+  await aplicarLimite("buscarPedidoPublico_" + ipDelSolicitante(request), 10, 5 * 60 * 1000);
+
   const data = request.data || {};
   const numero = typeof data.numero === "string" ? data.numero.trim().toUpperCase() : "";
   const email = typeof data.email === "string" ? data.email.trim().toLowerCase() : "";

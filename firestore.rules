@@ -166,6 +166,16 @@ service cloud.firestore {
       }
     }
 
+    // ---- limites/{clave} — contador del límite de intentos ----------------
+    // Lo usan internamente "crearPedido", "validarPromo" y
+    // "buscarPedidoPublico" (SDK de administrador) para frenar el abuso.
+    // No tiene ningún dato personal, solo un contador y una marca de
+    // tiempo — pero tampoco hay motivo para que nadie lo lea o lo toque
+    // desde el navegador.
+    match /limites/{clave} {
+      allow read, write: if false;
+    }
+
     // ---- deseos/{uid} — lista de deseos (1 documento por usuario) --------
     // No estaba cubierta por las reglas anteriores: sin esta entrada,
     // Firestore la deniega por defecto y la lista de deseos no funciona

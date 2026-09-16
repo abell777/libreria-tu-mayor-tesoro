@@ -16,6 +16,15 @@
   var resultBox = document.getElementById('trackingResult');
   var anotherBtn = document.getElementById('trackingAnotherBtn');
 
+  // Si se llega desde el enlace del correo de confirmación
+  // (seguimiento.html?numero=LT-123456), rellenamos el número y dejamos el
+  // cursor listo en el email, para que solo falte escribir eso.
+  var numeroDesdeUrl = new URLSearchParams(window.location.search).get('numero');
+  if (numeroDesdeUrl) {
+    document.getElementById('trackingNumero').value = numeroDesdeUrl;
+    document.getElementById('trackingEmail').focus();
+  }
+
   var ESTADOS = {
     pendiente: 'Pedido recibido',
     enviado: 'Enviado',
