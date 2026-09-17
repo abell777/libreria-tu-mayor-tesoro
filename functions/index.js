@@ -16,6 +16,7 @@
 // puede mover el catálogo entero a Firestore — dímelo y lo hacemos.
 // ==========================================================================
 const { onCall, onRequest, HttpsError } = require("firebase-functions/v2/https");
+const { onSchedule } = require("firebase-functions/v2/scheduler");
 const { setGlobalOptions } = require("firebase-functions/v2");
 const { defineSecret } = require("firebase-functions/params");
 const admin = require("firebase-admin");
@@ -25,6 +26,13 @@ const db = admin.firestore();
 
 setGlobalOptions({ region: "us-central1", maxInstances: 10 });
 
+// App Check: una vez lo actives siguiendo las instrucciones de
+// js/config.js y confirmes en la consola de Firebase que el tráfico real
+// llega verificado, puedes exigirlo aquí añadiendo "enforceAppCheck: true"
+// dentro de las llaves de cada "onCall(...)" de este archivo (por ejemplo
+// "onCall({ enforceAppCheck: true }, async (request) => {"). No se activa
+// por defecto para no bloquear pedidos reales antes de haberlo probado.
+
 // URL pública del sitio (se usa aquí y también más abajo en "productoMeta").
 const SITE_URL = "https://www.libreriatumayortesoro.com";
 
@@ -33,6 +41,18 @@ const SITE_URL = "https://www.libreriatumayortesoro.com";
 // y solo se leen dentro de la función en el momento de usarlas.
 const STRIPE_SECRET_KEY = defineSecret("STRIPE_SECRET_KEY");
 const STRIPE_WEBHOOK_SECRET = defineSecret("STRIPE_WEBHOOK_SECRET");
+
+// Credenciales de Gmail para el correo de "carrito abandonado" (más abajo).
+// Igual que las de Stripe, NUNCA se escriben aquí, solo se leen en el
+// momento de usarlas:
+//   firebase functions:secrets:set GMAIL_USER
+//   firebase functions:secrets:set GMAIL_APP_PASSWORD
+// GMAIL_USER es la dirección de Gmail que envía el correo (puede ser
+// libreriamayortesoro@gmail.com); GMAIL_APP_PASSWORD es una "contraseña de
+// aplicación" de 16 caracteres que genera Google — NUNCA la contraseña
+// normal de la cuenta (ver el mensaje que te doy con los pasos exactos).
+const GMAIL_USER = defineSecret("GMAIL_USER");
+const GMAIL_APP_PASSWORD = defineSecret("GMAIL_APP_PASSWORD");
 
 // ---- Catálogo oficial (debe coincidir con js/books-data.js) ----
 // Incluye también description/cover/category/author porque "productoMeta"
@@ -727,55 +747,54 @@ function textoValido(v, max) {
 }
 
 // ==========================================================================
-// Límite de intentos (rate limiting) para funciones públicas
-// --------------------------------------------------------------------------
-// Sin esto, nada impide que alguien (o un script) llame miles de veces
-// seguidas a una función pública probando combinaciones — números de
-// pedido, códigos promocionales, etc. Se lleva la cuenta en Firestore, en
-// la colección "limites", con una ventana de tiempo fija: pasados los
-// minutos indicados, el contador de esa clave se reinicia solo.
-// No hace falta ninguna configuración extra ni servicio de pago.
+// Límite de intentos — evita el abuso de las funciones que se pueden llamar
+// SIN haber iniciado sesión, o que aceptan datos "adivinables" (código
+// promocional, número de pedido). Usa la colección "limites" que ya estaba
+// reservada para esto en firestore.rules (con "allow read, write: if false"
+// — nadie puede leerla ni tocarla desde el navegador, solo estas funciones
+// con el SDK de administrador).
+//
+// Funciona con una ventana de tiempo deslizante sencilla: cada "clave"
+// lleva su propio contador; al superar "maxIntentos" dentro de "ventanaMs"
+// se corta con un error claro, y el contador se reinicia solo cuando pasa
+// la ventana. Va dentro de una transacción para que dos peticiones que
+// lleguen a la vez (a propósito, para intentar saltárselo) no puedan
+// colarse las dos a la vez.
 // ==========================================================================
-async function dentroDelLimite(clave, maxIntentos, ventanaMs) {
+async function comprobarLimite(clave, maxIntentos, ventanaMs) {
   const ref = db.collection("limites").doc(clave);
   const ahora = Date.now();
-  return db.runTransaction(async (tx) => {
+  await db.runTransaction(async (tx) => {
     const snap = await tx.get(ref);
-    const data = snap.exists ? snap.data() : null;
-    if (!data || ahora - data.inicio > ventanaMs) {
-      tx.set(ref, { inicio: ahora, intentos: 1 });
-      return true;
+    const datos = snap.exists ? snap.data() : null;
+    const inicio = datos && typeof datos.inicio === "number" ? datos.inicio : null;
+    const dentroDeVentana = !!inicio && (ahora - inicio) < ventanaMs;
+    const intentos = dentroDeVentana ? (datos.intentos || 0) : 0;
+
+    if (intentos >= maxIntentos) {
+      throw new HttpsError(
+        "resource-exhausted",
+        "Demasiados intentos seguidos. Espera unos minutos y vuelve a intentarlo."
+      );
     }
-    if (data.intentos >= maxIntentos) {
-      return false;
-    }
-    tx.update(ref, { intentos: admin.firestore.FieldValue.increment(1) });
-    return true;
+
+    tx.set(ref, {
+      intentos: intentos + 1,
+      inicio: dentroDeVentana ? inicio : ahora,
+      actualizadoEn: admin.firestore.FieldValue.serverTimestamp(),
+    });
   });
 }
 
-// Lanza un error si se ha superado el límite; si no, deja continuar.
-async function aplicarLimite(clave, maxIntentos, ventanaMs) {
-  const permitido = await dentroDelLimite(clave, maxIntentos, ventanaMs);
-  if (!permitido) {
-    throw new HttpsError(
-      "resource-exhausted",
-      "Demasiados intentos seguidos. Espera unos minutos y vuelve a intentarlo."
-    );
-  }
-}
-
-// IP del que llama, tal y como la ve Cloud Functions detrás del proxy de
-// Firebase/Google. Si por lo que sea no está disponible, se usa un valor
-// fijo (mejor limitar "a todos los desconocidos juntos" que no limitar).
-function ipDelSolicitante(request) {
+// La IP del navegador que llama a la función (usada para limitar por
+// origen las funciones que no requieren sesión iniciada). En Cloud
+// Functions v2, detrás del balanceador de Google, la IP real del
+// visitante va en la cabecera "x-forwarded-for" (la primera de la lista).
+function ipDeLaPeticion(request) {
   const req = request.rawRequest;
-  if (!req) return "desconocida";
-  const forwarded = req.headers && req.headers["x-forwarded-for"];
-  if (typeof forwarded === "string" && forwarded.trim()) {
-    return forwarded.split(",")[0].trim();
-  }
-  return req.ip || "desconocida";
+  const cabecera = req && req.headers && req.headers["x-forwarded-for"];
+  if (cabecera) return String(cabecera).split(",")[0].trim();
+  return (req && req.ip) || "desconocida";
 }
 
 exports.crearPedido = onCall(async (request) => {
@@ -783,10 +802,11 @@ exports.crearPedido = onCall(async (request) => {
   if (!auth) {
     throw new HttpsError("unauthenticated", "Debes iniciar sesión para completar la compra.");
   }
-  // Máximo 8 pedidos cada 10 minutos por cliente — de sobra para una compra
-  // normal (incluso si falla y lo reintenta), pero frena un script que
-  // intente crear pedidos en bucle.
-  await aplicarLimite("crearPedido_" + auth.uid, 8, 10 * 60 * 1000);
+
+  // Máximo 8 pedidos por hora por cuenta: suficiente para cualquier compra
+  // real (incluida gente que corrige y reintenta), pero corta en seco un
+  // script que intentara crear pedidos en bucle.
+  await comprobarLimite("crearPedido:" + auth.uid, 8, 60 * 60 * 1000);
 
   const data = request.data || {};
   const itemsSolicitados = Array.isArray(data.items) ? data.items : [];
@@ -936,6 +956,14 @@ exports.crearPedido = onCall(async (request) => {
 
   const pedidoFinal = construirPedido();
 
+  // El pedido ya está creado (aunque el pago todavía no se haya confirmado):
+  // ya no tiene sentido recordarle a este cliente que "dejó cosas en el
+  // carrito", porque ya ha dado el paso de pedir. Si finalmente no paga, el
+  // aviso lo manda "recordatorioCarritoAbandonado" más abajo a partir del
+  // propio pedido (pagado: false), no de este documento. Es un borrado "a
+  // mejor esfuerzo": si falla (por lo que sea) no debe romper la compra.
+  await db.collection("carritosAbandonados").doc(auth.uid).delete().catch(() => {});
+
   // Devolvemos al navegador el pedido ya calculado por el servidor, para
   // que pueda mostrar la confirmación y enviar los correos con estos
   // datos reales (no con los que él mismo había propuesto).
@@ -966,9 +994,10 @@ exports.crearPedido = onCall(async (request) => {
 // para que la comprobación de "compra mínima" no se pueda falsear.
 // ==========================================================================
 exports.validarPromo = onCall(async (request) => {
-  // Máximo 15 códigos probados cada 5 minutos por IP — dos o tres códigos
-  // fallidos son normales, miles seguidos ya no.
-  await aplicarLimite("validarPromo_" + ipDelSolicitante(request), 15, 5 * 60 * 1000);
+  // Máximo 20 códigos probados cada 10 minutos por IP: de sobra para
+  // alguien tecleando un código a mano (incluso si se equivoca varias
+  // veces), pero frena un intento de "adivinar" códigos por fuerza bruta.
+  await comprobarLimite("validarPromo:" + ipDeLaPeticion(request), 20, 10 * 60 * 1000);
 
   const data = request.data || {};
   const codigo = typeof data.codigo === "string" ? data.codigo.trim().toUpperCase() : "";
@@ -1032,6 +1061,11 @@ exports.crearIntentPago = onCall({ secrets: [STRIPE_SECRET_KEY] }, async (reques
     throw new HttpsError("unauthenticated", "Debes iniciar sesión para pagar.");
   }
 
+  // Máximo 15 intentos de pago por hora por cuenta: cubre reintentos
+  // normales (tarjeta rechazada, red, etc.) sin dejar la puerta abierta a
+  // que alguien machaque la API de Stripe desde una sola cuenta.
+  await comprobarLimite("crearIntentPago:" + auth.uid, 15, 60 * 60 * 1000);
+
   const pedidoId = request.data && request.data.pedidoId;
   if (!pedidoId || typeof pedidoId !== "string") {
     throw new HttpsError("invalid-argument", "Falta el identificador del pedido.");
@@ -1079,6 +1113,8 @@ exports.crearSesionPago = onCall({ secrets: [STRIPE_SECRET_KEY] }, async (reques
   if (!auth) {
     throw new HttpsError("unauthenticated", "Debes iniciar sesión para pagar.");
   }
+
+  await comprobarLimite("crearSesionPago:" + auth.uid, 15, 60 * 60 * 1000);
 
   const pedidoId = request.data && request.data.pedidoId;
   if (!pedidoId || typeof pedidoId !== "string") {
@@ -1191,10 +1227,12 @@ exports.stripeWebhook = onRequest({ secrets: [STRIPE_SECRET_KEY, STRIPE_WEBHOOK_
 // uid del cliente ni nada que no sea de ese pedido en concreto.
 // ==========================================================================
 exports.buscarPedidoPublico = onCall(async (request) => {
-  // Máximo 10 intentos cada 5 minutos por IP: de sobra si alguien se
-  // equivoca al escribir el número o el email varias veces, pero corta en
-  // seco a quien intente adivinar números de pedido por fuerza bruta.
-  await aplicarLimite("buscarPedidoPublico_" + ipDelSolicitante(request), 10, 5 * 60 * 1000);
+  // Esta función no exige sesión iniciada (funciona para invitados), así
+  // que sin límite alguien podría probar miles de combinaciones de número
+  // de pedido + email por fuerza bruta hasta acertar con una real. Máximo
+  // 15 intentos por hora por IP: de sobra para consultar tu propio pedido
+  // (incluso si te equivocas escribiendo el correo un par de veces).
+  await comprobarLimite("buscarPedidoPublico:" + ipDeLaPeticion(request), 15, 60 * 60 * 1000);
 
   const data = request.data || {};
   const numero = typeof data.numero === "string" ? data.numero.trim().toUpperCase() : "";
@@ -1317,3 +1355,162 @@ exports.productoMeta = onRequest(async (req, res) => {
   res.set("Cache-Control", "public, max-age=600, s-maxage=3600");
   res.status(200).send(html);
 });
+
+// ==========================================================================
+// "recordatorioCarritoAbandonado" — avisa por correo a quien deja cosas sin
+// comprar. Cubre DOS situaciones distintas, cada una con su propio umbral
+// de tiempo y su propia colección:
+//
+//  1) Añadió libros al carrito pero nunca llegó a pulsar "Finalizar
+//     compra" → colección "carritosAbandonados" (la sincroniza
+//     js/cart.js mientras compras, solo si has iniciado sesión: sin
+//     sesión no tenemos email al que escribir).
+//  2) Sí llegó a pulsar "Finalizar compra" (existe un pedido real, con
+//     dirección de envío) pero el pago con Stripe no se completó → se lee
+//     directamente de "pedidos" con pagado: false. No hace falta ninguna
+//     colección nueva para este caso: ya tenemos todo lo necesario.
+//
+// Se ejecuta sola una vez por hora (Cloud Scheduler, incluido en el plan
+// Blaze que ya usas — no tiene coste aparte). Nunca la llama el navegador.
+//
+// Envía el correo con tu propio Gmail (SMTP), usando una "contraseña de
+// aplicación" guardada como secreto — igual de protegida que la clave de
+// Stripe: nunca se escribe en el código ni queda visible en la consola.
+// ==========================================================================
+const UMBRAL_CARRITO_MS = 3 * 60 * 60 * 1000; // 3 horas sin tocar el carrito
+const UMBRAL_PEDIDO_MS = 2 * 60 * 60 * 1000; // 2 horas sin completar el pago
+const UMBRAL_MAX_MS = 14 * 24 * 60 * 60 * 1000; // no avisar de nada más viejo que esto (por si la función estuvo parada)
+
+function crearTransporterGmail() {
+  const nodemailer = require("nodemailer");
+  return nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: GMAIL_USER.value().trim(),
+      pass: GMAIL_APP_PASSWORD.value().trim(),
+    },
+  });
+}
+
+// Plantilla de correo compartida por los dos casos — mismo estilo (navy/
+// gold) que el resto de la tienda. "filas" ya viene con el HTML de cada
+// línea de artículo construido (ver las dos funciones de abajo).
+function plantillaRecordatorio({ nombre, filasHtml, textoIntro, enlace }) {
+  const saludo = nombre ? "Hola, " + escapeHtml(nombre) + ":" : "Hola:";
+  return (
+    '<div style="font-family:Georgia,serif;max-width:520px;margin:0 auto;color:#2b2b2b">' +
+      '<h2 style="color:#20304f;margin-bottom:4px">Librería tu mayor tesoro</h2>' +
+      "<p>" + saludo + "</p>" +
+      "<p>" + textoIntro + "</p>" +
+      '<table style="width:100%;border-collapse:collapse;margin:18px 0">' + filasHtml + "</table>" +
+      '<p style="text-align:center;margin:26px 0">' +
+        '<a href="' + enlace + '" style="background:#20304f;color:#f6efe2;padding:12px 26px;border-radius:6px;text-decoration:none;font-weight:bold">Volver a mi carrito</a>' +
+      "</p>" +
+      '<p style="font-size:0.85em;color:#777">Si ya has completado tu compra, no hagas caso de este correo. ' +
+      'Cualquier duda, escríbenos a <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a>.</p>' +
+    "</div>"
+  );
+}
+
+function filaArticuloHtml(titulo, cantidad, precio) {
+  const importe = typeof precio === "number" ? (cantidad * precio).toFixed(2).replace(".", ",") + "\u00A0€" : "";
+  return (
+    '<tr style="border-bottom:1px solid #e6dfd0">' +
+      '<td style="padding:8px 0">' + cantidad + " × " + escapeHtml(titulo) + "</td>" +
+      '<td style="padding:8px 0;text-align:right;white-space:nowrap">' + importe + "</td>" +
+    "</tr>"
+  );
+}
+
+// ---- Caso 1: carritos con artículos que nunca llegaron a "Finalizar compra" ----
+async function recordarCarritosAbandonados(transporter) {
+  const ahora = Date.now();
+  const snap = await db.collection("carritosAbandonados").where("recordatorioEnviado", "==", false).get();
+
+  for (const doc of snap.docs) {
+    const carrito = doc.data();
+    const actualizadoEn = carrito.actualizadoEn && carrito.actualizadoEn.toMillis ? carrito.actualizadoEn.toMillis() : null;
+    if (!actualizadoEn) continue;
+    const antiguedad = ahora - actualizadoEn;
+    if (antiguedad < UMBRAL_CARRITO_MS || antiguedad > UMBRAL_MAX_MS) continue;
+    if (!carrito.email || !Array.isArray(carrito.items) || carrito.items.length === 0) continue;
+
+    // El precio de cada línea se recalcula aquí contra el CATALOGO real (lo
+    // que mandó el navegador al sincronizar el carrito es solo id + título
+    // + cantidad, nunca un precio): así el correo nunca puede mostrar un
+    // importe manipulado.
+    const filas = carrito.items.map((it) => {
+      const libro = it && it.id ? CATALOGO[it.id] : null;
+      const titulo = (libro && libro.title) || it.titulo || "Un libro de tu carrito";
+      const cantidad = Math.max(1, Math.min(20, parseInt(it.cantidad, 10) || 1));
+      return filaArticuloHtml(titulo, cantidad, libro ? libro.price : undefined);
+    }).join("");
+
+    const html = plantillaRecordatorio({
+      nombre: carrito.nombre,
+      filasHtml: filas,
+      textoIntro: "Vimos que dejaste estos libros en tu carrito. Siguen disponibles — te los guardamos, pero por si acaso alguno se agota, aquí tienes el enlace para terminar tu compra cuando quieras:",
+      enlace: SITE_URL + "/carrito.html",
+    });
+
+    try {
+      await transporter.sendMail({
+        from: '"Librería tu mayor tesoro" <' + GMAIL_USER.value().trim() + ">",
+        to: carrito.email,
+        subject: "Se te olvidó algo en tu carrito \uD83D\uDCDA",
+        html,
+      });
+      await doc.ref.set({ recordatorioEnviado: true, recordatorioEnviadoEn: admin.firestore.FieldValue.serverTimestamp() }, { merge: true });
+    } catch (err) {
+      console.error("No se pudo enviar el recordatorio de carrito a " + carrito.email, err);
+    }
+  }
+}
+
+// ---- Caso 2: pedidos ya creados (con dirección de envío) que no se pagaron ----
+async function recordarPedidosSinPagar(transporter) {
+  const ahora = Date.now();
+  const snap = await db.collection("pedidos").where("pagado", "==", false).get();
+
+  for (const doc of snap.docs) {
+    const pedido = doc.data();
+    if (pedido.recordatorioAbandonoEnviado) continue;
+    const createdAt = pedido.createdAt && pedido.createdAt.toMillis ? pedido.createdAt.toMillis() : null;
+    if (!createdAt) continue;
+    const antiguedad = ahora - createdAt;
+    if (antiguedad < UMBRAL_PEDIDO_MS || antiguedad > UMBRAL_MAX_MS) continue;
+    if (!pedido.clienteEmail || !Array.isArray(pedido.items) || pedido.items.length === 0) continue;
+
+    // Aquí SÍ nos fiamos de "items"/"total": ya vienen del propio pedido,
+    // que "crearPedido" ya calculó contra el CATALOGO real al crearlo.
+    const filas = pedido.items.map((it) => filaArticuloHtml(it.titulo, it.cantidad, it.precio)).join("");
+
+    const html = plantillaRecordatorio({
+      nombre: pedido.clienteNombre,
+      filasHtml: filas,
+      textoIntro: "Empezaste un pedido (número " + escapeHtml(pedido.numero) + ") pero el pago no llegó a completarse. Tus datos de envío ya están guardados — solo te falta terminar el pago:",
+      enlace: SITE_URL + "/carrito.html",
+    });
+
+    try {
+      await transporter.sendMail({
+        from: '"Librería tu mayor tesoro" <' + GMAIL_USER.value().trim() + ">",
+        to: pedido.clienteEmail,
+        subject: "Tu pedido " + pedido.numero + " está a un paso de completarse",
+        html,
+      });
+      await doc.ref.update({ recordatorioAbandonoEnviado: true, recordatorioAbandonoEnviadoEn: admin.firestore.FieldValue.serverTimestamp() });
+    } catch (err) {
+      console.error("No se pudo enviar el recordatorio de pago a " + pedido.clienteEmail, err);
+    }
+  }
+}
+
+exports.recordatorioCarritoAbandonado = onSchedule(
+  { schedule: "every 60 minutes", timeZone: "Europe/Madrid", secrets: [GMAIL_USER, GMAIL_APP_PASSWORD] },
+  async () => {
+    const transporter = crearTransporterGmail();
+    await recordarCarritosAbandonados(transporter);
+    await recordarPedidosSinPagar(transporter);
+  }
+);
