@@ -107,6 +107,7 @@
       <div>
         <span class="eyebrow">Catálogo</span>
         <h1 class="section-title" data-shop-title>Todos los libros</h1>
+        <p class="shop-lede" data-shop-lede hidden></p>
         <p class="shop-count" id="resultsCount">4 resultados</p>
       </div>
       <button class="btn btn--outline filter-toggle" id="filterToggle" type="button" aria-expanded="false" aria-controls="shopFilters">
@@ -123,6 +124,10 @@
           <h2>Filtros</h2>
           <button class="filters-clear" id="filtersClear" type="button">Limpiar todo</button>
         </div>
+
+        <!-- Filtro "¿Qué busca tu alma hoy?": lo pinta js/shop.js a partir
+             de window.NEEDS (js/books-data.js). -->
+        <div id="needFilterGroup"></div>
 
         <div class="filter-group">
           <h3>Categoría</h3>

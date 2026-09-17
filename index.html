@@ -217,6 +217,30 @@
   </section>
 
   <!-- ========================================================================
+       3 bis. "¿QUÉ BUSCA TU ALMA HOY?" — entrada al catálogo por necesidad
+       Las tarjetas las pinta js/soul-finder.js a partir de window.NEEDS
+       (js/books-data.js), así que basta con editar esa lista para cambiar,
+       añadir o quitar opciones aquí.
+       ======================================================================== -->
+  <section class="section soul-section" id="que-busca-tu-alma">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Encuentra tu lectura</span>
+          <h2 class="section-title">¿Qué busca tu alma hoy?</h2>
+          <p class="section-lede">A veces no se busca un autor ni un tema, sino una respuesta para lo que estás viviendo. Elige por dónde andas y te llevamos a los libros que acompañan en eso.</p>
+        </div>
+      </div>
+
+      <div class="soul-grid" id="soulGrid"></div>
+
+      <p class="soul-foot">
+        <a href="categoria.html" class="btn btn--outline btn--sm">Ver el catálogo completo</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
        4. GRID DE LIBROS DESTACADOS
        ======================================================================== -->
   <section class="section section--muted" id="destacados">
@@ -442,6 +466,7 @@
 <script src="js/books-data.js"></script>
 <script src="js/wishlist.js"></script>
 <script src="js/cover-carousel.js"></script>
+<script src="js/soul-finder.js"></script>
 <script src="js/search.js"></script>
 <script src="js/main.js"></script>
 </body>

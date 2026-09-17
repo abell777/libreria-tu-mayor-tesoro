@@ -138,6 +138,15 @@
     if (bindingLabel) specRows.push(['Encuadernación', bindingLabel]);
     if (book.finish) specRows.push(['Acabado de cubierta', book.finish]);
     if (book.paper) specRows.push(['Tipo de papel', book.paper]);
+    // "Ideal para": las necesidades que cubre este libro (¿Qué busca tu
+    // alma hoy?). Cada una es un enlace al catálogo ya filtrado.
+    if (Array.isArray(book.needs) && book.needs.length && window.NEED_LABELS) {
+      var necesidades = book.needs.map(function (n) {
+        return '<a href="categoria.html?need=' + encodeURIComponent(n) + '">' +
+          escapeHTML(window.NEED_LABELS[n] || n) + '</a>';
+      }).join(', ');
+      specRows.push(['Ideal para', necesidades, true]);
+    }
     if (Array.isArray(book.subcategory) && book.subcategory.length && window.SUBCATEGORY_LABELS) {
       var temas = book.subcategory.map(function (s) { return window.SUBCATEGORY_LABELS[s] || s; }).join(', ');
       specRows.push(['Tema', temas]);
@@ -152,7 +161,12 @@
     specRows.push(['Autor', book.author]);
     specRows.push(['Idioma', book.idioma]);
     specList.innerHTML = specRows
-      .map(function (row) { return '<li><span>' + escapeHTML(row[0]) + '</span><span>' + escapeHTML(row[1]) + '</span></li>'; }).join('');
+      .map(function (row) {
+        // El tercer elemento (opcional) indica que el valor ya viene como
+        // HTML seguro creado aquí arriba (enlaces), no como texto plano.
+        var valor = row[2] ? row[1] : escapeHTML(row[1]);
+        return '<li><span>' + escapeHTML(row[0]) + '</span><span>' + valor + '</span></li>';
+      }).join('');
   }
 
   // ---- Sello de encuadernación sobre la portada (tapa dura / tapa blanda) ----
@@ -198,6 +212,24 @@
       addBtn.textContent = 'Agotado';
     }
   }
+
+  // ---- Etiquetas "¿Qué busca tu alma hoy?" bajo la descripción -----------
+  // Ayudan al cliente a seguir explorando desde su propia necesidad, que es
+  // como suele buscar de verdad ("algo que dé paz", "algo para regalar").
+  (function pintarEtiquetasDeNecesidad() {
+    var desc = document.getElementById('productDesc');
+    if (!desc || !Array.isArray(book.needs) || !book.needs.length || !window.NEED_BY_SLUG) return;
+    var wrap = document.createElement('p');
+    wrap.className = 'need-tags';
+    wrap.innerHTML = '<span class="need-tags-label">Ideal si buscas:</span> ' +
+      book.needs.map(function (n) {
+        var need = window.NEED_BY_SLUG[n];
+        if (!need) return '';
+        return '<a class="need-tag" href="categoria.html?need=' + encodeURIComponent(n) + '" title="' +
+          escapeHTML(need.desc) + '">' + escapeHTML(need.label) + '</a>';
+      }).join('');
+    desc.insertAdjacentElement('afterend', wrap);
+  })();
 
   // ==========================================================================
   // Selector de portada — mismo libro, distintos diseños de cubierta

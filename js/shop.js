@@ -54,7 +54,8 @@
       : '<span class="book-price">' + fmtPrice(book.price) + '&nbsp;€<small>' + escapeHTML(book.priceNote) + '</small></span>';
     return (
       '<article class="book-card' + (agotado ? ' is-out-of-stock' : '') + (comingSoon ? ' is-coming-soon' : '') +
-      '" data-category="' + book.category + '" data-price="' + (comingSoon ? 0 : book.price) +
+      '" data-category="' + book.category + '" data-needs="' + escapeHTML((book.needs || []).join(' ')) +
+      '" data-price="' + (comingSoon ? 0 : book.price) +
       '" data-format="' + book.formatSlug + '" data-author="' + book.authorSlug + '" data-product-id="' + book.id +
       '" data-subcategory="' + escapeHTML(subcatAttr) +
       '" data-bible-version="' + escapeHTML(book.bibleVersion || '') +
@@ -121,6 +122,30 @@
       document.querySelectorAll('#shopFilters input[type="checkbox"], #subcategoryBar input[type="checkbox"]')
     );
   }
+  // ---- Filtro "¿Qué busca tu alma hoy?" ----------------------------------
+  // Se pinta desde window.NEEDS (js/books-data.js) para no tener que
+  // mantener la misma lista en el HTML: si añades una necesidad allí,
+  // aparece aquí sola, con el número de libros que la cubren.
+  (function buildNeedFilter() {
+    var wrap = document.getElementById('needFilterGroup');
+    if (!wrap || !window.NEEDS) return;
+    var rows = window.NEEDS.map(function (need) {
+      var count = window.BOOKS.filter(function (b) {
+        return (b.needs || []).indexOf(need.slug) !== -1;
+      }).length;
+      if (!count) return '';
+      return '<label class="filter-check filter-check--need" title="' + escapeHTML(need.desc) + '">' +
+        '<input type="checkbox" name="need" value="' + need.slug + '">' +
+        '<span>' + escapeHTML(need.label) + ' <small class="filter-count">(' + count + ')</small></span>' +
+        '</label>';
+    }).join('');
+    if (!rows) return;
+    wrap.innerHTML = '<div class="filter-group filter-group--need">' +
+      '<h3>¿Qué busca tu alma hoy?</h3>' +
+      '<p class="filter-group-note">Elige el momento que estás viviendo y te mostramos los libros que acompañan en eso.</p>' +
+      rows + '</div>';
+  })();
+
   var checkboxes = allFilterInputs();
   var subcategoryBarEl = document.getElementById('subcategoryBar');
   var dynamicGroupsEl = document.getElementById('dynamicFilterGroups');
@@ -266,19 +291,21 @@
       var format = card.dataset.format;
       var author = card.dataset.author;
       var subcats = (card.dataset.subcategory || '').split(' ');
+      var cardNeeds = (card.dataset.needs || '').split(' ');
 
       var matchCategory = !groups.category || groups.category.indexOf(cat) !== -1;
       var matchPrice = !groups.price || groups.price.some(function (r) { return priceInRange(price, r); });
       var matchFormat = !groups.format || groups.format.indexOf(format) !== -1;
       var matchAuthor = !groups.author || groups.author.indexOf(author) !== -1;
       var matchSubcategory = !groups.subcategory || groups.subcategory.some(function (s) { return subcats.indexOf(s) !== -1; });
+      var matchNeed = !groups.need || groups.need.some(function (n) { return cardNeeds.indexOf(n) !== -1; });
       var matchBibleVersion = !groups.bibleVersion || groups.bibleVersion.indexOf(card.dataset.bibleVersion) !== -1;
       var matchBibleEdition = !groups.bibleEdition || groups.bibleEdition.indexOf(card.dataset.bibleEdition) !== -1;
       var matchBibleClosure = !groups.bibleClosure || groups.bibleClosure.indexOf(card.dataset.bibleClosure) !== -1;
       var matchBibleColor = !groups.bibleColor || groups.bibleColor.indexOf(card.dataset.bibleColor) !== -1;
       var matchQuery = !query || cardText(card).indexOf(query) !== -1;
 
-      return matchCategory && matchPrice && matchFormat && matchAuthor && matchSubcategory &&
+      return matchCategory && matchPrice && matchFormat && matchAuthor && matchSubcategory && matchNeed &&
         matchBibleVersion && matchBibleEdition && matchBibleClosure && matchBibleColor && matchQuery;
     });
   }
@@ -320,8 +347,21 @@
     activeFiltersWrap.hidden = !any;
   }
 
-  function updateTitle(activeCategories, query) {
+  function updateTitle(activeCategories, query, activeNeeds) {
     if (!shopTitle) return;
+    var ledeEl = document.querySelector('[data-shop-lede]');
+    if (ledeEl) { ledeEl.textContent = ''; ledeEl.hidden = true; }
+    // Si el cliente ha entrado por "¿Qué busca tu alma hoy?", el título
+    // habla de eso y no de la categoría: es lo que ha pedido de verdad.
+    if (!query && activeNeeds && activeNeeds.length === 1 && window.NEED_BY_SLUG) {
+      var need = window.NEED_BY_SLUG[activeNeeds[0]];
+      if (need) {
+        shopTitle.textContent = need.label;
+        if (breadcrumbCurrent) breadcrumbCurrent.textContent = need.label;
+        if (ledeEl) { ledeEl.textContent = need.desc; ledeEl.hidden = false; }
+        return;
+      }
+    }
     if (query) {
       shopTitle.textContent = 'Resultados para «' + query + '»';
       if (breadcrumbCurrent) breadcrumbCurrent.textContent = 'Búsqueda';
@@ -431,7 +471,7 @@
     if (emptyResults) emptyResults.hidden = totalItems !== 0;
 
     renderActiveChips();
-    updateTitle(groups.category, query);
+    updateTitle(groups.category, query, groups.need);
     renderPagination(totalItems, totalPages);
 
     // Avisa al carrusel de portadas (js/cover-carousel.js) de que hay
@@ -485,6 +525,12 @@
   }
   if (qParam && searchInput) {
     searchInput.value = qParam;
+  }
+  // Enlaces de la home: categoria.html?need=paz-interior
+  var needParam = params.get('need');
+  if (needParam) {
+    var needBox = allFilterInputs().filter(function (c) { return c.name === 'need' && c.value === needParam; })[0];
+    if (needBox) needBox.checked = true;
   }
 
   render();

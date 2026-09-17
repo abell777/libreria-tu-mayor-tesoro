@@ -222,6 +222,10 @@ window.BOOKS = [
     paper: 'Blanco offset',
     freeShipping: true,
     cover: 'img/el-deseado-de-todas-las-gentes.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/el-deseado-de-todas-las-gentes.jpg' },
+      { style: 'tipografica', file: 'img/el-deseado-de-todas-las-gentes-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Uno de los libros más leídos de Elena G. White, en una edición manejable de tamaño A5.',
     idioma: 'Español',
@@ -328,6 +332,10 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/hijos-e-hijas-de-dios.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/hijos-e-hijas-de-dios.jpg' },
+      { style: 'tipografica', file: 'img/hijos-e-hijas-de-dios-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Una colección de meditaciones breves sobre la identidad del creyente como hijo de Dios, pensada para el devocional diario. Anima a vivir con la seguridad de quien sabe a quién pertenece.',
     idioma: 'Español',
@@ -345,6 +353,10 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/exaltad-a-jesus.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/exaltad-a-jesus.jpg' },
+      { style: 'tipografica', file: 'img/exaltad-a-jesus-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Un devocional centrado por completo en la persona de Cristo: su carácter, su amor y su obra de salvación. Cada lectura busca acercar al lector a una relación más cercana con Jesús.',
     idioma: 'Español',
@@ -362,6 +374,10 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/en-los-lugares-celestiales.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/en-los-lugares-celestiales.jpg' },
+      { style: 'tipografica', file: 'img/en-los-lugares-celestiales-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Meditaciones diarias inspiradas en la idea de que el creyente ya vive, en cierto sentido, en comunión con el cielo. Un libro pensado para empezar el día con una mirada puesta en lo eterno.',
     idioma: 'Español',
@@ -379,6 +395,10 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/fe-y-obras.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/fe-y-obras.jpg' },
+      { style: 'tipografica', file: 'img/fe-y-obras-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Explora la relación entre la fe que salva y las obras que la acompañan, un tema clásico del cristianismo. Ayuda a entender que una fe viva se traduce siempre en una vida transformada.',
     idioma: 'Español',
@@ -396,6 +416,10 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/el-otro-poder.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/el-otro-poder.jpg' },
+      { style: 'tipografica', file: 'img/el-otro-poder-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Reflexiona sobre el poder del amor, el hogar y la influencia personal frente a otras formas de poder más visibles. Un libro sobre cómo las decisiones cotidianas moldean el carácter y la familia.',
     idioma: 'Español',
@@ -413,6 +437,10 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/el-ministerio-pastoral.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/el-ministerio-pastoral.jpg' },
+      { style: 'tipografica', file: 'img/el-ministerio-pastoral-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Dirigido a pastores y líderes de iglesia, reúne consejos prácticos sobre el cuidado de la congregación, la predicación y el ejemplo personal. Un manual de referencia para quienes ejercen el ministerio.',
     idioma: 'Español',
@@ -432,6 +460,10 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/el-deseado-de-todas-las-gentes-tapa-blanda.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/el-deseado-de-todas-las-gentes-tapa-blanda.jpg' },
+      { style: 'tipografica', file: 'img/el-deseado-de-todas-las-gentes-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Uno de los libros más leídos de Elena G. White.',
     idioma: 'Español',
@@ -451,6 +483,10 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/el-ministerio-de-publicaciones.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/el-ministerio-de-publicaciones.jpg' },
+      { style: 'tipografica', file: 'img/el-ministerio-de-publicaciones-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Reúne consejos sobre la obra de impresión y distribución de literatura cristiana, un pilar histórico de la difusión del mensaje. De interés especial para quienes trabajan en editoriales o en la venta de libros religiosos.',
     idioma: 'Español',
@@ -468,6 +504,10 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/el-ministerio-de-la-bondad.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/el-ministerio-de-la-bondad.jpg' },
+      { style: 'tipografica', file: 'img/el-ministerio-de-la-bondad-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Un llamado a vivir el evangelio a través de actos concretos de bondad y ayuda al necesitado. Muestra cómo la compasión práctica abre puertas que la sola predicación no siempre alcanza.',
     idioma: 'Español',
@@ -485,6 +525,10 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/el-ministerio-medico.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/el-ministerio-medico.jpg' },
+      { style: 'tipografica', file: 'img/el-ministerio-medico-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Aborda la relación entre la salud física y la obra evangélica, con consejos sobre el cuidado del cuerpo como parte del mensaje cristiano integral. Un referente para quienes trabajan en el área de la salud desde la fe.',
     idioma: 'Español',
@@ -504,6 +548,10 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/el-hogar-cristiano.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/el-hogar-cristiano.jpg' },
+      { style: 'tipografica', file: 'img/el-hogar-cristiano-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Un manual clásico sobre la vida familiar: el matrimonio, la crianza de los hijos y la atmósfera del hogar. Sigue siendo, décadas después, una de las obras más consultadas sobre la familia cristiana.',
     idioma: 'Español',
@@ -521,6 +569,10 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/el-evangelismo.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/el-evangelismo.jpg' },
+      { style: 'tipografica', file: 'img/el-evangelismo-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Reúne principios y métodos para compartir la fe de forma eficaz, con énfasis en el amor y el respeto hacia quien escucha el mensaje. Un recurso práctico para quienes participan en la obra misionera de la iglesia.',
     idioma: 'Español',
@@ -540,6 +592,10 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/el-conflicto-inminente.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/el-conflicto-inminente.jpg' },
+      { style: 'tipografica', file: 'img/el-conflicto-inminente-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Analiza los grandes acontecimientos finales descritos en la profecía de la Biblia y su relevancia para la vida cristiana actual. Un libro de estudio para quienes se interesan por la escatología bíblica.',
     idioma: 'Español',
@@ -559,6 +615,10 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/el-colportor-evangelico.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/el-colportor-evangelico.jpg' },
+      { style: 'tipografica', file: 'img/el-colportor-evangelico-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Dirigido a quienes se dedican a la venta y distribución de literatura cristiana puerta a puerta, con consejos prácticos y motivación para esa labor. Un clásico dentro de la tradición del colportaje.',
     idioma: 'Español',
@@ -681,6 +741,10 @@ window.BOOKS = [
     formatSlug: 'tapa-dura',
     priceNote: 'IVA incluido',
     cover: 'img/el-deseado-de-todas-las-gentes-tapa-dura.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/el-deseado-de-todas-las-gentes-tapa-dura.jpg' },
+      { style: 'tipografica', file: 'img/el-deseado-de-todas-las-gentes-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Pensada para quienes buscan un ejemplar más duradero o para regalo.',
     idioma: 'Español',
@@ -1345,6 +1409,10 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/eventos-de-los-ultimos-dias.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/eventos-de-los-ultimos-dias.jpg' },
+      { style: 'tipografica', file: 'img/eventos-de-los-ultimos-dias-tipografica.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Una selección de escritos sobre las señales de los tiempos finales y los acontecimientos que, según la autora, precederán a la segunda venida de Cristo.',
     idioma: 'Español',
@@ -1478,6 +1546,10 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/discurso-maestro-de-jesucristo.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/discurso-maestro-de-jesucristo.jpg' },
+      { style: 'tipografica', file: 'img/discurso-maestro-de-jesucristo-tipografica.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Un estudio detallado del Sermón del Monte, con reflexiones sobre las bienaventuranzas y las enseñanzas de Jesús a sus discípulos y a la multitud.',
     idioma: 'Español',
@@ -1495,6 +1567,10 @@ window.BOOKS = [
     formatSlug: 'tapa-dura',
     priceNote: 'IVA incluido',
     cover: 'img/discurso-maestro-de-jesucristo.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/discurso-maestro-de-jesucristo.jpg' },
+      { style: 'tipografica', file: 'img/discurso-maestro-de-jesucristo-tipografica.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Un estudio detallado del Sermón del Monte, con reflexiones sobre las bienaventuranzas y las enseñanzas de Jesús a sus discípulos y a la multitud. Edición en tapa dura, ideal para regalo o biblioteca personal.',
     idioma: 'Español',
@@ -1685,6 +1761,98 @@ window.BOOKS = [
     description: 'Cartas escritas a parejas jóvenes con consejos honestos sobre el noviazgo, la elección de pareja y la preparación para el matrimonio. Una lectura breve y directa, muy útil para regalar.',
     idioma: 'Español',
     subcategory: ['familia-y-hogar', 'vida-cristiana'],
+  },
+  {
+    id: 'hijas-de-dios',
+    title: 'Hijas de Dios',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/hijas-de-dios-tipografica.jpg',
+    covers: [
+      { style: 'tipografica', file: 'img/hijas-de-dios-tipografica.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'Una recopilación de consejos y meditaciones dirigidos especialmente a la mujer cristiana: su valor a los ojos de Dios, su influencia en el hogar y en la iglesia, y el ánimo que necesita en cada etapa de la vida.',
+    idioma: 'Español',
+    subcategory: ['familia-y-hogar', 'devocionales'],
+  },
+  {
+    id: 'en-el-desierto-de-la-tentacion',
+    title: 'En el Desierto de la Tentación',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/en-el-desierto-de-la-tentacion-tipografica.jpg',
+    covers: [
+      { style: 'tipografica', file: 'img/en-el-desierto-de-la-tentacion-tipografica.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'Un estudio del relato de las tentaciones de Jesús en el desierto y de lo que enseña sobre nuestras propias luchas: cómo resistir, dónde está la fuerza real y por qué la victoria de Cristo también es nuestra.',
+    idioma: 'Español',
+    subcategory: ['vida-de-cristo', 'vida-cristiana'],
+  },
+  {
+    id: 'el-ministerio-de-curacion',
+    title: 'El Ministerio de Curación',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/el-ministerio-de-curacion-tipografica.jpg',
+    covers: [
+      { style: 'tipografica', file: 'img/el-ministerio-de-curacion-tipografica.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'Uno de los libros más apreciados de la autora: une el cuidado del cuerpo y del alma, con capítulos sobre la labor del médico y la enfermera, el hogar, la alimentación, la mente y el trato con el enfermo.',
+    idioma: 'Español',
+    subcategory: ['salud', 'ministerio-y-evangelismo'],
+  },
+  {
+    id: 'el-cristo-triunfante',
+    title: 'El Cristo Triunfante',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/el-cristo-triunfante-tipografica.jpg',
+    covers: [
+      { style: 'tipografica', file: 'img/el-cristo-triunfante-tipografica.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'Devocional de lecturas diarias centrado en la victoria de Cristo: desde su papel en la creación hasta su triunfo final, pasando por la cruz y su ministerio a favor nuestro.',
+    idioma: 'Español',
+    subcategory: ['vida-de-cristo', 'devocionales'],
   },
   {
     id: 'biblia-bilingue-rvr-nkjv-marron',
@@ -2187,10 +2355,175 @@ window.BOOKS = [
   },
 ];
 
+// ==========================================================================
+// "¿Qué busca tu alma hoy?" — búsqueda por necesidad personal
+// --------------------------------------------------------------------------
+// Además de las categorías por autor o tema, cada libro está etiquetado con
+// la NECESIDAD que ayuda a cubrir. Es una forma de entrar al catálogo desde
+// el momento que está viviendo el lector ("necesito paz", "acabo de perder
+// a alguien", "quiero entender la profecía") en lugar de desde el índice de
+// una editorial.
+//
+// Cada necesidad tiene:
+//   slug     → lo que viaja en la URL (categoria.html?need=paz-interior)
+//   label    → nombre corto, para el filtro lateral y las etiquetas
+//   question → la frase en primera persona, para la sección de la home
+//   desc     → una línea de apoyo
+// El orden de este array es el orden en que se muestran.
+// ==========================================================================
+window.NEEDS = [
+  { slug: 'paz-interior', label: 'Paz interior y ansiedad', question: 'Necesito paz y calmar la ansiedad', desc: 'Lecturas serenas para respirar, confiar y descansar la mente.' },
+  { slug: 'consuelo-y-duelo', label: 'Consuelo en el duelo', question: 'Estoy pasando un duelo o un momento difícil', desc: 'Páginas que acompañan en la pérdida, la enfermedad y el dolor.' },
+  { slug: 'empezar-de-nuevo', label: 'Perdón y empezar de nuevo', question: 'Quiero empezar de nuevo y sentirme perdonado', desc: 'Sobre la gracia, el arrepentimiento y una segunda oportunidad real.' },
+  { slug: 'conocer-a-jesus', label: 'Conocer mejor a Jesús', question: 'Quiero conocer mejor a Jesús', desc: 'Su vida, su carácter y su trato con las personas.' },
+  { slug: 'crecer-cada-dia', label: 'Crecer cada día', question: 'Busco una lectura para cada día', desc: 'Devocionales breves para el momento diario con Dios.' },
+  { slug: 'familia-y-pareja', label: 'Familia y pareja', question: 'Quiero fortalecer mi matrimonio y mi familia', desc: 'Noviazgo, vida en pareja y un hogar en paz.' },
+  { slug: 'criar-a-mis-hijos', label: 'Criar y educar a mis hijos', question: 'Necesito ayuda para criar y educar a mis hijos', desc: 'Formación del carácter, disciplina con afecto y educación.' },
+  { slug: 'cuidar-mi-salud', label: 'Cuidar mi salud', question: 'Quiero cuidar mi salud y mis hábitos', desc: 'Alimentación, descanso, equilibrio y hábitos sostenibles.' },
+  { slug: 'dudas-de-fe', label: 'Dudas de fe y doctrina', question: 'Tengo dudas de fe o de doctrina', desc: 'Respuestas claras a las grandes preguntas de la Biblia.' },
+  { slug: 'estudiar-la-biblia', label: 'Estudiar la Biblia a fondo', question: 'Quiero estudiar la Biblia a fondo', desc: 'Historia bíblica, Biblias de estudio y obras de referencia.' },
+  { slug: 'entender-el-futuro', label: 'Profecía y últimos tiempos', question: 'Quiero entender la profecía y lo que viene', desc: 'Daniel, Apocalipsis y los acontecimientos finales.' },
+  { slug: 'servir-y-compartir', label: 'Servir y compartir mi fe', question: 'Quiero servir en mi iglesia y compartir mi fe', desc: 'Para líderes, maestros, colportores y voluntarios.' },
+  { slug: 'primeros-pasos', label: 'Primeros pasos / para regalar', question: 'Empiezo ahora o busco un libro para regalar', desc: 'Títulos sencillos y muy leídos, ideales como primera lectura.' }
+];
+
+window.NEED_LABELS = {};
+window.NEED_BY_SLUG = {};
+window.NEEDS.forEach(function (n) {
+  window.NEED_LABELS[n.slug] = n.label;
+  window.NEED_BY_SLUG[n.slug] = n;
+});
+
+// ---- Necesidades de cada libro (1 a 3 por título) -------------------------
+// Para cambiar a qué necesidad pertenece un libro, edita su línea aquí: no
+// hay que tocar ningún otro archivo. Los slugs válidos son los de
+// window.NEEDS (justo arriba). Un libro que no aparezca en esta lista
+// simplemente no saldrá en el buscador por necesidad.
+window.BOOK_NEEDS = {
+  'el-conflicto-de-los-siglos': ['estudiar-la-biblia', 'entender-el-futuro'],
+  'el-deseado-de-todas-las-gentes': ['conocer-a-jesus', 'estudiar-la-biblia', 'primeros-pasos'],
+  'historia-de-los-patriarcas-y-profetas': ['estudiar-la-biblia'],
+  'profetas-y-reyes': ['estudiar-la-biblia'],
+  'la-fe-por-la-cual-vivo': ['dudas-de-fe', 'crecer-cada-dia'],
+  'la-educacion': ['criar-a-mis-hijos'],
+  'edificacion-del-caracter': ['criar-a-mis-hijos', 'crecer-cada-dia'],
+  'hijos-e-hijas-de-dios': ['familia-y-pareja', 'crecer-cada-dia'],
+  'exaltad-a-jesus': ['conocer-a-jesus', 'crecer-cada-dia'],
+  'en-los-lugares-celestiales': ['crecer-cada-dia', 'paz-interior'],
+  'fe-y-obras': ['empezar-de-nuevo', 'crecer-cada-dia', 'dudas-de-fe'],
+  'el-otro-poder': ['empezar-de-nuevo', 'crecer-cada-dia', 'dudas-de-fe'],
+  'el-ministerio-pastoral': ['servir-y-compartir'],
+  'el-deseado-de-todas-las-gentes-tapa-blanda': ['conocer-a-jesus', 'estudiar-la-biblia', 'primeros-pasos'],
+  'el-ministerio-de-publicaciones': ['servir-y-compartir'],
+  'el-ministerio-de-la-bondad': ['servir-y-compartir', 'crecer-cada-dia'],
+  'el-ministerio-medico': ['cuidar-mi-salud', 'servir-y-compartir'],
+  'el-hogar-cristiano': ['familia-y-pareja', 'criar-a-mis-hijos'],
+  'el-evangelismo': ['servir-y-compartir'],
+  'el-conflicto-inminente': ['entender-el-futuro'],
+  'el-colportor-evangelico': ['servir-y-compartir'],
+  'dios-nos-cuida': ['crecer-cada-dia', 'paz-interior', 'consuelo-y-duelo'],
+  'de-la-ciudad-al-campo': ['empezar-de-nuevo', 'crecer-cada-dia', 'cuidar-mi-salud'],
+  'la-pasion-del-amor': ['conocer-a-jesus', 'familia-y-pareja'],
+  'cristo-nuestro-salvador': ['conocer-a-jesus', 'crecer-cada-dia', 'primeros-pasos'],
+  'cristo-en-su-santuario': ['conocer-a-jesus', 'dudas-de-fe'],
+  'el-deseado-de-todas-las-gentes-tapa-dura': ['conocer-a-jesus', 'estudiar-la-biblia', 'primeros-pasos'],
+  'consejos-sobre-la-mayordomia-cristiana': ['servir-y-compartir'],
+  'consejos-sobre-la-obra-de-escuela-sabatica': ['criar-a-mis-hijos', 'servir-y-compartir'],
+  'consejos-para-los-maestros': ['criar-a-mis-hijos', 'servir-y-compartir'],
+  'consejos-para-la-iglesia': ['servir-y-compartir', 'dudas-de-fe'],
+  'cada-dia-con-dios': ['crecer-cada-dia', 'paz-interior'],
+  'creencias-de-los-adventistas-del-septimo-dia': ['dudas-de-fe', 'estudiar-la-biblia'],
+  'el-poder-de-la-oracion': ['dudas-de-fe', 'paz-interior', 'crecer-cada-dia'],
+  'un-viaje-a-lo-sobrenatural': ['dudas-de-fe'],
+  'alza-tus-ojos': ['crecer-cada-dia', 'paz-interior', 'consuelo-y-duelo'],
+  'a-fin-de-conocerle': ['crecer-cada-dia', 'conocer-a-jesus'],
+  'review-and-herald': ['empezar-de-nuevo', 'crecer-cada-dia', 'estudiar-la-biblia'],
+  'la-verdad-acerca-de-los-angeles': ['dudas-de-fe', 'paz-interior'],
+  'consejos-sobre-la-salud': ['cuidar-mi-salud'],
+  'la-historia-de-la-redencion': ['estudiar-la-biblia', 'primeros-pasos'],
+  'la-iglesia-remanente': ['dudas-de-fe'],
+  'la-maravillosa-gracia-de-dios': ['crecer-cada-dia', 'empezar-de-nuevo', 'paz-interior'],
+  'la-musica': ['crecer-cada-dia', 'servir-y-compartir'],
+  'la-segunda-venida-y-el-cielo': ['entender-el-futuro', 'consuelo-y-duelo'],
+  'la-temperancia': ['cuidar-mi-salud', 'empezar-de-nuevo'],
+  'la-unica-esperanza': ['dudas-de-fe', 'consuelo-y-duelo', 'paz-interior'],
+  'la-verdad-acerca-de-los-angeles-2': ['dudas-de-fe', 'paz-interior'],
+  'la-voz-su-educacion-y-uso-correcto': ['criar-a-mis-hijos', 'servir-y-compartir'],
+  'los-hechos-de-los-apostoles': ['estudiar-la-biblia', 'servir-y-compartir'],
+  'los-hechos-de-los-apostoles-tapa-blanda': ['estudiar-la-biblia', 'servir-y-compartir'],
+  'palabras-de-vida-del-gran-maestro': ['conocer-a-jesus', 'estudiar-la-biblia'],
+  'primeros-escritos': ['dudas-de-fe', 'estudiar-la-biblia', 'entender-el-futuro'],
+  'primeros-escritos-tapa-dura': ['dudas-de-fe', 'estudiar-la-biblia', 'entender-el-futuro'],
+  'testimonios-para-la-iglesia-tomo-2': ['crecer-cada-dia', 'estudiar-la-biblia'],
+  'testimonios-para-la-iglesia-tomo-3': ['crecer-cada-dia', 'estudiar-la-biblia'],
+  'testimonios-para-la-iglesia-tomo-4': ['crecer-cada-dia', 'estudiar-la-biblia'],
+  'testimonios-para-la-iglesia-tomo-6': ['crecer-cada-dia', 'estudiar-la-biblia'],
+  'testimonios-para-la-iglesia-tomo-7': ['crecer-cada-dia', 'estudiar-la-biblia'],
+  'testimonios-para-la-iglesia-tomo-8': ['crecer-cada-dia', 'estudiar-la-biblia'],
+  'testimonios-para-la-iglesia-tomo-9': ['crecer-cada-dia', 'estudiar-la-biblia'],
+  'eventos-de-los-ultimos-dias': ['entender-el-futuro'],
+  'testimonios-selectos-tomo-i': ['crecer-cada-dia', 'estudiar-la-biblia'],
+  'liderazgo-cristiano': ['servir-y-compartir'],
+  'maranatha-el-senor-viene': ['entender-el-futuro', 'crecer-cada-dia'],
+  'mensajes-selectos-tomo-i': ['crecer-cada-dia', 'estudiar-la-biblia'],
+  'mensajes-selectos-tomo-ii': ['crecer-cada-dia', 'estudiar-la-biblia'],
+  'mensajes-selectos-tomo-iii': ['crecer-cada-dia', 'estudiar-la-biblia'],
+  'discurso-maestro-de-jesucristo': ['conocer-a-jesus', 'crecer-cada-dia'],
+  'discurso-maestro-de-jesucristo-tapa-dura': ['conocer-a-jesus', 'crecer-cada-dia'],
+  'el-camino-a-cristo': ['empezar-de-nuevo', 'crecer-cada-dia', 'conocer-a-jesus'],
+  'desde-el-corazon': ['crecer-cada-dia', 'empezar-de-nuevo', 'paz-interior'],
+  'leyes-de-la-salud': ['cuidar-mi-salud'],
+  'leyes-sobre-el-regimen-alimenticio': ['cuidar-mi-salud'],
+  'conflicto-y-valor': ['crecer-cada-dia', 'estudiar-la-biblia'],
+  'conduccion-del-nino': ['familia-y-pareja', 'criar-a-mis-hijos'],
+  'coleccion-kress': ['cuidar-mi-salud', 'servir-y-compartir'],
+  'cartas-a-jovenes-enamorados': ['familia-y-pareja', 'empezar-de-nuevo', 'crecer-cada-dia'],
+  'hijas-de-dios': ['familia-y-pareja', 'crecer-cada-dia', 'paz-interior'],
+  'en-el-desierto-de-la-tentacion': ['conocer-a-jesus', 'empezar-de-nuevo', 'crecer-cada-dia'],
+  'el-ministerio-de-curacion': ['cuidar-mi-salud', 'servir-y-compartir', 'consuelo-y-duelo'],
+  'el-cristo-triunfante': ['conocer-a-jesus', 'crecer-cada-dia'],
+  'biblia-bilingue-rvr-nkjv-marron': ['estudiar-la-biblia'],
+  'biblia-compacta-fucsia-floral-cierre': ['estudiar-la-biblia'],
+  'biblia-apuntes-rosa-floreada': ['estudiar-la-biblia'],
+  'biblia-apuntes-negro': ['estudiar-la-biblia'],
+  'biblia-apuntes-negro-oro': ['estudiar-la-biblia'],
+  'biblia-apuntes-blanco-negro-floral': ['estudiar-la-biblia'],
+  'biblia-apuntes-azul-oscuro-floral': ['estudiar-la-biblia'],
+  'biblia-apuntes-azul-celeste-floral': ['estudiar-la-biblia'],
+  'biblia-apuntes-rosa-floral': ['estudiar-la-biblia'],
+  'biblia-apuntes-vino-tinto': ['estudiar-la-biblia'],
+  'biblia-rvr60-cafe': ['estudiar-la-biblia'],
+  'biblia-rvr60-verde-mariposas': ['estudiar-la-biblia'],
+  'biblia-rvr60-negro': ['estudiar-la-biblia'],
+  'biblia-rvr60-marron': ['estudiar-la-biblia'],
+  'biblia-rvr60-beige': ['estudiar-la-biblia'],
+  'biblia-rvr60-amarillo-abejas-cierre': ['estudiar-la-biblia'],
+  'biblia-rvr60-verde-olivo-cierre': ['estudiar-la-biblia'],
+  'biblia-rvr60-marron-elegante-cierre': ['estudiar-la-biblia'],
+  'biblia-rvr60-cafe-cierre': ['estudiar-la-biblia'],
+  'biblia-rvr60-beige-floral-cierre': ['estudiar-la-biblia'],
+  'biblia-rvr60-morado-flor-dorada-cierre': ['estudiar-la-biblia'],
+  'biblia-rvr60-rosa-floral-cierre': ['estudiar-la-biblia'],
+  'biblia-rvr60-negro-cierre': ['estudiar-la-biblia'],
+  'biblia-rvr60-aguila-cierre': ['estudiar-la-biblia'],
+};
+
+// Cuelga las necesidades de cada libro dentro del propio objeto del
+// catálogo, para que el resto de la web (filtros, ficha, etiquetas) las
+// tenga a mano sin consultar el mapa cada vez.
+window.BOOKS.forEach(function (book) {
+  book.needs = window.BOOK_NEEDS[book.id] || [];
+});
+
 // ---- Utilidades compartidas de catálogo -----------------------------------
 window.BooksCatalog = {
   getById: function (id) {
     return window.BOOKS.filter(function (b) { return b.id === id; })[0] || null;
+  },
+  byNeed: function (needSlug) {
+    return window.BOOKS.filter(function (b) {
+      return (b.needs || []).indexOf(needSlug) !== -1;
+    });
   },
   related: function (book, max) {
     max = max || 4;

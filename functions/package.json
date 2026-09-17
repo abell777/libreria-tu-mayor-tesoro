@@ -2,7 +2,7 @@
   "name": "functions",
   "description": "Cloud Functions de Librería tu mayor tesoro",
   "engines": {
-    "node": "20"
+    "node": "22"
   },
   "main": "index.js",
   "private": true,

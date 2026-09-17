@@ -19,10 +19,16 @@ const { onCall, onRequest, HttpsError } = require("firebase-functions/v2/https")
 const { onSchedule } = require("firebase-functions/v2/scheduler");
 const { setGlobalOptions } = require("firebase-functions/v2");
 const { defineSecret } = require("firebase-functions/params");
-const admin = require("firebase-admin");
+// firebase-admin v14 ya NO trae la API "con espacios de nombres" (la de
+// toda la vida, con un solo require de "firebase-admin"): ahora hay que
+// importar cada servicio por separado. Con v14, el arranque anterior
+// fallaba al desplegar con "TypeError: ... is not a function".
+const { initializeApp } = require("firebase-admin/app");
+const { getFirestore, FieldValue } = require("firebase-admin/firestore");
+const { getAuth } = require("firebase-admin/auth");
 
-admin.initializeApp();
-const db = admin.firestore();
+initializeApp();
+const db = getFirestore();
 
 setGlobalOptions({ region: "us-central1", maxInstances: 10 });
 
@@ -792,7 +798,7 @@ async function comprobarLimite(clave, maxIntentos, ventanaMs) {
     tx.set(ref, {
       intentos: intentos + 1,
       inicio: dentroDeVentana ? inicio : ahora,
-      actualizadoEn: admin.firestore.FieldValue.serverTimestamp(),
+      actualizadoEn: FieldValue.serverTimestamp(),
     });
   });
 }
@@ -878,7 +884,7 @@ exports.crearPedido = onCall(async (request) => {
 
   // Nombre y correo del cliente: se leen de la cuenta autenticada, no del
   // formulario, para que nadie pueda hacerse pasar por otra persona.
-  const usuario = await admin.auth().getUser(auth.uid);
+  const usuario = await getAuth().getUser(auth.uid);
   const numero = "LT-" + Date.now().toString().slice(-6);
   const ref = db.collection("pedidos").doc();
 
@@ -916,7 +922,7 @@ exports.crearPedido = onCall(async (request) => {
       // pedido, no el cobro). Empieza en false y solo lo cambia a true el
       // webhook de Stripe, cuando el pago se ha confirmado de verdad.
       pagado: false,
-      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+      createdAt: FieldValue.serverTimestamp(),
     };
   }
 
@@ -960,10 +966,10 @@ exports.crearPedido = onCall(async (request) => {
       descuento = Math.max(0, Math.min(subtotalRedondeado, Math.round(bruto * 100) / 100));
       promoAplicada = { codigo: codigoPromo, tipo: promo.tipo, valor: promo.valor, descuento };
 
-      tx.update(promoRef, { usosTotales: admin.firestore.FieldValue.increment(1) });
+      tx.update(promoRef, { usosTotales: FieldValue.increment(1) });
       tx.set(
         usoRef,
-        { veces: admin.firestore.FieldValue.increment(1), ultimoUso: admin.firestore.FieldValue.serverTimestamp() },
+        { veces: FieldValue.increment(1), ultimoUso: FieldValue.serverTimestamp() },
         { merge: true }
       );
       tx.set(ref, construirPedido());
@@ -1221,7 +1227,7 @@ exports.stripeWebhook = onRequest({ secrets: [STRIPE_SECRET_KEY, STRIPE_WEBHOOK_
       try {
         await db.collection("pedidos").doc(pedidoId).update({
           pagado: true,
-          pagoConfirmadoEn: admin.firestore.FieldValue.serverTimestamp(),
+          pagoConfirmadoEn: FieldValue.serverTimestamp(),
           stripePaymentId: object.id,
         });
       } catch (err) {
@@ -1478,7 +1484,7 @@ async function recordarCarritosAbandonados(transporter) {
         subject: "Se te olvidó algo en tu carrito \uD83D\uDCDA",
         html,
       });
-      await doc.ref.set({ recordatorioEnviado: true, recordatorioEnviadoEn: admin.firestore.FieldValue.serverTimestamp() }, { merge: true });
+      await doc.ref.set({ recordatorioEnviado: true, recordatorioEnviadoEn: FieldValue.serverTimestamp() }, { merge: true });
     } catch (err) {
       console.error("No se pudo enviar el recordatorio de carrito a " + carrito.email, err);
     }
@@ -1517,7 +1523,7 @@ async function recordarPedidosSinPagar(transporter) {
         subject: "Tu pedido " + pedido.numero + " está a un paso de completarse",
         html,
       });
-      await doc.ref.update({ recordatorioAbandonoEnviado: true, recordatorioAbandonoEnviadoEn: admin.firestore.FieldValue.serverTimestamp() });
+      await doc.ref.update({ recordatorioAbandonoEnviado: true, recordatorioAbandonoEnviadoEn: FieldValue.serverTimestamp() });
     } catch (err) {
       console.error("No se pudo enviar el recordatorio de pago a " + pedido.clienteEmail, err);
     }
