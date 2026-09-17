@@ -247,8 +247,12 @@
         var addressIdActual = fd.get('addressId') || '';
         if (guardarDireccion) guardarDireccionSiProcede(user, envio, addressIdActual);
 
+        // Además del id y la cantidad se manda la portada elegida (solo el
+        // nombre del estilo: "ilustrada" / "tipografica"). El precio lo
+        // sigue calculando el servidor; la portada solo se guarda en el
+        // pedido para saber qué versión del libro hay que enviar.
         var itemsParaEnviar = items.map(function (i) {
-          return { id: i.id, qty: i.qty };
+          return { id: i.id, qty: i.qty, portada: i.coverStyle || '' };
         });
 
         // Step 1: Crear pedido en backend

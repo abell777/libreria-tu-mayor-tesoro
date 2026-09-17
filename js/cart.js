@@ -255,14 +255,27 @@ document.addEventListener('DOMContentLoaded', function () {
       var price = parseFloat(priceText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
       var id = card.dataset.productId || slugify(title);
 
-      Cart.addItem({ 
-        id: id, 
-        title: title, 
-        author: author, 
-        price: price, 
-        format: 'Estándar', 
-        cover: getBookImage(title), 
-        qty: 1 
+      // Si el libro está en el catálogo, se usan su formato real y la
+      // portada que la tarjeta está mostrando en ese momento (las tarjetas
+      // con dos diseños van alternando: ver js/cover-carousel.js). Así el
+      // cliente mete en el carrito exactamente la versión que ve.
+      var libro = window.BooksCatalog ? window.BooksCatalog.getById(id) : null;
+      var coverFile = card.dataset.coverFile || (libro ? libro.cover : getBookImage(title));
+      var coverStyle = card.dataset.coverStyle || '';
+      var coverLabel = card.dataset.coverLabel || '';
+      var varias = libro && window.hasMultipleCovers ? window.hasMultipleCovers(libro) : false;
+      var formato = libro ? libro.format : 'Estándar';
+      if (varias && coverLabel) formato += ' · ' + coverLabel;
+
+      Cart.addItem({
+        id: id,
+        title: title,
+        author: author,
+        price: price,
+        format: formato,
+        coverStyle: coverStyle,
+        cover: coverFile,
+        qty: 1
       });
       flashAdded(btn);
       openCartDrawer();
@@ -285,6 +298,7 @@ document.addEventListener('DOMContentLoaded', function () {
         author: mainAddBtn.dataset.author,
         price: activePill ? parseFloat(activePill.dataset.price) : parseFloat(mainAddBtn.dataset.price),
         format: activePill ? activePill.dataset.format : (mainAddBtn.dataset.format || 'Estándar'),
+        coverStyle: mainAddBtn.dataset.coverStyle || '',
         cover: mainAddBtn.dataset.cover || getBookImage(mainAddBtn.dataset.title),
         qty: qty
       });

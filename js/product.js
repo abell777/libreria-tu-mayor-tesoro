@@ -28,6 +28,15 @@
 
   layout.hidden = false;
 
+  // ¿Libro anunciado pero todavía sin precio? (campo "comingSoon" del
+  // catálogo). En ese caso se muestra la portada y un aviso de próxima
+  // disponibilidad, pero no se puede comprar.
+  var comingSoon = window.isComingSoon ? window.isComingSoon(book) : false;
+
+  // Portadas disponibles de este mismo libro (1 o varias).
+  var covers = window.bookCovers ? window.bookCovers(book) : [{ style: 'ilustrada', file: book.cover, label: 'Estándar', short: 'Portada estándar', desc: '' }];
+  var coverIndex = 0;
+
   // ---- SEO: título, meta descripción, OG/Twitter, canonical, migas de pan ----
   var pageTitle = book.title + ' — Librería tu mayor tesoro';
   document.title = pageTitle;
@@ -91,8 +100,16 @@
   var lang = window.idiomaToLang ? window.idiomaToLang(book.idioma) : 'es';
   if (lang !== 'es') titleEl.setAttribute('lang', lang); else titleEl.removeAttribute('lang');
   document.getElementById('productAuthor').textContent = book.author;
-  document.getElementById('productPrice').childNodes[0].textContent = fmtPrice(book.price) + '\u00A0€ ';
-  document.getElementById('productPriceNote').textContent = book.priceNote;
+  var priceEl = document.getElementById('productPrice');
+  var priceNoteEl = document.getElementById('productPriceNote');
+  if (comingSoon) {
+    priceEl.childNodes[0].textContent = 'Precio próximamente ';
+    priceEl.classList.add('product-price--soon');
+    priceNoteEl.textContent = 'Estamos preparando esta edición';
+  } else {
+    priceEl.childNodes[0].textContent = fmtPrice(book.price) + '\u00A0€ ';
+    priceNoteEl.textContent = book.priceNote;
+  }
   document.getElementById('productDesc').textContent = book.description;
   document.getElementById('productDescLong').textContent = book.description;
 
@@ -170,12 +187,115 @@
     addBtn.dataset.id = book.id;
     addBtn.dataset.title = book.title;
     addBtn.dataset.author = book.author;
-    addBtn.dataset.price = book.price;
+    addBtn.dataset.price = comingSoon ? 0 : book.price;
     addBtn.dataset.format = book.format;
     addBtn.dataset.cover = book.cover;
-    if (agotado) {
+    if (comingSoon) {
+      addBtn.disabled = true;
+      addBtn.textContent = 'Disponible próximamente';
+    } else if (agotado) {
       addBtn.disabled = true;
       addBtn.textContent = 'Agotado';
+    }
+  }
+
+  // ==========================================================================
+  // Selector de portada — mismo libro, distintos diseños de cubierta
+  // --------------------------------------------------------------------------
+  // Si el libro tiene varias portadas (campo "covers" en js/books-data.js),
+  // aquí se pinta un selector con la miniatura de cada diseño, su nombre y
+  // una explicación corta del estilo. El precio es el mismo en todas, así
+  // que solo cambia la imagen y la portada que se guarda en el pedido
+  // ("Tapa blanda … · Portada ilustrada"), para saber cuál hay que enviar.
+  // ==========================================================================
+  function applyCover(i) {
+    coverIndex = (i + covers.length) % covers.length;
+    var cover = covers[coverIndex];
+
+    if (coverImg) {
+      coverImg.onerror = function () { coverImg.onerror = null; coverImg.src = cover.file; };
+      coverImg.src = toWebp(cover.file);
+      coverImg.alt = 'Portada de «' + book.title + '», de ' + book.author +
+        (covers.length > 1 ? ' — ' + cover.short.toLowerCase() : '');
+    }
+    if (addBtn) {
+      addBtn.dataset.cover = cover.file;
+      addBtn.dataset.coverStyle = cover.style;
+      // El formato es lo que identifica la línea del carrito y lo que se
+      // ve en el pedido: al añadirle la portada elegida, dos portadas del
+      // mismo libro se pueden pedir a la vez como líneas distintas.
+      addBtn.dataset.format = covers.length > 1 ? book.format + ' · ' + cover.short : book.format;
+    }
+    var options = document.querySelectorAll('.cover-option');
+    Array.prototype.slice.call(options).forEach(function (opt, idx) {
+      opt.classList.toggle('is-active', idx === coverIndex);
+      opt.setAttribute('aria-checked', idx === coverIndex ? 'true' : 'false');
+      opt.tabIndex = idx === coverIndex ? 0 : -1;
+    });
+    var chosenEl = document.getElementById('coverChosenDesc');
+    if (chosenEl) chosenEl.textContent = cover.desc || '';
+  }
+
+  if (covers.length > 1) {
+    var gallery = document.querySelector('.product-gallery');
+    if (gallery) {
+      var picker = document.createElement('div');
+      picker.className = 'cover-picker';
+      picker.innerHTML =
+        '<p class="cover-picker-title">Elige el diseño de portada' +
+          '<span class="cover-picker-hint">Mismo libro y mismo precio · tú eliges la cubierta</span>' +
+        '</p>' +
+        '<div class="cover-options" role="radiogroup" aria-label="Diseño de portada">' +
+          covers.map(function (c, i) {
+            return '<button type="button" class="cover-option' + (i === 0 ? ' is-active' : '') + '" role="radio" ' +
+              'aria-checked="' + (i === 0 ? 'true' : 'false') + '" data-cover-index="' + i + '">' +
+              '<img src="' + toWebp(c.file) + '" data-fallback="' + c.file + '" ' +
+              'onerror="this.onerror=null;this.src=this.getAttribute(\'data-fallback\')" ' +
+              'alt="' + escapeHTML(c.short) + ' de «' + escapeHTML(book.title) + '»" loading="lazy" decoding="async">' +
+              '<span class="cover-option-text">' +
+                '<span class="cover-option-label">' + escapeHTML(c.label) + '</span>' +
+                '<span class="cover-option-desc">' + escapeHTML(c.desc) + '</span>' +
+              '</span>' +
+            '</button>';
+          }).join('') +
+        '</div>' +
+        '<p class="cover-chosen-desc" id="coverChosenDesc"></p>';
+      gallery.appendChild(picker);
+
+      Array.prototype.slice.call(picker.querySelectorAll('.cover-option')).forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          applyCover(parseInt(btn.dataset.coverIndex, 10) || 0);
+        });
+        btn.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); applyCover(coverIndex + 1); document.querySelectorAll('.cover-option')[coverIndex].focus(); }
+          if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); applyCover(coverIndex - 1); document.querySelectorAll('.cover-option')[coverIndex].focus(); }
+        });
+      });
+    }
+  }
+  applyCover(0);
+
+  // ---- Aviso de "próximamente" debajo del precio ----
+  if (comingSoon) {
+    var infoBlock = document.querySelector('[data-product-block]');
+    var actionsEl = document.querySelector('.product-actions');
+    if (infoBlock && actionsEl) {
+      var soonNotice = document.createElement('p');
+      soonNotice.className = 'coming-soon-notice';
+      soonNotice.innerHTML =
+        '<strong>Edición en preparación.</strong> Este título estará disponible muy pronto en nuestra librería. ' +
+        'Añádelo a tu lista de deseos y lo tendrás a mano en cuanto podamos confirmar precio y fecha de envío.';
+      infoBlock.insertBefore(soonNotice, actionsEl);
+    }
+    var qtyStepper = document.querySelector('[data-product-block] .qty-stepper');
+    if (qtyStepper) {
+      Array.prototype.slice.call(qtyStepper.querySelectorAll('button, input')).forEach(function (el) { el.disabled = true; });
+    }
+    var buyNow = document.querySelector('.product-actions a.btn--outline');
+    if (buyNow) {
+      buyNow.classList.add('is-disabled-link');
+      buyNow.setAttribute('aria-disabled', 'true');
+      buyNow.addEventListener('click', function (e) { e.preventDefault(); });
     }
   }
   var buyNowLink = document.querySelector('.product-actions a.btn--outline');
@@ -228,7 +348,7 @@
   if (related.length && relatedSection && relatedGrid) {
     relatedGrid.innerHTML = related.map(function (b) {
       return (
-        '<article class="book-card">' +
+        '<article class="book-card" data-product-id="' + b.id + '">' +
           '<a href="producto.html?id=' + b.id + '" class="book-cover book-cover--photo">' +
             '<img src="' + toWebp(b.cover) + '" onerror="this.onerror=null;this.src=\'' + b.cover + '\'" alt="Portada de «' + escapeHTML(b.title) + '», de ' + escapeHTML(b.author) + '" loading="lazy" decoding="async">' +
           '</a>' +
@@ -245,6 +365,7 @@
       );
     }).join('');
     relatedSection.hidden = false;
+    document.dispatchEvent(new CustomEvent('catalog:rendered'));
   }
 
   // ==========================================================================
@@ -269,7 +390,7 @@
       if (toShow.length) {
         recentGrid.innerHTML = toShow.map(function (b) {
           return (
-            '<article class="book-card">' +
+            '<article class="book-card" data-product-id="' + b.id + '">' +
               '<a href="producto.html?id=' + b.id + '" class="book-cover book-cover--photo">' +
                 '<img src="' + toWebp(b.cover) + '" onerror="this.onerror=null;this.src=\'' + b.cover + '\'" alt="Portada de «' + escapeHTML(b.title) + '», de ' + escapeHTML(b.author) + '" loading="lazy" decoding="async">' +
               '</a>' +
@@ -286,6 +407,7 @@
           );
         }).join('');
         recentSection.hidden = false;
+        document.dispatchEvent(new CustomEvent('catalog:rendered'));
       }
     }
 
@@ -459,6 +581,9 @@
         seller: { '@type': 'Organization', name: 'Librería tu mayor tesoro' }
       }
     };
+    // Sin precio confirmado no se publica ninguna oferta: Google marcaría
+    // el dato estructurado como incompleto.
+    if (comingSoon) delete data.offers;
     if (count > 0) {
       data.aggregateRating = { '@type': 'AggregateRating', ratingValue: avg.toFixed(1), reviewCount: count };
     }

@@ -54,6 +54,17 @@ const STRIPE_WEBHOOK_SECRET = defineSecret("STRIPE_WEBHOOK_SECRET");
 const GMAIL_USER = defineSecret("GMAIL_USER");
 const GMAIL_APP_PASSWORD = defineSecret("GMAIL_APP_PASSWORD");
 
+// ---- Portadas válidas (deben coincidir con COVER_STYLES de js/books-data.js) ----
+// Algunos libros existen con dos diseños de cubierta (el mismo libro, el
+// mismo precio). El navegador puede decir cuál quiere el cliente, pero solo
+// se acepta si está en esta lista: así nadie puede colar texto arbitrario
+// en el pedido.
+const PORTADAS_VALIDAS = {
+  ilustrada: "Portada ilustrada",
+  tipografica: "Portada tipográfica",
+  rustica: "Portada rústica",
+};
+
 // ---- Catálogo oficial (debe coincidir con js/books-data.js) ----
 // Incluye también description/cover/category/author porque "productoMeta"
 // (más abajo) los necesita para escribir los metadatos de cada ficha de
@@ -834,6 +845,11 @@ exports.crearPedido = onCall(async (request) => {
 
   // Recalcula CADA artículo contra el catálogo de arriba: precio, título
   // y formato siempre vienen de aquí, nunca de lo que mande el navegador.
+  //
+  // Lo ÚNICO que se acepta del navegador es la portada elegida, y solo si
+  // coincide con uno de los estilos de la lista blanca de aquí abajo: es
+  // el mismo libro al mismo precio, así que no afecta al importe — solo
+  // queda anotado en el pedido para saber qué cubierta hay que enviar.
   const itemsFinales = [];
   for (const item of itemsSolicitados) {
     const libro = item && CATALOGO[item.id];
@@ -841,10 +857,12 @@ exports.crearPedido = onCall(async (request) => {
       throw new HttpsError("invalid-argument", "Uno de los libros del pedido ya no existe en el catálogo.");
     }
     const cantidad = Math.min(MAX_QTY, Math.max(1, parseInt(item.qty, 10) || 1));
+    const portada = typeof item.portada === "string" && PORTADAS_VALIDAS[item.portada] ? item.portada : null;
     itemsFinales.push({
       id: item.id,
       titulo: libro.title,
-      formato: libro.format,
+      formato: libro.format + (portada ? " · " + PORTADAS_VALIDAS[portada] : ""),
+      portada: portada,
       precio: libro.price,
       cantidad: cantidad,
       envioGratis: !!libro.freeShipping,

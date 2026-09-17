@@ -32,6 +32,10 @@
 
   function bookCardHTML(book) {
     var bindingIcon = BINDING_ICON[book.formatSlug];
+    // Libros anunciados pero todavía sin precio ("comingSoon" en el
+    // catálogo): se ven igual, con su portada, pero sin importe y sin
+    // botón de compra — solo el aviso de que llegan muy pronto.
+    var comingSoon = window.isComingSoon ? window.isComingSoon(book) : false;
     var subcatAttr = Array.isArray(book.subcategory) ? book.subcategory.join(' ') : '';
     var lang = window.idiomaToLang ? window.idiomaToLang(book.idioma) : 'es';
     var langAttr = lang !== 'es' ? ' lang="' + lang + '"' : '';
@@ -40,11 +44,17 @@
     var stockBadgeHTML = stock && stock.texto
       ? '<span class="stock-badge stock-badge--' + stock.estado + '">' + escapeHTML(stock.texto) + '</span>'
       : '';
-    var addBtnHTML = agotado
-      ? '<button class="btn btn--outline btn--sm" disabled>Agotado</button>'
-      : '<button class="btn btn--primary btn--sm">Añadir</button>';
+    var addBtnHTML = comingSoon
+      ? '<button class="btn btn--outline btn--sm" disabled>Próximamente</button>'
+      : (agotado
+        ? '<button class="btn btn--outline btn--sm" disabled>Agotado</button>'
+        : '<button class="btn btn--primary btn--sm">Añadir</button>');
+    var priceHTML = comingSoon
+      ? '<span class="book-price book-price--soon">Próximamente<small>Precio por confirmar</small></span>'
+      : '<span class="book-price">' + fmtPrice(book.price) + '&nbsp;€<small>' + escapeHTML(book.priceNote) + '</small></span>';
     return (
-      '<article class="book-card' + (agotado ? ' is-out-of-stock' : '') + '" data-category="' + book.category + '" data-price="' + book.price +
+      '<article class="book-card' + (agotado ? ' is-out-of-stock' : '') + (comingSoon ? ' is-coming-soon' : '') +
+      '" data-category="' + book.category + '" data-price="' + (comingSoon ? 0 : book.price) +
       '" data-format="' + book.formatSlug + '" data-author="' + book.authorSlug + '" data-product-id="' + book.id +
       '" data-subcategory="' + escapeHTML(subcatAttr) +
       '" data-bible-version="' + escapeHTML(book.bibleVersion || '') +
@@ -66,7 +76,7 @@
           '<h3 class="book-title"' + langAttr + '><a href="producto.html?id=' + book.id + '">' + escapeHTML(book.title) + '</a></h3>' +
           '<p class="book-author">' + escapeHTML(book.author) + ' · ' + escapeHTML(book.format) + '</p>' +
           '<div class="book-footer">' +
-            '<span class="book-price">' + fmtPrice(book.price) + '&nbsp;€<small>' + escapeHTML(book.priceNote) + '</small></span>' +
+            priceHTML +
             addBtnHTML +
           '</div>' +
         '</div>' +
@@ -82,7 +92,11 @@
   var ld = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    itemListElement: window.BOOKS.map(function (b, i) {
+    itemListElement: window.BOOKS.filter(function (b) {
+      // Los libros "próximamente" no llevan precio todavía, así que se
+      // quedan fuera del listado estructurado (Google exige precio).
+      return !(window.isComingSoon && window.isComingSoon(b));
+    }).map(function (b, i) {
       return {
         '@type': 'Product',
         position: i + 1,
@@ -419,6 +433,10 @@
     renderActiveChips();
     updateTitle(groups.category, query);
     renderPagination(totalItems, totalPages);
+
+    // Avisa al carrusel de portadas (js/cover-carousel.js) de que hay
+    // tarjetas nuevas en pantalla; las ya preparadas se ignoran.
+    document.dispatchEvent(new CustomEvent('catalog:rendered'));
   }
 
   function clearAllFilters() {

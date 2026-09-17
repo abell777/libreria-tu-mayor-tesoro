@@ -60,6 +60,75 @@ window.stockInfo = function (book) {
   return { estado: 'ok', texto: '' };
 };
 
+// ---- Portadas alternativas del MISMO libro (opcional) ---------------------
+// Algunos títulos existen con dos diseños de cubierta distintos. Es el
+// MISMO libro (mismo texto, mismo precio): lo único que cambia es la
+// portada, así que NO se crean dos productos, sino un solo libro con un
+// array "covers":
+//
+//   covers: [
+//     { style: 'ilustrada',   file: 'img/mi-libro.jpg' },
+//     { style: 'tipografica', file: 'img/mi-libro-tipografica.jpg' }
+//   ]
+//
+// Con eso, automáticamente:
+//   · en el catálogo y la home, la tarjeta va alternando las portadas
+//     sola cada pocos segundos (js/cover-carousel.js);
+//   · en la ficha, el cliente elige con qué portada quiere el libro y esa
+//     elección viaja al pedido ("Tapa blanda … · Portada ilustrada").
+// El primer elemento del array es la portada por defecto y debe coincidir
+// con el campo "cover" de siempre (que se sigue usando para SEO/Open Graph).
+window.COVER_STYLES = {
+  ilustrada: {
+    label: 'Ilustrada',
+    short: 'Portada ilustrada',
+    desc: 'Cubierta con ilustración a color, más visual y llamativa.'
+  },
+  tipografica: {
+    label: 'Tipográfica',
+    short: 'Portada tipográfica',
+    desc: 'Diseño sobrio y elegante centrado en las letras, con marco dorado sobre fondo hueso.'
+  },
+  rustica: {
+    label: 'Rústica',
+    short: 'Portada rústica',
+    desc: 'Cubierta sencilla, de estilo clásico y sin ilustración.'
+  }
+};
+
+// Devuelve SIEMPRE un array de portadas normalizado
+// ([{ style, file, label, short, desc }]), tenga el libro una o varias.
+window.bookCovers = function (book) {
+  if (!book) return [];
+  var list = Array.isArray(book.covers) && book.covers.length
+    ? book.covers
+    : [{ style: book.coverStyle || 'ilustrada', file: book.cover }];
+  return list.map(function (c) {
+    var meta = window.COVER_STYLES[c.style] || {};
+    return {
+      style: c.style,
+      file: c.file,
+      label: c.label || meta.label || 'Estándar',
+      short: c.short || meta.short || 'Portada estándar',
+      desc: c.desc || meta.desc || ''
+    };
+  });
+};
+
+// ¿Tiene este libro más de una portada a elegir?
+window.hasMultipleCovers = function (book) {
+  return window.bookCovers(book).length > 1;
+};
+
+// ---- Libros "próximamente" (sin precio todavía) ---------------------------
+// Un libro con "comingSoon: true" (y price: null) se muestra en el catálogo
+// con su portada y un aviso de próxima disponibilidad, pero sin precio y sin
+// poder añadirse al carrito. Cuando sepas el precio, basta con poner el
+// número en "price" y quitar "comingSoon".
+window.isComingSoon = function (book) {
+  return !!(book && (book.comingSoon || typeof book.price !== 'number'));
+};
+
 // ---- Subcategorías temáticas (solo libros de Elena G. White) --------------
 // Cada libro puede llevar 1 o 2 slugs en su campo "subcategory". Sirven
 // para los botones de subcategoría y el filtro "Tema" en categoria.html.
@@ -507,6 +576,10 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/dios-nos-cuida.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/dios-nos-cuida.jpg' },
+      { style: 'tipografica', file: 'img/dios-nos-cuida-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Un devocional matutino breve, pensado para leer cada mañana y empezar el día recordando el cuidado providencial de Dios. Fácil de intercalar en cualquier rutina, aunque sea apretada.',
     idioma: 'Español',
@@ -526,6 +599,10 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/de-la-ciudad-al-campo.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/de-la-ciudad-al-campo.jpg' },
+      { style: 'tipografica', file: 'img/de-la-ciudad-al-campo-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Reflexiona sobre las ventajas de la vida sencilla en contacto con la naturaleza frente al ritmo agitado de la ciudad. Un libro que insta a repensar el estilo de vida desde una perspectiva cristiana.',
     idioma: 'Español',
@@ -560,6 +637,10 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/cristo-nuestro-salvador.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/cristo-nuestro-salvador.jpg' },
+      { style: 'tipografica', file: 'img/cristo-nuestro-salvador-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Una introducción sencilla y accesible a la vida y la obra de Jesús, pensada tanto para nuevos creyentes como para quienes desean repasar lo esencial del evangelio. Ideal como primer libro de estudio sobre la persona de Cristo.',
     idioma: 'Español',
@@ -579,6 +660,10 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/cristo-en-su-santuario.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/cristo-en-su-santuario.jpg' },
+      { style: 'tipografica', file: 'img/cristo-en-su-santuario-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Explica el simbolismo del santuario de la Biblia y su cumplimiento en la obra de Cristo. Un libro de estudio para profundizar en la doctrina del santuario.',
     idioma: 'Español',
@@ -613,6 +698,10 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/consejos-sobre-la-mayordomia-cristiana.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/consejos-sobre-la-mayordomia-cristiana.jpg' },
+      { style: 'tipografica', file: 'img/consejos-sobre-la-mayordomia-cristiana-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Reúne principios sobre el uso responsable del tiempo, el dinero y los talentos como parte de la vida de fe. Plantea la mayordomía no como obligación, sino como una forma de vivir con propósito.',
     idioma: 'Español',
@@ -630,6 +719,10 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/consejos-sobre-la-obra-de-escuela-sabatica.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/consejos-sobre-la-obra-de-escuela-sabatica.jpg' },
+      { style: 'tipografica', file: 'img/consejos-sobre-la-obra-de-escuela-sabatica-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Dirigido a maestros y líderes de Escuela Sabática, ofrece orientación práctica para enseñar la Biblia de forma clara y relevante a todas las edades. Un recurso de referencia para quienes sirven en esa área de la iglesia.',
     idioma: 'Español',
@@ -647,6 +740,10 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/consejos-para-los-maestros.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/consejos-para-los-maestros.jpg' },
+      { style: 'tipografica', file: 'img/consejos-para-los-maestros-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Consejos prácticos sobre la vocación docente desde una perspectiva cristiana, con énfasis en la formación del carácter tanto como del intelecto. Útil para educadores en escuelas de la iglesia y también para padres.',
     idioma: 'Español',
@@ -664,6 +761,10 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/consejos-para-la-iglesia.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/consejos-para-la-iglesia.jpg' },
+      { style: 'tipografica', file: 'img/consejos-para-la-iglesia-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Una recopilación de consejos sobre la vida y la organización de la congregación local, pensada para líderes y miembros comprometidos con la salud espiritual de su iglesia.',
     idioma: 'Español',
@@ -681,6 +782,10 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/cada-dia-con-dios.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/cada-dia-con-dios.jpg' },
+      { style: 'tipografica', file: 'img/cada-dia-con-dios-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Un devocional diario, con una lectura breve para cada mañana del año, pensado para acompañar el tiempo personal de oración y estudio.',
     idioma: 'Español',
@@ -752,6 +857,10 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/alza-tus-ojos.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/alza-tus-ojos.jpg' },
+      { style: 'tipografica', file: 'img/alza-tus-ojos-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Un devocional que invita a mirar más allá de las circunstancias diarias hacia la esperanza cristiana, con lecturas breves pensadas para el ánimo y la reflexión.',
     idioma: 'Español',
@@ -769,6 +878,10 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/a-fin-de-conocerle.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/a-fin-de-conocerle.jpg' },
+      { style: 'tipografica', file: 'img/a-fin-de-conocerle-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Un devocional centrado en el deseo de conocer más profundamente el carácter de Cristo a través de la lectura diaria y la meditación.',
     idioma: 'Español',
@@ -1389,6 +1502,190 @@ window.BOOKS = [
   },
 
 // ---- Biblias ----
+  {
+    id: 'el-camino-a-cristo',
+    title: 'El Camino a Cristo',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/el-camino-a-cristo-tipografica.jpg',
+    covers: [
+      { style: 'tipografica', file: 'img/el-camino-a-cristo-tipografica.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'El libro más leído de Elena G. White: una invitación sencilla y cercana a conocer a Cristo, paso a paso, desde el primer deseo de acercarse a Dios hasta una vida de fe firme. Un clásico ideal para regalar o para empezar a leer a la autora.',
+    idioma: 'Español',
+    subcategory: ['vida-cristiana', 'vida-de-cristo'],
+  },
+  {
+    id: 'desde-el-corazon',
+    title: 'Desde el Corazón',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/desde-el-corazon-tipografica.jpg',
+    covers: [
+      { style: 'tipografica', file: 'img/desde-el-corazon-tipografica.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'Una selección de lecturas breves escritas con un tono íntimo y personal, pensadas para el momento devocional diario. Cada página invita a detenerse, reflexionar y acercarse a Dios con sinceridad.',
+    idioma: 'Español',
+    subcategory: ['devocionales', 'vida-cristiana'],
+  },
+  {
+    id: 'leyes-de-la-salud',
+    title: 'Leyes de la Salud',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/leyes-de-la-salud-tipografica.jpg',
+    covers: [
+      { style: 'tipografica', file: 'img/leyes-de-la-salud-tipografica.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'Un repaso claro de los principios que sostienen una vida sana —descanso, aire puro, ejercicio, agua, luz solar y confianza en Dios—, explicados de forma práctica para aplicarlos en el día a día.',
+    idioma: 'Español',
+    subcategory: ['salud'],
+  },
+  {
+    id: 'leyes-sobre-el-regimen-alimenticio',
+    title: 'Leyes sobre el Régimen Alimenticio',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/leyes-sobre-el-regimen-alimenticio-tipografica.jpg',
+    covers: [
+      { style: 'tipografica', file: 'img/leyes-sobre-el-regimen-alimenticio-tipografica.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'Consejos concretos sobre la alimentación y su relación con el bienestar físico y espiritual: qué comer, cómo comer y por qué la mesa también forma parte de una vida equilibrada.',
+    idioma: 'Español',
+    subcategory: ['salud'],
+  },
+  {
+    id: 'conflicto-y-valor',
+    title: 'Conflicto y Valor',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/conflicto-y-valor-tipografica.jpg',
+    covers: [
+      { style: 'tipografica', file: 'img/conflicto-y-valor-tipografica.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'Un devocional que recorre las grandes historias de la Biblia día a día, mostrando la valentía de quienes confiaron en Dios en medio de la lucha. Lecturas breves, una para cada jornada del año.',
+    idioma: 'Español',
+    subcategory: ['devocionales', 'historia-biblica'],
+  },
+  {
+    id: 'conduccion-del-nino',
+    title: 'Conducción del Niño',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/conduccion-del-nino-tipografica.jpg',
+    covers: [
+      { style: 'tipografica', file: 'img/conduccion-del-nino-tipografica.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'Una guía completa para padres y educadores sobre la formación del carácter desde los primeros años: disciplina con afecto, hábitos, ejemplo en el hogar y educación espiritual.',
+    idioma: 'Español',
+    subcategory: ['familia-y-hogar', 'educacion'],
+  },
+  {
+    id: 'coleccion-kress',
+    title: 'Colección Kress',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/coleccion-kress-tipografica.jpg',
+    covers: [
+      { style: 'tipografica', file: 'img/coleccion-kress-tipografica.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'Reúne las cartas y consejos dirigidos al doctor Kress y a su esposa, con orientaciones muy prácticas sobre salud, tratamiento de enfermos y equilibrio en el trabajo médico y misionero.',
+    idioma: 'Español',
+    subcategory: ['salud', 'ministerio-y-evangelismo'],
+  },
+  {
+    id: 'cartas-a-jovenes-enamorados',
+    title: 'Cartas a Jóvenes Enamorados',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/cartas-a-jovenes-enamorados-tipografica.jpg',
+    covers: [
+      { style: 'tipografica', file: 'img/cartas-a-jovenes-enamorados-tipografica.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'Cartas escritas a parejas jóvenes con consejos honestos sobre el noviazgo, la elección de pareja y la preparación para el matrimonio. Una lectura breve y directa, muy útil para regalar.',
+    idioma: 'Español',
+    subcategory: ['familia-y-hogar', 'vida-cristiana'],
+  },
   {
     id: 'biblia-bilingue-rvr-nkjv-marron',
     title: 'Biblia Bilingüe RVR/NKJV, Marrón',
