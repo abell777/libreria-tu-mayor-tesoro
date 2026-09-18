@@ -40,6 +40,7 @@
           '<span class="admin-order-fecha">' + fecha + '</span>' +
           '<span class="admin-order-total">' + fmtEUR(pedido.total) + '</span>' +
           '<span class="pay-badge pay-badge--' + (pedido.pagado ? 'ok' : 'pendiente') + '">' + (pedido.pagado ? 'Pagado' : 'Pago pendiente') + '</span>' +
+          '<span class="admin-order-metodo">' + (pedido.metodoPago === 'bizum' ? 'Bizum' : 'Tarjeta') + '</span>' +
           '<span class="order-status order-status--' + escapeHTML(pedido.estado) + '">' + capitaliza(pedido.estado) + '</span>' +
         '</summary>' +
         '<div class="admin-order-body">' +
@@ -62,6 +63,9 @@
                 '<option value="entregado"' + (pedido.estado === 'entregado' ? ' selected' : '') + '>Entregado</option>' +
               '</select>' +
             '</label>' +
+            (pedido.metodoPago === 'bizum' && !pedido.pagado
+              ? '<button type="button" class="btn btn--outline btn--sm" data-marcar-pagado data-id="' + pedido._id + '">Marcar pago Bizum recibido</button>'
+              : '') +
             '<span class="admin-save-flash" data-save-flash hidden>Guardado ✓</span>' +
           '</div>' +
         '</div>' +
@@ -159,6 +163,30 @@
       .catch(function (err) {
         console.error('Error al actualizar el pedido', err);
         alert('No se ha podido actualizar el estado. Revisa las reglas de Firestore.');
+      });
+  });
+
+  document.getElementById('adminOrdersList').addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-marcar-pagado]');
+    if (!btn) return;
+    var id = btn.getAttribute('data-id');
+    if (!window.confirm('¿Confirmas que el pago por Bizum de este pedido ya ha llegado?')) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Confirmando…';
+
+    var marcarPedidoPagadoFn = firebase.functions().httpsCallable('marcarPedidoPagado');
+    marcarPedidoPagadoFn({ pedidoId: id })
+      .then(function () {
+        var pedido = pedidosCache.filter(function (p) { return p._id === id; })[0];
+        if (pedido) pedido.pagado = true;
+        renderLista();
+      })
+      .catch(function (err) {
+        console.error('Error al confirmar el pago por Bizum', err);
+        alert('No se ha podido confirmar el pago. Inténtalo de nuevo.');
+        btn.disabled = false;
+        btn.textContent = 'Marcar pago Bizum recibido';
       });
   });
 

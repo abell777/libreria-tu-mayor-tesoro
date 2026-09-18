@@ -2694,7 +2694,7 @@ window.BOOK_NEEDS = {
   'cada-dia-con-dios': ['crecer-cada-dia', 'paz-interior'],
   'creencias-de-los-adventistas-del-septimo-dia': ['dudas-de-fe', 'estudiar-la-biblia'],
   'el-poder-de-la-oracion': ['dudas-de-fe', 'paz-interior', 'crecer-cada-dia'],
-  'un-viaje-a-lo-sobrenatural': ['dudas-de-fe'],
+  'un-viaje-a-lo-sobrenatural': ['dudas-de-fe', 'empezar-de-nuevo'],
   'alza-tus-ojos': ['crecer-cada-dia', 'paz-interior', 'consuelo-y-duelo'],
   'a-fin-de-conocerle': ['crecer-cada-dia', 'conocer-a-jesus'],
   'review-and-herald': ['empezar-de-nuevo', 'crecer-cada-dia', 'estudiar-la-biblia'],

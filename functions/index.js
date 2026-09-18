@@ -946,6 +946,11 @@ exports.crearPedido = onCall(async (request) => {
   let descuento = 0;
   let promoAplicada = null;
 
+  // Método de pago elegido en el carrito: solo "tarjeta" (Stripe) o "bizum"
+  // (pago manual, verificado a mano desde el panel de administración). Si
+  // llega cualquier otro valor, se asume "tarjeta" por seguridad.
+  const metodoPago = data.metodoPago === "bizum" ? "bizum" : "tarjeta";
+
   function construirPedido() {
     const total = Math.max(0, Math.round((subtotalRedondeado + gastosEnvio - descuento) * 100) / 100);
     return {
@@ -966,6 +971,7 @@ exports.crearPedido = onCall(async (request) => {
       descuento,
       promoAplicada,
       total,
+      metodoPago,
       estado: "pendiente",
       // "pagado" es independiente de "estado" (que refleja el envío del
       // pedido, no el cobro). Empieza en false y solo lo cambia a true el
@@ -1052,6 +1058,40 @@ exports.crearPedido = onCall(async (request) => {
     clienteEmail: pedidoFinal.clienteEmail,
     envio: pedidoFinal.envio,
   };
+});
+
+// ==========================================================================
+// "marcarPedidoPagado" — el admin confirma a mano un pago por Bizum.
+// Solo la usa el panel de administración (js/admin.js) para los pedidos con
+// metodoPago "bizum": tras comprobar en su propia app de banco que el
+// ingreso ha llegado, marca el pedido como pagado. Ni el cliente ni las
+// reglas de Firestore pueden tocar "pagado" directamente (ver
+// firestore.rules) — este es el único camino, aparte del webhook de
+// Stripe, y solo funciona para el UID del administrador.
+// ==========================================================================
+exports.marcarPedidoPagado = onCall(async (request) => {
+  const auth = request.auth;
+  const ADMIN_UIDS = ["EPkK3ItKBRhA5bNeqs9PKbM0svB3"];
+  if (!auth || !ADMIN_UIDS.includes(auth.uid)) {
+    throw new HttpsError("permission-denied", "Solo el administrador puede confirmar un pago.");
+  }
+
+  const pedidoId = request.data && request.data.pedidoId;
+  if (!pedidoId || typeof pedidoId !== "string") {
+    throw new HttpsError("invalid-argument", "Falta el identificador del pedido.");
+  }
+
+  const ref = db.collection("pedidos").doc(pedidoId);
+  const snap = await ref.get();
+  if (!snap.exists) {
+    throw new HttpsError("not-found", "Ese pedido no existe.");
+  }
+  if (snap.data().metodoPago !== "bizum") {
+    throw new HttpsError("failed-precondition", "Esta acción es solo para pedidos pagados por Bizum.");
+  }
+
+  await ref.update({ pagado: true, confirmadoPorAdminEn: FieldValue.serverTimestamp() });
+  return { ok: true };
 });
 
 // ==========================================================================

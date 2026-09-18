@@ -20,6 +20,37 @@
   var stripe = null;
   var elements = null;
   var card = null;
+  var orderConfirmationBizum = document.getElementById('orderConfirmationBizum');
+
+  // ------------------------------------------------------------------------
+  // 0. Alternar entre Bizum y Tarjeta según el método elegido
+  // ------------------------------------------------------------------------
+  var metodoPagoRadios = document.querySelectorAll('input[name="metodoPago"]');
+  var bizumBlock = document.getElementById('bizumPaymentBlock');
+  var cardBlock = document.getElementById('cardPaymentBlock');
+  var btnSubmitOrderEl = document.getElementById('btnSubmitOrder');
+
+  function metodoPagoActual() {
+    var seleccionado = document.querySelector('input[name="metodoPago"]:checked');
+    return seleccionado ? seleccionado.value : 'bizum';
+  }
+
+  function pintarMetodoPago() {
+    var esBizum = metodoPagoActual() === 'bizum';
+    if (bizumBlock) bizumBlock.hidden = !esBizum;
+    if (cardBlock) cardBlock.hidden = esBizum;
+    if (btnSubmitOrderEl) {
+      btnSubmitOrderEl.dataset.textoOriginal = esBizum ? 'Confirmar pedido con Bizum' : 'Pagar y completar pedido';
+      btnSubmitOrderEl.textContent = btnSubmitOrderEl.dataset.textoOriginal;
+    }
+  }
+
+  if (metodoPagoRadios.length) {
+    metodoPagoRadios.forEach(function (radio) {
+      radio.addEventListener('change', pintarMetodoPago);
+    });
+    pintarMetodoPago();
+  }
 
   // ------------------------------------------------------------------------
   // 1. Inicializar Stripe Elements al cargar el DOM
@@ -223,9 +254,11 @@
       var items = Cart.getItems();
       if (items.length === 0) return;
 
+      var metodoPago = metodoPagoActual();
+
       if (btnSubmit) {
         btnSubmit.disabled = true;
-        btnSubmit.textContent = 'Procesando pago...';
+        btnSubmit.textContent = metodoPago === 'bizum' ? 'Registrando pedido...' : 'Procesando pago...';
       }
 
       try {
@@ -257,8 +290,25 @@
 
         // Step 1: Crear pedido en backend
         var crearPedidoFn = firebase.functions().httpsCallable('crearPedido');
-        var resultadoPedido = await crearPedidoFn({ items: itemsParaEnviar, envio: envio, codigoPromo: promoActual ? promoActual.codigo : '' });
+        var resultadoPedido = await crearPedidoFn({ items: itemsParaEnviar, envio: envio, codigoPromo: promoActual ? promoActual.codigo : '', metodoPago: metodoPago });
         var pedidoId = resultadoPedido.data.id;
+
+        // Pago por Bizum: no hay pasarela que confirmar aquí. El pedido ya
+        // ha quedado registrado (pendiente de verificar el ingreso a mano
+        // desde el panel de administración), así que mostramos directamente
+        // la confirmación con las instrucciones de pago.
+        if (metodoPago === 'bizum') {
+          Cart.clear();
+          Cart.clearPromo();
+          // Como aquí no hay webhook que avise de que el dinero ha llegado,
+          // se manda ya el correo (al cliente y a la tienda) para que se
+          // sepa que hay un pedido nuevo pendiente de comprobar por Bizum.
+          enviarCorreos(resultadoPedido.data).catch(function (err) {
+            console.error('Error al enviar los correos de confirmación', err);
+          });
+          mostrarConfirmacionBizum(resultadoPedido.data.numero, resultadoPedido.data.total);
+          return;
+        }
 
         // Step 2: Obtener Client Secret de Stripe
         var crearIntentFn = firebase.functions().httpsCallable('crearIntentPago');
@@ -356,6 +406,7 @@
     if (paymentPending) paymentPending.hidden = true;
     if (paymentCancelled) paymentCancelled.hidden = true;
     if (confirmation) confirmation.hidden = true;
+    if (orderConfirmationBizum) orderConfirmationBizum.hidden = true;
     if (loginNotice) loginNotice.hidden = true;
   }
 
@@ -368,6 +419,18 @@
       if (num) num.textContent = numero;
       if (tot) tot.textContent = typeof fmtEUR === 'function' ? fmtEUR(total) : total.toFixed(2) + ' €';
       confirmation.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function mostrarConfirmacionBizum(numero, total) {
+    ocultarTodo();
+    if (orderConfirmationBizum) {
+      orderConfirmationBizum.hidden = false;
+      var num = orderConfirmationBizum.querySelector('[data-order-number]');
+      var tot = orderConfirmationBizum.querySelector('[data-order-total]');
+      if (num) num.textContent = numero;
+      if (tot) tot.textContent = typeof fmtEUR === 'function' ? fmtEUR(total) : total.toFixed(2) + ' €';
+      orderConfirmationBizum.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 

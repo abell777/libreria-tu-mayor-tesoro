@@ -451,40 +451,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (discountEl) discountEl.textContent = '−' + fmtEUR(descuento);
     var total = Math.max(0, subtotal + extras + SHIPPING - descuento);
     if (totalEl) totalEl.textContent = fmtEUR(total);
-
-    // ---- Desglose de IVA (solo informativo) --------------------------------
-    // 👉 OJO: los tipos de aquí abajo son los habituales en España para
-    // libros impresos (4%, tipo superreducido) y para el envío como
-    // servicio aparte (21%, tipo general) — pero esto NO es asesoramiento
-    // fiscal. Coméntalo con tu gestor/asesor antes de darlo por bueno,
-    // sobre todo si algún día vendes algo que no sea un libro en papel
-    // (por ejemplo, un ebook lleva otro tratamiento). Si te confirman
-    // tipos distintos, cambia las dos constantes de aquí abajo y ya.
-    var IVA_LIBROS = 0.04;
-    var IVA_ENVIO = 0.21;
-    var baseLibros = subtotal / (1 + IVA_LIBROS);
-    var ivaLibros = subtotal - baseLibros;
-    var baseEnvio = SHIPPING > 0 ? SHIPPING / (1 + IVA_ENVIO) : 0;
-    var ivaEnvio = SHIPPING - baseEnvio;
-    // Los extras de regalo (envoltorio, exlibris, funda…) son artículos
-    // aparte del libro, no libros en sí, así que llevan el tipo general
-    // (21%) y no el superreducido de los libros — igual que el envío.
-    var baseExtras = extras > 0 ? extras / (1 + IVA_ENVIO) : 0;
-    var ivaExtras = extras - baseExtras;
-    // El descuento se resta de la base de los libros (nunca del IVA).
-    var baseFinal = Math.max(0, baseLibros - descuento) + baseEnvio + baseExtras;
-    var ivaFinal = Math.max(0, total - baseFinal);
-
-    var vatAmountEl = document.getElementById('summaryVatAmount');
-    var baseAmountEl = document.getElementById('summaryBaseAmount');
-    var vatNoteEl = document.getElementById('summaryVatNote');
-    if (vatAmountEl) vatAmountEl.textContent = fmtEUR(ivaFinal);
-    if (baseAmountEl) baseAmountEl.textContent = fmtEUR(baseFinal);
-    if (vatNoteEl) {
-      vatNoteEl.textContent = (SHIPPING > 0 && ivaEnvio > 0) || ivaExtras > 0
-        ? '4% libros + 21% envío/extras'
-        : '4%';
-    }
   }
 
   // ---- Formulario de código promocional -----------------------------------

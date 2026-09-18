@@ -212,7 +212,15 @@ service cloud.firestore {
     // Firestore la deniega por defecto y la lista de deseos no funciona
     // para nadie. Solo el propio usuario puede leer o escribir la suya.
     match /deseos/{uid} {
-      allow read, write: if isSignedIn() && request.auth.uid == uid &&
+      // "request.resource" solo existe en escrituras: usarlo también en la
+      // condición de "read" (como estaba antes) hace que Firestore evalúe
+      // la regla como denegada siempre que se intenta LEER la lista de
+      // deseos, y de ahí el "permission-denied" al cargarla. Separando
+      // lectura y escritura, el propio usuario puede leer su documento sin
+      // más condición, y la validación de "items" se aplica solo al
+      // guardar.
+      allow read: if isSignedIn() && request.auth.uid == uid;
+      allow write: if isSignedIn() && request.auth.uid == uid &&
         (!('items' in request.resource.data) ||
           (request.resource.data.items is list && request.resource.data.items.size() <= 200));
     }
