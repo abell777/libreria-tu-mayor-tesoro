@@ -212,6 +212,10 @@ window.BOOKS = [
     formatSlug: 'tapa-dura',
     priceNote: 'IVA incluido',
     cover: 'img/el-conflicto-de-los-siglos.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/el-conflicto-de-los-siglos.jpg' },
+      { style: 'tipografica-oscura', file: 'img/el-conflicto-de-los-siglos-tipografica-oscura.jpg' }
+    ],
     badge: null,
     description: 'Un recorrido por la gran lucha entre el bien y el mal a través de la historia, desde la destrucción de Jerusalén hasta la restauración final de la tierra. Un clásico de la literatura devocional, con un lenguaje claro pensado tanto para el estudio personal como para el regalo.',
     idioma: 'Español',
@@ -234,7 +238,8 @@ window.BOOKS = [
     cover: 'img/el-deseado-de-todas-las-gentes.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-deseado-de-todas-las-gentes.jpg' },
-      { style: 'tipografica-clara', file: 'img/el-deseado-de-todas-las-gentes-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-deseado-de-todas-las-gentes-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/el-deseado-de-todas-las-gentes-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Uno de los libros más leídos de Elena G. White, en una edición manejable de tamaño A5.',
@@ -397,7 +402,8 @@ window.BOOKS = [
     cover: 'img/exaltad-a-jesus.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/exaltad-a-jesus.jpg' },
-      { style: 'tipografica-clara', file: 'img/exaltad-a-jesus-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/exaltad-a-jesus-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/exaltad-a-jesus-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Un devocional centrado por completo en la persona de Cristo: su carácter, su amor y su obra de salvación. Cada lectura busca acercar al lector a una relación más cercana con Jesús.',
@@ -418,7 +424,8 @@ window.BOOKS = [
     cover: 'img/en-los-lugares-celestiales.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/en-los-lugares-celestiales.jpg' },
-      { style: 'tipografica-clara', file: 'img/en-los-lugares-celestiales-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/en-los-lugares-celestiales-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/en-los-lugares-celestiales-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Meditaciones diarias inspiradas en la idea de que el creyente ya vive, en cierto sentido, en comunión con el cielo. Un libro pensado para empezar el día con una mirada puesta en lo eterno.',
@@ -439,7 +446,8 @@ window.BOOKS = [
     cover: 'img/fe-y-obras.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/fe-y-obras.jpg' },
-      { style: 'tipografica-clara', file: 'img/fe-y-obras-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/fe-y-obras-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/fe-y-obras-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Explora la relación entre la fe que salva y las obras que la acompañan, un tema clásico del cristianismo. Ayuda a entender que una fe viva se traduce siempre en una vida transformada.',
@@ -460,7 +468,8 @@ window.BOOKS = [
     cover: 'img/el-otro-poder.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-otro-poder.jpg' },
-      { style: 'tipografica-clara', file: 'img/el-otro-poder-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-otro-poder-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/el-otro-poder-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Reflexiona sobre el poder del amor, el hogar y la influencia personal frente a otras formas de poder más visibles. Un libro sobre cómo las decisiones cotidianas moldean el carácter y la familia.',
@@ -481,7 +490,8 @@ window.BOOKS = [
     cover: 'img/el-ministerio-pastoral.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-ministerio-pastoral.jpg' },
-      { style: 'tipografica-clara', file: 'img/el-ministerio-pastoral-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-ministerio-pastoral-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/el-ministerio-pastoral-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Dirigido a pastores y líderes de iglesia, reúne consejos prácticos sobre el cuidado de la congregación, la predicación y el ejemplo personal. Un manual de referencia para quienes ejercen el ministerio.',
@@ -504,7 +514,8 @@ window.BOOKS = [
     cover: 'img/el-deseado-de-todas-las-gentes-tapa-blanda.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-deseado-de-todas-las-gentes-tapa-blanda.jpg' },
-      { style: 'tipografica-clara', file: 'img/el-deseado-de-todas-las-gentes-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-deseado-de-todas-las-gentes-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/el-deseado-de-todas-las-gentes-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Uno de los libros más leídos de Elena G. White.',
@@ -527,7 +538,8 @@ window.BOOKS = [
     cover: 'img/el-ministerio-de-publicaciones.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-ministerio-de-publicaciones.jpg' },
-      { style: 'tipografica-clara', file: 'img/el-ministerio-de-publicaciones-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-ministerio-de-publicaciones-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/el-ministerio-de-publicaciones-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Reúne consejos sobre la obra de impresión y distribución de literatura cristiana, un pilar histórico de la difusión del mensaje. De interés especial para quienes trabajan en editoriales o en la venta de libros religiosos.',
@@ -548,7 +560,8 @@ window.BOOKS = [
     cover: 'img/el-ministerio-de-la-bondad.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-ministerio-de-la-bondad.jpg' },
-      { style: 'tipografica-clara', file: 'img/el-ministerio-de-la-bondad-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-ministerio-de-la-bondad-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/el-ministerio-de-la-bondad-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Un llamado a vivir el evangelio a través de actos concretos de bondad y ayuda al necesitado. Muestra cómo la compasión práctica abre puertas que la sola predicación no siempre alcanza.',
@@ -569,7 +582,8 @@ window.BOOKS = [
     cover: 'img/el-ministerio-medico.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-ministerio-medico.jpg' },
-      { style: 'tipografica-clara', file: 'img/el-ministerio-medico-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-ministerio-medico-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/el-ministerio-medico-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Aborda la relación entre la salud física y la obra evangélica, con consejos sobre el cuidado del cuerpo como parte del mensaje cristiano integral. Un referente para quienes trabajan en el área de la salud desde la fe.',
@@ -592,7 +606,8 @@ window.BOOKS = [
     cover: 'img/el-hogar-cristiano.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-hogar-cristiano.jpg' },
-      { style: 'tipografica-clara', file: 'img/el-hogar-cristiano-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-hogar-cristiano-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/el-hogar-cristiano-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Un manual clásico sobre la vida familiar: el matrimonio, la crianza de los hijos y la atmósfera del hogar. Sigue siendo, décadas después, una de las obras más consultadas sobre la familia cristiana.',
@@ -613,7 +628,8 @@ window.BOOKS = [
     cover: 'img/el-evangelismo.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-evangelismo.jpg' },
-      { style: 'tipografica-clara', file: 'img/el-evangelismo-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-evangelismo-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/el-evangelismo-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Reúne principios y métodos para compartir la fe de forma eficaz, con énfasis en el amor y el respeto hacia quien escucha el mensaje. Un recurso práctico para quienes participan en la obra misionera de la iglesia.',
@@ -636,7 +652,8 @@ window.BOOKS = [
     cover: 'img/el-conflicto-inminente.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-conflicto-inminente.jpg' },
-      { style: 'tipografica-clara', file: 'img/el-conflicto-inminente-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-conflicto-inminente-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/el-conflicto-inminente-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Analiza los grandes acontecimientos finales descritos en la profecía de la Biblia y su relevancia para la vida cristiana actual. Un libro de estudio para quienes se interesan por la escatología bíblica.',
@@ -659,7 +676,8 @@ window.BOOKS = [
     cover: 'img/el-colportor-evangelico.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-colportor-evangelico.jpg' },
-      { style: 'tipografica-clara', file: 'img/el-colportor-evangelico-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-colportor-evangelico-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/el-colportor-evangelico-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Dirigido a quienes se dedican a la venta y distribución de literatura cristiana puerta a puerta, con consejos prácticos y motivación para esa labor. Un clásico dentro de la tradición del colportaje.',
@@ -789,7 +807,8 @@ window.BOOKS = [
     cover: 'img/el-deseado-de-todas-las-gentes-tapa-dura.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-deseado-de-todas-las-gentes-tapa-dura.jpg' },
-      { style: 'tipografica-clara', file: 'img/el-deseado-de-todas-las-gentes-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-deseado-de-todas-las-gentes-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/el-deseado-de-todas-las-gentes-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Pensada para quienes buscan un ejemplar más duradero o para regalo.',
@@ -1592,7 +1611,8 @@ window.BOOKS = [
     cover: 'img/eventos-de-los-ultimos-dias.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/eventos-de-los-ultimos-dias.jpg' },
-      { style: 'tipografica-clara', file: 'img/eventos-de-los-ultimos-dias-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/eventos-de-los-ultimos-dias-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/eventos-de-los-ultimos-dias-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una selección de escritos sobre las señales de los tiempos finales y los acontecimientos que, según la autora, precederán a la segunda venida de Cristo.',
@@ -2017,7 +2037,8 @@ window.BOOKS = [
     cover: 'img/discurso-maestro-de-jesucristo.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/discurso-maestro-de-jesucristo.jpg' },
-      { style: 'tipografica-clara', file: 'img/discurso-maestro-de-jesucristo-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/discurso-maestro-de-jesucristo-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/discurso-maestro-de-jesucristo-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Un estudio detallado del Sermón del Monte, con reflexiones sobre las bienaventuranzas y las enseñanzas de Jesús a sus discípulos y a la multitud.',
@@ -2038,7 +2059,8 @@ window.BOOKS = [
     cover: 'img/discurso-maestro-de-jesucristo.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/discurso-maestro-de-jesucristo.jpg' },
-      { style: 'tipografica-clara', file: 'img/discurso-maestro-de-jesucristo-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/discurso-maestro-de-jesucristo-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/discurso-maestro-de-jesucristo-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Un estudio detallado del Sermón del Monte, con reflexiones sobre las bienaventuranzas y las enseñanzas de Jesús a sus discípulos y a la multitud. Edición en tapa dura, ideal para regalo o biblioteca personal.',
@@ -2278,7 +2300,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/en-el-desierto-de-la-tentacion-tipografica.jpg',
     covers: [
-      { style: 'tipografica-clara', file: 'img/en-el-desierto-de-la-tentacion-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/en-el-desierto-de-la-tentacion-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/en-el-desierto-de-la-tentacion-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Un estudio del relato de las tentaciones de Jesús en el desierto y de lo que enseña sobre nuestras propias luchas: cómo resistir, dónde está la fuerza real y por qué la victoria de Cristo también es nuestra.',
@@ -2301,7 +2324,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/el-ministerio-de-curacion-tipografica.jpg',
     covers: [
-      { style: 'tipografica-clara', file: 'img/el-ministerio-de-curacion-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-ministerio-de-curacion-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/el-ministerio-de-curacion-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Uno de los libros más apreciados de la autora: une el cuidado del cuerpo y del alma, con capítulos sobre la labor del médico y la enfermera, el hogar, la alimentación, la mente y el trato con el enfermo.',
@@ -2324,7 +2348,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/el-cristo-triunfante-tipografica.jpg',
     covers: [
-      { style: 'tipografica-clara', file: 'img/el-cristo-triunfante-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-cristo-triunfante-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/el-cristo-triunfante-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Devocional de lecturas diarias centrado en la victoria de Cristo: desde su papel en la creación hasta su triunfo final, pasando por la cruz y su ministerio a favor nuestro.',
