@@ -68,7 +68,7 @@ window.stockInfo = function (book) {
 //
 //   covers: [
 //     { style: 'ilustrada',   file: 'img/mi-libro.jpg' },
-//     { style: 'tipografica', file: 'img/mi-libro-tipografica.jpg' }
+//     { style: 'tipografica-clara', file: 'img/mi-libro-tipografica.jpg' }
 //   ]
 //
 // Con eso, automáticamente:
@@ -84,10 +84,20 @@ window.COVER_STYLES = {
     short: 'Portada ilustrada',
     desc: 'Cubierta con ilustración a color, más visual y llamativa.'
   },
-  tipografica: {
-    label: 'Tipográfica',
-    short: 'Portada tipográfica',
+  // "Tipográfica" tiene dos variantes de color (misma familia de diseño,
+  // centrado en las letras, sin ilustración): clara sobre fondo hueso y
+  // oscura sobre fondo verde. No son un estilo nuevo de portada, así que
+  // en el selector de la ficha aparecen agrupadas bajo el mismo nombre
+  // "Tipográfica" con la variante entre paréntesis.
+  'tipografica-clara': {
+    label: 'Tipográfica (clara)',
+    short: 'Portada tipográfica clara',
     desc: 'Diseño sobrio y elegante centrado en las letras, con marco dorado sobre fondo hueso.'
+  },
+  'tipografica-oscura': {
+    label: 'Tipográfica (oscura)',
+    short: 'Portada tipográfica oscura',
+    desc: 'Diseño sobrio y elegante centrado en las letras, con detalles dorados sobre fondo verde oscuro.'
   },
   rustica: {
     label: 'Rústica',
@@ -224,7 +234,7 @@ window.BOOKS = [
     cover: 'img/el-deseado-de-todas-las-gentes.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-deseado-de-todas-las-gentes.jpg' },
-      { style: 'tipografica', file: 'img/el-deseado-de-todas-las-gentes-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-deseado-de-todas-las-gentes-tipografica.jpg' }
     ],
     badge: null,
     description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Uno de los libros más leídos de Elena G. White, en una edición manejable de tamaño A5.',
@@ -245,11 +255,11 @@ window.BOOKS = [
     cover: 'img/historia-de-los-patriarcas-y-profetas.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/historia-de-los-patriarcas-y-profetas.jpg' },
-      { style: 'tipografica', file: 'img/historia-de-los-patriarcas-y-profetas-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/historia-de-los-patriarcas-y-profetas-tipografica.jpg' }
     ],
     covers: [
       { style: 'ilustrada', file: 'img/historia-de-los-patriarcas-y-profetas.jpg' },
-      { style: 'tipografica', file: 'img/historia-de-los-patriarcas-y-profetas-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/historia-de-los-patriarcas-y-profetas-tipografica.jpg' }
     ],
     badge: null,
     description: 'Repasa los grandes relatos del Antiguo Testamento, desde la creación hasta el rey David, iluminando el carácter de Dios a través de la vida de los patriarcas y los primeros profetas. Edición en tapa dura, pensada para durar en tu biblioteca.',
@@ -291,11 +301,11 @@ window.BOOKS = [
     cover: 'img/la-fe-por-la-cual-vivo.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/la-fe-por-la-cual-vivo.jpg' },
-      { style: 'tipografica', file: 'img/la-fe-por-la-cual-vivo-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-fe-por-la-cual-vivo-tipografica.jpg' }
     ],
     covers: [
       { style: 'ilustrada', file: 'img/la-fe-por-la-cual-vivo.jpg' },
-      { style: 'tipografica', file: 'img/la-fe-por-la-cual-vivo-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-fe-por-la-cual-vivo-tipografica.jpg' }
     ],
     badge: null,
     description: 'Un repaso claro y ordenado de las creencias fundamentales que fundamentan la fe cristiana, escrito para fortalecer la confianza del lector en las promesas de Dios. Ideal como libro de estudio personal o para compartir con quien empieza a explorar la fe.',
@@ -316,11 +326,11 @@ window.BOOKS = [
     cover: 'img/la-educacion.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/la-educacion.jpg' },
-      { style: 'tipografica', file: 'img/la-educacion-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-educacion-tipografica.jpg' }
     ],
     covers: [
       { style: 'ilustrada', file: 'img/la-educacion.jpg' },
-      { style: 'tipografica', file: 'img/la-educacion-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-educacion-tipografica.jpg' }
     ],
     badge: null,
     description: 'Un clásico sobre el propósito real de la enseñanza: formar el carácter, no solo llenar la mente de datos. Plantea un modelo educativo que integra mente, cuerpo y espíritu, con ideas tan vigentes hoy como cuando se escribieron.',
@@ -341,11 +351,11 @@ window.BOOKS = [
     cover: 'img/edificacion-del-caracter.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/edificacion-del-caracter.jpg' },
-      { style: 'tipografica', file: 'img/edificacion-del-caracter-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/edificacion-del-caracter-tipografica.jpg' }
     ],
     covers: [
       { style: 'ilustrada', file: 'img/edificacion-del-caracter.jpg' },
-      { style: 'tipografica', file: 'img/edificacion-del-caracter-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/edificacion-del-caracter-tipografica.jpg' }
     ],
     badge: null,
     description: 'Una guía práctica para crecer, paso a paso, en las virtudes cristianas: fe, virtud, conocimiento, templanza, paciencia, piedad, amor fraternal y caridad. Cada capítulo invita a examinar la propia vida y avanzar hacia un carácter más firme.',
@@ -366,7 +376,7 @@ window.BOOKS = [
     cover: 'img/hijos-e-hijas-de-dios.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/hijos-e-hijas-de-dios.jpg' },
-      { style: 'tipografica', file: 'img/hijos-e-hijas-de-dios-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/hijos-e-hijas-de-dios-tipografica.jpg' }
     ],
     badge: null,
     description: 'Una colección de meditaciones breves sobre la identidad del creyente como hijo de Dios, pensada para el devocional diario. Anima a vivir con la seguridad de quien sabe a quién pertenece.',
@@ -387,7 +397,7 @@ window.BOOKS = [
     cover: 'img/exaltad-a-jesus.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/exaltad-a-jesus.jpg' },
-      { style: 'tipografica', file: 'img/exaltad-a-jesus-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/exaltad-a-jesus-tipografica.jpg' }
     ],
     badge: null,
     description: 'Un devocional centrado por completo en la persona de Cristo: su carácter, su amor y su obra de salvación. Cada lectura busca acercar al lector a una relación más cercana con Jesús.',
@@ -408,7 +418,7 @@ window.BOOKS = [
     cover: 'img/en-los-lugares-celestiales.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/en-los-lugares-celestiales.jpg' },
-      { style: 'tipografica', file: 'img/en-los-lugares-celestiales-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/en-los-lugares-celestiales-tipografica.jpg' }
     ],
     badge: null,
     description: 'Meditaciones diarias inspiradas en la idea de que el creyente ya vive, en cierto sentido, en comunión con el cielo. Un libro pensado para empezar el día con una mirada puesta en lo eterno.',
@@ -429,7 +439,7 @@ window.BOOKS = [
     cover: 'img/fe-y-obras.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/fe-y-obras.jpg' },
-      { style: 'tipografica', file: 'img/fe-y-obras-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/fe-y-obras-tipografica.jpg' }
     ],
     badge: null,
     description: 'Explora la relación entre la fe que salva y las obras que la acompañan, un tema clásico del cristianismo. Ayuda a entender que una fe viva se traduce siempre en una vida transformada.',
@@ -450,7 +460,7 @@ window.BOOKS = [
     cover: 'img/el-otro-poder.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-otro-poder.jpg' },
-      { style: 'tipografica', file: 'img/el-otro-poder-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-otro-poder-tipografica.jpg' }
     ],
     badge: null,
     description: 'Reflexiona sobre el poder del amor, el hogar y la influencia personal frente a otras formas de poder más visibles. Un libro sobre cómo las decisiones cotidianas moldean el carácter y la familia.',
@@ -471,7 +481,7 @@ window.BOOKS = [
     cover: 'img/el-ministerio-pastoral.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-ministerio-pastoral.jpg' },
-      { style: 'tipografica', file: 'img/el-ministerio-pastoral-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-ministerio-pastoral-tipografica.jpg' }
     ],
     badge: null,
     description: 'Dirigido a pastores y líderes de iglesia, reúne consejos prácticos sobre el cuidado de la congregación, la predicación y el ejemplo personal. Un manual de referencia para quienes ejercen el ministerio.',
@@ -494,7 +504,7 @@ window.BOOKS = [
     cover: 'img/el-deseado-de-todas-las-gentes-tapa-blanda.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-deseado-de-todas-las-gentes-tapa-blanda.jpg' },
-      { style: 'tipografica', file: 'img/el-deseado-de-todas-las-gentes-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-deseado-de-todas-las-gentes-tipografica.jpg' }
     ],
     badge: null,
     description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Uno de los libros más leídos de Elena G. White.',
@@ -517,7 +527,7 @@ window.BOOKS = [
     cover: 'img/el-ministerio-de-publicaciones.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-ministerio-de-publicaciones.jpg' },
-      { style: 'tipografica', file: 'img/el-ministerio-de-publicaciones-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-ministerio-de-publicaciones-tipografica.jpg' }
     ],
     badge: null,
     description: 'Reúne consejos sobre la obra de impresión y distribución de literatura cristiana, un pilar histórico de la difusión del mensaje. De interés especial para quienes trabajan en editoriales o en la venta de libros religiosos.',
@@ -538,7 +548,7 @@ window.BOOKS = [
     cover: 'img/el-ministerio-de-la-bondad.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-ministerio-de-la-bondad.jpg' },
-      { style: 'tipografica', file: 'img/el-ministerio-de-la-bondad-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-ministerio-de-la-bondad-tipografica.jpg' }
     ],
     badge: null,
     description: 'Un llamado a vivir el evangelio a través de actos concretos de bondad y ayuda al necesitado. Muestra cómo la compasión práctica abre puertas que la sola predicación no siempre alcanza.',
@@ -559,7 +569,7 @@ window.BOOKS = [
     cover: 'img/el-ministerio-medico.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-ministerio-medico.jpg' },
-      { style: 'tipografica', file: 'img/el-ministerio-medico-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-ministerio-medico-tipografica.jpg' }
     ],
     badge: null,
     description: 'Aborda la relación entre la salud física y la obra evangélica, con consejos sobre el cuidado del cuerpo como parte del mensaje cristiano integral. Un referente para quienes trabajan en el área de la salud desde la fe.',
@@ -582,7 +592,7 @@ window.BOOKS = [
     cover: 'img/el-hogar-cristiano.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-hogar-cristiano.jpg' },
-      { style: 'tipografica', file: 'img/el-hogar-cristiano-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-hogar-cristiano-tipografica.jpg' }
     ],
     badge: null,
     description: 'Un manual clásico sobre la vida familiar: el matrimonio, la crianza de los hijos y la atmósfera del hogar. Sigue siendo, décadas después, una de las obras más consultadas sobre la familia cristiana.',
@@ -603,7 +613,7 @@ window.BOOKS = [
     cover: 'img/el-evangelismo.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-evangelismo.jpg' },
-      { style: 'tipografica', file: 'img/el-evangelismo-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-evangelismo-tipografica.jpg' }
     ],
     badge: null,
     description: 'Reúne principios y métodos para compartir la fe de forma eficaz, con énfasis en el amor y el respeto hacia quien escucha el mensaje. Un recurso práctico para quienes participan en la obra misionera de la iglesia.',
@@ -626,7 +636,7 @@ window.BOOKS = [
     cover: 'img/el-conflicto-inminente.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-conflicto-inminente.jpg' },
-      { style: 'tipografica', file: 'img/el-conflicto-inminente-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-conflicto-inminente-tipografica.jpg' }
     ],
     badge: null,
     description: 'Analiza los grandes acontecimientos finales descritos en la profecía de la Biblia y su relevancia para la vida cristiana actual. Un libro de estudio para quienes se interesan por la escatología bíblica.',
@@ -649,7 +659,7 @@ window.BOOKS = [
     cover: 'img/el-colportor-evangelico.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-colportor-evangelico.jpg' },
-      { style: 'tipografica', file: 'img/el-colportor-evangelico-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-colportor-evangelico-tipografica.jpg' }
     ],
     badge: null,
     description: 'Dirigido a quienes se dedican a la venta y distribución de literatura cristiana puerta a puerta, con consejos prácticos y motivación para esa labor. Un clásico dentro de la tradición del colportaje.',
@@ -670,7 +680,8 @@ window.BOOKS = [
     cover: 'img/dios-nos-cuida.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/dios-nos-cuida.jpg' },
-      { style: 'tipografica', file: 'img/dios-nos-cuida-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/dios-nos-cuida-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/dios-nos-cuida-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Un devocional matutino breve, pensado para leer cada mañana y empezar el día recordando el cuidado providencial de Dios. Fácil de intercalar en cualquier rutina, aunque sea apretada.',
@@ -693,7 +704,8 @@ window.BOOKS = [
     cover: 'img/de-la-ciudad-al-campo.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/de-la-ciudad-al-campo.jpg' },
-      { style: 'tipografica', file: 'img/de-la-ciudad-al-campo-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/de-la-ciudad-al-campo-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/de-la-ciudad-al-campo-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Reflexiona sobre las ventajas de la vida sencilla en contacto con la naturaleza frente al ritmo agitado de la ciudad. Un libro que insta a repensar el estilo de vida desde una perspectiva cristiana.',
@@ -731,7 +743,8 @@ window.BOOKS = [
     cover: 'img/cristo-nuestro-salvador.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/cristo-nuestro-salvador.jpg' },
-      { style: 'tipografica', file: 'img/cristo-nuestro-salvador-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/cristo-nuestro-salvador-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/cristo-nuestro-salvador-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Una introducción sencilla y accesible a la vida y la obra de Jesús, pensada tanto para nuevos creyentes como para quienes desean repasar lo esencial del evangelio. Ideal como primer libro de estudio sobre la persona de Cristo.',
@@ -754,7 +767,8 @@ window.BOOKS = [
     cover: 'img/cristo-en-su-santuario.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/cristo-en-su-santuario.jpg' },
-      { style: 'tipografica', file: 'img/cristo-en-su-santuario-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/cristo-en-su-santuario-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/cristo-en-su-santuario-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Explica el simbolismo del santuario de la Biblia y su cumplimiento en la obra de Cristo. Un libro de estudio para profundizar en la doctrina del santuario.',
@@ -775,7 +789,7 @@ window.BOOKS = [
     cover: 'img/el-deseado-de-todas-las-gentes-tapa-dura.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-deseado-de-todas-las-gentes-tapa-dura.jpg' },
-      { style: 'tipografica', file: 'img/el-deseado-de-todas-las-gentes-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-deseado-de-todas-las-gentes-tipografica.jpg' }
     ],
     badge: null,
     description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Pensada para quienes buscan un ejemplar más duradero o para regalo.',
@@ -796,7 +810,8 @@ window.BOOKS = [
     cover: 'img/consejos-sobre-la-mayordomia-cristiana.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/consejos-sobre-la-mayordomia-cristiana.jpg' },
-      { style: 'tipografica', file: 'img/consejos-sobre-la-mayordomia-cristiana-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/consejos-sobre-la-mayordomia-cristiana-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/consejos-sobre-la-mayordomia-cristiana-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Reúne principios sobre el uso responsable del tiempo, el dinero y los talentos como parte de la vida de fe. Plantea la mayordomía no como obligación, sino como una forma de vivir con propósito.',
@@ -817,7 +832,8 @@ window.BOOKS = [
     cover: 'img/consejos-sobre-la-obra-de-escuela-sabatica.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/consejos-sobre-la-obra-de-escuela-sabatica.jpg' },
-      { style: 'tipografica', file: 'img/consejos-sobre-la-obra-de-escuela-sabatica-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/consejos-sobre-la-obra-de-escuela-sabatica-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/consejos-sobre-la-obra-de-escuela-sabatica-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Dirigido a maestros y líderes de Escuela Sabática, ofrece orientación práctica para enseñar la Biblia de forma clara y relevante a todas las edades. Un recurso de referencia para quienes sirven en esa área de la iglesia.',
@@ -838,7 +854,8 @@ window.BOOKS = [
     cover: 'img/consejos-para-los-maestros.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/consejos-para-los-maestros.jpg' },
-      { style: 'tipografica', file: 'img/consejos-para-los-maestros-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/consejos-para-los-maestros-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/consejos-para-los-maestros-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Consejos prácticos sobre la vocación docente desde una perspectiva cristiana, con énfasis en la formación del carácter tanto como del intelecto. Útil para educadores en escuelas de la iglesia y también para padres.',
@@ -859,7 +876,8 @@ window.BOOKS = [
     cover: 'img/consejos-para-la-iglesia.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/consejos-para-la-iglesia.jpg' },
-      { style: 'tipografica', file: 'img/consejos-para-la-iglesia-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/consejos-para-la-iglesia-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/consejos-para-la-iglesia-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Una recopilación de consejos sobre la vida y la organización de la congregación local, pensada para líderes y miembros comprometidos con la salud espiritual de su iglesia.',
@@ -880,7 +898,8 @@ window.BOOKS = [
     cover: 'img/cada-dia-con-dios.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/cada-dia-con-dios.jpg' },
-      { style: 'tipografica', file: 'img/cada-dia-con-dios-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/cada-dia-con-dios-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/cada-dia-con-dios-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Un devocional diario, con una lectura breve para cada mañana del año, pensado para acompañar el tiempo personal de oración y estudio.',
@@ -921,7 +940,7 @@ window.BOOKS = [
     cover: 'img/el-poder-de-la-oracion.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-poder-de-la-oracion.jpg' },
-      { style: 'tipografica', file: 'img/el-poder-de-la-oracion-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-poder-de-la-oracion-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una recopilación de escritos sobre la oración como conexión personal con Dios, con reflexiones sobre su lugar en la vida de fe y su poder frente a las dificultades.',
@@ -959,7 +978,8 @@ window.BOOKS = [
     cover: 'img/alza-tus-ojos.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/alza-tus-ojos.jpg' },
-      { style: 'tipografica', file: 'img/alza-tus-ojos-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/alza-tus-ojos-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/alza-tus-ojos-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Un devocional que invita a mirar más allá de las circunstancias diarias hacia la esperanza cristiana, con lecturas breves pensadas para el ánimo y la reflexión.',
@@ -980,7 +1000,8 @@ window.BOOKS = [
     cover: 'img/a-fin-de-conocerle.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/a-fin-de-conocerle.jpg' },
-      { style: 'tipografica', file: 'img/a-fin-de-conocerle-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/a-fin-de-conocerle-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/a-fin-de-conocerle-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Un devocional centrado en el deseo de conocer más profundamente el carácter de Cristo a través de la lectura diaria y la meditación.',
@@ -1020,11 +1041,11 @@ window.BOOKS = [
     cover: 'img/la-verdad-acerca-de-los-angeles.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/la-verdad-acerca-de-los-angeles.jpg' },
-      { style: 'tipografica', file: 'img/la-verdad-acerca-de-los-angeles-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-verdad-acerca-de-los-angeles-tipografica.jpg' }
     ],
     covers: [
       { style: 'ilustrada', file: 'img/la-verdad-acerca-de-los-angeles.jpg' },
-      { style: 'tipografica', file: 'img/la-verdad-acerca-de-los-angeles-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-verdad-acerca-de-los-angeles-tipografica.jpg' }
     ],
     badge: null,
     description: 'Reúne lo que la Biblia y los escritos de la autora enseñan sobre la existencia y la obra de los ángeles, su desempeño en la historia y en la vida del creyente hoy.',
@@ -1066,11 +1087,11 @@ window.BOOKS = [
     cover: 'img/la-historia-de-la-redencion.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/la-historia-de-la-redencion.jpg' },
-      { style: 'tipografica', file: 'img/la-historia-de-la-redencion-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-historia-de-la-redencion-tipografica.jpg' }
     ],
     covers: [
       { style: 'ilustrada', file: 'img/la-historia-de-la-redencion.jpg' },
-      { style: 'tipografica', file: 'img/la-historia-de-la-redencion-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-historia-de-la-redencion-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Un recorrido por el gran plan de salvación desde la caída hasta la restauración final, contado como una sola historia continua. Edición en tapa blanda con acabado brillo, pensada para el estudio personal y para regalar.',
@@ -1091,11 +1112,11 @@ window.BOOKS = [
     cover: 'img/la-iglesia-remanente.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/la-iglesia-remanente.jpg' },
-      { style: 'tipografica', file: 'img/la-iglesia-remanente-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-iglesia-remanente-tipografica.jpg' }
     ],
     covers: [
       { style: 'ilustrada', file: 'img/la-iglesia-remanente.jpg' },
-      { style: 'tipografica', file: 'img/la-iglesia-remanente-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-iglesia-remanente-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una reflexión sobre la identidad y la misión del pueblo de Dios en el tiempo del fin, a partir de los escritos de la autora. Edición en tapa blanda con acabado brillo, ideal para el estudio personal.',
@@ -1116,11 +1137,11 @@ window.BOOKS = [
     cover: 'img/la-maravillosa-gracia-de-dios.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/la-maravillosa-gracia-de-dios.jpg' },
-      { style: 'tipografica', file: 'img/la-maravillosa-gracia-de-dios-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-maravillosa-gracia-de-dios-tipografica.jpg' }
     ],
     covers: [
       { style: 'ilustrada', file: 'img/la-maravillosa-gracia-de-dios.jpg' },
-      { style: 'tipografica', file: 'img/la-maravillosa-gracia-de-dios-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-maravillosa-gracia-de-dios-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Un compendio devocional sobre la gracia de Dios y su obra en la vida del creyente, con lecturas breves pensadas para acompañar el día a día. Edición en tapa blanda con acabado brillo.',
@@ -1141,11 +1162,11 @@ window.BOOKS = [
     cover: 'img/la-musica.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/la-musica.jpg' },
-      { style: 'tipografica', file: 'img/la-musica-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-musica-tipografica.jpg' }
     ],
     covers: [
       { style: 'ilustrada', file: 'img/la-musica.jpg' },
-      { style: 'tipografica', file: 'img/la-musica-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-musica-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una recopilación de los escritos de la autora sobre el lugar de la música en el culto y en la vida cristiana. Edición en tapa blanda con acabado brillo, cuidada y de fácil lectura.',
@@ -1168,11 +1189,11 @@ window.BOOKS = [
     cover: 'img/la-segunda-venida-y-el-cielo.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/la-segunda-venida-y-el-cielo.jpg' },
-      { style: 'tipografica', file: 'img/la-segunda-venida-y-el-cielo-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-segunda-venida-y-el-cielo-tipografica.jpg' }
     ],
     covers: [
       { style: 'ilustrada', file: 'img/la-segunda-venida-y-el-cielo.jpg' },
-      { style: 'tipografica', file: 'img/la-segunda-venida-y-el-cielo-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-segunda-venida-y-el-cielo-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una mirada esperanzadora a las promesas de la Biblia sobre el regreso de Cristo y la vida eterna, explicadas con un lenguaje claro y devocional.',
@@ -1195,11 +1216,11 @@ window.BOOKS = [
     cover: 'img/la-temperancia.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/la-temperancia.jpg' },
-      { style: 'tipografica', file: 'img/la-temperancia-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-temperancia-tipografica.jpg' }
     ],
     covers: [
       { style: 'ilustrada', file: 'img/la-temperancia.jpg' },
-      { style: 'tipografica', file: 'img/la-temperancia-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-temperancia-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una recopilación de consejos sobre el dominio propio, la alimentación y los hábitos de vida saludables, entendidos como parte del desarrollo espiritual y del testimonio cristiano.',
@@ -1222,11 +1243,11 @@ window.BOOKS = [
     cover: 'img/la-unica-esperanza.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/la-unica-esperanza.jpg' },
-      { style: 'tipografica', file: 'img/la-unica-esperanza-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-unica-esperanza-tipografica.jpg' }
     ],
     covers: [
       { style: 'ilustrada', file: 'img/la-unica-esperanza.jpg' },
-      { style: 'tipografica', file: 'img/la-unica-esperanza-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-unica-esperanza-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una presentación breve y directa de Jesucristo como único camino de salvación, pensada tanto para el estudio personal como para compartir con quien busca respuestas.',
@@ -1249,11 +1270,11 @@ window.BOOKS = [
     cover: 'img/la-verdad-acerca-de-los-angeles-2.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/la-verdad-acerca-de-los-angeles-2.jpg' },
-      { style: 'tipografica', file: 'img/la-verdad-acerca-de-los-angeles-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-verdad-acerca-de-los-angeles-tipografica.jpg' }
     ],
     covers: [
       { style: 'ilustrada', file: 'img/la-verdad-acerca-de-los-angeles-2.jpg' },
-      { style: 'tipografica', file: 'img/la-verdad-acerca-de-los-angeles-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-verdad-acerca-de-los-angeles-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Reúne lo que la Biblia y los escritos de la autora enseñan sobre la existencia y la obra de los ángeles, su desempeño en la historia y en la vida del creyente hoy. Esta edición presenta una portada distinta a la ya disponible en la tienda.',
@@ -1276,11 +1297,11 @@ window.BOOKS = [
     cover: 'img/la-voz-su-educacion-y-uso-correcto.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/la-voz-su-educacion-y-uso-correcto.jpg' },
-      { style: 'tipografica', file: 'img/la-voz-su-educacion-y-uso-correcto-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-voz-su-educacion-y-uso-correcto-tipografica.jpg' }
     ],
     covers: [
       { style: 'ilustrada', file: 'img/la-voz-su-educacion-y-uso-correcto.jpg' },
-      { style: 'tipografica', file: 'img/la-voz-su-educacion-y-uso-correcto-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-voz-su-educacion-y-uso-correcto-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Consejos prácticos sobre el cuidado y el uso correcto de la voz al hablar, enseñar o predicar, junto con principios sobre el dominio propio y la manera en que hablamos a los demás.',
@@ -1301,11 +1322,11 @@ window.BOOKS = [
     cover: 'img/los-hechos-de-los-apostoles.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/los-hechos-de-los-apostoles.jpg' },
-      { style: 'tipografica', file: 'img/los-hechos-de-los-apostoles-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/los-hechos-de-los-apostoles-tipografica.jpg' }
     ],
     covers: [
       { style: 'ilustrada', file: 'img/los-hechos-de-los-apostoles.jpg' },
-      { style: 'tipografica', file: 'img/los-hechos-de-los-apostoles-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/los-hechos-de-los-apostoles-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'El relato de los primeros años de la iglesia cristiana, desde Pentecostés hasta el ministerio de Pablo, con enseñanzas sobre la misión y el crecimiento de la obra evangélica. Edición en tapa dura, ideal para regalo o biblioteca personal.',
@@ -1328,11 +1349,11 @@ window.BOOKS = [
     cover: 'img/los-hechos-de-los-apostoles.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/los-hechos-de-los-apostoles.jpg' },
-      { style: 'tipografica', file: 'img/los-hechos-de-los-apostoles-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/los-hechos-de-los-apostoles-tipografica.jpg' }
     ],
     covers: [
       { style: 'ilustrada', file: 'img/los-hechos-de-los-apostoles.jpg' },
-      { style: 'tipografica', file: 'img/los-hechos-de-los-apostoles-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/los-hechos-de-los-apostoles-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'El relato de los primeros años de la iglesia cristiana, desde Pentecostés hasta el ministerio de Pablo, con enseñanzas sobre la misión y el crecimiento de la obra evangélica.',
@@ -1410,7 +1431,7 @@ window.BOOKS = [
     cover: 'img/testimonios-para-la-iglesia.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/testimonios-para-la-iglesia.jpg' },
-      { style: 'tipografica', file: 'img/testimonios-para-la-iglesia-tomo-2-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-2-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Segundo tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación.',
@@ -1433,7 +1454,7 @@ window.BOOKS = [
     cover: 'img/testimonios-para-la-iglesia.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/testimonios-para-la-iglesia.jpg' },
-      { style: 'tipografica', file: 'img/testimonios-para-la-iglesia-tomo-3-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-3-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Tercer tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación.',
@@ -1456,7 +1477,7 @@ window.BOOKS = [
     cover: 'img/testimonios-para-la-iglesia.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/testimonios-para-la-iglesia.jpg' },
-      { style: 'tipografica', file: 'img/testimonios-para-la-iglesia-tomo-4-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-4-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Cuarto tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación.',
@@ -1479,7 +1500,7 @@ window.BOOKS = [
     cover: 'img/testimonios-para-la-iglesia.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/testimonios-para-la-iglesia.jpg' },
-      { style: 'tipografica', file: 'img/testimonios-para-la-iglesia-tomo-6-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-6-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Sexto tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación.',
@@ -1502,7 +1523,7 @@ window.BOOKS = [
     cover: 'img/testimonios-para-la-iglesia.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/testimonios-para-la-iglesia.jpg' },
-      { style: 'tipografica', file: 'img/testimonios-para-la-iglesia-tomo-7-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-7-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Séptimo tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación.',
@@ -1525,7 +1546,7 @@ window.BOOKS = [
     cover: 'img/testimonios-para-la-iglesia.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/testimonios-para-la-iglesia.jpg' },
-      { style: 'tipografica', file: 'img/testimonios-para-la-iglesia-tomo-8-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-8-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Octavo tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación.',
@@ -1548,7 +1569,7 @@ window.BOOKS = [
     cover: 'img/testimonios-para-la-iglesia.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/testimonios-para-la-iglesia.jpg' },
-      { style: 'tipografica', file: 'img/testimonios-para-la-iglesia-tomo-9-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-9-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Noveno y último tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación.',
@@ -1571,7 +1592,7 @@ window.BOOKS = [
     cover: 'img/eventos-de-los-ultimos-dias.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/eventos-de-los-ultimos-dias.jpg' },
-      { style: 'tipografica', file: 'img/eventos-de-los-ultimos-dias-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/eventos-de-los-ultimos-dias-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una selección de escritos sobre las señales de los tiempos finales y los acontecimientos que, según la autora, precederán a la segunda venida de Cristo.',
@@ -1594,7 +1615,7 @@ window.BOOKS = [
     cover: 'img/testimonios-selectos.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/testimonios-selectos.jpg' },
-      { style: 'tipografica', file: 'img/testimonios-selectos-tomo-i-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-i-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una selección de consejos y mensajes sobre la vida cristiana, la familia y el carácter, pensada como introducción más breve a la serie de Testimonios.',
@@ -1617,7 +1638,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/testimonios-selectos-tomo-ii-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/testimonios-selectos-tomo-ii-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-ii-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Segundo tomo de la selección de consejos y mensajes sobre la vida cristiana, la familia y el carácter, pensada como introducción a la serie de Testimonios.',
@@ -1640,7 +1661,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/testimonios-selectos-tomo-iii-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/testimonios-selectos-tomo-iii-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-iii-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Tercer tomo de la selección de consejos y mensajes sobre la vida cristiana, la familia y el carácter, pensada como introducción a la serie de Testimonios.',
@@ -1663,7 +1684,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/testimonios-selectos-tomo-iv-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/testimonios-selectos-tomo-iv-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-iv-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Cuarto tomo de la selección de consejos y mensajes sobre la vida cristiana, la familia y el carácter, pensada como introducción a la serie de Testimonios.',
@@ -1686,7 +1707,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/testimonios-selectos-tomo-v-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/testimonios-selectos-tomo-v-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-v-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Quinto tomo de la selección de consejos y mensajes sobre la vida cristiana, la familia y el carácter, pensada como introducción a la serie de Testimonios.',
@@ -1709,7 +1730,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/testimonios-para-la-iglesia-tomo-1-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/testimonios-para-la-iglesia-tomo-1-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-1-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Primer tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación.',
@@ -1732,7 +1753,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/testimonios-para-la-iglesia-tomo-5-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/testimonios-para-la-iglesia-tomo-5-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-5-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Quinto tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación.',
@@ -1755,7 +1776,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/testimonios-para-los-ministros-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/testimonios-para-los-ministros-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-los-ministros-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Consejos y mensajes dirigidos especialmente a los pastores y obreros evangélicos, sobre el carácter, el estudio y la vida devocional del ministro.',
@@ -1778,7 +1799,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/testimonios-conducta-sexual-adulterio-divorcio-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/testimonios-conducta-sexual-adulterio-divorcio-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-conducta-sexual-adulterio-divorcio-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Una recopilación de consejos sobre la pureza en la conducta sexual, la fidelidad matrimonial y los principios cristianos frente al adulterio y el divorcio.',
@@ -1801,7 +1822,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/sermones-escogidos-1-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/sermones-escogidos-1-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/sermones-escogidos-1-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Primer volumen de una selección de sermones predicados por la autora, con mensajes sobre la fe, el carácter cristiano y la esperanza del evangelio.',
@@ -1824,7 +1845,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/sermones-escogidos-2-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/sermones-escogidos-2-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/sermones-escogidos-2-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Segundo volumen de una selección de sermones predicados por la autora, con mensajes sobre la fe, el carácter cristiano y la esperanza del evangelio.',
@@ -1847,7 +1868,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/servicio-cristiano-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/servicio-cristiano-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/servicio-cristiano-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Principios sobre el servicio abnegado al prójimo y la obra misionera práctica, como expresión natural de una fe viva.',
@@ -1870,7 +1891,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/un-llamado-a-ser-diferente-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/un-llamado-a-ser-diferente-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/un-llamado-a-ser-diferente-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Una llamada a vivir un carácter y un estilo de vida distintos a los del mundo, marcados por los principios cristianos en cada aspecto de la vida diaria.',
@@ -1893,11 +1914,11 @@ window.BOOKS = [
     cover: 'img/liderazgo-cristiano.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/liderazgo-cristiano.jpg' },
-      { style: 'tipografica', file: 'img/liderazgo-cristiano-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/liderazgo-cristiano-tipografica.jpg' }
     ],
     covers: [
       { style: 'ilustrada', file: 'img/liderazgo-cristiano.jpg' },
-      { style: 'tipografica', file: 'img/liderazgo-cristiano-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/liderazgo-cristiano-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Principios sobre el carácter, el servicio y la responsabilidad de quienes ejercen algún tipo de liderazgo dentro de la iglesia y la comunidad cristiana.',
@@ -1996,7 +2017,7 @@ window.BOOKS = [
     cover: 'img/discurso-maestro-de-jesucristo.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/discurso-maestro-de-jesucristo.jpg' },
-      { style: 'tipografica', file: 'img/discurso-maestro-de-jesucristo-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/discurso-maestro-de-jesucristo-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Un estudio detallado del Sermón del Monte, con reflexiones sobre las bienaventuranzas y las enseñanzas de Jesús a sus discípulos y a la multitud.',
@@ -2017,7 +2038,7 @@ window.BOOKS = [
     cover: 'img/discurso-maestro-de-jesucristo.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/discurso-maestro-de-jesucristo.jpg' },
-      { style: 'tipografica', file: 'img/discurso-maestro-de-jesucristo-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/discurso-maestro-de-jesucristo-tipografica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Un estudio detallado del Sermón del Monte, con reflexiones sobre las bienaventuranzas y las enseñanzas de Jesús a sus discípulos y a la multitud. Edición en tapa dura, ideal para regalo o biblioteca personal.',
@@ -2042,7 +2063,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/el-camino-a-cristo-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/el-camino-a-cristo-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-camino-a-cristo-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/el-camino-a-cristo-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'El libro más leído de Elena G. White: una invitación sencilla y cercana a conocer a Cristo, paso a paso, desde el primer deseo de acercarse a Dios hasta una vida de fe firme. Un clásico ideal para regalar o para empezar a leer a la autora.',
@@ -2065,7 +2087,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/desde-el-corazon-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/desde-el-corazon-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/desde-el-corazon-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/desde-el-corazon-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Una selección de lecturas breves escritas con un tono íntimo y personal, pensadas para el momento devocional diario. Cada página invita a detenerse, reflexionar y acercarse a Dios con sinceridad.',
@@ -2088,7 +2111,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/leyes-de-la-salud-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/leyes-de-la-salud-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/leyes-de-la-salud-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/leyes-de-la-salud-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Un repaso claro de los principios que sostienen una vida sana —descanso, aire puro, ejercicio, agua, luz solar y confianza en Dios—, explicados de forma práctica para aplicarlos en el día a día.',
@@ -2111,7 +2135,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/leyes-sobre-el-regimen-alimenticio-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/leyes-sobre-el-regimen-alimenticio-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/leyes-sobre-el-regimen-alimenticio-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/leyes-sobre-el-regimen-alimenticio-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Consejos concretos sobre la alimentación y su relación con el bienestar físico y espiritual: qué comer, cómo comer y por qué la mesa también forma parte de una vida equilibrada.',
@@ -2134,7 +2159,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/conflicto-y-valor-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/conflicto-y-valor-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/conflicto-y-valor-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/conflicto-y-valor-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Un devocional que recorre las grandes historias de la Biblia día a día, mostrando la valentía de quienes confiaron en Dios en medio de la lucha. Lecturas breves, una para cada jornada del año.',
@@ -2157,7 +2183,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/conduccion-del-nino-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/conduccion-del-nino-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/conduccion-del-nino-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/conduccion-del-nino-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Una guía completa para padres y educadores sobre la formación del carácter desde los primeros años: disciplina con afecto, hábitos, ejemplo en el hogar y educación espiritual.',
@@ -2180,7 +2207,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/coleccion-kress-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/coleccion-kress-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/coleccion-kress-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/coleccion-kress-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Reúne las cartas y consejos dirigidos al doctor Kress y a su esposa, con orientaciones muy prácticas sobre salud, tratamiento de enfermos y equilibrio en el trabajo médico y misionero.',
@@ -2203,7 +2231,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/cartas-a-jovenes-enamorados-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/cartas-a-jovenes-enamorados-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/cartas-a-jovenes-enamorados-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/cartas-a-jovenes-enamorados-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Cartas escritas a parejas jóvenes con consejos honestos sobre el noviazgo, la elección de pareja y la preparación para el matrimonio. Una lectura breve y directa, muy útil para regalar.',
@@ -2226,7 +2255,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/hijas-de-dios-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/hijas-de-dios-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/hijas-de-dios-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Una recopilación de consejos y meditaciones dirigidos especialmente a la mujer cristiana: su valor a los ojos de Dios, su influencia en el hogar y en la iglesia, y el ánimo que necesita en cada etapa de la vida.',
@@ -2249,7 +2278,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/en-el-desierto-de-la-tentacion-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/en-el-desierto-de-la-tentacion-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/en-el-desierto-de-la-tentacion-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Un estudio del relato de las tentaciones de Jesús en el desierto y de lo que enseña sobre nuestras propias luchas: cómo resistir, dónde está la fuerza real y por qué la victoria de Cristo también es nuestra.',
@@ -2272,7 +2301,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/el-ministerio-de-curacion-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/el-ministerio-de-curacion-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-ministerio-de-curacion-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Uno de los libros más apreciados de la autora: une el cuidado del cuerpo y del alma, con capítulos sobre la labor del médico y la enfermera, el hogar, la alimentación, la mente y el trato con el enfermo.',
@@ -2295,7 +2324,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/el-cristo-triunfante-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/el-cristo-triunfante-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/el-cristo-triunfante-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Devocional de lecturas diarias centrado en la victoria de Cristo: desde su papel en la creación hasta su triunfo final, pasando por la cruz y su ministerio a favor nuestro.',
@@ -2318,7 +2347,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/la-oracion-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/la-oracion-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-oracion-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Una recopilación sobre el privilegio de hablar con Dios: cómo orar, qué esperar de la oración y por qué es el aliento de la vida cristiana. Lectura breve y muy práctica.',
@@ -2341,7 +2370,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/la-educacion-cristiana-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/la-educacion-cristiana-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/la-educacion-cristiana-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Principios para una enseñanza que forme el carácter además de la mente, dirigidos a padres, maestros y a todo el que acompaña a un joven en su formación.',
@@ -2364,7 +2393,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/joyas-de-los-testimonios-1-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/joyas-de-los-testimonios-1-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/joyas-de-los-testimonios-1-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Primer volumen de la selección de los pasajes más útiles de los Testimonios para la Iglesia, ordenados por temas para consultarlos con facilidad.',
@@ -2387,7 +2416,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/joyas-de-los-testimonios-2-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/joyas-de-los-testimonios-2-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/joyas-de-los-testimonios-2-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Segundo volumen de la selección de los Testimonios para la Iglesia, con consejos sobre la vida práctica, el hogar, la salud y la obra de la iglesia.',
@@ -2410,7 +2439,7 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/joyas-de-los-testimonios-3-tipografica.jpg',
     covers: [
-      { style: 'tipografica', file: 'img/joyas-de-los-testimonios-3-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/joyas-de-los-testimonios-3-tipografica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Tercer volumen de la selección de los Testimonios para la Iglesia, centrado en la preparación del creyente y en los últimos acontecimientos.',
