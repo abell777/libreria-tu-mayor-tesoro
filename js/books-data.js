@@ -1943,7 +1943,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/un-llamado-a-ser-diferente-tipografica.jpg',
     covers: [
-      { style: 'tipografica-clara', file: 'img/un-llamado-a-ser-diferente-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/un-llamado-a-ser-diferente-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/un-llamado-a-ser-diferente-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Una llamada a vivir un carácter y un estilo de vida distintos a los del mundo, marcados por los principios cristianos en cada aspecto de la vida diaria.',
