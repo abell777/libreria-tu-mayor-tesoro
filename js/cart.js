@@ -44,9 +44,20 @@ window.Cart = (function () {
     document.dispatchEvent(new CustomEvent('cart:change'));
   }
 
+  // Dos líneas del mismo libro se consideran la MISMA solo si coinciden el
+  // id, el formato (que ya incluye la portada elegida) y los extras de
+  // regalo. Así se puede pedir un ejemplar envuelto y otro sin envolver.
+  function lineKeyOf(item) {
+    return item.giftKey || (window.giftKey ? window.giftKey(item.regalo) : '');
+  }
+  function sameLine(i, id, format, giftKey) {
+    return i.id === id && i.format === format && lineKeyOf(i) === (giftKey || '');
+  }
+
   function addItem(item) {
     var items = getItems();
-    var existing = items.filter(function (i) { return i.id === item.id && i.format === item.format; })[0];
+    item.giftKey = lineKeyOf(item);
+    var existing = items.filter(function (i) { return sameLine(i, item.id, item.format, item.giftKey); })[0];
     if (existing) {
       existing.qty += item.qty || 1;
     } else {
@@ -56,13 +67,13 @@ window.Cart = (function () {
     saveItems(items);
   }
 
-  function removeItem(id, format) {
-    saveItems(getItems().filter(function (i) { return !(i.id === id && i.format === format); }));
+  function removeItem(id, format, giftKey) {
+    saveItems(getItems().filter(function (i) { return !sameLine(i, id, format, giftKey); }));
   }
 
-  function setQty(id, format, qty) {
+  function setQty(id, format, qty, giftKey) {
     var items = getItems();
-    var item = items.filter(function (i) { return i.id === id && i.format === format; })[0];
+    var item = items.filter(function (i) { return sameLine(i, id, format, giftKey); })[0];
     if (item) {
       item.qty = Math.max(1, qty);
       saveItems(items);
@@ -75,6 +86,12 @@ window.Cart = (function () {
 
   function totalPrice() {
     return getItems().reduce(function (sum, i) { return sum + i.qty * i.price; }, 0);
+  }
+
+  // Importe de los extras de regalo (envoltorio, exlibris, funda…). Se
+  // calcula siempre desde js/gift-options.js, nunca se guarda un total.
+  function extrasTotal() {
+    return window.giftExtrasTotal ? Math.round(window.giftExtrasTotal(getItems()) * 100) / 100 : 0;
   }
 
   function clearItems() {
@@ -97,6 +114,7 @@ window.Cart = (function () {
     clear: clearItems,
     totalCount: totalCount,
     totalPrice: totalPrice,
+    extrasTotal: extrasTotal,
     updateBadge: updateBadge,
     getPromo: getPromo,
     setPromo: setPromo,
@@ -292,10 +310,17 @@ document.addEventListener('DOMContentLoaded', function () {
       var qty = qtyInput ? (parseInt(qtyInput.value, 10) || 1) : 1;
       var activePill = block ? block.querySelector('.option-pill.is-active') : null;
 
+      var regalo = null;
+      try {
+        regalo = mainAddBtn.dataset.gift ? JSON.parse(mainAddBtn.dataset.gift) : null;
+      } catch (err) { regalo = null; }
+      if (regalo && !Object.keys(regalo).length) regalo = null;
+
       Cart.addItem({
         id: mainAddBtn.dataset.id,
         title: mainAddBtn.dataset.title,
         author: mainAddBtn.dataset.author,
+        regalo: regalo,
         price: activePill ? parseFloat(activePill.dataset.price) : parseFloat(mainAddBtn.dataset.price),
         format: activePill ? activePill.dataset.format : (mainAddBtn.dataset.format || 'Estándar'),
         coverStyle: mainAddBtn.dataset.coverStyle || '',
@@ -331,13 +356,23 @@ document.addEventListener('DOMContentLoaded', function () {
       // Usamos item.cover si ya viene guardado, o comprobamos con getBookImage si falta
       var imagePath = item.cover && item.cover.startsWith('img/') ? item.cover : getBookImage(item.title);
 
+      var extras = window.giftExtrasFor ? window.giftExtrasFor(item) : [];
+      var extrasHTML = extras.length
+        ? '<ul class="cart-item-gifts">' + extras.map(function (e) {
+            return '<li><span>' + escapeHTML(e.label) + (e.texto ? ': «' + escapeHTML(e.texto) + '»' : '') + '</span>' +
+              '<span>' + (e.total > 0 ? fmtEUR(e.total) : 'Incluido') + '</span></li>';
+          }).join('') + '</ul>'
+        : '';
+
       return (
-        '<article class="cart-item" data-id="' + escapeHTML(item.id) + '" data-format="' + escapeHTML(item.format) + '">' +
+        '<article class="cart-item" data-id="' + escapeHTML(item.id) + '" data-format="' + escapeHTML(item.format) +
+        '" data-gift-key="' + escapeHTML(item.giftKey || '') + '">' +
           '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '" class="cart-item-img">' +
           
           '<div class="cart-item-info">' +
             '<h3>' + escapeHTML(item.title) + '</h3>' +
             '<p class="cart-item-format">' + escapeHTML(item.author) + (item.format && item.format !== 'Estándar' ? ' · ' + escapeHTML(item.format) : '') + '</p>' +
+            extrasHTML +
             '<button class="cart-item-remove" type="button" data-remove>Eliminar</button>' +
           '</div>' +
           '<div class="qty-stepper">' +
@@ -353,19 +388,20 @@ document.addEventListener('DOMContentLoaded', function () {
     cartItemsEl.querySelectorAll('.cart-item').forEach(function (row) {
       var id = row.dataset.id;
       var format = row.dataset.format;
+      var giftKey = row.dataset.giftKey || '';
       var qtyInput = row.querySelector('[data-qty]');
 
       row.querySelector('[data-remove]').addEventListener('click', function () {
-        Cart.removeItem(id, format);
+        Cart.removeItem(id, format, giftKey);
       });
       row.querySelector('[data-decrease]').addEventListener('click', function () {
-        Cart.setQty(id, format, parseInt(qtyInput.value, 10) - 1);
+        Cart.setQty(id, format, parseInt(qtyInput.value, 10) - 1, giftKey);
       });
       row.querySelector('[data-increase]').addEventListener('click', function () {
-        Cart.setQty(id, format, parseInt(qtyInput.value, 10) + 1);
+        Cart.setQty(id, format, parseInt(qtyInput.value, 10) + 1, giftKey);
       });
       qtyInput.addEventListener('change', function () {
-        Cart.setQty(id, format, parseInt(qtyInput.value, 10) || 1);
+        Cart.setQty(id, format, parseInt(qtyInput.value, 10) || 1, giftKey);
       });
     });
 
@@ -395,6 +431,14 @@ document.addEventListener('DOMContentLoaded', function () {
       descuento = Math.max(0, Math.min(subtotal, Math.round(bruto * 100) / 100));
     }
 
+    // Extras de regalo: se muestran en su propia fila para que el cliente
+    // vea con claridad qué está pagando por el libro y qué por el detalle.
+    var extras = Cart.extrasTotal();
+    var extrasRow = document.getElementById('summaryExtrasRow');
+    var extrasEl = document.getElementById('summaryExtras');
+    if (extrasRow) extrasRow.hidden = extras <= 0;
+    if (extrasEl) extrasEl.textContent = fmtEUR(extras);
+
     var subtotalEl = document.getElementById('summarySubtotal');
     var shippingEl = document.getElementById('summaryShipping');
     var totalEl = document.getElementById('summaryTotal');
@@ -405,7 +449,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (shippingEl) shippingEl.textContent = SHIPPING === 0 ? 'Gratis' : fmtEUR(SHIPPING);
     if (discountRow) discountRow.hidden = descuento <= 0;
     if (discountEl) discountEl.textContent = '−' + fmtEUR(descuento);
-    var total = Math.max(0, subtotal + SHIPPING - descuento);
+    var total = Math.max(0, subtotal + extras + SHIPPING - descuento);
     if (totalEl) totalEl.textContent = fmtEUR(total);
 
     // ---- Desglose de IVA (solo informativo) --------------------------------
@@ -422,8 +466,13 @@ document.addEventListener('DOMContentLoaded', function () {
     var ivaLibros = subtotal - baseLibros;
     var baseEnvio = SHIPPING > 0 ? SHIPPING / (1 + IVA_ENVIO) : 0;
     var ivaEnvio = SHIPPING - baseEnvio;
+    // Los extras de regalo (envoltorio, exlibris, funda…) son artículos
+    // aparte del libro, no libros en sí, así que llevan el tipo general
+    // (21%) y no el superreducido de los libros — igual que el envío.
+    var baseExtras = extras > 0 ? extras / (1 + IVA_ENVIO) : 0;
+    var ivaExtras = extras - baseExtras;
     // El descuento se resta de la base de los libros (nunca del IVA).
-    var baseFinal = Math.max(0, baseLibros - descuento) + baseEnvio;
+    var baseFinal = Math.max(0, baseLibros - descuento) + baseEnvio + baseExtras;
     var ivaFinal = Math.max(0, total - baseFinal);
 
     var vatAmountEl = document.getElementById('summaryVatAmount');
@@ -432,8 +481,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (vatAmountEl) vatAmountEl.textContent = fmtEUR(ivaFinal);
     if (baseAmountEl) baseAmountEl.textContent = fmtEUR(baseFinal);
     if (vatNoteEl) {
-      vatNoteEl.textContent = (SHIPPING > 0 && ivaEnvio > 0)
-        ? '4% libros + 21% envío'
+      vatNoteEl.textContent = (SHIPPING > 0 && ivaEnvio > 0) || ivaExtras > 0
+        ? '4% libros + 21% envío/extras'
         : '4%';
     }
   }

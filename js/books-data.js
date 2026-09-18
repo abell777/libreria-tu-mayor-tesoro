@@ -243,6 +243,14 @@ window.BOOKS = [
     formatSlug: 'tapa-dura',
     priceNote: 'IVA incluido',
     cover: 'img/historia-de-los-patriarcas-y-profetas.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/historia-de-los-patriarcas-y-profetas.jpg' },
+      { style: 'tipografica', file: 'img/historia-de-los-patriarcas-y-profetas-tipografica.jpg' }
+    ],
+    covers: [
+      { style: 'ilustrada', file: 'img/historia-de-los-patriarcas-y-profetas.jpg' },
+      { style: 'tipografica', file: 'img/historia-de-los-patriarcas-y-profetas-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Repasa los grandes relatos del Antiguo Testamento, desde la creación hasta el rey David, iluminando el carácter de Dios a través de la vida de los patriarcas y los primeros profetas. Edición en tapa dura, pensada para durar en tu biblioteca.',
     idioma: 'Español',
@@ -281,6 +289,14 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/la-fe-por-la-cual-vivo.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/la-fe-por-la-cual-vivo.jpg' },
+      { style: 'tipografica', file: 'img/la-fe-por-la-cual-vivo-tipografica.jpg' }
+    ],
+    covers: [
+      { style: 'ilustrada', file: 'img/la-fe-por-la-cual-vivo.jpg' },
+      { style: 'tipografica', file: 'img/la-fe-por-la-cual-vivo-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Un repaso claro y ordenado de las creencias fundamentales que fundamentan la fe cristiana, escrito para fortalecer la confianza del lector en las promesas de Dios. Ideal como libro de estudio personal o para compartir con quien empieza a explorar la fe.',
     idioma: 'Español',
@@ -298,6 +314,14 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/la-educacion.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/la-educacion.jpg' },
+      { style: 'tipografica', file: 'img/la-educacion-tipografica.jpg' }
+    ],
+    covers: [
+      { style: 'ilustrada', file: 'img/la-educacion.jpg' },
+      { style: 'tipografica', file: 'img/la-educacion-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Un clásico sobre el propósito real de la enseñanza: formar el carácter, no solo llenar la mente de datos. Plantea un modelo educativo que integra mente, cuerpo y espíritu, con ideas tan vigentes hoy como cuando se escribieron.',
     idioma: 'Español',
@@ -315,6 +339,14 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/edificacion-del-caracter.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/edificacion-del-caracter.jpg' },
+      { style: 'tipografica', file: 'img/edificacion-del-caracter-tipografica.jpg' }
+    ],
+    covers: [
+      { style: 'ilustrada', file: 'img/edificacion-del-caracter.jpg' },
+      { style: 'tipografica', file: 'img/edificacion-del-caracter-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Una guía práctica para crecer, paso a paso, en las virtudes cristianas: fe, virtud, conocimiento, templanza, paciencia, piedad, amor fraternal y caridad. Cada capítulo invita a examinar la propia vida y avanzar hacia un carácter más firme.',
     idioma: 'Español',
@@ -887,6 +919,10 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/el-poder-de-la-oracion.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/el-poder-de-la-oracion.jpg' },
+      { style: 'tipografica', file: 'img/el-poder-de-la-oracion-tipografica.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Una recopilación de escritos sobre la oración como conexión personal con Dios, con reflexiones sobre su lugar en la vida de fe y su poder frente a las dificultades.',
     idioma: 'Español'
@@ -982,6 +1018,14 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/la-verdad-acerca-de-los-angeles.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/la-verdad-acerca-de-los-angeles.jpg' },
+      { style: 'tipografica', file: 'img/la-verdad-acerca-de-los-angeles-tipografica.jpg' }
+    ],
+    covers: [
+      { style: 'ilustrada', file: 'img/la-verdad-acerca-de-los-angeles.jpg' },
+      { style: 'tipografica', file: 'img/la-verdad-acerca-de-los-angeles-tipografica.jpg' }
+    ],
     badge: null,
     description: 'Reúne lo que la Biblia y los escritos de la autora enseñan sobre la existencia y la obra de los ángeles, su desempeño en la historia y en la vida del creyente hoy.',
     idioma: 'Español',
@@ -1020,6 +1064,14 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/la-historia-de-la-redencion.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/la-historia-de-la-redencion.jpg' },
+      { style: 'tipografica', file: 'img/la-historia-de-la-redencion-tipografica.jpg' }
+    ],
+    covers: [
+      { style: 'ilustrada', file: 'img/la-historia-de-la-redencion.jpg' },
+      { style: 'tipografica', file: 'img/la-historia-de-la-redencion-tipografica.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Un recorrido por el gran plan de salvación desde la caída hasta la restauración final, contado como una sola historia continua. Edición en tapa blanda con acabado brillo, pensada para el estudio personal y para regalar.',
     idioma: 'Español',
@@ -1037,6 +1089,14 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/la-iglesia-remanente.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/la-iglesia-remanente.jpg' },
+      { style: 'tipografica', file: 'img/la-iglesia-remanente-tipografica.jpg' }
+    ],
+    covers: [
+      { style: 'ilustrada', file: 'img/la-iglesia-remanente.jpg' },
+      { style: 'tipografica', file: 'img/la-iglesia-remanente-tipografica.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Una reflexión sobre la identidad y la misión del pueblo de Dios en el tiempo del fin, a partir de los escritos de la autora. Edición en tapa blanda con acabado brillo, ideal para el estudio personal.',
     idioma: 'Español',
@@ -1054,6 +1114,14 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/la-maravillosa-gracia-de-dios.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/la-maravillosa-gracia-de-dios.jpg' },
+      { style: 'tipografica', file: 'img/la-maravillosa-gracia-de-dios-tipografica.jpg' }
+    ],
+    covers: [
+      { style: 'ilustrada', file: 'img/la-maravillosa-gracia-de-dios.jpg' },
+      { style: 'tipografica', file: 'img/la-maravillosa-gracia-de-dios-tipografica.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Un compendio devocional sobre la gracia de Dios y su obra en la vida del creyente, con lecturas breves pensadas para acompañar el día a día. Edición en tapa blanda con acabado brillo.',
     idioma: 'Español',
@@ -1071,6 +1139,14 @@ window.BOOKS = [
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
     cover: 'img/la-musica.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/la-musica.jpg' },
+      { style: 'tipografica', file: 'img/la-musica-tipografica.jpg' }
+    ],
+    covers: [
+      { style: 'ilustrada', file: 'img/la-musica.jpg' },
+      { style: 'tipografica', file: 'img/la-musica-tipografica.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Una recopilación de los escritos de la autora sobre el lugar de la música en el culto y en la vida cristiana. Edición en tapa blanda con acabado brillo, cuidada y de fácil lectura.',
     idioma: 'Español',
@@ -1090,6 +1166,14 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/la-segunda-venida-y-el-cielo.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/la-segunda-venida-y-el-cielo.jpg' },
+      { style: 'tipografica', file: 'img/la-segunda-venida-y-el-cielo-tipografica.jpg' }
+    ],
+    covers: [
+      { style: 'ilustrada', file: 'img/la-segunda-venida-y-el-cielo.jpg' },
+      { style: 'tipografica', file: 'img/la-segunda-venida-y-el-cielo-tipografica.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Una mirada esperanzadora a las promesas de la Biblia sobre el regreso de Cristo y la vida eterna, explicadas con un lenguaje claro y devocional.',
     idioma: 'Español',
@@ -1109,6 +1193,14 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/la-temperancia.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/la-temperancia.jpg' },
+      { style: 'tipografica', file: 'img/la-temperancia-tipografica.jpg' }
+    ],
+    covers: [
+      { style: 'ilustrada', file: 'img/la-temperancia.jpg' },
+      { style: 'tipografica', file: 'img/la-temperancia-tipografica.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Una recopilación de consejos sobre el dominio propio, la alimentación y los hábitos de vida saludables, entendidos como parte del desarrollo espiritual y del testimonio cristiano.',
     idioma: 'Español',
@@ -1128,6 +1220,14 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/la-unica-esperanza.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/la-unica-esperanza.jpg' },
+      { style: 'tipografica', file: 'img/la-unica-esperanza-tipografica.jpg' }
+    ],
+    covers: [
+      { style: 'ilustrada', file: 'img/la-unica-esperanza.jpg' },
+      { style: 'tipografica', file: 'img/la-unica-esperanza-tipografica.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Una presentación breve y directa de Jesucristo como único camino de salvación, pensada tanto para el estudio personal como para compartir con quien busca respuestas.',
     idioma: 'Español',
@@ -1147,6 +1247,14 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/la-verdad-acerca-de-los-angeles-2.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/la-verdad-acerca-de-los-angeles-2.jpg' },
+      { style: 'tipografica', file: 'img/la-verdad-acerca-de-los-angeles-tipografica.jpg' }
+    ],
+    covers: [
+      { style: 'ilustrada', file: 'img/la-verdad-acerca-de-los-angeles-2.jpg' },
+      { style: 'tipografica', file: 'img/la-verdad-acerca-de-los-angeles-tipografica.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Reúne lo que la Biblia y los escritos de la autora enseñan sobre la existencia y la obra de los ángeles, su desempeño en la historia y en la vida del creyente hoy. Esta edición presenta una portada distinta a la ya disponible en la tienda.',
     idioma: 'Español',
@@ -1166,6 +1274,14 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/la-voz-su-educacion-y-uso-correcto.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/la-voz-su-educacion-y-uso-correcto.jpg' },
+      { style: 'tipografica', file: 'img/la-voz-su-educacion-y-uso-correcto-tipografica.jpg' }
+    ],
+    covers: [
+      { style: 'ilustrada', file: 'img/la-voz-su-educacion-y-uso-correcto.jpg' },
+      { style: 'tipografica', file: 'img/la-voz-su-educacion-y-uso-correcto-tipografica.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Consejos prácticos sobre el cuidado y el uso correcto de la voz al hablar, enseñar o predicar, junto con principios sobre el dominio propio y la manera en que hablamos a los demás.',
     idioma: 'Español',
@@ -1183,6 +1299,14 @@ window.BOOKS = [
     formatSlug: 'tapa-dura',
     priceNote: 'IVA incluido',
     cover: 'img/los-hechos-de-los-apostoles.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/los-hechos-de-los-apostoles.jpg' },
+      { style: 'tipografica', file: 'img/los-hechos-de-los-apostoles-tipografica.jpg' }
+    ],
+    covers: [
+      { style: 'ilustrada', file: 'img/los-hechos-de-los-apostoles.jpg' },
+      { style: 'tipografica', file: 'img/los-hechos-de-los-apostoles-tipografica.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'El relato de los primeros años de la iglesia cristiana, desde Pentecostés hasta el ministerio de Pablo, con enseñanzas sobre la misión y el crecimiento de la obra evangélica. Edición en tapa dura, ideal para regalo o biblioteca personal.',
     idioma: 'Español',
@@ -1202,6 +1326,14 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/los-hechos-de-los-apostoles.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/los-hechos-de-los-apostoles.jpg' },
+      { style: 'tipografica', file: 'img/los-hechos-de-los-apostoles-tipografica.jpg' }
+    ],
+    covers: [
+      { style: 'ilustrada', file: 'img/los-hechos-de-los-apostoles.jpg' },
+      { style: 'tipografica', file: 'img/los-hechos-de-los-apostoles-tipografica.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'El relato de los primeros años de la iglesia cristiana, desde Pentecostés hasta el ministerio de Pablo, con enseñanzas sobre la misión y el crecimiento de la obra evangélica.',
     idioma: 'Español',
@@ -1451,6 +1583,14 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/liderazgo-cristiano.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/liderazgo-cristiano.jpg' },
+      { style: 'tipografica', file: 'img/liderazgo-cristiano-tipografica.jpg' }
+    ],
+    covers: [
+      { style: 'ilustrada', file: 'img/liderazgo-cristiano.jpg' },
+      { style: 'tipografica', file: 'img/liderazgo-cristiano-tipografica.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Principios sobre el carácter, el servicio y la responsabilidad de quienes ejercen algún tipo de liderazgo dentro de la iglesia y la comunidad cristiana.',
     idioma: 'Español',
@@ -1853,6 +1993,121 @@ window.BOOKS = [
     description: 'Devocional de lecturas diarias centrado en la victoria de Cristo: desde su papel en la creación hasta su triunfo final, pasando por la cruz y su ministerio a favor nuestro.',
     idioma: 'Español',
     subcategory: ['vida-de-cristo', 'devocionales'],
+  },
+  {
+    id: 'la-oracion',
+    title: 'La Oración',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/la-oracion-tipografica.jpg',
+    covers: [
+      { style: 'tipografica', file: 'img/la-oracion-tipografica.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'Una recopilación sobre el privilegio de hablar con Dios: cómo orar, qué esperar de la oración y por qué es el aliento de la vida cristiana. Lectura breve y muy práctica.',
+    idioma: 'Español',
+    subcategory: ['vida-cristiana', 'devocionales'],
+  },
+  {
+    id: 'la-educacion-cristiana',
+    title: 'La Educación Cristiana',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/la-educacion-cristiana-tipografica.jpg',
+    covers: [
+      { style: 'tipografica', file: 'img/la-educacion-cristiana-tipografica.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'Principios para una enseñanza que forme el carácter además de la mente, dirigidos a padres, maestros y a todo el que acompaña a un joven en su formación.',
+    idioma: 'Español',
+    subcategory: ['educacion'],
+  },
+  {
+    id: 'joyas-de-los-testimonios-1',
+    title: 'Joyas de los Testimonios 1',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/joyas-de-los-testimonios-1-tipografica.jpg',
+    covers: [
+      { style: 'tipografica', file: 'img/joyas-de-los-testimonios-1-tipografica.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'Primer volumen de la selección de los pasajes más útiles de los Testimonios para la Iglesia, ordenados por temas para consultarlos con facilidad.',
+    idioma: 'Español',
+    subcategory: ['doctrina-y-fe', 'vida-cristiana'],
+  },
+  {
+    id: 'joyas-de-los-testimonios-2',
+    title: 'Joyas de los Testimonios 2',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/joyas-de-los-testimonios-2-tipografica.jpg',
+    covers: [
+      { style: 'tipografica', file: 'img/joyas-de-los-testimonios-2-tipografica.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'Segundo volumen de la selección de los Testimonios para la Iglesia, con consejos sobre la vida práctica, el hogar, la salud y la obra de la iglesia.',
+    idioma: 'Español',
+    subcategory: ['doctrina-y-fe', 'vida-cristiana'],
+  },
+  {
+    id: 'joyas-de-los-testimonios-3',
+    title: 'Joyas de los Testimonios 3',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/joyas-de-los-testimonios-3-tipografica.jpg',
+    covers: [
+      { style: 'tipografica', file: 'img/joyas-de-los-testimonios-3-tipografica.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'Tercer volumen de la selección de los Testimonios para la Iglesia, centrado en la preparación del creyente y en los últimos acontecimientos.',
+    idioma: 'Español',
+    subcategory: ['doctrina-y-fe', 'profecia-y-ultimos-tiempos'],
   },
   {
     id: 'biblia-bilingue-rvr-nkjv-marron',
@@ -2400,6 +2655,11 @@ window.NEEDS.forEach(function (n) {
 // window.NEEDS (justo arriba). Un libro que no aparezca en esta lista
 // simplemente no saldrá en el buscador por necesidad.
 window.BOOK_NEEDS = {
+  'la-oracion': ['paz-interior', 'crecer-cada-dia', 'primeros-pasos'],
+  'la-educacion-cristiana': ['criar-a-mis-hijos', 'servir-y-compartir'],
+  'joyas-de-los-testimonios-1': ['crecer-cada-dia', 'dudas-de-fe'],
+  'joyas-de-los-testimonios-2': ['crecer-cada-dia', 'familia-y-pareja'],
+  'joyas-de-los-testimonios-3': ['crecer-cada-dia', 'entender-el-futuro'],
   'el-conflicto-de-los-siglos': ['estudiar-la-biblia', 'entender-el-futuro'],
   'el-deseado-de-todas-las-gentes': ['conocer-a-jesus', 'estudiar-la-biblia', 'primeros-pasos'],
   'historia-de-los-patriarcas-y-profetas': ['estudiar-la-biblia'],

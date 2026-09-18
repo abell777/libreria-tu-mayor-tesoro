@@ -252,7 +252,7 @@
         // sigue calculando el servidor; la portada solo se guarda en el
         // pedido para saber qué versión del libro hay que enviar.
         var itemsParaEnviar = items.map(function (i) {
-          return { id: i.id, qty: i.qty, portada: i.coverStyle || '' };
+          return { id: i.id, qty: i.qty, portada: i.coverStyle || '', regalo: i.regalo || null };
         });
 
         // Step 1: Crear pedido en backend

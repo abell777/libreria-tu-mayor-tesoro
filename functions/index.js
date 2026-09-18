@@ -60,6 +60,49 @@ const STRIPE_WEBHOOK_SECRET = defineSecret("STRIPE_WEBHOOK_SECRET");
 const GMAIL_USER = defineSecret("GMAIL_USER");
 const GMAIL_APP_PASSWORD = defineSecret("GMAIL_APP_PASSWORD");
 
+// ---- Extras de regalo ("Regala con propósito") -------------------------
+// Copia de servidor de js/gift-options.js. SI CAMBIAS UN PRECIO ALLÍ,
+// cámbialo también aquí: esta tabla es la que se cobra de verdad.
+//   precio  → euros
+//   porUnidad → true: se cobra por ejemplar del libro; false: una sola vez
+//   texto   → true: el cliente escribe algo (dedicatoria, nombre…)
+const EXTRAS_REGALO = {
+  envoltorio: { titulo: "Envoltorio de regalo", precio: 3.5, porUnidad: true },
+  dedicatoria: { titulo: "Tarjeta con dedicatoria", precio: 0, porUnidad: false, texto: true, maxTexto: 300 },
+  exlibris: { titulo: "Exlibris personalizado", precio: 2.9, porUnidad: true, texto: true, maxTexto: 60 },
+  funda: { titulo: "Funda de tela para el libro", precio: 9.9, porUnidad: true },
+};
+
+// Convierte el "regalo" que manda el navegador en líneas de pedido ya
+// validadas y valoradas con la tabla de arriba. Todo lo que no esté en la
+// tabla se ignora, y los textos se recortan a su longitud máxima.
+function lineasDeRegalo(regalo, cantidadLibro, tituloLibro) {
+  if (!regalo || typeof regalo !== "object") return [];
+  const lineas = [];
+  for (const slug of Object.keys(EXTRAS_REGALO)) {
+    const extra = EXTRAS_REGALO[slug];
+    const valor = regalo[slug];
+    let texto = "";
+    if (extra.texto) {
+      if (typeof valor !== "string" || !valor.trim()) continue;
+      texto = valor.trim().slice(0, extra.maxTexto);
+    } else if (!valor) {
+      continue;
+    }
+    const unidades = extra.porUnidad ? cantidadLibro : 1;
+    lineas.push({
+      id: "extra-" + slug,
+      titulo: extra.titulo,
+      formato: "Para «" + tituloLibro + "»" + (texto ? ": " + texto : ""),
+      precio: extra.precio,
+      cantidad: unidades,
+      envioGratis: true,
+      esExtra: true,
+    });
+  }
+  return lineas;
+}
+
 // ---- Portadas válidas (deben coincidir con COVER_STYLES de js/books-data.js) ----
 // Algunos libros existen con dos diseños de cubierta (el mismo libro, el
 // mismo precio). El navegador puede decir cuál quiere el cliente, pero solo
@@ -873,6 +916,12 @@ exports.crearPedido = onCall(async (request) => {
       cantidad: cantidad,
       envioGratis: !!libro.freeShipping,
     });
+    // Extras de regalo de ESTE libro, como líneas aparte del pedido: así el
+    // subtotal, el IVA, Stripe y el correo de confirmación funcionan igual
+    // que siempre, sin tocar nada más.
+    for (const linea of lineasDeRegalo(item.regalo, cantidad, libro.title)) {
+      itemsFinales.push(linea);
+    }
   }
 
   const subtotal = itemsFinales.reduce((sum, it) => sum + it.precio * it.cantidad, 0);
@@ -1536,5 +1585,77 @@ exports.recordatorioCarritoAbandonado = onSchedule(
     const transporter = crearTransporterGmail();
     await recordarCarritosAbandonados(transporter);
     await recordarPedidosSinPagar(transporter);
+  }
+);
+
+// ==========================================================================
+// "¿Qué te ha parecido la lectura?" — seguimiento 30 días después
+// --------------------------------------------------------------------------
+// Una vez al día revisa los pedidos YA PAGADOS que cumplen un mes y manda
+// un único correo de seguimiento con el enlace a los recursos de lectura
+// (diario de lectura y ficha de síntesis imprimibles). Cada pedido se marca
+// para no volver a escribir nunca dos veces al mismo cliente por el mismo
+// pedido.
+//
+// No hace falta configurar nada nuevo: usa las mismas credenciales de Gmail
+// (GMAIL_USER / GMAIL_APP_PASSWORD) que los recordatorios de carrito.
+// Para cambiar el plazo, edita DIAS_SEGUIMIENTO.
+// ==========================================================================
+const DIAS_SEGUIMIENTO = 30;
+const MS_DIA = 24 * 60 * 60 * 1000;
+
+async function enviarSeguimientoLectura(transporter) {
+  const ahora = Date.now();
+  const snap = await db.collection("pedidos").where("pagado", "==", true).get();
+
+  for (const doc of snap.docs) {
+    const pedido = doc.data();
+    if (pedido.seguimientoLecturaEnviado) continue;
+    if (!pedido.clienteEmail || !Array.isArray(pedido.items) || pedido.items.length === 0) continue;
+
+    const createdAt = pedido.createdAt && pedido.createdAt.toMillis ? pedido.createdAt.toMillis() : null;
+    if (!createdAt) continue;
+    const dias = (ahora - createdAt) / MS_DIA;
+    // Ventana estrecha: a partir de los 30 días y hasta los 45, para no
+    // escribir a pedidos muy antiguos la primera vez que se despliegue esto.
+    if (dias < DIAS_SEGUIMIENTO || dias > DIAS_SEGUIMIENTO + 15) continue;
+
+    const libros = pedido.items
+      .filter((it) => !it.esExtra)
+      .map((it) => filaArticuloHtml(it.titulo, it.cantidad, it.precio))
+      .join("");
+
+    const html = plantillaRecordatorio({
+      nombre: pedido.clienteNombre,
+      filasHtml: libros,
+      textoIntro:
+        "Hace un mes que recibiste tu pedido. ¿Qué te ha parecido la lectura? " +
+        "Si quieres guardar lo que te ha marcado, hemos preparado un diario de lectura y una ficha de síntesis " +
+        "para imprimir y archivar en tu libreta de notas. Son gratuitos:",
+      enlace: SITE_URL + "/recursos.html",
+    });
+
+    try {
+      await transporter.sendMail({
+        from: '"Librería tu mayor tesoro" <' + GMAIL_USER.value().trim() + ">",
+        to: pedido.clienteEmail,
+        subject: "¿Qué te ha parecido la lectura?",
+        html,
+      });
+      await doc.ref.update({
+        seguimientoLecturaEnviado: true,
+        seguimientoLecturaEnviadoEn: FieldValue.serverTimestamp(),
+      });
+    } catch (err) {
+      console.error("No se pudo enviar el seguimiento de lectura a " + pedido.clienteEmail, err);
+    }
+  }
+}
+
+exports.seguimientoLectura = onSchedule(
+  { schedule: "every day 10:00", timeZone: "Europe/Madrid", secrets: [GMAIL_USER, GMAIL_APP_PASSWORD] },
+  async () => {
+    const transporter = crearTransporterGmail();
+    await enviarSeguimientoLectura(transporter);
   }
 );

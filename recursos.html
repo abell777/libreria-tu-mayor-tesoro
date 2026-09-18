@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script src="js/cookies.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recursos de lectura — Librería tu mayor tesoro</title>
+<meta name="description" content="Planificador de lectura, diario de lectura imprimible y ficha de síntesis para acompañar tus libros. Recursos gratuitos de Librería tu mayor tesoro.">
+<link rel="canonical" href="https://www.libreriatumayortesoro.com/recursos.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Librería tu mayor tesoro">
+<meta property="og:title" content="Recursos de lectura — Librería tu mayor tesoro">
+<meta property="og:description" content="Planificador de lectura, diario de lectura imprimible y ficha de síntesis para acompañar tus libros. Recursos gratuitos de Librería tu mayor tesoro.">
+<meta property="og:url" content="https://www.libreriatumayortesoro.com/recursos.html">
+<meta property="og:image" content="https://www.libreriatumayortesoro.com/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Recursos de lectura — Librería tu mayor tesoro">
+<meta name="twitter:description" content="Planificador de lectura, diario de lectura imprimible y ficha de síntesis para acompañar tus libros. Recursos gratuitos de Librería tu mayor tesoro.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#20304f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+<header class="site-header">
+  <div class="container header-top">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">L</span>
+      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+    </a>
+
+    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
+      <button type="submit">Buscar</button>
+    </form>
+
+    <div class="header-actions">
+      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
+    <div class="container">
+      <ul class="category-list">
+        <li><a href="categoria.html">Todas las categorías</a></li>
+        <li class="has-dropdown">
+          <a href="categoria.html?cat=libros" class="dropdown-toggle">Libros
+            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="categoria.html?cat=biblias">Biblias</a></li>
+            <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
+            <li><a href="categoria.html?cat=salud">Salud y familia</a></li>
+            <li><a href="categoria.html?cat=profecia">Profecía</a></li>
+            <li><a href="categoria.html?cat=devocionales">Devocionales</a></li>
+            <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
+            <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
+          </ul>
+        </li>
+        <li><a href="categoria.html?cat=especial">Especial</a></li>
+        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
+        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
+        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+  <section class="section pb-lg">
+    <div class="container">
+      <nav class="breadcrumb mb-lg" aria-label="Ruta de navegación">
+        <a href="index.html">Inicio</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span data-breadcrumb-current>Recursos de lectura</span>
+      </nav>
+
+      <div class="section-head mb-0">
+        <div>
+          <span class="eyebrow">Recursos gratuitos</span>
+          <h1 class="section-title">Acompaña tu lectura</h1>
+          <p class="section-lede">Un planificador para saber en cuántas semanas terminarás tu libro y plantillas elegantes para imprimir: diario de lectura y ficha de síntesis. Todo gratuito.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container">
+
+      <div class="resource-card" id="planificador">
+        <div class="resource-card-head">
+          <h2>Planificador de lectura</h2>
+          <p>Dime cuánto puedes leer al día y te digo cuándo lo terminarás, con un ritmo diario razonable.</p>
+        </div>
+        <div class="planner">
+          <div class="planner-fields">
+            <label class="form-field">
+              <span>Libro</span>
+              <select id="plannerBook"><option value="">— Escribiré las páginas a mano —</option></select>
+            </label>
+            <label class="form-field">
+              <span>Páginas del libro</span>
+              <input type="number" id="plannerPages" min="10" max="2000" step="1" value="220">
+            </label>
+            <label class="form-field">
+              <span>Minutos al día que puedes leer</span>
+              <input type="number" id="plannerMinutes" min="5" max="240" step="5" value="20">
+            </label>
+            <label class="form-field">
+              <span>Días que leerás por semana</span>
+              <select id="plannerDays">
+                <option value="7">Todos los días</option>
+                <option value="6">6 días (descanso semanal)</option>
+                <option value="5">5 días (de lunes a viernes)</option>
+                <option value="3">3 días</option>
+              </select>
+            </label>
+            <label class="form-field">
+              <span>Tu ritmo de lectura</span>
+              <select id="plannerSpeed">
+                <option value="1.6">Tranquilo, releo y subrayo</option>
+                <option value="2.2" selected>Normal</option>
+                <option value="3">Rápido</option>
+              </select>
+            </label>
+          </div>
+          <div class="planner-result" id="plannerResult" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="resource-grid">
+        <article class="resource-card">
+          <h2>Diario de lectura</h2>
+          <p>Una hoja por capítulo: la fecha, el pasaje, la idea que te ha marcado y una línea de aplicación personal. Imprímela tantas veces como capítulos tenga tu libro.</p>
+          <button type="button" class="btn btn--primary btn--sm" data-print-template="diario">Ver e imprimir</button>
+        </article>
+
+        <article class="resource-card">
+          <h2>Ficha de síntesis</h2>
+          <p>Para cuando termines el libro: lo esencial en una sola hoja, con las tres citas que quieres recordar y a quién te gustaría recomendárselo.</p>
+          <button type="button" class="btn btn--primary btn--sm" data-print-template="sintesis">Ver e imprimir</button>
+        </article>
+
+        <article class="resource-card">
+          <h2>Glosario de términos</h2>
+          <p>Justificación, santuario, remanente, mayordomía… Si un término se te queda a medias, aquí lo tienes explicado en lenguaje llano.</p>
+          <a href="glosario.html" class="btn btn--outline btn--sm">Abrir el glosario</a>
+        </article>
+      </div>
+
+      <div class="printable" id="printable" hidden>
+        <div class="printable-bar">
+          <p id="printableTitle"></p>
+          <div>
+            <button type="button" class="btn btn--primary btn--sm" id="printableGo">Imprimir</button>
+            <button type="button" class="btn btn--outline btn--sm" id="printableClose">Cerrar</button>
+          </div>
+        </div>
+        <div class="printable-sheet" id="printableSheet"></div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">L</span>
+        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+      </a>
+      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Institucional</h5>
+      <ul class="footer-links">
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda para elegir</h5>
+      <ul class="footer-links">
+        <li><a href="asistente.html">Asistente de recomendación</a></li>
+        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
+        <li><a href="recursos.html">Recursos de lectura</a></li>
+        <li><a href="glosario.html">Glosario de términos</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda</h5>
+      <ul class="footer-links">
+        <li><a href="envios.html">Envíos y entregas</a></li>
+        <li><a href="devoluciones.html">Devoluciones</a></li>
+        <li><a href="terminos.html">Términos y condiciones</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Contacto</h5>
+      <ul class="footer-contact">
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Alicante, España
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
+        </li>
+        <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Horario de atención - Lunes a Viernes de 9:00 a 18:00 h
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-contact-banner">
+    <div class="container">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
+    <div class="legal-links">
+      <a href="privacidad.html">Privacidad </a>
+      <a href="terminos.html">Términos</a>
+      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/gift-options.js"></script>
+<script src="js/books-data.js"></script>
+<script src="js/recursos.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

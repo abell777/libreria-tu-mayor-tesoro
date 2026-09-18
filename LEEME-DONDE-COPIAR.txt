@@ -1,0 +1,162 @@
+==========================================================================
+ LIBRERÍA TU MAYOR TESORO — paquete completo (sesión larga)
+ Portadas alternativas · libros "próximamente" · "¿Qué busca tu alma hoy?"
+ · Asistente de recomendación · Pide consejo a nuestro librero
+ · Regala con propósito · Recursos de lectura · Glosario
+ · arreglo del deploy de Cloud Functions
+==========================================================================
+
+Este ZIP trae TODO lo tocado en toda la sesión, no solo lo último. Cópialo
+encima de tu proyecto (sobrescribiendo) aunque ya tuvieras ZIPs anteriores;
+así no queda nada a medias.
+
+Copia respetando las subcarpetas:
+
+  img/ ........... 118 archivos (portadas en .jpg + .webp)
+                    → Nueva carpeta/img/
+  js/*.js ........ 13 archivos, todos van a → Nueva carpeta/js/
+      books-data.js, shop.js, product.js, cart.js, checkout.js,
+      cover-carousel.js, soul-finder.js, gift-options.js, gift-product.js,
+      recommender.js, recursos.js, glosario.js, consejo.js
+  css/styles.css .. SUSTITUYE el tuyo → Nueva carpeta/css/
+  functions/index.js y functions/package.json
+                    → Nueva carpeta/functions/
+  *.html .......... 27 páginas → Nueva carpeta/ (la raíz del proyecto)
+      Incluye las 4 páginas NUEVAS (asistente.html, consejo.html,
+      glosario.html, recursos.html) y las 23 páginas existentes que
+      llevan ahora el enlace "¿No sabes qué elegir?" en el menú y la
+      columna "Ayuda para elegir" en el pie.
+
+--------------------------------------------------------------------------
+ CÓMO SUBIRLO
+--------------------------------------------------------------------------
+  firebase deploy --only hosting
+  firebase deploy --only functions
+
+Después, refresco forzado (Ctrl+F5) o ventana de incógnito para no ver la
+caché antigua de CSS/JS.
+
+--------------------------------------------------------------------------
+ 1. ARREGLO DEL DEPLOY (TypeError: admin.firestore is not a function)
+--------------------------------------------------------------------------
+firebase-admin v14 quitó la API antigua (admin.firestore(), admin.auth(),
+admin.firestore.FieldValue). Ahora se importa cada servicio por separado
+(firebase-admin/app, /firestore, /auth) con getFirestore()/getAuth()/
+FieldValue. Mismo comportamiento, solo cambia la forma de importar.
+También se pasó Node 20 → Node 22 en package.json (Node 20 deja de admitir
+despliegues el 30/10/2026).
+
+--------------------------------------------------------------------------
+ 2. PORTADAS AÑADIDAS EN ESTA SESIÓN (58 imágenes, 29 diseños)
+--------------------------------------------------------------------------
+Segunda portada (tipográfica) para 29 libros que ya existían, entre ellos:
+Dios Nos Cuida, El Hogar Cristiano, Los Hechos de los Apóstoles (las dos
+ediciones), El Deseado de Todas las Gentes (las tres), Liderazgo Cristiano,
+La Única Esperanza, La Voz su Educación y Uso Correcto, La Verdad Acerca de
+los Ángeles (las dos), La Temperancia, La Segunda Venida y el Cielo, El
+Poder de la Oración, La Música, La Maravillosa Gracia de Dios, La Iglesia
+Remanente, La Historia de la Redención, La Fe por la Cual Vivo, La
+Educación, Edificación del Carácter, Historia de los Patriarcas y Profetas,
+y varios más.
+
+Creados como "próximamente" (portada lista, sin precio todavía):
+Hijas de Dios · En el Desierto de la Tentación · El Ministerio de
+Curación · El Cristo Triunfante · La Educación Cristiana · Joyas de los
+Testimonios (tomos 1, 2 y 3) — y los de la primera tanda: El Camino a
+Cristo, Desde el Corazón, Leyes de la Salud, Leyes sobre el Régimen
+Alimenticio, Conducción del Niño, Colección Kress, Cartas a Jóvenes
+Enamorados, Conflicto y Valor.
+
+⚠ El Discurso Maestro de Jesucristo: el título dorado se sale del marco
+por los dos lados en la imagen que enviaste. La subí igual; si la
+regeneras con el texto más pequeño, la cambio.
+
+--------------------------------------------------------------------------
+ 3. "¿QUÉ BUSCA TU ALMA HOY?" (de la sesión anterior — sigue disponible)
+--------------------------------------------------------------------------
+Home, catálogo y ficha de producto. Se edita todo desde window.NEEDS y
+window.BOOK_NEEDS en js/books-data.js. Sin cambios en esta entrega.
+
+--------------------------------------------------------------------------
+ 4. ASISTENTE DE RECOMENDACIÓN — asistente.html
+--------------------------------------------------------------------------
+Cuestionario de 3 preguntas (¿para quién es?, ¿qué momento vital atraviesa?,
+¿qué tipo de lectura prefiere?) que cruza las respuestas con el catálogo
+real (usando las mismas "necesidades" de books-data.js) y muestra 2-3
+libros con una frase de por qué encajan. Enlazado como "¿No sabes qué
+elegir?" en el menú de todas las páginas (con fondo dorado, bien visible) y
+desde la home.
+
+--------------------------------------------------------------------------
+ 5. "PIDE CONSEJO A NUESTRO LIBRERO" — consejo.html
+--------------------------------------------------------------------------
+Formulario de contacto dedicado: nombre, email, para quién es el libro y
+una descripción libre de la situación. Se envía por el mismo sistema de
+correo que ya usa el resto del sitio; el equipo responde en menos de 24h
+(se lo dice así al cliente tras enviar).
+
+--------------------------------------------------------------------------
+ 6. "REGALA CON PROPÓSITO" — en CADA ficha de producto
+--------------------------------------------------------------------------
+Panel plegable bajo el precio con tres extras que el cliente puede sumar a
+cualquier libro (mismo libro, coste aparte, precios fijados por ti en
+js/gift-options.js y validados también en el servidor):
+  · Envoltorio + dedicatoria manuscrita en tarjeta elegante
+  · Funda de tela protectora
+  · Exlibris personalizado (nombre en la primera página)
+El texto de la dedicatoria y el nombre del exlibris viajan con el pedido,
+limitados en longitud y limpiados de HTML antes de guardarse (para que
+nadie pueda inyectar código). El carrito muestra los extras como líneas
+aparte del libro, con su propio desglose de IVA (21%, al ser accesorios,
+no libros) tanto en la vista como en el cálculo real del total — ya
+corregido en esta entrega: antes el desglose de IVA no separaba bien los
+extras del resto y "ensuciaba" la cifra mostrada al cliente.
+
+--------------------------------------------------------------------------
+ 7. RECURSOS DE LECTURA — recursos.html
+--------------------------------------------------------------------------
+· Planificador de lectura: el cliente indica minutos al día y el libro (o
+  una duración media), y la web calcula en cuántos días/semanas lo
+  terminará, con un ritmo de páginas al día.
+· Fichas imprimibles (diario de lectura y ficha de síntesis): se generan
+  al vuelo como una hoja lista para imprimir (Ctrl+P), sin depender de un
+  PDF fijo que haya que mantener aparte.
+· A los 30 días de la entrega de un pedido, una Cloud Function programada
+  (exports.seguimientoLectura) envía un correo automático recordando estas
+  fichas — solo una vez por pedido, controlado con un indicador para no
+  duplicar el envío.
+
+--------------------------------------------------------------------------
+ 8. GLOSARIO DE TÉRMINOS — glosario.html
+--------------------------------------------------------------------------
+Buscador con acentos ignorados, términos teológicos y de espiritualidad
+con su definición y, cuando aplica, un enlace al libro relacionado del
+catálogo — pensado también para atraer tráfico de búsquedas (SEO).
+
+--------------------------------------------------------------------------
+ 9. LO QUE HE CORREGIDO EN ESTA ENTREGA
+--------------------------------------------------------------------------
+· El desglose de IVA del carrito (base imponible / cuota de IVA que se ve
+  en el resumen) no tenía en cuenta los extras de regalo y los contaba
+  como si llevaran el 100% de IVA. Ahora los extras se tratan al 21%
+  (como el envío), igual que en cualquier tienda real.
+· Las 4 páginas nuevas (asistente, consejo, glosario, recursos) no estaban
+  enlazadas desde ningún sitio del menú ni del pie de página: añadido en
+  las 27 páginas.
+· Faltaba todo el CSS de esas pantallas (formularios, asistente, glosario,
+  planificador, ficha imprimible, panel de regalo): escrito de cero,
+  coherente con el resto de la web (mismos colores, tipografías y
+  espaciados).
+· Probado de extremo a extremo con pruebas automatizadas: el asistente
+  recomienda libros reales del catálogo, el glosario filtra correctamente,
+  el planificador calcula bien, "Regala con propósito" mete el envoltorio
+  y la dedicatoria en el carrito y el total/IVA del carrito cuadra.
+
+--------------------------------------------------------------------------
+ PENDIENTE, cuando quieras
+--------------------------------------------------------------------------
+· Precio de los 17 libros "próximamente": en js/books-data.js cambia
+  price: null → price: 9.14, borra comingSoon: true y ajusta priceNote.
+  Añádelo también al CATALOGO de functions/index.js.
+· Precios de los extras de regalo: están en js/gift-options.js, un único
+  sitio para cambiarlos (y su copia validada en functions/index.js).
