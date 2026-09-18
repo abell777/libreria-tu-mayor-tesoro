@@ -1441,7 +1441,8 @@ window.BOOKS = [
     cover: 'img/testimonios-para-la-iglesia.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/testimonios-para-la-iglesia.jpg' },
-      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-2-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-2-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/testimonios-para-la-iglesia-tomo-2-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Segundo tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación.',
@@ -1464,7 +1465,8 @@ window.BOOKS = [
     cover: 'img/testimonios-para-la-iglesia.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/testimonios-para-la-iglesia.jpg' },
-      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-3-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-3-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/testimonios-para-la-iglesia-tomo-3-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Tercer tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación.',
@@ -1487,7 +1489,8 @@ window.BOOKS = [
     cover: 'img/testimonios-para-la-iglesia.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/testimonios-para-la-iglesia.jpg' },
-      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-4-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-4-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/testimonios-para-la-iglesia-tomo-4-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Cuarto tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación.',
@@ -1510,7 +1513,8 @@ window.BOOKS = [
     cover: 'img/testimonios-para-la-iglesia.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/testimonios-para-la-iglesia.jpg' },
-      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-6-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-6-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/testimonios-para-la-iglesia-tomo-6-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Sexto tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación.',
@@ -1533,7 +1537,8 @@ window.BOOKS = [
     cover: 'img/testimonios-para-la-iglesia.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/testimonios-para-la-iglesia.jpg' },
-      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-7-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-7-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/testimonios-para-la-iglesia-tomo-7-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Séptimo tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación.',
@@ -1556,7 +1561,8 @@ window.BOOKS = [
     cover: 'img/testimonios-para-la-iglesia.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/testimonios-para-la-iglesia.jpg' },
-      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-8-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-8-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/testimonios-para-la-iglesia-tomo-8-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Octavo tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación.',
@@ -1579,7 +1585,8 @@ window.BOOKS = [
     cover: 'img/testimonios-para-la-iglesia.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/testimonios-para-la-iglesia.jpg' },
-      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-9-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-9-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/testimonios-para-la-iglesia-tomo-9-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Noveno y último tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación.',
@@ -1625,7 +1632,8 @@ window.BOOKS = [
     cover: 'img/testimonios-selectos.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/testimonios-selectos.jpg' },
-      { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-i-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-i-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/testimonios-selectos-tomo-i-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una selección de consejos y mensajes sobre la vida cristiana, la familia y el carácter, pensada como introducción más breve a la serie de Testimonios.',
@@ -1648,7 +1656,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/testimonios-selectos-tomo-ii-tipografica.jpg',
     covers: [
-      { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-ii-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-ii-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/testimonios-selectos-tomo-ii-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Segundo tomo de la selección de consejos y mensajes sobre la vida cristiana, la familia y el carácter, pensada como introducción a la serie de Testimonios.',
@@ -1671,7 +1680,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/testimonios-selectos-tomo-iii-tipografica.jpg',
     covers: [
-      { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-iii-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-iii-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/testimonios-selectos-tomo-iii-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Tercer tomo de la selección de consejos y mensajes sobre la vida cristiana, la familia y el carácter, pensada como introducción a la serie de Testimonios.',
@@ -1694,7 +1704,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/testimonios-selectos-tomo-iv-tipografica.jpg',
     covers: [
-      { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-iv-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-iv-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/testimonios-selectos-tomo-iv-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Cuarto tomo de la selección de consejos y mensajes sobre la vida cristiana, la familia y el carácter, pensada como introducción a la serie de Testimonios.',
@@ -1717,7 +1728,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/testimonios-selectos-tomo-v-tipografica.jpg',
     covers: [
-      { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-v-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-v-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/testimonios-selectos-tomo-v-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Quinto tomo de la selección de consejos y mensajes sobre la vida cristiana, la familia y el carácter, pensada como introducción a la serie de Testimonios.',
@@ -1740,7 +1752,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/testimonios-para-la-iglesia-tomo-1-tipografica.jpg',
     covers: [
-      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-1-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-1-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/testimonios-para-la-iglesia-tomo-1-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Primer tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación.',
@@ -1763,7 +1776,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/testimonios-para-la-iglesia-tomo-5-tipografica.jpg',
     covers: [
-      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-5-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-5-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/testimonios-para-la-iglesia-tomo-5-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Quinto tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación.',
@@ -1786,7 +1800,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/testimonios-para-los-ministros-tipografica.jpg',
     covers: [
-      { style: 'tipografica-clara', file: 'img/testimonios-para-los-ministros-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-para-los-ministros-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/testimonios-para-los-ministros-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Consejos y mensajes dirigidos especialmente a los pastores y obreros evangélicos, sobre el carácter, el estudio y la vida devocional del ministro.',
@@ -1809,7 +1824,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/testimonios-conducta-sexual-adulterio-divorcio-tipografica.jpg',
     covers: [
-      { style: 'tipografica-clara', file: 'img/testimonios-conducta-sexual-adulterio-divorcio-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/testimonios-conducta-sexual-adulterio-divorcio-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/testimonios-conducta-sexual-adulterio-divorcio-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Una recopilación de consejos sobre la pureza en la conducta sexual, la fidelidad matrimonial y los principios cristianos frente al adulterio y el divorcio.',
@@ -1832,7 +1848,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/sermones-escogidos-1-tipografica.jpg',
     covers: [
-      { style: 'tipografica-clara', file: 'img/sermones-escogidos-1-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/sermones-escogidos-1-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/sermones-escogidos-1-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Primer volumen de una selección de sermones predicados por la autora, con mensajes sobre la fe, el carácter cristiano y la esperanza del evangelio.',
@@ -1855,7 +1872,8 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/sermones-escogidos-2-tipografica.jpg',
     covers: [
-      { style: 'tipografica-clara', file: 'img/sermones-escogidos-2-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/sermones-escogidos-2-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/sermones-escogidos-2-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Segundo volumen de una selección de sermones predicados por la autora, con mensajes sobre la fe, el carácter cristiano y la esperanza del evangelio.',
@@ -1878,12 +1896,36 @@ window.BOOKS = [
     paper: 'Blanco offset',
     cover: 'img/servicio-cristiano-tipografica.jpg',
     covers: [
-      { style: 'tipografica-clara', file: 'img/servicio-cristiano-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/servicio-cristiano-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/servicio-cristiano-tipografica-oscura.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Principios sobre el servicio abnegado al prójimo y la obra misionera práctica, como expresión natural de una fe viva.',
     idioma: 'Español',
     subcategory: ['ministerio-y-evangelismo'],
+  },
+  {
+    id: 'ser-semejante-a-jesus',
+    title: 'Ser Semejante a Jesús',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/ser-semejante-a-jesus-tipografica-oscura.jpg',
+    covers: [
+      { style: 'tipografica-oscura', file: 'img/ser-semejante-a-jesus-tipografica-oscura.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'Una recopilación de pensamientos devocionales breves sobre el carácter cristiano, animando a reflejar cada día el ejemplo de Cristo en la vida diaria.',
+    idioma: 'Español',
+    subcategory: ['vida-cristiana'],
   },
   {
     id: 'un-llamado-a-ser-diferente',
