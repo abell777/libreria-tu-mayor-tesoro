@@ -282,6 +282,10 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/profetas-y-reyes.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/profetas-y-reyes.jpg' },
+      { style: 'tipografica-oscura', file: 'img/profetas-y-reyes-tipografica-oscura.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Continúa el relato de la Biblia a través de los reinos de Israel y Judá, la obra de Elías, Eliseo, Isaías y los profetas mayores, hasta el regreso del cautiverio babilónico. Una edición cuidada, ideal para el estudio diario.',
     idioma: 'Español',
@@ -1300,11 +1304,8 @@ window.BOOKS = [
     cover: 'img/los-hechos-de-los-apostoles.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/los-hechos-de-los-apostoles.jpg' },
-      { style: 'tipografica-clara', file: 'img/los-hechos-de-los-apostoles-tipografica.jpg' }
-    ],
-    covers: [
-      { style: 'ilustrada', file: 'img/los-hechos-de-los-apostoles.jpg' },
-      { style: 'tipografica-clara', file: 'img/los-hechos-de-los-apostoles-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/los-hechos-de-los-apostoles-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/los-hechos-de-los-apostoles-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'El relato de los primeros años de la iglesia cristiana, desde Pentecostés hasta el ministerio de Pablo, con enseñanzas sobre la misión y el crecimiento de la obra evangélica. Edición en tapa dura, ideal para regalo o biblioteca personal.',
@@ -1327,11 +1328,8 @@ window.BOOKS = [
     cover: 'img/los-hechos-de-los-apostoles.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/los-hechos-de-los-apostoles.jpg' },
-      { style: 'tipografica-clara', file: 'img/los-hechos-de-los-apostoles-tipografica.jpg' }
-    ],
-    covers: [
-      { style: 'ilustrada', file: 'img/los-hechos-de-los-apostoles.jpg' },
-      { style: 'tipografica-clara', file: 'img/los-hechos-de-los-apostoles-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/los-hechos-de-los-apostoles-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/los-hechos-de-los-apostoles-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'El relato de los primeros años de la iglesia cristiana, desde Pentecostés hasta el ministerio de Pablo, con enseñanzas sobre la misión y el crecimiento de la obra evangélica.',
@@ -1352,6 +1350,10 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/palabras-de-vida-del-gran-maestro.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/palabras-de-vida-del-gran-maestro.jpg' },
+      { style: 'tipografica-oscura', file: 'img/palabras-de-vida-del-gran-maestro-tipografica-oscura.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Un recorrido por las parábolas y enseñanzas de Jesús, explicando su sentido espiritual y su aplicación práctica para la vida cristiana de cada día.',
     idioma: 'Español',
@@ -1371,6 +1373,10 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/primeros-escritos.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/primeros-escritos.jpg' },
+      { style: 'tipografica-oscura', file: 'img/primeros-escritos-tipografica-oscura.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Reúne las primeras visiones y escritos de la autora, publicados en sus años iniciales de ministerio, con relatos sobre la experiencia del pueblo adventista en sus comienzos.',
     idioma: 'Español',
@@ -1388,6 +1394,10 @@ window.BOOKS = [
     formatSlug: 'tapa-dura',
     priceNote: 'IVA incluido',
     cover: 'img/primeros-escritos.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/primeros-escritos.jpg' },
+      { style: 'tipografica-oscura', file: 'img/primeros-escritos-tipografica-oscura.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Reúne las primeras visiones y escritos de la autora, publicados en sus años iniciales de ministerio, con relatos sobre la experiencia del pueblo adventista en sus comienzos. Edición en tapa dura, ideal para regalo o biblioteca personal.',
     idioma: 'Español',
@@ -1893,11 +1903,8 @@ window.BOOKS = [
     cover: 'img/liderazgo-cristiano.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/liderazgo-cristiano.jpg' },
-      { style: 'tipografica-clara', file: 'img/liderazgo-cristiano-tipografica.jpg' }
-    ],
-    covers: [
-      { style: 'ilustrada', file: 'img/liderazgo-cristiano.jpg' },
-      { style: 'tipografica-clara', file: 'img/liderazgo-cristiano-tipografica.jpg' }
+      { style: 'tipografica-clara', file: 'img/liderazgo-cristiano-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/liderazgo-cristiano-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Principios sobre el carácter, el servicio y la responsabilidad de quienes ejercen algún tipo de liderazgo dentro de la iglesia y la comunidad cristiana.',
@@ -1918,6 +1925,10 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/maranatha-el-senor-viene.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/maranatha-el-senor-viene.jpg' },
+      { style: 'tipografica-oscura', file: 'img/maranatha-el-senor-viene-tipografica-oscura.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Un devocional de lecturas breves centradas en la esperanza de la segunda venida de Cristo, pensado para acompañar el estudio personal día a día.',
     idioma: 'Español',
@@ -1937,6 +1948,10 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/mensajes-selectos.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/mensajes-selectos.jpg' },
+      { style: 'tipografica-oscura', file: 'img/mensajes-selectos-1-tipografica-oscura.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Primer tomo de una serie de mensajes y comentarios de la autora sobre cuestiones doctrinales, con aclaraciones y consejos dirigidos a la iglesia de su tiempo.',
     idioma: 'Español',
@@ -1956,6 +1971,10 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/mensajes-selectos.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/mensajes-selectos.jpg' },
+      { style: 'tipografica-oscura', file: 'img/mensajes-selectos-2-tipografica-oscura.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Segundo tomo de una serie de mensajes y comentarios de la autora sobre cuestiones doctrinales, con aclaraciones y consejos dirigidos a la iglesia de su tiempo.',
     idioma: 'Español',
@@ -1975,6 +1994,10 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/mensajes-selectos.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/mensajes-selectos.jpg' },
+      { style: 'tipografica-oscura', file: 'img/mensajes-selectos-3-tipografica-oscura.jpg' }
+    ],
     badge: 'Nuevo',
     description: 'Tercer tomo de una serie de mensajes y comentarios de la autora sobre cuestiones doctrinales, con aclaraciones y consejos dirigidos a la iglesia de su tiempo.',
     idioma: 'Español',
