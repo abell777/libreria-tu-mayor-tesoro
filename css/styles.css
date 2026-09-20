@@ -3730,3 +3730,42 @@ img.img-failed { visibility: hidden; }
   .account-nav { scrollbar-width: none; }
   .account-nav::-webkit-scrollbar { display: none; }
 }
+
+/* ---- Catálogo en móvil ---------------------------------------------------
+   La columna única del catálogo se ensanchaba hasta el ancho de la paginación
+   (unos 420px en pantallas de 390px): scroll lateral y tarjetas descentradas. */
+.shop-layout > * { min-width: 0; }
+.pagination { flex-wrap: wrap; }
+
+/* El aviso "2 portadas" chocaba con el corazón de favoritos (ambos arriba a la
+   izquierda): pasa justo debajo. */
+.cover-swap-note { top: 50px; left: 10px; }
+
+/* ---- Ficha de producto y formulario de personalizado --------------------- */
+.product-trust { margin-top: 22px; }
+
+/* Botón "Elegir archivo": antes salía con el estilo gris del navegador */
+.custom-form input[type="file"]::file-selector-button {
+  margin-right: 12px;
+  padding: 8px 14px;
+  border: 1px solid var(--navy);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--navy);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.16s ease, color 0.16s ease;
+}
+.custom-form input[type="file"]::file-selector-button:hover { background: var(--navy); color: var(--parchment); }
+.custom-form input:focus-visible,
+.custom-form select:focus-visible,
+.custom-form textarea:focus-visible {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px oklch(0.64 0.10 78 / 0.18);
+}
+
+/* Panel de administración: el título de "Encargos" competía con el título de la página */
+.admin-encargos .section-title { font-size: 1.45rem; }
