@@ -206,6 +206,18 @@ window.Cart = (function () {
 // Escapa HTML antes de insertar cualquier texto con innerHTML. Se usa en
 // todo el sitio (carrito, opiniones, panel de admin) para que un nombre,
 // dirección o comentario con < > " ' nunca se interprete como código.
+// Pulsar en cualquier parte de una línea del carrito (salvo en los botones, el
+// selector de cantidad o un enlace) abre la ficha del libro.
+function makeRowClickable(row) {
+  var href = row.getAttribute('data-href');
+  if (!href) return;
+  row.classList.add('is-clickable');
+  row.addEventListener('click', function (e) {
+    if (e.target.closest('a, button, input, .qty-stepper')) return;
+    window.location.href = href;
+  });
+}
+
 function escapeHTML(str) {
   return String(str == null ? '' : str)
     .replace(/&/g, '&amp;')
@@ -376,7 +388,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
       return (
         '<article class="cart-item" data-id="' + escapeHTML(item.id) + '" data-format="' + escapeHTML(item.format) +
-        '" data-gift-key="' + escapeHTML(item.giftKey || '') + '">' +
+        '" data-gift-key="' + escapeHTML(item.giftKey || '') + '"' +
+        (window.cartProductUrl(item) ? ' data-href="' + escapeHTML(window.cartProductUrl(item)) + '"' : '') + '>' +
           (window.cartProductUrl(item)
             ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '" class="cart-item-img-link" aria-label="Ver «' + escapeHTML(item.title) + '»">' +
                 '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '" class="cart-item-img"></a>'
@@ -387,7 +400,12 @@ document.addEventListener('DOMContentLoaded', function () {
               : escapeHTML(item.title)) + '</h3>' +
             '<p class="cart-item-format">' + escapeHTML(item.author) + (item.format && item.format !== 'Estándar' ? ' · ' + escapeHTML(item.format) : '') + '</p>' +
             extrasHTML +
-            '<button class="cart-item-remove" type="button" data-remove>Eliminar</button>' +
+            '<div class="cart-item-links">' +
+              (window.cartProductUrl(item)
+                ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '" class="cart-item-details">Ver detalles del libro</a>'
+                : '') +
+              '<button class="cart-item-remove" type="button" data-remove>Eliminar</button>' +
+            '</div>' +
           '</div>' +
           '<div class="qty-stepper">' +
             '<button type="button" class="qty-btn" data-decrease aria-label="Restar cantidad">−</button>' +
@@ -400,6 +418,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }).join('');
 
     cartItemsEl.querySelectorAll('.cart-item').forEach(function (row) {
+      makeRowClickable(row);
       var id = row.dataset.id;
       var format = row.dataset.format;
       var giftKey = row.dataset.giftKey || '';
@@ -608,7 +627,8 @@ function renderCartDrawer() {
   body.innerHTML = items.map(function (item) {
     var imagePath = item.cover && item.cover.startsWith('img/') ? item.cover : getBookImage(item.title);
     return (
-      '<article class="cart-drawer-item" data-id="' + escapeHTML(item.id) + '" data-format="' + escapeHTML(item.format) + '">' +
+      '<article class="cart-drawer-item" data-id="' + escapeHTML(item.id) + '" data-format="' + escapeHTML(item.format) + '"' +
+      (window.cartProductUrl(item) ? ' data-href="' + escapeHTML(window.cartProductUrl(item)) + '"' : '') + '>' +
         (window.cartProductUrl(item)
           ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '" class="cart-drawer-item-img" aria-label="Ver «' + escapeHTML(item.title) + '»">' +
               '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '"></a>'
@@ -618,6 +638,9 @@ function renderCartDrawer() {
             ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '">' + escapeHTML(item.title) + '</a>'
             : escapeHTML(item.title)) + '</h3>' +
           '<p>' + escapeHTML(item.format && item.format !== 'Estándar' ? item.format : '') + '</p>' +
+          (window.cartProductUrl(item)
+            ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '" class="cart-drawer-item-details">Ver detalles</a>'
+            : '') +
           '<div class="cart-drawer-item-actions">' +
             '<div class="qty-stepper">' +
               '<button type="button" class="qty-btn" data-decrease aria-label="Restar cantidad">−</button>' +
@@ -633,6 +656,7 @@ function renderCartDrawer() {
   }).join('');
 
   body.querySelectorAll('.cart-drawer-item').forEach(function (row) {
+    makeRowClickable(row);
     var id = row.dataset.id;
     var format = row.dataset.format;
     var qtyInput = row.querySelector('[data-qty]');

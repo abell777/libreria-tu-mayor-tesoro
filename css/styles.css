@@ -3939,3 +3939,23 @@ img.img-failed { visibility: hidden; }
 .cart-drawer-item-info h3 a:hover { color: var(--gold-text); text-decoration: underline; text-underline-offset: 3px; }
 .order-items a { color: var(--navy); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
 .order-items a:hover { color: var(--gold-text); }
+
+
+.cart-item.is-clickable, .cart-drawer-item.is-clickable { cursor: pointer; }
+.cart-item.is-clickable:hover { border-color: var(--gold-soft); box-shadow: var(--shadow-card); }
+.cart-item-links { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; margin-top: 8px; }
+.cart-item-links .cart-item-remove { margin: 0; }
+.cart-item-details,
+.cart-drawer-item-details {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+}
+.cart-item-details::after,
+.cart-drawer-item-details::after { content: " →"; }
+.cart-item-details:hover,
+.cart-drawer-item-details:hover { color: var(--gold-text); }
+.cart-drawer-item-details { display: inline-block; margin: 2px 0 6px; font-size: 0.78rem; }
