@@ -3925,3 +3925,17 @@ img.img-failed { visibility: hidden; }
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b6252' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 .search-form input[type="search"]::-webkit-search-cancel-button:hover { opacity: 1; }
+
+
+/* ---- 10. Carrito y pedidos: la portada y el título llevan a la ficha del libro ---- */
+.cart-item-img-link { grid-area: img; display: block; border-radius: var(--radius-sm); }
+.cart-item-img-link .cart-item-img { display: block; transition: opacity 0.16s ease; }
+.cart-item-img-link:hover .cart-item-img,
+.cart-drawer-item-img:hover img { opacity: 0.88; }
+.cart-drawer-item-img { display: block; flex-shrink: 0; }
+.cart-item-info h3 a,
+.cart-drawer-item-info h3 a { color: inherit; text-decoration: none; }
+.cart-item-info h3 a:hover,
+.cart-drawer-item-info h3 a:hover { color: var(--gold-text); text-decoration: underline; text-underline-offset: 3px; }
+.order-items a { color: var(--navy); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+.order-items a:hover { color: var(--gold-text); }

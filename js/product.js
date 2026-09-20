@@ -307,6 +307,16 @@
   }
   applyCover(0);
 
+  // Si se llega desde el carrito (o un enlace) con "?portada=<estilo>", la ficha
+  // se abre ya con esa portada seleccionada.
+  (function () {
+    var wanted = params.get('portada');
+    if (!wanted) return;
+    for (var i = 0; i < covers.length; i++) {
+      if (covers[i].style === wanted) { applyCover(i); break; }
+    }
+  })();
+
   // ---- Aviso de "próximamente" debajo del precio ----
   if (comingSoon) {
     var infoBlock = document.querySelector('[data-product-block]');

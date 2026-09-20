@@ -158,7 +158,15 @@
       ? pedido.createdAt.toDate().toLocaleDateString('es-ES')
       : '';
     var items = (pedido.items || []).map(function (it) {
-      return '<li>' + it.cantidad + ' × ' + it.titulo + '</li>';
+      // Si el libro sigue en el catálogo, el título lleva al libro (con la
+      // portada que se pidió). Las líneas de extras de regalo no enlazan.
+      var enCatalogo = it.id && String(it.id).indexOf('extra-') !== 0 &&
+        window.BooksCatalog && window.BooksCatalog.getById(it.id);
+      var titulo = enCatalogo
+        ? '<a href="producto.html?id=' + encodeURIComponent(it.id) +
+          (it.portada ? '&portada=' + encodeURIComponent(it.portada) : '') + '">' + escapeHTML(it.titulo) + '</a>'
+        : escapeHTML(it.titulo);
+      return '<li>' + it.cantidad + ' × ' + titulo + '</li>';
     }).join('');
     var total = (pedido.total || 0).toFixed(2).replace('.', ',');
     return (

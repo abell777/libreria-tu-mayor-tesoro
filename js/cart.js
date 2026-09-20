@@ -54,6 +54,16 @@ window.Cart = (function () {
     return i.id === id && i.format === format && lineKeyOf(i) === (giftKey || '');
   }
 
+  // Enlace a la ficha del libro de una línea del carrito. Si la línea tiene una
+  // portada elegida, se pasa en la URL para que la ficha se abra con ESA portada
+  // seleccionada (ver "portada" en js/product.js).
+  function productUrl(item) {
+    if (!item || !item.id || String(item.id).indexOf('extra-') === 0) return '';
+    return 'producto.html?id=' + encodeURIComponent(item.id) +
+      (item.coverStyle ? '&portada=' + encodeURIComponent(item.coverStyle) : '');
+  }
+  window.cartProductUrl = productUrl;
+
   function addItem(item) {
     var items = getItems();
     item.giftKey = lineKeyOf(item);
@@ -367,10 +377,14 @@ document.addEventListener('DOMContentLoaded', function () {
       return (
         '<article class="cart-item" data-id="' + escapeHTML(item.id) + '" data-format="' + escapeHTML(item.format) +
         '" data-gift-key="' + escapeHTML(item.giftKey || '') + '">' +
-          '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '" class="cart-item-img">' +
-          
+          (window.cartProductUrl(item)
+            ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '" class="cart-item-img-link" aria-label="Ver «' + escapeHTML(item.title) + '»">' +
+                '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '" class="cart-item-img"></a>'
+            : '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '" class="cart-item-img">') +
           '<div class="cart-item-info">' +
-            '<h3>' + escapeHTML(item.title) + '</h3>' +
+            '<h3>' + (window.cartProductUrl(item)
+              ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '">' + escapeHTML(item.title) + '</a>'
+              : escapeHTML(item.title)) + '</h3>' +
             '<p class="cart-item-format">' + escapeHTML(item.author) + (item.format && item.format !== 'Estándar' ? ' · ' + escapeHTML(item.format) : '') + '</p>' +
             extrasHTML +
             '<button class="cart-item-remove" type="button" data-remove>Eliminar</button>' +
@@ -595,9 +609,14 @@ function renderCartDrawer() {
     var imagePath = item.cover && item.cover.startsWith('img/') ? item.cover : getBookImage(item.title);
     return (
       '<article class="cart-drawer-item" data-id="' + escapeHTML(item.id) + '" data-format="' + escapeHTML(item.format) + '">' +
-        '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '">' +
+        (window.cartProductUrl(item)
+          ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '" class="cart-drawer-item-img" aria-label="Ver «' + escapeHTML(item.title) + '»">' +
+              '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '"></a>'
+          : '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '">') +
         '<div class="cart-drawer-item-info">' +
-          '<h3>' + escapeHTML(item.title) + '</h3>' +
+          '<h3>' + (window.cartProductUrl(item)
+            ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '">' + escapeHTML(item.title) + '</a>'
+            : escapeHTML(item.title)) + '</h3>' +
           '<p>' + escapeHTML(item.format && item.format !== 'Estándar' ? item.format : '') + '</p>' +
           '<div class="cart-drawer-item-actions">' +
             '<div class="qty-stepper">' +
