@@ -931,10 +931,10 @@ window.BOOKS = [
   {
     id: 'el-poder-de-la-oracion',
     title: 'El Poder de la Oración',
-    author: 'PENDIENTE_AUTOR',
-    authorSlug: 'pendiente-autor',
-    category: 'doctrina',
-    categoryLabel: 'Doctrina y creencias',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
     price: 6.76,
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
@@ -948,7 +948,8 @@ window.BOOKS = [
     ],
     badge: 'Nuevo',
     description: 'Una recopilación de escritos sobre la oración como conexión personal con Dios, con reflexiones sobre su lugar en la vida de fe y su poder frente a las dificultades.',
-    idioma: 'Español'
+    idioma: 'Español',
+    subcategory: ['vida-cristiana', 'devocionales'],
   },
   {
     id: 'un-viaje-a-lo-sobrenatural',

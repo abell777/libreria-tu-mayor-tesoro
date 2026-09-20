@@ -452,6 +452,16 @@ const CATALOGO = {
     cover: "img/creencias-de-los-adventistas-del-septimo-dia.jpg",
     description: "Una exposición clara de las doctrinas fundamentales de la Iglesia Adventista del Séptimo Día, pensada tanto para miembros como para quienes se acercan por primera vez a estas creencias.",
   },
+  "el-poder-de-la-oracion": {
+    title: "El Poder de la Oración",
+    format: "Tapa blanda, 148 x 210 mm",
+    price: 6.76,
+    author: "Elena G. White",
+    category: "elena-white",
+    categoryLabel: "Elena G. White",
+    cover: "img/el-poder-de-la-oracion.jpg",
+    description: "Una recopilación de escritos sobre la oración como conexión personal con Dios, con reflexiones sobre su lugar en la vida de fe y su poder frente a las dificultades.",
+  },
   "alza-tus-ojos": {
     title: "Alza Tus Ojos",
     format: "Tapa blanda, 148 x 210 mm",
