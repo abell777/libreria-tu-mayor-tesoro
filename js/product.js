@@ -38,7 +38,7 @@
   var coverIndex = 0;
 
   // ---- SEO: título, meta descripción, OG/Twitter, canonical, migas de pan ----
-  var pageTitle = book.title + ' — Librería tu mayor tesoro';
+  var pageTitle = book.title + ' (' + book.author + ') — Comprar | Librería tu mayor tesoro';
   document.title = pageTitle;
   var setMeta = function (id, value) { var el = document.getElementById(id); if (el) el.setAttribute('content', value); };
   setMeta('metaDescription', book.description.slice(0, 155));
@@ -626,5 +626,28 @@
     script.id = 'productJsonLd';
     script.textContent = JSON.stringify(data);
     document.head.appendChild(script);
+
+    // Dato estructurado adicional tipo Book (autor como Person, formato):
+    // ayuda a que Google relacione la ficha con búsquedas del título exacto
+    // y del nombre del autor, además del schema Product de arriba.
+    var bookData = {
+      '@context': 'https://schema.org',
+      '@type': 'Book',
+      name: book.title,
+      image: 'https://www.libreriatumayortesoro.com/' + book.cover,
+      description: book.description,
+      inLanguage: lang,
+      author: { '@type': 'Person', name: book.author },
+      bookFormat: /tapa dura/i.test(book.format || '') ? 'https://schema.org/Hardcover' : 'https://schema.org/Paperback',
+      publisher: { '@type': 'Organization', name: 'Librería tu mayor tesoro' },
+      url: 'https://www.libreriatumayortesoro.com/producto.html?id=' + book.id
+    };
+    var existingBook = document.getElementById('bookJsonLd');
+    if (existingBook) existingBook.remove();
+    var bookScript = document.createElement('script');
+    bookScript.type = 'application/ld+json';
+    bookScript.id = 'bookJsonLd';
+    bookScript.textContent = JSON.stringify(bookData);
+    document.head.appendChild(bookScript);
   }
 })();
