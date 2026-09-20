@@ -111,6 +111,8 @@ function lineasDeRegalo(regalo, cantidadLibro, tituloLibro) {
 const PORTADAS_VALIDAS = {
   ilustrada: "Portada ilustrada",
   tipografica: "Portada tipográfica",
+  "tipografica-clara": "Portada tipográfica clara",
+  "tipografica-oscura": "Portada tipográfica oscura",
   rustica: "Portada rústica",
 };
 
