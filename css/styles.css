@@ -34,6 +34,7 @@
   --container: 1240px;
   --shadow-card: 0 1px 2px oklch(0.29 0.03 70 / 0.06), 0 8px 24px oklch(0.29 0.03 70 / 0.07);
   --shadow-lift: 0 14px 34px oklch(0.22 0.06 258 / 0.16);
+  --shadow-soft: 0 1px 2px oklch(0.29 0.03 70 / 0.06), 0 3px 10px oklch(0.29 0.03 70 / 0.05);
 }
 
 /* ---- Reset base ---------------------------------------------------------- */
@@ -1533,9 +1534,9 @@ body.no-scroll { overflow: hidden; }
 
 .cart-page {
   display: block;
-  max-width: 1200px;
+  max-width: var(--container);
   margin: 0 auto;
-  padding: 0 1.5rem 4rem 1.5rem;
+  padding: 40px 24px 80px;
 }
 
 .cart-layout {
@@ -2103,8 +2104,8 @@ body.no-scroll { overflow: hidden; }
   color: var(--foreground);
 }
 
-.content-narrow-left { max-width: 800px; margin: 0 auto; text-align: left; }
-.content-narrow-section { max-width: 800px; margin: 0 auto 3rem auto; }
+.content-narrow-left { max-width: 800px; margin: 0; text-align: left; }
+.content-narrow-section { max-width: 800px; margin: 0 0 3rem; }
 .content-narrow-grid { max-width: 800px; margin-bottom: 3rem; display: grid; gap: 2rem; }
 
 .content-card {
@@ -2250,7 +2251,7 @@ img.img-failed { visibility: hidden; }
    15. PEDIDOS PERSONALIZADOS (personalizado.html)
    ========================================================================== */
 
-.custom-page { padding-bottom: 3.5rem; }
+.custom-page { padding-top: 40px; padding-bottom: 3.5rem; }
 
 .custom-hero { max-width: 720px; margin: 0 0 2.2rem; }
 .custom-intro { color: var(--muted-foreground); font-size: 1rem; margin-top: 0.4rem; }
@@ -2504,7 +2505,7 @@ img.img-failed { visibility: hidden; }
    17. SEGUIMIENTO DE PEDIDO (seguimiento.html)
    ========================================================================== */
 
-.tracking-page { max-width: 720px; padding-bottom: 3.5rem; }
+.tracking-page { max-width: 720px; padding-top: 40px; padding-bottom: 3.5rem; }
 .tracking-hero { margin-bottom: 1.6rem; }
 .tracking-intro { color: var(--muted-foreground); margin-top: 0.4rem; }
 
@@ -2941,11 +2942,11 @@ img.img-failed { visibility: hidden; }
    Utilidades genéricas de formulario (usadas en consejo.html, y disponibles
    para cualquier página nueva que necesite un formulario sencillo)
    ========================================================================== */
-.container--narrow { max-width: 760px; }
-.pb-lg { padding-bottom: 0; }
+/* Alineada a la izquierda con el resto de la página (antes quedaba centrada
+   y desalineada respecto al título). El contenido interior se limita a 760px. */
+.container--narrow { max-width: var(--container); }
+.container--narrow > * { max-width: 760px; }
 .pt-0 { padding-top: 0; }
-.mb-lg { margin-bottom: 28px; }
-.mb-0 { margin-bottom: 0; }
 
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .form-field {
@@ -2997,7 +2998,7 @@ img.img-failed { visibility: hidden; }
 }
 .form-note { margin-top: 14px; font-size: 0.82rem; color: var(--muted-foreground); }
 
-.advice-form { max-width: none; }
+.advice-form { max-width: 760px; }
 .advice-done {
   border: 1px solid var(--gold-soft);
   border-radius: var(--radius-lg);
@@ -3373,4 +3374,359 @@ img.img-failed { visibility: hidden; }
   .printable { position: static; background: none; padding: 0; }
   .printable-bar { display: none; }
   .printable-sheet { box-shadow: none; max-width: none; }
+}
+
+
+/* ==========================================================================
+   PULIDO DE DISEÑO (revisión general de coherencia)
+   --------------------------------------------------------------------------
+   1) Cabecera de páginas informativas con el mismo aire que el catálogo
+   2) Tarjetas de contenido (blog, FAQ, envíos...)
+   3) Mi cuenta (login, panel, formularios, estados vacíos, zona de peligro)
+   4) Pie de página (5 columnas, newsletter, banner de contacto)
+   ========================================================================== */
+
+/* ---- 1. Páginas informativas -------------------------------------------- */
+.section.pb-lg { padding-top: 40px; }
+
+/* ---- 2. Tarjetas de contenido ------------------------------------------- */
+.content-card {
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.content-narrow-grid > .content-card:hover {
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+  border-color: var(--gold-soft);
+}
+.card-title { color: var(--navy); }
+.card-title .link-inline { text-decoration: none; color: inherit; }
+.card-title .link-inline:hover { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.content-card .text-block--end + .btn { margin-top: 1.25rem; }
+
+/* ---- 3. Mi cuenta ------------------------------------------------------- */
+.account-intro { margin: 10px 0 28px; }
+
+.auth-card {
+  padding: 30px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+}
+.auth-form input:focus-visible,
+.account-form input:focus-visible {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px oklch(0.64 0.10 78 / 0.18);
+}
+.auth-form input, .account-form input { transition: border-color 0.16s ease, box-shadow 0.16s ease; }
+.auth-form input:hover:not(:focus-visible),
+.account-form input:hover:not(:focus-visible):not(:disabled) { border-color: var(--gold-soft); }
+.account-form input:disabled { background: var(--muted); color: var(--muted-foreground); cursor: not-allowed; }
+.auth-forgot-link { margin: -4px 0 6px; }
+.auth-forgot-link:hover { color: var(--navy); }
+
+/* Botón de Google: neutro, con el logotipo real en lugar de una "G" azul marino */
+.auth-google {
+  border-color: var(--border);
+  background: #fff;
+  color: var(--foreground);
+}
+.auth-google:hover { background: var(--muted); color: var(--navy); border-color: var(--navy); }
+.auth-google-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 0;
+  font-size: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%23EA4335' d='M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z'/%3E%3Cpath fill='%234285F4' d='M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z'/%3E%3Cpath fill='%23FBBC05' d='M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z'/%3E%3Cpath fill='%2334A853' d='M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* Panel con sesión iniciada */
+.account-sidebar { box-shadow: var(--shadow-soft); }
+.account-nav {
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.account-nav-btn.is-active { box-shadow: var(--shadow-soft); }
+
+/* Cerrar sesión: antes salía como un botón sin estilo del navegador */
+.account-logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 0;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--muted-foreground);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+}
+.account-logout:hover { color: #b3402a; border-color: #b3402a; background: oklch(0.97 0.02 30); }
+.admin-dashboard-head .account-logout { width: auto; padding: 9px 20px; margin-top: 6px; }
+
+.account-panel-head { align-items: flex-end; margin-bottom: 26px; }
+.account-panel-head .section-title { margin-top: 8px; }
+.account-subheading { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; margin: 34px 0 14px; }
+
+.account-stats { gap: 16px; }
+.account-stat-card {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 22px 20px 26px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  text-align: left;
+}
+.account-stat-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 18px;
+  bottom: 18px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--gold);
+}
+.account-stat-value { font-size: 1.75rem; line-height: 1.15; }
+.account-stat-label {
+  margin-top: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Formularios del panel: dentro de una tarjeta y con separación entre campos */
+.account-panel .account-form,
+.tracking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.account-panel .account-form {
+  max-width: 620px;
+  padding: 26px 28px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+.account-panel .account-form .account-subheading { margin: 0 0 2px; }
+.account-form-actions { margin-top: 6px; }
+.account-panel .review-login-notice { margin-bottom: 20px; max-width: 620px; }
+
+.order-card { padding: 18px 22px; box-shadow: var(--shadow-soft); transition: box-shadow 0.2s ease, border-color 0.2s ease; }
+.order-card:hover { box-shadow: var(--shadow-card); border-color: var(--gold-soft); }
+.address-card { box-shadow: var(--shadow-soft); }
+.address-card.is-default { background: var(--parchment); }
+
+/* Estados vacíos: caja discreta en lugar de una línea de texto suelta */
+.account-panel > .reviews-empty {
+  margin: 0;
+  padding: 36px 20px;
+  border: 1px dashed var(--gold-soft);
+  border-radius: var(--radius-lg);
+  background: var(--parchment);
+  text-align: center;
+  font-size: 0.95rem;
+}
+.account-panel > .reviews-empty a { color: var(--navy); font-weight: 700; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+
+/* Zona de peligro */
+.account-danger-zone {
+  max-width: 620px;
+  margin-top: 32px;
+  padding: 22px 26px;
+  border: 1px solid oklch(0.88 0.06 30);
+  border-radius: var(--radius-lg);
+  background: oklch(0.985 0.012 30);
+}
+.account-danger-zone .account-subheading { margin: 0 0 6px; color: #b3402a; font-size: 1.05rem; }
+.account-danger-zone p { margin: 0 0 14px; color: var(--muted-foreground); font-size: 0.9rem; }
+
+@media (max-width: 560px) {
+  .auth-card { padding: 22px; }
+  .account-panel .account-form { padding: 20px; }
+  .account-panel-head { align-items: flex-start; }
+}
+
+/* ---- 4. Pie de página --------------------------------------------------- */
+/* Ahora hay 5 bloques (marca + 3 listas + contacto): con 4 columnas el último
+   caía solo a una segunda fila. */
+.footer-top { grid-template-columns: 1.5fr 1fr 1fr 1fr 1.4fr; gap: 36px; }
+@media (max-width: 1100px) {
+  .footer-top { grid-template-columns: repeat(2, 1fr); }
+  .footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .footer-top { grid-template-columns: 1fr; }
+}
+.footer-brand .footer-about { max-width: 38ch; }
+
+/* Newsletter (se inyecta desde js/main.js; no tenía ningún estilo) */
+.newsletter-signup {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid oklch(1 0 0 / 0.1);
+  max-width: 380px;
+}
+.newsletter-signup .footer-heading { margin-bottom: 8px; }
+.newsletter-text {
+  margin: 0 0 14px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: oklch(0.97 0.015 85 / 0.66);
+}
+.newsletter-form { display: flex; gap: 8px; }
+.newsletter-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 13px;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--parchment);
+  background: oklch(1 0 0 / 0.07);
+  border: 1px solid oklch(1 0 0 / 0.18);
+  border-radius: var(--radius-md);
+  transition: border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
+}
+.newsletter-form input::placeholder { color: oklch(0.97 0.015 85 / 0.45); }
+.newsletter-form input:focus-visible {
+  outline: none;
+  border-color: var(--gold);
+  background: oklch(1 0 0 / 0.1);
+  box-shadow: 0 0 0 3px oklch(0.64 0.10 78 / 0.25);
+}
+.newsletter-form .btn { flex: none; }
+.newsletter-msg { margin: 10px 0 0; font-size: 0.82rem; }
+.newsletter-msg.is-success { color: oklch(0.82 0.11 150); }
+.newsletter-msg.is-error { color: oklch(0.82 0.1 30); }
+
+/* Banner de contacto bajo las columnas */
+.footer-contact-banner {
+  border-top: 1px solid oklch(1 0 0 / 0.1);
+  background: oklch(1 0 0 / 0.03);
+  font-size: 0.88rem;
+  color: oklch(0.97 0.015 85 / 0.75);
+}
+.footer-contact-banner .container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-block: 16px;
+}
+.footer-contact-banner svg { flex-shrink: 0; color: var(--gold); }
+.footer-contact-banner a { color: var(--gold-soft); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.footer-contact-banner a:hover { color: var(--parchment); }
+.footer-tel-link:hover { color: var(--gold-soft); }
+
+
+/* ---- 5. Carrito y pago ---------------------------------------------------
+   El bloque de pago llevaba estilos en línea con colores sueltos (#ccc, 4px,
+   #fa755a). Ahora usa la misma paleta, radios y foco que el resto de la web. */
+.cart-empty {
+  max-width: 460px;
+  margin: 24px 0 0;
+  padding: 44px 28px;
+  text-align: center;
+  background: var(--parchment);
+  border: 1px dashed var(--gold-soft);
+  border-radius: var(--radius-xl);
+}
+.cart-empty svg { margin: 0 auto 14px; color: var(--gold); opacity: 0.9; }
+.cart-empty p { margin: 0 0 20px; color: var(--muted-foreground); font-size: 1rem; }
+
+.pay-group { margin-top: 10px; }
+.pay-legend {
+  display: block;
+  margin: 0 0 10px;
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+.payment-method-options { display: flex; flex-direction: column; gap: 10px; }
+.shipping-form .pay-option {
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 15px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--foreground);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
+}
+.shipping-form .pay-option:hover { border-color: var(--gold-soft); }
+.shipping-form .pay-option:has(input:checked) {
+  border-color: var(--gold);
+  background: var(--parchment);
+  box-shadow: 0 0 0 3px oklch(0.64 0.10 78 / 0.14);
+}
+.shipping-form .pay-option input { accent-color: var(--navy); width: 17px; height: 17px; flex: none; }
+.pay-option-text { display: flex; flex-direction: column; gap: 1px; }
+.pay-option-text small { font-size: 0.78rem; font-weight: 400; color: var(--muted-foreground); }
+
+.pay-instructions {
+  margin: 4px 0 8px;
+  padding: 16px 18px;
+  background: var(--parchment);
+  border: 1px solid var(--gold-soft);
+  border-radius: var(--radius-md);
+}
+.pay-instructions p { margin: 0; }
+.pay-instructions-lead { font-size: 0.92rem; color: var(--foreground); }
+.pay-number {
+  margin: 6px 0 8px !important;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+}
+.pay-hint { font-size: 0.83rem; line-height: 1.5; color: var(--muted-foreground); }
+
+.stripe-card-input {
+  padding: 13px 14px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.16s ease, box-shadow 0.16s ease;
+}
+.stripe-card-input:hover { border-color: var(--gold-soft); }
+.stripe-card-input.StripeElement--focus { border-color: var(--gold); box-shadow: 0 0 0 3px oklch(0.64 0.10 78 / 0.18); }
+.stripe-card-input.StripeElement--invalid { border-color: #b3402a; }
+.form-error:empty { display: none; }
+#payment-errors { margin-top: 8px; }
+
+.checkout-trust {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 10px 0 0;
+  font-size: 0.83rem;
+  line-height: 1.45;
+  color: var(--muted-foreground);
+}
+.checkout-trust svg { flex: none; margin-top: 2px; color: var(--gold); }
+.checkout-trust a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.checkout-trust a:hover { color: var(--navy); }
+.checkout-trust--center { justify-content: center; text-align: center; margin-top: 14px; }
+.shipping-form .btn--block { margin-top: 6px; }
+.label-optional { font-weight: 400; color: var(--muted-foreground); }
+
+/* Móvil: la columna única de la cuenta se ensanchaba hasta el ancho del menú
+   horizontal (unos 950px) y hacía scroll lateral en toda la página. */
+.account-dashboard > * { min-width: 0; }
+@media (max-width: 860px) {
+  .account-nav { scrollbar-width: none; }
+  .account-nav::-webkit-scrollbar { display: none; }
 }

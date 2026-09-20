@@ -179,3 +179,18 @@
     lista.insertBefore(li, lista.firstChild);
   });
 })();
+
+
+// ==========================================================================
+// Pestaña activa del menú
+// --------------------------------------------------------------------------
+// "Todas las categorías" venía marcada como activa a mano en el HTML de casi
+// todas las páginas (inicio, carrito, cuenta, 404...). Aquí se deja activa solo
+// cuando de verdad estás en el catálogo.
+// ==========================================================================
+(function () {
+  var primero = document.querySelector('.category-list > li:first-child > a');
+  if (!primero || primero.getAttribute('href') !== 'categoria.html') return;
+  var enCatalogo = window.location.pathname.split('/').pop() === 'categoria.html';
+  primero.classList.toggle('is-active', enCatalogo);
+})();

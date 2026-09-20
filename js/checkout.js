@@ -66,14 +66,14 @@
     var style = {
       base: {
         color: '#1f2b45',
-        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontFamily: '"Source Sans 3", "Segoe UI", system-ui, sans-serif',
         fontSmoothing: 'antialiased',
         fontSize: '16px',
         '::placeholder': { color: '#aab7c4' }
       },
       invalid: {
-        color: '#fa755a',
-        iconColor: '#fa755a'
+        color: '#b3402a',
+        iconColor: '#b3402a'
       }
     };
 
