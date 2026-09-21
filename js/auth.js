@@ -32,7 +32,27 @@
     emailjs.init(emailjsConfig.publicKey);
   }
 
-  var googleProvider = new firebase.auth.GoogleAuthProvider();
+  // Proveedores de acceso social. Cada uno se crea al usarlo.
+  var providerFactories = {
+    google: function () {
+      var p = new firebase.auth.GoogleAuthProvider();
+      p.setCustomParameters({ prompt: 'select_account' });
+      return p;
+    },
+    facebook: function () { return new firebase.auth.FacebookAuthProvider(); },
+    apple: function () {
+      var p = new firebase.auth.OAuthProvider('apple.com');
+      p.addScope('email');
+      p.addScope('name');
+      return p;
+    },
+    microsoft: function () {
+      var p = new firebase.auth.OAuthProvider('microsoft.com');
+      p.setCustomParameters({ prompt: 'select_account' });
+      return p;
+    }
+  };
+  var providerIds = { 'google.com': 'google', 'facebook.com': 'facebook', 'apple.com': 'apple', 'microsoft.com': 'microsoft' };
 
   window.authRegister = function (nombre, email, password) {
     return auth.createUserWithEmailAndPassword(email, password).then(function (cred) {
@@ -42,14 +62,41 @@
   window.authLogin = function (email, password) {
     return auth.signInWithEmailAndPassword(email, password);
   };
-  window.authGoogleLogin = function () {
-    // signInWithPopup depende de cookies de terceros para comunicar la
-    // ventana emergente con la página; los navegadores actuales (Chrome,
-    // Safari) las bloquean cada vez más a menudo, lo que hace que la
-    // ventana se cierre sola sin completar el inicio de sesión.
-    // signInWithRedirect evita ese problema por completo: te lleva a
-    // Google en la misma pestaña y vuelve aquí ya con la sesión iniciada.
-    return auth.signInWithRedirect(googleProvider);
+
+  // Acceso con Google / Facebook / Apple / Microsoft. Se abre una ventana
+  // emergente (no saca al cliente de la web); si el navegador la bloquea, se
+  // pasa automáticamente a la redirección en la misma pestaña.
+  window.authProviderLogin = function (name) {
+    var make = providerFactories[name];
+    if (!make) return Promise.reject({ code: 'auth/operation-not-allowed' });
+    var provider = make();
+    return auth.signInWithPopup(provider).catch(function (err) {
+      var usarRedireccion = ['auth/popup-blocked', 'auth/operation-not-supported-in-this-environment', 'auth/web-storage-unsupported'];
+      if (err && usarRedireccion.indexOf(err.code) !== -1) return auth.signInWithRedirect(provider);
+      throw err;
+    });
+  };
+  window.authGoogleLogin = function () { return window.authProviderLogin('google'); };
+
+  // Acceso sin contraseña: se envía un enlace al correo y al abrirlo se entra.
+  var EMAIL_LINK_KEY = 'libreria_email_link';
+  window.authSendEmailLink = function (email) {
+    var settings = { url: window.location.origin + '/cuenta.html', handleCodeInApp: true };
+    return auth.sendSignInLinkToEmail(email, settings).then(function () {
+      try { window.localStorage.setItem(EMAIL_LINK_KEY, email); } catch (e) {}
+    });
+  };
+  // Si la página se ha abierto desde ese enlace, completa el acceso.
+  window.authCompleteEmailLink = function () {
+    if (!auth.isSignInWithEmailLink(window.location.href)) return null;
+    var email = null;
+    try { email = window.localStorage.getItem(EMAIL_LINK_KEY); } catch (e) {}
+    if (!email) email = window.prompt('Confirma tu correo electrónico para terminar de iniciar sesión:');
+    if (!email) return null;
+    return auth.signInWithEmailLink(email.trim(), window.location.href).then(function () {
+      try { window.localStorage.removeItem(EMAIL_LINK_KEY); } catch (e) {}
+      if (window.history && window.history.replaceState) window.history.replaceState(null, '', window.location.pathname);
+    });
   };
   window.authLogout = function () {
     return auth.signOut();
@@ -65,11 +112,14 @@
   // "window.authGoogleRedirectError" y avisamos por si cuenta.html ya
   // registró "window.onGoogleRedirectError" para pintarlo con su propio
   // mensaje traducido; si no, lo dejamos ahí para que lo compruebe al cargar.
-  auth.getRedirectResult().catch(function (err) {
+  function avisarErrorDeAcceso(err) {
     window.authGoogleRedirectError = err;
     if (typeof window.onGoogleRedirectError === 'function') window.onGoogleRedirectError(err);
-    console.error('Error al iniciar sesión con Google', err);
-  });
+    console.error('Error al iniciar sesión', err);
+  }
+  auth.getRedirectResult().catch(avisarErrorDeAcceso);
+  var enlaceCorreo = window.authCompleteEmailLink();
+  if (enlaceCorreo) enlaceCorreo.catch(avisarErrorDeAcceso);
 
   // ---- Panel de cuenta: perfil, contraseña y baja de cuenta ----------------
   window.authUpdateProfileName = function (nombre) {
@@ -90,13 +140,24 @@
   window.authDeleteAccount = function (currentPassword) {
     var user = auth.currentUser;
     if (!user) return Promise.reject({ code: 'auth/no-user' });
-    var isGoogle = user.providerData.some(function (p) { return p.providerId === 'google.com'; });
-    var reauth = isGoogle
-      ? user.reauthenticateWithPopup(googleProvider)
-      : user.reauthenticateWithCredential(firebase.auth.EmailAuthProvider.credential(user.email, currentPassword));
+    var social = user.providerData.filter(function (p) { return providerIds[p.providerId]; })[0];
+    var tienePassword = user.providerData.some(function (p) { return p.providerId === 'password'; });
+    var reauth;
+    if (tienePassword && currentPassword) {
+      reauth = user.reauthenticateWithCredential(firebase.auth.EmailAuthProvider.credential(user.email, currentPassword));
+    } else if (social) {
+      reauth = user.reauthenticateWithPopup(providerFactories[providerIds[social.providerId]]());
+    } else {
+      // Acceso por enlace de correo (sin contraseña): se intenta borrar
+      // directamente; si el acceso no es reciente, Firebase pedirá volver a entrar.
+      reauth = Promise.resolve();
+    }
     return reauth.then(function () { return user.delete(); });
   };
 
+  window.authHasPassword = function (user) {
+    return !!(user && user.providerData && user.providerData.some(function (p) { return p.providerId === 'password'; }));
+  };
   window.authIsGoogleAccount = function (user) {
     return !!(user && user.providerData && user.providerData.some(function (p) { return p.providerId === 'google.com'; }));
   };

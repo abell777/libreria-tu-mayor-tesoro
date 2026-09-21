@@ -125,11 +125,36 @@
           <p class="auth-switch">¿Ya tienes cuenta? <button type="button" class="auth-switch-link" data-auth-switch="login">Inicia sesión</button></p>
         </form>
 
-        <div class="auth-divider"><span>o</span></div>
+        <div id="authProviders" hidden>
+          <div class="auth-divider"><span>o continúa con</span></div>
+          <div class="auth-providers">
+            <button type="button" class="btn btn--outline btn--block auth-provider" data-provider="google" hidden>
+              <span class="auth-icon auth-icon--google" aria-hidden="true"></span> Continuar con Google
+            </button>
+            <button type="button" class="btn btn--outline btn--block auth-provider" data-provider="facebook" hidden>
+              <span class="auth-icon auth-icon--facebook" aria-hidden="true"></span> Continuar con Facebook
+            </button>
+            <button type="button" class="btn btn--outline btn--block auth-provider" data-provider="apple" hidden>
+              <span class="auth-icon auth-icon--apple" aria-hidden="true"></span> Continuar con Apple
+            </button>
+            <button type="button" class="btn btn--outline btn--block auth-provider" data-provider="microsoft" hidden>
+              <span class="auth-icon auth-icon--microsoft" aria-hidden="true"></span> Continuar con Microsoft
+            </button>
+            <button type="button" class="btn btn--outline btn--block auth-provider" data-provider="emailLink" hidden>
+              <span class="auth-icon auth-icon--mail" aria-hidden="true"></span> Recibir un enlace por correo
+            </button>
+          </div>
+          <p class="auth-error" id="providerError" role="alert" hidden></p>
+        </div>
 
-        <button type="button" id="googleLoginBtn" class="btn btn--outline btn--block auth-google">
-          <span class="auth-google-icon">G</span> Continuar con Google
-        </button>
+        <form id="emailLinkForm" class="auth-form" hidden>
+          <p class="auth-hint">Escribe tu correo y te enviamos un enlace para entrar, sin contraseña. Si aún no tienes cuenta, se crea al abrirlo.</p>
+          <label>Correo electrónico<input type="email" name="email" required autocomplete="email"></label>
+          <p class="auth-error" id="emailLinkError" role="alert" hidden></p>
+          <p class="auth-success" id="emailLinkSuccess" role="status" hidden></p>
+          <button type="submit" class="btn btn--primary btn--block">Enviarme el enlace</button>
+          <button type="button" id="emailLinkBack" class="auth-forgot-link">← Volver a las otras opciones</button>
+        </form>
       </div>
     </div>
 
@@ -274,7 +299,7 @@
             <div class="account-panel-head">
               <h1 class="section-title">Seguridad</h1>
             </div>
-            <p class="review-login-notice" id="googleAccountNotice" hidden>Has iniciado sesión con Google, así que tu contraseña se gestiona desde tu cuenta de Google.</p>
+            <p class="review-login-notice" id="googleAccountNotice" hidden>Has iniciado sesión con otro servicio (Google, Facebook, Apple o Microsoft), así que tu contraseña se gestiona desde ese servicio.</p>
             <div id="passwordBlock">
               <form id="passwordForm" class="account-form">
                 <h2 class="account-subheading">Cambiar contraseña</h2>

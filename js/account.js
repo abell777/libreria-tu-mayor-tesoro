@@ -27,7 +27,14 @@
       'auth/wrong-password': 'Contraseña incorrecta.',
       'auth/user-not-found': 'No existe ninguna cuenta con ese correo.',
       'auth/invalid-credential': 'Correo o contraseña incorrectos.',
-      'auth/popup-closed-by-user': 'Se cerró la ventana de Google antes de terminar.',
+      'auth/popup-closed-by-user': 'Se cerró la ventana antes de terminar. Inténtalo de nuevo.',
+      'auth/popup-blocked': 'Tu navegador ha bloqueado la ventana emergente. Permítela para esta web e inténtalo de nuevo.',
+      'auth/account-exists-with-different-credential': 'Ya existe una cuenta con ese correo que usa otra forma de acceso (contraseña, Google…). Entra con esa y no tendrás que hacer nada más.',
+      'auth/operation-not-allowed': 'Esta forma de acceso todavía no está activada. Usa otra o escríbenos.',
+      'auth/unauthorized-domain': 'Este dominio no está autorizado para iniciar sesión (Firebase → Authentication → Configuración → Dominios autorizados).',
+      'auth/invalid-action-code': 'Este enlace ya se usó o ha caducado. Pide uno nuevo.',
+      'auth/expired-action-code': 'Este enlace ha caducado. Pide uno nuevo.',
+      'auth/user-disabled': 'Esta cuenta está desactivada. Escríbenos y lo revisamos.',
       'auth/requires-recent-login': 'Por seguridad, cierra sesión y vuelve a entrar antes de repetir esta acción.',
       'auth/no-user': 'No hay ninguna sesión activa.',
       'auth/too-many-requests': 'Demasiados intentos. Espera unos minutos antes de volver a intentarlo.',
@@ -108,23 +115,87 @@
     });
   }
 
-  var googleBtn = document.getElementById('googleLoginBtn');
-  if (googleBtn) {
-    googleBtn.addEventListener('click', function () {
-      window.authGoogleLogin().catch(function (err) {
-        mostrarError(document.getElementById('loginError'), err);
+  // ---- Otras formas de entrar: Google, Facebook, Apple, Microsoft y enlace por
+  // correo. Solo se muestran las activadas en js/config.js ("authProviders").
+  var proveedoresActivos = window.authProviders || { google: true };
+  var providersBox = document.getElementById('authProviders');
+  var providerError = document.getElementById('providerError');
+  var emailLinkForm = document.getElementById('emailLinkForm');
+  var authTabsBox = document.querySelector('.auth-tabs');
+  var algunProveedor = false;
+
+  var panelPrevio = 'login';
+  function mostrarPaneles(mostrarFormEmailLink) {
+    if (mostrarFormEmailLink) {
+      panels.forEach(function (p) {
+        if (!p.hidden) panelPrevio = p.getAttribute('data-panel');
+        p.hidden = true;
       });
-    });
+    } else {
+      panels.forEach(function (p) { p.hidden = p.getAttribute('data-panel') !== panelPrevio; });
+    }
+    if (authTabsBox) authTabsBox.hidden = mostrarFormEmailLink;
+    if (providersBox) providersBox.hidden = mostrarFormEmailLink || !algunProveedor;
+    if (emailLinkForm) emailLinkForm.hidden = !mostrarFormEmailLink;
   }
 
-  // Con signInWithRedirect, un posible error de Google llega después de
-  // volver a esta página (ver auth.js), no en el momento del clic.
+  document.querySelectorAll('[data-provider]').forEach(function (btn) {
+    var nombre = btn.getAttribute('data-provider');
+    if (!proveedoresActivos[nombre]) return;
+    btn.hidden = false;
+    algunProveedor = true;
+    btn.addEventListener('click', function () {
+      if (providerError) providerError.hidden = true;
+      if (nombre === 'emailLink') {
+        var escrito = loginForm ? loginForm.querySelector('input[name="email"]') : null;
+        var campo = emailLinkForm ? emailLinkForm.querySelector('input[name="email"]') : null;
+        if (campo && escrito && escrito.value && !campo.value) campo.value = escrito.value;
+        mostrarPaneles(true);
+        return;
+      }
+      btn.disabled = true;
+      window.authProviderLogin(nombre).catch(function (err) {
+        console.error('Error al iniciar sesión con ' + nombre, err);
+        if (err && err.code === 'auth/cancelled-popup-request') return;
+        mostrarError(providerError, err);
+      }).then(function () { btn.disabled = false; });
+    });
+  });
+  if (providersBox) providersBox.hidden = !algunProveedor;
+
+  if (emailLinkForm) {
+    emailLinkForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = emailLinkForm.querySelector('input[name="email"]').value.trim();
+      var errorEl = document.getElementById('emailLinkError');
+      var okEl = document.getElementById('emailLinkSuccess');
+      var boton = emailLinkForm.querySelector('button[type="submit"]');
+      errorEl.hidden = true;
+      okEl.hidden = true;
+      boton.disabled = true;
+      window.authSendEmailLink(email).then(function () {
+        okEl.textContent = 'Te hemos enviado un enlace a ' + email + '. Ábrelo desde este mismo dispositivo para entrar. Si no lo ves, mira en la carpeta de spam.';
+        okEl.hidden = false;
+      }).catch(function (err) {
+        console.error('Error al enviar el enlace', err);
+        mostrarError(errorEl, err);
+      }).then(function () { boton.disabled = false; });
+    });
+    var volver = document.getElementById('emailLinkBack');
+    if (volver) volver.addEventListener('click', function () { mostrarPaneles(false); });
+  }
+
+  // Con acceso por ventana emergente el resultado llega al momento; con la
+  // redirección o el enlace por correo, un posible error llega después de volver
+  // a esta página (ver auth.js).
   if (window.authGoogleRedirectError) {
-    mostrarError(document.getElementById('loginError'), window.authGoogleRedirectError);
+    mostrarError(providerError || document.getElementById('loginError'), window.authGoogleRedirectError);
+    if (providerError) providersBox.hidden = false;
     window.authGoogleRedirectError = null;
   }
   window.onGoogleRedirectError = function (err) {
-    mostrarError(document.getElementById('loginError'), err);
+    mostrarError(providerError || document.getElementById('loginError'), err);
+    if (providersBox) providersBox.hidden = false;
   };
 
   var logoutBtn = document.getElementById('logoutBtn');
@@ -425,9 +496,14 @@
       if (!user) return;
       if (!confirm('Esta acción es permanente. ¿Seguro que quieres eliminar tu cuenta?')) return;
 
-      var esGoogle = window.authIsGoogleAccount(user);
-      var password = esGoogle ? null : prompt('Confirma tu contraseña actual para continuar:');
-      if (!esGoogle && !password) return;
+      // Con contraseña: se pide para confirmar (déjala en blanco si entras
+      // siempre por enlace de correo). Con Google/Facebook/Apple/Microsoft se
+      // confirma en su propia ventana.
+      var password = null;
+      if (window.authHasPassword(user)) {
+        password = prompt('Confirma tu contraseña actual para continuar (déjala en blanco si entras siempre con un enlace por correo):');
+        if (password === null) return;
+      }
 
       window.authDeleteAccount(password).then(function () {
         window.location.href = 'index.html';
@@ -514,11 +590,11 @@
         statDesde.textContent = fechaAlta.toLocaleDateString('es-ES', { month: 'long', year: 'numeric' });
       }
 
-      var esGoogle = window.authIsGoogleAccount(user);
+      var sinPassword = !window.authHasPassword(user);
       var passwordBlock = document.getElementById('passwordBlock');
       var googleNotice = document.getElementById('googleAccountNotice');
-      if (passwordBlock) passwordBlock.hidden = esGoogle;
-      if (googleNotice) googleNotice.hidden = !esGoogle;
+      if (passwordBlock) passwordBlock.hidden = sinPassword;
+      if (googleNotice) googleNotice.hidden = !sinPassword;
 
       cargarPerfil(user);
       cargarPedidos(user.uid);

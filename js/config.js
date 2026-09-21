@@ -8,7 +8,18 @@
 // 1) Firebase → Configuración del proyecto → Tus apps → SDK de Firebase
 var firebaseConfig = {
   apiKey: "AIzaSyDGOeVoojBP6LHv3prtvuC2c8N_vy3uVRA",
-  authDomain: "libreria-tu-mayor-tesoro.firebaseapp.com",
+  // IMPORTANTE (inicio de sesión con Google y otros proveedores): el dominio
+  // de autenticación debe ser el MISMO que el de la web. Si es otro (como
+  // "...firebaseapp.com" mientras la web está en libreriatumayortesoro.com),
+  // los navegadores actuales (Chrome, Safari, Firefox) bloquean el almacenamiento
+  // que comparte con la web y el inicio de sesión "vuelve" sin haberse hecho,
+  // sin dar ningún error. Por eso aquí se usa el dominio desde el que se visita
+  // la web. Para que funcione hay que dar de alta una vez, en Google Cloud,
+  // https://TU-DOMINIO/__/auth/handler (ver las instrucciones que te di).
+  // En local, en web.app o en firebaseapp.com se sigue usando el de siempre.
+  authDomain: /(^|\.)libreriatumayortesoro\.com$/.test(window.location.hostname)
+    ? window.location.hostname
+    : "libreria-tu-mayor-tesoro.firebaseapp.com",
   projectId: "libreria-tu-mayor-tesoro",
   storageBucket: "libreria-tu-mayor-tesoro.firebasestorage.app",
   messagingSenderId: "405006984944",
@@ -50,3 +61,21 @@ var APPCHECK_SITE_KEY = "";
 var ADMIN_UIDS = [
   "EPkK3ItKBRhA5bNeqs9PKbM0svB3"
 ];
+
+// 4) Formas de iniciar sesión que se muestran en "Mi cuenta".
+// Además del correo con contraseña, que siempre está. Pon "true" solo en las que
+// ya hayas activado en Firebase → Authentication → Método de acceso:
+//   google     → ya activado
+//   emailLink  → "Enlace por correo": entrar sin contraseña. Se activa en Firebase
+//                → Authentication → Método de acceso → Correo electrónico/contraseña
+//                → marca "Vínculo de correo electrónico (acceso sin contraseña)".
+//   facebook   → requiere crear una app en developers.facebook.com
+//   apple      → requiere cuenta de Apple Developer (99 $/año)
+//   microsoft  → requiere registrar una app en Microsoft Entra (gratis)
+var authProviders = {
+  google: true,
+  emailLink: true,
+  facebook: false,
+  apple: false,
+  microsoft: false
+};
