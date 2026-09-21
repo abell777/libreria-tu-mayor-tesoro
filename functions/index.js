@@ -1711,3 +1711,122 @@ exports.seguimientoLectura = onSchedule(
     await enviarSeguimientoLectura(transporter);
   }
 );
+
+// ==========================================================================
+// suscribirNewsletter — formulario "Novedades y ofertas" del pie de página
+// --------------------------------------------------------------------------
+// Antes el formulario solo guardaba el correo en Firestore y mostraba
+// "¡Listo!": no se enviaba ningún correo a nadie. Ahora esta función (la
+// llama js/main.js) hace tres cosas:
+//   1. Guarda el correo en la colección "newsletter" (una sola vez por correo).
+//   2. Envía un correo de bienvenida a quien se ha apuntado.
+//   3. Te avisa a ti (a la cuenta de Gmail de la tienda) de la nueva alta.
+// Usa el mismo Gmail que el resto de correos (secretos GMAIL_USER y
+// GMAIL_APP_PASSWORD), así que no hay nada nuevo que configurar.
+//
+// Protección: como cualquiera puede escribir un correo ajeno en el formulario,
+// solo se envía el correo de bienvenida la PRIMERA vez que se apunta un correo
+// y hay un máximo de 5 altas por hora y por IP. Así nadie puede usar tu web
+// para llenar de correos la bandeja de otra persona.
+// ==========================================================================
+const ORIGENES_NEWSLETTER = [
+  SITE_URL,
+  "https://libreriatumayortesoro.com",
+  "https://libreria-tu-mayor-tesoro.web.app",
+  "https://libreria-tu-mayor-tesoro.firebaseapp.com",
+];
+
+function plantillaBienvenidaNewsletter() {
+  return (
+    '<div style="font-family:Georgia,serif;max-width:520px;margin:0 auto;color:#2b2b2b">' +
+      '<h2 style="color:#20304f;margin-bottom:4px">Librería tu mayor tesoro</h2>' +
+      "<p>¡Gracias por apuntarte a <strong>Novedades y ofertas</strong>!</p>" +
+      "<p>Te escribiremos solo cuando lleguen títulos nuevos o haya alguna oferta. " +
+      "Nada de correos de relleno.</p>" +
+      '<p style="text-align:center;margin:26px 0">' +
+        '<a href="' + SITE_URL + '/categoria.html" style="background:#20304f;color:#f6efe2;padding:12px 26px;border-radius:6px;text-decoration:none;font-weight:bold">Ver el catálogo</a>' +
+      "</p>" +
+      '<p style="font-size:0.85em;color:#777">Si no has sido tú quien se ha apuntado, o ya no quieres recibir estos correos, ' +
+      'responde a este mensaje y te damos de baja. ' +
+      'Cualquier duda, escríbenos a <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a>.</p>' +
+    "</div>"
+  );
+}
+
+exports.suscribirNewsletter = onRequest(
+  { cors: ORIGENES_NEWSLETTER, secrets: [GMAIL_USER, GMAIL_APP_PASSWORD] },
+  async (req, res) => {
+    if (req.method !== "POST") {
+      res.status(405).json({ ok: false, error: "Método no permitido." });
+      return;
+    }
+
+    const body = req.body || {};
+    const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
+    if (!email || email.length > 200 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      res.status(400).json({ ok: false, error: "Escribe un correo válido." });
+      return;
+    }
+
+    const cabecera = req.headers["x-forwarded-for"];
+    const ip = cabecera ? String(cabecera).split(",")[0].trim() : (req.ip || "desconocida");
+    try {
+      await comprobarLimite("newsletter:" + ip, 5, 60 * 60 * 1000);
+    } catch (err) {
+      res.status(429).json({ ok: false, error: "Demasiados intentos seguidos. Inténtalo más tarde." });
+      return;
+    }
+
+    // 1. Guardar (una sola vez por correo)
+    try {
+      const existente = await db.collection("newsletter").where("email", "==", email).limit(1).get();
+      if (!existente.empty) {
+        res.json({ ok: true, yaSuscrito: true });
+        return;
+      }
+      await db.collection("newsletter").add({
+        email: email,
+        createdAt: FieldValue.serverTimestamp(),
+        origen: "web",
+      });
+    } catch (err) {
+      console.error("suscribirNewsletter: no se pudo guardar el correo", err);
+      res.status(500).json({ ok: false, error: "No se ha podido guardar. Inténtalo de nuevo." });
+      return;
+    }
+
+    // 2 y 3. Correos. Si fallan, el alta ya está guardada: se anota el error en
+    // los registros y no se le enseña ningún fallo a quien se ha apuntado.
+    try {
+      const transporter = crearTransporterGmail();
+      const tienda = GMAIL_USER.value().trim();
+      const remitente = '"Librería tu mayor tesoro" <' + tienda + ">";
+
+      await transporter.sendMail({
+        from: remitente,
+        to: email,
+        replyTo: tienda,
+        subject: "Ya estás apuntado a Novedades y ofertas",
+        html: plantillaBienvenidaNewsletter(),
+        text: "¡Gracias por apuntarte a Novedades y ofertas de Librería tu mayor tesoro! " +
+          "Te escribiremos solo cuando lleguen títulos nuevos o haya alguna oferta. " +
+          "Si no has sido tú, responde a este mensaje y te damos de baja.",
+      });
+
+      try {
+        await transporter.sendMail({
+          from: remitente,
+          to: tienda,
+          subject: "Nueva suscripción a novedades: " + email,
+          text: "Se ha apuntado a Novedades y ofertas: " + email,
+        });
+      } catch (errAviso) {
+        console.error("suscribirNewsletter: no se pudo avisar a la tienda", errAviso);
+      }
+    } catch (err) {
+      console.error("suscribirNewsletter: no se pudo enviar el correo de bienvenida", err);
+    }
+
+    res.json({ ok: true });
+  }
+);

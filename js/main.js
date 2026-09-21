@@ -46,6 +46,7 @@
   var form = document.getElementById('newsletterForm');
   var msg = document.getElementById('newsletterMsg');
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var NEWSLETTER_URL = 'https://us-central1-libreria-tu-mayor-tesoro.cloudfunctions.net/suscribirNewsletter';
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -60,22 +61,53 @@
       msg.hidden = false;
       return;
     }
-    if (!window.fbDb) return;
-
     btn.disabled = true;
-    window.fbDb.collection('newsletter').add({
-      email: email,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp()
-    }).then(function () {
+
+    function ok(texto) {
       form.reset();
-      msg.textContent = '¡Listo! Te avisaremos por correo.';
+      msg.textContent = texto;
       msg.className = 'newsletter-msg is-success';
       msg.hidden = false;
-    }).catch(function (err) {
-      console.error('Error al guardar el email de newsletter', err);
-      msg.textContent = 'No se ha podido guardar. Inténtalo de nuevo.';
+    }
+    function fallo(texto) {
+      msg.textContent = texto;
       msg.className = 'newsletter-msg is-error';
       msg.hidden = false;
+    }
+
+    // La Cloud Function guarda el alta y envía el correo de bienvenida (ver
+    // "suscribirNewsletter" en functions/index.js).
+    fetch(NEWSLETTER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (data) {
+        return { status: r.status, data: data };
+      });
+    }).then(function (res) {
+      if (res.status >= 200 && res.status < 300 && res.data.ok) {
+        ok(res.data.yaSuscrito
+          ? 'Este correo ya estaba apuntado. ¡Gracias!'
+          : '¡Listo! Te hemos enviado un correo de confirmación.');
+      } else if (res.status === 400 || res.status === 429) {
+        fallo(res.data.error || 'No se ha podido guardar. Inténtalo de nuevo.');
+      } else {
+        throw new Error('HTTP ' + res.status);
+      }
+    }).catch(function (err) {
+      // Si la función no está disponible (p. ej. aún no desplegada), no se
+      // pierde el alta: se guarda directamente como antes, aunque sin correo.
+      console.error('Newsletter: la función no respondió, se guarda sin correo', err);
+      if (!window.fbDb) { fallo('No se ha podido guardar. Inténtalo de nuevo.'); return; }
+      window.fbDb.collection('newsletter').add({
+        email: email,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      }).then(function () {
+        ok('¡Listo! Te avisaremos por correo.');
+      }).catch(function () {
+        fallo('No se ha podido guardar. Inténtalo de nuevo.');
+      });
     }).finally(function () {
       btn.disabled = false;
     });

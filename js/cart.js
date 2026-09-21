@@ -281,10 +281,14 @@ document.addEventListener('DOMContentLoaded', function () {
   setupCartDrawer();
 
   // ---- Botones "Añadir" en tarjetas de libro (Home / Catálogo / relacionados) ----
-  document.querySelectorAll('.book-card').forEach(function (card) {
-    var btn = card.querySelector('.book-footer .btn');
+  // Delegado en el documento (no un listener por tarjeta): así también
+  // funcionan las tarjetas que se pintan después de cargar la página, como la
+  // lista de deseos de Mi cuenta, que antes no podía añadir al carrito.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.book-card .book-footer .btn');
     if (!btn) return;
-    btn.addEventListener('click', function (e) {
+    var card = btn.closest('.book-card');
+    (function () {
       e.preventDefault();
       var titleEl = card.querySelector('.book-title');
       var authorEl = card.querySelector('.book-author');
@@ -319,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       flashAdded(btn);
       openCartDrawer();
-    });
+    })();
   });
 
   // ---- Botón "Añadir al carrito" dedicado (Ficha de producto) ----
