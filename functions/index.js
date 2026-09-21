@@ -17,6 +17,7 @@
 // ==========================================================================
 const { onCall, onRequest, HttpsError } = require("firebase-functions/v2/https");
 const { onSchedule } = require("firebase-functions/v2/scheduler");
+const { onDocumentCreated, onDocumentDeleted, onDocumentUpdated } = require("firebase-functions/v2/firestore");
 const { setGlobalOptions } = require("firebase-functions/v2");
 const { defineSecret } = require("firebase-functions/params");
 // firebase-admin v14 ya NO trae la API "con espacios de nombres" (la de
@@ -1756,6 +1757,81 @@ function plantillaBienvenidaNewsletter() {
     "</div>"
   );
 }
+
+// ==========================================================================
+// "¿Te ha sido útil?" en las opiniones — contador en resenas/{id}.utilesCount
+// --------------------------------------------------------------------------
+// El navegador (js/product.js) solo crea o borra su propio voto en
+// resenas/{resenaId}/utiles/{uid} (un documento vacío, uno por persona).
+// Aquí mantenemos al día el contador que se muestra en la tarjeta, sin que
+// el cliente pueda escribirlo directamente (evita votos falsos).
+// ==========================================================================
+exports.sumarVotoUtil = onDocumentCreated("resenas/{resenaId}/utiles/{uid}", async (event) => {
+  await db.collection("resenas").doc(event.params.resenaId)
+    .update({ utilesCount: FieldValue.increment(1) })
+    .catch((err) => console.error("sumarVotoUtil: no se pudo actualizar el contador", err));
+});
+
+exports.restarVotoUtil = onDocumentDeleted("resenas/{resenaId}/utiles/{uid}", async (event) => {
+  await db.collection("resenas").doc(event.params.resenaId)
+    .update({ utilesCount: FieldValue.increment(-1) })
+    .catch((err) => console.error("restarVotoUtil: no se pudo actualizar el contador", err));
+});
+
+// ==========================================================================
+// Aviso para valorar la tienda cuando el CLIENTE confirma que ha recibido
+// su pedido ("He recibido mi pedido" en cuenta.html, botón que solo puede
+// marcar el propio dueño del pedido — ver firestore.rules, colección
+// "pedidos", campo "confirmadoCliente"). Manda un correo por Gmail
+// invitando a dejar su opinión sobre los libros del pedido; el aviso
+// dentro de la propia web (con enlaces directos a cada ficha) lo muestra
+// ya al momento js/account.js, sin esperar a este correo.
+// ==========================================================================
+exports.avisoPedidoRecibido = onDocumentUpdated(
+  { document: "pedidos/{pedidoId}", secrets: [GMAIL_USER, GMAIL_APP_PASSWORD] },
+  async (event) => {
+    const antes = event.data.before.data();
+    const despues = event.data.after.data();
+    if (despues.confirmadoCliente !== true || antes.confirmadoCliente === true) return;
+    if (!despues.clienteEmail || !Array.isArray(despues.items)) return;
+
+    const libros = despues.items.filter((it) => !it.esExtra);
+    if (!libros.length) return;
+
+    const filasHtml = libros.map((it) => (
+      '<li style="margin-bottom:6px">' + escapeHtml(it.titulo) + "</li>"
+    )).join("");
+
+    const html = (
+      '<div style="font-family:Georgia,serif;max-width:520px;margin:0 auto;color:#2b2b2b">' +
+        '<h2 style="color:#20304f;margin-bottom:4px">Librería tu mayor tesoro</h2>' +
+        "<p>" + (despues.clienteNombre ? "Hola, " + escapeHtml(despues.clienteNombre) + ":" : "Hola:") + "</p>" +
+        "<p>Gracias por confirmarnos que ha llegado bien tu pedido <strong>" + escapeHtml(despues.numero || "") + "</strong>. " +
+        "Nos ayudaría muchísimo que dejaras tu opinión sobre estos libros:</p>" +
+        '<ul style="padding-left:18px">' + filasHtml + "</ul>" +
+        "<p>Puedes valorar cada título con estrellas, dejar un comentario y hasta añadir una foto si quieres " +
+        "(por ejemplo si algo llegó en mal estado, o simplemente para que otros lectores lo vean en mano).</p>" +
+        '<p style="text-align:center;margin:26px 0">' +
+          '<a href="' + SITE_URL + '/cuenta.html#pedidos" style="background:#20304f;color:#f6efe2;padding:12px 26px;border-radius:6px;text-decoration:none;font-weight:bold">Dejar mi opinión</a>' +
+        "</p>" +
+        '<p style="font-size:0.85em;color:#777">Si algo no llegó como esperabas, respóndenos a este correo y te lo solucionamos. ' +
+        'Cualquier duda, escríbenos a <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a>.</p>' +
+      "</div>"
+    );
+
+    try {
+      const transporter = crearTransporterGmail();
+      await transporter.sendMail({
+        from: '"Librería tu mayor tesoro" <' + GMAIL_USER.value().trim() + ">",
+        to: despues.clienteEmail,
+        subject: "¿Qué te han parecido los libros de tu pedido " + (despues.numero || "") + "?",
+        html,
+      });
+    } catch (err) {
+      console.error("avisoPedidoRecibido: no se pudo enviar el correo a " + despues.clienteEmail, err);
+    }
+  }
+);
 
 exports.suscribirNewsletter = onRequest(
   { cors: ORIGENES_NEWSLETTER, secrets: [GMAIL_USER, GMAIL_APP_PASSWORD] },

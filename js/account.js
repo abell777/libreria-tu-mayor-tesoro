@@ -243,8 +243,22 @@
       return '<li>' + it.cantidad + ' × ' + titulo + '</li>';
     }).join('');
     var total = (pedido.total || 0).toFixed(2).replace('.', ',');
+
+    // "He recibido mi pedido": solo tiene sentido ofrecerlo mientras está
+    // en "enviado" y todavía no se ha confirmado. Una vez confirmado, se
+    // deja constancia en vez del botón (ver activarConfirmarRecibido, que
+    // sustituye este bloque por la invitación a valorar nada más pulsarlo).
+    var bloqueRecibido = '';
+    if (pedido.estado === 'enviado' && !pedido.confirmadoCliente) {
+      bloqueRecibido = '<div class="order-confirm-receipt" data-confirm-receipt>' +
+        '<button type="button" class="btn btn--outline btn--sm" data-confirmar-recibido>He recibido mi pedido</button>' +
+        '</div>';
+    } else if (pedido.confirmadoCliente) {
+      bloqueRecibido = '<p class="order-date">✓ Marcaste este pedido como recibido</p>';
+    }
+
     return (
-      '<article class="order-card">' +
+      '<article class="order-card" data-order-id="' + docId + '">' +
         '<div class="order-card-head">' +
           '<span class="order-number">Pedido #' + (pedido.numero || docId.slice(0, 6).toUpperCase()) + '</span>' +
           '<span class="order-status order-status--' + (pedido.estado || 'pendiente') + '">' + capitaliza(pedido.estado || 'pendiente') + '</span>' +
@@ -252,8 +266,49 @@
         '<p class="order-date">' + fecha + '</p>' +
         '<ul class="order-items">' + items + '</ul>' +
         '<p class="order-total">Total: ' + total + '&nbsp;€</p>' +
+        bloqueRecibido +
       '</article>'
     );
+  }
+
+  // ---- Confirmar recepción + invitación a valorar (dentro de la web) ----
+  // Se llama una vez por cada tarjeta insertada (lista completa y el
+  // resumen de "Tu último pedido"), pasándole el pedido ya conocido para no
+  // tener que volver a leerlo de Firestore.
+  function activarConfirmarRecibido(article, pedido, docId) {
+    var btn = article.querySelector('[data-confirmar-recibido]');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var user = window.fbAuth ? window.fbAuth.currentUser : null;
+      if (!user || !window.fbDb) return;
+      btn.disabled = true;
+      btn.textContent = 'Guardando…';
+
+      window.fbDb.collection('pedidos').doc(docId).update({
+        confirmadoCliente: true,
+        confirmadoClienteEn: firebase.firestore.FieldValue.serverTimestamp()
+      }).then(function () {
+        var libros = (pedido.items || []).filter(function (it) {
+          return it.id && String(it.id).indexOf('extra-') !== 0 &&
+            window.BooksCatalog && window.BooksCatalog.getById(it.id);
+        });
+        var enlaces = libros.map(function (it) {
+          return '<li><a href="producto.html?id=' + encodeURIComponent(it.id) + '#opiniones">Valorar «' + escapeHTML(it.titulo) + '»</a></li>';
+        }).join('');
+
+        var bloque = article.querySelector('[data-confirm-receipt]');
+        if (bloque) {
+          bloque.outerHTML = '<div class="order-review-invite">' +
+            '<p>¡Gracias por confirmarlo! Si tienes un momento, cuéntanos qué te han parecido estos libros:</p>' +
+            (enlaces ? '<ul>' + enlaces + '</ul>' : '') +
+          '</div>';
+        }
+      }).catch(function (err) {
+        console.error('No se pudo confirmar la recepción del pedido', err);
+        btn.disabled = false;
+        btn.textContent = 'He recibido mi pedido';
+      });
+    });
   }
 
   // ---- Carga de pedidos: alimenta "Mis pedidos", "Resumen" y las estadísticas ----
@@ -289,9 +344,13 @@
         snapshot.forEach(function (doc) {
           var pedido = doc.data();
           totalGastado += pedido.total || 0;
+
           list.insertAdjacentHTML('beforeend', pedidoCardHTML(pedido, doc.id));
+          activarConfirmarRecibido(list.lastElementChild, pedido, doc.id);
+
           if (primero && lastPreview) {
             lastPreview.insertAdjacentHTML('beforeend', pedidoCardHTML(pedido, doc.id));
+            activarConfirmarRecibido(lastPreview.lastElementChild, pedido, doc.id);
             primero = false;
           }
         });

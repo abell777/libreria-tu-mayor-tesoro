@@ -191,6 +191,11 @@ h1, h2, h3, h4 {
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
+  /* El logo del pie (fuera de .site-header) también debe quedar por encima
+     del fondo oscuro del mini-carrito (.cart-drawer-overlay, z-index 45) si
+     el carrito está abierto y el pie está a la vista. */
+  position: relative;
+  z-index: 46;
 }
 
 .brand-mark {
@@ -1895,6 +1900,49 @@ body.no-scroll { overflow: hidden; }
 }
 .review-star-btn.is-active { color: var(--gold); }
 
+/* ---- Fotos dentro de una opinión ya publicada ---- */
+.review-photos-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 4px; }
+.review-photos-grid img {
+  width: 74px; height: 74px; object-fit: cover; border-radius: var(--radius-sm);
+  border: 1px solid var(--border); cursor: zoom-in;
+}
+
+/* ---- Botón "¿Te ha sido útil?" ---- */
+.review-card-foot { display: flex; align-items: center; margin-top: 10px; }
+.review-useful-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: none; border: 1px solid var(--border); border-radius: 999px;
+  padding: 5px 12px; font-size: 0.78rem; color: var(--muted-foreground); cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.review-useful-btn:hover { border-color: var(--gold-soft); color: var(--navy); }
+.review-useful-btn.is-active { border-color: var(--gold); color: var(--navy); background: var(--parchment); }
+.review-useful-btn svg { width: 15px; height: 15px; }
+.review-useful-btn.is-active svg { fill: var(--gold); }
+
+/* ---- Selector de fotos en el formulario de opinión ---- */
+.review-photos-field { display: flex; flex-direction: column; gap: 8px; }
+.review-photos-label { font-size: 0.82rem; color: var(--muted-foreground); }
+.review-photos-preview { display: flex; flex-wrap: wrap; gap: 8px; }
+.review-photo-thumb { position: relative; width: 68px; height: 68px; }
+.review-photo-thumb img {
+  width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border);
+}
+.review-photo-thumb button {
+  position: absolute; top: -6px; right: -6px; width: 20px; height: 20px; border-radius: 50%;
+  border: none; background: var(--navy); color: var(--parchment); font-size: 0.75rem; line-height: 1; cursor: pointer;
+}
+
+/* ---- "Marcar como recibido" y aviso para valorar (Mis pedidos) ---- */
+.order-confirm-receipt { margin-top: 12px; }
+.order-review-invite {
+  margin-top: 12px; background: var(--parchment); border: 1px solid var(--gold-soft);
+  border-radius: var(--radius-md); padding: 12px 14px; font-size: 0.86rem;
+}
+.order-review-invite p { margin: 0 0 8px; }
+.order-review-invite ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.order-review-invite a { color: var(--navy); font-weight: 700; text-decoration: underline; }
+
 @media (max-width: 560px) {
   .product-actions { flex-direction: column; align-items: stretch; }
   .product-actions .btn { width: 100%; text-align: center; justify-content: center; }
@@ -1951,7 +1999,12 @@ body.no-scroll { overflow: hidden; }
   position: fixed;
   inset: 0;
   background: oklch(0.22 0.06 258 / 0.45);
-  z-index: 200;
+  /* Por debajo de .site-header (z-index 50): así la cabecera (logo, buscador,
+     cuenta, categorías) queda siempre visible y pulsable con el mini-carrito
+     abierto, en vez de quedar tapada por este fondo oscuro. El panel del
+     carrito (.cart-drawer, z-index 201) sigue mostrándose por encima de todo
+     como hasta ahora. */
+  z-index: 45;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s ease;

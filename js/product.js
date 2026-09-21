@@ -383,6 +383,16 @@
     });
   });
 
+  // Si se llega con #opiniones en la URL (p. ej. desde el aviso de "Mis
+  // pedidos" invitando a valorar), abre esa pestaña directamente.
+  if (window.location.hash === '#opiniones') {
+    var tabOpinionesInicial = document.querySelector('.tab-btn[data-tab="opiniones"]');
+    if (tabOpinionesInicial) {
+      tabOpinionesInicial.click();
+      setTimeout(function () { tabOpinionesInicial.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 300);
+    }
+  }
+
   // ---- Productos relacionados (misma categoría) ----
   var relatedSection = document.getElementById('relatedSection');
   var relatedGrid = document.getElementById('relatedGrid');
@@ -476,6 +486,13 @@
 
   function reviewCardHTML(r) {
     var fecha = r.createdAt && r.createdAt.toDate ? r.createdAt.toDate().toLocaleDateString('es-ES') : '';
+    var fotosHTML = '';
+    if (Array.isArray(r.fotos) && r.fotos.length) {
+      fotosHTML = '<div class="review-photos-grid">' + r.fotos.map(function (url) {
+        return '<a href="' + url + '" target="_blank" rel="noopener"><img src="' + url + '" alt="Foto añadida por quien opina" loading="lazy"></a>';
+      }).join('') + '</div>';
+    }
+    var utilesCount = typeof r.utilesCount === 'number' && r.utilesCount > 0 ? r.utilesCount : 0;
     return (
       '<article class="review-card">' +
         '<div class="review-card-head">' +
@@ -484,6 +501,14 @@
         '</div>' +
         '<p class="review-date">' + fecha + '</p>' +
         '<p class="review-comment">' + escapeHTML(r.comentario || '') + '</p>' +
+        fotosHTML +
+        '<div class="review-card-foot">' +
+          '<button type="button" class="review-useful-btn" data-resena-id="' + r._id + '">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 22V11M2 13v7a2 2 0 0 0 2 2h11.4a2 2 0 0 0 2-1.6l1.4-7A2 2 0 0 0 17 11h-4.5l1-4.5A1.5 1.5 0 0 0 12 5L7 11"/></svg>' +
+            '<span>¿Te ha sido útil?</span>' +
+            '<span class="review-useful-count">' + (utilesCount > 0 ? utilesCount : '') + '</span>' +
+          '</button>' +
+        '</div>' +
       '</article>'
     );
   }
@@ -528,12 +553,70 @@
     window.fbDb.collection('resenas').where('productId', '==', book.id).get()
       .then(function (snapshot) {
         var reseñas = [];
-        snapshot.forEach(function (doc) { reseñas.push(doc.data()); });
+        snapshot.forEach(function (doc) {
+          var d = doc.data();
+          d._id = doc.id;
+          reseñas.push(d);
+        });
         renderReviews(reseñas);
+        marcarUtilesDelUsuario();
       })
       .catch(function (err) { console.error('Error al cargar las opiniones', err); });
   }
   loadReviews();
+
+  // ---- "¿Te ha sido útil?" — un voto por persona, guardado en la
+  // subcolección resenas/{id}/utiles/{uid}. El contador (utilesCount) que
+  // se ve en la tarjeta lo mantiene al día una Cloud Function; aquí solo
+  // creamos o borramos nuestro propio voto y pintamos el botón al momento. ----
+  function marcarUtilesDelUsuario() {
+    var user = window.fbAuth ? window.fbAuth.currentUser : null;
+    if (!user || !window.fbDb) return;
+    document.querySelectorAll('.review-useful-btn').forEach(function (btn) {
+      var resenaId = btn.dataset.resenaId;
+      if (!resenaId) return;
+      window.fbDb.collection('resenas').doc(resenaId).collection('utiles').doc(user.uid).get()
+        .then(function (doc) { btn.classList.toggle('is-active', doc.exists); })
+        .catch(function () {});
+    });
+  }
+
+  if (reviewsList) {
+    reviewsList.addEventListener('click', function (e) {
+      var btn = e.target.closest('.review-useful-btn');
+      if (!btn) return;
+      var user = window.fbAuth ? window.fbAuth.currentUser : null;
+      if (!user) {
+        var tabOpiniones = document.querySelector('.tab-btn[data-tab="opiniones"]');
+        if (reviewLoginNotice) reviewLoginNotice.hidden = false;
+        if (tabOpiniones) tabOpiniones.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      var resenaId = btn.dataset.resenaId;
+      if (!resenaId || !window.fbDb) return;
+      btn.disabled = true;
+      var votoRef = window.fbDb.collection('resenas').doc(resenaId).collection('utiles').doc(user.uid);
+      var countEl = btn.querySelector('.review-useful-count');
+      var yaActivo = btn.classList.contains('is-active');
+
+      var accion = yaActivo
+        ? votoRef.delete()
+        : votoRef.set({ createdAt: firebase.firestore.FieldValue.serverTimestamp() });
+
+      accion.then(function () {
+        btn.classList.toggle('is-active', !yaActivo);
+        if (countEl) {
+          var actual = parseInt(countEl.textContent, 10) || 0;
+          var nuevo = Math.max(0, actual + (yaActivo ? -1 : 1));
+          countEl.textContent = nuevo > 0 ? String(nuevo) : '';
+        }
+      }).catch(function (err) {
+        console.error('No se pudo guardar el voto de "útil"', err);
+      }).finally(function () {
+        btn.disabled = false;
+      });
+    });
+  }
 
   // ---- Selector de estrellas del formulario ----
   var starBtns = document.querySelectorAll('.review-star-btn');
@@ -551,10 +634,91 @@
     });
   });
 
+  // ---- Fotos de la opinión (opcional, máx. 4) ----
+  var reviewPhotosInput = document.getElementById('reviewPhotos');
+  var reviewPhotosPreview = document.getElementById('reviewPhotosPreview');
+  var MAX_FOTOS_RESENA = 4;
+  var MAX_ENTRADA_RESENA = 8 * 1024 * 1024; // 8 MB por foto
+  var fotosListas = []; // [{ blob, tipo, ext, previewUrl }]
+
+  function comprimirFotoResena(file) {
+    return new Promise(function (resolve, reject) {
+      var url = URL.createObjectURL(file);
+      var img = new Image();
+      img.onload = function () {
+        var LADO_MAX = 1600;
+        var escala = Math.min(1, LADO_MAX / Math.max(img.width, img.height));
+        var canvas = document.createElement('canvas');
+        canvas.width = Math.round(img.width * escala);
+        canvas.height = Math.round(img.height * escala);
+        canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+        canvas.toBlob(function (blob) {
+          URL.revokeObjectURL(url);
+          if (!blob) return reject(new Error('No se ha podido procesar la imagen.'));
+          resolve(blob);
+        }, 'image/jpeg', 0.85);
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); reject(new Error('No hemos podido leer esa imagen.')); };
+      img.src = url;
+    });
+  }
+
+  function pintarPreviewFotos() {
+    if (!reviewPhotosPreview) return;
+    reviewPhotosPreview.innerHTML = '';
+    fotosListas.forEach(function (foto, i) {
+      var div = document.createElement('div');
+      div.className = 'review-photo-thumb';
+      div.innerHTML = '<img src="' + foto.previewUrl + '" alt=""><button type="button" aria-label="Quitar foto">×</button>';
+      div.querySelector('button').addEventListener('click', function () {
+        URL.revokeObjectURL(foto.previewUrl);
+        fotosListas.splice(i, 1);
+        pintarPreviewFotos();
+      });
+      reviewPhotosPreview.appendChild(div);
+    });
+  }
+
+  if (reviewPhotosInput) {
+    reviewPhotosInput.addEventListener('change', function () {
+      var errorEl = document.getElementById('reviewError');
+      var archivos = Array.prototype.slice.call(reviewPhotosInput.files || []);
+      reviewPhotosInput.value = '';
+      archivos.forEach(function (file) {
+        if (fotosListas.length >= MAX_FOTOS_RESENA) return;
+        if (!/^image\/(jpeg|png|webp)$/.test(file.type)) {
+          if (errorEl) { errorEl.textContent = 'Las fotos tienen que ser JPG, PNG o WEBP.'; errorEl.hidden = false; }
+          return;
+        }
+        if (file.size > MAX_ENTRADA_RESENA) {
+          if (errorEl) { errorEl.textContent = 'Alguna foto pesa demasiado (máximo 8 MB).'; errorEl.hidden = false; }
+          return;
+        }
+        comprimirFotoResena(file).then(function (blob) {
+          fotosListas.push({ blob: blob, tipo: 'image/jpeg', ext: 'jpg', previewUrl: URL.createObjectURL(blob) });
+          pintarPreviewFotos();
+        }).catch(function (err) {
+          if (errorEl) { errorEl.textContent = err.message; errorEl.hidden = false; }
+        });
+      });
+    });
+  }
+
+  function subirFotosResena(uid) {
+    if (!fotosListas.length || !window.firebase || !firebase.storage) return Promise.resolve([]);
+    var base = Date.now();
+    var subidas = fotosListas.map(function (foto, i) {
+      var ref = firebase.storage().ref().child('resenas/' + book.id + '/' + uid + '/' + base + '-' + i + '.' + foto.ext);
+      return ref.put(foto.blob, { contentType: foto.tipo }).then(function () { return ref.getDownloadURL(); });
+    });
+    return Promise.all(subidas);
+  }
+
   // ---- Alternar formulario / aviso de inicio de sesión según sesión ----
   function refreshReviewFormVisibility(user) {
     if (reviewForm) reviewForm.hidden = !user;
     if (reviewLoginNotice) reviewLoginNotice.hidden = !!user;
+    if (user) marcarUtilesDelUsuario();
   }
   if (window.fbAuth) {
     window.fbAuth.onAuthStateChanged(refreshReviewFormVisibility);
@@ -581,26 +745,33 @@
       }
 
       var submitBtn = reviewForm.querySelector('button[type="submit"]');
-      if (submitBtn) submitBtn.disabled = true;
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Publicando…'; }
 
-      window.fbDb.collection('resenas').add({
-        productId: book.id,
-        uid: user.uid,
-        nombre: user.displayName || 'Cliente',
-        valoracion: currentRating,
-        comentario: comentario,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      subirFotosResena(user.uid).then(function (fotosUrls) {
+        var datos = {
+          productId: book.id,
+          uid: user.uid,
+          nombre: user.displayName || 'Cliente',
+          valoracion: currentRating,
+          comentario: comentario,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        };
+        if (fotosUrls.length) datos.fotos = fotosUrls;
+        return window.fbDb.collection('resenas').add(datos);
       }).then(function () {
         reviewForm.reset();
         currentRating = 0;
         if (ratingInput) ratingInput.value = 0;
         paintStars(0);
+        fotosListas.forEach(function (f) { URL.revokeObjectURL(f.previewUrl); });
+        fotosListas = [];
+        pintarPreviewFotos();
         loadReviews();
       }).catch(function (err) {
         if (errorEl) { errorEl.textContent = 'No se pudo publicar tu opinión. Inténtalo de nuevo.'; errorEl.hidden = false; }
         console.error('Error al publicar la opinión', err);
       }).finally(function () {
-        if (submitBtn) submitBtn.disabled = false;
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Publicar opinión'; }
       });
     });
   }

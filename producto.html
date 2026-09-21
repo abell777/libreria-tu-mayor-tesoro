@@ -191,6 +191,11 @@
               </div>
               <input type="hidden" name="valoracion" id="reviewRatingInput" value="0" required>
               <textarea name="comentario" id="reviewComment" placeholder="Cuéntanos qué te ha parecido este libro…" rows="3" required maxlength="600"></textarea>
+              <div class="review-photos-field">
+                <label class="review-photos-label" for="reviewPhotos">Añade fotos si quieres (opcional, máx. 4) — por ejemplo si el pedido llegó mal o para que se vea el libro en mano</label>
+                <input type="file" id="reviewPhotos" accept="image/jpeg,image/png,image/webp" multiple>
+                <div class="review-photos-preview" id="reviewPhotosPreview"></div>
+              </div>
               <p class="auth-error" id="reviewError" role="alert" hidden></p>
               <button type="submit" class="btn btn--primary">Publicar opinión</button>
             </form>
@@ -318,6 +323,7 @@
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-storage-compat.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script src="js/config.js"></script>
 <script src="js/auth.js"></script>

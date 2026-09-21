@@ -32,6 +32,22 @@ service firebase.storage {
       allow update, delete: if false;
     }
 
+    // Fotos que los clientes añaden a sus opiniones sobre un libro
+    // (producto.html, pestaña "Opiniones"). Cada persona escribe solo
+    // dentro de su propia carpeta; una vez subida no se puede modificar,
+    // solo se sube una nueva si borra la opinión y deja otra. Son públicas
+    // de lectura porque se muestran a cualquiera en la ficha del libro.
+    match /resenas/{productId}/{uid}/{archivo} {
+      allow read: if true;
+
+      allow create: if request.auth != null &&
+        request.auth.uid == uid &&
+        request.resource.size < 8 * 1024 * 1024 &&
+        request.resource.contentType.matches('image/(jpeg|png|webp)');
+
+      allow update, delete: if false;
+    }
+
     // Todo lo demás, cerrado.
     match /{allPaths=**} {
       allow read, write: if false;

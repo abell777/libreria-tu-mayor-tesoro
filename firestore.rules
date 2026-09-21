@@ -59,9 +59,21 @@ service cloud.firestore {
       // ni el admin pueden marcarlo desde el navegador. Solo lo cambia la
       // Cloud Function "stripeWebhook" (SDK de administrador, se salta
       // estas reglas), cuando Stripe confirma que el pago es real.
-      allow update: if isAdmin() &&
+      // El propio cliente, además, puede marcar SU pedido como recibido
+      // ("He recibido mi pedido" en cuenta.html): solo cuando el admin ya
+      // lo puso en "enviado", solo una vez (no puede haber "confirmadoCliente"
+      // previo) y solo puede tocar esos dos campos, con la fecha real del
+      // servidor. Esto dispara el correo de "avisoPedidoRecibido" (Cloud
+      // Function) invitando a valorar los libros.
+      allow update: if (isAdmin() &&
         request.resource.data.diff(resource.data).affectedKeys().hasOnly(['estado']) &&
-        request.resource.data.estado in ['pendiente', 'enviado', 'entregado'];
+        request.resource.data.estado in ['pendiente', 'enviado', 'entregado']) ||
+        (isSignedIn() && resource.data.uid == request.auth.uid &&
+          resource.data.estado == 'enviado' &&
+          !('confirmadoCliente' in resource.data) &&
+          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['confirmadoCliente', 'confirmadoClienteEn']) &&
+          request.resource.data.confirmadoCliente == true &&
+          request.resource.data.confirmadoClienteEn == request.time);
 
       // Nadie puede borrar pedidos (ni siquiera el admin, para conservar
       // el historial). Si algún día quieres permitirlo, cambia esta línea
@@ -112,7 +124,8 @@ service cloud.firestore {
 
       // Crear una opinión: debe ir firmada con tu propio uid, referenciar
       // un producto, con una valoración de 1 a 5 y un comentario de
-      // longitud razonable (evita spam/abusos).
+      // longitud razonable (evita spam/abusos). "fotos" es opcional (hasta
+      // 4 URLs de Storage, subidas antes desde js/product.js).
       allow create: if isSignedIn() &&
         request.resource.data.uid == request.auth.uid &&
         request.resource.data.createdAt == request.time &&
@@ -121,18 +134,40 @@ service cloud.firestore {
         request.resource.data.valoracion is number &&
         request.resource.data.valoracion >= 1 &&
         request.resource.data.valoracion <= 5 &&
-        isReasonableString(request.resource.data.comentario, 600);
+        isReasonableString(request.resource.data.comentario, 600) &&
+        (!('fotos' in request.resource.data) ||
+          (request.resource.data.fotos is list && request.resource.data.fotos.size() <= 4));
 
       // Solo el autor puede editar o borrar su propia opinión — y al
       // editarla, sigue teniendo que cumplir las mismas reglas de
       // valoración/comentario (antes se podía "editar" para saltárselas).
+      // "utilesCount" queda fuera de aquí a propósito: solo lo toca la
+      // Cloud Function (SDK de administrador, se salta estas reglas), así
+      // que si algún día alguien intenta escribirlo desde el navegador
+      // junto a una edición, esa edición se rechaza entera.
       allow update: if isSignedIn() && resource.data.uid == request.auth.uid &&
         request.resource.data.uid == request.auth.uid &&
         request.resource.data.valoracion is number &&
         request.resource.data.valoracion >= 1 &&
         request.resource.data.valoracion <= 5 &&
-        isReasonableString(request.resource.data.comentario, 600);
+        isReasonableString(request.resource.data.comentario, 600) &&
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['valoracion', 'comentario', 'fotos']);
       allow delete: if isSignedIn() && resource.data.uid == request.auth.uid;
+
+      // ---- resenas/{resenaId}/utiles/{uid} — voto de "¿te fue útil?" ----
+      // Un documento (vacío, solo con la fecha) por persona y opinión: su
+      // sola existencia es el voto. El contador que se ve en la tarjeta
+      // (resenas/{resenaId}.utilesCount) lo mantiene únicamente la Cloud
+      // Function "sumarVotoUtil"/"restarVotoUtil" (SDK de administrador),
+      // nunca el navegador.
+      match /utiles/{uid} {
+        allow read: if isSignedIn() && request.auth.uid == uid;
+        allow create: if isSignedIn() && request.auth.uid == uid &&
+          request.resource.data.keys().hasOnly(['createdAt']) &&
+          request.resource.data.createdAt == request.time;
+        allow update: if false;
+        allow delete: if isSignedIn() && request.auth.uid == uid;
+      }
     }
 
     // ---- newsletter/{docId} — altas del formulario del footer ------------
