@@ -880,6 +880,10 @@ exports.crearPedido = onCall(async (request) => {
   // script que intentara crear pedidos en bucle.
   await comprobarLimite("crearPedido:" + auth.uid, 8, 60 * 60 * 1000);
 
+  // Cuentas nuevas con correo y contraseña: hay que haber verificado el
+  // correo con el código que se envía al registrarse (ver más abajo).
+  await exigirCorreoVerificado(auth);
+
   const data = request.data || {};
   const itemsSolicitados = Array.isArray(data.items) ? data.items : [];
   const envio = data.envio || {};
@@ -1830,3 +1834,161 @@ exports.suscribirNewsletter = onRequest(
     res.json({ ok: true });
   }
 );
+
+
+// ==========================================================================
+// Verificación del correo con un código de 6 dígitos
+// --------------------------------------------------------------------------
+// Al crear una cuenta con correo y contraseña se envía un código al correo
+// que ha escrito el cliente, y la cuenta no puede comprar hasta que lo
+// escribe en la web. Así se evita que alguien se registre (y reciba pedidos y
+// avisos) con un correo mal escrito o ajeno.
+//   · enviarCodigoVerificacion → genera el código y lo envía por Gmail.
+//   · verificarCodigoCorreo    → comprueba el código y marca el correo como
+//                                verificado en Firebase Authentication.
+// Las cuentas de Google, Facebook, Apple, Microsoft y las de "enlace por
+// correo" ya llegan verificadas, así que no pasan por aquí.
+// El código no se guarda tal cual: solo un "hash" con sal, en una colección
+// que el navegador no puede leer (ver firestore.rules: se deniega por defecto).
+// ==========================================================================
+const crypto = require("crypto");
+
+// Las cuentas creadas ANTES de esta fecha no están obligadas a verificar (no
+// se bloquea a clientes que ya compraban). Las creadas desde esta fecha, sí.
+const VERIFICACION_OBLIGATORIA_DESDE = Date.parse("2026-09-21T00:00:00Z");
+const CODIGO_CADUCA_MS = 10 * 60 * 1000;      // el código vale 10 minutos
+const CODIGO_REENVIO_MS = 60 * 1000;          // 1 minuto entre envíos
+const CODIGO_MAX_INTENTOS = 5;                // fallos antes de invalidarlo
+
+async function exigirCorreoVerificado(auth) {
+  if (auth.token && auth.token.email_verified) return;
+  const usuario = await getAuth().getUser(auth.uid);
+  if (usuario.emailVerified) return;
+  const tienePassword = usuario.providerData.some((p) => p.providerId === "password");
+  if (!tienePassword) return;
+  const creada = Date.parse(usuario.metadata && usuario.metadata.creationTime);
+  if (creada && creada < VERIFICACION_OBLIGATORIA_DESDE) return;
+  throw new HttpsError(
+    "failed-precondition",
+    "Verifica tu correo electrónico en Mi cuenta antes de comprar: te hemos enviado un código."
+  );
+}
+
+function hashCodigo(sal, codigo) {
+  return crypto.createHash("sha256").update(sal + ":" + codigo).digest("hex");
+}
+
+function plantillaCodigoVerificacion(codigo) {
+  return (
+    '<div style="font-family:Georgia,serif;max-width:520px;margin:0 auto;color:#2b2b2b">' +
+      '<h2 style="color:#20304f;margin-bottom:4px">Librería tu mayor tesoro</h2>' +
+      "<p>Este es tu código para verificar tu correo y activar tu cuenta:</p>" +
+      '<p style="text-align:center;margin:26px 0;font-size:34px;letter-spacing:10px;font-weight:bold;color:#20304f">' + codigo + "</p>" +
+      "<p>Escríbelo en la web donde te lo han pedido. Vale durante <strong>10 minutos</strong>.</p>" +
+      '<p style="font-size:0.85em;color:#777">Si no has creado tú una cuenta en Librería tu mayor tesoro, ' +
+      "puedes ignorar este correo: nadie podrá entrar sin este código. " +
+      'Cualquier duda, escríbenos a <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a>.</p>' +
+    "</div>"
+  );
+}
+
+exports.enviarCodigoVerificacion = onCall(
+  { secrets: [GMAIL_USER, GMAIL_APP_PASSWORD] },
+  async (request) => {
+    const auth = request.auth;
+    if (!auth) {
+      throw new HttpsError("unauthenticated", "Debes iniciar sesión.");
+    }
+    const usuario = await getAuth().getUser(auth.uid);
+    if (usuario.emailVerified) return { yaVerificado: true };
+    if (!usuario.email) {
+      throw new HttpsError("failed-precondition", "Tu cuenta no tiene un correo asociado.");
+    }
+
+    const ref = db.collection("codigosVerificacion").doc(auth.uid);
+    const previo = await ref.get();
+    const ahora = Date.now();
+    if (previo.exists && previo.data().enviadoEn && ahora - previo.data().enviadoEn < CODIGO_REENVIO_MS) {
+      throw new HttpsError(
+        "resource-exhausted",
+        "Ya te hemos enviado un código hace un momento. Revisa tu correo (y la carpeta de spam) o espera un minuto para pedir otro."
+      );
+    }
+    // Como máximo 5 envíos por hora y cuenta.
+    await comprobarLimite("codigoVerificacion:" + auth.uid, 5, 60 * 60 * 1000);
+
+    const codigo = String(crypto.randomInt(0, 1000000)).padStart(6, "0");
+    const sal = crypto.randomBytes(16).toString("hex");
+    await ref.set({
+      hash: hashCodigo(sal, codigo),
+      sal: sal,
+      email: usuario.email,
+      expiraEn: ahora + CODIGO_CADUCA_MS,
+      intentos: 0,
+      enviadoEn: ahora,
+    });
+
+    try {
+      const transporter = crearTransporterGmail();
+      await transporter.sendMail({
+        from: '"Librería tu mayor tesoro" <' + GMAIL_USER.value().trim() + ">",
+        to: usuario.email,
+        subject: "Tu código de verificación: " + codigo,
+        html: plantillaCodigoVerificacion(codigo),
+        text: "Tu código para verificar tu correo en Librería tu mayor tesoro es " + codigo +
+          ". Vale durante 10 minutos. Si no has creado tú la cuenta, ignora este correo.",
+      });
+    } catch (err) {
+      console.error("enviarCodigoVerificacion: no se pudo enviar el correo", err);
+      await ref.delete().catch(() => {});
+      throw new HttpsError(
+        "internal",
+        "No hemos podido enviar el correo. Comprueba que está bien escrito e inténtalo de nuevo en unos minutos."
+      );
+    }
+
+    return { ok: true, email: usuario.email };
+  }
+);
+
+exports.verificarCodigoCorreo = onCall(async (request) => {
+  const auth = request.auth;
+  if (!auth) {
+    throw new HttpsError("unauthenticated", "Debes iniciar sesión.");
+  }
+  const codigo = request.data && typeof request.data.codigo === "string" ? request.data.codigo.trim() : "";
+  if (!/^\d{6}$/.test(codigo)) {
+    throw new HttpsError("invalid-argument", "El código tiene 6 dígitos.");
+  }
+  await comprobarLimite("verificarCodigo:" + auth.uid, 20, 60 * 60 * 1000);
+
+  const usuario = await getAuth().getUser(auth.uid);
+  if (usuario.emailVerified) return { ok: true };
+
+  const ref = db.collection("codigosVerificacion").doc(auth.uid);
+  const snap = await ref.get();
+  if (!snap.exists) {
+    throw new HttpsError("failed-precondition", "No hay ningún código activo. Pide uno nuevo.");
+  }
+  const datos = snap.data();
+  if (datos.email !== usuario.email || Date.now() > datos.expiraEn) {
+    await ref.delete().catch(() => {});
+    throw new HttpsError("deadline-exceeded", "El código ha caducado. Pide uno nuevo.");
+  }
+  if ((datos.intentos || 0) >= CODIGO_MAX_INTENTOS) {
+    await ref.delete().catch(() => {});
+    throw new HttpsError("resource-exhausted", "Demasiados intentos. Pide un código nuevo.");
+  }
+
+  const esperado = Buffer.from(datos.hash, "hex");
+  const recibido = Buffer.from(hashCodigo(datos.sal, codigo), "hex");
+  const coincide = esperado.length === recibido.length && crypto.timingSafeEqual(esperado, recibido);
+  if (!coincide) {
+    await ref.update({ intentos: FieldValue.increment(1) });
+    throw new HttpsError("invalid-argument", "Código incorrecto. Revísalo e inténtalo de nuevo.");
+  }
+
+  await getAuth().updateUser(auth.uid, { emailVerified: true });
+  await ref.delete().catch(() => {});
+  return { ok: true };
+});

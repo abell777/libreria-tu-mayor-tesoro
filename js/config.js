@@ -79,3 +79,9 @@ var authProviders = {
   apple: false,
   microsoft: false
 };
+
+// 5) Verificación del correo con código. Las cuentas con correo y contraseña
+// creadas a partir de esta fecha deben verificar su correo (código de 6 dígitos)
+// antes de comprar. Las anteriores no se bloquean. Debe coincidir con
+// VERIFICACION_OBLIGATORIA_DESDE en functions/index.js.
+var VERIFICACION_OBLIGATORIA_DESDE = Date.parse('2026-09-21T00:00:00Z');

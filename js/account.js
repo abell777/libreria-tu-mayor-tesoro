@@ -40,6 +40,9 @@
       'auth/too-many-requests': 'Demasiados intentos. Espera unos minutos antes de volver a intentarlo.',
       'auth/network-request-failed': 'No se ha podido conectar. Comprueba tu conexión a internet.'
     };
+    // Los errores de las Cloud Functions (código de verificación, etc.) ya
+    // traen su mensaje en español.
+    if (code && String(code).indexOf('functions/') === 0 && err.message) return err.message;
     return mapa[code] || 'Ha ocurrido un error. Inténtalo de nuevo.';
   }
 
@@ -561,6 +564,106 @@
   document.addEventListener('wishlist:change', renderWishlist);
   renderWishlist();
 
+  // ---- Verificación del correo con código -------------------------------------
+  var verifyForm = document.getElementById('verifyForm');
+  var verifyError = document.getElementById('verifyError');
+  var verifyInfo = document.getElementById('verifyInfo');
+  var verifyResend = document.getElementById('verifyResend');
+  var cuentaAtras = null;
+
+  function bloquearReenvio(segundos) {
+    if (!verifyResend) return;
+    clearInterval(cuentaAtras);
+    var resto = segundos;
+    verifyResend.disabled = true;
+    verifyResend.textContent = 'Reenviar código (' + resto + ' s)';
+    cuentaAtras = setInterval(function () {
+      resto--;
+      if (resto <= 0) {
+        clearInterval(cuentaAtras);
+        verifyResend.disabled = false;
+        verifyResend.textContent = 'Reenviar código';
+      } else {
+        verifyResend.textContent = 'Reenviar código (' + resto + ' s)';
+      }
+    }, 1000);
+  }
+
+  function enviarCodigo(user, avisar) {
+    if (verifyError) verifyError.hidden = true;
+    return window.authSendVerificationCode().then(function () {
+      bloquearReenvio(60);
+      if (verifyInfo) {
+        verifyInfo.textContent = 'Te hemos enviado un código nuevo a ' + user.email + '.';
+        verifyInfo.hidden = !avisar;
+      }
+    }).catch(function (err) {
+      console.error('No se pudo enviar el código', err);
+      mostrarError(verifyError, err);
+    });
+  }
+
+  function prepararVerificacion(user) {
+    var intro = document.getElementById('verifyIntro');
+    if (intro) {
+      intro.textContent = 'Hemos enviado un código de 6 dígitos a ' + user.email +
+        '. Escríbelo aquí para activar tu cuenta: así nos aseguramos de que el correo está bien escrito.';
+    }
+    // Un código automático por cuenta y sesión (al registrarse o al volver a
+    // entrar sin haber verificado). Después, con el botón "Reenviar".
+    var clave = 'verif_enviado_' + user.uid;
+    var yaEnviado = false;
+    try { yaEnviado = !!window.sessionStorage.getItem(clave); } catch (e) {}
+    if (!yaEnviado) {
+      try { window.sessionStorage.setItem(clave, '1'); } catch (e) {}
+      enviarCodigo(user, false);
+    }
+  }
+
+  if (verifyForm) {
+    verifyForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var codigo = verifyForm.querySelector('input[name="codigo"]').value.replace(/\D/g, '');
+      var boton = verifyForm.querySelector('button[type="submit"]');
+      if (verifyError) verifyError.hidden = true;
+      if (verifyInfo) verifyInfo.hidden = true;
+      if (codigo.length !== 6) {
+        mostrarError(verifyError, { code: 'functions/invalid-argument', message: 'El código tiene 6 dígitos.' });
+        return;
+      }
+      boton.disabled = true;
+      window.authVerifyCode(codigo).then(function () {
+        verifyForm.reset();
+        window.onAuthReady(window.fbAuth.currentUser);
+      }).catch(function (err) {
+        console.error('Código incorrecto', err);
+        mostrarError(verifyError, err);
+      }).then(function () { boton.disabled = false; });
+    });
+  }
+  if (verifyResend) {
+    verifyResend.addEventListener('click', function () {
+      var user = window.fbAuth ? window.fbAuth.currentUser : null;
+      if (user) enviarCodigo(user, true);
+    });
+  }
+  var verifyWrong = document.getElementById('verifyWrongEmail');
+  if (verifyWrong) {
+    verifyWrong.addEventListener('click', function () {
+      var user = window.fbAuth ? window.fbAuth.currentUser : null;
+      if (!user) return;
+      if (!confirm('Vamos a borrar esta cuenta sin verificar para que puedas crearla de nuevo con el correo correcto. ¿Continuar?')) return;
+      user.delete().then(function () {
+        window.location.reload();
+      }).catch(function () {
+        // Si Firebase pide un acceso reciente, basta con salir y volver a registrarse.
+        window.authLogout().then(function () { window.location.reload(); });
+      });
+    });
+  }
+  var verifyLogout = document.getElementById('verifyLogout');
+  if (verifyLogout) verifyLogout.addEventListener('click', function () { window.authLogout(); });
+
   // ---- Estado general del panel ----------------------------------------------
   function setAvatarInitial(nombre) {
     var avatar = document.getElementById('accountAvatar');
@@ -571,7 +674,19 @@
     var loggedOut = document.getElementById('authLoggedOut');
     var loggedIn = document.getElementById('authLoggedIn');
     var pageContainer = document.querySelector('.account-page');
+    var verifyBox = document.getElementById('authVerify');
     if (!loggedOut || !loggedIn) return;
+
+    // Cuenta con correo y contraseña sin verificar: primero el código.
+    if (user && window.authNeedsEmailVerification && window.authNeedsEmailVerification(user)) {
+      loggedOut.hidden = true;
+      loggedIn.hidden = true;
+      if (verifyBox) verifyBox.hidden = false;
+      if (pageContainer) pageContainer.classList.remove('account-page--dashboard');
+      prepararVerificacion(user);
+      return;
+    }
+    if (verifyBox) verifyBox.hidden = true;
 
     if (user) {
       loggedOut.hidden = true;

@@ -158,6 +158,30 @@
   window.authHasPassword = function (user) {
     return !!(user && user.providerData && user.providerData.some(function (p) { return p.providerId === 'password'; }));
   };
+  // ---- Verificación del correo con código (ver functions/index.js) ----------
+  // ¿Esta cuenta tiene que verificar su correo? Solo las de correo y contraseña
+  // creadas desde VERIFICACION_OBLIGATORIA_DESDE. Google, Facebook, Apple,
+  // Microsoft y el enlace por correo ya llegan verificados.
+  window.authNeedsEmailVerification = function (user) {
+    if (!user || user.emailVerified || !user.email) return false;
+    if (!window.authHasPassword(user)) return false;
+    var creada = user.metadata && user.metadata.creationTime ? Date.parse(user.metadata.creationTime) : 0;
+    var desde = typeof VERIFICACION_OBLIGATORIA_DESDE !== 'undefined' ? VERIFICACION_OBLIGATORIA_DESDE : 0;
+    return !creada || creada >= desde;
+  };
+  window.authSendVerificationCode = function () {
+    return firebase.functions().httpsCallable('enviarCodigoVerificacion')().then(function (r) { return r.data; });
+  };
+  window.authVerifyCode = function (codigo) {
+    return firebase.functions().httpsCallable('verificarCodigoCorreo')({ codigo: codigo }).then(function () {
+      // Refresca los datos de la cuenta y el token para que "correo verificado"
+      // llegue ya a la web y al servidor.
+      return auth.currentUser.reload();
+    }).then(function () {
+      return auth.currentUser.getIdToken(true);
+    });
+  };
+
   window.authIsGoogleAccount = function (user) {
     return !!(user && user.providerData && user.providerData.some(function (p) { return p.providerId === 'google.com'; }));
   };

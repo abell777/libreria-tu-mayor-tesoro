@@ -157,6 +157,17 @@
         if (loginNotice) loginNotice.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
+      var verifyNotice = document.getElementById('checkoutVerifyNotice');
+      if (window.authNeedsEmailVerification && window.authNeedsEmailVerification(user)) {
+        if (loginNotice) loginNotice.hidden = true;
+        if (shippingSection) shippingSection.hidden = true;
+        if (verifyNotice) {
+          verifyNotice.hidden = false;
+          verifyNotice.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
+      if (verifyNotice) verifyNotice.hidden = true;
       if (loginNotice) loginNotice.hidden = true;
       if (shippingSection) {
         shippingSection.hidden = false;

@@ -158,6 +158,29 @@
       </div>
     </div>
 
+    <!-- ---- Cuenta creada pero con el correo sin verificar ---- -->
+    <div id="authVerify" hidden>
+      <h1 class="section-title">Verifica tu correo</h1>
+      <p class="account-intro" id="verifyIntro">Te hemos enviado un código de 6 dígitos. Escríbelo aquí para activar tu cuenta.</p>
+
+      <div class="auth-card">
+        <form id="verifyForm" class="auth-form" novalidate>
+          <label>Código de verificación
+            <input type="text" name="codigo" class="verify-code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code" placeholder="······" required>
+          </label>
+          <p class="auth-error" id="verifyError" role="alert" hidden></p>
+          <p class="auth-success" id="verifyInfo" role="status" hidden></p>
+          <button type="submit" class="btn btn--primary btn--block">Verificar mi correo</button>
+          <div class="verify-links">
+            <button type="button" id="verifyResend" class="auth-forgot-link">Reenviar código</button>
+            <button type="button" id="verifyWrongEmail" class="auth-forgot-link">Me equivoqué de correo</button>
+            <button type="button" id="verifyLogout" class="auth-forgot-link">Cerrar sesión</button>
+          </div>
+        </form>
+      </div>
+      <p class="auth-hint verify-hint">¿No llega? Mira en la carpeta de spam. El código vale 10 minutos.</p>
+    </div>
+
     <!-- ---- Con sesión iniciada ---- -->
     <div id="authLoggedIn" hidden>
       <div class="account-dashboard">
@@ -417,6 +440,7 @@
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-functions-compat.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script src="js/config.js"></script>
 <script src="js/auth.js"></script>
