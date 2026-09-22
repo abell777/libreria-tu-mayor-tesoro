@@ -18,7 +18,22 @@
   }
 
   var params = new URLSearchParams(window.location.search);
-  var book = window.BooksCatalog.getById(params.get('id'));
+
+  // ---- Fichas antiguas fusionadas (misma obra, "... Tapa dura" o
+  // "... Tapa blanda" como producto aparte) → redirigen a la ficha única,
+  // ya con esa tapa seleccionada en el configurador. Así ningún enlace
+  // antiguo (compartido, guardado en favoritos, etc.) se rompe.
+  var requestedId = params.get('id');
+  var merged = window.EW_MERGED_REDIRECTS && window.EW_MERGED_REDIRECTS[requestedId];
+  if (merged) {
+    var redirectParams = new URLSearchParams(window.location.search);
+    redirectParams.set('id', merged.id);
+    redirectParams.set('tipo', merged.tipo);
+    window.location.replace('producto.html?' + redirectParams.toString());
+    return;
+  }
+
+  var book = window.BooksCatalog.getById(requestedId);
 
   if (!book) {
     var notFound = document.getElementById('productNotFound');
@@ -456,6 +471,7 @@
       if (addBtn) {
         addBtn.dataset.price = price;
         addBtn.dataset.format = formatStr;
+        addBtn.dataset.imp = JSON.stringify(poState);
       }
       setSpecRow('encuadernacion', poState.tipo === 'dura' ? 'Tapa dura' : 'Tapa blanda');
       setSpecRow('acabado', poState.acabado === 'mate' ? 'Mate' : 'Brillo');

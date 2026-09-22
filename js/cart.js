@@ -342,11 +342,22 @@ document.addEventListener('DOMContentLoaded', function () {
       } catch (err) { regalo = null; }
       if (regalo && !Object.keys(regalo).length) regalo = null;
 
+      // Libros con configurador de impresión (colección Elena G. White):
+      // la combinación elegida (tapa, tamaño, acabado, papel) viaja con la
+      // línea del carrito para que, al pedir de verdad, el servidor pueda
+      // volver a calcular el precio exacto contra su propia tabla — nunca
+      // se cobra el precio que calcula el navegador tal cual.
+      var imp = null;
+      try {
+        imp = mainAddBtn.dataset.imp ? JSON.parse(mainAddBtn.dataset.imp) : null;
+      } catch (err) { imp = null; }
+
       Cart.addItem({
         id: mainAddBtn.dataset.id,
         title: mainAddBtn.dataset.title,
         author: mainAddBtn.dataset.author,
         regalo: regalo,
+        imp: imp,
         price: activePill ? parseFloat(activePill.dataset.price) : parseFloat(mainAddBtn.dataset.price),
         format: activePill ? activePill.dataset.format : (mainAddBtn.dataset.format || 'Estándar'),
         coverStyle: mainAddBtn.dataset.coverStyle || '',

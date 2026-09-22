@@ -27,6 +27,7 @@ const { defineSecret } = require("firebase-functions/params");
 const { initializeApp } = require("firebase-admin/app");
 const { getFirestore, FieldValue } = require("firebase-admin/firestore");
 const { getAuth } = require("firebase-admin/auth");
+const { hasEWPrintOptions, resolverImpresion } = require("./ew-pricing");
 
 initializeApp();
 const db = getFirestore();
@@ -255,16 +256,6 @@ const CATALOGO = {
     cover: "img/el-ministerio-pastoral.jpg",
     description: "Dirigido a pastores y líderes de iglesia, reúne consejos prácticos sobre el cuidado de la congregación, la predicación y el ejemplo personal. Un manual de referencia para quienes ejercen el ministerio.",
   },
-  "el-deseado-de-todas-las-gentes-tapa-blanda": {
-    title: "El Deseado de Todas las Gentes",
-    format: "Tapa blanda, 148 x 210 mm",
-    price: 10.32,
-    author: "Elena G. White",
-    category: "elena-white",
-    categoryLabel: "Elena G. White",
-    cover: "img/el-deseado-de-todas-las-gentes-tapa-blanda.jpg",
-    description: "Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Uno de los libros más leídos de Elena G. White.",
-  },
   "el-ministerio-de-publicaciones": {
     title: "El Ministerio de Publicaciones",
     format: "Tapa blanda, 148 x 210 mm",
@@ -384,16 +375,6 @@ const CATALOGO = {
     categoryLabel: "Elena G. White",
     cover: "img/cristo-en-su-santuario.jpg",
     description: "Explica el simbolismo del santuario de la Biblia y su cumplimiento en la obra de Cristo. Un libro de estudio para profundizar en la doctrina del santuario.",
-  },
-  "el-deseado-de-todas-las-gentes-tapa-dura": {
-    title: "El Deseado de Todas las Gentes",
-    format: "Tapa dura, 155 x 235 mm",
-    price: 17.58,
-    author: "Elena G. White",
-    category: "elena-white",
-    categoryLabel: "Elena G. White",
-    cover: "img/el-deseado-de-todas-las-gentes-tapa-dura.jpg",
-    description: "Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Pensada para quienes buscan un ejemplar más duradero o para regalo.",
   },
   "consejos-sobre-la-mayordomia-cristiana": {
     title: "Consejos sobre la Mayordomía Cristiana",
@@ -924,12 +905,32 @@ exports.crearPedido = onCall(async (request) => {
     }
     const cantidad = Math.min(MAX_QTY, Math.max(1, parseInt(item.qty, 10) || 1));
     const portada = typeof item.portada === "string" && PORTADAS_VALIDAS[item.portada] ? item.portada : null;
+
+    // Libros de la colección Elena G. White con configurador de tapa,
+    // tamaño, acabado y papel: el precio y el formato SIEMPRE se
+    // recalculan aquí contra la tabla del proveedor (ew-pricing.js), a
+    // partir de la combinación que mande el navegador en "item.imp". Si
+    // falta o no es válida, se usa la combinación ya publicada del libro
+    // — nunca se confía en el precio que mande el navegador.
+    let tituloFinal = libro.title;
+    let formatoFinal = libro.format + (portada ? " · " + PORTADAS_VALIDAS[portada] : "");
+    let precioFinal = libro.price;
+
+    if (hasEWPrintOptions(item.id)) {
+      const resuelto = resolverImpresion(item.id, item.imp);
+      if (!resuelto) {
+        throw new HttpsError("invalid-argument", "La edición elegida para «" + libro.title + "» no está disponible.");
+      }
+      formatoFinal = resuelto.formato + (portada ? " · " + PORTADAS_VALIDAS[portada] : "");
+      precioFinal = resuelto.precio;
+    }
+
     itemsFinales.push({
       id: item.id,
-      titulo: libro.title,
-      formato: libro.format + (portada ? " · " + PORTADAS_VALIDAS[portada] : ""),
+      titulo: tituloFinal,
+      formato: formatoFinal,
       portada: portada,
-      precio: libro.price,
+      precio: precioFinal,
       cantidad: cantidad,
       envioGratis: !!libro.freeShipping,
     });
