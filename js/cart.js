@@ -630,6 +630,14 @@ function renderCartDrawer() {
 
   body.innerHTML = items.map(function (item) {
     var imagePath = item.cover && item.cover.startsWith('img/') ? item.cover : getBookImage(item.title);
+    var extras = window.giftExtrasFor ? window.giftExtrasFor(item) : [];
+    var extrasHTML = extras.length
+      ? '<ul class="cart-item-gifts">' + extras.map(function (e) {
+          return '<li><span>' + escapeHTML(e.label) + (e.texto ? ': «' + escapeHTML(e.texto) + '»' : '') + '</span>' +
+            '<span>' + (e.total > 0 ? fmtEUR(e.total) : 'Incluido') + '</span></li>';
+        }).join('') + '</ul>'
+      : '';
+    var extrasSumaItem = extras.reduce(function (s, e) { return s + e.total; }, 0);
     return (
       '<article class="cart-drawer-item" data-id="' + escapeHTML(item.id) + '" data-format="' + escapeHTML(item.format) + '"' +
       (window.cartProductUrl(item) ? ' data-href="' + escapeHTML(window.cartProductUrl(item)) + '"' : '') + '>' +
@@ -642,6 +650,7 @@ function renderCartDrawer() {
             ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '">' + escapeHTML(item.title) + '</a>'
             : escapeHTML(item.title)) + '</h3>' +
           '<p>' + escapeHTML(item.format && item.format !== 'Estándar' ? item.format : '') + '</p>' +
+          extrasHTML +
           (window.cartProductUrl(item)
             ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '" class="cart-drawer-item-details">Ver detalles</a>'
             : '') +
@@ -654,7 +663,7 @@ function renderCartDrawer() {
             '<button type="button" class="cart-drawer-item-remove" data-remove>Eliminar</button>' +
           '</div>' +
         '</div>' +
-        '<div class="cart-drawer-item-price">' + fmtEUR(item.price * item.qty) + '</div>' +
+        '<div class="cart-drawer-item-price">' + fmtEUR(item.price * item.qty + extrasSumaItem) + '</div>' +
       '</article>'
     );
   }).join('');
@@ -680,8 +689,10 @@ function renderCartDrawer() {
   });
 
   var subtotal = Cart.totalPrice();
+  var extrasDrawer = Cart.extrasTotal();
   footer.innerHTML =
-    '<div class="cart-drawer-subtotal"><span>Subtotal</span><span>' + fmtEUR(subtotal) + '</span></div>' +
+    (extrasDrawer > 0 ? '<div class="cart-drawer-subtotal"><span>Extras de regalo</span><span>' + fmtEUR(extrasDrawer) + '</span></div>' : '') +
+    '<div class="cart-drawer-subtotal"><span>Subtotal</span><span>' + fmtEUR(subtotal + extrasDrawer) + '</span></div>' +
     '<a href="carrito.html" class="btn btn--outline">Ver carrito</a>' +
     '<a href="carrito.html" class="btn btn--primary">Finalizar compra</a>';
 }

@@ -72,7 +72,7 @@ var ADMIN_UIDS = [
 //   facebook   → requiere crear una app en developers.facebook.com
 //   apple      → requiere cuenta de Apple Developer (99 $/año)
 //   microsoft  → requiere registrar una app en Microsoft Entra (gratis)
-var authProviders = {
+var metodosAcceso = {
   google: true,
   emailLink: true,
   facebook: false,

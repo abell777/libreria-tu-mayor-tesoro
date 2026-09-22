@@ -119,8 +119,14 @@
   }
 
   // ---- Otras formas de entrar: Google, Facebook, Apple, Microsoft y enlace por
-  // correo. Solo se muestran las activadas en js/config.js ("authProviders").
-  var proveedoresActivos = window.authProviders || { google: true };
+  // correo. Solo se muestran las activadas en js/config.js ("metodosAcceso").
+  // Ojo: antes esta variable se llamaba igual que el id="authProviders" del
+  // HTML (la caja que envuelve los botones); en algunos navegadores eso
+  // puede hacer que "window.authProviders" apunte al <div> en vez de a la
+  // configuración, dejando el formulario de enlace por correo sin
+  // comportamiento (se ve la caja pero vacía). Con nombres distintos no hay
+  // ambigüedad posible.
+  var proveedoresActivos = window.metodosAcceso || { google: true };
   var providersBox = document.getElementById('authProviders');
   var providerError = document.getElementById('providerError');
   var emailLinkForm = document.getElementById('emailLinkForm');
