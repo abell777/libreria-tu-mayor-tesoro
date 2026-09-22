@@ -28,6 +28,42 @@
 
   layout.hidden = false;
 
+  // ---- Configurador de impresión (colección Elena G. White) --------------
+  // Si este libro tiene tabla de precios de 24BookPrint (js/ew-pricing.js),
+  // el cliente puede elegir tapa, tamaño, acabado y papel, y el precio se
+  // recalcula al momento. Empieza siempre con la combinación que YA está
+  // publicada para este libro (mismo precio de siempre); si el cliente
+  // cambia algo, se usa el precio de la tabla del proveedor + 1 €.
+  var hasPrintOpts = !!(window.hasEWPrintOptions && window.hasEWPrintOptions(book.id));
+  var ewDef = hasPrintOpts ? window.EW_BOOK_DEFAULTS[book.id] : null;
+  var poState = hasPrintOpts ? { tipo: ewDef.tipo, tamano: ewDef.tamano, acabado: ewDef.acabado, papel: ewDef.papel } : null;
+  var PAPER_LABELS_FULL = { crema: 'Papel crema', offset: 'Papel blanco (Offset)', semi: 'Papel blanco semi brillante' };
+
+  function poFormatLabel(state) {
+    var sizes = (window.EW_SIZES_BY_TIPO && window.EW_SIZES_BY_TIPO[state.tipo]) || [];
+    var sizeInfo = sizes.filter(function (s) { return s.slug === state.tamano; })[0];
+    var tipoLabel = state.tipo === 'dura' ? 'Tapa dura' : 'Tapa blanda';
+    var sizePart = sizeInfo ? (sizeInfo.label + ' (' + sizeInfo.dims + ')') : '';
+    var acabadoLabel = state.acabado === 'mate' ? 'Mate' : 'Brillo';
+    var papelLabel = PAPER_LABELS_FULL[state.papel] || '';
+    return tipoLabel + (sizePart ? ', ' + sizePart : '') + ' · ' + acabadoLabel + ' · ' + papelLabel;
+  }
+
+  // Si el cliente llega desde el catálogo habiendo pulsado "Tapa dura" o
+  // "Tapa blanda" en la propia tarjeta del libro (antes de entrar a la
+  // ficha), se abre ya con ese tipo elegido — ver el botón añadido en
+  // js/shop.js debajo de la portada de cada tarjeta.
+  if (hasPrintOpts) {
+    var tipoParam = params.get('tipo');
+    if ((tipoParam === 'dura' || tipoParam === 'blanda') && tipoParam !== poState.tipo) {
+      poState.tipo = tipoParam;
+      var sizesForTipo = window.EW_SIZES_BY_TIPO[tipoParam] || [];
+      if (!sizesForTipo.some(function (s) { return s.slug === poState.tamano; })) {
+        poState.tamano = tipoParam === 'dura' ? 'mediano' : 'a5';
+      }
+    }
+  }
+
   // ¿Libro anunciado pero todavía sin precio? (campo "comingSoon" del
   // catálogo). En ese caso se muestra la portada y un aviso de próxima
   // disponibilidad, pero no se puede comprar.
@@ -133,11 +169,15 @@
   // las filas cuyo dato exista para este libro en concreto.
   var specList = document.getElementById('productSpecList');
   if (specList) {
-    var bindingLabel = { 'tapa-dura': 'Tapa dura', rustica: 'Tapa blanda' }[book.formatSlug];
+    var bindingLabel = hasPrintOpts
+      ? (poState.tipo === 'dura' ? 'Tapa dura' : 'Tapa blanda')
+      : { 'tapa-dura': 'Tapa dura', rustica: 'Tapa blanda' }[book.formatSlug];
     var specRows = [];
-    if (bindingLabel) specRows.push(['Encuadernación', bindingLabel]);
-    if (book.finish) specRows.push(['Acabado de cubierta', book.finish]);
-    if (book.paper) specRows.push(['Tipo de papel', book.paper]);
+    if (bindingLabel) specRows.push(['Encuadernación', bindingLabel, false, 'encuadernacion']);
+    var finishVal = hasPrintOpts ? (poState.acabado === 'mate' ? 'Mate' : 'Brillo') : book.finish;
+    if (finishVal) specRows.push(['Acabado de cubierta', finishVal, false, 'acabado']);
+    var paperVal = hasPrintOpts ? PAPER_LABELS_FULL[poState.papel] : book.paper;
+    if (paperVal) specRows.push(['Tipo de papel', paperVal, false, 'papel']);
     // "Ideal para": las necesidades que cubre este libro (¿Qué busca tu
     // alma hoy?). Cada una es un enlace al catálogo ya filtrado.
     if (Array.isArray(book.needs) && book.needs.length && window.NEED_LABELS) {
@@ -156,7 +196,8 @@
     if (book.bibleColor && window.BIBLE_COLOR_LABELS) specRows.push(['Color de cubierta', window.BIBLE_COLOR_LABELS[book.bibleColor] || book.bibleColor]);
     if (book.bibleClosure && window.BIBLE_CLOSURE_LABELS) specRows.push(['Cierre', window.BIBLE_CLOSURE_LABELS[book.bibleClosure] || book.bibleClosure]);
     if (book.bibleSize && window.BIBLE_SIZE_LABELS) specRows.push(['Tamaño', window.BIBLE_SIZE_LABELS[book.bibleSize] || book.bibleSize]);
-    specRows.push(['Formato', book.format]);
+    var formatVal = hasPrintOpts ? poFormatLabel(poState) : book.format;
+    specRows.push(['Formato', formatVal, false, 'formato']);
     specRows.push(['Categoría', book.categoryLabel]);
     specRows.push(['Autor', book.author]);
     specRows.push(['Idioma', book.idioma]);
@@ -165,20 +206,32 @@
         // El tercer elemento (opcional) indica que el valor ya viene como
         // HTML seguro creado aquí arriba (enlaces), no como texto plano.
         var valor = row[2] ? row[1] : escapeHTML(row[1]);
-        return '<li><span>' + escapeHTML(row[0]) + '</span><span>' + valor + '</span></li>';
+        var keyAttr = row[3] ? ' data-spec-key="' + row[3] + '"' : '';
+        return '<li' + keyAttr + '><span>' + escapeHTML(row[0]) + '</span><span>' + valor + '</span></li>';
       }).join('');
+  }
+
+  // Actualiza una fila concreta de la ficha técnica (usado por el
+  // configurador de impresión al cambiar tamaño/acabado/papel/tipo).
+  function setSpecRow(key, value) {
+    if (!specList) return;
+    var li = specList.querySelector('li[data-spec-key="' + key + '"] span:last-child');
+    if (li) li.textContent = value;
   }
 
   // ---- Sello de encuadernación sobre la portada (tapa dura / tapa blanda) ----
   var bindingEl = document.getElementById('productBinding');
-  if (bindingEl) {
-    var isHardcover = book.formatSlug === 'tapa-dura';
-    bindingEl.className = 'binding-tag binding-tag--' + book.formatSlug;
+  function renderBindingTag(isHardcover) {
+    if (!bindingEl) return;
+    bindingEl.className = 'binding-tag binding-tag--' + (isHardcover ? 'tapa-dura' : 'rustica');
     bindingEl.innerHTML = (isHardcover
       ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h13a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3V4z"/><path d="M4 4v13a3 3 0 0 0 3 3h13"/><line x1="8" y1="8" x2="15" y2="8"/></svg>'
       : '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5.5S5 4 12 6c7-2 10-0.5 10-0.5v13S19 17 12 19c-7-2-10-0.5-10-0.5z"/><line x1="12" y1="6" x2="12" y2="19"/></svg>'
     ) + '<span>' + (isHardcover ? 'Tapa dura' : 'Tapa blanda') + '</span>';
     bindingEl.hidden = false;
+  }
+  if (bindingEl) {
+    renderBindingTag(hasPrintOpts ? poState.tipo === 'dura' : book.formatSlug === 'tapa-dura');
   }
 
   // ---- Aviso de stock (opcional; ver window.stockInfo en js/books-data.js) ----
@@ -316,6 +369,133 @@
       if (covers[i].style === wanted) { applyCover(i); break; }
     }
   })();
+
+  // ==========================================================================
+  // Configurador de impresión — tapa, tamaño, acabado y papel
+  // --------------------------------------------------------------------------
+  // Solo aparece en los libros de la colección Elena G. White que tienen
+  // tabla de precios del proveedor (window.EW_BOOK_DEFAULTS, generado a
+  // partir de precios_libros_elena_white.pdf — ver js/ew-pricing.js).
+  // Empieza siempre con la combinación que ya está publicada (mismo precio
+  // de siempre) y, si el cliente cambia algo, usa el precio del PDF + 1 €.
+  // ==========================================================================
+  if (hasPrintOpts && !comingSoon) {
+    var PAPER_SHORT = { crema: 'Crema', offset: 'Blanco Offset', semi: 'Blanco semi brillo' };
+    var poRoot = document.createElement('div');
+    poRoot.className = 'print-options';
+    poRoot.id = 'printOptions';
+
+    function poGroupHTML(label, required, rowClass, rowId, innerHTML) {
+      return '<div class="po-group">' +
+        '<span class="po-label">' + escapeHTML(label) + (required ? ' <em>*</em>' : '') + '</span>' +
+        '<div class="po-row' + (rowClass ? ' ' + rowClass : '') + '"' + (rowId ? ' id="' + rowId + '"' : '') + ' role="radiogroup" aria-label="' + escapeHTML(label) + '">' +
+          innerHTML +
+        '</div>' +
+      '</div>';
+    }
+
+    function poCardHTML(po, value, active, title, subtitle, disabled) {
+      return '<button type="button" class="po-card' + (active ? ' is-active' : '') + (disabled ? ' is-disabled' : '') +
+        '" role="radio" aria-checked="' + (active ? 'true' : 'false') + '" data-po="' + po + '" data-value="' + value + '"' +
+        (disabled ? ' disabled' : '') + '>' +
+        '<span class="po-card-text"><strong>' + escapeHTML(title) + '</strong>' + (subtitle ? '<small>' + escapeHTML(subtitle) + '</small>' : '') + '</span>' +
+        '<svg class="po-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>' +
+      '</button>';
+    }
+
+    function poPillHTML(po, value, active, label) {
+      return '<button type="button" class="po-pill' + (active ? ' is-active' : '') +
+        '" role="radio" aria-checked="' + (active ? 'true' : 'false') + '" data-po="' + po + '" data-value="' + value + '">' +
+        escapeHTML(label) + '</button>';
+    }
+
+    function sizeRowHTML(tipo, tamano) {
+      var sizes = window.EW_SIZES_BY_TIPO[tipo] || [];
+      return sizes.map(function (s) {
+        return poCardHTML('tamano', s.slug, s.slug === tamano, s.label, s.dims);
+      }).join('');
+    }
+
+    function buildHTML() {
+      var tipoRow =
+        poCardHTML('tipo', 'blanda', poState.tipo === 'blanda', 'Tapa blanda', 'Libro estándar') +
+        poCardHTML('tipo', 'dura', poState.tipo === 'dura', 'Tapa dura', 'Libro en tapa dura');
+
+      var finishRow =
+        poPillHTML('acabado', 'mate', poState.acabado === 'mate', 'Mate') +
+        poPillHTML('acabado', 'brillo', poState.acabado === 'brillo', 'Brillo');
+
+      var paperRow = window.EW_PAPERS.map(function (p) {
+        return poCardHTML('papel', p.slug, p.slug === poState.papel, p.label, null);
+      }).join('');
+
+      var colorRow =
+        poCardHTML('color', 'bn', true, 'Blanco/negro', 'Interior del libro') +
+        poCardHTML('color', 'color', false, 'Color', 'Próximamente', true);
+
+      poRoot.innerHTML =
+        '<p class="print-options-title">Elige tu edición' +
+          '<span class="print-options-hint">Por defecto: tapa blanda, A5, brillo y papel blanco offset. Cambia lo que necesites — el precio se ajusta al momento.</span>' +
+        '</p>' +
+        poGroupHTML('Tipo', true, 'po-row--tipo', null, tipoRow) +
+        poGroupHTML('Tamaño', true, 'po-row--tamano', 'poSizeRow', sizeRowHTML(poState.tipo, poState.tamano)) +
+        poGroupHTML('Acabado de la cubierta', true, 'po-row--pill', null, finishRow) +
+        (poState.tipo === 'dura' ? '<p class="po-note">El acabado no cambia el precio en tapa dura.</p>' : '') +
+        poGroupHTML('Tipo de papel', true, 'po-row--papel', null, paperRow) +
+        poGroupHTML('Color de interior', true, 'po-row--color', null, colorRow) +
+        '<p class="po-note po-note--muted">La impresión a color de interior todavía no está disponible; de momento todos los libros se imprimen en blanco y negro.</p>';
+    }
+
+    function updatePrice() {
+      var price = window.getEWPrice(book.id, poState.tipo, poState.tamano, poState.acabado, poState.papel);
+      if (price === null) price = book.price;
+      priceEl.childNodes[0].textContent = fmtPrice(price) + '\u00A0€ ';
+      priceNoteEl.textContent = book.priceNote;
+
+      var formatStr = poFormatLabel(poState);
+      if (addBtn) {
+        addBtn.dataset.price = price;
+        addBtn.dataset.format = formatStr;
+      }
+      setSpecRow('encuadernacion', poState.tipo === 'dura' ? 'Tapa dura' : 'Tapa blanda');
+      setSpecRow('acabado', poState.acabado === 'mate' ? 'Mate' : 'Brillo');
+      setSpecRow('papel', PAPER_LABELS_FULL[poState.papel]);
+      setSpecRow('formato', formatStr);
+      renderBindingTag(poState.tipo === 'dura');
+    }
+
+    poRoot.addEventListener('click', function (e) {
+      var btn = e.target.closest('.po-card, .po-pill');
+      if (!btn || btn.disabled) return;
+      var po = btn.dataset.po;
+      var value = btn.dataset.value;
+      if (po === 'color') return; // única opción disponible por ahora
+      if (po === 'tipo') {
+        poState.tipo = value;
+        var sizesForTipo = window.EW_SIZES_BY_TIPO[value] || [];
+        if (!sizesForTipo.some(function (s) { return s.slug === poState.tamano; })) {
+          poState.tamano = value === 'dura' ? 'mediano' : 'a5';
+        }
+        buildHTML();
+      } else {
+        poState[po] = value;
+        // Actualiza solo el grupo tocado para no perder el foco del resto.
+        var group = btn.closest('.po-row');
+        Array.prototype.slice.call(group.querySelectorAll('.po-card, .po-pill')).forEach(function (b) {
+          var active = b.dataset.value === value;
+          b.classList.toggle('is-active', active);
+          b.setAttribute('aria-checked', active ? 'true' : 'false');
+        });
+      }
+      updatePrice();
+    });
+
+    buildHTML();
+    updatePrice();
+
+    var actionsBlock = document.querySelector('.product-actions');
+    if (actionsBlock) actionsBlock.parentNode.insertBefore(poRoot, actionsBlock);
+  }
 
   // ---- Aviso de "próximamente" debajo del precio ----
   if (comingSoon) {

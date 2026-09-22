@@ -769,6 +769,31 @@ h1, h2, h3, h4 {
 .product-cover-photo .binding-tag { left: 14px; bottom: 14px; font-size: 0.72rem; padding: 5px 11px 5px 8px; }
 .product-cover-photo .binding-tag svg { width: 13px; height: 13px; }
 
+/* Aviso "Tapa blanda · Tapa dura" bajo la portada de la tarjeta — para que
+   quede claro, antes de entrar en la ficha, que el libro existe en las
+   dos encuadernaciones. Cada botón lleva a la ficha con esa tapa elegida. */
+.card-binding-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 10px 14px 0;
+}
+.cbt-btn {
+  text-align: center;
+  padding: 6px 4px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--parchment);
+  color: var(--navy);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.cbt-btn:hover { border-color: var(--gold-soft); }
+.cbt-btn.is-current { background: var(--navy); border-color: var(--navy); color: #fff; }
+
 .book-info {
   padding: 18px;
   display: flex;
@@ -2855,6 +2880,110 @@ img.img-failed { visibility: hidden; }
 @media (max-width: 480px) {
   .cover-options { grid-template-columns: 1fr; }
   .cover-option-desc { -webkit-line-clamp: 2; }
+}
+
+/* ---- 2b. Configurador de impresión (tapa, tamaño, acabado, papel) ------ */
+.print-options {
+  margin: 18px 0;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--parchment);
+}
+.print-options-title {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--navy);
+  margin: 0 0 14px;
+}
+.print-options-hint {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--muted-foreground);
+}
+.po-group { margin-bottom: 14px; }
+.po-group:last-of-type { margin-bottom: 0; }
+.po-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.po-label em { color: var(--gold); font-style: normal; }
+.po-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  gap: 8px;
+}
+.po-row--tipo { grid-template-columns: repeat(2, 1fr); }
+.po-row--color { grid-template-columns: repeat(2, 1fr); }
+.po-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  text-align: left;
+  padding: 10px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  font-family: var(--font-sans);
+}
+.po-card:hover:not(.is-disabled) { border-color: var(--gold-soft); transform: translateY(-1px); }
+.po-card.is-active {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px oklch(0.64 0.10 78 / 0.16);
+}
+.po-card.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  background: oklch(0.96 0.005 84);
+}
+.po-card-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.po-card-text strong { font-size: 0.84rem; color: var(--navy); font-weight: 700; }
+.po-card-text small { font-size: 0.72rem; color: var(--muted-foreground); }
+.po-check {
+  flex: none;
+  width: 15px; height: 15px;
+  color: var(--gold);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.po-card.is-active .po-check { opacity: 1; transform: scale(1); }
+.po-row--pill { grid-template-columns: repeat(auto-fit, minmax(90px, max-content)); }
+.po-pill {
+  padding: 8px 18px;
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.po-pill:hover { border-color: var(--gold-soft); }
+.po-pill.is-active { border-color: var(--gold); background: var(--navy); color: #fff; }
+.po-note {
+  margin: -4px 0 14px;
+  font-size: 0.74rem;
+  color: var(--muted-foreground);
+  font-style: italic;
+}
+.po-note--muted { margin: 4px 0 0; font-style: normal; }
+@media (max-width: 480px) {
+  .po-row--tipo, .po-row--color { grid-template-columns: 1fr; }
 }
 
 /* ---- 3. Libros "próximamente" ------------------------------------------ */

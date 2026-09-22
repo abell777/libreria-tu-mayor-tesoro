@@ -52,6 +52,20 @@
     var priceHTML = comingSoon
       ? '<span class="book-price book-price--soon">Próximamente<small>Precio por confirmar</small></span>'
       : '<span class="book-price">' + fmtPrice(book.price) + '&nbsp;€<small>' + escapeHTML(book.priceNote) + '</small></span>';
+    // Colección Elena G. White con tabla de precios de impresión: antes de
+    // entrar a la ficha, dejamos claro que el libro existe en tapa blanda
+    // Y en tapa dura, con un botón para cada una justo debajo de la
+    // portada. Al pulsar, la ficha se abre ya con esa tapa seleccionada
+    // (el resto de opciones —tamaño, papel, acabado— se eligen dentro).
+    var printToggleHTML = '';
+    if (window.hasEWPrintOptions && window.hasEWPrintOptions(book.id)) {
+      var ewDefault = window.EW_BOOK_DEFAULTS[book.id];
+      printToggleHTML =
+        '<div class="card-binding-toggle" role="group" aria-label="Disponible en tapa blanda y tapa dura">' +
+          '<a href="producto.html?id=' + book.id + '&tipo=blanda" class="cbt-btn' + (ewDefault.tipo === 'blanda' ? ' is-current' : '') + '">Tapa blanda</a>' +
+          '<a href="producto.html?id=' + book.id + '&tipo=dura" class="cbt-btn' + (ewDefault.tipo === 'dura' ? ' is-current' : '') + '">Tapa dura</a>' +
+        '</div>';
+    }
     return (
       '<article class="book-card' + (agotado ? ' is-out-of-stock' : '') + (comingSoon ? ' is-coming-soon' : '') +
       '" data-category="' + book.category + '" data-needs="' + escapeHTML((book.needs || []).join(' ')) +
@@ -69,6 +83,7 @@
           stockBadgeHTML +
           '<img src="' + toWebp(book.cover) + '" onerror="this.onerror=null;this.src=\'' + book.cover + '\'" alt="Portada de «' + escapeHTML(book.title) + '», de ' + escapeHTML(book.author) + '" width="400" height="600" loading="lazy" decoding="async">' +
         '</a>' +
+        printToggleHTML +
         '<button type="button" class="book-fav" data-fav-toggle data-id="' + book.id + '" aria-pressed="false" aria-label="Añadir a mi lista de deseos">' +
           '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>' +
         '</button>' +
