@@ -401,6 +401,86 @@
     poRoot.className = 'print-options';
     poRoot.id = 'printOptions';
 
+    // El configurador empieza siempre plegado (solo se ve el resumen y el
+    // botón "Cambiar edición"): así no tapa el botón de añadir al carrito.
+    var poExpanded = false;
+
+    // ---- Ventana emergente con un ejemplo de cada tipo de papel --------
+    var PAPER_INFO = {
+      crema: {
+        label: 'Papel crema',
+        tagline: 'Tono marfil, cálido y de bajo brillo',
+        desc: 'Papel de color crudo/marfil, algo más oscuro que el blanco. Al tener menos contraste y brillo, resulta más suave para la vista en lecturas largas y da al libro un aspecto más clásico.',
+        tone: '#efe5cf'
+      },
+      offset: {
+        label: 'Papel blanco (Offset)',
+        tagline: 'Blanco natural, sin apenas brillo',
+        desc: 'Papel blanco estándar de imprenta, prácticamente sin brillo. Es la opción más habitual en libros de texto: buen contraste con la tinta y un tacto ligeramente mate.',
+        tone: '#fbfaf5'
+      },
+      semi: {
+        label: 'Papel blanco semi brillante',
+        tagline: 'Blanco con un ligero brillo satinado',
+        desc: 'Papel blanco con un acabado algo más satinado que el offset. Aporta más nitidez a texto e ilustraciones, con un brillo suave al inclinar la página hacia la luz.',
+        tone: '#ffffff'
+      }
+    };
+
+    function ensurePaperLightbox() {
+      var lb = document.getElementById('paperLightbox');
+      if (lb) return lb;
+      lb = document.createElement('div');
+      lb.id = 'paperLightbox';
+      lb.className = 'paper-lightbox';
+      lb.innerHTML =
+        '<div class="paper-lightbox-backdrop" data-paper-close></div>' +
+        '<div class="paper-lightbox-panel" role="dialog" aria-modal="true" aria-label="Ejemplo de tipo de papel">' +
+          '<button type="button" class="paper-lightbox-close" data-paper-close aria-label="Cerrar">' +
+            '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>' +
+          '</button>' +
+          '<div class="paper-lightbox-body" id="paperLightboxBody"></div>' +
+        '</div>';
+      document.body.appendChild(lb);
+      lb.addEventListener('click', function (e) {
+        if (e.target.closest('[data-paper-close]')) closePaperLightbox();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closePaperLightbox();
+      });
+      return lb;
+    }
+
+    function closePaperLightbox() {
+      var lb = document.getElementById('paperLightbox');
+      if (lb) lb.classList.remove('is-open');
+    }
+
+    var paperLightboxOpenFor = null;
+    function openPaperLightbox(slug) {
+      var info = PAPER_INFO[slug];
+      if (!info) return;
+      var lb = ensurePaperLightbox();
+      if (paperLightboxOpenFor !== slug) {
+        var body = document.getElementById('paperLightboxBody');
+        var shineClass = slug === 'semi' ? ' paper-preview--shine' : '';
+        body.innerHTML =
+          '<div class="paper-preview' + shineClass + '" style="background:' + info.tone + ';">' +
+            '<div class="paper-preview-lines">' +
+              '<span class="paper-preview-title">Aa</span>' +
+              '<span class="paper-preview-line"></span>' +
+              '<span class="paper-preview-line"></span>' +
+              '<span class="paper-preview-line short"></span>' +
+            '</div>' +
+          '</div>' +
+          '<p class="paper-lightbox-title">' + escapeHTML(info.label) + '</p>' +
+          '<p class="paper-lightbox-tagline">' + escapeHTML(info.tagline) + '</p>' +
+          '<p class="paper-lightbox-desc">' + escapeHTML(info.desc) + '</p>';
+        paperLightboxOpenFor = slug;
+      }
+      lb.classList.add('is-open');
+    }
+
     function poGroupHTML(label, required, rowClass, rowId, innerHTML) {
       return '<div class="po-group">' +
         '<span class="po-label">' + escapeHTML(label) + (required ? ' <em>*</em>' : '') + '</span>' +
@@ -442,7 +522,12 @@
         poPillHTML('acabado', 'brillo', poState.acabado === 'brillo', 'Brillo');
 
       var paperRow = window.EW_PAPERS.map(function (p) {
-        return poCardHTML('papel', p.slug, p.slug === poState.papel, p.label, null);
+        return '<span class="po-card-wrap">' +
+          poCardHTML('papel', p.slug, p.slug === poState.papel, p.label, null) +
+          '<button type="button" class="po-info-btn" data-paper-info="' + p.slug + '" aria-label="Ver ejemplo de ' + escapeHTML(p.label) + '" title="Ver ejemplo">' +
+            '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="11"/><circle cx="12" cy="7.5" r="0.6" fill="currentColor" stroke="none"/></svg>' +
+          '</button>' +
+        '</span>';
       }).join('');
 
       var colorRow =
@@ -450,16 +535,25 @@
         poCardHTML('color', 'color', false, 'Color', 'Próximamente', true);
 
       poRoot.innerHTML =
-        '<p class="print-options-title">Elige tu edición' +
-          '<span class="print-options-hint">Por defecto: tapa blanda, A5, brillo y papel blanco offset. Cambia lo que necesites — el precio se ajusta al momento.</span>' +
-        '</p>' +
-        poGroupHTML('Tipo', true, 'po-row--tipo', null, tipoRow) +
-        poGroupHTML('Tamaño', true, 'po-row--tamano', 'poSizeRow', sizeRowHTML(poState.tipo, poState.tamano)) +
-        poGroupHTML('Acabado de la cubierta', true, 'po-row--pill', null, finishRow) +
-        (poState.tipo === 'dura' ? '<p class="po-note">El acabado no cambia el precio en tapa dura.</p>' : '') +
-        poGroupHTML('Tipo de papel', true, 'po-row--papel', null, paperRow) +
-        poGroupHTML('Color de interior', true, 'po-row--color', null, colorRow) +
-        '<p class="po-note po-note--muted">La impresión a color de interior todavía no está disponible; de momento todos los libros se imprimen en blanco y negro.</p>';
+        '<div class="po-header">' +
+          '<p class="print-options-title">Elige tu edición</p>' +
+          '<button type="button" class="po-toggle" id="poToggle" aria-expanded="' + (poExpanded ? 'true' : 'false') + '" aria-controls="poBody">' +
+            '<span class="po-toggle-text">' + (poExpanded ? 'Ocultar opciones' : 'Cambiar edición') + '</span>' +
+            '<svg class="po-toggle-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>' +
+          '</button>' +
+        '</div>' +
+        '<p class="po-summary" id="poSummary">' + escapeHTML(poFormatLabel(poState)) + '</p>' +
+        '<div class="po-body" id="poBody">' +
+          '<p class="print-options-hint">Por defecto: tapa blanda, A5, brillo y papel blanco offset. Cambia lo que necesites — el precio se ajusta al momento.</p>' +
+          poGroupHTML('Tipo', true, 'po-row--tipo', null, tipoRow) +
+          poGroupHTML('Tamaño', true, 'po-row--tamano', 'poSizeRow', sizeRowHTML(poState.tipo, poState.tamano)) +
+          poGroupHTML('Acabado de la cubierta', true, 'po-row--pill', null, finishRow) +
+          (poState.tipo === 'dura' ? '<p class="po-note">El acabado no cambia el precio en tapa dura.</p>' : '') +
+          poGroupHTML('Tipo de papel', true, 'po-row--papel', null, paperRow) +
+          poGroupHTML('Color de interior', true, 'po-row--color', null, colorRow) +
+          '<p class="po-note po-note--muted">La impresión a color de interior todavía no está disponible; de momento todos los libros se imprimen en blanco y negro.</p>' +
+        '</div>';
+      poRoot.classList.toggle('is-collapsed', !poExpanded);
     }
 
     function updatePrice() {
@@ -479,9 +573,30 @@
       setSpecRow('papel', PAPER_LABELS_FULL[poState.papel]);
       setSpecRow('formato', formatStr);
       renderBindingTag(poState.tipo === 'dura');
+      var summaryEl = poRoot.querySelector('#poSummary');
+      if (summaryEl) summaryEl.textContent = formatStr;
     }
 
+    poRoot.addEventListener('mouseover', function (e) {
+      var infoBtn = e.target.closest('.po-info-btn');
+      if (infoBtn) openPaperLightbox(infoBtn.dataset.paperInfo);
+    });
+
     poRoot.addEventListener('click', function (e) {
+      var toggleBtn = e.target.closest('.po-toggle');
+      if (toggleBtn) {
+        poExpanded = !poExpanded;
+        poRoot.classList.toggle('is-collapsed', !poExpanded);
+        toggleBtn.setAttribute('aria-expanded', poExpanded ? 'true' : 'false');
+        var toggleText = toggleBtn.querySelector('.po-toggle-text');
+        if (toggleText) toggleText.textContent = poExpanded ? 'Ocultar opciones' : 'Cambiar edición';
+        return;
+      }
+      var infoBtn = e.target.closest('.po-info-btn');
+      if (infoBtn) {
+        openPaperLightbox(infoBtn.dataset.paperInfo);
+        return;
+      }
       var btn = e.target.closest('.po-card, .po-pill');
       if (!btn || btn.disabled) return;
       var po = btn.dataset.po;

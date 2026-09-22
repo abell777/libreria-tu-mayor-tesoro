@@ -2890,22 +2890,56 @@ img.img-failed { visibility: hidden; }
   border-radius: var(--radius-lg);
   background: var(--parchment);
 }
-.print-options-title {
+.po-header {
   display: flex;
-  flex-direction: column;
-  gap: 3px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.print-options-title {
+  margin: 0;
   font-family: var(--font-serif);
   font-size: 1.05rem;
   color: var(--navy);
-  margin: 0 0 14px;
 }
 .print-options-hint {
+  display: block;
   font-family: var(--font-sans);
   font-size: 0.78rem;
   font-weight: 400;
   line-height: 1.4;
   color: var(--muted-foreground);
+  margin: 0 0 14px;
 }
+.po-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  padding: 7px 14px;
+  border: 1.5px solid var(--gold-soft);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--navy);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.po-toggle:hover { border-color: var(--gold); }
+.po-toggle[aria-expanded="true"] { background: var(--navy); color: #fff; border-color: var(--navy); }
+.po-toggle-chevron { transition: transform 0.2s ease; }
+.po-toggle[aria-expanded="true"] .po-toggle-chevron { transform: rotate(180deg); }
+.po-summary {
+  display: none;
+  margin: 6px 0 0;
+  font-size: 0.82rem;
+  color: var(--muted-foreground);
+}
+.print-options.is-collapsed .po-summary { display: block; }
+.print-options.is-collapsed .po-body { display: none; }
+.po-body { margin-top: 14px; }
 .po-group { margin-bottom: 14px; }
 .po-group:last-of-type { margin-bottom: 0; }
 .po-label {
@@ -2984,6 +3018,117 @@ img.img-failed { visibility: hidden; }
 .po-note--muted { margin: 4px 0 0; font-style: normal; }
 @media (max-width: 480px) {
   .po-row--tipo, .po-row--color { grid-template-columns: 1fr; }
+}
+
+/* ---- 2c. Icono de "ver ejemplo" del tipo de papel + ventana emergente -- */
+.po-card-wrap { position: relative; display: block; }
+.po-card-wrap .po-card { width: 100%; padding-right: 30px; }
+.po-info-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--parchment);
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+.po-info-btn:hover, .po-info-btn:focus-visible { color: var(--navy); background: var(--gold-soft); }
+.paper-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.paper-lightbox.is-open { display: flex; }
+.paper-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: oklch(0.2 0.02 250 / 0.55);
+}
+.paper-lightbox-panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 320px;
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: 0 20px 50px oklch(0.2 0.02 250 / 0.35);
+}
+.paper-lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: var(--parchment);
+  color: var(--navy);
+  cursor: pointer;
+}
+.paper-lightbox-close:hover { background: var(--gold-soft); }
+.paper-preview {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  padding: 22px 18px;
+  margin-bottom: 14px;
+}
+.paper-preview--shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 40%, oklch(1 0 0 / 0.55) 50%, transparent 60%);
+}
+.paper-preview-lines { position: relative; z-index: 1; }
+.paper-preview-title {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.paper-preview-line {
+  display: block;
+  height: 6px;
+  border-radius: 3px;
+  background: oklch(0.2 0.02 250 / 0.16);
+  margin-bottom: 6px;
+}
+.paper-preview-line.short { width: 60%; }
+.paper-lightbox-title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--navy);
+  margin: 0 0 2px;
+}
+.paper-lightbox-tagline {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--gold-dark, var(--navy));
+  margin: 0 0 8px;
+}
+.paper-lightbox-desc {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+  margin: 0;
 }
 
 /* ---- 3. Libros "próximamente" ------------------------------------------ */
