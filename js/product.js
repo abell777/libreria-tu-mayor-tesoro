@@ -10,7 +10,8 @@
 
   var CATEGORY_LABELS = {
     biblias: 'Biblias', 'elena-white': 'Elena G. White', salud: 'Salud y familia',
-    profecia: 'Profecía', devocionales: 'Devocionales', infantil: 'Infantil y juvenil'
+    profecia: 'Profecía', devocionales: 'Devocionales', 'vida-cristiana': 'Vida cristiana',
+    infantil: 'Infantil y juvenil', doctrina: 'Doctrina y creencias', regalos: 'Regalos y papelería'
   };
 
   function fmtPrice(n) {

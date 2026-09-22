@@ -13,8 +13,10 @@
     salud: 'Salud y familia',
     profecia: 'Profecía',
     devocionales: 'Devocionales',
+    'vida-cristiana': 'Vida cristiana',
     infantil: 'Infantil y juvenil',
-    doctrina: 'Doctrina y creencias'
+    doctrina: 'Doctrina y creencias',
+    regalos: 'Regalos y papelería'
   };
 
   var PER_PAGE_STORAGE_KEY = 'fundamento_per_page';
