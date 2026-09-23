@@ -10,14 +10,15 @@
     firebase.initializeApp(firebaseConfig);
   }
 
-  // App Check: solo se activa si has pegado tu clave de reCAPTCHA v3 en
-  // js/config.js (ver las instrucciones allí). Envuelto en try/catch y en
+  // App Check: solo se activa si has pegado tu clave de reCAPTCHA Enterprise
+  // en js/config.js (ver las instrucciones allí). Envuelto en try/catch y en
   // una comprobación de que el SDK esté cargado, para que si algún día
   // quitas el script de App Check de una página suelta, esa página no se
   // rompa por ello — simplemente no queda protegida.
   if (typeof APPCHECK_SITE_KEY !== 'undefined' && APPCHECK_SITE_KEY && typeof firebase.appCheck === 'function') {
     try {
-      firebase.appCheck().activate(APPCHECK_SITE_KEY, true);
+      var appCheckProvider = new firebase.appCheck.ReCaptchaEnterpriseProvider(APPCHECK_SITE_KEY);
+      firebase.appCheck().activate(appCheckProvider, true);
     } catch (e) {
       console.error('No se pudo activar App Check', e);
     }
@@ -315,6 +316,15 @@
   // ---- Lógica para alternar las pestañas de Iniciar Sesión / Crear Cuenta ----
   document.addEventListener('DOMContentLoaded', function () {
     var authTabs = document.querySelectorAll('.auth-tab');
+    // Solo los formularios de "Iniciar sesión" / "Crear cuenta" (llevan
+    // data-panel). OJO: no ampliar este selector a ".auth-form" a secas —
+    // así se englobaban también el formulario del código de verificación y
+    // el del enlace por correo, que no tienen "data-panel". Como más abajo
+    // se les fija "display:none" en el propio estilo del elemento, y esos
+    // otros dos formularios se muestran en otro momento solo quitándoles el
+    // atributo "hidden" (en account.js), ese "display:none" nunca se
+    // borraba y se quedaban invisibles para siempre aunque ya no estuvieran
+    // "hidden": no se podía escribir en ellos ni enviarlos.
     var authForms = document.querySelectorAll('.auth-card .auth-form[data-panel]');
     var authTabsBar = document.querySelector('.auth-tabs');
 
