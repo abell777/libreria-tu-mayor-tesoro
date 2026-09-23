@@ -315,7 +315,7 @@
   // ---- Lógica para alternar las pestañas de Iniciar Sesión / Crear Cuenta ----
   document.addEventListener('DOMContentLoaded', function () {
     var authTabs = document.querySelectorAll('.auth-tab');
-    var authForms = document.querySelectorAll('.auth-card .auth-form');
+    var authForms = document.querySelectorAll('.auth-card .auth-form[data-panel]');
     var authTabsBar = document.querySelector('.auth-tabs');
 
     function mostrarPanel(targetPanel) {
