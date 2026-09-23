@@ -1,4 +1,14 @@
 // ==========================================================================
+// Año del copyright del pie de página — se actualiza solo cada año en vez
+// de tener "© 2026" escrito a mano en las 29 páginas del sitio.
+// ==========================================================================
+(function () {
+  var span = document.querySelector('.footer-bottom span');
+  if (!span || span.textContent.indexOf('©') === -1) return;
+  span.textContent = span.textContent.replace(/\d{4}/, new Date().getFullYear());
+})();
+
+// ==========================================================================
 // Interacciones mínimas de la Home: menú de categorías en móvil.
 // ==========================================================================
 (function () {
