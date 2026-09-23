@@ -3018,6 +3018,9 @@ img.img-failed { visibility: hidden; }
 .po-note--muted { margin: 4px 0 0; font-style: normal; }
 @media (max-width: 480px) {
   .po-row--tipo, .po-row--color { grid-template-columns: 1fr; }
+  .po-header { flex-wrap: wrap; }
+  .po-toggle { padding: 9px 16px; font-size: 0.8rem; }
+  .paper-lightbox-panel { padding: 28px 16px 18px; }
 }
 
 /* ---- 2c. Icono de "ver ejemplo" del tipo de papel + ventana emergente -- */
@@ -3030,17 +3033,23 @@ img.img-failed { visibility: hidden; }
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   padding: 0;
   border: none;
   border-radius: 50%;
-  background: var(--parchment);
-  color: var(--muted-foreground);
+  background: var(--navy);
+  color: #fff;
+  box-shadow: 0 1px 3px oklch(0.2 0.02 250 / 0.3);
   cursor: pointer;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
-.po-info-btn:hover, .po-info-btn:focus-visible { color: var(--navy); background: var(--gold-soft); }
+.po-info-btn::before {
+  content: '';
+  position: absolute;
+  inset: -9px;
+}
+.po-info-btn:hover, .po-info-btn:focus-visible { background: var(--gold); color: var(--navy); }
 .paper-lightbox {
   position: fixed;
   inset: 0;
@@ -3063,25 +3072,27 @@ img.img-failed { visibility: hidden; }
   max-width: 320px;
   background: var(--card);
   border-radius: var(--radius-lg);
-  padding: 20px;
+  padding: 26px 20px 20px;
   box-shadow: 0 20px 50px oklch(0.2 0.02 250 / 0.35);
 }
 .paper-lightbox-close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: -16px;
+  right: -16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  border: none;
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--card);
   border-radius: 50%;
-  background: var(--parchment);
-  color: var(--navy);
+  background: var(--navy);
+  color: #fff;
+  box-shadow: 0 3px 10px oklch(0.2 0.02 250 / 0.4);
   cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
-.paper-lightbox-close:hover { background: var(--gold-soft); }
+.paper-lightbox-close:hover, .paper-lightbox-close:focus-visible { background: var(--gold); transform: scale(1.06); }
 .paper-preview {
   position: relative;
   overflow: hidden;
