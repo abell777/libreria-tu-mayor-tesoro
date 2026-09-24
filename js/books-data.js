@@ -214,6 +214,7 @@ window.BOOKS = [
     cover: 'img/el-conflicto-de-los-siglos.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-conflicto-de-los-siglos.jpg' },
+      { style: 'tipografica-clara', file: 'img/el-conflicto-de-los-siglos-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/el-conflicto-de-los-siglos-tipografica-oscura.jpg' }
     ],
     badge: null,
@@ -1546,8 +1547,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/testimonios-selectos-tomo-ii-tipografica.jpg',
+    cover: 'img/testimonios-selectos.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/testimonios-selectos.jpg' },
       { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-ii-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/testimonios-selectos-tomo-ii-tipografica-oscura.jpg' }
     ],
@@ -1570,8 +1572,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/testimonios-selectos-tomo-iii-tipografica.jpg',
+    cover: 'img/testimonios-selectos.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/testimonios-selectos.jpg' },
       { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-iii-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/testimonios-selectos-tomo-iii-tipografica-oscura.jpg' }
     ],
@@ -1594,8 +1597,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/testimonios-selectos-tomo-iv-tipografica.jpg',
+    cover: 'img/testimonios-selectos.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/testimonios-selectos.jpg' },
       { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-iv-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/testimonios-selectos-tomo-iv-tipografica-oscura.jpg' }
     ],
@@ -1618,8 +1622,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/testimonios-selectos-tomo-v-tipografica.jpg',
+    cover: 'img/testimonios-selectos.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/testimonios-selectos.jpg' },
       { style: 'tipografica-clara', file: 'img/testimonios-selectos-tomo-v-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/testimonios-selectos-tomo-v-tipografica-oscura.jpg' }
     ],
@@ -1642,8 +1647,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/testimonios-para-la-iglesia-tomo-1-tipografica.jpg',
+    cover: 'img/testimonios-para-la-iglesia.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/testimonios-para-la-iglesia.jpg' },
       { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-1-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/testimonios-para-la-iglesia-tomo-1-tipografica-oscura.jpg' }
     ],
@@ -1666,8 +1672,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/testimonios-para-la-iglesia-tomo-5-tipografica.jpg',
+    cover: 'img/testimonios-para-la-iglesia.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/testimonios-para-la-iglesia.jpg' },
       { style: 'tipografica-clara', file: 'img/testimonios-para-la-iglesia-tomo-5-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/testimonios-para-la-iglesia-tomo-5-tipografica-oscura.jpg' }
     ],
@@ -1690,8 +1697,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/testimonios-para-los-ministros-tipografica.jpg',
+    cover: 'img/testimonios-para-los-ministros.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/testimonios-para-los-ministros.jpg' },
       { style: 'tipografica-clara', file: 'img/testimonios-para-los-ministros-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/testimonios-para-los-ministros-tipografica-oscura.jpg' }
     ],
@@ -1714,8 +1722,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/testimonios-conducta-sexual-adulterio-divorcio-tipografica.jpg',
+    cover: 'img/testimonios-conducta-sexual-adulterio-divorcio.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/testimonios-conducta-sexual-adulterio-divorcio.jpg' },
       { style: 'tipografica-clara', file: 'img/testimonios-conducta-sexual-adulterio-divorcio-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/testimonios-conducta-sexual-adulterio-divorcio-tipografica-oscura.jpg' }
     ],
@@ -1738,8 +1747,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/sermones-escogidos-1-tipografica.jpg',
+    cover: 'img/sermones-escogidos.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/sermones-escogidos.jpg' },
       { style: 'tipografica-clara', file: 'img/sermones-escogidos-1-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/sermones-escogidos-1-tipografica-oscura.jpg' }
     ],
@@ -1762,8 +1772,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/sermones-escogidos-2-tipografica.jpg',
+    cover: 'img/sermones-escogidos.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/sermones-escogidos.jpg' },
       { style: 'tipografica-clara', file: 'img/sermones-escogidos-2-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/sermones-escogidos-2-tipografica-oscura.jpg' }
     ],
@@ -1786,8 +1797,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/servicio-cristiano-tipografica.jpg',
+    cover: 'img/servicio-cristiano.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/servicio-cristiano.jpg' },
       { style: 'tipografica-clara', file: 'img/servicio-cristiano-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/servicio-cristiano-tipografica-oscura.jpg' }
     ],
@@ -1810,8 +1822,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/ser-semejante-a-jesus-tipografica.jpg',
+    cover: 'img/ser-semejante-a-jesus.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/ser-semejante-a-jesus.jpg' },
       { style: 'tipografica-clara', file: 'img/ser-semejante-a-jesus-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/ser-semejante-a-jesus-tipografica-oscura.jpg' }
     ],
@@ -1834,8 +1847,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/un-llamado-a-ser-diferente-tipografica.jpg',
+    cover: 'img/un-llamado-a-ser-diferente.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/un-llamado-a-ser-diferente.jpg' },
       { style: 'tipografica-clara', file: 'img/un-llamado-a-ser-diferente-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/un-llamado-a-ser-diferente-tipografica-oscura.jpg' }
     ],
@@ -2004,8 +2018,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/el-camino-a-cristo-tipografica.jpg',
+    cover: 'img/el-camino-a-cristo.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/el-camino-a-cristo.jpg' },
       { style: 'tipografica-clara', file: 'img/el-camino-a-cristo-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/el-camino-a-cristo-tipografica-oscura.jpg' }
     ],
@@ -2028,8 +2043,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/desde-el-corazon-tipografica.jpg',
+    cover: 'img/desde-el-corazon.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/desde-el-corazon.jpg' },
       { style: 'tipografica-clara', file: 'img/desde-el-corazon-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/desde-el-corazon-tipografica-oscura.jpg' }
     ],
@@ -2278,29 +2294,6 @@ window.BOOKS = [
     description: 'Devocional de lecturas diarias centrado en la victoria de Cristo: desde su papel en la creación hasta su triunfo final, pasando por la cruz y su ministerio a favor nuestro.',
     idioma: 'Español',
     subcategory: ['vida-de-cristo', 'devocionales'],
-  },
-  {
-    id: 'la-oracion',
-    title: 'La Oración',
-    author: 'Elena G. White',
-    authorSlug: 'elena-g-white',
-    category: 'elena-white',
-    categoryLabel: 'Elena G. White',
-    price: null,
-    comingSoon: true,
-    format: 'Tapa blanda, 148 x 210 mm',
-    formatSlug: 'rustica',
-    priceNote: 'Disponible muy pronto',
-    finish: 'Brillo',
-    paper: 'Blanco offset',
-    cover: 'img/la-oracion-tipografica.jpg',
-    covers: [
-      { style: 'tipografica-clara', file: 'img/la-oracion-tipografica.jpg' }
-    ],
-    badge: 'Próximamente',
-    description: 'Una recopilación sobre el privilegio de hablar con Dios: cómo orar, qué esperar de la oración y por qué es el aliento de la vida cristiana. Lectura breve y muy práctica.',
-    idioma: 'Español',
-    subcategory: ['vida-cristiana', 'devocionales'],
   },
   {
     id: 'la-educacion-cristiana',
@@ -3232,7 +3225,6 @@ window.NEEDS.forEach(function (n) {
 // window.NEEDS (justo arriba). Un libro que no aparezca en esta lista
 // simplemente no saldrá en el buscador por necesidad.
 window.BOOK_NEEDS = {
-  'la-oracion': ['paz-interior', 'crecer-cada-dia', 'primeros-pasos'],
   'la-educacion-cristiana': ['criar-a-mis-hijos', 'servir-y-compartir'],
   'joyas-de-los-testimonios-1': ['crecer-cada-dia', 'dudas-de-fe'],
   'joyas-de-los-testimonios-2': ['crecer-cada-dia', 'familia-y-pareja'],
