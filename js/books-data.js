@@ -894,11 +894,11 @@ window.BOOKS = [
   },
   {
     id: 'el-poder-de-la-oracion',
-    title: 'El Poder de la Oración',
-    author: 'Elena G. White',
-    authorSlug: 'elena-g-white',
-    category: 'elena-white',
-    categoryLabel: 'Elena G. White',
+    title: 'El Poder Increíble de la Oración',
+    author: 'Roger J. Morneau',
+    authorSlug: 'roger-j-morneau',
+    category: 'doctrina',
+    categoryLabel: 'Doctrina y creencias',
     price: 6.76,
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
@@ -911,7 +911,7 @@ window.BOOKS = [
       { style: 'tipografica-clara', file: 'img/el-poder-de-la-oracion-tipografica.jpg' }
     ],
     badge: 'Nuevo',
-    description: 'Una recopilación de escritos sobre la oración como conexión personal con Dios, con reflexiones sobre su lugar en la vida de fe y su poder frente a las dificultades.',
+    description: 'Una recopilación de experiencias reales de oraciones respondidas, relatadas por el propio autor, sobre cómo la oración sostiene, sana y acompaña en los momentos más difíciles de la vida.',
     idioma: 'Español',
     subcategory: ['vida-cristiana', 'devocionales'],
   },
@@ -2092,9 +2092,8 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/conflicto-y-valor.jpg',
+    cover: 'img/conflicto-y-valor-tipografica.jpg',
     covers: [
-      { style: 'ilustrada', file: 'img/conflicto-y-valor.jpg' },
       { style: 'tipografica-clara', file: 'img/conflicto-y-valor-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/conflicto-y-valor-tipografica-oscura.jpg' }
     ],
