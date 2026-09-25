@@ -900,6 +900,7 @@ window.BOOKS = [
     category: 'doctrina',
     categoryLabel: 'Doctrina y creencias',
     price: 6.76,
+    hidden: true,
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
@@ -923,6 +924,7 @@ window.BOOKS = [
     category: 'doctrina',
     categoryLabel: 'Doctrina y creencias',
     price: 6.97,
+    hidden: true,
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
@@ -3281,6 +3283,13 @@ window.BOOK_NEEDS = {
   'biblia-rvr60-negro-cierre': ['estudiar-la-biblia'],
   'biblia-rvr60-aguila-cierre': ['estudiar-la-biblia'],
 };
+
+// Libros que existen en el catálogo (portada, descripción, precio...) pero
+// que por ahora no queremos que aparezcan en la web (listados, buscador,
+// recomendaciones ni ficha propia) — sin borrar sus datos. Para volver a
+// publicar uno, basta con quitarle "hidden: true" en su objeto de arriba.
+window.BOOKS_ALL = window.BOOKS;
+window.BOOKS = window.BOOKS.filter(function (b) { return !b.hidden; });
 
 // Cuelga las necesidades de cada libro dentro del propio objeto del
 // catálogo, para que el resto de la web (filtros, ficha, etiquetas) las
