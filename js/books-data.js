@@ -2070,8 +2070,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/leyes-sobre-el-regimen-alimenticio-tipografica.jpg',
+    cover: 'img/leyes-sobre-el-regimen-alimenticio.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/leyes-sobre-el-regimen-alimenticio.jpg' },
       { style: 'tipografica-clara', file: 'img/leyes-sobre-el-regimen-alimenticio-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/leyes-sobre-el-regimen-alimenticio-tipografica-oscura.jpg' }
     ],
@@ -2118,8 +2119,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/conduccion-del-nino-tipografica.jpg',
+    cover: 'img/conduccion-del-nino.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/conduccion-del-nino.jpg' },
       { style: 'tipografica-clara', file: 'img/conduccion-del-nino-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/conduccion-del-nino-tipografica-oscura.jpg' }
     ],
@@ -2142,8 +2144,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/coleccion-kress-tipografica.jpg',
+    cover: 'img/coleccion-kress.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/coleccion-kress.jpg' },
       { style: 'tipografica-clara', file: 'img/coleccion-kress-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/coleccion-kress-tipografica-oscura.jpg' }
     ],
@@ -2166,8 +2169,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/cartas-a-jovenes-enamorados-tipografica.jpg',
+    cover: 'img/cartas-a-jovenes-enamorados.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/cartas-a-jovenes-enamorados.jpg' },
       { style: 'tipografica-clara', file: 'img/cartas-a-jovenes-enamorados-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/cartas-a-jovenes-enamorados-tipografica-oscura.jpg' }
     ],
@@ -2190,8 +2194,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/hijas-de-dios-tipografica.jpg',
+    cover: 'img/hijas-de-dios.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/hijas-de-dios.jpg' },
       { style: 'tipografica-clara', file: 'img/hijas-de-dios-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/hijas-de-dios-tipografica-oscura.jpg' }
     ],
@@ -2214,8 +2219,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/en-el-desierto-de-la-tentacion-tipografica.jpg',
+    cover: 'img/en-el-desierto-de-la-tentacion.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/en-el-desierto-de-la-tentacion.jpg' },
       { style: 'tipografica-clara', file: 'img/en-el-desierto-de-la-tentacion-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/en-el-desierto-de-la-tentacion-tipografica-oscura.jpg' }
     ],
@@ -2238,8 +2244,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/el-ministerio-de-curacion-tipografica.jpg',
+    cover: 'img/el-ministerio-de-curacion.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/el-ministerio-de-curacion.jpg' },
       { style: 'tipografica-clara', file: 'img/el-ministerio-de-curacion-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/el-ministerio-de-curacion-tipografica-oscura.jpg' }
     ],
@@ -2262,8 +2269,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/el-cristo-triunfante-tipografica.jpg',
+    cover: 'img/el-cristo-triunfante.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/el-cristo-triunfante.jpg' },
       { style: 'tipografica-clara', file: 'img/el-cristo-triunfante-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/el-cristo-triunfante-tipografica-oscura.jpg' }
     ],
@@ -2271,6 +2279,31 @@ window.BOOKS = [
     description: 'Devocional de lecturas diarias centrado en la victoria de Cristo: desde su papel en la creación hasta su triunfo final, pasando por la cruz y su ministerio a favor nuestro.',
     idioma: 'Español',
     subcategory: ['vida-de-cristo', 'devocionales'],
+  },
+  {
+    id: 'la-oracion',
+    title: 'La Oración',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: null,
+    comingSoon: true,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'Disponible muy pronto',
+    finish: 'Brillo',
+    paper: 'Blanco offset',
+    cover: 'img/la-oracion.jpg',
+    covers: [
+      { style: 'ilustrada', file: 'img/la-oracion.jpg' },
+      { style: 'tipografica-clara', file: 'img/la-oracion-tipografica.jpg' },
+      { style: 'tipografica-oscura', file: 'img/la-oracion-tipografica-oscura.jpg' }
+    ],
+    badge: 'Próximamente',
+    description: 'Una recopilación de los escritos de la autora sobre el privilegio de la oración: cómo orar, qué esperar de la oración y por qué es el aliento de la vida cristiana.',
+    idioma: 'Español',
+    subcategory: ['vida-cristiana', 'devocionales'],
   },
   {
     id: 'la-educacion-cristiana',
@@ -2286,8 +2319,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/la-educacion-cristiana-tipografica.jpg',
+    cover: 'img/la-educacion-cristiana.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/la-educacion-cristiana.jpg' },
       { style: 'tipografica-clara', file: 'img/la-educacion-cristiana-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/la-educacion-cristiana-tipografica-oscura.jpg' }
     ],
@@ -2310,8 +2344,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/joyas-de-los-testimonios-1-tipografica.jpg',
+    cover: 'img/joyas-de-los-testimonios.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/joyas-de-los-testimonios.jpg' },
       { style: 'tipografica-clara', file: 'img/joyas-de-los-testimonios-1-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/joyas-de-los-testimonios-1-tipografica-oscura.jpg' }
     ],
@@ -2334,8 +2369,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/joyas-de-los-testimonios-2-tipografica.jpg',
+    cover: 'img/joyas-de-los-testimonios.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/joyas-de-los-testimonios.jpg' },
       { style: 'tipografica-clara', file: 'img/joyas-de-los-testimonios-2-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/joyas-de-los-testimonios-2-tipografica-oscura.jpg' }
     ],
@@ -2358,8 +2394,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/joyas-de-los-testimonios-3-tipografica.jpg',
+    cover: 'img/joyas-de-los-testimonios.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/joyas-de-los-testimonios.jpg' },
       { style: 'tipografica-clara', file: 'img/joyas-de-los-testimonios-3-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/joyas-de-los-testimonios-3-tipografica-oscura.jpg' }
     ],
@@ -2881,8 +2918,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/mensajes-para-los-jovenes-tipografica.jpg',
+    cover: 'img/mensajes-para-los-jovenes.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/mensajes-para-los-jovenes.jpg' },
       { style: 'tipografica-clara', file: 'img/mensajes-para-los-jovenes-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/mensajes-para-los-jovenes-tipografica-oscura.jpg' }
     ],
@@ -2905,8 +2943,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/mente-caracter-y-personalidad-1-tipografica.jpg',
+    cover: 'img/mente-caracter-y-personalidad.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/mente-caracter-y-personalidad.jpg' },
       { style: 'tipografica-clara', file: 'img/mente-caracter-y-personalidad-1-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/mente-caracter-y-personalidad-1-tipografica-oscura.jpg' }
     ],
@@ -2929,8 +2968,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/mente-caracter-y-personalidad-2-tipografica.jpg',
+    cover: 'img/mente-caracter-y-personalidad.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/mente-caracter-y-personalidad.jpg' },
       { style: 'tipografica-clara', file: 'img/mente-caracter-y-personalidad-2-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/mente-caracter-y-personalidad-2-tipografica-oscura.jpg' }
     ],
@@ -2953,8 +2993,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/mi-vida-hoy-tipografica.jpg',
+    cover: 'img/mi-vida-hoy.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/mi-vida-hoy.jpg' },
       { style: 'tipografica-clara', file: 'img/mi-vida-hoy-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/mi-vida-hoy-tipografica-oscura.jpg' }
     ],
@@ -2977,8 +3018,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/notas-biograficas-de-elena-g-de-white-tipografica.jpg',
+    cover: 'img/notas-biograficas-de-elena-g-de-white.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/notas-biograficas-de-elena-g-de-white.jpg' },
       { style: 'tipografica-clara', file: 'img/notas-biograficas-de-elena-g-de-white-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/notas-biograficas-de-elena-g-de-white-tipografica-oscura.jpg' }
     ],
@@ -3001,8 +3043,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/nuestra-elevada-vocacion-tipografica.jpg',
+    cover: 'img/nuestra-elevada-vocacion.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/nuestra-elevada-vocacion.jpg' },
       { style: 'tipografica-clara', file: 'img/nuestra-elevada-vocacion-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/nuestra-elevada-vocacion-tipografica-oscura.jpg' }
     ],
@@ -3025,8 +3068,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/obreros-evangelicos-tipografica.jpg',
+    cover: 'img/obreros-evangelicos.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/obreros-evangelicos.jpg' },
       { style: 'tipografica-clara', file: 'img/obreros-evangelicos-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/obreros-evangelicos-tipografica-oscura.jpg' }
     ],
@@ -3049,8 +3093,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/oscuridad-antes-del-amanecer-tipografica.jpg',
+    cover: 'img/oscuridad-antes-del-amanecer.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/oscuridad-antes-del-amanecer.jpg' },
       { style: 'tipografica-clara', file: 'img/oscuridad-antes-del-amanecer-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/oscuridad-antes-del-amanecer-tipografica-oscura.jpg' }
     ],
@@ -3073,8 +3118,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/reavivamientos-modernos-tipografica.jpg',
+    cover: 'img/reavivamientos-modernos.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/reavivamientos-modernos.jpg' },
       { style: 'tipografica-clara', file: 'img/reavivamientos-modernos-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/reavivamientos-modernos-tipografica-oscura.jpg' }
     ],
@@ -3097,8 +3143,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/recibireis-poder-tipografica.jpg',
+    cover: 'img/recibireis-poder.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/recibireis-poder.jpg' },
       { style: 'tipografica-clara', file: 'img/recibireis-poder-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/recibireis-poder-tipografica-oscura.jpg' }
     ],
@@ -3239,6 +3286,17 @@ window.BOOK_NEEDS = {
   'testimonios-para-la-iglesia-tomo-8': ['crecer-cada-dia', 'estudiar-la-biblia'],
   'testimonios-para-la-iglesia-tomo-9': ['crecer-cada-dia', 'estudiar-la-biblia'],
   'eventos-de-los-ultimos-dias': ['entender-el-futuro'],
+  'mensajes-para-los-jovenes': ['crecer-cada-dia', 'primeros-pasos'],
+  'mente-caracter-y-personalidad-1': ['crecer-cada-dia'],
+  'mente-caracter-y-personalidad-2': ['crecer-cada-dia'],
+  'mi-vida-hoy': ['crecer-cada-dia', 'paz-interior'],
+  'notas-biograficas-de-elena-g-de-white': ['dudas-de-fe', 'primeros-pasos'],
+  'nuestra-elevada-vocacion': ['servir-y-compartir', 'crecer-cada-dia'],
+  'obreros-evangelicos': ['servir-y-compartir'],
+  'oscuridad-antes-del-amanecer': ['entender-el-futuro', 'empezar-de-nuevo'],
+  'reavivamientos-modernos': ['crecer-cada-dia', 'entender-el-futuro'],
+  'recibireis-poder': ['servir-y-compartir', 'crecer-cada-dia'],
+  'la-oracion': ['paz-interior', 'crecer-cada-dia'],
   'testimonios-selectos-tomo-i': ['crecer-cada-dia', 'estudiar-la-biblia'],
   'liderazgo-cristiano': ['servir-y-compartir'],
   'maranatha-el-senor-viene': ['entender-el-futuro', 'crecer-cada-dia'],
