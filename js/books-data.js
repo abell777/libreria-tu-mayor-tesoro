@@ -534,8 +534,7 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/el-ministerio-de-la-bondad.jpg' },
       { style: 'tipografica-clara', file: 'img/el-ministerio-de-la-bondad-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/el-ministerio-de-la-bondad-tipografica-oscura.jpg' },
-      { style: 'clasica', file: 'img/el-ministerio-de-la-bondad-clasica.jpg' }
+      { style: 'tipografica-oscura', file: 'img/el-ministerio-de-la-bondad-tipografica-oscura.jpg' }
     ],
     badge: null,
     description: 'Un llamado a vivir el evangelio a través de actos concretos de bondad y ayuda al necesitado. Muestra cómo la compasión práctica abre puertas que la sola predicación no siempre alcanza.',
@@ -1151,8 +1150,7 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/la-historia-de-la-redencion.jpg' },
       { style: 'tipografica-clara', file: 'img/la-historia-de-la-redencion-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/la-historia-de-la-redencion-tipografica-oscura.jpg' },
-      { style: 'clasica', file: 'img/la-historia-de-la-redencion-clasica.jpg' }
+      { style: 'tipografica-oscura', file: 'img/la-historia-de-la-redencion-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Un recorrido por el gran plan de salvación desde la caída hasta la restauración final, contado como una sola historia continua. Edición en tapa blanda con acabado brillo, pensada para el estudio personal y para regalar.',
@@ -1244,8 +1242,7 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/la-segunda-venida-y-el-cielo.jpg' },
       { style: 'tipografica-clara', file: 'img/la-segunda-venida-y-el-cielo-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/la-segunda-venida-y-el-cielo-tipografica-oscura.jpg' },
-      { style: 'clasica', file: 'img/la-segunda-venida-y-el-cielo-clasica.jpg' }
+      { style: 'tipografica-oscura', file: 'img/la-segunda-venida-y-el-cielo-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una mirada esperanzadora a las promesas de la Biblia sobre el regreso de Cristo y la vida eterna, explicadas con un lenguaje claro y devocional.',
@@ -1293,8 +1290,7 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/la-unica-esperanza.jpg' },
       { style: 'tipografica-clara', file: 'img/la-unica-esperanza-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/la-unica-esperanza-tipografica-oscura.jpg' },
-      { style: 'clasica', file: 'img/la-unica-esperanza-clasica.jpg' }
+      { style: 'tipografica-oscura', file: 'img/la-unica-esperanza-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una presentación breve y directa de Jesucristo como único camino de salvación, pensada tanto para el estudio personal como para compartir con quien busca respuestas.',
@@ -1989,7 +1985,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/mensajes-selectos.jpg' },
       { style: 'tipografica-clara', file: 'img/mensajes-selectos-tomo-i-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/mensajes-selectos-1-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/mensajes-selectos-1-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/mensajes-selectos-1-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Primer tomo de una serie de mensajes y comentarios de la autora sobre cuestiones doctrinales, con aclaraciones y consejos dirigidos a la iglesia de su tiempo.',
@@ -2013,7 +2010,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/mensajes-selectos.jpg' },
       { style: 'tipografica-clara', file: 'img/mensajes-selectos-tomo-ii-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/mensajes-selectos-2-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/mensajes-selectos-2-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/mensajes-selectos-2-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Segundo tomo de una serie de mensajes y comentarios de la autora sobre cuestiones doctrinales, con aclaraciones y consejos dirigidos a la iglesia de su tiempo.',
@@ -2037,7 +2035,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/mensajes-selectos.jpg' },
       { style: 'tipografica-clara', file: 'img/mensajes-selectos-tomo-iii-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/mensajes-selectos-3-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/mensajes-selectos-3-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/mensajes-selectos-3-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Tercer tomo de una serie de mensajes y comentarios de la autora sobre cuestiones doctrinales, con aclaraciones y consejos dirigidos a la iglesia de su tiempo.',
@@ -2310,8 +2309,7 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/en-el-desierto-de-la-tentacion.jpg' },
       { style: 'tipografica-clara', file: 'img/en-el-desierto-de-la-tentacion-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/en-el-desierto-de-la-tentacion-tipografica-oscura.jpg' },
-      { style: 'clasica', file: 'img/en-el-desierto-de-la-tentacion-clasica.jpg' }
+      { style: 'tipografica-oscura', file: 'img/en-el-desierto-de-la-tentacion-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Un estudio del relato de las tentaciones de Jesús en el desierto y de lo que enseña sobre nuestras propias luchas: cómo resistir, dónde está la fuerza real y por qué la victoria de Cristo también es nuestra.',
@@ -2384,8 +2382,7 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/la-oracion.jpg' },
       { style: 'tipografica-clara', file: 'img/la-oracion-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/la-oracion-tipografica-oscura.jpg' },
-      { style: 'clasica', file: 'img/la-oracion-clasica.jpg' }
+      { style: 'tipografica-oscura', file: 'img/la-oracion-tipografica-oscura.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una recopilación de los escritos de la autora sobre el privilegio de la oración: cómo orar, qué esperar de la oración y por qué es el aliento de la vida cristiana.',
