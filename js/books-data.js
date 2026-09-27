@@ -99,9 +99,9 @@ window.COVER_STYLES = {
     short: 'Portada tipográfica oscura',
     desc: 'Diseño sobrio y elegante centrado en las letras, con detalles dorados sobre fondo verde oscuro.'
   },
-  rustica: {
-    label: 'Rústica',
-    short: 'Portada rústica',
+  clasica: {
+    label: 'Clásica',
+    short: 'Portada clásica',
     desc: 'Cubierta sencilla, de estilo clásico y sin ilustración.'
   }
 };
@@ -913,26 +913,6 @@ window.BOOKS = [
     description: 'Principios sobre el manejo cristiano del tiempo, los talentos y los recursos materiales, entendidos como algo confiado por Dios y no como una posesión absoluta.',
     idioma: 'Español',
     subcategory: ['vida-cristiana'],
-  },
-  {
-    id: 'maranata-el-senor-viene',
-    title: 'Maranata, El Señor Viene',
-    author: 'Elena G. White',
-    authorSlug: 'elena-g-white',
-    category: 'elena-white',
-    categoryLabel: 'Elena G. White',
-    price: 8.20,
-    format: 'Tapa blanda, 148 x 210 mm',
-    formatSlug: 'rustica',
-    priceNote: 'IVA incluido',
-    cover: 'img/maranata-el-senor-viene-clasica.jpg',
-    covers: [
-      { style: 'clasica', file: 'img/maranata-el-senor-viene-clasica.jpg' }
-    ],
-    badge: 'Nuevo',
-    description: 'Lecturas devocionales organizadas en torno a la promesa del regreso de Cristo, pensadas para alentar la esperanza y la preparación día a día.',
-    idioma: 'Español',
-    subcategory: ['devocionales', 'profecia'],
   },
   {
     id: 'consejos-para-la-iglesia',
@@ -1971,7 +1951,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/maranatha-el-senor-viene.jpg' },
       { style: 'tipografica-clara', file: 'img/maranatha-el-senor-viene-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/maranatha-el-senor-viene-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/maranatha-el-senor-viene-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/maranata-el-senor-viene-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Un devocional de lecturas breves centradas en la esperanza de la segunda venida de Cristo, pensado para acompañar el estudio personal día a día.',
@@ -3006,7 +2987,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/mensajes-para-los-jovenes.jpg' },
       { style: 'tipografica-clara', file: 'img/mensajes-para-los-jovenes-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/mensajes-para-los-jovenes-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/mensajes-para-los-jovenes-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/mensajes-para-los-jovenes-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una selección de consejos dirigidos especialmente a los jóvenes, sobre el carácter, las amistades, el estudio y el propósito de vida a la luz de la fe.',
@@ -3377,7 +3359,6 @@ window.BOOK_NEEDS = {
   'consejos-sobre-la-obra-de-la-escuela-sabatica': ['servir-y-compartir'],
   'consejos-sobre-la-salud': ['cuidar-mi-salud'],
   'consejos-sobre-mayordomia-cristiana': ['servir-y-compartir', 'crecer-cada-dia'],
-  'maranata-el-senor-viene': ['entender-el-futuro'],
   'testimonios-selectos-tomo-i': ['crecer-cada-dia', 'estudiar-la-biblia'],
   'liderazgo-cristiano': ['servir-y-compartir'],
   'maranatha-el-senor-viene': ['entender-el-futuro', 'crecer-cada-dia'],
