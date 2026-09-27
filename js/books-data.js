@@ -214,7 +214,6 @@ window.BOOKS = [
     cover: 'img/el-conflicto-de-los-siglos.jpg',
     covers: [
       { style: 'ilustrada', file: 'img/el-conflicto-de-los-siglos.jpg' },
-      { style: 'tipografica-clara', file: 'img/el-conflicto-de-los-siglos-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/el-conflicto-de-los-siglos-tipografica-oscura.jpg' }
     ],
     badge: null,
