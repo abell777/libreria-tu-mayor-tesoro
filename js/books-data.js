@@ -694,7 +694,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/de-la-ciudad-al-campo.jpg' },
       { style: 'tipografica-clara', file: 'img/de-la-ciudad-al-campo-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/de-la-ciudad-al-campo-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/de-la-ciudad-al-campo-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/de-la-ciudad-al-campo-clasica.jpg' }
     ],
     badge: null,
     description: 'Reflexiona sobre las ventajas de la vida sencilla en contacto con la naturaleza frente al ritmo agitado de la ciudad. Un libro que insta a repensar el estilo de vida desde una perspectiva cristiana.',
@@ -733,7 +734,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/cristo-nuestro-salvador.jpg' },
       { style: 'tipografica-clara', file: 'img/cristo-nuestro-salvador-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/cristo-nuestro-salvador-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/cristo-nuestro-salvador-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/cristo-nuestro-salvador-clasica.jpg' }
     ],
     badge: null,
     description: 'Una introducción sencilla y accesible a la vida y la obra de Jesús, pensada tanto para nuevos creyentes como para quienes desean repasar lo esencial del evangelio. Ideal como primer libro de estudio sobre la persona de Cristo.',
@@ -757,7 +759,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/cristo-en-su-santuario.jpg' },
       { style: 'tipografica-clara', file: 'img/cristo-en-su-santuario-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/cristo-en-su-santuario-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/cristo-en-su-santuario-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/cristo-en-su-santuario-clasica.jpg' }
     ],
     badge: null,
     description: 'Explica el simbolismo del santuario de la Biblia y su cumplimiento en la obra de Cristo. Un libro de estudio para profundizar en la doctrina del santuario.',
@@ -823,12 +826,113 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/consejos-para-los-maestros.jpg' },
       { style: 'tipografica-clara', file: 'img/consejos-para-los-maestros-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/consejos-para-los-maestros-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/consejos-para-los-maestros-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/consejos-para-los-maestros-clasica.jpg' }
     ],
     badge: null,
     description: 'Consejos prácticos sobre la vocación docente desde una perspectiva cristiana, con énfasis en la formación del carácter tanto como del intelecto. Útil para educadores en escuelas de la iglesia y también para padres.',
     idioma: 'Español',
     subcategory: ['educacion'],
+  },
+  {
+    id: 'alza-tus-ojos',
+    title: 'Alza tus Ojos',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: 8.13,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'IVA incluido',
+    cover: 'img/alza-tus-ojos-clasica.jpg',
+    covers: [
+      { style: 'clasica', file: 'img/alza-tus-ojos-clasica.jpg' }
+    ],
+    badge: 'Nuevo',
+    description: 'Una recopilación de lecturas devocionales breves que invitan a mirar más allá de las dificultades del presente, con la mirada puesta en la esperanza de la vida eterna.',
+    idioma: 'Español',
+    subcategory: ['devocionales', 'vida-cristiana'],
+  },
+  {
+    id: 'consejos-sobre-la-obra-de-la-escuela-sabatica',
+    title: 'Consejos sobre la Obra de la Escuela Sabática',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: 6.74,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'IVA incluido',
+    cover: 'img/consejos-sobre-la-obra-de-la-escuela-sabatica-clasica.jpg',
+    covers: [
+      { style: 'clasica', file: 'img/consejos-sobre-la-obra-de-la-escuela-sabatica-clasica.jpg' }
+    ],
+    badge: 'Nuevo',
+    description: 'Orientación práctica para quienes enseñan y organizan la escuela sabática, con principios sobre cómo preparar la clase y acompañar el estudio de la Biblia en la iglesia.',
+    idioma: 'Español',
+    subcategory: ['educacion'],
+  },
+  {
+    id: 'consejos-sobre-la-salud',
+    title: 'Consejos Sobre la Salud',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: 10.70,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'IVA incluido',
+    cover: 'img/consejos-sobre-la-salud-clasica.jpg',
+    covers: [
+      { style: 'clasica', file: 'img/consejos-sobre-la-salud-clasica.jpg' }
+    ],
+    badge: 'Nuevo',
+    description: 'Una extensa recopilación de los escritos de la autora sobre salud física y mental, con principios de prevención y estilo de vida pensados para cuidar el cuerpo como parte de la vida de fe.',
+    idioma: 'Español',
+    subcategory: ['salud'],
+  },
+  {
+    id: 'consejos-sobre-mayordomia-cristiana',
+    title: 'Consejos sobre Mayordomía Cristiana',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: 7.61,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'IVA incluido',
+    cover: 'img/consejos-sobre-mayordomia-cristiana-clasica.jpg',
+    covers: [
+      { style: 'clasica', file: 'img/consejos-sobre-mayordomia-cristiana-clasica.jpg' }
+    ],
+    badge: 'Nuevo',
+    description: 'Principios sobre el manejo cristiano del tiempo, los talentos y los recursos materiales, entendidos como algo confiado por Dios y no como una posesión absoluta.',
+    idioma: 'Español',
+    subcategory: ['vida-cristiana'],
+  },
+  {
+    id: 'maranata-el-senor-viene',
+    title: 'Maranata, El Señor Viene',
+    author: 'Elena G. White',
+    authorSlug: 'elena-g-white',
+    category: 'elena-white',
+    categoryLabel: 'Elena G. White',
+    price: 8.20,
+    format: 'Tapa blanda, 148 x 210 mm',
+    formatSlug: 'rustica',
+    priceNote: 'IVA incluido',
+    cover: 'img/maranata-el-senor-viene-clasica.jpg',
+    covers: [
+      { style: 'clasica', file: 'img/maranata-el-senor-viene-clasica.jpg' }
+    ],
+    badge: 'Nuevo',
+    description: 'Lecturas devocionales organizadas en torno a la promesa del regreso de Cristo, pensadas para alentar la esperanza y la preparación día a día.',
+    idioma: 'Español',
+    subcategory: ['devocionales', 'profecia'],
   },
   {
     id: 'consejos-para-la-iglesia',
@@ -845,7 +949,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/consejos-para-la-iglesia.jpg' },
       { style: 'tipografica-clara', file: 'img/consejos-para-la-iglesia-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/consejos-para-la-iglesia-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/consejos-para-la-iglesia-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/consejos-para-la-iglesia-clasica.jpg' }
     ],
     badge: null,
     description: 'Una recopilación de consejos sobre la vida y la organización de la congregación local, pensada para líderes y miembros comprometidos con la salud espiritual de su iglesia.',
@@ -867,7 +972,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/cada-dia-con-dios.jpg' },
       { style: 'tipografica-clara', file: 'img/cada-dia-con-dios-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/cada-dia-con-dios-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/cada-dia-con-dios-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/cada-dia-con-dios-clasica.jpg' }
     ],
     badge: null,
     description: 'Un devocional diario, con una lectura breve para cada mañana del año, pensado para acompañar el tiempo personal de oración y estudio.',
@@ -972,7 +1078,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/a-fin-de-conocerle.jpg' },
       { style: 'tipografica-clara', file: 'img/a-fin-de-conocerle-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/a-fin-de-conocerle-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/a-fin-de-conocerle-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/a-fin-de-conocerle-clasica.jpg' }
     ],
     badge: null,
     description: 'Un devocional centrado en el deseo de conocer más profundamente el carácter de Cristo a través de la lectura diaria y la meditación.',
@@ -2035,7 +2142,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/leyes-de-la-salud.jpg' },
       { style: 'tipografica-clara', file: 'img/leyes-de-la-salud-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/leyes-de-la-salud-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/leyes-de-la-salud-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/leyes-de-la-salud-clasica.jpg' }
     ],
     badge: 'Próximamente',
     description: 'Un repaso claro de los principios que sostienen una vida sana —descanso, aire puro, ejercicio, agua, luz solar y confianza en Dios—, explicados de forma práctica para aplicarlos en el día a día.',
@@ -2059,7 +2167,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/leyes-sobre-el-regimen-alimenticio.jpg' },
       { style: 'tipografica-clara', file: 'img/leyes-sobre-el-regimen-alimenticio-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/leyes-sobre-el-regimen-alimenticio-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/leyes-sobre-el-regimen-alimenticio-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/leyes-sobre-el-regimen-alimenticio-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Consejos concretos sobre la alimentación y su relación con el bienestar físico y espiritual: qué comer, cómo comer y por qué la mesa también forma parte de una vida equilibrada.',
@@ -2082,7 +2191,8 @@ window.BOOKS = [
     cover: 'img/conflicto-y-valor-tipografica.jpg',
     covers: [
       { style: 'tipografica-clara', file: 'img/conflicto-y-valor-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/conflicto-y-valor-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/conflicto-y-valor-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/conflicto-y-valor-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Un devocional que recorre las grandes historias de la Biblia día a día, mostrando la valentía de quienes confiaron en Dios en medio de la lucha. Lecturas breves, una para cada jornada del año.',
@@ -2106,7 +2216,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/conduccion-del-nino.jpg' },
       { style: 'tipografica-clara', file: 'img/conduccion-del-nino-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/conduccion-del-nino-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/conduccion-del-nino-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/conduccion-del-nino-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una guía completa para padres y educadores sobre la formación del carácter desde los primeros años: disciplina con afecto, hábitos, ejemplo en el hogar y educación espiritual.',
@@ -2130,7 +2241,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/coleccion-kress.jpg' },
       { style: 'tipografica-clara', file: 'img/coleccion-kress-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/coleccion-kress-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/coleccion-kress-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/coleccion-kress-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Reúne las cartas y consejos dirigidos al doctor Kress y a su esposa, con orientaciones muy prácticas sobre salud, tratamiento de enfermos y equilibrio en el trabajo médico y misionero.',
@@ -2154,7 +2266,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/cartas-a-jovenes-enamorados.jpg' },
       { style: 'tipografica-clara', file: 'img/cartas-a-jovenes-enamorados-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/cartas-a-jovenes-enamorados-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/cartas-a-jovenes-enamorados-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/cartas-a-jovenes-enamorados-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Cartas escritas a parejas jóvenes con consejos honestos sobre el noviazgo, la elección de pareja y la preparación para el matrimonio. Una lectura breve y directa, muy útil para regalar.',
@@ -3260,6 +3373,11 @@ window.BOOK_NEEDS = {
   'recibireis-poder': ['servir-y-compartir', 'crecer-cada-dia'],
   'la-oracion': ['paz-interior', 'crecer-cada-dia'],
   'reflejemos-a-jesus': ['conocer-a-jesus', 'crecer-cada-dia'],
+  'alza-tus-ojos': ['paz-interior', 'crecer-cada-dia'],
+  'consejos-sobre-la-obra-de-la-escuela-sabatica': ['servir-y-compartir'],
+  'consejos-sobre-la-salud': ['cuidar-mi-salud'],
+  'consejos-sobre-mayordomia-cristiana': ['servir-y-compartir', 'crecer-cada-dia'],
+  'maranata-el-senor-viene': ['entender-el-futuro'],
   'testimonios-selectos-tomo-i': ['crecer-cada-dia', 'estudiar-la-biblia'],
   'liderazgo-cristiano': ['servir-y-compartir'],
   'maranatha-el-senor-viene': ['entender-el-futuro', 'crecer-cada-dia'],
