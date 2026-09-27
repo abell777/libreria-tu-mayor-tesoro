@@ -2031,8 +2031,9 @@ window.BOOKS = [
     priceNote: 'Disponible muy pronto',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/leyes-de-la-salud-tipografica.jpg',
+    cover: 'img/leyes-de-la-salud.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/leyes-de-la-salud.jpg' },
       { style: 'tipografica-clara', file: 'img/leyes-de-la-salud-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/leyes-de-la-salud-tipografica-oscura.jpg' }
     ],
@@ -3128,8 +3129,9 @@ window.BOOKS = [
     priceNote: 'IVA incluido',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/reflejemos-a-jesus-tipografica.jpg',
+    cover: 'img/reflejemos-a-jesus.jpg',
     covers: [
+      { style: 'ilustrada', file: 'img/reflejemos-a-jesus.jpg' },
       { style: 'tipografica-clara', file: 'img/reflejemos-a-jesus-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/reflejemos-a-jesus-tipografica-oscura.jpg' }
     ],
@@ -3257,6 +3259,7 @@ window.BOOK_NEEDS = {
   'reavivamientos-modernos': ['crecer-cada-dia', 'entender-el-futuro'],
   'recibireis-poder': ['servir-y-compartir', 'crecer-cada-dia'],
   'la-oracion': ['paz-interior', 'crecer-cada-dia'],
+  'reflejemos-a-jesus': ['conocer-a-jesus', 'crecer-cada-dia'],
   'testimonios-selectos-tomo-i': ['crecer-cada-dia', 'estudiar-la-biblia'],
   'liderazgo-cristiano': ['servir-y-compartir'],
   'maranatha-el-senor-viene': ['entender-el-futuro', 'crecer-cada-dia'],
