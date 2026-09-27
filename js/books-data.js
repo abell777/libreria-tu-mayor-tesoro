@@ -240,7 +240,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/el-deseado-de-todas-las-gentes.jpg' },
       { style: 'tipografica-clara', file: 'img/el-deseado-de-todas-las-gentes-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/el-deseado-de-todas-las-gentes-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/el-deseado-de-todas-las-gentes-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/el-deseado-de-todas-las-gentes-clasica.jpg' }
     ],
     badge: null,
     description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Uno de los libros más leídos de Elena G. White, en una edición manejable de tamaño A5.',
@@ -262,7 +263,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/historia-de-los-patriarcas-y-profetas.jpg' },
       { style: 'tipografica-clara', file: 'img/historia-de-los-patriarcas-y-profetas-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/historia-de-los-patriarcas-y-profetas-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/historia-de-los-patriarcas-y-profetas-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/historia-de-los-patriarcas-y-profetas-clasica.jpg' }
     ],
     badge: null,
     description: 'Repasa los grandes relatos del Antiguo Testamento, desde la creación hasta el rey David, iluminando el carácter de Dios a través de la vida de los patriarcas y los primeros profetas. Edición en tapa dura, pensada para durar en tu biblioteca.',
@@ -532,7 +534,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/el-ministerio-de-la-bondad.jpg' },
       { style: 'tipografica-clara', file: 'img/el-ministerio-de-la-bondad-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/el-ministerio-de-la-bondad-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/el-ministerio-de-la-bondad-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/el-ministerio-de-la-bondad-clasica.jpg' }
     ],
     badge: null,
     description: 'Un llamado a vivir el evangelio a través de actos concretos de bondad y ayuda al necesitado. Muestra cómo la compasión práctica abre puertas que la sola predicación no siempre alcanza.',
@@ -554,7 +557,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/el-ministerio-medico.jpg' },
       { style: 'tipografica-clara', file: 'img/el-ministerio-medico-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/el-ministerio-medico-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/el-ministerio-medico-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/el-ministerio-medico-clasica.jpg' }
     ],
     badge: null,
     description: 'Aborda la relación entre la salud física y la obra evangélica, con consejos sobre el cuidado del cuerpo como parte del mensaje cristiano integral. Un referente para quienes trabajan en el área de la salud desde la fe.',
@@ -578,7 +582,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/el-hogar-cristiano.jpg' },
       { style: 'tipografica-clara', file: 'img/el-hogar-cristiano-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/el-hogar-cristiano-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/el-hogar-cristiano-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/el-hogar-cristiano-clasica.jpg' }
     ],
     badge: null,
     description: 'Un manual clásico sobre la vida familiar: el matrimonio, la crianza de los hijos y la atmósfera del hogar. Sigue siendo, décadas después, una de las obras más consultadas sobre la familia cristiana.',
@@ -648,7 +653,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/el-colportor-evangelico.jpg' },
       { style: 'tipografica-clara', file: 'img/el-colportor-evangelico-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/el-colportor-evangelico-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/el-colportor-evangelico-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/el-colportor-evangelico-clasica.jpg' }
     ],
     badge: null,
     description: 'Dirigido a quienes se dedican a la venta y distribución de literatura cristiana puerta a puerta, con consejos prácticos y motivación para esa labor. Un clásico dentro de la tradición del colportaje.',
@@ -670,7 +676,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/dios-nos-cuida.jpg' },
       { style: 'tipografica-clara', file: 'img/dios-nos-cuida-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/dios-nos-cuida-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/dios-nos-cuida-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/dios-nos-cuida-clasica.jpg' }
     ],
     badge: null,
     description: 'Un devocional matutino breve, pensado para leer cada mañana y empezar el día recordando el cuidado providencial de Dios. Fácil de intercalar en cualquier rutina, aunque sea apretada.',
@@ -1100,7 +1107,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/la-verdad-acerca-de-los-angeles.jpg' },
       { style: 'tipografica-clara', file: 'img/la-verdad-acerca-de-los-angeles-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/la-verdad-acerca-de-los-angeles-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/la-verdad-acerca-de-los-angeles-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/la-verdad-acerca-de-los-angeles-clasica.jpg' }
     ],
     badge: null,
     description: 'Reúne lo que la Biblia y los escritos de la autora enseñan sobre la existencia y la obra de los ángeles, su desempeño en la historia y en la vida del creyente hoy.',
@@ -1143,7 +1151,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/la-historia-de-la-redencion.jpg' },
       { style: 'tipografica-clara', file: 'img/la-historia-de-la-redencion-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/la-historia-de-la-redencion-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/la-historia-de-la-redencion-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/la-historia-de-la-redencion-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Un recorrido por el gran plan de salvación desde la caída hasta la restauración final, contado como una sola historia continua. Edición en tapa blanda con acabado brillo, pensada para el estudio personal y para regalar.',
@@ -1165,7 +1174,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/la-iglesia-remanente.jpg' },
       { style: 'tipografica-clara', file: 'img/la-iglesia-remanente-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/la-iglesia-remanente-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/la-iglesia-remanente-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/la-iglesia-remanente-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una reflexión sobre la identidad y la misión del pueblo de Dios en el tiempo del fin, a partir de los escritos de la autora. Edición en tapa blanda con acabado brillo, ideal para el estudio personal.',
@@ -1209,7 +1219,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/la-musica.jpg' },
       { style: 'tipografica-clara', file: 'img/la-musica-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/la-musica-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/la-musica-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/la-musica-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una recopilación de los escritos de la autora sobre el lugar de la música en el culto y en la vida cristiana. Edición en tapa blanda con acabado brillo, cuidada y de fácil lectura.',
@@ -1233,7 +1244,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/la-segunda-venida-y-el-cielo.jpg' },
       { style: 'tipografica-clara', file: 'img/la-segunda-venida-y-el-cielo-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/la-segunda-venida-y-el-cielo-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/la-segunda-venida-y-el-cielo-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/la-segunda-venida-y-el-cielo-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una mirada esperanzadora a las promesas de la Biblia sobre el regreso de Cristo y la vida eterna, explicadas con un lenguaje claro y devocional.',
@@ -1281,7 +1293,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/la-unica-esperanza.jpg' },
       { style: 'tipografica-clara', file: 'img/la-unica-esperanza-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/la-unica-esperanza-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/la-unica-esperanza-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/la-unica-esperanza-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una presentación breve y directa de Jesucristo como único camino de salvación, pensada tanto para el estudio personal como para compartir con quien busca respuestas.',
@@ -2048,7 +2061,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/discurso-maestro-de-jesucristo.jpg' },
       { style: 'tipografica-clara', file: 'img/discurso-maestro-de-jesucristo-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/discurso-maestro-de-jesucristo-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/discurso-maestro-de-jesucristo-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/discurso-maestro-de-jesucristo-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Un estudio detallado del Sermón del Monte, con reflexiones sobre las bienaventuranzas y las enseñanzas de Jesús a sus discípulos y a la multitud.',
@@ -2296,7 +2310,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/en-el-desierto-de-la-tentacion.jpg' },
       { style: 'tipografica-clara', file: 'img/en-el-desierto-de-la-tentacion-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/en-el-desierto-de-la-tentacion-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/en-el-desierto-de-la-tentacion-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/en-el-desierto-de-la-tentacion-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Un estudio del relato de las tentaciones de Jesús en el desierto y de lo que enseña sobre nuestras propias luchas: cómo resistir, dónde está la fuerza real y por qué la victoria de Cristo también es nuestra.',
@@ -2320,7 +2335,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/el-ministerio-de-curacion.jpg' },
       { style: 'tipografica-clara', file: 'img/el-ministerio-de-curacion-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/el-ministerio-de-curacion-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/el-ministerio-de-curacion-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/el-ministerio-de-curacion-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Uno de los libros más apreciados de la autora: une el cuidado del cuerpo y del alma, con capítulos sobre la labor del médico y la enfermera, el hogar, la alimentación, la mente y el trato con el enfermo.',
@@ -2368,7 +2384,8 @@ window.BOOKS = [
     covers: [
       { style: 'ilustrada', file: 'img/la-oracion.jpg' },
       { style: 'tipografica-clara', file: 'img/la-oracion-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/la-oracion-tipografica-oscura.jpg' }
+      { style: 'tipografica-oscura', file: 'img/la-oracion-tipografica-oscura.jpg' },
+      { style: 'clasica', file: 'img/la-oracion-clasica.jpg' }
     ],
     badge: 'Nuevo',
     description: 'Una recopilación de los escritos de la autora sobre el privilegio de la oración: cómo orar, qué esperar de la oración y por qué es el aliento de la vida cristiana.',
