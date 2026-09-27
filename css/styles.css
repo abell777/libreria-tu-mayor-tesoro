@@ -1841,7 +1841,12 @@ body.no-scroll { overflow: hidden; }
   background: var(--muted);
   border: 1px solid var(--border);
 }
-.product-cover-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* object-fit: contain (no "cover") para que la portada se vea SIEMPRE
+   entera: las portadas reales son más altas que el marco 3/4, así que con
+   "cover" se recortaba el arriba/abajo (sobre todo en la ilustrada y la
+   clásica, donde ahí está el título). El fondo --muted ya puesto arriba
+   rellena el hueco que pueda quedar a los lados sin que se vea raro. */
+.product-cover-photo img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
 .product-info-block { min-width: 0; }
 .product-title { font-family: var(--font-serif); font-size: 1.7rem; color: var(--navy); margin: 6px 0 4px; line-height: 1.25; }
@@ -2081,22 +2086,24 @@ body.no-scroll { overflow: hidden; }
 .cart-drawer-body {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 16px 20px;
 }
 
 .cart-drawer-item {
   display: grid;
-  grid-template-columns: 52px 1fr auto;
+  grid-template-columns: 52px minmax(0, 1fr) auto;
   gap: 12px;
   align-items: flex-start;
   padding: 12px 0;
   border-bottom: 1px solid var(--border);
 }
 .cart-drawer-item:last-child { border-bottom: none; }
+/* object-fit: contain para ver la portada entera (antes se recortaba). */
 .cart-drawer-item img {
   width: 52px;
   height: 72px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 4px;
   background: var(--muted);
 }
@@ -2115,8 +2122,9 @@ body.no-scroll { overflow: hidden; }
 }
 .cart-drawer-item-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 8px 10px;
 }
 .cart-drawer-item .qty-stepper { transform: scale(0.9); transform-origin: left center; }
 .cart-drawer-item-remove {
