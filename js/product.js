@@ -327,8 +327,13 @@
       // mismo libro se pueden pedir a la vez como líneas distintas.
       addBtn.dataset.format = covers.length > 1 ? book.format + ' · ' + cover.short : book.format;
     }
+    // Los botones del selector pueden mostrarse en un orden distinto al del
+    // array "covers" (ver más abajo), así que aquí comparamos por su
+    // data-cover-index (índice real en "covers"), no por su posición en el
+    // DOM, para marcar el activo correctamente sea cual sea el orden visual.
     var options = document.querySelectorAll('.cover-option');
-    Array.prototype.slice.call(options).forEach(function (opt, idx) {
+    Array.prototype.slice.call(options).forEach(function (opt) {
+      var idx = parseInt(opt.dataset.coverIndex, 10);
       opt.classList.toggle('is-active', idx === coverIndex);
       opt.setAttribute('aria-checked', idx === coverIndex ? 'true' : 'false');
       opt.tabIndex = idx === coverIndex ? 0 : -1;
@@ -340,6 +345,27 @@
   if (covers.length > 1) {
     var gallery = document.querySelector('.product-gallery');
     if (gallery) {
+      // Orden de "covers" (usado también por el carrusel del catálogo/home,
+      // ver js/cover-carousel.js): ilustrada, tipográfica clara, tipográfica
+      // oscura, clásica — ese orden NO se toca.
+      //
+      // Pero aquí, en el selector de la ficha de producto, la portada
+      // "clásica" (si existe) se quiere ver justo debajo de la "ilustrada",
+      // no la última. Por eso se construye una copia reordenada SOLO para
+      // pintar los botones; cada botón lleva en "data-cover-index" su
+      // posición real dentro de "covers", así que toda la lógica de compra,
+      // el parámetro ?portada= y el carrusel siguen usando el orden
+      // original sin verse afectados.
+      var coversForPicker = covers.slice();
+      var clasicaPos = -1;
+      for (var ci = 0; ci < coversForPicker.length; ci++) {
+        if (coversForPicker[ci].style === 'clasica') { clasicaPos = ci; break; }
+      }
+      if (clasicaPos > 1) {
+        var clasicaItem = coversForPicker.splice(clasicaPos, 1)[0];
+        coversForPicker.splice(1, 0, clasicaItem);
+      }
+
       var picker = document.createElement('div');
       picker.className = 'cover-picker';
       picker.innerHTML =
@@ -347,9 +373,10 @@
           '<span class="cover-picker-hint">Mismo libro y mismo precio · tú eliges la cubierta</span>' +
         '</p>' +
         '<div class="cover-options" role="radiogroup" aria-label="Diseño de portada">' +
-          covers.map(function (c, i) {
-            return '<button type="button" class="cover-option' + (i === 0 ? ' is-active' : '') + '" role="radio" ' +
-              'aria-checked="' + (i === 0 ? 'true' : 'false') + '" data-cover-index="' + i + '">' +
+          coversForPicker.map(function (c) {
+            var origIndex = covers.indexOf(c);
+            return '<button type="button" class="cover-option' + (origIndex === 0 ? ' is-active' : '') + '" role="radio" ' +
+              'aria-checked="' + (origIndex === 0 ? 'true' : 'false') + '" data-cover-index="' + origIndex + '">' +
               '<img src="' + toWebp(c.file) + '" data-fallback="' + c.file + '" ' +
               'onerror="this.onerror=null;this.src=this.getAttribute(\'data-fallback\')" ' +
               'alt="' + escapeHTML(c.short) + ' de «' + escapeHTML(book.title) + '»" loading="lazy" decoding="async">' +
@@ -363,13 +390,27 @@
         '<p class="cover-chosen-desc" id="coverChosenDesc"></p>';
       gallery.appendChild(picker);
 
-      Array.prototype.slice.call(picker.querySelectorAll('.cover-option')).forEach(function (btn) {
+      var pickerButtons = Array.prototype.slice.call(picker.querySelectorAll('.cover-option'));
+      pickerButtons.forEach(function (btn) {
         btn.addEventListener('click', function () {
           applyCover(parseInt(btn.dataset.coverIndex, 10) || 0);
         });
         btn.addEventListener('keydown', function (e) {
-          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); applyCover(coverIndex + 1); document.querySelectorAll('.cover-option')[coverIndex].focus(); }
-          if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); applyCover(coverIndex - 1); document.querySelectorAll('.cover-option')[coverIndex].focus(); }
+          // La flechas navegan en el orden VISUAL (el del selector), no en
+          // el orden interno de "covers".
+          var pos = pickerButtons.indexOf(btn);
+          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            var nextBtn = pickerButtons[(pos + 1) % pickerButtons.length];
+            applyCover(parseInt(nextBtn.dataset.coverIndex, 10) || 0);
+            nextBtn.focus();
+          }
+          if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            var prevBtn = pickerButtons[(pos - 1 + pickerButtons.length) % pickerButtons.length];
+            applyCover(parseInt(prevBtn.dataset.coverIndex, 10) || 0);
+            prevBtn.focus();
+          }
         });
       });
     }
