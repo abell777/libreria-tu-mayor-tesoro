@@ -4436,3 +4436,18 @@ body.printable-open { overflow: hidden; }
   .custom-handmade { grid-template-columns: 1fr; padding: 18px; }
   .custom-handmade-media { aspect-ratio: 16 / 10; }
 }
+
+/* ---- Ficha de libro con valor añadido: tiempo de lectura y cita destacada ---- */
+.product-readtime { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin: -8px 0 20px; font-size: 0.9rem; color: var(--muted-foreground); }
+.product-readtime svg { flex: none; color: var(--gold-text); }
+.product-readtime strong { color: var(--navy); }
+.product-readtime a { color: var(--gold-text); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.product-quote { position: relative; overflow: hidden; margin: 24px 0 0; padding: 22px 26px 20px; border-radius: var(--radius-lg); background: linear-gradient(135deg, var(--navy), var(--navy-deep)); color: var(--parchment); }
+.product-quote::before { content: '\201C'; position: absolute; top: -4px; left: 16px; font-family: var(--font-serif); font-size: 6rem; line-height: 1; color: var(--gold); }
+.product-quote blockquote { margin: 0; padding-top: 30px; }
+.product-quote blockquote p { margin: 0; font-family: var(--font-serif); font-style: italic; font-size: 1.15rem; line-height: 1.55; }
+.product-quote figcaption { margin-top: 14px; font-size: 0.88rem; color: var(--gold-soft); }
+.product-quote-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.quote-btn { font: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--gold-soft); background: transparent; color: var(--parchment); }
+.quote-btn:hover { background: var(--gold-soft); color: var(--navy-deep); }
+.quote-btn:disabled { opacity: 0.6; cursor: progress; }

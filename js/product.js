@@ -180,6 +180,159 @@
     descPanel.appendChild(ul);
   }
 
+  // ---- Valor añadido 1: tiempo de lectura estimado ------------------------
+  // Se calcula con las páginas del libro (campo "pages" de js/books-data.js)
+  // y el ritmo "Normal" del planificador de recursos.html (2,2 págs/min).
+  // Si un libro no tiene "pages" (p. ej. las Biblias), simplemente no sale:
+  // nunca se inventa el dato.
+  var PAGS_POR_MINUTO = 2.2;
+  function tiempoLectura(paginas) {
+    var min = Math.round(paginas / PAGS_POR_MINUTO);
+    if (min >= 20) min = Math.round(min / 5) * 5;
+    var h = Math.floor(min / 60), m = min % 60;
+    return h === 0 ? m + ' min' : h + ' h' + (m ? ' ' + m + ' min' : '');
+  }
+  var oldRead = document.getElementById('productReadTime');
+  if (oldRead) oldRead.remove();
+  var descShort = document.getElementById('productDesc');
+  if (descShort && typeof book.pages === 'number' && book.pages > 0) {
+    var rt = document.createElement('p');
+    rt.id = 'productReadTime';
+    rt.className = 'product-readtime';
+    rt.innerHTML =
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>' +
+      '<span><strong>≈ ' + tiempoLectura(book.pages) + '</strong> de lectura a ritmo normal · ' + book.pages + ' páginas</span>' +
+      '<a href="recursos.html?libro=' + encodeURIComponent(book.id) + '#planificador">Planifica tu lectura</a>';
+    descShort.insertAdjacentElement('afterend', rt);
+  }
+
+  // ---- Valor añadido 2: cita destacada, lista para compartir ---------------
+  // Solo sale si el libro define "quote" en js/books-data.js:
+  //   quote: { text: 'Texto exacto del libro', ref: 'Cap. 3, p. 45' }   (ref es opcional)
+  // La imagen se dibuja aquí mismo (canvas), sin servidores ni librerías:
+  // "Imagen para redes" (1080×1350) y "Fondo de pantalla" (1080×1920).
+  var oldQuote = document.getElementById('productQuote');
+  if (oldQuote) oldQuote.remove();
+  if (descPanel && book.quote && book.quote.text) {
+    var quoteText = String(book.quote.text).trim();
+    var quoteRef = book.quote.ref ? String(book.quote.ref).trim() : '';
+    var quoteFig = document.createElement('figure');
+    quoteFig.id = 'productQuote';
+    quoteFig.className = 'product-quote';
+    quoteFig.innerHTML =
+      '<blockquote><p></p></blockquote><figcaption></figcaption>' +
+      '<div class="product-quote-actions">' +
+        '<button type="button" class="quote-btn" data-quote-img="social">Imagen para redes</button>' +
+        '<button type="button" class="quote-btn" data-quote-img="wallpaper">Fondo de pantalla</button>' +
+        '<button type="button" class="quote-btn" data-quote-share hidden>Compartir</button>' +
+      '</div>';
+    quoteFig.querySelector('p').textContent = quoteText;
+    quoteFig.querySelector('figcaption').textContent =
+      '— ' + book.author + ', «' + book.title + '»' + (quoteRef ? ', ' + quoteRef : '');
+    descPanel.appendChild(quoteFig);
+
+    function lineasAjustadas(g, texto, ancho) {
+      var palabras = texto.split(/\s+/), lineas = [], actual = '';
+      palabras.forEach(function (w) {
+        var prueba = actual ? actual + ' ' + w : w;
+        if (actual && g.measureText(prueba).width > ancho) { lineas.push(actual); actual = w; }
+        else actual = prueba;
+      });
+      if (actual) lineas.push(actual);
+      return lineas;
+    }
+
+    function dibujarCita(kind) {
+      var W = 1080, H = kind === 'wallpaper' ? 1920 : 1350;
+      var top = kind === 'wallpaper' ? 640 : 380;
+      var bottom = kind === 'wallpaper' ? 1380 : 930;
+      var c = document.createElement('canvas');
+      c.width = W; c.height = H;
+      var g = c.getContext('2d');
+      var fuentes = document.fonts && document.fonts.load
+        ? Promise.all([
+            document.fonts.load('italic 500 48px "Playfair Display"'),
+            document.fonts.load('600 32px "Playfair Display"'),
+            document.fonts.load('400 28px "Source Sans 3"')
+          ]).catch(function () {})
+        : Promise.resolve();
+      return fuentes.then(function () {
+        var bg = g.createLinearGradient(0, 0, W, H);
+        bg.addColorStop(0, '#203149'); bg.addColorStop(1, '#071a36');
+        g.fillStyle = bg; g.fillRect(0, 0, W, H);
+        g.strokeStyle = '#ad8440'; g.lineWidth = 3; g.strokeRect(48, 48, W - 96, H - 96);
+
+        g.textAlign = 'center'; g.textBaseline = 'top';
+        g.fillStyle = '#ad8440';
+        g.font = '500 260px "Playfair Display", Georgia, serif';
+        g.fillText('\u201C', W / 2, top - 250);
+
+        // Busca el tamaño de letra más grande con el que la cita cabe.
+        var ancho = W - 240, alto = bottom - top, size = 66, lineas, lh;
+        for (; size >= 26; size -= 2) {
+          g.font = 'italic 500 ' + size + 'px "Playfair Display", Georgia, serif';
+          lineas = lineasAjustadas(g, quoteText, ancho);
+          lh = size * 1.42;
+          if (lineas.length * lh <= alto) break;
+        }
+        var y = top + Math.max(0, (alto - lineas.length * lh) / 2);
+        g.fillStyle = '#faf5ea';
+        lineas.forEach(function (l, i) { g.fillText(l, W / 2, y + i * lh); });
+
+        var yAtrib = bottom + 50;
+        g.fillStyle = '#e2cead';
+        g.font = '600 36px "Playfair Display", Georgia, serif';
+        g.fillText(book.author, W / 2, yAtrib);
+        g.font = '400 30px "Source Sans 3", "Segoe UI", sans-serif';
+        g.fillText('«' + book.title + '»' + (quoteRef ? ' · ' + quoteRef : ''), W / 2, yAtrib + 56);
+
+        var yPie = H - (kind === 'wallpaper' ? 320 : 160);
+        g.fillStyle = '#ad8440';
+        g.font = '600 32px "Playfair Display", Georgia, serif';
+        g.fillText('Librería tu mayor tesoro', W / 2, yPie);
+        g.fillStyle = '#e2cead';
+        g.font = '400 26px "Source Sans 3", "Segoe UI", sans-serif';
+        g.fillText('libreriatumayortesoro.com', W / 2, yPie + 46);
+        return c;
+      });
+    }
+
+    function canvasABlob(c) {
+      return new Promise(function (resolve) { c.toBlob(resolve, 'image/png'); });
+    }
+    function descargar(blob, kind) {
+      var a = document.createElement('a');
+      var u = URL.createObjectURL(blob);
+      a.href = u;
+      a.download = book.id + '-cita-' + (kind === 'wallpaper' ? 'fondo' : 'redes') + '.png';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(u); }, 4000);
+    }
+
+    quoteFig.addEventListener('click', function (e) {
+      var btnImg = e.target.closest('[data-quote-img]');
+      if (btnImg) {
+        var kind = btnImg.getAttribute('data-quote-img');
+        btnImg.disabled = true;
+        dibujarCita(kind).then(canvasABlob).then(function (blob) { if (blob) descargar(blob, kind); })
+          .catch(function () {})
+          .then(function () { btnImg.disabled = false; });
+        return;
+      }
+      if (e.target.closest('[data-quote-share]')) {
+        var url = window.location.origin + '/producto.html?id=' + encodeURIComponent(book.id);
+        var texto = '«' + quoteText + '» — ' + book.author + ', ' + book.title;
+        dibujarCita('social').then(canvasABlob).then(function (blob) {
+          var archivo = blob ? new File([blob], book.id + '-cita.png', { type: 'image/png' }) : null;
+          var datos = { title: book.title, text: texto, url: url };
+          if (archivo && navigator.canShare && navigator.canShare({ files: [archivo] })) datos.files = [archivo];
+          return navigator.share(datos);
+        }).catch(function () {});
+      }
+    });
+    if (navigator.share) quoteFig.querySelector('[data-quote-share]').hidden = false;
+  }
+
   // ---- Ficha técnica: encuadernación, acabado y papel primero (lo más
   // relevante a la hora de comprar un libro físico), y solo se muestran
   // las filas cuyo dato exista para este libro en concreto.
@@ -214,6 +367,7 @@
     if (book.bibleSize && window.BIBLE_SIZE_LABELS) specRows.push(['Tamaño', window.BIBLE_SIZE_LABELS[book.bibleSize] || book.bibleSize]);
     var formatVal = hasPrintOpts ? poFormatLabel(poState) : book.format;
     specRows.push(['Formato', formatVal, false, 'formato']);
+    if (typeof book.pages === 'number' && book.pages > 0) specRows.push(['Páginas', String(book.pages)]);
     specRows.push(['Categoría', book.categoryLabel]);
     specRows.push(['Autor', book.author]);
     specRows.push(['Idioma', book.idioma]);

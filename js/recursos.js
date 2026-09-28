@@ -38,6 +38,23 @@
       if (opt && opt.dataset.pages) pagesEl.value = opt.dataset.pages;
       calcular();
     });
+
+    // Enlace desde la ficha del libro: recursos.html?libro=ID#planificador
+    // deja el libro ya elegido (si hay varias ediciones con el mismo título,
+    // el selector solo guarda una, así que se busca por título).
+    var libroParam = new URLSearchParams(window.location.search).get('libro');
+    var libroSel = libroParam && window.BOOKS.filter(function (b) { return b.id === libroParam; })[0];
+    if (libroSel) {
+      var idsMismoTitulo = window.BOOKS.filter(function (b) { return b.title === libroSel.title; })
+        .map(function (b) { return b.id; });
+      var optSel = Array.prototype.filter.call(bookSel.options, function (o) {
+        return idsMismoTitulo.indexOf(o.value) !== -1;
+      })[0];
+      if (optSel) {
+        bookSel.value = optSel.value;
+        if (optSel.dataset.pages) pagesEl.value = optSel.dataset.pages;
+      }
+    }
   }
 
   function calcular() {
