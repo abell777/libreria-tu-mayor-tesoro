@@ -529,9 +529,9 @@ window.BOOKS = [
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
-    cover: 'img/el-ministerio-de-la-bondad.jpg',
+    cover: 'img/el-ministerio-de-la-bondad-clasica.jpg',
     covers: [
-      { style: 'ilustrada', file: 'img/el-ministerio-de-la-bondad.jpg' },
+      { style: 'clasica', file: 'img/el-ministerio-de-la-bondad-clasica.jpg' },
       { style: 'tipografica-clara', file: 'img/el-ministerio-de-la-bondad-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/el-ministerio-de-la-bondad-tipografica-oscura.jpg' }
     ],
@@ -1145,9 +1145,9 @@ window.BOOKS = [
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
-    cover: 'img/la-historia-de-la-redencion.jpg',
+    cover: 'img/la-historia-de-la-redencion-clasica.jpg',
     covers: [
-      { style: 'ilustrada', file: 'img/la-historia-de-la-redencion.jpg' },
+      { style: 'clasica', file: 'img/la-historia-de-la-redencion-clasica.jpg' },
       { style: 'tipografica-clara', file: 'img/la-historia-de-la-redencion-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/la-historia-de-la-redencion-tipografica-oscura.jpg' }
     ],
@@ -1237,9 +1237,9 @@ window.BOOKS = [
     priceNote: 'IVA incluido',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/la-segunda-venida-y-el-cielo.jpg',
+    cover: 'img/la-segunda-venida-y-el-cielo-clasica.jpg',
     covers: [
-      { style: 'ilustrada', file: 'img/la-segunda-venida-y-el-cielo.jpg' },
+      { style: 'clasica', file: 'img/la-segunda-venida-y-el-cielo-clasica.jpg' },
       { style: 'tipografica-clara', file: 'img/la-segunda-venida-y-el-cielo-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/la-segunda-venida-y-el-cielo-tipografica-oscura.jpg' }
     ],
@@ -1285,9 +1285,9 @@ window.BOOKS = [
     priceNote: 'IVA incluido',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/la-unica-esperanza.jpg',
+    cover: 'img/la-unica-esperanza-clasica.jpg',
     covers: [
-      { style: 'ilustrada', file: 'img/la-unica-esperanza.jpg' },
+      { style: 'clasica', file: 'img/la-unica-esperanza-clasica.jpg' },
       { style: 'tipografica-clara', file: 'img/la-unica-esperanza-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/la-unica-esperanza-tipografica-oscura.jpg' }
     ],
@@ -2304,9 +2304,9 @@ window.BOOKS = [
     priceNote: 'IVA incluido',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/en-el-desierto-de-la-tentacion.jpg',
+    cover: 'img/en-el-desierto-de-la-tentacion-clasica.jpg',
     covers: [
-      { style: 'ilustrada', file: 'img/en-el-desierto-de-la-tentacion.jpg' },
+      { style: 'clasica', file: 'img/en-el-desierto-de-la-tentacion-clasica.jpg' },
       { style: 'tipografica-clara', file: 'img/en-el-desierto-de-la-tentacion-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/en-el-desierto-de-la-tentacion-tipografica-oscura.jpg' }
     ],
@@ -2377,9 +2377,9 @@ window.BOOKS = [
     priceNote: 'IVA incluido',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/la-oracion.jpg',
+    cover: 'img/la-oracion-clasica.jpg',
     covers: [
-      { style: 'ilustrada', file: 'img/la-oracion.jpg' },
+      { style: 'clasica', file: 'img/la-oracion-clasica.jpg' },
       { style: 'tipografica-clara', file: 'img/la-oracion-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/la-oracion-tipografica-oscura.jpg' }
     ],
