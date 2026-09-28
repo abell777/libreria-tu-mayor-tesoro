@@ -202,6 +202,7 @@ window.BIBLE_COLOR_LABELS = {
 window.BOOKS = [
   {
     id: 'el-conflicto-de-los-siglos',
+    pages: 654,
     title: 'El Conflicto de los Siglos',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -223,6 +224,7 @@ window.BOOKS = [
   },
   {
     id: 'el-deseado-de-todas-las-gentes',
+    pages: 782,
     title: 'El Deseado de Todas las Gentes',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -249,6 +251,7 @@ window.BOOKS = [
   },
   {
     id: 'historia-de-los-patriarcas-y-profetas',
+    pages: 728,
     title: 'Historia de los Patriarcas y Profetas',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -272,6 +275,7 @@ window.BOOKS = [
   },
   {
     id: 'profetas-y-reyes',
+    pages: 483,
     title: 'Profetas y Reyes',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -296,6 +300,7 @@ window.BOOKS = [
   },
   {
     id: 'la-fe-por-la-cual-vivo',
+    pages: 390,
     title: 'La Fe por la Cual Vivo',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -320,6 +325,7 @@ window.BOOKS = [
   },
   {
     id: 'la-educacion',
+    pages: 260,
     title: 'La Educación',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -342,6 +348,7 @@ window.BOOKS = [
   },
   {
     id: 'edificacion-del-caracter',
+    pages: 79,
     title: 'Edificación del Carácter',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -364,6 +371,7 @@ window.BOOKS = [
   },
   {
     id: 'hijos-e-hijas-de-dios',
+    pages: 396,
     title: 'Hijos e Hijas de Dios',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -386,6 +394,7 @@ window.BOOKS = [
   },
   {
     id: 'exaltad-a-jesus',
+    pages: 398,
     title: 'Exaltad a Jesús',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -408,6 +417,7 @@ window.BOOKS = [
   },
   {
     id: 'en-los-lugares-celestiales',
+    pages: 388,
     title: 'En los Lugares Celestiales',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -430,6 +440,7 @@ window.BOOKS = [
   },
   {
     id: 'fe-y-obras',
+    pages: 107,
     title: 'Fe y Obras',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -452,6 +463,7 @@ window.BOOKS = [
   },
   {
     id: 'el-otro-poder',
+    pages: 133,
     title: 'El Otro Poder',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -474,6 +486,7 @@ window.BOOKS = [
   },
   {
     id: 'el-ministerio-pastoral',
+    pages: 322,
     title: 'El Ministerio Pastoral',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -496,6 +509,7 @@ window.BOOKS = [
   },
   {
     id: 'el-ministerio-de-publicaciones',
+    pages: 389,
     title: 'El Ministerio de Publicaciones',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -520,6 +534,7 @@ window.BOOKS = [
   },
   {
     id: 'el-ministerio-de-la-bondad',
+    pages: 281,
     title: 'El Ministerio de la Bondad',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -529,9 +544,8 @@ window.BOOKS = [
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
-    cover: 'img/el-ministerio-de-la-bondad-clasica.jpg',
+    cover: 'img/el-ministerio-de-la-bondad-tipografica.jpg',
     covers: [
-      { style: 'clasica', file: 'img/el-ministerio-de-la-bondad-clasica.jpg' },
       { style: 'tipografica-clara', file: 'img/el-ministerio-de-la-bondad-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/el-ministerio-de-la-bondad-tipografica-oscura.jpg' }
     ],
@@ -542,6 +556,7 @@ window.BOOKS = [
   },
   {
     id: 'el-ministerio-medico',
+    pages: 601,
     title: 'El Ministerio Médico',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -565,6 +580,7 @@ window.BOOKS = [
   },
   {
     id: 'el-hogar-cristiano',
+    pages: 452,
     title: 'El Hogar Cristiano',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -590,6 +606,7 @@ window.BOOKS = [
   },
   {
     id: 'el-evangelismo',
+    pages: 579,
     title: 'El Evangelismo',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -612,6 +629,7 @@ window.BOOKS = [
   },
   {
     id: 'el-conflicto-inminente',
+    pages: 118,
     title: 'El Conflicto Inminente',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -636,6 +654,7 @@ window.BOOKS = [
   },
   {
     id: 'el-colportor-evangelico',
+    pages: 194,
     title: 'El Colportor Evangélico',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -661,6 +680,7 @@ window.BOOKS = [
   },
   {
     id: 'dios-nos-cuida',
+    pages: 409,
     title: 'Dios Nos Cuida',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -684,6 +704,7 @@ window.BOOKS = [
   },
   {
     id: 'de-la-ciudad-al-campo',
+    pages: 92,
     title: 'De la Ciudad al Campo',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -726,6 +747,7 @@ window.BOOKS = [
   },
   {
     id: 'cristo-nuestro-salvador',
+    pages: 118,
     title: 'Cristo Nuestro Salvador',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -749,6 +771,7 @@ window.BOOKS = [
   },
   {
     id: 'cristo-en-su-santuario',
+    pages: 128,
     title: 'Cristo en Su Santuario',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -774,6 +797,7 @@ window.BOOKS = [
   },
   {
     id: 'consejos-sobre-la-mayordomia-cristiana',
+    pages: 326,
     title: 'Consejos sobre la Mayordomía Cristiana',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -796,6 +820,7 @@ window.BOOKS = [
   },
   {
     id: 'consejos-sobre-la-obra-de-escuela-sabatica',
+    pages: 223,
     title: 'Consejos sobre la Obra de Escuela Sabática',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -818,6 +843,7 @@ window.BOOKS = [
   },
   {
     id: 'consejos-para-los-maestros',
+    pages: 455,
     title: 'Consejos para los Maestros',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -841,6 +867,7 @@ window.BOOKS = [
   },
   {
     id: 'alza-tus-ojos',
+    pages: 388,
     title: 'Alza tus Ojos',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -861,6 +888,7 @@ window.BOOKS = [
   },
   {
     id: 'consejos-sobre-la-obra-de-la-escuela-sabatica',
+    pages: 223,
     title: 'Consejos sobre la Obra de la Escuela Sabática',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -881,6 +909,7 @@ window.BOOKS = [
   },
   {
     id: 'consejos-sobre-la-salud',
+    pages: 692,
     title: 'Consejos Sobre la Salud',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -901,6 +930,7 @@ window.BOOKS = [
   },
   {
     id: 'consejos-sobre-mayordomia-cristiana',
+    pages: 326,
     title: 'Consejos sobre Mayordomía Cristiana',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -921,6 +951,7 @@ window.BOOKS = [
   },
   {
     id: 'consejos-para-la-iglesia',
+    pages: 489,
     title: 'Consejos para la Iglesia',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -944,6 +975,7 @@ window.BOOKS = [
   },
   {
     id: 'cada-dia-con-dios',
+    pages: 390,
     title: 'Cada Día con Dios',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1028,6 +1060,7 @@ window.BOOKS = [
   },
   {
     id: 'alza-tus-ojos',
+    pages: 388,
     title: 'Alza Tus Ojos',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1050,6 +1083,7 @@ window.BOOKS = [
   },
   {
     id: 'a-fin-de-conocerle',
+    pages: 396,
     title: 'A Fin de Conocerle',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1090,6 +1124,7 @@ window.BOOKS = [
   },
   {
     id: 'la-verdad-acerca-de-los-angeles',
+    pages: 226,
     title: 'La Verdad Acerca de los Ángeles',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1115,6 +1150,7 @@ window.BOOKS = [
   },
   {
     id: 'consejos-sobre-la-salud',
+    pages: 692,
     title: 'Consejos sobre la Salud',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1136,6 +1172,7 @@ window.BOOKS = [
 // ---- Nuevos libros de Elena G. White (añadidos) ----
   {
     id: 'la-historia-de-la-redencion',
+    pages: 356,
     title: 'La Historia de la Redención',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1145,9 +1182,8 @@ window.BOOKS = [
     format: 'Tapa blanda, 148 x 210 mm',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
-    cover: 'img/la-historia-de-la-redencion-clasica.jpg',
+    cover: 'img/la-historia-de-la-redencion-tipografica.jpg',
     covers: [
-      { style: 'clasica', file: 'img/la-historia-de-la-redencion-clasica.jpg' },
       { style: 'tipografica-clara', file: 'img/la-historia-de-la-redencion-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/la-historia-de-la-redencion-tipografica-oscura.jpg' }
     ],
@@ -1158,6 +1194,7 @@ window.BOOKS = [
   },
   {
     id: 'la-iglesia-remanente',
+    pages: 74,
     title: 'La Iglesia Remanente',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1181,6 +1218,7 @@ window.BOOKS = [
   },
   {
     id: 'la-maravillosa-gracia-de-dios',
+    pages: 390,
     title: 'La Maravillosa Gracia de Dios',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1203,6 +1241,7 @@ window.BOOKS = [
   },
   {
     id: 'la-musica',
+    pages: 70,
     title: 'La Música',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1226,6 +1265,7 @@ window.BOOKS = [
   },
   {
     id: 'la-segunda-venida-y-el-cielo',
+    pages: 143,
     title: 'La Segunda Venida y el Cielo',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1237,9 +1277,8 @@ window.BOOKS = [
     priceNote: 'IVA incluido',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/la-segunda-venida-y-el-cielo-clasica.jpg',
+    cover: 'img/la-segunda-venida-y-el-cielo-tipografica.jpg',
     covers: [
-      { style: 'clasica', file: 'img/la-segunda-venida-y-el-cielo-clasica.jpg' },
       { style: 'tipografica-clara', file: 'img/la-segunda-venida-y-el-cielo-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/la-segunda-venida-y-el-cielo-tipografica-oscura.jpg' }
     ],
@@ -1250,6 +1289,7 @@ window.BOOKS = [
   },
   {
     id: 'la-temperancia',
+    pages: 306,
     title: 'La Temperancia',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1274,6 +1314,7 @@ window.BOOKS = [
   },
   {
     id: 'la-unica-esperanza',
+    pages: 121,
     title: 'La Única Esperanza',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1285,9 +1326,8 @@ window.BOOKS = [
     priceNote: 'IVA incluido',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/la-unica-esperanza-clasica.jpg',
+    cover: 'img/la-unica-esperanza-tipografica.jpg',
     covers: [
-      { style: 'clasica', file: 'img/la-unica-esperanza-clasica.jpg' },
       { style: 'tipografica-clara', file: 'img/la-unica-esperanza-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/la-unica-esperanza-tipografica-oscura.jpg' }
     ],
@@ -1298,6 +1338,7 @@ window.BOOKS = [
   },
   {
     id: 'la-voz-su-educacion-y-uso-correcto',
+    pages: 342,
     title: 'La Voz, su Educación y Uso Correcto',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1322,6 +1363,7 @@ window.BOOKS = [
   },
   {
     id: 'los-hechos-de-los-apostoles',
+    pages: 422,
     title: 'Los Hechos de los Apóstoles',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1344,6 +1386,7 @@ window.BOOKS = [
   },
   {
     id: 'palabras-de-vida-del-gran-maestro',
+    pages: 295,
     title: 'Palabras de Vida del Gran Maestro',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1368,6 +1411,7 @@ window.BOOKS = [
   },
   {
     id: 'primeros-escritos',
+    pages: 315,
     title: 'Primeros Escritos',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1392,6 +1436,7 @@ window.BOOKS = [
   },
   {
     id: 'testimonios-para-la-iglesia-tomo-2',
+    pages: 657,
     title: 'Testimonios para la Iglesia, Tomo 2',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1416,6 +1461,7 @@ window.BOOKS = [
   },
   {
     id: 'testimonios-para-la-iglesia-tomo-3',
+    pages: 591,
     title: 'Testimonios para la Iglesia, Tomo 3',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1440,6 +1486,7 @@ window.BOOKS = [
   },
   {
     id: 'testimonios-para-la-iglesia-tomo-4',
+    pages: 648,
     title: 'Testimonios para la Iglesia, Tomo 4',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1464,6 +1511,7 @@ window.BOOKS = [
   },
   {
     id: 'testimonios-para-la-iglesia-tomo-6',
+    pages: 447,
     title: 'Testimonios para la Iglesia, Tomo 6',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1488,6 +1536,7 @@ window.BOOKS = [
   },
   {
     id: 'testimonios-para-la-iglesia-tomo-7',
+    pages: 293,
     title: 'Testimonios para la Iglesia, Tomo 7',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1512,6 +1561,7 @@ window.BOOKS = [
   },
   {
     id: 'testimonios-para-la-iglesia-tomo-8',
+    pages: 330,
     title: 'Testimonios para la Iglesia, Tomo 8',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1536,6 +1586,7 @@ window.BOOKS = [
   },
   {
     id: 'testimonios-para-la-iglesia-tomo-9',
+    pages: 260,
     title: 'Testimonios para la Iglesia, Tomo 9',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1560,6 +1611,7 @@ window.BOOKS = [
   },
   {
     id: 'eventos-de-los-ultimos-dias',
+    pages: 242,
     title: 'Eventos de los Últimos Días',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1584,6 +1636,7 @@ window.BOOKS = [
   },
   {
     id: 'testimonios-selectos-tomo-i',
+    pages: 203,
     title: 'Testimonios Selectos, Tomo I',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1608,6 +1661,7 @@ window.BOOKS = [
   },
   {
     id: 'testimonios-selectos-tomo-ii',
+    pages: 207,
     title: 'Testimonios Selectos, Tomo II',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1632,6 +1686,7 @@ window.BOOKS = [
   },
   {
     id: 'testimonios-selectos-tomo-iii',
+    pages: 355,
     title: 'Testimonios Selectos, Tomo III',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1656,6 +1711,7 @@ window.BOOKS = [
   },
   {
     id: 'testimonios-selectos-tomo-iv',
+    pages: 392,
     title: 'Testimonios Selectos, Tomo IV',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1680,6 +1736,7 @@ window.BOOKS = [
   },
   {
     id: 'testimonios-selectos-tomo-v',
+    pages: 149,
     title: 'Testimonios Selectos, Tomo V',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1704,6 +1761,7 @@ window.BOOKS = [
   },
   {
     id: 'testimonios-para-la-iglesia-tomo-1',
+    pages: 739,
     title: 'Testimonios para la Iglesia, Tomo 1',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1728,6 +1786,7 @@ window.BOOKS = [
   },
   {
     id: 'testimonios-para-la-iglesia-tomo-5',
+    pages: 736,
     title: 'Testimonios para la Iglesia, Tomo 5',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1752,6 +1811,7 @@ window.BOOKS = [
   },
   {
     id: 'testimonios-para-los-ministros',
+    pages: 450,
     title: 'Testimonios para los Ministros',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1776,6 +1836,7 @@ window.BOOKS = [
   },
   {
     id: 'testimonios-conducta-sexual-adulterio-divorcio',
+    pages: 255,
     title: 'Testimonios acerca de Conducta Sexual, Adulterio y Divorcio',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1800,6 +1861,7 @@ window.BOOKS = [
   },
   {
     id: 'sermones-escogidos-1',
+    pages: 351,
     title: 'Sermones Escogidos 1',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1824,6 +1886,7 @@ window.BOOKS = [
   },
   {
     id: 'sermones-escogidos-2',
+    pages: 431,
     title: 'Sermones Escogidos 2',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1848,6 +1911,7 @@ window.BOOKS = [
   },
   {
     id: 'servicio-cristiano',
+    pages: 292,
     title: 'Servicio Cristiano',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1872,6 +1936,7 @@ window.BOOKS = [
   },
   {
     id: 'ser-semejante-a-jesus',
+    pages: 390,
     title: 'Ser Semejante a Jesús',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1896,6 +1961,7 @@ window.BOOKS = [
   },
   {
     id: 'un-llamado-a-ser-diferente',
+    pages: 113,
     title: 'Un Llamado a Ser Diferente',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1920,6 +1986,7 @@ window.BOOKS = [
   },
   {
     id: 'liderazgo-cristiano',
+    pages: 109,
     title: 'Liderazgo Cristiano',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1944,6 +2011,7 @@ window.BOOKS = [
   },
   {
     id: 'maranatha-el-senor-viene',
+    pages: 396,
     title: 'Maranatha, el Señor Viene',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1969,6 +2037,7 @@ window.BOOKS = [
   },
   {
     id: 'mensajes-selectos-tomo-i',
+    pages: 415,
     title: 'Mensajes Selectos, Tomo I',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -1994,6 +2063,7 @@ window.BOOKS = [
   },
   {
     id: 'mensajes-selectos-tomo-ii',
+    pages: 506,
     title: 'Mensajes Selectos, Tomo II',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2019,6 +2089,7 @@ window.BOOKS = [
   },
   {
     id: 'mensajes-selectos-tomo-iii',
+    pages: 448,
     title: 'Mensajes Selectos, Tomo III',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2044,6 +2115,7 @@ window.BOOKS = [
   },
   {
     id: 'discurso-maestro-de-jesucristo',
+    pages: 120,
     title: 'El Discurso Maestro de Jesucristo',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2071,6 +2143,7 @@ window.BOOKS = [
 // ---- Biblias ----
   {
     id: 'el-camino-a-cristo',
+    pages: 94,
     title: 'El Camino a Cristo',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2095,6 +2168,7 @@ window.BOOKS = [
   },
   {
     id: 'desde-el-corazon',
+    pages: 382,
     title: 'Desde el Corazón',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2145,6 +2219,7 @@ window.BOOKS = [
   },
   {
     id: 'leyes-sobre-el-regimen-alimenticio',
+    pages: 486,
     title: 'Leyes sobre el Régimen Alimenticio',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2170,6 +2245,7 @@ window.BOOKS = [
   },
   {
     id: 'conflicto-y-valor',
+    pages: 390,
     title: 'Conflicto y Valor',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2194,6 +2270,7 @@ window.BOOKS = [
   },
   {
     id: 'conduccion-del-nino',
+    pages: 459,
     title: 'Conducción del Niño',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2219,6 +2296,7 @@ window.BOOKS = [
   },
   {
     id: 'coleccion-kress',
+    pages: 253,
     title: 'Colección Kress',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2244,6 +2322,7 @@ window.BOOKS = [
   },
   {
     id: 'cartas-a-jovenes-enamorados',
+    pages: 94,
     title: 'Cartas a Jóvenes Enamorados',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2269,6 +2348,7 @@ window.BOOKS = [
   },
   {
     id: 'hijas-de-dios',
+    pages: 281,
     title: 'Hijas de Dios',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2293,6 +2373,7 @@ window.BOOKS = [
   },
   {
     id: 'en-el-desierto-de-la-tentacion',
+    pages: 96,
     title: 'En el Desierto de la Tentación',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2304,9 +2385,8 @@ window.BOOKS = [
     priceNote: 'IVA incluido',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/en-el-desierto-de-la-tentacion-clasica.jpg',
+    cover: 'img/en-el-desierto-de-la-tentacion-tipografica.jpg',
     covers: [
-      { style: 'clasica', file: 'img/en-el-desierto-de-la-tentacion-clasica.jpg' },
       { style: 'tipografica-clara', file: 'img/en-el-desierto-de-la-tentacion-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/en-el-desierto-de-la-tentacion-tipografica-oscura.jpg' }
     ],
@@ -2317,6 +2397,7 @@ window.BOOKS = [
   },
   {
     id: 'el-ministerio-de-curacion',
+    pages: 368,
     title: 'El Ministerio de Curación',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2342,6 +2423,7 @@ window.BOOKS = [
   },
   {
     id: 'el-cristo-triunfante',
+    pages: 390,
     title: 'El Cristo Triunfante',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2366,6 +2448,7 @@ window.BOOKS = [
   },
   {
     id: 'la-oracion',
+    pages: 337,
     title: 'La Oración',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2377,9 +2460,8 @@ window.BOOKS = [
     priceNote: 'IVA incluido',
     finish: 'Brillo',
     paper: 'Blanco offset',
-    cover: 'img/la-oracion-clasica.jpg',
+    cover: 'img/la-oracion-tipografica.jpg',
     covers: [
-      { style: 'clasica', file: 'img/la-oracion-clasica.jpg' },
       { style: 'tipografica-clara', file: 'img/la-oracion-tipografica.jpg' },
       { style: 'tipografica-oscura', file: 'img/la-oracion-tipografica-oscura.jpg' }
     ],
@@ -2390,6 +2472,7 @@ window.BOOKS = [
   },
   {
     id: 'la-educacion-cristiana',
+    pages: 453,
     title: 'La Educación Cristiana',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2414,6 +2497,7 @@ window.BOOKS = [
   },
   {
     id: 'joyas-de-los-testimonios-1',
+    pages: 565,
     title: 'Joyas de los Testimonios 1',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2438,6 +2522,7 @@ window.BOOKS = [
   },
   {
     id: 'joyas-de-los-testimonios-2',
+    pages: 529,
     title: 'Joyas de los Testimonios 2',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2462,6 +2547,7 @@ window.BOOKS = [
   },
   {
     id: 'joyas-de-los-testimonios-3',
+    pages: 415,
     title: 'Joyas de los Testimonios 3',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -2985,6 +3071,7 @@ window.BOOKS = [
   },
   {
     id: 'mensajes-para-los-jovenes',
+    pages: 431,
     title: 'Mensajes para los Jóvenes',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -3010,6 +3097,7 @@ window.BOOKS = [
   },
   {
     id: 'mente-caracter-y-personalidad-1',
+    pages: 399,
     title: 'Mente, Carácter y Personalidad 1',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -3034,6 +3122,7 @@ window.BOOKS = [
   },
   {
     id: 'mente-caracter-y-personalidad-2',
+    pages: 483,
     title: 'Mente, Carácter y Personalidad 2',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -3058,6 +3147,7 @@ window.BOOKS = [
   },
   {
     id: 'mi-vida-hoy',
+    pages: 389,
     title: 'Mi Vida Hoy',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -3082,6 +3172,7 @@ window.BOOKS = [
   },
   {
     id: 'notas-biograficas-de-elena-g-de-white',
+    pages: 414,
     title: 'Notas biográficas de Elena G. de White',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -3106,6 +3197,7 @@ window.BOOKS = [
   },
   {
     id: 'nuestra-elevada-vocacion',
+    pages: 390,
     title: 'Nuestra Elevada Vocación',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -3130,6 +3222,7 @@ window.BOOKS = [
   },
   {
     id: 'obreros-evangelicos',
+    pages: 463,
     title: 'Obreros Evangélicos',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -3154,6 +3247,7 @@ window.BOOKS = [
   },
   {
     id: 'oscuridad-antes-del-amanecer',
+    pages: 89,
     title: 'Oscuridad antes del Amanecer',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -3178,6 +3272,7 @@ window.BOOKS = [
   },
   {
     id: 'reavivamientos-modernos',
+    pages: 65,
     title: 'Reavivamientos Modernos',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -3202,6 +3297,7 @@ window.BOOKS = [
   },
   {
     id: 'recibireis-poder',
+    pages: 390,
     title: 'Recibiréis Poder',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',
@@ -3226,6 +3322,7 @@ window.BOOKS = [
   },
   {
     id: 'reflejemos-a-jesus',
+    pages: 388,
     title: 'Reflejemos a Jesús',
     author: 'Elena G. White',
     authorSlug: 'elena-g-white',

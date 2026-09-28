@@ -29,7 +29,7 @@
       titulosVistos[b.title] = true;
       var opt = document.createElement('option');
       opt.value = b.id;
-      opt.textContent = b.title;
+      opt.textContent = b.title + (typeof b.pages === 'number' ? ' (' + b.pages + ' págs.)' : '');
       if (typeof b.pages === 'number') opt.dataset.pages = b.pages;
       bookSel.appendChild(opt);
     });
@@ -99,15 +99,22 @@
     return new Array(n + 1).join('<span class="ruled-line"></span>');
   }
 
+  // Si hay libro elegido se imprime su dato subrayado; si no, la línea en blanco.
+  function campo(valor, corto) {
+    return valor
+      ? '<span class="ruled-line sheet-fill' + (corto ? ' short' : '') + '">' + escapeHTML(String(valor)) + '</span>'
+      : '<span class="ruled-line' + (corto ? ' short' : '') + '"></span>';
+  }
+
   var PLANTILLAS = {
     diario: {
       nombre: 'Diario de lectura',
-      html:
-        '<header class="sheet-head">' +
+      html: function (b) {
+        return '<header class="sheet-head">' +
           '<p class="sheet-brand">Librería tu mayor tesoro</p>' +
           '<h1>Diario de lectura</h1>' +
           '<div class="sheet-meta">' +
-            '<p><span>Libro</span><span class="ruled-line"></span></p>' +
+            '<p><span>Libro</span>' + campo(b && b.title) + '<span>Páginas</span>' + campo(b && b.pages, true) + '</p>' +
             '<p><span>Capítulo</span><span class="ruled-line"></span><span>Fecha</span><span class="ruled-line short"></span></p>' +
           '</div>' +
         '</header>' +
@@ -115,17 +122,18 @@
         '<section class="sheet-block"><h2>Qué me ha dicho a mí</h2>' + linea(5) + '</section>' +
         '<section class="sheet-block"><h2>Una cosa concreta que quiero cambiar o hacer</h2>' + linea(3) + '</section>' +
         '<section class="sheet-block"><h2>Mi oración a partir de esta lectura</h2>' + linea(4) + '</section>' +
-        '<footer class="sheet-foot">libreriatumayortesoro.com · Imprime una hoja por capítulo</footer>'
+        '<footer class="sheet-foot">libreriatumayortesoro.com · Imprime una hoja por capítulo</footer>';
+      }
     },
     sintesis: {
       nombre: 'Ficha de síntesis',
-      html:
-        '<header class="sheet-head">' +
+      html: function (b) {
+        return '<header class="sheet-head">' +
           '<p class="sheet-brand">Librería tu mayor tesoro</p>' +
           '<h1>Ficha de síntesis</h1>' +
           '<div class="sheet-meta">' +
-            '<p><span>Libro</span><span class="ruled-line"></span></p>' +
-            '<p><span>Autor</span><span class="ruled-line"></span><span>Terminado el</span><span class="ruled-line short"></span></p>' +
+            '<p><span>Libro</span>' + campo(b && b.title) + '<span>Páginas</span>' + campo(b && b.pages, true) + '</p>' +
+            '<p><span>Autor</span>' + campo(b && b.author) + '<span>Terminado el</span><span class="ruled-line short"></span></p>' +
           '</div>' +
         '</header>' +
         '<section class="sheet-block"><h2>En una frase, de qué va este libro</h2>' + linea(2) + '</section>' +
@@ -139,23 +147,86 @@
           '<div><h2>A quién se lo recomendaría</h2>' + linea(2) + '</div>' +
           '<div><h2>Lo volvería a leer</h2><p class="sheet-boxes">Sí ☐&nbsp;&nbsp;No ☐&nbsp;&nbsp;Por partes ☐</p></div>' +
         '</section>' +
-        '<footer class="sheet-foot">libreriatumayortesoro.com · Guárdala con el libro o en tu libreta de notas</footer>'
+        '<footer class="sheet-foot">libreriatumayortesoro.com · Guárdala con el libro o en tu libreta de notas</footer>';
+      }
     }
   };
+
+  var plantillaActual = null;
+
+  // Selector "Rellenar con el libro" dentro de la barra de la vista previa.
+  var bar = printable ? printable.querySelector('.printable-bar') : null;
+  var pickSel = null;
+  if (bar && window.BOOKS) {
+    pickSel = document.createElement('select');
+    pickSel.className = 'printable-pick';
+    pickSel.setAttribute('aria-label', 'Rellenar la ficha con un libro');
+    pickSel.innerHTML = '<option value="">Rellenar con un libro…</option>';
+    var vistos = {};
+    window.BOOKS.forEach(function (b) {
+      if (b.category === 'biblias' || vistos[b.title]) return;
+      vistos[b.title] = true;
+      var o = document.createElement('option');
+      o.value = b.id;
+      o.textContent = b.title + (typeof b.pages === 'number' ? ' (' + b.pages + ' págs.)' : '');
+      pickSel.appendChild(o);
+    });
+    var titleP = bar.querySelector('#printableTitle');
+    if (titleP) titleP.insertAdjacentElement('afterend', pickSel);
+    pickSel.addEventListener('change', function () { pintar(); });
+  }
+
+  function libroElegido() {
+    if (!pickSel || !pickSel.value) return null;
+    return window.BOOKS.filter(function (b) { return b.id === pickSel.value; })[0] || null;
+  }
+
+  function pintar() {
+    var pl = PLANTILLAS[plantillaActual];
+    if (!pl || !sheet) return;
+    sheet.innerHTML = pl.html(libroElegido());
+  }
+
+  // Cruz de cierre, siempre visible arriba a la derecha (también en móvil).
+  var xBtn = null;
+  if (printable) {
+    xBtn = document.createElement('button');
+    xBtn.type = 'button';
+    xBtn.className = 'printable-x';
+    xBtn.setAttribute('aria-label', 'Cerrar la vista previa');
+    xBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+    printable.appendChild(xBtn);
+  }
+
+  function cerrar() {
+    if (printable) printable.hidden = true;
+    document.body.classList.remove('printable-open');
+  }
 
   Array.prototype.slice.call(document.querySelectorAll('[data-print-template]')).forEach(function (btn) {
     btn.addEventListener('click', function () {
       var plantilla = PLANTILLAS[btn.dataset.printTemplate];
       if (!plantilla || !printable || !sheet) return;
-      sheet.innerHTML = plantilla.html;
+      plantillaActual = btn.dataset.printTemplate;
+      if (pickSel) pickSel.value = '';
+      pintar();
       if (titleEl) titleEl.textContent = plantilla.nombre + ' — vista previa';
       printable.hidden = false;
-      printable.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      printable.scrollTop = 0;
+      document.body.classList.add('printable-open');
     });
   });
+
+  if (xBtn) xBtn.addEventListener('click', cerrar);
+  if (printable) {
+    printable.addEventListener('click', function (e) { if (e.target === printable) cerrar(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !printable.hidden) cerrar();
+    });
+  }
 
   var go = document.getElementById('printableGo');
   if (go) go.addEventListener('click', function () { window.print(); });
   var close = document.getElementById('printableClose');
-  if (close) close.addEventListener('click', function () { printable.hidden = true; });
+  if (close) close.addEventListener('click', cerrar);
 })();

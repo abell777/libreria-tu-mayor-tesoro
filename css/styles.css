@@ -3756,7 +3756,34 @@ img.img-failed { visibility: hidden; }
 .ruled-line { flex: 1; display: block; border-bottom: 1px solid #ccc; height: 1.6em; }
 .ruled-line.short { flex: 0 0 120px; }
 
+/* Cruz de cierre de la ficha: fija y visible, también en móvil */
+.printable-x {
+  position: fixed;
+  top: max(12px, env(safe-area-inset-top));
+  right: 14px;
+  z-index: 1000;
+  width: 42px; height: 42px;
+  display: flex; align-items: center; justify-content: center;
+  border: none; border-radius: 50%;
+  background: #fff; color: var(--navy);
+  box-shadow: 0 4px 16px oklch(0 0 0 / 0.35);
+  cursor: pointer;
+  transition: background 0.16s ease, transform 0.16s ease;
+}
+.printable-x:hover { background: var(--muted); transform: scale(1.06); }
+.printable-x:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.printable-bar { padding-right: 54px; flex-wrap: wrap; }
+.printable-pick {
+  flex: 1 1 200px; min-width: 0; max-width: 300px;
+  padding: 7px 10px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border); font: inherit; font-size: 0.85rem;
+}
+body.printable-open { overflow: hidden; }
+.sheet-fill { font-size: 0.85rem; line-height: 1.6em; padding: 0 4px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
 @media print {
+  .printable-x, .printable-pick { display: none; }
+  body.printable-open { overflow: visible; }
   body * { visibility: hidden; }
   .printable, .printable * { visibility: visible; }
   .printable { position: static; background: none; padding: 0; }
