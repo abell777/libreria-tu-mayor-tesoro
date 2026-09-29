@@ -1,5 +1,7 @@
 {
   "projects": {
     "default": "libreria-tu-mayor-tesoro"
-  }
+  },
+  "targets": {},
+  "etags": {}
 }
