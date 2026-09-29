@@ -180,6 +180,52 @@
     descPanel.appendChild(ul);
   }
 
+  // ---- Colección (p. ej. Tesoros de Vida): bloque "Qué incluye" -----------
+  // Solo aparece si el libro del catálogo lleva el campo "collection" (lista
+  // de libros que la componen). Cada libro enlaza a su propia ficha. El
+  // precio de la colección es el del catálogo (suma de los libros, sin
+  // descuento); aquí solo se muestra el desglose.
+  (function pintarColeccion() {
+    var old = document.getElementById('collectionIncludes');
+    if (old) old.remove();
+    if (!Array.isArray(book.collection) || !book.collection.length) return;
+    var relatedSec = document.getElementById('relatedSection');
+    if (!relatedSec || !relatedSec.parentNode) return;
+    var totalPages = book.collection.reduce(function (a, c) { return a + (c.pages || 0); }, 0);
+    var suma = book.collection.reduce(function (a, c) { return a + (c.price || 0); }, 0);
+    var sec = document.createElement('section');
+    sec.className = 'collection-includes';
+    sec.id = 'collectionIncludes';
+    sec.setAttribute('aria-labelledby', 'collectionIncludesTitle');
+    sec.innerHTML =
+      '<div class="section-head">' +
+        '<div>' +
+          '<span class="eyebrow">Cinco libros, un solo conjunto</span>' +
+          '<h2 class="section-title" id="collectionIncludesTitle">Qué incluye la colección</h2>' +
+          '<p class="section-lede">Ordenados para leerse de principio a fin. Cada título se puede consultar por separado.</p>' +
+        '</div>' +
+      '</div>' +
+      '<ol class="collection-list">' +
+      book.collection.map(function (c, i) {
+        return '<li class="collection-item">' +
+          '<a class="collection-item-cover" href="producto.html?id=' + encodeURIComponent(c.id) + '&tipo=blanda">' +
+            '<span class="collection-item-num" aria-hidden="true">' + (i + 1) + '</span>' +
+            '<img src="' + escapeHTML(toWebp(c.cover)) + '" onerror="this.onerror=null;this.src=\'' + escapeHTML(c.cover) + '\'" alt="Portada de «' + escapeHTML(c.title) + '»" width="400" height="600" loading="lazy" decoding="async">' +
+          '</a>' +
+          '<h3 class="collection-item-title"><a href="producto.html?id=' + encodeURIComponent(c.id) + '&tipo=blanda">' + escapeHTML(c.title) + '</a></h3>' +
+          '<p class="collection-item-meta">' + escapeHTML(c.blurb || '') + '</p>' +
+          '<p class="collection-item-price">' + (c.pages ? c.pages + ' págs. · ' : '') + fmtPrice(c.price) + '\u00A0€</p>' +
+        '</li>';
+      }).join('') +
+      '</ol>' +
+      '<div class="collection-summary">' +
+        '<div><strong>' + book.collection.length + ' libros</strong><span>' + totalPages.toLocaleString('es-ES') + ' páginas en total</span></div>' +
+        '<div><strong>Tapa blanda A5</strong><span>Acabado brillo · Papel blanco offset</span></div>' +
+        '<div><strong>' + fmtPrice(book.price) + '\u00A0€</strong><span>' + (Math.abs(suma - book.price) < 0.005 ? 'Suma exacta de los 5 libros' : 'Precio de la colección') + '</span></div>' +
+      '</div>';
+    relatedSec.parentNode.insertBefore(sec, relatedSec);
+  })();
+
   // ---- Valor añadido 1: tiempo de lectura estimado ------------------------
   // Se calcula con las páginas del libro (campo "pages" de js/books-data.js)
   // y el ritmo "Normal" del planificador de recursos.html (2,2 págs/min).
