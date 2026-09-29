@@ -250,27 +250,6 @@ window.BOOKS = [
     subcategory: ['vida-de-cristo', 'historia-biblica'],
   },
   {
-    id: 'el-deseado-de-todas-las-gentes-portada-unica',
-    pages: 782,
-    title: 'El Deseado de Todas las Gentes',
-    author: 'Elena G. White',
-    authorSlug: 'elena-g-white',
-    category: 'elena-white',
-    categoryLabel: 'Elena G. White',
-    price: 14.20,
-    format: 'Tapa blanda, A5',
-    formatSlug: 'rustica',
-    priceNote: 'Envío incluido',
-    finish: 'Brillo',
-    paper: 'Blanco offset',
-    freeShipping: true,
-    cover: 'img/el-deseado-de-todas-las-gentes-portada-unica.jpg',
-    badge: 'Portada única',
-    description: 'Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Edición con una portada única, disponible en tapa blanda y en tapa dura.',
-    idioma: 'Español',
-    subcategory: ['vida-de-cristo', 'historia-biblica'],
-  },
-  {
     id: 'historia-de-los-patriarcas-y-profetas',
     pages: 728,
     title: 'Historia de los Patriarcas y Profetas',
@@ -2593,6 +2572,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-bilingue-rvr-nkjv-marron',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia Bilingüe RVR/NKJV, Marrón',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2614,6 +2594,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-compacta-fucsia-floral-cierre',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia Compacta Letra Grande, Fucsia Floral con Cremallera',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2636,6 +2617,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-apuntes-rosa-floreada',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia de Apuntes Tapa Dura Entelada, Rosa Floreada',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2657,6 +2639,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-apuntes-negro',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia de Apuntes Tapa Dura, Negro',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2678,6 +2661,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-apuntes-negro-oro',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia de Apuntes Tapa Dura, Negro/Oro',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2698,6 +2682,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-apuntes-blanco-negro-floral',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia de Apuntes Tapa Dura, Blanco/Negro Floral',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2718,6 +2703,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-apuntes-azul-oscuro-floral',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia de Apuntes Tapa Dura, Azul Oscuro Floral',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2738,6 +2724,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-apuntes-azul-celeste-floral',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia de Apuntes Tapa Dura, Azul Celeste Floral',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2758,6 +2745,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-apuntes-rosa-floral',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia de Apuntes Tapa Dura, Rosa Floral',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2778,6 +2766,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-apuntes-vino-tinto',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia de Apuntes Tapa Dura, Vino Tinto',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2798,6 +2787,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-rvr60-cafe',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia RVR60 Letra Grande, Café',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2819,6 +2809,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-rvr60-verde-mariposas',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia RVR60 Letra Grande, Verde Mariposas',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2840,6 +2831,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-rvr60-negro',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia RVR60 Letra Grande, Negro',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2861,6 +2853,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-rvr60-marron',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia RVR60 Letra Grande, Marrón',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2882,6 +2875,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-rvr60-beige',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia RVR60 Letra Grande, Beige',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2903,6 +2897,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-rvr60-amarillo-abejas-cierre',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia RVR60 Letra Grande, Amarillo Abejas, con Cierre',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2924,6 +2919,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-rvr60-verde-olivo-cierre',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia RVR60 Letra Grande, Verde Olivo, con Cierre',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2945,6 +2941,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-rvr60-marron-elegante-cierre',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia RVR60 Letra Grande, Marrón Elegante, con Cierre',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2966,6 +2963,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-rvr60-cafe-cierre',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia RVR60 Letra Grande, Café, con Cierre',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -2987,6 +2985,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-rvr60-beige-floral-cierre',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia RVR60 Letra Grande, Beige Floral, con Cierre',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -3008,6 +3007,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-rvr60-morado-flor-dorada-cierre',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia RVR60 Letra Grande, Morado con Flor Dorada, con Cierre',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -3029,6 +3029,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-rvr60-rosa-floral-cierre',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia RVR60 Letra Grande, Rosa Floral, con Cierre',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -3050,6 +3051,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-rvr60-negro-cierre',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia RVR60 Letra Grande, Negro, con Cierre',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -3071,6 +3073,7 @@ window.BOOKS = [
   },
   {
     id: 'biblia-rvr60-aguila-cierre',
+    hidden: true, // En trámite de derechos con las sociedades bíblicas — oculta hasta nuevo aviso
     title: 'Biblia RVR60 Letra Grande, Águila, con Cierre',
     author: 'Sociedades Bíblicas Unidas',
     authorSlug: 'sociedades-biblicas-unidas',
@@ -3419,7 +3422,6 @@ window.BOOK_NEEDS = {
   'joyas-de-los-testimonios-3': ['crecer-cada-dia', 'entender-el-futuro'],
   'el-conflicto-de-los-siglos': ['estudiar-la-biblia', 'entender-el-futuro'],
   'el-deseado-de-todas-las-gentes': ['conocer-a-jesus', 'estudiar-la-biblia', 'primeros-pasos'],
-  'el-deseado-de-todas-las-gentes-portada-unica': ['conocer-a-jesus', 'estudiar-la-biblia', 'primeros-pasos'],
   'historia-de-los-patriarcas-y-profetas': ['estudiar-la-biblia'],
   'profetas-y-reyes': ['estudiar-la-biblia'],
   'la-fe-por-la-cual-vivo': ['dudas-de-fe', 'crecer-cada-dia'],

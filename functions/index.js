@@ -146,17 +146,6 @@ const CATALOGO = {
     cover: "img/el-deseado-de-todas-las-gentes.jpg",
     description: "Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Uno de los libros más leídos de Elena G. White, en una edición manejable de tamaño A5.",
   },
-  "el-deseado-de-todas-las-gentes-portada-unica": {
-    title: "El Deseado de Todas las Gentes",
-    format: "Tapa blanda, A5",
-    price: 14.20,
-    freeShipping: true,
-    author: "Elena G. White",
-    category: "elena-white",
-    categoryLabel: "Elena G. White",
-    cover: "img/el-deseado-de-todas-las-gentes-portada-unica.jpg",
-    description: "Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Edición con una portada única, disponible en tapa blanda y en tapa dura.",
-  },
   "historia-de-los-patriarcas-y-profetas": {
     title: "Historia de los Patriarcas y Profetas",
     format: "Edición tapa dura",
@@ -628,6 +617,7 @@ const CATALOGO = {
     description: "Una mirada esperanzadora a las promesas de la Biblia sobre el regreso de Cristo y la vida eterna, explicadas con un lenguaje claro y devocional.",
   },
   "biblia-bilingue-rvr-nkjv-marron": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia Bilingüe RVR/NKJV, Marrón",
     format: "Tapa dura entelada, dos tonos",
     price: 38.99,
@@ -639,6 +629,7 @@ const CATALOGO = {
     description: "Biblia bilingüe con el texto de la Reina Valera Revisada y la New King James Version en columnas, cubierta en dos tonos de marrón. Pensada tanto para el estudio comparado como para practicar inglés junto a la lectura bíblica.",
   },
   "biblia-compacta-fucsia-floral-cierre": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia Compacta Letra Grande, Fucsia Floral con Cremallera",
     format: "Tapa blanda, cierre de cremallera",
     price: 27.99,
@@ -650,6 +641,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960 en formato compacto y letra grande (11 puntos), con cubierta floral en tono fucsia, cremallera e índice lateral. Ideal para llevar cada día.",
   },
   "biblia-apuntes-rosa-floreada": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia de Apuntes Tapa Dura Entelada, Rosa Floreada",
     format: "Tapa dura entelada, con banda elástica",
     price: 38.99,
@@ -661,6 +653,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, letra de 8,5 puntos, en edición de apuntes: márgenes amplios para anotar, cubierta entelada floral en tono rosa y cierre con banda elástica.",
   },
   "biblia-apuntes-negro": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia de Apuntes Tapa Dura, Negro",
     format: "Tapa dura, con banda elástica",
     price: 38.04,
@@ -672,6 +665,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, letra de 8,5 puntos, en edición de apuntes: márgenes amplios para anotar, cubierta lisa en negro y cierre con banda elástica.",
   },
   "biblia-apuntes-negro-oro": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia de Apuntes Tapa Dura, Negro/Oro",
     format: "Tapa dura",
     price: 35.2,
@@ -682,6 +676,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de apuntes con márgenes amplios para anotar, cubierta en negro con detalles dorados.",
   },
   "biblia-apuntes-blanco-negro-floral": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia de Apuntes Tapa Dura, Blanco/Negro Floral",
     format: "Tapa dura",
     price: 34.24,
@@ -692,6 +687,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de apuntes con márgenes amplios para anotar, cubierta floral en blanco y negro.",
   },
   "biblia-apuntes-azul-oscuro-floral": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia de Apuntes Tapa Dura, Azul Oscuro Floral",
     format: "Tapa dura",
     price: 34.2,
@@ -702,6 +698,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de apuntes con márgenes amplios para anotar, cubierta floral en azul oscuro.",
   },
   "biblia-apuntes-azul-celeste-floral": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia de Apuntes Tapa Dura, Azul Celeste Floral",
     format: "Tapa dura",
     price: 34.2,
@@ -712,6 +709,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de apuntes con márgenes amplios para anotar, cubierta floral en azul celeste.",
   },
   "biblia-apuntes-rosa-floral": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia de Apuntes Tapa Dura, Rosa Floral",
     format: "Tapa dura",
     price: 34.2,
@@ -722,6 +720,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de apuntes con márgenes amplios para anotar, cubierta floral en tono rosa.",
   },
   "biblia-apuntes-vino-tinto": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia de Apuntes Tapa Dura, Vino Tinto",
     format: "Tapa dura",
     price: 34.2,
@@ -732,6 +731,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de apuntes con márgenes amplios para anotar, cubierta lisa en vino tinto.",
   },
   "biblia-rvr60-cafe": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia RVR60 Letra Grande, Café",
     format: "Tapa dura, imitación piel",
     price: 15.24,
@@ -742,6 +742,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Canto dorado. Cubierta en imitación piel dos tonos grabada, color café.",
   },
   "biblia-rvr60-verde-mariposas": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia RVR60 Letra Grande, Verde Mariposas",
     format: "Tapa dura, imitación piel",
     price: 15.24,
@@ -752,6 +753,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Canto dorado. Cubierta en tono verde menta con motivo de mariposas.",
   },
   "biblia-rvr60-negro": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia RVR60 Letra Grande, Negro",
     format: "Tapa dura, imitación piel",
     price: 16.2,
@@ -762,6 +764,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Incluye introducciones y abreviaturas de C.H. Spurgeon y J.C. Ryle, y concordancia de 120 páginas. Cubierta negra con canto dorado.",
   },
   "biblia-rvr60-marron": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia RVR60 Letra Grande, Marrón",
     format: "Tapa dura, imitación piel",
     price: 16.2,
@@ -772,6 +775,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Incluye introducciones y abreviaturas de C.H. Spurgeon y J.C. Ryle, y concordancia de 120 páginas. Cubierta marrón dos tonos con canto dorado.",
   },
   "biblia-rvr60-beige": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia RVR60 Letra Grande, Beige",
     format: "Tapa dura, imitación piel",
     price: 15.24,
@@ -782,6 +786,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Incluye introducciones y abreviaturas de C.H. Spurgeon y J.C. Ryle, y concordancia de 120 páginas. Cubierta en tono beige.",
   },
   "biblia-rvr60-amarillo-abejas-cierre": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia RVR60 Letra Grande, Amarillo Abejas, con Cierre",
     format: "Tapa dura, con cierre de cremallera",
     price: 19.99,
@@ -792,6 +797,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta amarilla con motivo de panal y abejas.",
   },
   "biblia-rvr60-verde-olivo-cierre": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia RVR60 Letra Grande, Verde Olivo, con Cierre",
     format: "Tapa dura, con cierre de cremallera",
     price: 19.99,
@@ -802,6 +808,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta en tono verde olivo con motivo vegetal.",
   },
   "biblia-rvr60-marron-elegante-cierre": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia RVR60 Letra Grande, Marrón Elegante, con Cierre",
     format: "Tapa dura, con cierre de cremallera",
     price: 19.99,
@@ -812,6 +819,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta en dos tonos de marrón.",
   },
   "biblia-rvr60-cafe-cierre": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia RVR60 Letra Grande, Café, con Cierre",
     format: "Tapa dura, con cierre de cremallera",
     price: 19.99,
@@ -822,6 +830,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta café con bordes ornamentales grabados.",
   },
   "biblia-rvr60-beige-floral-cierre": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia RVR60 Letra Grande, Beige Floral, con Cierre",
     format: "Tapa dura, con cierre de cremallera",
     price: 19.99,
@@ -832,6 +841,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera y canto de color. Cubierta beige con motivo de hojas grabado, imitación piel de alta calidad.",
   },
   "biblia-rvr60-morado-flor-dorada-cierre": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia RVR60 Letra Grande, Morado con Flor Dorada, con Cierre",
     format: "Tapa dura, con cierre de cremallera",
     price: 19.99,
@@ -842,6 +852,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta morada con motivo floral en dorado y negro.",
   },
   "biblia-rvr60-rosa-floral-cierre": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia RVR60 Letra Grande, Rosa Floral, con Cierre",
     format: "Tapa dura, con cierre de cremallera",
     price: 19.99,
@@ -852,6 +863,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta rosa con motivo floral.",
   },
   "biblia-rvr60-negro-cierre": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia RVR60 Letra Grande, Negro, con Cierre",
     format: "Tapa dura, con cierre de cremallera",
     price: 19.99,
@@ -862,6 +874,7 @@ const CATALOGO = {
     description: "Reina-Valera 1960, edición de letra grande (11,5 puntos), tamaño manual (22 x 15 x 3 cm). Incluye palabras de Jesús en rojo, concordancia amplia, concordancia de personajes bíblicos, referencias cruzadas y 32 páginas a todo color con ayudas de estudio: versículos clave de cada libro, genealogía de Jesús, fiestas bíblicas, plano del templo, cronología de reyes y profetas, parábolas y milagros de Jesús, plan de salvación, promesas de Dios, plan de lectura en un año y 12 mapas a todo color. Con cierre de cremallera. Cubierta negra con textura geométrica grabada.",
   },
   "biblia-rvr60-aguila-cierre": {
+    hidden: true, // En trámite de derechos con las sociedades bíblicas
     title: "Biblia RVR60 Letra Grande, Águila, con Cierre",
     format: "Tapa dura, con cierre de cremallera",
     price: 19.99,
@@ -981,7 +994,7 @@ exports.crearPedido = onCall(async (request) => {
   const itemsFinales = [];
   for (const item of itemsSolicitados) {
     const libro = item && CATALOGO[item.id];
-    if (!libro) {
+    if (!libro || libro.hidden) {
       throw new HttpsError("invalid-argument", "Uno de los libros del pedido ya no existe en el catálogo.");
     }
     const cantidad = Math.min(MAX_QTY, Math.max(1, parseInt(item.qty, 10) || 1));
@@ -1221,7 +1234,7 @@ exports.validarPromo = onCall(async (request) => {
   let subtotal = 0;
   for (const item of itemsSolicitados) {
     const libro = item && CATALOGO[item.id];
-    if (!libro) continue;
+    if (!libro || libro.hidden) continue;
     const cantidad = Math.min(MAX_QTY, Math.max(1, parseInt(item.qty, 10) || 1));
     subtotal += libro.price * cantidad;
   }
@@ -1514,7 +1527,7 @@ exports.productoMeta = onRequest(async (req, res) => {
     return;
   }
 
-  if (libro) {
+  if (libro && !libro.hidden) {
     const pageTitle = libro.title + " — Librería tu mayor tesoro";
     const desc = libro.description.slice(0, 155);
     const url = SITE_URL + "/producto.html?id=" + id;
