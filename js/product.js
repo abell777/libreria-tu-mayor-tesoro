@@ -214,16 +214,37 @@
           '</a>' +
           '<h3 class="collection-item-title"><a href="producto.html?id=' + encodeURIComponent(c.id) + '&tipo=blanda">' + escapeHTML(c.title) + '</a></h3>' +
           '<p class="collection-item-meta">' + escapeHTML(c.blurb || '') + '</p>' +
-          '<p class="collection-item-price">' + (c.pages ? c.pages + ' págs. · ' : '') + fmtPrice(c.price) + '\u00A0€</p>' +
+          '<p class="collection-item-price">' + (c.pages ? c.pages + ' págs. · ' : '') + '<span data-coll-price="' + escapeHTML(c.id) + '">' + fmtPrice(c.price) + '</span>\u00A0€</p>' +
         '</li>';
       }).join('') +
       '</ol>' +
       '<div class="collection-summary">' +
         '<div><strong>' + book.collection.length + ' libros</strong><span>' + totalPages.toLocaleString('es-ES') + ' páginas en total</span></div>' +
-        '<div><strong>Tapa blanda A5</strong><span>Acabado brillo · Papel blanco offset</span></div>' +
-        '<div><strong>' + fmtPrice(book.price) + '\u00A0€</strong><span>' + (Math.abs(suma - book.price) < 0.005 ? 'Suma exacta de los 5 libros' : 'Precio de la colección') + '</span></div>' +
+        '<div><strong id="collSummaryFormat">Tapa blanda A5</strong><span id="collSummaryDetail">Acabado brillo · Papel blanco offset</span></div>' +
+        '<div><strong id="collSummaryTotal">' + fmtPrice(book.price) + '\u00A0€</strong><span>Suma exacta de los 5 libros, sin descuento</span></div>' +
       '</div>';
     relatedSec.parentNode.insertBefore(sec, relatedSec);
+
+    // Al cambiar tapa, tamaño, acabado o papel en el configurador, se
+    // actualizan los precios de cada libro y el total de este bloque.
+    window.__collectionRefresh = function (st) {
+      if (!st || !window.getEWPrice) return;
+      var total = 0;
+      book.collection.forEach(function (c) {
+        var pr = window.getEWPrice(c.id, st.tipo, st.tamano, st.acabado, st.papel);
+        var el = sec.querySelector('[data-coll-price="' + c.id + '"]');
+        if (pr !== null && el) el.textContent = fmtPrice(pr);
+        if (pr !== null) total += pr;
+      });
+      var fmtEl = sec.querySelector('#collSummaryFormat');
+      var detEl = sec.querySelector('#collSummaryDetail');
+      var totEl = sec.querySelector('#collSummaryTotal');
+      var sz = (window.EW_SIZES_BY_TIPO[st.tipo] || []).filter(function (x) { return x.slug === st.tamano; })[0];
+      if (fmtEl) fmtEl.textContent = (st.tipo === 'dura' ? 'Tapa dura' : 'Tapa blanda') + (sz ? ' ' + sz.label : '');
+      if (detEl) detEl.textContent = 'Acabado ' + (st.acabado === 'mate' ? 'mate' : 'brillo') + ' · ' + (PAPER_LABELS_FULL[st.papel] || '');
+      if (totEl) totEl.textContent = fmtPrice(Math.round(total * 100) / 100) + '\u00A0€';
+    };
+    if (poState) window.__collectionRefresh(poState);
   })();
 
   // ---- Valor añadido 1: tiempo de lectura estimado ------------------------
@@ -816,6 +837,7 @@
       renderBindingTag(poState.tipo === 'dura');
       var summaryEl = poRoot.querySelector('#poSummary');
       if (summaryEl) summaryEl.textContent = formatStr;
+      if (window.__collectionRefresh) window.__collectionRefresh(poState);
     }
 
     poRoot.addEventListener('mouseover', function (e) {
