@@ -146,6 +146,17 @@ const CATALOGO = {
     cover: "img/el-deseado-de-todas-las-gentes.jpg",
     description: "Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Uno de los libros más leídos de Elena G. White, en una edición manejable de tamaño A5.",
   },
+  "el-deseado-de-todas-las-gentes-portada-unica": {
+    title: "El Deseado de Todas las Gentes",
+    format: "Tapa blanda, A5",
+    price: 14.20,
+    freeShipping: true,
+    author: "Elena G. White",
+    category: "elena-white",
+    categoryLabel: "Elena G. White",
+    cover: "img/el-deseado-de-todas-las-gentes-portada-unica.jpg",
+    description: "Una mirada cercana a la vida de Jesús, desde su nacimiento hasta su ascensión, que combina el relato de la Biblia con reflexiones devocionales. Edición con una portada única, disponible en tapa blanda y en tapa dura.",
+  },
   "historia-de-los-patriarcas-y-profetas": {
     title: "Historia de los Patriarcas y Profetas",
     format: "Edición tapa dura",
