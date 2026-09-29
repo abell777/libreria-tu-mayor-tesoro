@@ -376,7 +376,7 @@ h1, h2, h3, h4 {
   color: var(--navy);
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1240px) {
   .dropdown-toggle .chevron { display: none; }
   .dropdown-menu {
     display: block;
@@ -392,7 +392,7 @@ h1, h2, h3, h4 {
 /* Mobile drawer */
 .mobile-search { display: none; }
 
-@media (max-width: 860px) {
+@media (max-width: 1240px) {
   .header-top { padding-block: 12px; flex-wrap: wrap; }
   .search-form { order: 3; max-width: none; width: 100%; margin: 0; }
   .brand-name { font-size: 1.05rem; }
@@ -2031,9 +2031,14 @@ body.no-scroll { overflow: hidden; }
   background: oklch(0.22 0.06 258 / 0.45);
   /* Por debajo de .site-header (z-index 50): así la cabecera (logo, buscador,
      cuenta, categorías) queda siempre visible y pulsable con el mini-carrito
-     abierto, en vez de quedar tapada por este fondo oscuro. El panel del
-     carrito (.cart-drawer, z-index 201) sigue mostrándose por encima de todo
-     como hasta ahora. */
+     abierto, en vez de quedar tapada por este fondo oscuro.
+     IMPORTANTE: .cart-drawer (el panel en sí, z-index 201) ya NO es hijo de
+     este overlay en el HTML (js/cart.js los crea como hermanos en <body>).
+     Si fuera hijo, su z-index quedaría "encerrado" dentro del contexto de
+     apilamiento de este overlay y nunca podría superar a .site-header por
+     mucho z-index que tuviera — eso es justo lo que pasaba antes: la zona del
+     carrito que coincidía con la cabecera (el propio botón de cerrar) no se
+     podía pulsar, en el móvil y también en escritorio. */
   z-index: 45;
   opacity: 0;
   pointer-events: none;
@@ -2055,7 +2060,7 @@ body.no-scroll { overflow: hidden; }
   transform: translateX(100%);
   transition: transform 0.28s ease;
 }
-.cart-drawer-overlay.is-open .cart-drawer { transform: translateX(0); }
+.cart-drawer.is-open { transform: translateX(0); }
 
 .cart-drawer-header {
   display: flex;
@@ -4451,3 +4456,61 @@ body.printable-open { overflow: hidden; }
 .quote-btn { font: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--gold-soft); background: transparent; color: var(--parchment); }
 .quote-btn:hover { background: var(--gold-soft); color: var(--navy-deep); }
 .quote-btn:disabled { opacity: 0.6; cursor: progress; }
+
+/* ==========================================================================
+   ADAPTACIÓN A TODOS LOS DISPOSITIVOS (iPhone, iPad, Android, ordenador)
+   ========================================================================== */
+/* iOS: no reescala el texto al girar el móvil; sin destello gris al tocar;
+   sin el retardo/zoom por doble toque en botones y enlaces. */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+a, button, label, select, summary, [role="button"] { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+
+/* Móviles con muescas (iPhone con notch / Dynamic Island) y barra inferior:
+   el contenido respeta las zonas seguras cuando la página va a pantalla completa. */
+.container {
+  padding-left: max(24px, env(safe-area-inset-left));
+  padding-right: max(24px, env(safe-area-inset-right));
+}
+.site-footer { padding-bottom: env(safe-area-inset-bottom); }
+.cart-drawer { padding-right: env(safe-area-inset-right); }
+.cart-drawer-footer { padding-bottom: calc(20px + env(safe-area-inset-bottom)); }
+.shop-filters { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+
+/* iOS hace zoom al tocar un campo con letra menor de 16 px (y no vuelve solo).
+   En pantallas táctiles, todos los campos a 16 px. */
+@media (hover: none) and (pointer: coarse) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):not([type="hidden"]),
+  select,
+  textarea { font-size: 16px !important; }
+}
+
+/* Botones-icono pequeños (corazón de favorito, cerrar carrito, +/- cantidad,
+   redes del pie): en pantalla táctil se amplía el área de toque a 44x44 sin
+   cambiar el tamaño visual del icono. */
+.book-fav, .cart-drawer-close, .qty-btn, .quantity-selector button, .footer-social a {
+  position: relative;
+}
+.book-fav::after, .cart-drawer-close::after, .qty-btn::after, .quantity-selector button::after, .footer-social a::after {
+  content: '';
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: max(100%, 44px);
+  height: max(100%, 44px);
+  transform: translate(-50%, -50%);
+}
+
+/* Pie de página en móviles muy estrechos (iPhone SE / 320 px): las columnas
+   del grid no se estrechaban por debajo de su contenido y ensanchaban la página. */
+.footer-top > * { min-width: 0; }
+.footer-about, .footer-top a { overflow-wrap: anywhere; }
+@media (max-width: 560px) {
+  .footer-top { grid-template-columns: minmax(0, 1fr); }
+}
+.newsletter-form input { min-width: 0; flex: 1 1 auto; }
+
+/* Selector de orden del catálogo y rejillas "auto-grid" en móviles de 320 px:
+   una columna mínima fija (300 px) o un desplegable con ancho propio sacaban la
+   tarjeta fuera de la pantalla. */
+.shop-sort { min-width: 0; max-width: 100%; }
+.shop-sort select { min-width: 0; max-width: 100%; flex: 1 1 auto; }
+.auto-grid-300 { grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }

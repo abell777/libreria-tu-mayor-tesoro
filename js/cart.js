@@ -573,6 +573,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // estés. En carrito.html, el icono sigue llevando a la página completa.
 // ==========================================================================
 var cartDrawerOverlay = null;
+var cartDrawerEl = null;
 
 function setupCartDrawer() {
   // No hace falta el drawer si ya estamos en la página del carrito.
@@ -596,10 +597,22 @@ function setupCartDrawer() {
 }
 
 function buildCartDrawer() {
+  // El fondo oscuro (overlay) y el panel (aside) se crean como HERMANOS,
+  // los dos añadidos directamente a <body>, no uno dentro del otro: si el
+  // panel fuera hijo del overlay, su z-index quedaría "encerrado" dentro del
+  // contexto de apilamiento del overlay y jamás podría superar a
+  // .site-header aunque tenga un z-index mayor — eso hacía que la zona del
+  // carrito que coincide con la cabecera (el propio botón de cerrar) no se
+  // pudiera pulsar, tanto en móvil como en escritorio.
   cartDrawerOverlay = document.createElement('div');
   cartDrawerOverlay.className = 'cart-drawer-overlay';
-  cartDrawerOverlay.innerHTML =
-    '<aside class="cart-drawer" role="dialog" aria-modal="true" aria-label="Tu carrito">' +
+
+  cartDrawerEl = document.createElement('aside');
+  cartDrawerEl.className = 'cart-drawer';
+  cartDrawerEl.setAttribute('role', 'dialog');
+  cartDrawerEl.setAttribute('aria-modal', 'true');
+  cartDrawerEl.setAttribute('aria-label', 'Tu carrito');
+  cartDrawerEl.innerHTML =
       '<div class="cart-drawer-header">' +
         '<h2>Tu carrito</h2>' +
         '<button type="button" class="cart-drawer-close" aria-label="Cerrar carrito">' +
@@ -607,15 +620,15 @@ function buildCartDrawer() {
         '</button>' +
       '</div>' +
       '<div class="cart-drawer-body" id="cartDrawerBody"></div>' +
-      '<div class="cart-drawer-footer" id="cartDrawerFooter"></div>' +
-    '</aside>';
+      '<div class="cart-drawer-footer" id="cartDrawerFooter"></div>';
 
   document.body.appendChild(cartDrawerOverlay);
+  document.body.appendChild(cartDrawerEl);
 
   cartDrawerOverlay.addEventListener('click', function (e) {
     if (e.target === cartDrawerOverlay) closeCartDrawer();
   });
-  cartDrawerOverlay.querySelector('.cart-drawer-close').addEventListener('click', closeCartDrawer);
+  cartDrawerEl.querySelector('.cart-drawer-close').addEventListener('click', closeCartDrawer);
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && cartDrawerOverlay && cartDrawerOverlay.classList.contains('is-open')) {
       closeCartDrawer();
@@ -712,11 +725,13 @@ function openCartDrawer() {
   if (!cartDrawerOverlay) return;
   renderCartDrawer();
   cartDrawerOverlay.classList.add('is-open');
+  if (cartDrawerEl) cartDrawerEl.classList.add('is-open');
   document.body.classList.add('no-scroll');
 }
 
 function closeCartDrawer() {
   if (!cartDrawerOverlay) return;
   cartDrawerOverlay.classList.remove('is-open');
+  if (cartDrawerEl) cartDrawerEl.classList.remove('is-open');
   document.body.classList.remove('no-scroll');
 }
