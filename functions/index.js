@@ -2571,6 +2571,58 @@ exports.avisoPedidoRecibido = onDocumentUpdated(
   }
 );
 
+// ==========================================================================
+// "avisoCambioEstado" — cuando TÚ (admin) cambias el pedido a "enviado" o
+// "entregado" desde el panel, el cliente recibe un correo. Se manda una sola
+// vez por cada estado (marca avisoEnviadoEn / avisoEntregadoEn en el pedido),
+// aunque cambies el estado adelante y atrás.
+// ==========================================================================
+exports.avisoCambioEstado = onDocumentUpdated(
+  { document: "pedidos/{pedidoId}", secrets: [GMAIL_USER, GMAIL_APP_PASSWORD] },
+  async (event) => {
+    const antes = event.data.before.data();
+    const despues = event.data.after.data();
+    if (antes.estado === despues.estado) return;
+    if (despues.estado !== "enviado" && despues.estado !== "entregado") return;
+    if (!despues.clienteEmail) return;
+
+    const marca = despues.estado === "enviado" ? "avisoEnviadoEn" : "avisoEntregadoEn";
+    if (despues[marca]) return; // ya se avisó de este estado
+
+    const numero = escapeHtml(despues.numero || "");
+    const enlace = SITE_URL + "/seguimiento.html?numero=" + encodeURIComponent(despues.numero || "");
+    const saludo = despues.clienteNombre ? "Hola, " + escapeHtml(despues.clienteNombre) + ":" : "Hola:";
+    const esEnviado = despues.estado === "enviado";
+    const cuerpo = esEnviado
+      ? "<p>¡Buenas noticias! Tu pedido <strong>" + numero + "</strong> ya está <strong>enviado</strong>. " +
+        "Lo recibirás en 2–5 días laborables.</p>" +
+        '<p style="text-align:center;margin:26px 0"><a href="' + enlace + '" style="background:#20304f;color:#f6efe2;padding:12px 26px;border-radius:6px;text-decoration:none;font-weight:bold">Ver el estado de mi pedido</a></p>' +
+        "<p>Cuando lo tengas en tus manos, puedes confirmarlo en <em>Mi cuenta → Mis pedidos</em>.</p>"
+      : "<p>Tu pedido <strong>" + numero + "</strong> figura como <strong>entregado</strong>. Esperamos que lo disfrutes.</p>" +
+        '<p style="text-align:center;margin:26px 0"><a href="' + SITE_URL + '/cuenta.html#pedidos" style="background:#20304f;color:#f6efe2;padding:12px 26px;border-radius:6px;text-decoration:none;font-weight:bold">Dejar mi opinión</a></p>' +
+        "<p>Si algo no llegó como esperabas, respóndenos a este correo y te lo solucionamos.</p>";
+    const html =
+      '<div style="font-family:Georgia,serif;max-width:520px;margin:0 auto;color:#2b2b2b">' +
+        '<h2 style="color:#20304f;margin-bottom:4px">Librería tu mayor tesoro</h2>' +
+        "<p>" + saludo + "</p>" + cuerpo +
+        '<p style="font-size:0.85em;color:#777">Cualquier duda, escríbenos a <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a>.</p>' +
+      "</div>";
+
+    try {
+      const transporter = crearTransporterGmail();
+      await transporter.sendMail({
+        from: '"Librería tu mayor tesoro" <' + GMAIL_USER.value().trim() + ">",
+        to: despues.clienteEmail,
+        subject: esEnviado ? "Tu pedido " + (despues.numero || "") + " ya está en camino" : "Tu pedido " + (despues.numero || "") + " ha sido entregado",
+        html,
+      });
+      await event.data.after.ref.update({ [marca]: FieldValue.serverTimestamp() });
+    } catch (err) {
+      console.error("avisoCambioEstado: no se pudo enviar el correo a " + despues.clienteEmail, err);
+    }
+  }
+);
+
 exports.suscribirNewsletter = onRequest(
   { cors: ORIGENES_NEWSLETTER, secrets: [GMAIL_USER, GMAIL_APP_PASSWORD] },
   async (req, res) => {
