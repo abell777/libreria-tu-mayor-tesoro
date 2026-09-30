@@ -987,7 +987,13 @@ exports.crearPedido = onCall(async (request) => {
       throw new HttpsError("invalid-argument", "Uno de los libros del pedido ya no existe en el catálogo.");
     }
     const cantidad = Math.min(MAX_QTY, Math.max(1, parseInt(item.qty, 10) || 1));
-    const portada = typeof item.portada === "string" && PORTADAS_VALIDAS[item.portada] ? item.portada : null;
+    // La portada elegida se guarda SIEMPRE en el pedido. Si es un estilo conocido
+    // se usa su nombre bonito; si es uno nuevo que aún no está en PORTADAS_VALIDAS,
+    // se guarda igualmente con su código (solo letras minúsculas, números y guiones)
+    // para que nunca se pierda la elección del cliente.
+    const portadaSolicitada = typeof item.portada === "string" && /^[a-z0-9-]{1,40}$/.test(item.portada) ? item.portada : null;
+    const portada = portadaSolicitada && PORTADAS_VALIDAS[portadaSolicitada] ? portadaSolicitada : null;
+    const etiquetaPortada = portada ? PORTADAS_VALIDAS[portada] : (portadaSolicitada ? "Portada: " + portadaSolicitada : null);
 
     // Libros de la colección Elena G. White con configurador de tapa,
     // tamaño, acabado y papel: el precio y el formato SIEMPRE se
@@ -996,7 +1002,7 @@ exports.crearPedido = onCall(async (request) => {
     // falta o no es válida, se usa la combinación ya publicada del libro
     // — nunca se confía en el precio que mande el navegador.
     let tituloFinal = libro.title;
-    let formatoFinal = libro.format + (portada ? " · " + PORTADAS_VALIDAS[portada] : "");
+    let formatoFinal = libro.format + (etiquetaPortada ? " · " + etiquetaPortada : "");
     let precioFinal = libro.price;
 
     if (hasEWPrintOptions(item.id)) {
@@ -1004,7 +1010,7 @@ exports.crearPedido = onCall(async (request) => {
       if (!resuelto) {
         throw new HttpsError("invalid-argument", "La edición elegida para «" + libro.title + "» no está disponible.");
       }
-      formatoFinal = resuelto.formato + (portada ? " · " + PORTADAS_VALIDAS[portada] : "");
+      formatoFinal = resuelto.formato + (etiquetaPortada ? " · " + etiquetaPortada : "");
       precioFinal = resuelto.precio;
     }
 
@@ -1012,7 +1018,7 @@ exports.crearPedido = onCall(async (request) => {
       id: item.id,
       titulo: tituloFinal,
       formato: formatoFinal,
-      portada: portada,
+      portada: portada || portadaSolicitada,
       precio: precioFinal,
       cantidad: cantidad,
       envioGratis: !!libro.freeShipping,
