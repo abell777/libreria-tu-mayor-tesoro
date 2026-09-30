@@ -477,7 +477,7 @@ document.addEventListener('DOMContentLoaded', function () {
     items.forEach(function (i) {
       var libro = window.BooksCatalog ? window.BooksCatalog.getById(i.id) : null;
       var elegible = i.id !== 'coleccion-tesoros-de-vida' && String(i.id).indexOf('extra-') !== 0 && !(libro && libro.freeShipping);
-      var k = i.id + '|' + JSON.stringify(i.imp || null);
+      var k = i.id + '|' + (i.format || '');
       if (!grupos[k]) grupos[k] = { q: 0, elegible: elegible };
       grupos[k].q += i.qty;
     });
