@@ -40,7 +40,7 @@
     if (bizumBlock) bizumBlock.hidden = !esBizum;
     if (cardBlock) cardBlock.hidden = esBizum;
     if (btnSubmitOrderEl) {
-      btnSubmitOrderEl.dataset.textoOriginal = esBizum ? 'Confirmar pedido con obligación de pago' : 'Pagar (pedido con obligación de pago)';
+      btnSubmitOrderEl.dataset.textoOriginal = esBizum ? 'Confirmar pedido con obligación de pago (pagar por Bizum)' : 'Pagar (pedido con obligación de pago)';
       btnSubmitOrderEl.textContent = btnSubmitOrderEl.dataset.textoOriginal;
     }
   }

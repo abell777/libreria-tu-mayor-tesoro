@@ -154,25 +154,26 @@
           <p class="pay-legend">Método de pago</p>
           <div class="payment-method-options">
             <label class="pay-option">
-              <input type="radio" name="metodoPago" value="bizum" id="metodoPagoBizum" checked>
+              <input type="radio" name="metodoPago" value="bizum" id="metodoPagoBizum">
               <span class="pay-option-text">Bizum <small>Pago rápido desde tu móvil</small></span>
             </label>
             <label class="pay-option">
-              <input type="radio" name="metodoPago" value="tarjeta" id="metodoPagoTarjeta">
+              <input type="radio" name="metodoPago" value="tarjeta" id="metodoPagoTarjeta" checked>
               <span class="pay-option-text">Tarjeta de crédito o débito <small>Pago cifrado con Stripe</small></span>
             </label>
           </div>
         </div>
 
         <!-- Instrucciones de pago por Bizum -->
-        <div class="pay-instructions" id="bizumPaymentBlock">
+        <div class="pay-instructions" id="bizumPaymentBlock" hidden>
+          <p class="pay-hint" style="background:#fff4d6;border:1px solid #e0b84c;border-radius:8px;padding:10px 12px;color:#5a4300;"><strong>⚠️ Importante:</strong> al confirmar, el pedido queda registrado pero <strong>no está pagado</strong> hasta que hagas tú el Bizum. Tu pedido solo se prepara cuando recibimos el importe.</p>
           <p class="pay-instructions-lead">Envía el importe total del pedido por Bizum a este número:</p>
           <p class="pay-number">+34 644 734 911</p>
-          <p class="pay-hint">Indica tu nombre como concepto. En cuanto confirmemos el pago, prepararemos tu pedido. Al pulsar "Confirmar pedido con obligación de pago" quedará registrado como pendiente de verificar.</p>
+          <p class="pay-hint">Indica tu nombre como concepto. En cuanto confirmemos el pago, prepararemos tu pedido. Al pulsar "Confirmar pedido con obligación de pago (pagar por Bizum)" quedará registrado como pendiente de verificar hasta que recibamos tu Bizum.</p>
         </div>
 
         <!-- Componente embebido de Stripe Elements -->
-        <div class="pay-group" id="cardPaymentBlock" hidden>
+        <div class="pay-group" id="cardPaymentBlock">
           <label for="card-element" class="pay-legend">Tarjeta de crédito o débito</label>
           <div id="card-element" class="stripe-card-input"></div>
           <div id="payment-errors" class="form-error" role="alert"></div>
@@ -190,7 +191,7 @@
         </label>
         <button type="submit" id="btnSubmitOrder" class="btn btn--primary btn--block">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          Confirmar pedido con obligación de pago
+          Pagar (pedido con obligación de pago)
         </button>
         <p class="checkout-trust checkout-trust--center">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
