@@ -29,7 +29,7 @@
       : 'Procesando…';
     var envio = pedido.envio || {};
     var items = (pedido.items || []).map(function (it) {
-      return '<li>' + it.cantidad + ' × ' + escapeHTML(it.titulo) + (it.formato ? ' (' + escapeHTML(it.formato) + ')' : '') + ' — ' + fmtEUR(it.precio * it.cantidad) + '</li>';
+      return '<li>' + it.cantidad + ' × ' + escapeHTML(it.titulo) + (it.formato ? ' (' + escapeHTML(it.formato) + ')' : '') + ' — ' + fmtEUR(it.precio * it.cantidad) + (window.portadaMiniaturaHTML ? window.portadaMiniaturaHTML(it, escapeHTML) : '') + '</li>';
     }).join('');
 
     return (

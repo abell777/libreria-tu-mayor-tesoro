@@ -4617,3 +4617,7 @@ a, button, label, select, summary, [role="button"] { -webkit-tap-highlight-color
   .book-card--collection .book-price small { font-size: .8rem; }
   .book-grid > .book-card--collection .book-fav { position: absolute !important; top: 18px !important; right: 18px !important; left: auto !important; bottom: auto !important; }
 }
+
+/* Miniatura de la portada elegida dentro de un pedido (admin, seguimiento y Mi cuenta) */
+.order-cover { display: flex; align-items: center; gap: 10px; margin: 6px 0 4px; font-size: .8rem; color: var(--muted-foreground); }
+.order-cover img { width: 44px; height: 66px; object-fit: cover; border-radius: 3px; box-shadow: 0 1px 4px rgba(0,0,0,.25); }

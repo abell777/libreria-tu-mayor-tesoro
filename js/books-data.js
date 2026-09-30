@@ -3597,3 +3597,22 @@ window.BooksCatalog = {
       .slice(0, max);
   }
 };
+
+// ---------------------------------------------------------------------------
+// Portada elegida en un pedido: dado un artículo del pedido (it.id, it.portada)
+// devuelve { file, label } para mostrar miniatura + nombre, o null si el
+// pedido no registra portada (pedidos antiguos) o el libro ya no existe.
+// ---------------------------------------------------------------------------
+window.portadaDePedido = function (it) {
+  if (!it || !it.id || !it.portada) return null;
+  var book = window.BooksCatalog && window.BooksCatalog.getById(it.id);
+  if (!book) return null;
+  var c = window.bookCovers(book).filter(function (x) { return x.style === it.portada; })[0];
+  return c ? { file: c.file, label: c.short || c.label } : null;
+};
+window.portadaMiniaturaHTML = function (it, esc) {
+  var p = window.portadaDePedido(it);
+  if (!p) return '';
+  return '<span class="order-cover"><img src="' + esc(p.file) + '" alt="' + esc(p.label) + '" width="44" height="66" loading="lazy">' +
+    '<span>' + esc(p.label) + '</span></span>';
+};

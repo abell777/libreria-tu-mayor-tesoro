@@ -97,7 +97,7 @@
 
     document.getElementById('trackingItems').innerHTML = (pedido.items || []).map(function (it) {
       return '<li>' + it.cantidad + ' × ' + esc(it.titulo) + (it.formato ? ' (' + esc(it.formato) + ')' : '') +
-        ' — ' + fmtEUR(it.precio * it.cantidad) + '</li>';
+        ' — ' + fmtEUR(it.precio * it.cantidad) + (window.portadaMiniaturaHTML ? window.portadaMiniaturaHTML(it, esc) : '') + '</li>';
     }).join('');
 
     document.getElementById('trackingSubtotal').textContent = fmtEUR(pedido.subtotal);

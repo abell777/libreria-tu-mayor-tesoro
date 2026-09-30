@@ -246,7 +246,7 @@
         ? '<a href="producto.html?id=' + encodeURIComponent(it.id) +
           (it.portada ? '&portada=' + encodeURIComponent(it.portada) : '') + '">' + escapeHTML(it.titulo) + '</a>'
         : escapeHTML(it.titulo);
-      return '<li>' + it.cantidad + ' × ' + titulo + '</li>';
+      return '<li>' + it.cantidad + ' × ' + titulo + (window.portadaMiniaturaHTML ? window.portadaMiniaturaHTML(it, escapeHTML) : '') + '</li>';
     }).join('');
     var total = (pedido.total || 0).toFixed(2).replace('.', ',');
 
