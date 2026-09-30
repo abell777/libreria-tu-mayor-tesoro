@@ -112,7 +112,11 @@ function getEWPriceIndividual(bookId, tipo, tamano, acabado, papel) {
 
 function hasEWPrintOptions(bookId) {
   const def = EW_BOOK_DEFAULTS[bookId];
-  return !!(def && def.pdfTitle);
+  if (!def || !def.pdfTitle) return false;
+  // Igual que en js/ew-pricing.js: solo hay configurador si existe precio para
+  // la combinación por defecto; si no, el libro se trata como de precio fijo.
+  const p = getEWPrice(bookId, def.tipo, def.tamano, def.acabado, def.papel);
+  return p !== null && p !== undefined;
 }
 
 // Recibe lo que mande el navegador (item.imp = { tipo, tamano, acabado, papel })

@@ -9,6 +9,7 @@
       ".firebaserc",
       "skills-lock.json",
       "README.md",
+      "verificar-catalogo.js",
       "functions/**",
       ".claude/**",
       ".agents/**",
@@ -85,6 +86,9 @@
           }
         ]
       }
+    ],
+    "predeploy": [
+      "node verificar-catalogo.js"
     ]
   },
   "storage": {
@@ -107,6 +111,9 @@
         "firebase-debug.log",
         "firebase-debug.*.log",
         "*.local"
+      ],
+      "predeploy": [
+        "node verificar-catalogo.js"
       ]
     }
   ]

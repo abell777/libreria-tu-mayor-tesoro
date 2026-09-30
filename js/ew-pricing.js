@@ -141,7 +141,13 @@ window.getEWPrice = function (bookId, tipo, tamano, acabado, papel) {
 // libro con precio fijo (no está en el PDF de 99 títulos)?
 window.hasEWPrintOptions = function (bookId) {
   var def = window.EW_BOOK_DEFAULTS[bookId];
-  return !!(def && def.pdfTitle);
+  if (!def || !def.pdfTitle) return false;
+  // Solo hay configurador si de verdad existe precio para la combinación por
+  // defecto. Si no, el libro se vende como libro de precio fijo (el de la web),
+  // igual en el navegador y en el servidor, y así nunca se puede pedir algo
+  // que el servidor luego rechace.
+  var p = window.getEWPrice(bookId, def.tipo, def.tamano, def.acabado, def.papel);
+  return p !== null && p !== undefined;
 };
 
 // Fichas antiguas que se han fusionado dentro de otra: id antiguo → id

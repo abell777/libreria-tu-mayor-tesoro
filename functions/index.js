@@ -126,6 +126,577 @@ const PORTADAS_VALIDAS = {
 // Twitter muestran el título, la portada y el resumen reales del libro al
 // compartir un enlace, en vez de los genéricos de la home.
 const CATALOGO = {
+  // ---- Libros añadidos automáticamente desde js/books-data.js (ver verificar-catalogo.js) ----
+  "consejos-sobre-la-obra-de-la-escuela-sabatica": {
+      "title": "Consejos sobre la Obra de la Escuela Sabática",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 6.74,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/consejos-sobre-la-obra-de-la-escuela-sabatica-clasica.jpg",
+      "description": "Orientación práctica para quienes enseñan y organizan la escuela sabática, con principios sobre cómo preparar la clase y acompañar el estudio de la Biblia en la iglesia."
+  },
+  "consejos-sobre-mayordomia-cristiana": {
+      "title": "Consejos sobre Mayordomía Cristiana",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 7.61,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/consejos-sobre-mayordomia-cristiana-clasica.jpg",
+      "description": "Principios sobre el manejo cristiano del tiempo, los talentos y los recursos materiales, entendidos como algo confiado por Dios y no como una posesión absoluta."
+  },
+  "la-temperancia": {
+      "title": "La Temperancia",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.44,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/la-temperancia.jpg",
+      "description": "Una recopilación de consejos sobre el dominio propio, la alimentación y los hábitos de vida saludables, entendidos como parte del desarrollo espiritual y del testimonio cristiano."
+  },
+  "la-unica-esperanza": {
+      "title": "La Única Esperanza",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 6.88,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/la-unica-esperanza-tipografica.jpg",
+      "description": "Una presentación breve y directa de Jesucristo como único camino de salvación, pensada tanto para el estudio personal como para compartir con quien busca respuestas."
+  },
+  "la-voz-su-educacion-y-uso-correcto": {
+      "title": "La Voz, su Educación y Uso Correcto",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.75,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/la-voz-su-educacion-y-uso-correcto.jpg",
+      "description": "Consejos prácticos sobre el cuidado y el uso correcto de la voz al hablar, enseñar o predicar, junto con principios sobre el dominio propio y la manera en que hablamos a los demás."
+  },
+  "los-hechos-de-los-apostoles": {
+      "title": "Los Hechos de los Apóstoles",
+      "format": "Tapa dura, 155 x 235 mm",
+      "price": 16.4,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/los-hechos-de-los-apostoles.jpg",
+      "description": "El relato de los primeros años de la iglesia cristiana, desde Pentecostés hasta el ministerio de Pablo, con enseñanzas sobre la misión y el crecimiento de la obra evangélica. Edición en tapa dura, ideal para regalo o biblioteca personal."
+  },
+  "palabras-de-vida-del-gran-maestro": {
+      "title": "Palabras de Vida del Gran Maestro",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.5,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/palabras-de-vida-del-gran-maestro.jpg",
+      "description": "Un recorrido por las parábolas y enseñanzas de Jesús, explicando su sentido espiritual y su aplicación práctica para la vida cristiana de cada día."
+  },
+  "primeros-escritos": {
+      "title": "Primeros Escritos",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.68,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/primeros-escritos.jpg",
+      "description": "Reúne las primeras visiones y escritos de la autora, publicados en sus años iniciales de ministerio, con relatos sobre la experiencia del pueblo adventista en sus comienzos."
+  },
+  "testimonios-para-la-iglesia-tomo-2": {
+      "title": "Testimonios para la Iglesia, Tomo 2",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 11.7,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/testimonios-para-la-iglesia.jpg",
+      "description": "Segundo tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación."
+  },
+  "testimonios-para-la-iglesia-tomo-3": {
+      "title": "Testimonios para la Iglesia, Tomo 3",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 9.8,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/testimonios-para-la-iglesia.jpg",
+      "description": "Tercer tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación."
+  },
+  "testimonios-para-la-iglesia-tomo-4": {
+      "title": "Testimonios para la Iglesia, Tomo 4",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 11.61,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/testimonios-para-la-iglesia.jpg",
+      "description": "Cuarto tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación."
+  },
+  "testimonios-para-la-iglesia-tomo-6": {
+      "title": "Testimonios para la Iglesia, Tomo 6",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 9.83,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/testimonios-para-la-iglesia.jpg",
+      "description": "Sexto tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación."
+  },
+  "testimonios-para-la-iglesia-tomo-7": {
+      "title": "Testimonios para la Iglesia, Tomo 7",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.48,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/testimonios-para-la-iglesia.jpg",
+      "description": "Séptimo tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación."
+  },
+  "testimonios-para-la-iglesia-tomo-8": {
+      "title": "Testimonios para la Iglesia, Tomo 8",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.8,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/testimonios-para-la-iglesia.jpg",
+      "description": "Octavo tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación."
+  },
+  "testimonios-para-la-iglesia-tomo-9": {
+      "title": "Testimonios para la Iglesia, Tomo 9",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.19,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/testimonios-para-la-iglesia.jpg",
+      "description": "Noveno y último tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación."
+  },
+  "eventos-de-los-ultimos-dias": {
+      "title": "Eventos de los Últimos Días",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 7.87,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/eventos-de-los-ultimos-dias.jpg",
+      "description": "Una selección de escritos sobre las señales de los tiempos finales y los acontecimientos que, según la autora, precederán a la segunda venida de Cristo."
+  },
+  "testimonios-selectos-tomo-i": {
+      "title": "Testimonios Selectos, Tomo I",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 7.68,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/testimonios-selectos.jpg",
+      "description": "Una selección de consejos y mensajes sobre la vida cristiana, la familia y el carácter, pensada como introducción más breve a la serie de Testimonios."
+  },
+  "testimonios-selectos-tomo-ii": {
+      "title": "Testimonios Selectos, Tomo II",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 6.6,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/testimonios-selectos.jpg",
+      "description": "Segundo tomo de la selección de consejos y mensajes sobre la vida cristiana, la familia y el carácter, pensada como introducción a la serie de Testimonios."
+  },
+  "testimonios-selectos-tomo-iii": {
+      "title": "Testimonios Selectos, Tomo III",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 7.85,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/testimonios-selectos.jpg",
+      "description": "Tercer tomo de la selección de consejos y mensajes sobre la vida cristiana, la familia y el carácter, pensada como introducción a la serie de Testimonios."
+  },
+  "testimonios-selectos-tomo-iv": {
+      "title": "Testimonios Selectos, Tomo IV",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.17,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/testimonios-selectos.jpg",
+      "description": "Cuarto tomo de la selección de consejos y mensajes sobre la vida cristiana, la familia y el carácter, pensada como introducción a la serie de Testimonios."
+  },
+  "testimonios-selectos-tomo-v": {
+      "title": "Testimonios Selectos, Tomo V",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 6.11,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/testimonios-selectos.jpg",
+      "description": "Quinto tomo de la selección de consejos y mensajes sobre la vida cristiana, la familia y el carácter, pensada como introducción a la serie de Testimonios."
+  },
+  "testimonios-para-la-iglesia-tomo-1": {
+      "title": "Testimonios para la Iglesia, Tomo 1",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 11.1,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/testimonios-para-la-iglesia.jpg",
+      "description": "Primer tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación."
+  },
+  "testimonios-para-la-iglesia-tomo-5": {
+      "title": "Testimonios para la Iglesia, Tomo 5",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 11.08,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/testimonios-para-la-iglesia.jpg",
+      "description": "Quinto tomo de la serie de consejos y mensajes dirigidos a la iglesia, con orientación práctica sobre la vida cristiana, la familia y el trabajo de la congregación."
+  },
+  "testimonios-conducta-sexual-adulterio-divorcio": {
+      "title": "Testimonios acerca de Conducta Sexual, Adulterio y Divorcio",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 7.01,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/testimonios-conducta-sexual-adulterio-divorcio.jpg",
+      "description": "Una recopilación de consejos sobre la pureza en la conducta sexual, la fidelidad matrimonial y los principios cristianos frente al adulterio y el divorcio."
+  },
+  "ser-semejante-a-jesus": {
+      "title": "Ser Semejante a Jesús",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.15,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/ser-semejante-a-jesus.jpg",
+      "description": "Una recopilación de pensamientos devocionales breves sobre el carácter cristiano, animando a reflejar cada día el ejemplo de Cristo en la vida diaria."
+  },
+  "liderazgo-cristiano": {
+      "title": "Liderazgo Cristiano",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 6.77,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/liderazgo-cristiano.jpg",
+      "description": "Principios sobre el carácter, el servicio y la responsabilidad de quienes ejercen algún tipo de liderazgo dentro de la iglesia y la comunidad cristiana."
+  },
+  "mensajes-selectos-tomo-i": {
+      "title": "Mensajes Selectos, Tomo I",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 9.36,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/mensajes-selectos.jpg",
+      "description": "Primer tomo de una serie de mensajes y comentarios de la autora sobre cuestiones doctrinales, con aclaraciones y consejos dirigidos a la iglesia de su tiempo."
+  },
+  "mensajes-selectos-tomo-ii": {
+      "title": "Mensajes Selectos, Tomo II",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 10.13,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/mensajes-selectos.jpg",
+      "description": "Segundo tomo de una serie de mensajes y comentarios de la autora sobre cuestiones doctrinales, con aclaraciones y consejos dirigidos a la iglesia de su tiempo."
+  },
+  "mensajes-selectos-tomo-iii": {
+      "title": "Mensajes Selectos, Tomo III",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 9.64,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/mensajes-selectos.jpg",
+      "description": "Tercer tomo de una serie de mensajes y comentarios de la autora sobre cuestiones doctrinales, con aclaraciones y consejos dirigidos a la iglesia de su tiempo."
+  },
+  "discurso-maestro-de-jesucristo": {
+      "title": "El Discurso Maestro de Jesucristo",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 6.84,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/discurso-maestro-de-jesucristo.jpg",
+      "description": "Un estudio detallado del Sermón del Monte, con reflexiones sobre las bienaventuranzas y las enseñanzas de Jesús a sus discípulos y a la multitud."
+  },
+  "el-camino-a-cristo": {
+      "title": "El Camino a Cristo",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 5.65,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/el-camino-a-cristo.jpg",
+      "description": "El libro más leído de Elena G. White: una invitación sencilla y cercana a conocer a Cristo, paso a paso, desde el primer deseo de acercarse a Dios hasta una vida de fe firme. Un clásico ideal para regalar o para empezar a leer a la autora."
+  },
+  "desde-el-corazon": {
+      "title": "Desde el Corazón",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.08,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/desde-el-corazon.jpg",
+      "description": "Una selección de lecturas breves escritas con un tono íntimo y personal, pensadas para el momento devocional diario. Cada página invita a detenerse, reflexionar y acercarse a Dios con sinceridad."
+  },
+  "leyes-de-la-salud": {
+      "title": "Leyes de la Salud",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/leyes-de-la-salud.jpg",
+      "description": "Un repaso claro de los principios que sostienen una vida sana —descanso, aire puro, ejercicio, agua, luz solar y confianza en Dios—, explicados de forma práctica para aplicarlos en el día a día."
+  },
+  "leyes-sobre-el-regimen-alimenticio": {
+      "title": "Leyes sobre el Régimen Alimenticio",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.96,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/leyes-sobre-el-regimen-alimenticio.jpg",
+      "description": "Consejos concretos sobre la alimentación y su relación con el bienestar físico y espiritual: qué comer, cómo comer y por qué la mesa también forma parte de una vida equilibrada."
+  },
+  "conflicto-y-valor": {
+      "title": "Conflicto y Valor",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.15,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/conflicto-y-valor-tipografica.jpg",
+      "description": "Un devocional que recorre las grandes historias de la Biblia día a día, mostrando la valentía de quienes confiaron en Dios en medio de la lucha. Lecturas breves, una para cada jornada del año."
+  },
+  "conduccion-del-nino": {
+      "title": "Conducción del Niño",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.73,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/conduccion-del-nino.jpg",
+      "description": "Una guía completa para padres y educadores sobre la formación del carácter desde los primeros años: disciplina con afecto, hábitos, ejemplo en el hogar y educación espiritual."
+  },
+  "coleccion-kress": {
+      "title": "Colección Kress",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 6.99,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/coleccion-kress.jpg",
+      "description": "Reúne las cartas y consejos dirigidos al doctor Kress y a su esposa, con orientaciones muy prácticas sobre salud, tratamiento de enfermos y equilibrio en el trabajo médico y misionero."
+  },
+  "cartas-a-jovenes-enamorados": {
+      "title": "Cartas a Jóvenes Enamorados",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 5.65,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/cartas-a-jovenes-enamorados.jpg",
+      "description": "Cartas escritas a parejas jóvenes con consejos honestos sobre el noviazgo, la elección de pareja y la preparación para el matrimonio. Una lectura breve y directa, muy útil para regalar."
+  },
+  "hijas-de-dios": {
+      "title": "Hijas de Dios",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 7.23,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/hijas-de-dios.jpg",
+      "description": "Una recopilación de consejos y meditaciones dirigidos especialmente a la mujer cristiana: su valor a los ojos de Dios, su influencia en el hogar y en la iglesia, y el ánimo que necesita en cada etapa de la vida."
+  },
+  "en-el-desierto-de-la-tentacion": {
+      "title": "En el Desierto de la Tentación",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 5.66,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/en-el-desierto-de-la-tentacion-tipografica.jpg",
+      "description": "Un estudio del relato de las tentaciones de Jesús en el desierto y de lo que enseña sobre nuestras propias luchas: cómo resistir, dónde está la fuerza real y por qué la victoria de Cristo también es nuestra."
+  },
+  "el-ministerio-de-curacion": {
+      "title": "El Ministerio de Curación",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 7.96,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/el-ministerio-de-curacion.jpg",
+      "description": "Uno de los libros más apreciados de la autora: une el cuidado del cuerpo y del alma, con capítulos sobre la labor del médico y la enfermera, el hogar, la alimentación, la mente y el trato con el enfermo."
+  },
+  "el-cristo-triunfante": {
+      "title": "El Cristo Triunfante",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.15,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/el-cristo-triunfante.jpg",
+      "description": "Devocional de lecturas diarias centrado en la victoria de Cristo: desde su papel en la creación hasta su triunfo final, pasando por la cruz y su ministerio a favor nuestro."
+  },
+  "la-oracion": {
+      "title": "La Oración",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 7.7,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/la-oracion-tipografica.jpg",
+      "description": "Una recopilación de los escritos de la autora sobre el privilegio de la oración: cómo orar, qué esperar de la oración y por qué es el aliento de la vida cristiana."
+  },
+  "la-educacion-cristiana": {
+      "title": "La Educación Cristiana",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.68,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/la-educacion-cristiana.jpg",
+      "description": "Principios para una enseñanza que forme el carácter además de la mente, dirigidos a padres, maestros y a todo el que acompaña a un joven en su formación."
+  },
+  "joyas-de-los-testimonios-1": {
+      "title": "Joyas de los Testimonios 1",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 9.63,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/joyas-de-los-testimonios.jpg",
+      "description": "Primer volumen de la selección de los pasajes más útiles de los Testimonios para la Iglesia, ordenados por temas para consultarlos con facilidad."
+  },
+  "joyas-de-los-testimonios-2": {
+      "title": "Joyas de los Testimonios 2",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 9.33,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/joyas-de-los-testimonios.jpg",
+      "description": "Segundo volumen de la selección de los Testimonios para la Iglesia, con consejos sobre la vida práctica, el hogar, la salud y la obra de la iglesia."
+  },
+  "joyas-de-los-testimonios-3": {
+      "title": "Joyas de los Testimonios 3",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.36,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/joyas-de-los-testimonios.jpg",
+      "description": "Tercer volumen de la selección de los Testimonios para la Iglesia, centrado en la preparación del creyente y en los últimos acontecimientos."
+  },
+  "mente-caracter-y-personalidad-1": {
+      "title": "Mente, Carácter y Personalidad 1",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.23,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/mente-caracter-y-personalidad.jpg",
+      "description": "Primer tomo de una compilación sobre la formación del carácter y la personalidad, con principios prácticos para el desarrollo mental y espiritual."
+  },
+  "mente-caracter-y-personalidad-2": {
+      "title": "Mente, Carácter y Personalidad 2",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.94,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/mente-caracter-y-personalidad.jpg",
+      "description": "Segundo tomo de esta compilación sobre la mente, el carácter y la personalidad, con consejos prácticos para el crecimiento personal y espiritual."
+  },
+  "mi-vida-hoy": {
+      "title": "Mi Vida Hoy",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.14,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/mi-vida-hoy.jpg",
+      "description": "Un devocional de lecturas breves para cada día del año, pensado para acompañar el estudio personal con una reflexión diaria."
+  },
+  "notas-biograficas-de-elena-g-de-white": {
+      "title": "Notas biográficas de Elena G. de White",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.35,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/notas-biograficas-de-elena-g-de-white.jpg",
+      "description": "Un recorrido por la vida de la autora, desde su infancia hasta sus últimos años, que ayuda a entender el contexto detrás de sus escritos."
+  },
+  "nuestra-elevada-vocacion": {
+      "title": "Nuestra Elevada Vocación",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.15,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/nuestra-elevada-vocacion.jpg",
+      "description": "Meditaciones diarias centradas en el llamado del creyente a una vida de consagración y servicio, pensadas para el devocional personal."
+  },
+  "obreros-evangelicos": {
+      "title": "Obreros Evangélicos",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.77,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/obreros-evangelicos.jpg",
+      "description": "Un manual de consejos prácticos para quienes se dedican al trabajo evangelístico y misionero, sobre el carácter y los métodos del obrero cristiano."
+  },
+  "oscuridad-antes-del-amanecer": {
+      "title": "Oscuridad antes del Amanecer",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 5.6,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/oscuridad-antes-del-amanecer.jpg",
+      "description": "Un relato histórico sobre los siglos de persecución que precedieron a la Reforma protestante, y la lucha por preservar la fe frente a la oscuridad espiritual."
+  },
+  "reavivamientos-modernos": {
+      "title": "Reavivamientos Modernos",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 5.4,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/reavivamientos-modernos.jpg",
+      "description": "Un repaso a los grandes movimientos de reavivamiento espiritual de los últimos siglos, con reflexiones sobre lo que distingue un avivamiento genuino."
+  },
+  "recibireis-poder": {
+      "title": "Recibiréis Poder",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.15,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/recibireis-poder.jpg",
+      "description": "Una colección de meditaciones sobre la obra del Espíritu Santo en la vida del creyente, pensada para fortalecer la fe en el día a día."
+  },
+  "reflejemos-a-jesus": {
+      "title": "Reflejemos a Jesús",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.13,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/reflejemos-a-jesus.jpg",
+      "description": "Un devocional de lecturas breves centradas en el carácter de Cristo, pensado para inspirar al lector a reflejarlo en su propia vida diaria."
+  },
   // Colección Tesoros de Vida: precio fijo = suma de los 5 libros (tapa blanda A5,
   // brillo, papel blanco offset), sin descuento. Sin configurador de impresión.
   "coleccion-tesoros-de-vida": {

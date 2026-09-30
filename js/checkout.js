@@ -369,9 +369,16 @@
   function enviarCorreos(pedido) {
     if (typeof emailjs === 'undefined' || typeof emailjsConfig === 'undefined') return Promise.resolve();
 
+    // Cada artículo lleva TODO el detalle: formato completo (tapa, tamaño,
+    // acabado, papel y PORTADA elegida, que ya viene dentro de "formato") y su
+    // precio. Así el correo del dueño y el del cliente dicen exactamente qué
+    // hay que preparar, sin tener que abrir Firebase.
+    var eur = function (n) { return Number(n || 0).toFixed(2).replace('.', ',') + ' €'; };
     var listaItems = pedido.items.map(function (i) {
-      return i.cantidad + ' × ' + i.titulo + ' (' + i.formato + ')';
-    }).join('\n');
+      return i.cantidad + ' × ' + i.titulo +
+        (i.formato ? '\n    Edición: ' + i.formato : '') +
+        '\n    Precio: ' + eur(i.precio * i.cantidad);
+    }).join('\n\n');
 
     var ahora = new Date().toLocaleString('es-ES', { dateStyle: 'long', timeStyle: 'short' });
 
@@ -383,6 +390,9 @@
       cliente_nombre: pedido.clienteNombre,
       cliente_email: pedido.clienteEmail,
       lista_articulos: listaItems,
+      subtotal: eur(pedido.subtotal),
+      gastos_envio: pedido.gastosEnvio ? eur(pedido.gastosEnvio) : 'Gratis',
+      descuento: pedido.descuento > 0 ? '-' + eur(pedido.descuento) : '0,00 €',
       total: pedido.total.toFixed(2).replace('.', ',') + ' €',
       direccion_envio: pedido.envio.direccion + ', ' + pedido.envio.cp + ' ' + pedido.envio.ciudad,
       telefono: pedido.envio.telefono,
