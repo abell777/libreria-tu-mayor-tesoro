@@ -130,7 +130,7 @@ const CATALOGO = {
   "consejos-sobre-la-obra-de-la-escuela-sabatica": {
       "title": "Consejos sobre la Obra de la Escuela Sabática",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 6.74,
+      "price": 7.24,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -140,7 +140,7 @@ const CATALOGO = {
   "consejos-sobre-mayordomia-cristiana": {
       "title": "Consejos sobre Mayordomía Cristiana",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 7.61,
+      "price": 8.11,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -150,7 +150,7 @@ const CATALOGO = {
   "la-temperancia": {
       "title": "La Temperancia",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.44,
+      "price": 8.94,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -160,7 +160,7 @@ const CATALOGO = {
   "la-unica-esperanza": {
       "title": "La Única Esperanza",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 6.88,
+      "price": 7.38,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -170,7 +170,7 @@ const CATALOGO = {
   "la-voz-su-educacion-y-uso-correcto": {
       "title": "La Voz, su Educación y Uso Correcto",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.75,
+      "price": 9.25,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -180,7 +180,7 @@ const CATALOGO = {
   "los-hechos-de-los-apostoles": {
       "title": "Los Hechos de los Apóstoles",
       "format": "Tapa dura, 155 x 235 mm",
-      "price": 16.4,
+      "price": 16.9,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -190,7 +190,7 @@ const CATALOGO = {
   "palabras-de-vida-del-gran-maestro": {
       "title": "Palabras de Vida del Gran Maestro",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.5,
+      "price": 9,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -200,7 +200,7 @@ const CATALOGO = {
   "primeros-escritos": {
       "title": "Primeros Escritos",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.68,
+      "price": 9.18,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -210,7 +210,7 @@ const CATALOGO = {
   "testimonios-para-la-iglesia-tomo-2": {
       "title": "Testimonios para la Iglesia, Tomo 2",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 11.7,
+      "price": 12.2,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -220,7 +220,7 @@ const CATALOGO = {
   "testimonios-para-la-iglesia-tomo-3": {
       "title": "Testimonios para la Iglesia, Tomo 3",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 9.8,
+      "price": 10.3,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -230,7 +230,7 @@ const CATALOGO = {
   "testimonios-para-la-iglesia-tomo-4": {
       "title": "Testimonios para la Iglesia, Tomo 4",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 11.61,
+      "price": 12.11,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -240,7 +240,7 @@ const CATALOGO = {
   "testimonios-para-la-iglesia-tomo-6": {
       "title": "Testimonios para la Iglesia, Tomo 6",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 9.83,
+      "price": 10.33,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -250,7 +250,7 @@ const CATALOGO = {
   "testimonios-para-la-iglesia-tomo-7": {
       "title": "Testimonios para la Iglesia, Tomo 7",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.48,
+      "price": 8.98,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -260,7 +260,7 @@ const CATALOGO = {
   "testimonios-para-la-iglesia-tomo-8": {
       "title": "Testimonios para la Iglesia, Tomo 8",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.8,
+      "price": 9.3,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -270,7 +270,7 @@ const CATALOGO = {
   "testimonios-para-la-iglesia-tomo-9": {
       "title": "Testimonios para la Iglesia, Tomo 9",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.19,
+      "price": 8.69,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -280,7 +280,7 @@ const CATALOGO = {
   "eventos-de-los-ultimos-dias": {
       "title": "Eventos de los Últimos Días",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 7.87,
+      "price": 8.37,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -290,7 +290,7 @@ const CATALOGO = {
   "testimonios-selectos-tomo-i": {
       "title": "Testimonios Selectos, Tomo I",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 7.68,
+      "price": 8.18,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -300,7 +300,7 @@ const CATALOGO = {
   "testimonios-selectos-tomo-ii": {
       "title": "Testimonios Selectos, Tomo II",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 6.6,
+      "price": 7.1,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -310,7 +310,7 @@ const CATALOGO = {
   "testimonios-selectos-tomo-iii": {
       "title": "Testimonios Selectos, Tomo III",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 7.85,
+      "price": 8.35,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -320,7 +320,7 @@ const CATALOGO = {
   "testimonios-selectos-tomo-iv": {
       "title": "Testimonios Selectos, Tomo IV",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.17,
+      "price": 8.67,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -330,7 +330,7 @@ const CATALOGO = {
   "testimonios-selectos-tomo-v": {
       "title": "Testimonios Selectos, Tomo V",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 6.11,
+      "price": 6.61,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -340,7 +340,7 @@ const CATALOGO = {
   "testimonios-para-la-iglesia-tomo-1": {
       "title": "Testimonios para la Iglesia, Tomo 1",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 11.1,
+      "price": 11.6,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -350,7 +350,7 @@ const CATALOGO = {
   "testimonios-para-la-iglesia-tomo-5": {
       "title": "Testimonios para la Iglesia, Tomo 5",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 11.08,
+      "price": 11.58,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -360,7 +360,7 @@ const CATALOGO = {
   "testimonios-conducta-sexual-adulterio-divorcio": {
       "title": "Testimonios acerca de Conducta Sexual, Adulterio y Divorcio",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 7.01,
+      "price": 7.51,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -370,7 +370,7 @@ const CATALOGO = {
   "ser-semejante-a-jesus": {
       "title": "Ser Semejante a Jesús",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.15,
+      "price": 8.65,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -380,7 +380,7 @@ const CATALOGO = {
   "liderazgo-cristiano": {
       "title": "Liderazgo Cristiano",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 6.77,
+      "price": 7.27,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -390,7 +390,7 @@ const CATALOGO = {
   "mensajes-selectos-tomo-i": {
       "title": "Mensajes Selectos, Tomo I",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 9.36,
+      "price": 9.86,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -400,7 +400,7 @@ const CATALOGO = {
   "mensajes-selectos-tomo-ii": {
       "title": "Mensajes Selectos, Tomo II",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 10.13,
+      "price": 10.63,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -410,7 +410,7 @@ const CATALOGO = {
   "mensajes-selectos-tomo-iii": {
       "title": "Mensajes Selectos, Tomo III",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 9.64,
+      "price": 10.14,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -420,7 +420,7 @@ const CATALOGO = {
   "discurso-maestro-de-jesucristo": {
       "title": "El Discurso Maestro de Jesucristo",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 6.84,
+      "price": 7.34,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -430,7 +430,7 @@ const CATALOGO = {
   "el-camino-a-cristo": {
       "title": "El Camino a Cristo",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 5.65,
+      "price": 6.15,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -440,7 +440,7 @@ const CATALOGO = {
   "desde-el-corazon": {
       "title": "Desde el Corazón",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.08,
+      "price": 8.58,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -460,7 +460,7 @@ const CATALOGO = {
   "leyes-sobre-el-regimen-alimenticio": {
       "title": "Leyes sobre el Régimen Alimenticio",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.96,
+      "price": 9.46,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -470,7 +470,7 @@ const CATALOGO = {
   "conflicto-y-valor": {
       "title": "Conflicto y Valor",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.15,
+      "price": 8.65,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -480,7 +480,7 @@ const CATALOGO = {
   "conduccion-del-nino": {
       "title": "Conducción del Niño",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.73,
+      "price": 9.23,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -490,7 +490,7 @@ const CATALOGO = {
   "coleccion-kress": {
       "title": "Colección Kress",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 6.99,
+      "price": 7.49,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -500,7 +500,7 @@ const CATALOGO = {
   "cartas-a-jovenes-enamorados": {
       "title": "Cartas a Jóvenes Enamorados",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 5.65,
+      "price": 6.15,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -510,7 +510,7 @@ const CATALOGO = {
   "hijas-de-dios": {
       "title": "Hijas de Dios",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 7.23,
+      "price": 7.73,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -520,7 +520,7 @@ const CATALOGO = {
   "en-el-desierto-de-la-tentacion": {
       "title": "En el Desierto de la Tentación",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 5.66,
+      "price": 6.16,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -530,7 +530,7 @@ const CATALOGO = {
   "el-ministerio-de-curacion": {
       "title": "El Ministerio de Curación",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 7.96,
+      "price": 8.46,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -540,7 +540,7 @@ const CATALOGO = {
   "el-cristo-triunfante": {
       "title": "El Cristo Triunfante",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.15,
+      "price": 8.65,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -550,7 +550,7 @@ const CATALOGO = {
   "la-oracion": {
       "title": "La Oración",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 7.7,
+      "price": 8.2,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -560,7 +560,7 @@ const CATALOGO = {
   "la-educacion-cristiana": {
       "title": "La Educación Cristiana",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.68,
+      "price": 9.18,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -570,7 +570,7 @@ const CATALOGO = {
   "joyas-de-los-testimonios-1": {
       "title": "Joyas de los Testimonios 1",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 9.63,
+      "price": 10.13,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -580,7 +580,7 @@ const CATALOGO = {
   "joyas-de-los-testimonios-2": {
       "title": "Joyas de los Testimonios 2",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 9.33,
+      "price": 9.83,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -590,7 +590,7 @@ const CATALOGO = {
   "joyas-de-los-testimonios-3": {
       "title": "Joyas de los Testimonios 3",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.36,
+      "price": 8.86,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -600,7 +600,7 @@ const CATALOGO = {
   "mente-caracter-y-personalidad-1": {
       "title": "Mente, Carácter y Personalidad 1",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.23,
+      "price": 8.73,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -610,7 +610,7 @@ const CATALOGO = {
   "mente-caracter-y-personalidad-2": {
       "title": "Mente, Carácter y Personalidad 2",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.94,
+      "price": 9.44,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -620,7 +620,7 @@ const CATALOGO = {
   "mi-vida-hoy": {
       "title": "Mi Vida Hoy",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.14,
+      "price": 8.64,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -630,7 +630,7 @@ const CATALOGO = {
   "notas-biograficas-de-elena-g-de-white": {
       "title": "Notas biográficas de Elena G. de White",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.35,
+      "price": 8.85,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -640,7 +640,7 @@ const CATALOGO = {
   "nuestra-elevada-vocacion": {
       "title": "Nuestra Elevada Vocación",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.15,
+      "price": 8.65,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -650,7 +650,7 @@ const CATALOGO = {
   "obreros-evangelicos": {
       "title": "Obreros Evangélicos",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.77,
+      "price": 9.27,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -660,7 +660,7 @@ const CATALOGO = {
   "oscuridad-antes-del-amanecer": {
       "title": "Oscuridad antes del Amanecer",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 5.6,
+      "price": 6.1,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -670,7 +670,7 @@ const CATALOGO = {
   "reavivamientos-modernos": {
       "title": "Reavivamientos Modernos",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 5.4,
+      "price": 5.9,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -680,7 +680,7 @@ const CATALOGO = {
   "recibireis-poder": {
       "title": "Recibiréis Poder",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.15,
+      "price": 8.65,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -690,7 +690,7 @@ const CATALOGO = {
   "reflejemos-a-jesus": {
       "title": "Reflejemos a Jesús",
       "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.13,
+      "price": 8.63,
       "author": "Elena G. White",
       "category": "elena-white",
       "categoryLabel": "Elena G. White",
@@ -702,7 +702,7 @@ const CATALOGO = {
   "coleccion-tesoros-de-vida": {
     title: "Colección Tesoros de Vida",
     format: "Colección de 5 libros, tapa blanda A5",
-    price: 58.81,
+    price: 61.31,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -712,7 +712,7 @@ const CATALOGO = {
   "el-conflicto-de-los-siglos": {
     title: "El Conflicto de los Siglos",
     format: "Tapa dura",
-    price: 19.54,
+    price: 20.04,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -722,8 +722,7 @@ const CATALOGO = {
   "el-deseado-de-todas-las-gentes": {
     title: "El Deseado de Todas las Gentes",
     format: "Tapa blanda, A5",
-    price: 14.20,
-    freeShipping: true,
+    price: 14.7,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -733,7 +732,7 @@ const CATALOGO = {
   "historia-de-los-patriarcas-y-profetas": {
     title: "Historia de los Patriarcas y Profetas",
     format: "Edición tapa dura",
-    price: 26.20,
+    price: 26.7,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -743,7 +742,7 @@ const CATALOGO = {
   "profetas-y-reyes": {
     title: "Profetas y Reyes",
     format: "Edición tapa blanda",
-    price: 11.83,
+    price: 12.33,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -753,7 +752,7 @@ const CATALOGO = {
   "la-fe-por-la-cual-vivo": {
     title: "La Fe por la Cual Vivo",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.14,
+    price: 9.64,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -763,7 +762,7 @@ const CATALOGO = {
   "la-educacion": {
     title: "La Educación",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 8.05,
+    price: 8.55,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -773,7 +772,7 @@ const CATALOGO = {
   "edificacion-del-caracter": {
     title: "Edificación del Carácter",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 6.52,
+    price: 7.02,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -783,7 +782,7 @@ const CATALOGO = {
   "hijos-e-hijas-de-dios": {
     title: "Hijos e Hijas de Dios",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.21,
+    price: 9.71,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -793,7 +792,7 @@ const CATALOGO = {
   "exaltad-a-jesus": {
     title: "Exaltad a Jesús",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.22,
+    price: 9.72,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -803,7 +802,7 @@ const CATALOGO = {
   "en-los-lugares-celestiales": {
     title: "En los Lugares Celestiales",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.12,
+    price: 9.62,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -813,7 +812,7 @@ const CATALOGO = {
   "fe-y-obras": {
     title: "Fe y Obras",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 6.75,
+    price: 7.25,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -823,7 +822,7 @@ const CATALOGO = {
   "el-otro-poder": {
     title: "El Otro Poder",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 7.03,
+    price: 7.53,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -833,7 +832,7 @@ const CATALOGO = {
   "el-ministerio-pastoral": {
     title: "El Ministerio Pastoral",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 8.57,
+    price: 9.07,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -843,7 +842,7 @@ const CATALOGO = {
   "el-ministerio-de-publicaciones": {
     title: "El Ministerio de Publicaciones",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.14,
+    price: 9.64,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -853,7 +852,7 @@ const CATALOGO = {
   "el-ministerio-de-la-bondad": {
     title: "El Ministerio de la Bondad",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 8.23,
+    price: 8.73,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -863,7 +862,7 @@ const CATALOGO = {
   "el-ministerio-medico": {
     title: "El Ministerio Médico",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 10.94,
+    price: 11.44,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -873,7 +872,7 @@ const CATALOGO = {
   "el-hogar-cristiano": {
     title: "El Hogar Cristiano",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.68,
+    price: 10.18,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -883,7 +882,7 @@ const CATALOGO = {
   "el-evangelismo": {
     title: "El Evangelismo",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 10.76,
+    price: 11.26,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -893,7 +892,7 @@ const CATALOGO = {
   "el-conflicto-inminente": {
     title: "El Conflicto Inminente",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 6.84,
+    price: 7.34,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -903,7 +902,7 @@ const CATALOGO = {
   "el-colportor-evangelico": {
     title: "El Colportor Evangélico",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 7.49,
+    price: 7.99,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -913,7 +912,7 @@ const CATALOGO = {
   "dios-nos-cuida": {
     title: "Dios Nos Cuida",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.31,
+    price: 9.81,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -923,7 +922,7 @@ const CATALOGO = {
   "de-la-ciudad-al-campo": {
     title: "De la Ciudad al Campo",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 6.63,
+    price: 7.13,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -933,7 +932,7 @@ const CATALOGO = {
   "la-pasion-del-amor": {
     title: "La Pasión del Amor",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 8.01,
+    price: 8.51,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -943,7 +942,7 @@ const CATALOGO = {
   "cristo-nuestro-salvador": {
     title: "Cristo Nuestro Salvador",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 6.93,
+    price: 7.43,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -953,7 +952,7 @@ const CATALOGO = {
   "cristo-en-su-santuario": {
     title: "Cristo en Su Santuario",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 6.93,
+    price: 7.43,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -963,7 +962,7 @@ const CATALOGO = {
   "consejos-sobre-la-mayordomia-cristiana": {
     title: "Consejos sobre la Mayordomía Cristiana",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 8.51,
+    price: 9.01,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -973,7 +972,7 @@ const CATALOGO = {
   "consejos-sobre-la-obra-de-escuela-sabatica": {
     title: "Consejos sobre la Obra de Escuela Sabática",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 7.69,
+    price: 8.19,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -983,7 +982,7 @@ const CATALOGO = {
   "consejos-para-los-maestros": {
     title: "Consejos para los Maestros",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.65,
+    price: 10.15,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -993,7 +992,7 @@ const CATALOGO = {
   "consejos-para-la-iglesia": {
     title: "Consejos para la Iglesia",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.96,
+    price: 10.46,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1003,7 +1002,7 @@ const CATALOGO = {
   "mensajes-para-los-jovenes": {
     title: "Mensajes para los Jóvenes",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 8.5,
+    price: 9,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1013,7 +1012,7 @@ const CATALOGO = {
   "testimonios-para-los-ministros": {
     title: "Testimonios para los Ministros",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 8.66,
+    price: 9.16,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1023,7 +1022,7 @@ const CATALOGO = {
   "servicio-cristiano": {
     title: "Servicio Cristiano",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 7.32,
+    price: 7.82,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1033,7 +1032,7 @@ const CATALOGO = {
   "un-llamado-a-ser-diferente": {
     title: "Un Llamado a Ser Diferente",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 5.81,
+    price: 6.31,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1043,7 +1042,7 @@ const CATALOGO = {
   "sermones-escogidos-1": {
     title: "Sermones Escogidos 1",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 7.82,
+    price: 8.32,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1053,7 +1052,7 @@ const CATALOGO = {
   "sermones-escogidos-2": {
     title: "Sermones Escogidos 2",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 8.5,
+    price: 9,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1063,7 +1062,7 @@ const CATALOGO = {
   "maranatha-el-senor-viene": {
     title: "Maranatha, el Señor Viene",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.21,
+    price: 9.71,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1073,7 +1072,7 @@ const CATALOGO = {
   "cada-dia-con-dios": {
     title: "Cada Día con Dios",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.13,
+    price: 9.63,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1083,7 +1082,7 @@ const CATALOGO = {
   "creencias-de-los-adventistas-del-septimo-dia": {
     title: "Creencias de los Adventistas del Séptimo Día",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.52,
+    price: 10.02,
     author: "Iglesia Adventista del Séptimo Día",
     category: "doctrina",
     categoryLabel: "Doctrina y creencias",
@@ -1093,7 +1092,7 @@ const CATALOGO = {
   "el-poder-de-la-oracion": {
     title: "El Poder Increíble de la Oración",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 6.76,
+    price: 7.26,
     author: "Roger J. Morneau",
     category: "doctrina",
     categoryLabel: "Doctrina y creencias",
@@ -1103,7 +1102,7 @@ const CATALOGO = {
   "alza-tus-ojos": {
     title: "Alza Tus Ojos",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.12,
+    price: 9.62,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1113,7 +1112,7 @@ const CATALOGO = {
   "a-fin-de-conocerle": {
     title: "A Fin de Conocerle",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.20,
+    price: 9.7,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1123,7 +1122,7 @@ const CATALOGO = {
   "review-and-herald": {
     title: "Review and Herald",
     format: "Tapa dura, 155 x 235 mm",
-    price: 15.74,
+    price: 16.24,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1133,7 +1132,7 @@ const CATALOGO = {
   "la-verdad-acerca-de-los-angeles": {
     title: "La Verdad Acerca de los Ángeles",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 7.90,
+    price: 8.4,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1143,7 +1142,7 @@ const CATALOGO = {
   "consejos-sobre-la-salud": {
     title: "Consejos sobre la Salud",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 11.64,
+    price: 12.14,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1153,7 +1152,7 @@ const CATALOGO = {
   "la-historia-de-la-redencion": {
     title: "La Historia de la Redención",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.86,
+    price: 10.36,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1163,7 +1162,7 @@ const CATALOGO = {
   "la-iglesia-remanente": {
     title: "La Iglesia Remanente",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 6.48,
+    price: 6.98,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1173,7 +1172,7 @@ const CATALOGO = {
   "la-maravillosa-gracia-de-dios": {
     title: "La Maravillosa Gracia de Dios",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 9.15,
+    price: 9.65,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1183,7 +1182,7 @@ const CATALOGO = {
   "la-musica": {
     title: "La Música",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 6.44,
+    price: 6.94,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1193,7 +1192,7 @@ const CATALOGO = {
   "la-segunda-venida-y-el-cielo": {
     title: "La Segunda Venida y el Cielo",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 7.05,
+    price: 7.55,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",
@@ -1203,7 +1202,7 @@ const CATALOGO = {
   "biblia-bilingue-rvr-nkjv-marron": {
     title: "Biblia Bilingüe RVR/NKJV, Marrón",
     format: "Tapa dura entelada, dos tonos",
-    price: 38.99,
+    price: 39.49,
     freeShipping: true,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
@@ -1214,7 +1213,7 @@ const CATALOGO = {
   "biblia-compacta-fucsia-floral-cierre": {
     title: "Biblia Compacta Letra Grande, Fucsia Floral con Cremallera",
     format: "Tapa blanda, cierre de cremallera",
-    price: 27.99,
+    price: 28.49,
     freeShipping: true,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
@@ -1225,7 +1224,7 @@ const CATALOGO = {
   "biblia-apuntes-rosa-floreada": {
     title: "Biblia de Apuntes Tapa Dura Entelada, Rosa Floreada",
     format: "Tapa dura entelada, con banda elástica",
-    price: 38.99,
+    price: 39.49,
     freeShipping: true,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
@@ -1236,7 +1235,7 @@ const CATALOGO = {
   "biblia-apuntes-negro": {
     title: "Biblia de Apuntes Tapa Dura, Negro",
     format: "Tapa dura, con banda elástica",
-    price: 38.04,
+    price: 38.54,
     freeShipping: true,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
@@ -1247,7 +1246,7 @@ const CATALOGO = {
   "biblia-apuntes-negro-oro": {
     title: "Biblia de Apuntes Tapa Dura, Negro/Oro",
     format: "Tapa dura",
-    price: 35.2,
+    price: 35.7,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1257,7 +1256,7 @@ const CATALOGO = {
   "biblia-apuntes-blanco-negro-floral": {
     title: "Biblia de Apuntes Tapa Dura, Blanco/Negro Floral",
     format: "Tapa dura",
-    price: 34.24,
+    price: 34.74,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1267,7 +1266,7 @@ const CATALOGO = {
   "biblia-apuntes-azul-oscuro-floral": {
     title: "Biblia de Apuntes Tapa Dura, Azul Oscuro Floral",
     format: "Tapa dura",
-    price: 34.2,
+    price: 34.7,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1277,7 +1276,7 @@ const CATALOGO = {
   "biblia-apuntes-azul-celeste-floral": {
     title: "Biblia de Apuntes Tapa Dura, Azul Celeste Floral",
     format: "Tapa dura",
-    price: 34.2,
+    price: 34.7,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1287,7 +1286,7 @@ const CATALOGO = {
   "biblia-apuntes-rosa-floral": {
     title: "Biblia de Apuntes Tapa Dura, Rosa Floral",
     format: "Tapa dura",
-    price: 34.2,
+    price: 34.7,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1297,7 +1296,7 @@ const CATALOGO = {
   "biblia-apuntes-vino-tinto": {
     title: "Biblia de Apuntes Tapa Dura, Vino Tinto",
     format: "Tapa dura",
-    price: 34.2,
+    price: 34.7,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1307,7 +1306,7 @@ const CATALOGO = {
   "biblia-rvr60-cafe": {
     title: "Biblia RVR60 Letra Grande, Café",
     format: "Tapa dura, imitación piel",
-    price: 15.24,
+    price: 15.74,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1317,7 +1316,7 @@ const CATALOGO = {
   "biblia-rvr60-verde-mariposas": {
     title: "Biblia RVR60 Letra Grande, Verde Mariposas",
     format: "Tapa dura, imitación piel",
-    price: 15.24,
+    price: 15.74,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1327,7 +1326,7 @@ const CATALOGO = {
   "biblia-rvr60-negro": {
     title: "Biblia RVR60 Letra Grande, Negro",
     format: "Tapa dura, imitación piel",
-    price: 16.2,
+    price: 16.7,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1337,7 +1336,7 @@ const CATALOGO = {
   "biblia-rvr60-marron": {
     title: "Biblia RVR60 Letra Grande, Marrón",
     format: "Tapa dura, imitación piel",
-    price: 16.2,
+    price: 16.7,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1347,7 +1346,7 @@ const CATALOGO = {
   "biblia-rvr60-beige": {
     title: "Biblia RVR60 Letra Grande, Beige",
     format: "Tapa dura, imitación piel",
-    price: 15.24,
+    price: 15.74,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1357,7 +1356,7 @@ const CATALOGO = {
   "biblia-rvr60-amarillo-abejas-cierre": {
     title: "Biblia RVR60 Letra Grande, Amarillo Abejas, con Cierre",
     format: "Tapa dura, con cierre de cremallera",
-    price: 19.99,
+    price: 20.49,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1367,7 +1366,7 @@ const CATALOGO = {
   "biblia-rvr60-verde-olivo-cierre": {
     title: "Biblia RVR60 Letra Grande, Verde Olivo, con Cierre",
     format: "Tapa dura, con cierre de cremallera",
-    price: 19.99,
+    price: 20.49,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1377,7 +1376,7 @@ const CATALOGO = {
   "biblia-rvr60-marron-elegante-cierre": {
     title: "Biblia RVR60 Letra Grande, Marrón Elegante, con Cierre",
     format: "Tapa dura, con cierre de cremallera",
-    price: 19.99,
+    price: 20.49,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1387,7 +1386,7 @@ const CATALOGO = {
   "biblia-rvr60-cafe-cierre": {
     title: "Biblia RVR60 Letra Grande, Café, con Cierre",
     format: "Tapa dura, con cierre de cremallera",
-    price: 19.99,
+    price: 20.49,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1397,7 +1396,7 @@ const CATALOGO = {
   "biblia-rvr60-beige-floral-cierre": {
     title: "Biblia RVR60 Letra Grande, Beige Floral, con Cierre",
     format: "Tapa dura, con cierre de cremallera",
-    price: 19.99,
+    price: 20.49,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1407,7 +1406,7 @@ const CATALOGO = {
   "biblia-rvr60-morado-flor-dorada-cierre": {
     title: "Biblia RVR60 Letra Grande, Morado con Flor Dorada, con Cierre",
     format: "Tapa dura, con cierre de cremallera",
-    price: 19.99,
+    price: 20.49,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1417,7 +1416,7 @@ const CATALOGO = {
   "biblia-rvr60-rosa-floral-cierre": {
     title: "Biblia RVR60 Letra Grande, Rosa Floral, con Cierre",
     format: "Tapa dura, con cierre de cremallera",
-    price: 19.99,
+    price: 20.49,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1427,7 +1426,7 @@ const CATALOGO = {
   "biblia-rvr60-negro-cierre": {
     title: "Biblia RVR60 Letra Grande, Negro, con Cierre",
     format: "Tapa dura, con cierre de cremallera",
-    price: 19.99,
+    price: 20.49,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
@@ -1437,7 +1436,7 @@ const CATALOGO = {
   "biblia-rvr60-aguila-cierre": {
     title: "Biblia RVR60 Letra Grande, Águila, con Cierre",
     format: "Tapa dura, con cierre de cremallera",
-    price: 19.99,
+    price: 20.49,
     author: "Sociedades Bíblicas Unidas",
     category: "biblias",
     categoryLabel: "Biblias",
