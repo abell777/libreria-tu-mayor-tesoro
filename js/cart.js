@@ -466,7 +466,33 @@ document.addEventListener('DOMContentLoaded', function () {
       var libro = window.BooksCatalog.getById(item.id);
       return !!(libro && libro.freeShipping);
     });
-    var SHIPPING = todosEnvioGratis ? 0 : 6;
+    // Envío por nº total de libros (la Colección Tesoros de Vida cuenta como 5).
+    // Debe coincidir con functions/index.js (TRAMOS_ENVIO).
+    var numLibros = items.reduce(function (n, i) { return n + i.qty * (i.id === 'coleccion-tesoros-de-vida' ? 5 : 1); }, 0);
+    var costeEnvioTramo = numLibros <= 5 ? 6 : numLibros <= 10 ? 10 : numLibros <= 16 ? 15 : 16;
+    var SHIPPING = todosEnvioGratis ? 0 : costeEnvioTramo;
+
+    // Descuento por cantidad del MISMO libro y edición (mismo criterio que el servidor).
+    var grupos = {};
+    items.forEach(function (i) {
+      var libro = window.BooksCatalog ? window.BooksCatalog.getById(i.id) : null;
+      var elegible = i.id !== 'coleccion-tesoros-de-vida' && String(i.id).indexOf('extra-') !== 0 && !(libro && libro.freeShipping);
+      var k = i.id + '|' + JSON.stringify(i.imp || null);
+      if (!grupos[k]) grupos[k] = { q: 0, elegible: elegible };
+      grupos[k].q += i.qty;
+    });
+    var descCantidad = 0;
+    Object.keys(grupos).forEach(function (k) {
+      var g = grupos[k];
+      if (g.elegible) descCantidad += (g.q >= 10 ? 0.5 : g.q >= 3 ? 0.25 : 0) * g.q;
+    });
+    descCantidad = Math.round(descCantidad * 100) / 100;
+    var hintEl = document.getElementById('summaryShipHint');
+    if (hintEl) {
+      hintEl.textContent = numLibros > 21
+        ? 'Un pedido admite como máximo 21 libros. Divide el pedido o escríbenos.'
+        : 'Envío según nº de libros: hasta 5 → 6 €, 6-10 → 10 €, 11-16 → 15 €, 17-21 → 16 €.';
+    }
 
     // El descuento se recalcula aquí a partir del subtotal actual (nunca se
     // guarda un importe fijo), así que si cambias cantidades en el carrito
@@ -475,8 +501,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var promo = Cart.getPromo();
     var descuento = 0;
     if (promo && items.length) {
-      var bruto = promo.tipo === 'porcentaje' ? subtotal * (promo.valor / 100) : promo.valor;
-      descuento = Math.max(0, Math.min(subtotal, Math.round(bruto * 100) / 100));
+      var bruto = promo.tipo === 'porcentaje' ? (subtotal - descCantidad) * (promo.valor / 100) : promo.valor;
+      descuento = Math.max(0, Math.min(subtotal - descCantidad, Math.round(bruto * 100) / 100));
     }
 
     // Extras de regalo: se muestran en su propia fila para que el cliente
@@ -495,9 +521,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (subtotalEl) subtotalEl.textContent = fmtEUR(subtotal);
     if (shippingEl) shippingEl.textContent = SHIPPING === 0 ? 'Gratis' : fmtEUR(SHIPPING);
+    var qtyRow = document.getElementById('summaryQtyDiscountRow');
+    var qtyEl = document.getElementById('summaryQtyDiscount');
+    if (qtyRow) qtyRow.hidden = descCantidad <= 0;
+    if (qtyEl) qtyEl.textContent = '−' + fmtEUR(descCantidad);
     if (discountRow) discountRow.hidden = descuento <= 0;
     if (discountEl) discountEl.textContent = '−' + fmtEUR(descuento);
-    var total = Math.max(0, subtotal + extras + SHIPPING - descuento);
+    var total = Math.max(0, subtotal + extras + SHIPPING - descCantidad - descuento);
     if (totalEl) totalEl.textContent = fmtEUR(total);
   }
 

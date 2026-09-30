@@ -415,7 +415,7 @@
       lista_articulos: listaItems,
       subtotal: eur(pedido.subtotal),
       gastos_envio: pedido.gastosEnvio ? eur(pedido.gastosEnvio) : 'Gratis',
-      descuento: pedido.descuento > 0 ? '-' + eur(pedido.descuento) : '0,00 €',
+      descuento: ((pedido.descuento || 0) + (pedido.descuentoCantidad || 0)) > 0 ? '-' + eur((pedido.descuento || 0) + (pedido.descuentoCantidad || 0)) : '0,00 €',
       total: pedido.total.toFixed(2).replace('.', ',') + ' €',
       direccion_envio: pedido.envio.direccion + ', ' + pedido.envio.cp + ' ' + pedido.envio.ciudad,
       telefono: pedido.envio.telefono,

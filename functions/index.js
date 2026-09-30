@@ -1448,7 +1448,28 @@ const CATALOGO = {
 
 const MAX_ITEMS = 30;
 const MAX_QTY = 20;
-const SHIPPING_COST = 6;
+const SHIPPING_COST = 6; // (ya no se usa: ver TRAMOS_ENVIO)
+
+// Envío por nº TOTAL de libros del pedido (los extras de regalo no cuentan;
+// la Colección Tesoros de Vida cuenta como 5). Debe coincidir con js/cart.js.
+const TRAMOS_ENVIO = [
+  { max: 5, coste: 6 },
+  { max: 10, coste: 10 },
+  { max: 16, coste: 15 },
+  { max: 21, coste: 16 },
+];
+const MAX_LIBROS_PEDIDO = 21;
+function costeEnvio(numLibros) {
+  for (const t of TRAMOS_ENVIO) if (numLibros <= t.max) return t.coste;
+  return TRAMOS_ENVIO[TRAMOS_ENVIO.length - 1].coste;
+}
+// Descuento por cantidad del MISMO libro y edición (€ por ejemplar).
+// Cambia estos números si quieres más/menos margen. Debe coincidir con js/cart.js.
+function descuentoPorEjemplar(q) {
+  if (q >= 10) return 0.5;
+  if (q >= 3) return 0.25;
+  return 0;
+}
 
 function textoValido(v, max) {
   return typeof v === "string" && v.trim().length > 0 && v.trim().length <= max;
@@ -1561,6 +1582,8 @@ exports.crearPedido = onCall(async (request) => {
   // el mismo libro al mismo precio, así que no afecta al importe — solo
   // queda anotado en el pedido para saber qué cubierta hay que enviar.
   const itemsFinales = [];
+  const gruposCantidad = {}; // id|edición -> { q, elegible }
+  let numLibros = 0;
   for (const item of itemsSolicitados) {
     const libro = item && CATALOGO[item.id];
     if (!libro) {
@@ -1584,6 +1607,7 @@ exports.crearPedido = onCall(async (request) => {
     let tituloFinal = libro.title;
     let formatoFinal = libro.format + (etiquetaPortada ? " · " + etiquetaPortada : "");
     let precioFinal = libro.price;
+    let edicionBase = libro.format;
 
     if (hasEWPrintOptions(item.id)) {
       const resuelto = resolverImpresion(item.id, item.imp);
@@ -1592,7 +1616,16 @@ exports.crearPedido = onCall(async (request) => {
       }
       formatoFinal = resuelto.formato + (etiquetaPortada ? " · " + etiquetaPortada : "");
       precioFinal = resuelto.precio;
+      edicionBase = resuelto.formato;
     }
+
+    const esColeccion = item.id === "coleccion-tesoros-de-vida";
+    numLibros += cantidad * (esColeccion ? 5 : 1);
+    const claveGrupo = item.id + "|" + edicionBase;
+    if (!gruposCantidad[claveGrupo]) {
+      gruposCantidad[claveGrupo] = { q: 0, elegible: !esColeccion && !libro.freeShipping };
+    }
+    gruposCantidad[claveGrupo].q += cantidad;
 
     itemsFinales.push({
       id: item.id,
@@ -1611,11 +1644,20 @@ exports.crearPedido = onCall(async (request) => {
     }
   }
 
+  if (numLibros > MAX_LIBROS_PEDIDO) {
+    throw new HttpsError("invalid-argument", "Un pedido admite como máximo " + MAX_LIBROS_PEDIDO + " libros. Divide el pedido en dos o escríbenos a libreriamayortesoro@gmail.com.");
+  }
   const subtotal = itemsFinales.reduce((sum, it) => sum + it.precio * it.cantidad, 0);
+  // Descuento por cantidad: solo entre ejemplares del MISMO libro y edición.
+  let descuentoCantidad = 0;
+  for (const g of Object.values(gruposCantidad)) {
+    if (g.elegible) descuentoCantidad += descuentoPorEjemplar(g.q) * g.q;
+  }
+  descuentoCantidad = Math.round(descuentoCantidad * 100) / 100;
   // Envío gratis solo si TODOS los libros del pedido lo llevan incluido
   // (mismo criterio que en js/cart.js); si no, se cobran los 6€ habituales.
   const todosEnvioGratis = itemsFinales.every((it) => it.envioGratis);
-  const gastosEnvio = todosEnvioGratis ? 0 : SHIPPING_COST;
+  const gastosEnvio = todosEnvioGratis ? 0 : costeEnvio(numLibros);
   const subtotalRedondeado = Math.round(subtotal * 100) / 100;
 
   // Nombre y correo del cliente: se leen de la cuenta autenticada, no del
@@ -1650,7 +1692,7 @@ exports.crearPedido = onCall(async (request) => {
   const metodoPago = data.metodoPago === "bizum" ? "bizum" : "tarjeta";
 
   function construirPedido() {
-    const total = Math.max(0, Math.round((subtotalRedondeado + gastosEnvio - descuento) * 100) / 100);
+    const total = Math.max(0, Math.round((subtotalRedondeado + gastosEnvio - descuentoCantidad - descuento) * 100) / 100);
     return {
       numero,
       uid: auth.uid,
@@ -1666,6 +1708,7 @@ exports.crearPedido = onCall(async (request) => {
       items: itemsFinales,
       subtotal: subtotalRedondeado,
       gastosEnvio,
+      descuentoCantidad,
       descuento,
       promoAplicada,
       total,
@@ -1713,10 +1756,10 @@ exports.crearPedido = onCall(async (request) => {
         }
       }
 
-      const bruto = promo.tipo === "porcentaje" ? subtotalRedondeado * (promo.valor / 100) : promo.valor;
+      const bruto = promo.tipo === "porcentaje" ? (subtotalRedondeado - descuentoCantidad) * (promo.valor / 100) : promo.valor;
       // El descuento nunca puede ser negativo ni superar el propio
       // subtotal, así el pedido nunca puede salir a coste negativo.
-      descuento = Math.max(0, Math.min(subtotalRedondeado, Math.round(bruto * 100) / 100));
+      descuento = Math.max(0, Math.min(subtotalRedondeado - descuentoCantidad, Math.round(bruto * 100) / 100));
       promoAplicada = { codigo: codigoPromo, tipo: promo.tipo, valor: promo.valor, descuento };
 
       tx.update(promoRef, { usosTotales: FieldValue.increment(1) });
@@ -1750,6 +1793,7 @@ exports.crearPedido = onCall(async (request) => {
     items: pedidoFinal.items,
     subtotal: pedidoFinal.subtotal,
     gastosEnvio: pedidoFinal.gastosEnvio,
+    descuentoCantidad: pedidoFinal.descuentoCantidad,
     descuento: pedidoFinal.descuento,
     total: pedidoFinal.total,
     clienteNombre: pedidoFinal.clienteNombre,
@@ -1949,7 +1993,7 @@ exports.crearSesionPago = onCall({ secrets: [STRIPE_SECRET_KEY] }, async (reques
   const stripe = require("stripe")(STRIPE_SECRET_KEY.value().trim());
 
   let lineItems;
-  if (pedido.descuento > 0) {
+  if ((pedido.descuento || 0) + (pedido.descuentoCantidad || 0) > 0) {
     // Con código promocional, Stripe no admite líneas negativas: se cobra
     // UNA línea con el total real del pedido (ya con descuento y envío).
     lineItems = [{
@@ -2090,7 +2134,7 @@ exports.buscarPedidoPublico = onCall(async (request) => {
     })),
     subtotal: pedido.subtotal,
     gastosEnvio: pedido.gastosEnvio,
-    descuento: pedido.descuento || 0,
+    descuento: (pedido.descuento || 0) + (pedido.descuentoCantidad || 0),
     total: pedido.total,
     envio: {
       nombre: (pedido.envio && pedido.envio.nombre) || "",
