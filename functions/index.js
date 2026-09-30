@@ -116,6 +116,7 @@ const PORTADAS_VALIDAS = {
   "tipografica-clara": "Portada tipográfica clara",
   "tipografica-oscura": "Portada tipográfica oscura",
   clasica: "Portada clásica",
+  fotografica: "Portada fotográfica (cordero)",
 };
 
 // ---- Catálogo oficial (debe coincidir con js/books-data.js) ----
