@@ -2,7 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.libreriatumayortesoro.com/</loc><lastmod>2026-09-20</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://www.libreriatumayortesoro.com/categoria.html</loc><lastmod>2026-09-20</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/categoria.html?cat=biblias</loc><lastmod>2026-09-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
   <url><loc>https://www.libreriatumayortesoro.com/categoria.html?cat=doctrina</loc><lastmod>2026-09-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
   <url><loc>https://www.libreriatumayortesoro.com/categoria.html?cat=elena-white</loc><lastmod>2026-09-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
   <url><loc>https://www.libreriatumayortesoro.com/quienes-somos.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
@@ -17,6 +16,8 @@
   <url><loc>https://www.libreriatumayortesoro.com/por-donde-empezar-elena-g-white.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.libreriatumayortesoro.com/que-regalar-en-un-bautismo-cristiano.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.libreriatumayortesoro.com/que-es-el-conflicto-de-los-siglos.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.libreriatumayortesoro.com/que-es-el-deseado-de-todas-las-gentes.html</loc><lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.libreriatumayortesoro.com/que-es-el-camino-a-cristo.html</loc><lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.libreriatumayortesoro.com/envios.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://www.libreriatumayortesoro.com/devoluciones.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://www.libreriatumayortesoro.com/personalizado.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
@@ -25,7 +26,6 @@
   <url><loc>https://www.libreriatumayortesoro.com/trabaja-con-nosotros.html</loc><lastmod>2026-09-20</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://www.libreriatumayortesoro.com/terminos.html</loc><lastmod>2026-09-20</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://www.libreriatumayortesoro.com/privacidad.html</loc><lastmod>2026-09-20</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=coleccion-tesoros-de-vida</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=el-conflicto-de-los-siglos</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=el-deseado-de-todas-las-gentes</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=historia-de-los-patriarcas-y-profetas</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -122,28 +122,16 @@
   <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=joyas-de-los-testimonios-1</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=joyas-de-los-testimonios-2</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=joyas-de-los-testimonios-3</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-bilingue-rvr-nkjv-marron</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-compacta-fucsia-floral-cierre</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-apuntes-rosa-floreada</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-apuntes-negro</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-apuntes-negro-oro</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-apuntes-blanco-negro-floral</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-apuntes-azul-oscuro-floral</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-apuntes-azul-celeste-floral</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-apuntes-rosa-floral</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-apuntes-vino-tinto</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-rvr60-cafe</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-rvr60-verde-mariposas</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-rvr60-negro</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-rvr60-marron</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-rvr60-beige</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-rvr60-amarillo-abejas-cierre</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-rvr60-verde-olivo-cierre</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-rvr60-marron-elegante-cierre</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-rvr60-cafe-cierre</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-rvr60-beige-floral-cierre</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-rvr60-morado-flor-dorada-cierre</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-rvr60-rosa-floral-cierre</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-rvr60-negro-cierre</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=biblia-rvr60-aguila-cierre</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=ser-semejante-a-jesus</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=mensajes-para-los-jovenes</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=mente-caracter-y-personalidad-1</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=mente-caracter-y-personalidad-2</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=mi-vida-hoy</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=notas-biograficas-de-elena-g-de-white</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=nuestra-elevada-vocacion</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=obreros-evangelicos</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=oscuridad-antes-del-amanecer</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=reavivamientos-modernos</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=recibireis-poder</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.libreriatumayortesoro.com/producto.html?id=reflejemos-a-jesus</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
 </urlset>
