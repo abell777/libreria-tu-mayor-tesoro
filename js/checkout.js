@@ -523,12 +523,8 @@
         var pedido = doc.data();
 
         if (pedido.pagado) {
-          if (!sessionStorage.getItem(flagCorreo)) {
-            sessionStorage.setItem(flagCorreo, '1');
-            enviarCorreos(pedido).catch(function (err) {
-              console.error('Error al enviar los correos de confirmación', err);
-            });
-          }
+          // Los correos del pedido pagado con tarjeta los envía ahora el servidor
+          // (stripeWebhook), aunque el cliente cierre esta página.
           Cart.clear();
           Cart.clearPromo();
           mostrarConfirmacion(pedido.numero, pedido.total);

@@ -2046,12 +2046,73 @@ exports.crearSesionPago = onCall({ secrets: [STRIPE_SECRET_KEY] }, async (reques
   return { url: session.url };
 });
 
+// --- Correos del servidor para pedidos pagados / reembolsos -----------------
+function eurES(n) { return Number(n || 0).toFixed(2).replace(".", ",") + " €"; }
+function htmlResumenPedido(p) {
+  const filas = (p.items || []).map((it) =>
+    "<tr><td style=\"padding:6px 8px;border-bottom:1px solid #eee\">" + it.cantidad + " × " + escapeHtml(it.titulo || "") +
+    (it.formato ? "<br><small style=\"color:#777\">" + escapeHtml(it.formato) + "</small>" : "") +
+    "</td><td style=\"padding:6px 8px;border-bottom:1px solid #eee;text-align:right;white-space:nowrap\">" + eurES(it.precio * it.cantidad) + "</td></tr>"
+  ).join("");
+  const desc = (p.descuento || 0) + (p.descuentoCantidad || 0);
+  return "<table style=\"width:100%;border-collapse:collapse;font-size:14px\">" + filas + "</table>" +
+    "<p style=\"text-align:right;margin:10px 0 0\">Subtotal: " + eurES(p.subtotal) + "<br>Envío: " + (p.gastosEnvio ? eurES(p.gastosEnvio) : "Gratis") +
+    (desc > 0 ? "<br>Descuentos: -" + eurES(desc) : "") + "<br><strong>Total: " + eurES(p.total) + "</strong></p>";
+}
+async function enviarCorreosPedidoPagado(p) {
+  const transporter = crearTransporterGmail();
+  const from = '"Librería tu mayor tesoro" <' + GMAIL_USER.value().trim() + ">";
+  const envio = p.envio || {};
+  const direccion = escapeHtml([envio.direccion, [envio.cp, envio.ciudad].filter(Boolean).join(" ")].filter(Boolean).join(", "));
+  const enlace = SITE_URL + "/seguimiento.html?numero=" + encodeURIComponent(p.numero || "");
+  const marco = (titulo, cuerpo) =>
+    '<div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;color:#2b2b2b"><h2 style="color:#20304f;margin-bottom:4px">' + titulo + "</h2>" + cuerpo +
+    '<p style="font-size:0.85em;color:#777">Cualquier duda, escríbenos a <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a>.</p></div>';
+
+  await transporter.sendMail({
+    from, to: p.clienteEmail,
+    subject: "Hemos recibido tu pago — pedido " + (p.numero || ""),
+    html: marco("¡Gracias por tu compra!",
+      "<p>Hola" + (p.clienteNombre ? ", " + escapeHtml(p.clienteNombre) : "") + ": hemos recibido tu pago del pedido <strong>" + escapeHtml(p.numero || "") + "</strong>. Lo preparamos y te avisaremos cuando salga.</p>" +
+      htmlResumenPedido(p) + "<p><strong>Dirección de envío:</strong><br>" + escapeHtml(envio.nombre || "") + "<br>" + direccion + "</p>" +
+      '<p style="text-align:center;margin:22px 0"><a href="' + enlace + '" style="background:#20304f;color:#f6efe2;padding:12px 26px;border-radius:6px;text-decoration:none;font-weight:bold">Seguir mi pedido</a></p>'),
+  });
+  await transporter.sendMail({
+    from, to: "libreriamayortesoro@gmail.com",
+    subject: "💳 Pedido PAGADO " + (p.numero || "") + " — " + eurES(p.total),
+    html: marco("Nuevo pedido pagado con tarjeta",
+      "<p><strong>" + escapeHtml(p.numero || "") + "</strong> — " + escapeHtml(p.clienteNombre || "") + " (" + escapeHtml(p.clienteEmail || "") + ")</p>" +
+      htmlResumenPedido(p) + "<p><strong>Enviar a:</strong><br>" + escapeHtml(envio.nombre || "") + "<br>" + direccion +
+      (envio.telefono ? "<br>Tel: " + escapeHtml(envio.telefono) : "") + "</p>"),
+  });
+}
+async function enviarCorreoReembolso(p, importe, total) {
+  const transporter = crearTransporterGmail();
+  const from = '"Librería tu mayor tesoro" <' + GMAIL_USER.value().trim() + ">";
+  const yaEnviado = p.estado === "enviado" || p.estado === "entregado";
+  await transporter.sendMail({
+    from, to: "libreriamayortesoro@gmail.com",
+    subject: "↩️ Reembolso " + (total ? "TOTAL" : "parcial") + " — pedido " + (p.numero || ""),
+    html: "<p>Has reembolsado <strong>" + eurES(importe) + "</strong> del pedido <strong>" + escapeHtml(p.numero || "") + "</strong> (" + escapeHtml(p.clienteEmail || "") + ").</p>" +
+      (total ? "<p>El pedido ha quedado marcado como <strong>no pagado / reembolsado</strong>." + (yaEnviado ? " ⚠️ Ya constaba como «" + escapeHtml(p.estado) + "»: revisa si hay que recuperar el paquete." : " Si aún no lo has enviado, no lo envíes.") + "</p>" : ""),
+  });
+  if (p.clienteEmail) {
+    await transporter.sendMail({
+      from, to: p.clienteEmail,
+      subject: "Reembolso de tu pedido " + (p.numero || ""),
+      html: '<div style="font-family:Georgia,serif;max-width:520px;margin:0 auto;color:#2b2b2b"><h2 style="color:#20304f">Reembolso realizado</h2>' +
+        "<p>Te hemos reembolsado <strong>" + eurES(importe) + "</strong> del pedido <strong>" + escapeHtml(p.numero || "") + "</strong>. Según tu banco, puede tardar entre 5 y 10 días laborables en verse reflejado en tu cuenta.</p>" +
+        '<p style="font-size:0.85em;color:#777">Cualquier duda, escríbenos a <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a>.</p></div>',
+    }).catch((e) => console.error("Correo de reembolso al cliente:", e));
+  }
+}
+
 // ==========================================================================
 // "stripeWebhook" — Stripe llama aquí cuando un pago se completa de verdad.
 // Es la ÚNICA forma en que un pedido pasa a "pagado": nunca se fía de lo
 // que diga el navegador (el navegador podría "fingir" haber pagado).
 // ==========================================================================
-exports.stripeWebhook = onRequest({ secrets: [STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET] }, async (req, res) => {
+exports.stripeWebhook = onRequest({ secrets: [STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, GMAIL_USER, GMAIL_APP_PASSWORD] }, async (req, res) => {
   const stripe = require("stripe")(STRIPE_SECRET_KEY.value());
 
   let event;
@@ -2063,19 +2124,105 @@ exports.stripeWebhook = onRequest({ secrets: [STRIPE_SECRET_KEY, STRIPE_WEBHOOK_
     return;
   }
 
+  // ---- Pago completado: marcar pagado + correos (cliente y tienda) desde el servidor
   if (event.type === "checkout.session.completed" || event.type === "payment_intent.succeeded") {
     const object = event.data.object;
     const pedidoId = object.metadata && object.metadata.pedidoId;
     if (pedidoId) {
+      const ref = db.collection("pedidos").doc(pedidoId);
+      const paymentIntentId = event.type === "payment_intent.succeeded" ? object.id : (object.payment_intent || null);
+      let pedidoParaCorreo = null;
       try {
-        await db.collection("pedidos").doc(pedidoId).update({
-          pagado: true,
-          pagoConfirmadoEn: FieldValue.serverTimestamp(),
-          stripePaymentId: object.id,
+        pedidoParaCorreo = await db.runTransaction(async (tx) => {
+          const snap = await tx.get(ref);
+          if (!snap.exists) return null;
+          const d = snap.data();
+          const cambios = { stripePaymentIntentId: paymentIntentId || d.stripePaymentIntentId || null };
+          if (!d.stripePaymentId) cambios.stripePaymentId = object.id;
+          if (!d.reembolsado) {
+            cambios.pagado = true;
+            if (!d.pagoConfirmadoEn) cambios.pagoConfirmadoEn = FieldValue.serverTimestamp();
+          }
+          // "Reclamamos" el envío del correo dentro de la transacción: si Stripe
+          // repite el aviso, solo el primero manda los correos.
+          const primeraVez = !d.correoPagoEnviadoEn && !d.reembolsado;
+          if (primeraVez) cambios.correoPagoEnviadoEn = FieldValue.serverTimestamp();
+          tx.update(ref, cambios);
+          return primeraVez ? d : null;
         });
       } catch (err) {
         console.error("No se pudo marcar el pedido " + pedidoId + " como pagado:", err);
+        res.status(500).send("error");
+        return;
       }
+      if (pedidoParaCorreo) {
+        try {
+          await enviarCorreosPedidoPagado(pedidoParaCorreo);
+        } catch (err) {
+          console.error("No se pudieron enviar los correos del pedido " + pedidoId + ":", err);
+          // Liberamos la marca y respondemos error: Stripe reintentará el aviso.
+          await ref.update({ correoPagoEnviadoEn: FieldValue.delete() }).catch(() => {});
+          res.status(500).send("error correo");
+          return;
+        }
+      }
+    }
+  }
+
+  // ---- Reembolso (total o parcial) hecho desde el panel de Stripe
+  if (event.type === "charge.refunded") {
+    const charge = event.data.object;
+    try {
+      let doc = null;
+      if (charge.payment_intent) {
+        const q = await db.collection("pedidos").where("stripePaymentIntentId", "==", charge.payment_intent).limit(1).get();
+        if (!q.empty) doc = q.docs[0];
+        if (!doc) {
+          const q2 = await db.collection("pedidos").where("stripePaymentId", "==", charge.payment_intent).limit(1).get();
+          if (!q2.empty) doc = q2.docs[0];
+        }
+      }
+      if (!doc && charge.metadata && charge.metadata.pedidoId) {
+        const d0 = await db.collection("pedidos").doc(charge.metadata.pedidoId).get();
+        if (d0.exists) doc = d0;
+      }
+      if (!doc) {
+        console.error("charge.refunded: no se encontró el pedido del cobro " + charge.id);
+      } else {
+        const d = doc.data();
+        const reembolsadoCent = charge.amount_refunded || 0;
+        const total = reembolsadoCent >= (charge.amount || 0);
+        if (Math.round((d.importeReembolsado || 0) * 100) !== reembolsadoCent) {
+          const cambios = {
+            importeReembolsado: reembolsadoCent / 100,
+            reembolsadoEn: FieldValue.serverTimestamp(),
+          };
+          if (total) { cambios.reembolsado = true; cambios.pagado = false; }
+          await doc.ref.update(cambios);
+          await enviarCorreoReembolso(d, reembolsadoCent / 100, total);
+        }
+      }
+    } catch (err) {
+      console.error("Error procesando el reembolso:", err);
+      res.status(500).send("error");
+      return;
+    }
+  }
+
+  // ---- Disputa / contracargo: aviso urgente a la tienda
+  if (event.type === "charge.dispute.created") {
+    try {
+      const disp = event.data.object;
+      const transporter = crearTransporterGmail();
+      await transporter.sendMail({
+        from: '"Librería tu mayor tesoro" <' + GMAIL_USER.value().trim() + ">",
+        to: "libreriamayortesoro@gmail.com",
+        subject: "⚠️ Disputa abierta en Stripe (contracargo)",
+        html: "<p>Un cliente ha abierto una <strong>disputa</strong> por un pago de " + ((disp.amount || 0) / 100).toFixed(2) + " € (motivo: " + escapeHtml(disp.reason || "?") + ").</p>" +
+              "<p>Entra en Stripe → Pagos → Disputas y responde con pruebas antes de la fecha límite, o pierdes el importe más una tarifa.</p>",
+      });
+    } catch (err) {
+      console.error("No se pudo avisar de la disputa:", err);
     }
   }
 

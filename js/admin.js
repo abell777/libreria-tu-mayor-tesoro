@@ -39,7 +39,7 @@
           '<span class="admin-order-cliente">' + escapeHTML(pedido.clienteNombre || '') + '<small>' + escapeHTML(pedido.clienteEmail || '') + '</small></span>' +
           '<span class="admin-order-fecha">' + fecha + '</span>' +
           '<span class="admin-order-total">' + fmtEUR(pedido.total) + '</span>' +
-          '<span class="pay-badge pay-badge--' + (pedido.pagado ? 'ok' : 'pendiente') + '">' + (pedido.pagado ? 'Pagado' : 'Pago pendiente') + '</span>' +
+          '<span class="pay-badge pay-badge--' + (pedido.pagado ? 'ok' : 'pendiente') + '">' + (pedido.reembolsado ? 'Reembolsado' : pedido.pagado ? ('Pagado' + (pedido.importeReembolsado > 0 ? ' (reemb. parcial ' + fmtEUR(pedido.importeReembolsado) + ')' : '')) : 'Pago pendiente') + '</span>' +
           '<span class="admin-order-metodo">' + (pedido.metodoPago === 'bizum' ? 'Bizum' : 'Tarjeta') + '</span>' +
           '<span class="order-status order-status--' + escapeHTML(pedido.estado) + '">' + capitaliza(pedido.estado) + '</span>' +
         '</summary>' +
