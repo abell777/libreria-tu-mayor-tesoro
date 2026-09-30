@@ -168,7 +168,7 @@
         <div class="pay-instructions" id="bizumPaymentBlock">
           <p class="pay-instructions-lead">Envía el importe total del pedido por Bizum a este número:</p>
           <p class="pay-number">+34 644 734 911</p>
-          <p class="pay-hint">Indica tu nombre como concepto. En cuanto confirmemos el pago, prepararemos tu pedido. Al pulsar "Confirmar pedido con Bizum" quedará registrado como pendiente de verificar.</p>
+          <p class="pay-hint">Indica tu nombre como concepto. En cuanto confirmemos el pago, prepararemos tu pedido. Al pulsar "Confirmar pedido con obligación de pago" quedará registrado como pendiente de verificar.</p>
         </div>
 
         <!-- Componente embebido de Stripe Elements -->
@@ -184,9 +184,13 @@
 
         <p class="auth-error" id="checkoutError" role="alert" hidden>No se ha podido registrar tu pedido. Comprueba tu conexión e inténtalo de nuevo; si el problema continúa, escríbenos a libreriamayortesoro@gmail.com.</p>
         
+        <label class="checkbox-label" style="align-items:flex-start;margin:12px 0;">
+          <input type="checkbox" id="aceptaTerminos" required>
+          <span>He leído y acepto los <a href="terminos.html" target="_blank" rel="noopener">Términos y condiciones</a>, la <a href="privacidad.html" target="_blank" rel="noopener">Política de privacidad</a> y la <a href="devoluciones.html" target="_blank" rel="noopener">política de devoluciones</a> (los artículos personalizados no admiten desistimiento salvo defecto de fabricación).</span>
+        </label>
         <button type="submit" id="btnSubmitOrder" class="btn btn--primary btn--block">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          Confirmar pedido con Bizum
+          Confirmar pedido con obligación de pago
         </button>
         <p class="checkout-trust checkout-trust--center">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>

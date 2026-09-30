@@ -1538,6 +1538,15 @@ exports.crearPedido = onCall(async (request) => {
   ) {
     throw new HttpsError("invalid-argument", "Faltan datos de envío, o son demasiado largos.");
   }
+  // Código postal: 5 cifras y solo península y Baleares (lo que dice envios.html).
+  // Canarias (35, 38), Ceuta (51) y Melilla (52) no se sirven con la tarifa de 6 €.
+  const cpLimpio = String(envio.cp).trim().replace(/\s+/g, "");
+  if (!/^\d{5}$/.test(cpLimpio) || Number(cpLimpio.slice(0, 2)) < 1 || Number(cpLimpio.slice(0, 2)) > 52) {
+    throw new HttpsError("invalid-argument", "El código postal no es válido (5 cifras).");
+  }
+  if (["35", "38", "51", "52"].includes(cpLimpio.slice(0, 2))) {
+    throw new HttpsError("invalid-argument", "Ahora mismo solo enviamos a la península y Baleares. Escríbenos a libreriamayortesoro@gmail.com y lo miramos.");
+  }
   // El teléfono es opcional (así se indica en el formulario): solo se
   // valida su longitud si el cliente ha escrito algo.
   if (envio.telefono && !textoValido(envio.telefono, 40)) {
@@ -1612,7 +1621,18 @@ exports.crearPedido = onCall(async (request) => {
   // Nombre y correo del cliente: se leen de la cuenta autenticada, no del
   // formulario, para que nadie pueda hacerse pasar por otra persona.
   const usuario = await getAuth().getUser(auth.uid);
-  const numero = "LT-" + Date.now().toString().slice(-6);
+  // Código de pedido "LT-" + 6 cifras aleatorias, comprobando que no exista ya
+  // (antes se usaban los últimos 6 dígitos de la hora: se repetían cada ~16 min
+  // y dos pedidos podían acabar con el mismo número).
+  let numero = "";
+  for (let intento = 0; intento < 8; intento++) {
+    const candidato = "LT-" + String(require("crypto").randomInt(0, 1000000)).padStart(6, "0");
+    const existe = await db.collection("pedidos").where("numero", "==", candidato).limit(1).get();
+    if (existe.empty) { numero = candidato; break; }
+  }
+  if (!numero) {
+    throw new HttpsError("internal", "No se ha podido generar el número de pedido. Inténtalo de nuevo.");
+  }
   const ref = db.collection("pedidos").doc();
 
   // ---- Código promocional (opcional) ------------------------------------
@@ -1640,7 +1660,7 @@ exports.crearPedido = onCall(async (request) => {
         nombre: envio.nombre.trim(),
         direccion: envio.direccion.trim(),
         ciudad: envio.ciudad.trim(),
-        cp: envio.cp.trim(),
+        cp: cpLimpio,
         telefono: envio.telefono ? envio.telefono.trim() : "",
       },
       items: itemsFinales,
@@ -1928,26 +1948,39 @@ exports.crearSesionPago = onCall({ secrets: [STRIPE_SECRET_KEY] }, async (reques
 
   const stripe = require("stripe")(STRIPE_SECRET_KEY.value().trim());
 
-  const lineItems = (pedido.items || []).map(function (it) {
-    return {
+  let lineItems;
+  if (pedido.descuento > 0) {
+    // Con código promocional, Stripe no admite líneas negativas: se cobra
+    // UNA línea con el total real del pedido (ya con descuento y envío).
+    lineItems = [{
       price_data: {
         currency: "eur",
-        unit_amount: Math.round(it.precio * 100),
-        product_data: { name: it.titulo + (it.formato ? " (" + it.formato + ")" : "") },
-      },
-      quantity: it.cantidad,
-    };
-  });
-
-  if (pedido.gastosEnvio) {
-    lineItems.push({
-      price_data: {
-        currency: "eur",
-        unit_amount: Math.round(pedido.gastosEnvio * 100),
-        product_data: { name: "Gastos de envío" },
+        unit_amount: Math.round(pedido.total * 100),
+        product_data: { name: "Pedido " + (pedido.numero || pedidoId) + " (descuento y envío incluidos)" },
       },
       quantity: 1,
+    }];
+  } else {
+    lineItems = (pedido.items || []).map(function (it) {
+      return {
+        price_data: {
+          currency: "eur",
+          unit_amount: Math.round(it.precio * 100),
+          product_data: { name: it.titulo + (it.formato ? " (" + it.formato + ")" : "") },
+        },
+        quantity: it.cantidad,
+      };
     });
+    if (pedido.gastosEnvio) {
+      lineItems.push({
+        price_data: {
+          currency: "eur",
+          unit_amount: Math.round(pedido.gastosEnvio * 100),
+          product_data: { name: "Gastos de envío" },
+        },
+        quantity: 1,
+      });
+    }
   }
 
   let session;

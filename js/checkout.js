@@ -40,7 +40,7 @@
     if (bizumBlock) bizumBlock.hidden = !esBizum;
     if (cardBlock) cardBlock.hidden = esBizum;
     if (btnSubmitOrderEl) {
-      btnSubmitOrderEl.dataset.textoOriginal = esBizum ? 'Confirmar pedido con Bizum' : 'Pagar y completar pedido';
+      btnSubmitOrderEl.dataset.textoOriginal = esBizum ? 'Confirmar pedido con obligación de pago' : 'Pagar (pedido con obligación de pago)';
       btnSubmitOrderEl.textContent = btnSubmitOrderEl.dataset.textoOriginal;
     }
   }
@@ -247,11 +247,25 @@
       var user = usuarioActual || (window.fbAuth ? window.fbAuth.currentUser : null);
       var paymentErrors = document.getElementById('payment-errors') || document.getElementById('checkoutError');
       var btnSubmit = document.getElementById('btnSubmitOrder') || checkoutForm.querySelector('button[type="submit"]');
-      var textoOriginal = btnSubmit ? btnSubmit.textContent : 'Pagar y completar pedido';
+      var textoOriginal = btnSubmit ? btnSubmit.textContent : 'Pagar (pedido con obligación de pago)';
+
+      // Con Bizum el bloque de tarjeta está oculto: sus errores no se verían.
+      if (metodoPagoActual() === 'bizum') {
+        paymentErrors = document.getElementById('checkoutError') || paymentErrors;
+      }
 
       if (paymentErrors) {
         paymentErrors.textContent = '';
         paymentErrors.hidden = true;
+      }
+
+      var chkTerminos = document.getElementById('aceptaTerminos');
+      if (chkTerminos && !chkTerminos.checked) {
+        if (paymentErrors) {
+          paymentErrors.textContent = 'Para continuar debes aceptar los términos y condiciones y la política de privacidad.';
+          paymentErrors.hidden = false;
+        }
+        return;
       }
 
       if (!user) {
@@ -299,9 +313,18 @@
           return { id: i.id, qty: i.qty, portada: i.coverStyle || '', regalo: i.regalo || null, imp: i.imp || null };
         });
 
-        // Step 1: Crear pedido en backend
-        var crearPedidoFn = firebase.functions().httpsCallable('crearPedido');
-        var resultadoPedido = await crearPedidoFn({ items: itemsParaEnviar, envio: envio, codigoPromo: promoActual ? promoActual.codigo : '', metodoPago: metodoPago });
+        // Step 1: Crear pedido en backend. Si el pago con tarjeta falló y el
+        // cliente reintenta con lo mismo, se reutiliza el pedido ya creado
+        // (así no se duplican pedidos ni se gasta otra vez el código promo).
+        var firmaPedido = JSON.stringify([itemsParaEnviar, envio, promoActual ? promoActual.codigo : '', metodoPago]);
+        var resultadoPedido;
+        if (window.__pedidoTarjetaPendiente && window.__pedidoTarjetaPendiente.firma === firmaPedido) {
+          resultadoPedido = window.__pedidoTarjetaPendiente.resultado;
+        } else {
+          var crearPedidoFn = firebase.functions().httpsCallable('crearPedido');
+          resultadoPedido = await crearPedidoFn({ items: itemsParaEnviar, envio: envio, codigoPromo: promoActual ? promoActual.codigo : '', metodoPago: metodoPago });
+          window.__pedidoTarjetaPendiente = metodoPago === 'tarjeta' ? { firma: firmaPedido, resultado: resultadoPedido } : null;
+        }
         var pedidoId = resultadoPedido.data.id;
 
         // Pago por Bizum: no hay pasarela que confirmar aquí. El pedido ya
