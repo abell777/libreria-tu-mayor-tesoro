@@ -253,8 +253,8 @@ window.BOOKS = [
   // ========================================================================
   // COLECCIÓN LAS BELLAS HISTORIAS DE LA BIBLIA (Arthur S. Maxwell) — 10 tomos
   // infantiles. Va justo después de Tesoros de Vida. Precio = suma de los 10
-  // tomos en Tapa blanda A5 · Brillo · Blanco offset (sin descuento por
-  // colección): 7.81 + 7.96 + 7.97 + 7.98 + 7.98 + 7.98 + 7.98 + 7.98 + 7.98 + 8.12.
+  // tomos en Tapa blanda A5 · Brillo · Blanco offset × 0,69 (descuento por
+  // llevarse la colección; EW_COLLECTION_FACTOR en ew-pricing.js): 7.81 + 7.96 + 7.97 + 7.98 + 7.98 + 7.98 + 7.98 + 7.98 + 7.98 + 8.12.
   // NO está disponible en formato bolsillo (ver js/ew-pricing.js).
   // Si cambia el precio de algún tomo, actualiza aquí «price» y en CATALOGO de
   // functions/index.js (id: 'coleccion-las-bellas-historias-de-la-biblia').
@@ -268,7 +268,7 @@ window.BOOKS = [
     authorSlug: 'arthur-s-maxwell',
     category: 'infantil',
     categoryLabel: 'Infantil y juvenil',
-    price: 79.74,
+    price: 99.87,
     format: 'Colección de 10 tomos, tapa blanda A5',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
@@ -286,16 +286,16 @@ window.BOOKS = [
     idioma: 'Español',
     subcategory: ['historia-biblica', 'familia-y-hogar'],
     collection: [
-      { id: 'las-bellas-historias-de-la-biblia-1', title: 'Tomo 1', pages: 172, price: 7.81, cover: 'img/las-bellas-historias-de-la-biblia-1.jpg', blurb: 'Tomo 1 de 10.' },
-      { id: 'las-bellas-historias-de-la-biblia-2', title: 'Tomo 2', pages: 190, price: 7.96, cover: 'img/las-bellas-historias-de-la-biblia-2.jpg', blurb: 'Tomo 2 de 10.' },
-      { id: 'las-bellas-historias-de-la-biblia-3', title: 'Tomo 3', pages: 192, price: 7.97, cover: 'img/las-bellas-historias-de-la-biblia-3.jpg', blurb: 'Tomo 3 de 10.' },
-      { id: 'las-bellas-historias-de-la-biblia-4', title: 'Tomo 4', pages: 193, price: 7.98, cover: 'img/las-bellas-historias-de-la-biblia-4.jpg', blurb: 'Tomo 4 de 10.' },
-      { id: 'las-bellas-historias-de-la-biblia-5', title: 'Tomo 5', pages: 193, price: 7.98, cover: 'img/las-bellas-historias-de-la-biblia-5.jpg', blurb: 'Tomo 5 de 10.' },
-      { id: 'las-bellas-historias-de-la-biblia-6', title: 'Tomo 6', pages: 193, price: 7.98, cover: 'img/las-bellas-historias-de-la-biblia-6.jpg', blurb: 'Tomo 6 de 10.' },
-      { id: 'las-bellas-historias-de-la-biblia-7', title: 'Tomo 7', pages: 193, price: 7.98, cover: 'img/las-bellas-historias-de-la-biblia-7.jpg', blurb: 'Tomo 7 de 10.' },
-      { id: 'las-bellas-historias-de-la-biblia-8', title: 'Tomo 8', pages: 193, price: 7.98, cover: 'img/las-bellas-historias-de-la-biblia-8.jpg', blurb: 'Tomo 8 de 10.' },
-      { id: 'las-bellas-historias-de-la-biblia-9', title: 'Tomo 9', pages: 193, price: 7.98, cover: 'img/las-bellas-historias-de-la-biblia-9.jpg', blurb: 'Tomo 9 de 10.' },
-      { id: 'las-bellas-historias-de-la-biblia-10', title: 'Tomo 10', pages: 209, price: 8.12, cover: 'img/las-bellas-historias-de-la-biblia-10.jpg', blurb: 'Tomo 10 de 10.' }
+      { id: 'las-bellas-historias-de-la-biblia-1', title: 'Tomo 1', pages: 172, price: 14.31, cover: 'img/las-bellas-historias-de-la-biblia-1.jpg', blurb: 'Tomo 1 de 10.' },
+      { id: 'las-bellas-historias-de-la-biblia-2', title: 'Tomo 2', pages: 190, price: 14.46, cover: 'img/las-bellas-historias-de-la-biblia-2.jpg', blurb: 'Tomo 2 de 10.' },
+      { id: 'las-bellas-historias-de-la-biblia-3', title: 'Tomo 3', pages: 192, price: 14.47, cover: 'img/las-bellas-historias-de-la-biblia-3.jpg', blurb: 'Tomo 3 de 10.' },
+      { id: 'las-bellas-historias-de-la-biblia-4', title: 'Tomo 4', pages: 193, price: 14.48, cover: 'img/las-bellas-historias-de-la-biblia-4.jpg', blurb: 'Tomo 4 de 10.' },
+      { id: 'las-bellas-historias-de-la-biblia-5', title: 'Tomo 5', pages: 193, price: 14.48, cover: 'img/las-bellas-historias-de-la-biblia-5.jpg', blurb: 'Tomo 5 de 10.' },
+      { id: 'las-bellas-historias-de-la-biblia-6', title: 'Tomo 6', pages: 193, price: 14.48, cover: 'img/las-bellas-historias-de-la-biblia-6.jpg', blurb: 'Tomo 6 de 10.' },
+      { id: 'las-bellas-historias-de-la-biblia-7', title: 'Tomo 7', pages: 193, price: 14.48, cover: 'img/las-bellas-historias-de-la-biblia-7.jpg', blurb: 'Tomo 7 de 10.' },
+      { id: 'las-bellas-historias-de-la-biblia-8', title: 'Tomo 8', pages: 193, price: 14.48, cover: 'img/las-bellas-historias-de-la-biblia-8.jpg', blurb: 'Tomo 8 de 10.' },
+      { id: 'las-bellas-historias-de-la-biblia-9', title: 'Tomo 9', pages: 193, price: 14.48, cover: 'img/las-bellas-historias-de-la-biblia-9.jpg', blurb: 'Tomo 9 de 10.' },
+      { id: 'las-bellas-historias-de-la-biblia-10', title: 'Tomo 10', pages: 209, price: 14.62, cover: 'img/las-bellas-historias-de-la-biblia-10.jpg', blurb: 'Tomo 10 de 10.' }
     ],
   },
   {
@@ -306,7 +306,7 @@ window.BOOKS = [
     authorSlug: 'arthur-s-maxwell',
     category: 'infantil',
     categoryLabel: 'Infantil y juvenil',
-    price: 7.81,
+    price: 14.31,
     format: 'Tapa blanda, A5',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
@@ -326,7 +326,7 @@ window.BOOKS = [
     authorSlug: 'arthur-s-maxwell',
     category: 'infantil',
     categoryLabel: 'Infantil y juvenil',
-    price: 7.96,
+    price: 14.46,
     format: 'Tapa blanda, A5',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
@@ -346,7 +346,7 @@ window.BOOKS = [
     authorSlug: 'arthur-s-maxwell',
     category: 'infantil',
     categoryLabel: 'Infantil y juvenil',
-    price: 7.97,
+    price: 14.47,
     format: 'Tapa blanda, A5',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
@@ -366,7 +366,7 @@ window.BOOKS = [
     authorSlug: 'arthur-s-maxwell',
     category: 'infantil',
     categoryLabel: 'Infantil y juvenil',
-    price: 7.98,
+    price: 14.48,
     format: 'Tapa blanda, A5',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
@@ -386,7 +386,7 @@ window.BOOKS = [
     authorSlug: 'arthur-s-maxwell',
     category: 'infantil',
     categoryLabel: 'Infantil y juvenil',
-    price: 7.98,
+    price: 14.48,
     format: 'Tapa blanda, A5',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
@@ -406,7 +406,7 @@ window.BOOKS = [
     authorSlug: 'arthur-s-maxwell',
     category: 'infantil',
     categoryLabel: 'Infantil y juvenil',
-    price: 7.98,
+    price: 14.48,
     format: 'Tapa blanda, A5',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
@@ -426,7 +426,7 @@ window.BOOKS = [
     authorSlug: 'arthur-s-maxwell',
     category: 'infantil',
     categoryLabel: 'Infantil y juvenil',
-    price: 7.98,
+    price: 14.48,
     format: 'Tapa blanda, A5',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
@@ -446,7 +446,7 @@ window.BOOKS = [
     authorSlug: 'arthur-s-maxwell',
     category: 'infantil',
     categoryLabel: 'Infantil y juvenil',
-    price: 7.98,
+    price: 14.48,
     format: 'Tapa blanda, A5',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
@@ -466,7 +466,7 @@ window.BOOKS = [
     authorSlug: 'arthur-s-maxwell',
     category: 'infantil',
     categoryLabel: 'Infantil y juvenil',
-    price: 7.98,
+    price: 14.48,
     format: 'Tapa blanda, A5',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',
@@ -486,7 +486,7 @@ window.BOOKS = [
     authorSlug: 'arthur-s-maxwell',
     category: 'infantil',
     categoryLabel: 'Infantil y juvenil',
-    price: 8.12,
+    price: 14.62,
     format: 'Tapa blanda, A5',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',

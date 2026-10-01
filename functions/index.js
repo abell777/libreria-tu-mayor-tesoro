@@ -702,17 +702,17 @@ const CATALOGO = {
   "coleccion-las-bellas-historias-de-la-biblia": {
     title: "Colección Las Bellas Historias de la Biblia",
     format: "Colección de 10 tomos, tapa blanda A5",
-    price: 79.74,
+    price: 99.87,
     author: "Arthur S. Maxwell",
     category: "infantil",
     categoryLabel: "Infantil y juvenil",
     cover: "img/coleccion-las-bellas-historias-de-la-biblia.jpg",
-    description: "Los diez tomos de «Las Bellas Historias de la Biblia», de Arthur S. Maxwell, reunidos en una sola colección de historias bíblicas para niños. Precio = suma de los 10 tomos (tapa blanda A5, brillo, papel blanco offset), sin descuento.",
+    description: "Los diez tomos de «Las Bellas Historias de la Biblia», de Arthur S. Maxwell, reunidos en una sola colección de historias bíblicas para niños. Precio = suma de los 10 tomos × 0,69 (descuento por colección).",
   },
   "las-bellas-historias-de-la-biblia-1": {
     title: "Las Bellas Historias de la Biblia, Tomo 1",
     format: "Tapa blanda, A5",
-    price: 7.81,
+    price: 14.31,
     author: "Arthur S. Maxwell",
     category: "infantil",
     categoryLabel: "Infantil y juvenil",
@@ -722,7 +722,7 @@ const CATALOGO = {
   "las-bellas-historias-de-la-biblia-2": {
     title: "Las Bellas Historias de la Biblia, Tomo 2",
     format: "Tapa blanda, A5",
-    price: 7.96,
+    price: 14.46,
     author: "Arthur S. Maxwell",
     category: "infantil",
     categoryLabel: "Infantil y juvenil",
@@ -732,7 +732,7 @@ const CATALOGO = {
   "las-bellas-historias-de-la-biblia-3": {
     title: "Las Bellas Historias de la Biblia, Tomo 3",
     format: "Tapa blanda, A5",
-    price: 7.97,
+    price: 14.47,
     author: "Arthur S. Maxwell",
     category: "infantil",
     categoryLabel: "Infantil y juvenil",
@@ -742,7 +742,7 @@ const CATALOGO = {
   "las-bellas-historias-de-la-biblia-4": {
     title: "Las Bellas Historias de la Biblia, Tomo 4",
     format: "Tapa blanda, A5",
-    price: 7.98,
+    price: 14.48,
     author: "Arthur S. Maxwell",
     category: "infantil",
     categoryLabel: "Infantil y juvenil",
@@ -752,7 +752,7 @@ const CATALOGO = {
   "las-bellas-historias-de-la-biblia-5": {
     title: "Las Bellas Historias de la Biblia, Tomo 5",
     format: "Tapa blanda, A5",
-    price: 7.98,
+    price: 14.48,
     author: "Arthur S. Maxwell",
     category: "infantil",
     categoryLabel: "Infantil y juvenil",
@@ -762,7 +762,7 @@ const CATALOGO = {
   "las-bellas-historias-de-la-biblia-6": {
     title: "Las Bellas Historias de la Biblia, Tomo 6",
     format: "Tapa blanda, A5",
-    price: 7.98,
+    price: 14.48,
     author: "Arthur S. Maxwell",
     category: "infantil",
     categoryLabel: "Infantil y juvenil",
@@ -772,7 +772,7 @@ const CATALOGO = {
   "las-bellas-historias-de-la-biblia-7": {
     title: "Las Bellas Historias de la Biblia, Tomo 7",
     format: "Tapa blanda, A5",
-    price: 7.98,
+    price: 14.48,
     author: "Arthur S. Maxwell",
     category: "infantil",
     categoryLabel: "Infantil y juvenil",
@@ -782,7 +782,7 @@ const CATALOGO = {
   "las-bellas-historias-de-la-biblia-8": {
     title: "Las Bellas Historias de la Biblia, Tomo 8",
     format: "Tapa blanda, A5",
-    price: 7.98,
+    price: 14.48,
     author: "Arthur S. Maxwell",
     category: "infantil",
     categoryLabel: "Infantil y juvenil",
@@ -792,7 +792,7 @@ const CATALOGO = {
   "las-bellas-historias-de-la-biblia-9": {
     title: "Las Bellas Historias de la Biblia, Tomo 9",
     format: "Tapa blanda, A5",
-    price: 7.98,
+    price: 14.48,
     author: "Arthur S. Maxwell",
     category: "infantil",
     categoryLabel: "Infantil y juvenil",
@@ -802,7 +802,7 @@ const CATALOGO = {
   "las-bellas-historias-de-la-biblia-10": {
     title: "Las Bellas Historias de la Biblia, Tomo 10",
     format: "Tapa blanda, A5",
-    price: 8.12,
+    price: 14.62,
     author: "Arthur S. Maxwell",
     category: "infantil",
     categoryLabel: "Infantil y juvenil",
