@@ -1139,16 +1139,6 @@ const CATALOGO = {
     cover: "img/la-verdad-acerca-de-los-angeles.jpg",
     description: "Reúne lo que la Biblia y los escritos de la autora enseñan sobre la existencia y la obra de los ángeles, su desempeño en la historia y en la vida del creyente hoy.",
   },
-  "consejos-sobre-la-salud": {
-    title: "Consejos sobre la Salud",
-    format: "Tapa blanda, 148 x 210 mm",
-    price: 12.14,
-    author: "Elena G. White",
-    category: "elena-white",
-    categoryLabel: "Elena G. White",
-    cover: "img/consejos-sobre-la-salud.jpg",
-    description: "Un compendio de principios sobre alimentación, ejercicio y estilo de vida saludable, entendidos como parte integral del bienestar espiritual. Es una óptima referencia dentro de la reforma pro salud.",
-  },
   "la-historia-de-la-redencion": {
     title: "La Historia de la Redención",
     format: "Tapa blanda, 148 x 210 mm",

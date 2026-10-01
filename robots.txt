@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+Disallow: /admin.html
+Disallow: /carrito.html
+Disallow: /cuenta.html
+
 Sitemap: https://www.libreriatumayortesoro.com/sitemap.xml
