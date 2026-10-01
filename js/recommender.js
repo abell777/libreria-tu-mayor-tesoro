@@ -66,7 +66,14 @@
     'creencias-de-los-adventistas-del-septimo-dia': 'profunda',
     'discurso-maestro-de-jesucristo': 'practica',
     'discurso-maestro-de-jesucristo-tapa-dura': 'practica',
-    'palabras-de-vida-del-gran-maestro': 'practica'
+    'palabras-de-vida-del-gran-maestro': 'practica',
+    // Las Bellas Historias de la Biblia: cuentos bíblicos para niños = lectura ligera
+    'coleccion-las-bellas-historias-de-la-biblia': 'ligera',
+    'las-bellas-historias-de-la-biblia-1': 'ligera', 'las-bellas-historias-de-la-biblia-2': 'ligera',
+    'las-bellas-historias-de-la-biblia-3': 'ligera', 'las-bellas-historias-de-la-biblia-4': 'ligera',
+    'las-bellas-historias-de-la-biblia-5': 'ligera', 'las-bellas-historias-de-la-biblia-6': 'ligera',
+    'las-bellas-historias-de-la-biblia-7': 'ligera', 'las-bellas-historias-de-la-biblia-8': 'ligera',
+    'las-bellas-historias-de-la-biblia-9': 'ligera', 'las-bellas-historias-de-la-biblia-10': 'ligera'
   };
 
   // Clasifica un libro en ligera / práctica / profunda a partir de su tema.

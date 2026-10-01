@@ -73,7 +73,7 @@
     var tipoParam = params.get('tipo');
     if ((tipoParam === 'dura' || tipoParam === 'blanda') && tipoParam !== poState.tipo) {
       poState.tipo = tipoParam;
-      var sizesForTipo = window.EW_SIZES_BY_TIPO[tipoParam] || [];
+      var sizesForTipo = window.getEWSizes(book.id, tipoParam);
       if (!sizesForTipo.some(function (s) { return s.slug === poState.tamano; })) {
         poState.tamano = tipoParam === 'dura' ? 'mediano' : 'a5';
       }
@@ -701,7 +701,7 @@
     }
 
     function sizeRowHTML(tipo, tamano) {
-      var sizes = window.EW_SIZES_BY_TIPO[tipo] || [];
+      var sizes = window.getEWSizes(book.id, tipo); // sin «bolsillo» en los libros que no lo tienen
       return sizes.map(function (s) {
         return poCardHTML('tamano', s.slug, s.slug === tamano, s.label, s.dims);
       }).join('');
@@ -799,7 +799,7 @@
       if (po === 'color') return; // única opción disponible por ahora
       if (po === 'tipo') {
         poState.tipo = value;
-        var sizesForTipo = window.EW_SIZES_BY_TIPO[value] || [];
+        var sizesForTipo = window.getEWSizes(book.id, value);
         if (!sizesForTipo.some(function (s) { return s.slug === poState.tamano; })) {
           poState.tamano = value === 'dura' ? 'mediano' : 'a5';
         }

@@ -466,9 +466,11 @@ document.addEventListener('DOMContentLoaded', function () {
       var libro = window.BooksCatalog.getById(item.id);
       return !!(libro && libro.freeShipping);
     });
-    // Envío por nº total de libros (la Colección Tesoros de Vida cuenta como 5).
+    // Envío por nº total de libros (cada colección cuenta como los libros que lleva: Tesoros de Vida 5, Las Bellas Historias 10).
     // Debe coincidir con functions/index.js (TRAMOS_ENVIO).
-    var numLibros = items.reduce(function (n, i) { return n + i.qty * (i.id === 'coleccion-tesoros-de-vida' ? 5 : 1); }, 0);
+    // Libros que contiene cada colección (cuentan como tantos libros en el envío).
+    var LIBROS_POR_COLECCION = { 'coleccion-tesoros-de-vida': 5, 'coleccion-las-bellas-historias-de-la-biblia': 10 };
+    var numLibros = items.reduce(function (n, i) { return n + i.qty * (LIBROS_POR_COLECCION[i.id] || 1); }, 0);
     var costeEnvioTramo = numLibros <= 5 ? 6 : numLibros <= 10 ? 10 : numLibros <= 16 ? 15 : 16;
     var SHIPPING = todosEnvioGratis ? 0 : costeEnvioTramo;
 
@@ -476,7 +478,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var grupos = {};
     items.forEach(function (i) {
       var libro = window.BooksCatalog ? window.BooksCatalog.getById(i.id) : null;
-      var elegible = i.id !== 'coleccion-tesoros-de-vida' && String(i.id).indexOf('extra-') !== 0 && !(libro && libro.freeShipping);
+      var elegible = !LIBROS_POR_COLECCION[i.id] && String(i.id).indexOf('extra-') !== 0 && !(libro && libro.freeShipping);
       var k = i.id + '|' + (i.format || '');
       if (!grupos[k]) grupos[k] = { q: 0, elegible: elegible };
       grupos[k].q += i.qty;

@@ -697,6 +697,118 @@ const CATALOGO = {
       "cover": "img/reflejemos-a-jesus.jpg",
       "description": "Un devocional de lecturas breves centradas en el carácter de Cristo, pensado para inspirar al lector a reflejarlo en su propia vida diaria."
   },
+  // Colección Las Bellas Historias de la Biblia (10 tomos infantiles) y sus tomos sueltos.
+  // Sin formato bolsillo. Precios en functions/ew-pricing.js (misma fórmula que la web).
+  "coleccion-las-bellas-historias-de-la-biblia": {
+    title: "Colección Las Bellas Historias de la Biblia",
+    format: "Colección de 10 tomos, tapa blanda A5",
+    price: 79.74,
+    author: "Arthur S. Maxwell",
+    category: "infantil",
+    categoryLabel: "Infantil y juvenil",
+    cover: "img/coleccion-las-bellas-historias-de-la-biblia.jpg",
+    description: "Los diez tomos de «Las Bellas Historias de la Biblia», de Arthur S. Maxwell, reunidos en una sola colección de historias bíblicas para niños. Precio = suma de los 10 tomos (tapa blanda A5, brillo, papel blanco offset), sin descuento.",
+  },
+  "las-bellas-historias-de-la-biblia-1": {
+    title: "Las Bellas Historias de la Biblia, Tomo 1",
+    format: "Tapa blanda, A5",
+    price: 7.81,
+    author: "Arthur S. Maxwell",
+    category: "infantil",
+    categoryLabel: "Infantil y juvenil",
+    cover: "img/las-bellas-historias-de-la-biblia-1.jpg",
+    description: "Tomo 1 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.",
+  },
+  "las-bellas-historias-de-la-biblia-2": {
+    title: "Las Bellas Historias de la Biblia, Tomo 2",
+    format: "Tapa blanda, A5",
+    price: 7.96,
+    author: "Arthur S. Maxwell",
+    category: "infantil",
+    categoryLabel: "Infantil y juvenil",
+    cover: "img/las-bellas-historias-de-la-biblia-2.jpg",
+    description: "Tomo 2 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.",
+  },
+  "las-bellas-historias-de-la-biblia-3": {
+    title: "Las Bellas Historias de la Biblia, Tomo 3",
+    format: "Tapa blanda, A5",
+    price: 7.97,
+    author: "Arthur S. Maxwell",
+    category: "infantil",
+    categoryLabel: "Infantil y juvenil",
+    cover: "img/las-bellas-historias-de-la-biblia-3.jpg",
+    description: "Tomo 3 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.",
+  },
+  "las-bellas-historias-de-la-biblia-4": {
+    title: "Las Bellas Historias de la Biblia, Tomo 4",
+    format: "Tapa blanda, A5",
+    price: 7.98,
+    author: "Arthur S. Maxwell",
+    category: "infantil",
+    categoryLabel: "Infantil y juvenil",
+    cover: "img/las-bellas-historias-de-la-biblia-4.jpg",
+    description: "Tomo 4 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.",
+  },
+  "las-bellas-historias-de-la-biblia-5": {
+    title: "Las Bellas Historias de la Biblia, Tomo 5",
+    format: "Tapa blanda, A5",
+    price: 7.98,
+    author: "Arthur S. Maxwell",
+    category: "infantil",
+    categoryLabel: "Infantil y juvenil",
+    cover: "img/las-bellas-historias-de-la-biblia-5.jpg",
+    description: "Tomo 5 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.",
+  },
+  "las-bellas-historias-de-la-biblia-6": {
+    title: "Las Bellas Historias de la Biblia, Tomo 6",
+    format: "Tapa blanda, A5",
+    price: 7.98,
+    author: "Arthur S. Maxwell",
+    category: "infantil",
+    categoryLabel: "Infantil y juvenil",
+    cover: "img/las-bellas-historias-de-la-biblia-6.jpg",
+    description: "Tomo 6 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.",
+  },
+  "las-bellas-historias-de-la-biblia-7": {
+    title: "Las Bellas Historias de la Biblia, Tomo 7",
+    format: "Tapa blanda, A5",
+    price: 7.98,
+    author: "Arthur S. Maxwell",
+    category: "infantil",
+    categoryLabel: "Infantil y juvenil",
+    cover: "img/las-bellas-historias-de-la-biblia-7.jpg",
+    description: "Tomo 7 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.",
+  },
+  "las-bellas-historias-de-la-biblia-8": {
+    title: "Las Bellas Historias de la Biblia, Tomo 8",
+    format: "Tapa blanda, A5",
+    price: 7.98,
+    author: "Arthur S. Maxwell",
+    category: "infantil",
+    categoryLabel: "Infantil y juvenil",
+    cover: "img/las-bellas-historias-de-la-biblia-8.jpg",
+    description: "Tomo 8 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.",
+  },
+  "las-bellas-historias-de-la-biblia-9": {
+    title: "Las Bellas Historias de la Biblia, Tomo 9",
+    format: "Tapa blanda, A5",
+    price: 7.98,
+    author: "Arthur S. Maxwell",
+    category: "infantil",
+    categoryLabel: "Infantil y juvenil",
+    cover: "img/las-bellas-historias-de-la-biblia-9.jpg",
+    description: "Tomo 9 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.",
+  },
+  "las-bellas-historias-de-la-biblia-10": {
+    title: "Las Bellas Historias de la Biblia, Tomo 10",
+    format: "Tapa blanda, A5",
+    price: 8.12,
+    author: "Arthur S. Maxwell",
+    category: "infantil",
+    categoryLabel: "Infantil y juvenil",
+    cover: "img/las-bellas-historias-de-la-biblia-10.jpg",
+    description: "Tomo 10 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.",
+  },
   // Colección Tesoros de Vida: precio fijo = suma de los 5 libros (tapa blanda A5,
   // brillo, papel blanco offset), sin descuento. Sin configurador de impresión.
   "coleccion-tesoros-de-vida": {
@@ -1435,12 +1547,18 @@ const CATALOGO = {
   }
 };
 
+// Libros que contiene cada colección (cuentan como tantos libros para el envío
+// y no llevan descuento por cantidad). Debe coincidir con js/cart.js.
+const LIBROS_POR_COLECCION = {
+  "coleccion-tesoros-de-vida": 5,
+  "coleccion-las-bellas-historias-de-la-biblia": 10,
+};
 const MAX_ITEMS = 30;
 const MAX_QTY = 20;
 const SHIPPING_COST = 6; // (ya no se usa: ver TRAMOS_ENVIO)
 
 // Envío por nº TOTAL de libros del pedido (los extras de regalo no cuentan;
-// la Colección Tesoros de Vida cuenta como 5). Debe coincidir con js/cart.js.
+// cada colección cuenta como sus libros: Tesoros de Vida 5, Las Bellas Historias 10). Debe coincidir con js/cart.js.
 const TRAMOS_ENVIO = [
   { max: 5, coste: 6 },
   { max: 10, coste: 10 },
@@ -1608,8 +1726,9 @@ exports.crearPedido = onCall(async (request) => {
       edicionBase = resuelto.formato;
     }
 
-    const esColeccion = item.id === "coleccion-tesoros-de-vida";
-    numLibros += cantidad * (esColeccion ? 5 : 1);
+    const librosColeccion = LIBROS_POR_COLECCION[item.id] || 0;
+    const esColeccion = librosColeccion > 0;
+    numLibros += cantidad * (esColeccion ? librosColeccion : 1);
     const claveGrupo = item.id + "|" + edicionBase;
     if (!gruposCantidad[claveGrupo]) {
       gruposCantidad[claveGrupo] = { q: 0, elegible: !esColeccion && !libro.freeShipping };
