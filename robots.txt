@@ -5,4 +5,4 @@ Disallow: /admin.html
 Disallow: /carrito.html
 Disallow: /cuenta.html
 
-Sitemap: https://www.libreriatumayortesoro.com/sitemap.xml
+Sitemap: https://libreriatumayortesoro.com/sitemap.xml

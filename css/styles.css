@@ -4519,3 +4519,41 @@ a, button, label, select, summary, [role="button"] { -webkit-tap-highlight-color
 .shop-sort { min-width: 0; max-width: 100%; }
 .shop-sort select { min-width: 0; max-width: 100%; flex: 1 1 auto; }
 .auto-grid-300 { grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
+
+/* ==========================================================================
+   Tarjetas de COLECCIÓN (Tesoros de Vida, Las Bellas Historias…)
+   - Portada: se pinta a pantalla completa de su caja en proporción 2:3 (la de la
+     imagen), sin estirarse ni recortarse en móvil.
+   - Precio: el pie se apila (precio arriba, botón abajo a todo el ancho) para
+     que el texto no quede apretado junto al botón, en PC y en móvil.
+   ========================================================================== */
+.book-card--collection .book-cover--photo {
+  display: block;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+}
+.book-card--collection .book-cover--photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.book-card--collection .book-footer {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+.book-card--collection .book-price { font-size: 1.3rem; line-height: 1.2; }
+.book-card--collection .book-price small {
+  margin-top: 4px;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.book-card--collection .book-footer .btn {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}

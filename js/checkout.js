@@ -424,7 +424,7 @@
       // salga en el correo que recibe el cliente, añade {{enlace_seguimiento}}
       // en tu plantilla "customerTemplateId" (en el propio EmailJS, sin
       // tocar código); en la plantilla del dueño no hace falta.
-      enlace_seguimiento: 'https://www.libreriatumayortesoro.com/seguimiento.html?numero=' + encodeURIComponent(pedido.numero)
+      enlace_seguimiento: 'https://libreriatumayortesoro.com/seguimiento.html?numero=' + encodeURIComponent(pedido.numero)
     };
 
     var correoCliente = emailjs.send(

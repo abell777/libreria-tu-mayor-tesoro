@@ -42,7 +42,7 @@ setGlobalOptions({ region: "us-central1", maxInstances: 10 });
 // por defecto para no bloquear pedidos reales antes de haberlo probado.
 
 // URL pública del sitio (se usa aquí y también más abajo en "productoMeta").
-const SITE_URL = "https://www.libreriatumayortesoro.com";
+const SITE_URL = "https://libreriatumayortesoro.com";
 
 // Claves de Stripe: NUNCA se escriben aquí. Se guardan de forma cifrada con
 // "firebase functions:secrets:set STRIPE_SECRET_KEY" (y STRIPE_WEBHOOK_SECRET),

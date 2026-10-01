@@ -213,7 +213,7 @@
     '@context': 'https://schema.org',
     '@type': 'DefinedTermSet',
     name: 'Glosario de términos bíblicos y de espiritualidad',
-    url: 'https://www.libreriatumayortesoro.com/glosario.html',
+    url: 'https://libreriatumayortesoro.com/glosario.html',
     hasDefinedTerm: TERMINOS.map(function (t) {
       return { '@type': 'DefinedTerm', name: t.termino, description: t.def };
     })

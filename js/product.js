@@ -96,14 +96,14 @@
   setMeta('metaDescription', book.description.slice(0, 155));
   setMeta('ogTitle', pageTitle);
   setMeta('ogDescription', book.description.slice(0, 155));
-  setMeta('ogUrl', 'https://www.libreriatumayortesoro.com/producto.html?id=' + book.id);
+  setMeta('ogUrl', 'https://libreriatumayortesoro.com/producto.html?id=' + book.id);
   setMeta('twitterTitle', pageTitle);
   setMeta('twitterDescription', book.description.slice(0, 155));
-  var coverUrl = 'https://www.libreriatumayortesoro.com/' + book.cover;
+  var coverUrl = 'https://libreriatumayortesoro.com/' + book.cover;
   setMeta('ogImage', coverUrl);
   setMeta('twitterImage', coverUrl);
   var canonical = document.getElementById('canonicalLink');
-  if (canonical) canonical.setAttribute('href', 'https://www.libreriatumayortesoro.com/producto.html?id=' + book.id);
+  if (canonical) canonical.setAttribute('href', 'https://libreriatumayortesoro.com/producto.html?id=' + book.id);
 
   // Migas de pan estructuradas (Inicio > Categoría > Libro): Google las usa
   // para mostrar la ruta de navegación en el resultado de búsqueda.
@@ -112,9 +112,9 @@
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://www.libreriatumayortesoro.com/' },
-        { '@type': 'ListItem', position: 2, name: book.categoryLabel, item: 'https://www.libreriatumayortesoro.com/categoria.html?cat=' + book.category },
-        { '@type': 'ListItem', position: 3, name: book.title, item: 'https://www.libreriatumayortesoro.com/producto.html?id=' + book.id }
+        { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://libreriatumayortesoro.com/' },
+        { '@type': 'ListItem', position: 2, name: book.categoryLabel, item: 'https://libreriatumayortesoro.com/categoria.html?cat=' + book.category },
+        { '@type': 'ListItem', position: 3, name: book.title, item: 'https://libreriatumayortesoro.com/producto.html?id=' + book.id }
       ]
     };
     var script = document.createElement('script');
@@ -1302,12 +1302,12 @@
       '@context': 'https://schema.org',
       '@type': 'Product',
       name: book.title,
-      image: 'https://www.libreriatumayortesoro.com/' + book.cover,
+      image: 'https://libreriatumayortesoro.com/' + book.cover,
       description: book.description,
       brand: { '@type': 'Brand', name: book.author },
       offers: {
         '@type': 'Offer',
-        url: 'https://www.libreriatumayortesoro.com/producto.html?id=' + book.id,
+        url: 'https://libreriatumayortesoro.com/producto.html?id=' + book.id,
         priceCurrency: 'EUR',
         price: String(book.price),
         availability: 'https://schema.org/InStock',
@@ -1335,13 +1335,13 @@
       '@context': 'https://schema.org',
       '@type': 'Book',
       name: book.title,
-      image: 'https://www.libreriatumayortesoro.com/' + book.cover,
+      image: 'https://libreriatumayortesoro.com/' + book.cover,
       description: book.description,
       inLanguage: lang,
       author: { '@type': 'Person', name: book.author },
       bookFormat: /tapa dura/i.test(book.format || '') ? 'https://schema.org/Hardcover' : 'https://schema.org/Paperback',
       publisher: { '@type': 'Organization', name: 'Librería tu mayor tesoro' },
-      url: 'https://www.libreriatumayortesoro.com/producto.html?id=' + book.id
+      url: 'https://libreriatumayortesoro.com/producto.html?id=' + book.id
     };
     var existingBook = document.getElementById('bookJsonLd');
     if (existingBook) existingBook.remove();
