@@ -279,7 +279,7 @@ window.BOOKS = [
     description: 'Los diez tomos de «Las Bellas Historias de la Biblia», de Arthur S. Maxwell, reunidos en una sola colección: historias bíblicas contadas para niños con un lenguaje claro y entrañable, para leer juntos en familia y que los más pequeños crezcan conociendo la Palabra de Dios. Edición en tapa blanda A5 con papel blanco offset, cómoda de manejar y perfecta para regalar. También puedes comprar cada tomo por separado.',
     highlights: [
       '10 tomos de Arthur S. Maxwell: una biblioteca bíblica completa para niños.',
-      'Cada tomo se elige con la portada que prefieras: ilustrada, tipográfica clara u oscura, o clásica.',
+      'Portadas ilustradas a todo color, una distinta para cada tomo.',
       'Tapa blanda A5 (148 × 210 mm), acabado brillo y papel blanco offset. También en otros tamaños y en tapa dura.',
       'Más de 1.900 páginas de lectura para compartir en familia.'
     ],
@@ -313,12 +313,6 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/las-bellas-historias-de-la-biblia-1.jpg',
-    covers: [
-      { style: 'ilustrada', file: 'img/las-bellas-historias-de-la-biblia-1.jpg' },
-      { style: 'tipografica-clara', file: 'img/las-bellas-historias-de-la-biblia-1-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/las-bellas-historias-de-la-biblia-1-tipografica-oscura.jpg' },
-      { style: 'clasica', file: 'img/las-bellas-historias-de-la-biblia-1-clasica.jpg' }
-    ],
     badge: 'Nuevo',
     description: 'Tomo 1 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.',
     idioma: 'Español',
@@ -339,12 +333,6 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/las-bellas-historias-de-la-biblia-2.jpg',
-    covers: [
-      { style: 'ilustrada', file: 'img/las-bellas-historias-de-la-biblia-2.jpg' },
-      { style: 'tipografica-clara', file: 'img/las-bellas-historias-de-la-biblia-2-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/las-bellas-historias-de-la-biblia-2-tipografica-oscura.jpg' },
-      { style: 'clasica', file: 'img/las-bellas-historias-de-la-biblia-2-clasica.jpg' }
-    ],
     badge: 'Nuevo',
     description: 'Tomo 2 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.',
     idioma: 'Español',
@@ -365,12 +353,6 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/las-bellas-historias-de-la-biblia-3.jpg',
-    covers: [
-      { style: 'ilustrada', file: 'img/las-bellas-historias-de-la-biblia-3.jpg' },
-      { style: 'tipografica-clara', file: 'img/las-bellas-historias-de-la-biblia-3-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/las-bellas-historias-de-la-biblia-3-tipografica-oscura.jpg' },
-      { style: 'clasica', file: 'img/las-bellas-historias-de-la-biblia-3-clasica.jpg' }
-    ],
     badge: 'Nuevo',
     description: 'Tomo 3 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.',
     idioma: 'Español',
@@ -391,12 +373,6 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/las-bellas-historias-de-la-biblia-4.jpg',
-    covers: [
-      { style: 'ilustrada', file: 'img/las-bellas-historias-de-la-biblia-4.jpg' },
-      { style: 'tipografica-clara', file: 'img/las-bellas-historias-de-la-biblia-4-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/las-bellas-historias-de-la-biblia-4-tipografica-oscura.jpg' },
-      { style: 'clasica', file: 'img/las-bellas-historias-de-la-biblia-4-clasica.jpg' }
-    ],
     badge: 'Nuevo',
     description: 'Tomo 4 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.',
     idioma: 'Español',
@@ -417,12 +393,6 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/las-bellas-historias-de-la-biblia-5.jpg',
-    covers: [
-      { style: 'ilustrada', file: 'img/las-bellas-historias-de-la-biblia-5.jpg' },
-      { style: 'tipografica-clara', file: 'img/las-bellas-historias-de-la-biblia-5-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/las-bellas-historias-de-la-biblia-5-tipografica-oscura.jpg' },
-      { style: 'clasica', file: 'img/las-bellas-historias-de-la-biblia-5-clasica.jpg' }
-    ],
     badge: 'Nuevo',
     description: 'Tomo 5 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.',
     idioma: 'Español',
@@ -443,12 +413,6 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/las-bellas-historias-de-la-biblia-6.jpg',
-    covers: [
-      { style: 'ilustrada', file: 'img/las-bellas-historias-de-la-biblia-6.jpg' },
-      { style: 'tipografica-clara', file: 'img/las-bellas-historias-de-la-biblia-6-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/las-bellas-historias-de-la-biblia-6-tipografica-oscura.jpg' },
-      { style: 'clasica', file: 'img/las-bellas-historias-de-la-biblia-6-clasica.jpg' }
-    ],
     badge: 'Nuevo',
     description: 'Tomo 6 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.',
     idioma: 'Español',
@@ -469,12 +433,6 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/las-bellas-historias-de-la-biblia-7.jpg',
-    covers: [
-      { style: 'ilustrada', file: 'img/las-bellas-historias-de-la-biblia-7.jpg' },
-      { style: 'tipografica-clara', file: 'img/las-bellas-historias-de-la-biblia-7-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/las-bellas-historias-de-la-biblia-7-tipografica-oscura.jpg' },
-      { style: 'clasica', file: 'img/las-bellas-historias-de-la-biblia-7-clasica.jpg' }
-    ],
     badge: 'Nuevo',
     description: 'Tomo 7 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.',
     idioma: 'Español',
@@ -495,12 +453,6 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/las-bellas-historias-de-la-biblia-8.jpg',
-    covers: [
-      { style: 'ilustrada', file: 'img/las-bellas-historias-de-la-biblia-8.jpg' },
-      { style: 'tipografica-clara', file: 'img/las-bellas-historias-de-la-biblia-8-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/las-bellas-historias-de-la-biblia-8-tipografica-oscura.jpg' },
-      { style: 'clasica', file: 'img/las-bellas-historias-de-la-biblia-8-clasica.jpg' }
-    ],
     badge: 'Nuevo',
     description: 'Tomo 8 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.',
     idioma: 'Español',
@@ -521,12 +473,6 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/las-bellas-historias-de-la-biblia-9.jpg',
-    covers: [
-      { style: 'ilustrada', file: 'img/las-bellas-historias-de-la-biblia-9.jpg' },
-      { style: 'tipografica-clara', file: 'img/las-bellas-historias-de-la-biblia-9-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/las-bellas-historias-de-la-biblia-9-tipografica-oscura.jpg' },
-      { style: 'clasica', file: 'img/las-bellas-historias-de-la-biblia-9-clasica.jpg' }
-    ],
     badge: 'Nuevo',
     description: 'Tomo 9 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.',
     idioma: 'Español',
@@ -547,12 +493,6 @@ window.BOOKS = [
     finish: 'Brillo',
     paper: 'Blanco offset',
     cover: 'img/las-bellas-historias-de-la-biblia-10.jpg',
-    covers: [
-      { style: 'ilustrada', file: 'img/las-bellas-historias-de-la-biblia-10.jpg' },
-      { style: 'tipografica-clara', file: 'img/las-bellas-historias-de-la-biblia-10-tipografica.jpg' },
-      { style: 'tipografica-oscura', file: 'img/las-bellas-historias-de-la-biblia-10-tipografica-oscura.jpg' },
-      { style: 'clasica', file: 'img/las-bellas-historias-de-la-biblia-10-clasica.jpg' }
-    ],
     badge: 'Nuevo',
     description: 'Tomo 10 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.',
     idioma: 'Español',
