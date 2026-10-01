@@ -118,18 +118,28 @@ service cloud.firestore {
 
     // ---- resenas/{resenaId} — opiniones de clientes sobre los libros -----
     match /resenas/{resenaId} {
-      // Las opiniones son públicas: cualquiera puede leerlas, incluso sin
-      // haber iniciado sesión (así se ven en la ficha de producto).
-      allow read: if true;
+      // Moderación: toda opinión nueva nace "pendiente" y solo es pública
+      // cuando el admin la pasa a "aprobada" desde el panel. El propio
+      // autor siempre puede ver la suya (aunque esté pendiente), y el admin
+      // las ve todas. Las opiniones publicadas ANTES de añadir esta
+      // moderación no tienen campo "estado": se tratan como ya aprobadas
+      // (nunca desaparecen) sin necesidad de tocar los datos existentes.
+      allow read: if (!('estado' in resource.data) || resource.data.estado == 'aprobada') ||
+        (isSignedIn() && resource.data.uid == request.auth.uid) || isAdmin();
 
       // Crear una opinión: debe ir firmada con tu propio uid, referenciar
-      // un producto, con una valoración de 1 a 5 y un comentario de
-      // longitud razonable (evita spam/abusos). "fotos" es opcional (hasta
-      // 4 URLs de Storage, subidas antes desde js/product.js).
+      // un producto (con su título, para que el admin sepa qué está
+      // moderando sin tener que buscarlo), con una valoración de 1 a 5 y
+      // un comentario de longitud razonable (evita spam/abusos). "fotos" es
+      // opcional (hasta 4 URLs de Storage, subidas antes desde
+      // js/product.js). SIEMPRE nace "pendiente": el cliente no puede
+      // marcarse su propia opinión como aprobada.
       allow create: if isSignedIn() &&
         request.resource.data.uid == request.auth.uid &&
         request.resource.data.createdAt == request.time &&
+        request.resource.data.estado == 'pendiente' &&
         isReasonableString(request.resource.data.productId, 120) &&
+        isReasonableString(request.resource.data.bookTitle, 200) &&
         isReasonableString(request.resource.data.nombre, 120) &&
         request.resource.data.valoracion is number &&
         request.resource.data.valoracion >= 1 &&
@@ -138,20 +148,29 @@ service cloud.firestore {
         (!('fotos' in request.resource.data) ||
           (request.resource.data.fotos is list && request.resource.data.fotos.size() <= 4));
 
-      // Solo el autor puede editar o borrar su propia opinión — y al
-      // editarla, sigue teniendo que cumplir las mismas reglas de
-      // valoración/comentario (antes se podía "editar" para saltárselas).
+      // Dos formas de actualizar una opinión:
+      // 1) El admin, solo para aprobarla o rechazarla desde el panel — no
+      //    puede tocar ningún otro campo (ni el texto, ni la valoración).
+      // 2) El propio autor, editando su opinión — sigue teniendo que
+      //    cumplir las mismas reglas de valoración/comentario que al
+      //    crearla, y vuelve a "pendiente" automáticamente (una edición
+      //    también debe pasar moderación; si pudiera seguir "aprobada" sin
+      //    revisión, sería una forma de saltarse el filtro).
       // "utilesCount" queda fuera de aquí a propósito: solo lo toca la
       // Cloud Function (SDK de administrador, se salta estas reglas), así
       // que si algún día alguien intenta escribirlo desde el navegador
       // junto a una edición, esa edición se rechaza entera.
-      allow update: if isSignedIn() && resource.data.uid == request.auth.uid &&
-        request.resource.data.uid == request.auth.uid &&
-        request.resource.data.valoracion is number &&
-        request.resource.data.valoracion >= 1 &&
-        request.resource.data.valoracion <= 5 &&
-        isReasonableString(request.resource.data.comentario, 600) &&
-        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['valoracion', 'comentario', 'fotos']);
+      allow update: if (isAdmin() &&
+          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['estado']) &&
+          request.resource.data.estado in ['pendiente', 'aprobada', 'rechazada']) ||
+        (isSignedIn() && resource.data.uid == request.auth.uid &&
+          request.resource.data.uid == request.auth.uid &&
+          request.resource.data.estado == 'pendiente' &&
+          request.resource.data.valoracion is number &&
+          request.resource.data.valoracion >= 1 &&
+          request.resource.data.valoracion <= 5 &&
+          isReasonableString(request.resource.data.comentario, 600) &&
+          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['valoracion', 'comentario', 'fotos', 'estado']));
       allow delete: if isSignedIn() && resource.data.uid == request.auth.uid;
 
       // ---- resenas/{resenaId}/utiles/{uid} — voto de "¿te fue útil?" ----

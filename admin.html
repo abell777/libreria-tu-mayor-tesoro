@@ -98,6 +98,7 @@
 
       <div class="admin-view-tabs" id="adminViewTabs">
         <button type="button" class="admin-view-tab is-active" data-view-tab="pedidos">Pedidos</button>
+        <button type="button" class="admin-view-tab" data-view-tab="resenas">Reseñas <span class="admin-tab-count" id="adminResenasCount" hidden>0</span></button>
         <button type="button" class="admin-view-tab" data-view-tab="estadisticas">Estadísticas</button>
       </div>
 
@@ -144,6 +145,18 @@
           <p class="orders-empty" id="adminEncargosEmpty" hidden>Todavía no hay encargos personalizados.</p>
         </section>
 
+      </div>
+
+      <!-- ==================== VISTA: RESEÑAS ==================== -->
+      <div id="adminViewResenas" hidden>
+        <div class="admin-dashboard-head">
+          <div>
+            <span class="eyebrow">Moderación</span>
+            <h2 class="section-title">Reseñas pendientes de aprobar</h2>
+          </div>
+        </div>
+        <div id="adminResenasList" class="admin-orders-list"></div>
+        <p class="orders-empty" id="adminResenasEmpty" hidden>No hay reseñas pendientes de moderar.</p>
       </div>
 
       <!-- ==================== VISTA: ESTADÍSTICAS ==================== -->
@@ -291,7 +304,6 @@
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-functions-compat.js"></script>
 <script src="js/config.js"></script>
-<script src="js/books-data.js"></script>
 <script src="js/auth.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/gift-options.js"></script>

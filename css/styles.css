@@ -1513,6 +1513,11 @@ body.no-scroll { overflow: hidden; }
 .admin-view-tab + .admin-view-tab { margin-left: 18px; }
 .admin-view-tab:hover { color: var(--navy); }
 .admin-view-tab.is-active { color: var(--navy); border-bottom-color: var(--gold); }
+.admin-tab-count {
+  display: inline-block; min-width: 18px; margin-left: 4px; padding: 1px 6px; border-radius: 999px;
+  background: var(--gold); color: var(--navy-deep); font-size: 0.72rem; font-weight: 700; line-height: 1.5;
+}
+.admin-resena-actions { display: flex; gap: 10px; margin-top: 14px; }
 
 .admin-stats-toolbar { display: flex; align-items: center; gap: 10px; margin: 22px 0 4px; }
 .admin-stats-toolbar label { font-size: 0.85rem; font-weight: 600; color: var(--muted-foreground); }
@@ -4514,110 +4519,3 @@ a, button, label, select, summary, [role="button"] { -webkit-tap-highlight-color
 .shop-sort { min-width: 0; max-width: 100%; }
 .shop-sort select { min-width: 0; max-width: 100%; flex: 1 1 auto; }
 .auto-grid-300 { grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
-
-/* ==========================================================================
-   COLECCIÓN TESOROS DE VIDA (hero, tarjeta destacada y bloque "Qué incluye")
-   ========================================================================== */
-.hero-collection {
-  position: relative;
-  display: block;
-  justify-self: center;
-  width: min(100%, 340px);
-  border-radius: var(--radius-lg);
-  text-decoration: none;
-  color: var(--parchment);
-  transform: rotate(1.5deg);
-  transition: transform .35s ease, box-shadow .35s ease;
-  box-shadow: 0 30px 60px oklch(0.15 0.05 258 / 0.55), 0 0 0 1px oklch(0.86 0.05 82 / 0.35);
-}
-.hero-collection:hover, .hero-collection:focus-visible { transform: rotate(0deg) translateY(-6px); }
-.hero-collection img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
-.hero-collection { background: var(--navy-deep); overflow: hidden; }
-.hero-collection-price {
-  display: flex; flex-direction: column; align-items: center; gap: 2px;
-  padding: 14px 16px 16px; text-align: center;
-  background: var(--navy-deep);
-  border-top: 1px solid oklch(0.86 0.05 82 / 0.45);
-}
-.hero-collection-price strong { font-family: var(--font-serif); font-size: 1.7rem; color: var(--gold-soft); line-height: 1.1; }
-.hero-collection-price small { font-size: .76rem; letter-spacing: .02em; color: oklch(0.97 0.015 85 / 0.85); }
-@media (max-width: 900px) {
-  .hero-collection { width: min(78%, 300px); transform: none; margin-top: 8px; }
-}
-@media (prefers-reduced-motion: reduce) { .hero-collection { transition: none; } }
-
-.book-card--collection {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 1px var(--gold), var(--shadow-lift);
-}
-.book-card--collection .badge { background: var(--gold); color: var(--navy-deep); }
-
-.collection-includes { margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border); }
-.collection-list {
-  list-style: none; margin: 28px 0 0; padding: 0;
-  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px;
-}
-.collection-item { display: flex; flex-direction: column; gap: 6px; }
-.collection-item-cover {
-  position: relative; display: block; border-radius: var(--radius-md); overflow: hidden;
-  box-shadow: var(--shadow-card); transition: transform .25s ease, box-shadow .25s ease;
-}
-.collection-item-cover:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
-.collection-item-cover img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; }
-.collection-item-num {
-  position: absolute; top: 8px; left: 8px; z-index: 2;
-  width: 28px; height: 28px; display: grid; place-items: center;
-  border-radius: 50%; background: var(--navy-deep); color: var(--gold-soft);
-  font-family: var(--font-serif); font-weight: 700; font-size: .9rem;
-  box-shadow: 0 2px 6px oklch(0.15 0.05 258 / 0.4);
-}
-.collection-item-title { font-family: var(--font-serif); font-size: 1rem; line-height: 1.25; margin: 6px 0 0; }
-.collection-item-title a { color: var(--navy); text-decoration: none; }
-.collection-item-title a:hover { text-decoration: underline; }
-.collection-item-meta { margin: 0; font-size: .85rem; color: var(--muted-foreground); }
-.collection-item-price { margin: 0; font-size: .85rem; font-weight: 600; color: var(--gold-text); }
-.collection-summary {
-  margin-top: 28px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-  background: var(--navy-deep); color: var(--parchment);
-  border-radius: var(--radius-lg); padding: 22px 26px;
-}
-.collection-summary div { display: flex; flex-direction: column; gap: 2px; }
-.collection-summary strong { font-family: var(--font-serif); font-size: 1.25rem; color: var(--gold-soft); }
-.collection-summary span { font-size: .85rem; opacity: .8; }
-@media (max-width: 900px) {
-  .collection-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .collection-summary { grid-template-columns: 1fr; }
-}
-@media (max-width: 560px) {
-  .collection-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-}
-
-/* Tarjeta de colección en destacados: franja a ancho completo (solo en la home) */
-.book-grid > .book-card--collection { grid-column: 1 / -1; }
-.collection-card-desc, .collection-card-list { display: none; }
-@media (min-width: 761px) {
-  .book-grid > .book-card--collection {
-    display: grid; grid-template-columns: 250px 1fr; align-items: stretch; gap: 0 32px;
-    padding: 24px; background: linear-gradient(135deg, var(--parchment), var(--card) 60%);
-  }
-  .book-card--collection .book-cover { grid-row: 1; grid-column: 1; align-self: start; }
-  .book-card--collection .book-info { grid-row: 1; grid-column: 2; display: flex; flex-direction: column; justify-content: center; padding: 8px 8px 8px 0; }
-  .book-card--collection .book-title { font-size: 1.9rem; margin: 4px 0 2px; }
-  .book-card--collection .collection-card-desc { display: block; margin: 12px 0 0; max-width: 60ch; color: var(--muted-foreground); }
-  .book-card--collection .collection-card-list {
-    display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 16px 0 0; padding: 0; counter-reset: c;
-  }
-  .book-card--collection .collection-card-list li {
-    counter-increment: c; font-size: .85rem; padding: 5px 12px; border: 1px solid var(--gold-soft);
-    border-radius: 999px; background: var(--card); color: var(--navy);
-  }
-  .book-card--collection .collection-card-list li::before { content: counter(c) '. '; color: var(--gold-text); font-weight: 700; }
-  .book-card--collection .book-footer { margin-top: 22px; justify-content: flex-start; gap: 24px; }
-  .book-card--collection .book-price { font-size: 1.9rem; }
-  .book-card--collection .book-price small { font-size: .8rem; }
-  .book-grid > .book-card--collection .book-fav { position: absolute !important; top: 18px !important; right: 18px !important; left: auto !important; bottom: auto !important; }
-}
-
-/* Miniatura de la portada elegida dentro de un pedido (admin, seguimiento y Mi cuenta) */
-.order-cover { display: flex; align-items: center; gap: 10px; margin: 6px 0 4px; font-size: .8rem; color: var(--muted-foreground); }
-.order-cover img { width: 44px; height: 66px; object-fit: cover; border-radius: 3px; box-shadow: 0 1px 4px rgba(0,0,0,.25); }

@@ -180,73 +180,6 @@
     descPanel.appendChild(ul);
   }
 
-  // ---- Colección (p. ej. Tesoros de Vida): bloque "Qué incluye" -----------
-  // Solo aparece si el libro del catálogo lleva el campo "collection" (lista
-  // de libros que la componen). Cada libro enlaza a su propia ficha. El
-  // precio de la colección es el del catálogo (suma de los libros, sin
-  // descuento); aquí solo se muestra el desglose.
-  (function pintarColeccion() {
-    var old = document.getElementById('collectionIncludes');
-    if (old) old.remove();
-    if (!Array.isArray(book.collection) || !book.collection.length) return;
-    var relatedSec = document.getElementById('relatedSection');
-    if (!relatedSec || !relatedSec.parentNode) return;
-    var totalPages = book.collection.reduce(function (a, c) { return a + (c.pages || 0); }, 0);
-    var suma = book.collection.reduce(function (a, c) { return a + (c.price || 0); }, 0);
-    var sec = document.createElement('section');
-    sec.className = 'collection-includes';
-    sec.id = 'collectionIncludes';
-    sec.setAttribute('aria-labelledby', 'collectionIncludesTitle');
-    sec.innerHTML =
-      '<div class="section-head">' +
-        '<div>' +
-          '<span class="eyebrow">Cinco libros, un solo conjunto</span>' +
-          '<h2 class="section-title" id="collectionIncludesTitle">Qué incluye la colección</h2>' +
-          '<p class="section-lede">Ordenados para leerse de principio a fin. Cada título se puede consultar por separado.</p>' +
-        '</div>' +
-      '</div>' +
-      '<ol class="collection-list">' +
-      book.collection.map(function (c, i) {
-        return '<li class="collection-item">' +
-          '<a class="collection-item-cover" href="producto.html?id=' + encodeURIComponent(c.id) + '&tipo=blanda">' +
-            '<span class="collection-item-num" aria-hidden="true">' + (i + 1) + '</span>' +
-            '<img src="' + escapeHTML(toWebp(c.cover)) + '" onerror="this.onerror=null;this.src=\'' + escapeHTML(c.cover) + '\'" alt="Portada de «' + escapeHTML(c.title) + '»" width="400" height="600" loading="lazy" decoding="async">' +
-          '</a>' +
-          '<h3 class="collection-item-title"><a href="producto.html?id=' + encodeURIComponent(c.id) + '&tipo=blanda">' + escapeHTML(c.title) + '</a></h3>' +
-          '<p class="collection-item-meta">' + escapeHTML(c.blurb || '') + '</p>' +
-          '<p class="collection-item-price">' + (c.pages ? c.pages + ' págs. · ' : '') + '<span data-coll-price="' + escapeHTML(c.id) + '">' + fmtPrice(c.price) + '</span>\u00A0€</p>' +
-        '</li>';
-      }).join('') +
-      '</ol>' +
-      '<div class="collection-summary">' +
-        '<div><strong>' + book.collection.length + ' libros</strong><span>' + totalPages.toLocaleString('es-ES') + ' páginas en total</span></div>' +
-        '<div><strong id="collSummaryFormat">Tapa blanda A5</strong><span id="collSummaryDetail">Acabado brillo · Papel blanco offset</span></div>' +
-        '<div><strong id="collSummaryTotal">' + fmtPrice(book.price) + '\u00A0€</strong><span>Suma exacta de los 5 libros, sin descuento</span></div>' +
-      '</div>';
-    relatedSec.parentNode.insertBefore(sec, relatedSec);
-
-    // Al cambiar tapa, tamaño, acabado o papel en el configurador, se
-    // actualizan los precios de cada libro y el total de este bloque.
-    window.__collectionRefresh = function (st) {
-      if (!st || !window.getEWPrice) return;
-      var total = 0;
-      book.collection.forEach(function (c) {
-        var pr = window.getEWPrice(c.id, st.tipo, st.tamano, st.acabado, st.papel);
-        var el = sec.querySelector('[data-coll-price="' + c.id + '"]');
-        if (pr !== null && el) el.textContent = fmtPrice(pr);
-        if (pr !== null) total += pr;
-      });
-      var fmtEl = sec.querySelector('#collSummaryFormat');
-      var detEl = sec.querySelector('#collSummaryDetail');
-      var totEl = sec.querySelector('#collSummaryTotal');
-      var sz = (window.EW_SIZES_BY_TIPO[st.tipo] || []).filter(function (x) { return x.slug === st.tamano; })[0];
-      if (fmtEl) fmtEl.textContent = (st.tipo === 'dura' ? 'Tapa dura' : 'Tapa blanda') + (sz ? ' ' + sz.label : '');
-      if (detEl) detEl.textContent = 'Acabado ' + (st.acabado === 'mate' ? 'mate' : 'brillo') + ' · ' + (PAPER_LABELS_FULL[st.papel] || '');
-      if (totEl) totEl.textContent = fmtPrice(Math.round(total * 100) / 100) + '\u00A0€';
-    };
-    if (poState) window.__collectionRefresh(poState);
-  })();
-
   // ---- Valor añadido 1: tiempo de lectura estimado ------------------------
   // Se calcula con las páginas del libro (campo "pages" de js/books-data.js)
   // y el ritmo "Normal" del planificador de recursos.html (2,2 págs/min).
@@ -837,7 +770,6 @@
       renderBindingTag(poState.tipo === 'dura');
       var summaryEl = poRoot.querySelector('#poSummary');
       if (summaryEl) summaryEl.textContent = formatStr;
-      if (window.__collectionRefresh) window.__collectionRefresh(poState);
     }
 
     poRoot.addEventListener('mouseover', function (e) {
@@ -1089,6 +1021,14 @@
   }
 
   function renderReviews(reseñas) {
+    // Las reglas de Firestore ya ocultan a terceros las opiniones que no
+    // estén aprobadas, pero esto es un cinturón de seguridad extra: si por
+    // lo que sea llegara aquí una opinión pendiente o rechazada (p. ej. la
+    // propia, que el autor sí puede leer), que tampoco se vea en la ficha
+    // pública. Las opiniones antiguas sin campo "estado" se siguen
+    // mostrando igual que siempre.
+    reseñas = reseñas.filter(function (r) { return r.estado !== 'pendiente' && r.estado !== 'rechazada'; });
+
     reseñas.sort(function (a, b) {
       var ta = a.createdAt && a.createdAt.toDate ? a.createdAt.toDate().getTime() : 0;
       var tb = b.createdAt && b.createdAt.toDate ? b.createdAt.toDate().getTime() : 0;
@@ -1305,9 +1245,11 @@
     reviewForm.addEventListener('submit', function (e) {
       e.preventDefault();
       var errorEl = document.getElementById('reviewError');
+      var successEl = document.getElementById('reviewSuccess');
       var user = window.fbAuth ? window.fbAuth.currentUser : null;
       var comentario = document.getElementById('reviewComment').value.trim();
       if (errorEl) errorEl.hidden = true;
+      if (successEl) successEl.hidden = true;
 
       if (!user) return;
       if (currentRating < 1) {
@@ -1325,10 +1267,12 @@
       subirFotosResena(user.uid).then(function (fotosUrls) {
         var datos = {
           productId: book.id,
+          bookTitle: book.title,
           uid: user.uid,
           nombre: user.displayName || 'Cliente',
           valoracion: currentRating,
           comentario: comentario,
+          estado: 'pendiente', // se revisa antes de publicarse — ver firestore.rules
           createdAt: firebase.firestore.FieldValue.serverTimestamp()
         };
         if (fotosUrls.length) datos.fotos = fotosUrls;
@@ -1342,6 +1286,7 @@
         fotosListas = [];
         pintarPreviewFotos();
         loadReviews();
+        if (successEl) { successEl.textContent = '¡Gracias! Tu opinión se ha enviado y se publicará en cuanto la revisemos.'; successEl.hidden = false; }
       }).catch(function (err) {
         if (errorEl) { errorEl.textContent = 'No se pudo publicar tu opinión. Inténtalo de nuevo.'; errorEl.hidden = false; }
         console.error('Error al publicar la opinión', err);

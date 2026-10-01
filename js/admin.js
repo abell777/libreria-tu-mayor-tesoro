@@ -29,7 +29,7 @@
       : 'Procesando…';
     var envio = pedido.envio || {};
     var items = (pedido.items || []).map(function (it) {
-      return '<li>' + it.cantidad + ' × ' + escapeHTML(it.titulo) + (it.formato ? ' (' + escapeHTML(it.formato) + ')' : '') + ' — ' + fmtEUR(it.precio * it.cantidad) + (window.portadaMiniaturaHTML ? window.portadaMiniaturaHTML(it, escapeHTML) : '') + '</li>';
+      return '<li>' + it.cantidad + ' × ' + escapeHTML(it.titulo) + (it.formato ? ' (' + escapeHTML(it.formato) + ')' : '') + ' — ' + fmtEUR(it.precio * it.cantidad) + '</li>';
     }).join('');
 
     return (
@@ -39,7 +39,7 @@
           '<span class="admin-order-cliente">' + escapeHTML(pedido.clienteNombre || '') + '<small>' + escapeHTML(pedido.clienteEmail || '') + '</small></span>' +
           '<span class="admin-order-fecha">' + fecha + '</span>' +
           '<span class="admin-order-total">' + fmtEUR(pedido.total) + '</span>' +
-          '<span class="pay-badge pay-badge--' + (pedido.pagado ? 'ok' : 'pendiente') + '">' + (pedido.reembolsado ? 'Reembolsado' : pedido.pagado ? ('Pagado' + (pedido.importeReembolsado > 0 ? ' (reemb. parcial ' + fmtEUR(pedido.importeReembolsado) + ')' : '')) : 'Pago pendiente') + '</span>' +
+          '<span class="pay-badge pay-badge--' + (pedido.pagado ? 'ok' : 'pendiente') + '">' + (pedido.pagado ? 'Pagado' : 'Pago pendiente') + '</span>' +
           '<span class="admin-order-metodo">' + (pedido.metodoPago === 'bizum' ? 'Bizum' : 'Tarjeta') + '</span>' +
           '<span class="order-status order-status--' + escapeHTML(pedido.estado) + '">' + capitaliza(pedido.estado) + '</span>' +
         '</summary>' +
@@ -121,6 +121,85 @@
         console.error('Error al cargar los pedidos', err);
         document.getElementById('adminOrdersList').innerHTML = '<p class="orders-empty">No se han podido cargar los pedidos. Revisa las reglas de Firestore.</p>';
       });
+  }
+
+  // ---- Moderación de reseñas -------------------------------------------------
+  function estrellas(n) {
+    n = Math.round(n || 0);
+    return '★★★★★☆☆☆☆☆'.slice(5 - n, 10 - n);
+  }
+
+  function resenaAdminHTML(r) {
+    var fecha = r.createdAt && r.createdAt.toDate
+      ? r.createdAt.toDate().toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+      : 'Procesando…';
+    var fotosHTML = '';
+    if (Array.isArray(r.fotos) && r.fotos.length) {
+      fotosHTML = '<div class="review-photos-grid">' + r.fotos.map(function (url) {
+        return '<a href="' + url + '" target="_blank" rel="noopener"><img src="' + url + '" alt="Foto añadida por quien opina" loading="lazy"></a>';
+      }).join('') + '</div>';
+    }
+    return (
+      '<details class="admin-order-card" data-id="' + escapeHTML(r._id) + '">' +
+        '<summary>' +
+          '<span class="admin-order-cliente">' + escapeHTML(r.nombre || 'Cliente') + '<small>' + escapeHTML(r.bookTitle || r.productId || '') + '</small></span>' +
+          '<span class="admin-order-fecha">' + fecha + '</span>' +
+          '<span class="stars" aria-hidden="true">' + estrellas(r.valoracion) + '</span>' +
+        '</summary>' +
+        '<div class="admin-order-body">' +
+          '<div class="admin-order-col">' +
+            '<p class="review-comment">' + escapeHTML(r.comentario || '') + '</p>' +
+            fotosHTML +
+            (r.productId ? '<p><a href="producto.html?id=' + encodeURIComponent(r.productId) + '" target="_blank" rel="noopener" class="link-inline">Ver ficha del libro</a></p>' : '') +
+            '<div class="admin-resena-actions">' +
+              '<button type="button" class="btn btn--primary btn--sm" data-resena-aprobar>Aprobar</button>' +
+              '<button type="button" class="btn btn--outline btn--sm" data-resena-rechazar>Rechazar</button>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</details>'
+    );
+  }
+
+  function cargarResenasPendientes() {
+    var list = document.getElementById('adminResenasList');
+    var empty = document.getElementById('adminResenasEmpty');
+    var count = document.getElementById('adminResenasCount');
+    if (!list) return;
+    list.innerHTML = '<p class="orders-empty">Cargando reseñas…</p>';
+    window.fbDb.collection('resenas').where('estado', '==', 'pendiente').orderBy('createdAt', 'desc').get()
+      .then(function (snapshot) {
+        var resenas = [];
+        snapshot.forEach(function (doc) {
+          var data = doc.data();
+          data._id = doc.id;
+          resenas.push(data);
+        });
+        list.innerHTML = resenas.map(resenaAdminHTML).join('');
+        if (empty) empty.hidden = resenas.length > 0;
+        if (count) {
+          count.hidden = resenas.length === 0;
+          count.textContent = resenas.length;
+        }
+      })
+      .catch(function (err) {
+        console.error('Error al cargar las reseñas pendientes', err);
+        list.innerHTML = '<p class="orders-empty">No se han podido cargar las reseñas. Revisa las reglas de Firestore.</p>';
+      });
+  }
+
+  var adminResenasListEl = document.getElementById('adminResenasList');
+  if (adminResenasListEl) {
+    adminResenasListEl.addEventListener('click', function (e) {
+      var card = e.target.closest('.admin-order-card');
+      var estado = e.target.closest('[data-resena-aprobar]') ? 'aprobada'
+        : e.target.closest('[data-resena-rechazar]') ? 'rechazada' : null;
+      if (!card || !estado) return;
+      var id = card.getAttribute('data-id');
+      window.fbDb.collection('resenas').doc(id).update({ estado: estado })
+        .then(function () { cargarResenasPendientes(); })
+        .catch(function (err) { console.error('Error al moderar la reseña', err); });
+    });
   }
 
   // ---- Interacción: filtros, búsqueda y cambio de estado ----------------------
@@ -208,9 +287,13 @@
       viewTabs.querySelectorAll('.admin-view-tab').forEach(function (b) { b.classList.remove('is-active'); });
       btn.classList.add('is-active');
       document.getElementById('adminViewPedidos').hidden = vista !== 'pedidos';
+      document.getElementById('adminViewResenas').hidden = vista !== 'resenas';
       document.getElementById('adminViewEstadisticas').hidden = vista !== 'estadisticas';
       if (vista === 'estadisticas' && window.adminStats) {
         window.adminStats.refrescar();
+      }
+      if (vista === 'resenas') {
+        cargarResenasPendientes();
       }
     });
   }
@@ -221,6 +304,7 @@
       guard.hidden = true;
       dashboard.hidden = false;
       cargarPedidosAdmin();
+      cargarResenasPendientes();
     } else {
       guard.hidden = false;
       dashboard.hidden = true;
