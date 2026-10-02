@@ -88,9 +88,9 @@ function getEWRawPrice(pdfTitle, tipo, tamano, acabado, papel) {
 // Precio final a cobrar para (bookId, combinación elegida). Es la ÚNICA
 // fuente de verdad para el precio de estos libros dentro de "crearPedido".
 // Colecciones: el precio es la SUMA de los libros que las forman con la misma
-// combinación de tapa/tamaño/acabado/papel, sin descuento (igual que js/ew-pricing.js).
+// combinación de tapa/tamaño/acabado/papel × EW_COLLECTION_FACTOR (igual que js/ew-pricing.js).
 // Descuento por llevarse la colección completa (multiplicador sobre la suma de los tomos).
-const EW_COLLECTION_FACTOR = { "coleccion-las-bellas-historias-de-la-biblia": 0.69 };
+const EW_COLLECTION_FACTOR = { "coleccion-las-bellas-historias-de-la-biblia": 0.69, "coleccion-tesoros-de-vida": 1.3047 };
 const EW_COLLECTIONS = {
   "coleccion-las-bellas-historias-de-la-biblia": ["las-bellas-historias-de-la-biblia-1", "las-bellas-historias-de-la-biblia-2", "las-bellas-historias-de-la-biblia-3", "las-bellas-historias-de-la-biblia-4", "las-bellas-historias-de-la-biblia-5", "las-bellas-historias-de-la-biblia-6", "las-bellas-historias-de-la-biblia-7", "las-bellas-historias-de-la-biblia-8", "las-bellas-historias-de-la-biblia-9", "las-bellas-historias-de-la-biblia-10"],
   "coleccion-tesoros-de-vida": ["historia-de-los-patriarcas-y-profetas","profetas-y-reyes","el-deseado-de-todas-las-gentes","los-hechos-de-los-apostoles","el-conflicto-de-los-siglos"],
@@ -100,7 +100,7 @@ EW_BOOK_DEFAULTS["coleccion-las-bellas-historias-de-la-biblia"] = {
   acabado: "brillo", papel: "offset", pdfTitle: "Colección Las Bellas Historias de la Biblia",
 };
 EW_BOOK_DEFAULTS["coleccion-tesoros-de-vida"] = {
-  title: "Colección Tesoros de Vida", price: 61.31, tipo: "blanda", tamano: "a5",
+  title: "Colección Tesoros de Vida", price: 79.99, tipo: "blanda", tamano: "a5",
   acabado: "brillo", papel: "offset", pdfTitle: "Colección Tesoros de Vida",
 };
 

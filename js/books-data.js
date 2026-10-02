@@ -210,8 +210,8 @@ window.BOOKS = [
   // ========================================================================
   // COLECCIÓN TESOROS DE VIDA — debe ir SIEMPRE la primera de la lista para
   // aparecer la primera en «Elena G. White» y en el catálogo.
-  // Precio = suma de los 5 libros en Tapa blanda A5 · Brillo · Blanco offset
-  // (sin descuento por colección): 12,01 + 11,83 + 14,20 + 9,39 + 11,38.
+  // Precio = suma de los 5 libros (12,01 + 11,83 + 14,20 + 9,39 + 11,38 = 61,31)
+  // × 1,3047 (EW_COLLECTION_FACTOR en ew-pricing.js) = 79,99 € en Tapa blanda A5.
   // Si cambia el precio de alguno, actualiza aquí «price» y en CATALOGO de
   // functions/index.js (mismo id: 'coleccion-tesoros-de-vida').
   // Para cambiar la portada de la colección: sustituye
@@ -225,7 +225,7 @@ window.BOOKS = [
     authorSlug: 'elena-g-white',
     category: 'elena-white',
     categoryLabel: 'Elena G. White',
-    price: 61.31,
+    price: 79.99,
     format: 'Colección de 5 libros, tapa blanda A5',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',

@@ -809,12 +809,12 @@ const CATALOGO = {
     cover: "img/las-bellas-historias-de-la-biblia-10.jpg",
     description: "Tomo 10 de los 10 que forman «Las Bellas Historias de la Biblia», de Arthur S. Maxwell: relatos bíblicos contados con un lenguaje sencillo y cercano, pensados para que los niños los lean o los escuchen en voz alta en familia. Cada tomo se puede comprar suelto o dentro de la colección completa.",
   },
-  // Colección Tesoros de Vida: precio fijo = suma de los 5 libros (tapa blanda A5,
-  // brillo, papel blanco offset), sin descuento. Sin configurador de impresión.
+  // Colección Tesoros de Vida: precio = suma de los 5 libros × 1,3047 (79,99 € en tapa
+  // blanda A5, brillo, offset; ver EW_COLLECTION_FACTOR). Sin configurador de impresión.
   "coleccion-tesoros-de-vida": {
     title: "Colección Tesoros de Vida",
     format: "Colección de 5 libros, tapa blanda A5",
-    price: 61.31,
+    price: 79.99,
     author: "Elena G. White",
     category: "elena-white",
     categoryLabel: "Elena G. White",

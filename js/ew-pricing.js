@@ -187,13 +187,14 @@ window.EW_MERGED_REDIRECTS = {
 
 // ==========================================================================
 // COLECCIONES: un "libro" cuyo precio es la SUMA de los libros que lo forman,
-// con la misma combinación de tapa, tamaño, acabado y papel (sin descuento).
+// con la misma combinación de tapa, tamaño, acabado y papel, multiplicada por EW_COLLECTION_FACTOR
+// (Tesoros de Vida: ×1,3047 → 79,99 € en tapa blanda A5; Las Bellas Historias: ×0,69).
 // Así la colección ofrece el mismo configurador que el resto de libros.
 // Debe ser idéntico en functions/ew-pricing.js.
 // ==========================================================================
 // Descuento por llevarse la colección completa (multiplicador sobre la suma de los tomos).
 // Igual en functions/ew-pricing.js.
-window.EW_COLLECTION_FACTOR = { 'coleccion-las-bellas-historias-de-la-biblia': 0.69 };
+window.EW_COLLECTION_FACTOR = { 'coleccion-las-bellas-historias-de-la-biblia': 0.69, 'coleccion-tesoros-de-vida': 1.3047 };
 window.EW_COLLECTIONS = {
   'coleccion-las-bellas-historias-de-la-biblia': ["las-bellas-historias-de-la-biblia-1", "las-bellas-historias-de-la-biblia-2", "las-bellas-historias-de-la-biblia-3", "las-bellas-historias-de-la-biblia-4", "las-bellas-historias-de-la-biblia-5", "las-bellas-historias-de-la-biblia-6", "las-bellas-historias-de-la-biblia-7", "las-bellas-historias-de-la-biblia-8", "las-bellas-historias-de-la-biblia-9", "las-bellas-historias-de-la-biblia-10"],
   'coleccion-tesoros-de-vida': ["historia-de-los-patriarcas-y-profetas","profetas-y-reyes","el-deseado-de-todas-las-gentes","los-hechos-de-los-apostoles","el-conflicto-de-los-siglos"]
@@ -203,7 +204,7 @@ window.EW_BOOK_DEFAULTS['coleccion-las-bellas-historias-de-la-biblia'] = {
   acabado: 'brillo', papel: 'offset', pdfTitle: 'Colección Las Bellas Historias de la Biblia'
 };
 window.EW_BOOK_DEFAULTS['coleccion-tesoros-de-vida'] = {
-  title: 'Colección Tesoros de Vida', price: 61.31, tipo: 'blanda', tamano: 'a5',
+  title: 'Colección Tesoros de Vida', price: 79.99, tipo: 'blanda', tamano: 'a5',
   acabado: 'brillo', papel: 'offset', pdfTitle: 'Colección Tesoros de Vida'
 };
 (function () {
