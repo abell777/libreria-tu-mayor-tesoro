@@ -94,8 +94,12 @@ function getEWRawPrice(pdfTitle, tipo, tamano, acabado, papel) {
 // "tipo/tamaño". Tesoros de Vida: tapa dura con factor propio (105,40 € mediano y
 // 120,06 € grande con brillo + offset). Igual que js/ew-pricing.js.
 const EW_COLLECTION_FACTOR = {
-  "coleccion-las-bellas-historias-de-la-biblia": 0.69,
+  "coleccion-las-bellas-historias-de-la-biblia": 1,
   "coleccion-tesoros-de-vida": { default: 1.3047, "dura/mediano": 1.0627, "dura/grande": 1.05085 },
+};
+// Recargo fijo en € que se suma al total de la colección (después del factor). Igual que js/ew-pricing.js.
+const EW_COLLECTION_SURCHARGE = {
+  "coleccion-las-bellas-historias-de-la-biblia": 30,
 };
 function getEWCollectionFactor(bookId, tipo, tamano) {
   const f = EW_COLLECTION_FACTOR[bookId];
@@ -107,7 +111,7 @@ const EW_COLLECTIONS = {
   "coleccion-tesoros-de-vida": ["historia-de-los-patriarcas-y-profetas","profetas-y-reyes","el-deseado-de-todas-las-gentes","los-hechos-de-los-apostoles","el-conflicto-de-los-siglos"],
 };
 EW_BOOK_DEFAULTS["coleccion-las-bellas-historias-de-la-biblia"] = {
-  title: "Colección Las Bellas Historias de la Biblia", price: 99.87, tipo: "blanda", tamano: "a5",
+  title: "Colección Las Bellas Historias de la Biblia", price: 174.74, tipo: "blanda", tamano: "a5",
   acabado: "brillo", papel: "offset", pdfTitle: "Colección Las Bellas Historias de la Biblia",
 };
 EW_BOOK_DEFAULTS["coleccion-tesoros-de-vida"] = {
@@ -124,7 +128,8 @@ function getEWPrice(bookId, tipo, tamano, acabado, papel) {
       if (p === null) return null;
       total += p;
     }
-    return Math.round(total * getEWCollectionFactor(bookId, tipo, tamano) * 100) / 100;
+    total = total * getEWCollectionFactor(bookId, tipo, tamano) + (EW_COLLECTION_SURCHARGE[bookId] || 0);
+    return Math.round(total * 100) / 100;
   }
   return getEWPriceIndividual(bookId, tipo, tamano, acabado, papel);
 }
