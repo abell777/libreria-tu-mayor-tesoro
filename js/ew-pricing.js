@@ -194,7 +194,18 @@ window.EW_MERGED_REDIRECTS = {
 // ==========================================================================
 // Descuento por llevarse la colección completa (multiplicador sobre la suma de los tomos).
 // Igual en functions/ew-pricing.js.
-window.EW_COLLECTION_FACTOR = { 'coleccion-las-bellas-historias-de-la-biblia': 0.69, 'coleccion-tesoros-de-vida': 1.3047 };
+// Puede ser un número (igual para todos los formatos) o un objeto con «default» y
+// excepciones por 'tipo/tamaño'. Tesoros de Vida: tapa dura con factor propio para
+// quedar en 105,40 € (mediano) y 120,06 € (grande) con brillo + offset.
+window.EW_COLLECTION_FACTOR = {
+  'coleccion-las-bellas-historias-de-la-biblia': 0.69,
+  'coleccion-tesoros-de-vida': { 'default': 1.3047, 'dura/mediano': 1.0627, 'dura/grande': 1.05085 }
+};
+window.getEWCollectionFactor = function (bookId, tipo, tamano) {
+  var f = window.EW_COLLECTION_FACTOR[bookId];
+  if (f && typeof f === 'object') return f[tipo + '/' + tamano] || f['default'] || 1;
+  return f || 1;
+};
 window.EW_COLLECTIONS = {
   'coleccion-las-bellas-historias-de-la-biblia': ["las-bellas-historias-de-la-biblia-1", "las-bellas-historias-de-la-biblia-2", "las-bellas-historias-de-la-biblia-3", "las-bellas-historias-de-la-biblia-4", "las-bellas-historias-de-la-biblia-5", "las-bellas-historias-de-la-biblia-6", "las-bellas-historias-de-la-biblia-7", "las-bellas-historias-de-la-biblia-8", "las-bellas-historias-de-la-biblia-9", "las-bellas-historias-de-la-biblia-10"],
   'coleccion-tesoros-de-vida': ["historia-de-los-patriarcas-y-profetas","profetas-y-reyes","el-deseado-de-todas-las-gentes","los-hechos-de-los-apostoles","el-conflicto-de-los-siglos"]
@@ -218,6 +229,6 @@ window.EW_BOOK_DEFAULTS['coleccion-tesoros-de-vida'] = {
       if (p === null || p === undefined) return null;
       total += p;
     }
-    return Math.round(total * (window.EW_COLLECTION_FACTOR[bookId] || 1) * 100) / 100;
+    return Math.round(total * window.getEWCollectionFactor(bookId, tipo, tamano) * 100) / 100;
   };
 })();

@@ -90,7 +90,18 @@ function getEWRawPrice(pdfTitle, tipo, tamano, acabado, papel) {
 // Colecciones: el precio es la SUMA de los libros que las forman con la misma
 // combinación de tapa/tamaño/acabado/papel × EW_COLLECTION_FACTOR (igual que js/ew-pricing.js).
 // Descuento por llevarse la colección completa (multiplicador sobre la suma de los tomos).
-const EW_COLLECTION_FACTOR = { "coleccion-las-bellas-historias-de-la-biblia": 0.69, "coleccion-tesoros-de-vida": 1.3047 };
+// Número (igual para todos los formatos) u objeto con "default" y excepciones por
+// "tipo/tamaño". Tesoros de Vida: tapa dura con factor propio (105,40 € mediano y
+// 120,06 € grande con brillo + offset). Igual que js/ew-pricing.js.
+const EW_COLLECTION_FACTOR = {
+  "coleccion-las-bellas-historias-de-la-biblia": 0.69,
+  "coleccion-tesoros-de-vida": { default: 1.3047, "dura/mediano": 1.0627, "dura/grande": 1.05085 },
+};
+function getEWCollectionFactor(bookId, tipo, tamano) {
+  const f = EW_COLLECTION_FACTOR[bookId];
+  if (f && typeof f === "object") return f[tipo + "/" + tamano] || f.default || 1;
+  return f || 1;
+}
 const EW_COLLECTIONS = {
   "coleccion-las-bellas-historias-de-la-biblia": ["las-bellas-historias-de-la-biblia-1", "las-bellas-historias-de-la-biblia-2", "las-bellas-historias-de-la-biblia-3", "las-bellas-historias-de-la-biblia-4", "las-bellas-historias-de-la-biblia-5", "las-bellas-historias-de-la-biblia-6", "las-bellas-historias-de-la-biblia-7", "las-bellas-historias-de-la-biblia-8", "las-bellas-historias-de-la-biblia-9", "las-bellas-historias-de-la-biblia-10"],
   "coleccion-tesoros-de-vida": ["historia-de-los-patriarcas-y-profetas","profetas-y-reyes","el-deseado-de-todas-las-gentes","los-hechos-de-los-apostoles","el-conflicto-de-los-siglos"],
@@ -113,7 +124,7 @@ function getEWPrice(bookId, tipo, tamano, acabado, papel) {
       if (p === null) return null;
       total += p;
     }
-    return Math.round(total * (EW_COLLECTION_FACTOR[bookId] || 1) * 100) / 100;
+    return Math.round(total * getEWCollectionFactor(bookId, tipo, tamano) * 100) / 100;
   }
   return getEWPriceIndividual(bookId, tipo, tamano, acabado, papel);
 }
