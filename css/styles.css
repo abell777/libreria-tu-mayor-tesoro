@@ -4629,3 +4629,52 @@ a, button, label, select, summary, [role="button"] { -webkit-tap-highlight-color
    lateral en el móvil (clip no rompe los menús fijos/sticky). */
 html, body { max-width: 100%; }
 body { overflow-x: clip; }
+
+/* ==========================================================================
+   Portada de la home: bloque «Colección Tesoros de Vida» (.hero-collection)
+   Antes no tenía estilos: la imagen (800×1200) se limitaba de ancho pero
+   conservaba el alto, y las 5 portadas y el texto salían aplastados/alargados.
+   ========================================================================== */
+.hero-collection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 440px;
+  margin-inline: auto;
+  color: inherit;
+  text-decoration: none;
+}
+.hero-collection img {
+  width: 100%;
+  height: auto;            /* la altura sigue al ancho: nunca se deforma */
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 50px rgb(0 0 0 / 0.35);
+  transition: transform 0.25s ease;
+}
+.hero-collection:hover img { transform: translateY(-4px); }
+.hero-collection-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+.hero-collection-price strong {
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  line-height: 1.1;
+  color: var(--gold-soft);
+}
+.hero-collection-price small {
+  font-size: 0.86rem;
+  line-height: 1.4;
+  color: var(--parchment);
+  opacity: 0.85;
+}
+@media (max-width: 900px) {
+  .hero-collection { max-width: 340px; }
+}
