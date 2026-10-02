@@ -181,6 +181,7 @@
   var paginationNav = document.getElementById('pagination');
 
   var currentPage = 1;
+  var soloNovedades = false; // ?cat=novedades: solo los libros de window.NOVEDADES_IDS
 
   function readStoredPageSize() {
     try {
@@ -321,9 +322,10 @@
       var matchBibleClosure = !groups.bibleClosure || groups.bibleClosure.indexOf(card.dataset.bibleClosure) !== -1;
       var matchBibleColor = !groups.bibleColor || groups.bibleColor.indexOf(card.dataset.bibleColor) !== -1;
       var matchQuery = !query || cardText(card).indexOf(query) !== -1;
+      var matchNovedades = !soloNovedades || (window.NOVEDADES_IDS || []).indexOf(card.dataset.productId) !== -1;
 
       return matchCategory && matchPrice && matchFormat && matchAuthor && matchSubcategory && matchNeed &&
-        matchBibleVersion && matchBibleEdition && matchBibleClosure && matchBibleColor && matchQuery;
+        matchBibleVersion && matchBibleEdition && matchBibleClosure && matchBibleColor && matchQuery && matchNovedades;
     });
   }
 
@@ -382,6 +384,10 @@
     if (query) {
       shopTitle.textContent = 'Resultados para «' + query + '»';
       if (breadcrumbCurrent) breadcrumbCurrent.textContent = 'Búsqueda';
+    } else if (soloNovedades && !(activeCategories && activeCategories.length)) {
+      shopTitle.textContent = 'Novedades';
+      if (breadcrumbCurrent) breadcrumbCurrent.textContent = 'Novedades';
+      if (ledeEl) { ledeEl.textContent = 'Lo último que hemos incorporado a la librería.'; ledeEl.hidden = false; }
     } else if (activeCategories && activeCategories.length === 1) {
       var label = CATEGORY_LABELS[activeCategories[0]] || 'Catálogo';
       shopTitle.textContent = label;
@@ -499,6 +505,7 @@
   function clearAllFilters() {
     allFilterInputs().forEach(function (cb) { cb.checked = false; });
     if (searchInput) searchInput.value = '';
+    soloNovedades = false;
     currentPage = 1;
     render();
   }
@@ -536,6 +543,7 @@
   var params = new URLSearchParams(window.location.search);
   var catParam = params.get('cat');
   var qParam = params.get('q');
+  if (catParam === 'novedades') soloNovedades = true;
   if (catParam) {
     var match = checkboxes.filter(function (c) { return c.name === 'category' && c.value === catParam; })[0];
     if (match) match.checked = true;

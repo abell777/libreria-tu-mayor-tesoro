@@ -3766,6 +3766,22 @@ window.BOOK_NEEDS = {
 // que por ahora no queremos que aparezcan en la web (listados, buscador,
 // recomendaciones ni ficha propia) — sin borrar sus datos. Para volver a
 // publicar uno, basta con quitarle "hidden: true" en su objeto de arriba.
+// NOVEDADES: ids que salen en «Novedades» (menú y home). Los más nuevos, primero.
+// Al añadir un libro nuevo, ponlo AQUÍ al principio; los antiguos puedes ir quitándolos.
+window.NOVEDADES_IDS = [
+  "coleccion-las-bellas-historias-de-la-biblia",
+  "las-bellas-historias-de-la-biblia-1",
+  "las-bellas-historias-de-la-biblia-2",
+  "las-bellas-historias-de-la-biblia-3",
+  "las-bellas-historias-de-la-biblia-4",
+  "las-bellas-historias-de-la-biblia-5",
+  "las-bellas-historias-de-la-biblia-6",
+  "las-bellas-historias-de-la-biblia-7",
+  "las-bellas-historias-de-la-biblia-8",
+  "las-bellas-historias-de-la-biblia-9",
+  "las-bellas-historias-de-la-biblia-10"
+];
+
 window.BOOKS_ALL = window.BOOKS;
 window.BOOKS = window.BOOKS.filter(function (b) { return !b.hidden; });
 

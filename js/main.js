@@ -236,3 +236,27 @@
   var enCatalogo = window.location.pathname.split('/').pop() === 'categoria.html';
   primero.classList.toggle('is-active', enCatalogo);
 })();
+
+
+// ==========================================================================
+// Home: tira de «Novedades». Se rellena sola con window.NOVEDADES_IDS
+// (js/books-data.js): al añadir un libro nuevo y ponerlo en esa lista, sale aquí.
+// ==========================================================================
+(function () {
+  var strip = document.getElementById('novedadesStrip');
+  var sec = document.getElementById('novedades');
+  if (!strip || !sec || !window.BOOKS || !window.NOVEDADES_IDS) return;
+  var porId = {};
+  window.BOOKS.forEach(function (b) { porId[b.id] = b; });
+  var libros = window.NOVEDADES_IDS.map(function (id) { return porId[id]; }).filter(Boolean).slice(0, 12);
+  if (!libros.length) return;
+  function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
+  strip.innerHTML = libros.map(function (b) {
+    var precio = Number(b.price).toFixed(2).replace('.', ',') + '\u00a0€';
+    return '<a class="novedad-card" href="producto.html?id=' + encodeURIComponent(b.id) + '">' +
+      '<span class="novedad-cover"><img src="' + esc(b.cover) + '" alt="Portada de ' + esc(b.title) + '" width="200" height="300" loading="lazy" decoding="async"></span>' +
+      '<span class="novedad-title">' + esc(b.title) + '</span>' +
+      '<span class="novedad-price">' + precio + '</span></a>';
+  }).join('');
+  sec.hidden = false;
+})();
