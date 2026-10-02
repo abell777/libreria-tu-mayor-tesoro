@@ -4593,3 +4593,39 @@ a, button, label, select, summary, [role="button"] { -webkit-tap-highlight-color
 .novedad-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .novedad-title { font-family: var(--font-serif); font-size: 0.92rem; line-height: 1.3; color: var(--navy); }
 .novedad-price { font-size: 0.85rem; color: var(--muted-foreground); }
+
+/* ==========================================================================
+   Correcciones de visualización móvil / multi-dispositivo
+   ========================================================================== */
+
+/* Portada de las tarjetas de COLECCIÓN: se muestra ENTERA y con su proporción
+   real, sin recortar ni estirar (antes se recortaba a 3:4 y una imagen que no
+   fuese exactamente 2:3 se veía ampliada/estirada en el móvil).
+   Anula el bloque de «Tarjetas de COLECCIÓN» de más arriba. */
+.book-card--collection .book-cover--photo {
+  aspect-ratio: auto;
+  background: transparent;
+}
+.book-card--collection .book-cover--photo img {
+  position: static;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* iPhone/Android amplían la página al tocar un campo si su letra es < 16 px
+   (buscador, ordenar, cantidad, cupón, newsletter…). En pantallas táctiles se
+   fuerza 16 px para que no salte el zoom. */
+@media (hover: none) and (pointer: coarse) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]),
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Red de seguridad: si algún elemento se sale de ancho, que no aparezca scroll
+   lateral en el móvil (clip no rompe los menús fijos/sticky). */
+html, body { max-width: 100%; }
+body { overflow-x: clip; }
