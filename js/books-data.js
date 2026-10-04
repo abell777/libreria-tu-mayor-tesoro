@@ -253,7 +253,7 @@ window.BOOKS = [
   // ========================================================================
   // COLECCIÓN LAS BELLAS HISTORIAS DE LA BIBLIA (Arthur S. Maxwell) — 10 tomos
   // infantiles. Va justo después de Tesoros de Vida. Precio = suma de los 10
-  // tomos en Tapa blanda A5 · Brillo · Blanco offset + 30 € fijos (sin descuento;
+  // tomos en Tapa blanda A5 · Brillo · Blanco offset + 30,32 € fijos (sin descuento;
   // EW_COLLECTION_FACTOR y EW_COLLECTION_SURCHARGE en ew-pricing.js): 7.81 + 7.96 + 7.97 + 7.98 + 7.98 + 7.98 + 7.98 + 7.98 + 7.98 + 8.12.
   // NO está disponible en formato bolsillo (ver js/ew-pricing.js).
   // Si cambia el precio de algún tomo, actualiza aquí «price» y en CATALOGO de
@@ -268,7 +268,7 @@ window.BOOKS = [
     authorSlug: 'arthur-s-maxwell',
     category: 'infantil',
     categoryLabel: 'Infantil y juvenil',
-    price: 174.74,
+    price: 175.06,
     format: 'Colección de 10 tomos, tapa blanda A5',
     formatSlug: 'rustica',
     priceNote: 'IVA incluido',

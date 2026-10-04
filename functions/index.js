@@ -702,12 +702,12 @@ const CATALOGO = {
   "coleccion-las-bellas-historias-de-la-biblia": {
     title: "Colección Las Bellas Historias de la Biblia",
     format: "Colección de 10 tomos, tapa blanda A5",
-    price: 174.74,
+    price: 175.06,
     author: "Arthur S. Maxwell",
     category: "infantil",
     categoryLabel: "Infantil y juvenil",
     cover: "img/coleccion-las-bellas-historias-de-la-biblia.jpg",
-    description: "Los diez tomos de «Las Bellas Historias de la Biblia», de Arthur S. Maxwell, reunidos en una sola colección de historias bíblicas para niños. Precio = suma de los 10 tomos + 30 € por la edición de colección.",
+    description: "Los diez tomos de «Las Bellas Historias de la Biblia», de Arthur S. Maxwell, reunidos en una sola colección de historias bíblicas para niños. Precio = suma de los 10 tomos + 30,32 € por la edición de colección.",
   },
   "las-bellas-historias-de-la-biblia-1": {
     title: "Las Bellas Historias de la Biblia, Tomo 1",

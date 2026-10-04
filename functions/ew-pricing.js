@@ -99,7 +99,7 @@ const EW_COLLECTION_FACTOR = {
 };
 // Recargo fijo en € que se suma al total de la colección (después del factor). Igual que js/ew-pricing.js.
 const EW_COLLECTION_SURCHARGE = {
-  "coleccion-las-bellas-historias-de-la-biblia": 30,
+  "coleccion-las-bellas-historias-de-la-biblia": 30.32,
 };
 function getEWCollectionFactor(bookId, tipo, tamano) {
   const f = EW_COLLECTION_FACTOR[bookId];
@@ -111,7 +111,7 @@ const EW_COLLECTIONS = {
   "coleccion-tesoros-de-vida": ["historia-de-los-patriarcas-y-profetas","profetas-y-reyes","el-deseado-de-todas-las-gentes","los-hechos-de-los-apostoles","el-conflicto-de-los-siglos"],
 };
 EW_BOOK_DEFAULTS["coleccion-las-bellas-historias-de-la-biblia"] = {
-  title: "Colección Las Bellas Historias de la Biblia", price: 174.74, tipo: "blanda", tamano: "a5",
+  title: "Colección Las Bellas Historias de la Biblia", price: 175.06, tipo: "blanda", tamano: "a5",
   acabado: "brillo", papel: "offset", pdfTitle: "Colección Las Bellas Historias de la Biblia",
 };
 EW_BOOK_DEFAULTS["coleccion-tesoros-de-vida"] = {
