@@ -16,7 +16,8 @@
     'vida-cristiana': 'Vida cristiana',
     infantil: 'Infantil y juvenil',
     doctrina: 'Doctrina y creencias',
-    regalos: 'Regalos y papelería'
+    regalos: 'Regalos y papelería',
+    'otros-idiomas': 'Otros idiomas'
   };
 
   var PER_PAGE_STORAGE_KEY = 'fundamento_per_page';
@@ -41,6 +42,10 @@
     var subcatAttr = Array.isArray(book.subcategory) ? book.subcategory.join(' ') : '';
     var lang = window.idiomaToLang ? window.idiomaToLang(book.idioma) : 'es';
     var langAttr = lang !== 'es' ? ' lang="' + lang + '"' : '';
+    // Sello de idioma (EN, PT...) sobre la portada de los libros que no están en español.
+    var langTagHTML = lang !== 'es'
+      ? '<span class="lang-tag" title="Edición en ' + escapeHTML((book.idioma || '').toLowerCase()) + '">' + lang.toUpperCase() + '</span>'
+      : '';
     var stock = window.stockInfo ? window.stockInfo(book) : null;
     var agotado = !!(stock && stock.estado === 'agotado');
     var stockBadgeHTML = stock && stock.texto
@@ -74,6 +79,7 @@
       '" data-price="' + (comingSoon ? 0 : book.price) +
       '" data-format="' + book.formatSlug + '" data-author="' + book.authorSlug + '" data-product-id="' + book.id +
       '" data-subcategory="' + escapeHTML(subcatAttr) +
+      '" data-idioma="' + escapeHTML(book.idioma || 'Español') +
       '" data-bible-version="' + escapeHTML(book.bibleVersion || '') +
       '" data-bible-edition="' + escapeHTML(book.bibleEdition || '') +
       '" data-bible-closure="' + escapeHTML(book.bibleClosure || '') +
@@ -83,6 +89,7 @@
           (book.badge ? '<span class="badge">' + escapeHTML(book.badge) + '</span>' : '') +
           (bindingIcon ? '<span class="binding-tag binding-tag--' + book.formatSlug + '">' + bindingIcon + '<span>' + BINDING_LABEL[book.formatSlug] + '</span></span>' : '') +
           stockBadgeHTML +
+          langTagHTML +
           '<img src="' + toWebp(book.cover) + '" onerror="this.onerror=null;this.src=\'' + book.cover + '\'" alt="Portada de «' + escapeHTML(book.title) + '», de ' + escapeHTML(book.author) + '" width="400" height="600" loading="lazy" decoding="async">' +
         '</a>' +
         printToggleHTML +
@@ -161,6 +168,32 @@
       '<h3>¿Qué busca tu alma hoy?</h3>' +
       '<p class="filter-group-note">Elige el momento que estás viviendo y te mostramos los libros que acompañan en eso.</p>' +
       rows + '</div>';
+  })();
+
+  // ---- Filtro «Idioma» -----------------------------------------------------
+  // Se pinta solo si el catálogo tiene libros en más de un idioma (hoy:
+  // español e inglés). Si añades uno en portugués, francés...: aparece solo.
+  function languagePairs(catSlug) {
+    var counts = {}, order = [];
+    window.BOOKS.forEach(function (b) {
+      if (catSlug && b.category !== catSlug) return;
+      var id = b.idioma || 'Español';
+      if (!counts[id]) { counts[id] = 0; order.push(id); }
+      counts[id]++;
+    });
+    var known = Object.keys(window.IDIOMA_LANG || {});
+    order.sort(function (a, b) {
+      var ia = known.indexOf(a), ib = known.indexOf(b);
+      return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+    });
+    return order.map(function (id) { return [id, id, counts[id]]; });
+  }
+  var languageGroupEl = document.getElementById('languageFilterGroup');
+  (function buildLanguageFilter() {
+    if (!languageGroupEl) return;
+    var pairs = languagePairs(null);
+    if (pairs.length < 2) { languageGroupEl.innerHTML = ''; return; }
+    languageGroupEl.innerHTML = checkGroupHTML('Idioma', 'idioma', pairs);
   })();
 
   var checkboxes = allFilterInputs();
@@ -255,6 +288,12 @@
     if (catSlug === 'elena-white') {
       var subPairs = presentPairs(window.SUBCATEGORY_LABELS, 'subcategory', catSlug);
       barHTML = pillsHTML('subcategory', subPairs);
+    } else if (catSlug === 'otros-idiomas') {
+      // Primero el idioma (Inglés, Portugués...) y debajo el tema del libro.
+      var langPairs = languagePairs('otros-idiomas');
+      var topicPairs = presentPairs(window.SUBCATEGORY_LABELS, 'subcategory', catSlug);
+      barHTML = '<div class="subcategory-row" aria-label="Idioma">' + pillsHTML('idioma', langPairs) + '</div>' +
+        '<div class="subcategory-row" aria-label="Tema">' + pillsHTML('subcategory', topicPairs) + '</div>';
     } else if (catSlug === 'biblias') {
       var edPairs = presentPairs(window.BIBLE_EDITION_LABELS, 'bibleEdition', catSlug);
       barHTML = pillsHTML('bibleEdition', edPairs);
@@ -272,6 +311,11 @@
       subcategoryBarEl.hidden = !barHTML;
     }
     if (dynamicGroupsEl) dynamicGroupsEl.innerHTML = groupsHTML;
+    if (languageGroupEl) {
+      var hideAside = catSlug === 'otros-idiomas'; // la barra de arriba ya ofrece el idioma
+      languageGroupEl.hidden = hideAside;
+      if (hideAside) Array.prototype.slice.call(languageGroupEl.querySelectorAll('input')).forEach(function (cb) { cb.checked = false; });
+    }
 
     // Los checkboxes recién creados necesitan su propio listener de cambio.
     [subcategoryBarEl, dynamicGroupsEl].forEach(function (wrap) {
@@ -316,6 +360,7 @@
       var matchFormat = !groups.format || groups.format.indexOf(format) !== -1;
       var matchAuthor = !groups.author || groups.author.indexOf(author) !== -1;
       var matchSubcategory = !groups.subcategory || groups.subcategory.some(function (s) { return subcats.indexOf(s) !== -1; });
+      var matchIdioma = !groups.idioma || groups.idioma.indexOf(card.dataset.idioma) !== -1;
       var matchNeed = !groups.need || groups.need.some(function (n) { return cardNeeds.indexOf(n) !== -1; });
       var matchBibleVersion = !groups.bibleVersion || groups.bibleVersion.indexOf(card.dataset.bibleVersion) !== -1;
       var matchBibleEdition = !groups.bibleEdition || groups.bibleEdition.indexOf(card.dataset.bibleEdition) !== -1;
@@ -324,7 +369,7 @@
       var matchQuery = !query || cardText(card).indexOf(query) !== -1;
       var matchNovedades = !soloNovedades || (window.NOVEDADES_IDS || []).indexOf(card.dataset.productId) !== -1;
 
-      return matchCategory && matchPrice && matchFormat && matchAuthor && matchSubcategory && matchNeed &&
+      return matchCategory && matchPrice && matchFormat && matchAuthor && matchSubcategory && matchIdioma && matchNeed &&
         matchBibleVersion && matchBibleEdition && matchBibleClosure && matchBibleColor && matchQuery && matchNovedades;
     });
   }
@@ -392,6 +437,10 @@
       var label = CATEGORY_LABELS[activeCategories[0]] || 'Catálogo';
       shopTitle.textContent = label;
       if (breadcrumbCurrent) breadcrumbCurrent.textContent = label;
+      if (activeCategories[0] === 'otros-idiomas' && ledeEl) {
+        ledeEl.textContent = 'Nuestros libros en otros idiomas. Elige tu idioma y el tema que buscas.';
+        ledeEl.hidden = false;
+      }
     } else {
       shopTitle.textContent = 'Todos los libros';
       if (breadcrumbCurrent) breadcrumbCurrent.textContent = 'Catálogo';

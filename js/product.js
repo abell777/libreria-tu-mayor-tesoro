@@ -11,9 +11,14 @@
   var CATEGORY_LABELS = {
     biblias: 'Biblias', 'elena-white': 'Elena G. White', salud: 'Salud y familia',
     profecia: 'Profecía', devocionales: 'Devocionales', 'vida-cristiana': 'Vida cristiana',
-    infantil: 'Infantil y juvenil', doctrina: 'Doctrina y creencias', regalos: 'Regalos y papelería'
+    infantil: 'Infantil y juvenil', doctrina: 'Doctrina y creencias', regalos: 'Regalos y papelería', 'otros-idiomas': 'Otros idiomas'
   };
 
+  // Precio para tarjetas de «relacionados»: los libros «Próximamente» no tienen precio (null).
+  function priceHTML(b) {
+    if (typeof b.price !== 'number') return 'Próximamente';
+    return fmtPrice(b.price) + '&nbsp;€<small>' + escapeHTML(b.priceNote || '') + '</small>';
+  }
   function fmtPrice(n) {
     return n.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
@@ -916,7 +921,7 @@
             '<h3 class="book-title"><a href="producto.html?id=' + b.id + '">' + escapeHTML(b.title) + '</a></h3>' +
             '<p class="book-author">' + escapeHTML(b.author) + '</p>' +
             '<div class="book-footer">' +
-              '<span class="book-price">' + fmtPrice(b.price) + '&nbsp;€<small>' + escapeHTML(b.priceNote) + '</small></span>' +
+              '<span class="book-price">' + priceHTML(b) + '</span>' +
               '<button class="btn btn--primary btn--sm">Añadir</button>' +
             '</div>' +
           '</div>' +
@@ -958,7 +963,7 @@
                 '<h3 class="book-title"><a href="producto.html?id=' + b.id + '">' + escapeHTML(b.title) + '</a></h3>' +
                 '<p class="book-author">' + escapeHTML(b.author) + '</p>' +
                 '<div class="book-footer">' +
-                  '<span class="book-price">' + fmtPrice(b.price) + '&nbsp;€<small>' + escapeHTML(b.priceNote) + '</small></span>' +
+                  '<span class="book-price">' + priceHTML(b) + '</span>' +
                   '<button class="btn btn--primary btn--sm">Añadir</button>' +
                 '</div>' +
               '</div>' +

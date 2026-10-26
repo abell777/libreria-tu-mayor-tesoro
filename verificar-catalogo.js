@@ -76,6 +76,47 @@ B.forEach((b) => {
   });
 });
 
+// ---- 3) Ficha COMPLETA: avisa si a un libro le falta algún campo --------------
+// (no para el despliegue: solo te dice qué falta, para que no se te olvide
+// nada al subir un libro nuevo).
+const ORDEN_PORTADAS = ['ilustrada', 'tipografica-clara', 'tipografica-oscura', 'clasica'];
+const CON_TEMA = ['elena-white', 'infantil', 'doctrina', 'otros-idiomas'];
+const HAY_IMG = fs.existsSync(path.join(__dirname, 'img')); // si no está la carpeta img (p. ej. un zip parcial), no se comprueban ficheros
+const faltas = {};
+const falta = (b, txt) => { (faltas[b.id] = faltas[b.id] || []).push(txt); };
+B.forEach((b) => {
+  if (!b.description || b.description.length < 40) falta(b, 'descripción (muy corta o vacía)');
+  if (!b.idioma) falta(b, 'idioma');
+  if (!b.cover) falta(b, 'portada principal («cover»)');
+  if (!(window.BOOK_NEEDS[b.id] || []).length) falta(b, '«¿Qué busca tu alma hoy?» (BOOK_NEEDS)');
+  if (CON_TEMA.includes(b.category) && !(b.subcategory || []).length) falta(b, 'tema («subcategory»)');
+  const cv = window.bookCovers(b);
+  if (b.covers) {
+    const estilos = cv.map((c) => c.style).filter((x) => ORDEN_PORTADAS.includes(x));
+    const esperado = ORDEN_PORTADAS.filter((x) => estilos.includes(x));
+    if (estilos.join() !== esperado.join()) falta(b, 'orden de portadas (debe ser: ilustrada, tipográfica clara, tipográfica oscura, clásica)');
+    if (cv[0] && b.cover && cv[0].file !== b.cover) falta(b, 'la primera portada no coincide con «cover»');
+    if (b.category === 'otros-idiomas' && estilos.length < 4) falta(b, 'las 4 portadas (ilustrada, clara, oscura y clásica)');
+  }
+  cv.forEach((c) => {
+    ['', '.webp'].forEach((ext) => {
+      const fichero = ext ? c.file.replace(/\.jpg$/i, ext) : c.file;
+      if (HAY_IMG && !fs.existsSync(path.join(__dirname, fichero))) falta(b, 'fichero de imagen que no existe: ' + fichero);
+    });
+  });
+  if ((b.comingSoon || b.badge === 'Nuevo') && !(window.NOVEDADES_IDS || []).includes(b.id) && b.category === 'otros-idiomas') falta(b, 'aparecer en «Novedades» (NOVEDADES_IDS)');
+  if (b.category === 'otros-idiomas' && (!b.idioma || b.idioma === 'Español')) falta(b, 'idioma distinto de español (está en «Otros idiomas»)');
+  if (b.idioma && b.idioma !== 'Español' && b.category !== 'otros-idiomas') falta(b, 'categoría «otros-idiomas» (no está en español)');
+});
+const conFaltas = Object.keys(faltas);
+if (conFaltas.length) {
+  console.log('\nFICHAS INCOMPLETAS (' + conFaltas.length + ' libros) — no bloquea el despliegue:');
+  conFaltas.slice(0, 25).forEach((id) => console.log('  · ' + id + ' → falta: ' + faltas[id].join('; ')));
+  if (conFaltas.length > 25) console.log('  … y ' + (conFaltas.length - 25) + ' más.');
+} else {
+  console.log('\nFICHAS COMPLETAS: todos los libros tienen descripción, idioma, tema, necesidades y portadas.');
+}
+
 // Cliente y servidor deben dar el mismo precio en TODAS las combinaciones.
 let comb = 0;
 B.filter((b) => window.hasEWPrintOptions(b.id)).forEach((b) => {

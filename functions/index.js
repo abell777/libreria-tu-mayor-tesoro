@@ -126,6 +126,186 @@ const PORTADAS_VALIDAS = {
 // Twitter muestran el título, la portada y el resumen reales del libro al
 // compartir un enlace, en vez de los genéricos de la home.
 const CATALOGO = {
+  "the-spirit-of-the-prophecy": {
+      "title": "The Spirit of the Prophecy",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/the-spirit-of-the-prophecy.jpg",
+      "description": "Un recorrido por la historia bíblica y el gran conflicto entre el bien y el mal, desde la creación hasta la restauración final. Edición en inglés."
+  },
+  "sketches-from-the-life-of-paul": {
+      "title": "Sketches from the Life of Paul",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/sketches-from-the-life-of-paul.jpg",
+      "description": "Un recorrido por la vida del apóstol Pablo: su conversión, sus viajes, sus cartas y su entrega a la misión. Una biografía devocional para conocer mejor al apóstol y el libro de Hechos. Edición en inglés."
+  },
+  "selected-messages-3": {
+      "title": "Selected Messages, Book 3",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/selected-messages-3.jpg",
+      "description": "Libro 3 de los tres volúmenes de «Mensajes selectos»: una compilación de escritos sobre la fe y la vida cristiana, para el estudio personal. Edición en inglés."
+  },
+  "selected-messages-2": {
+      "title": "Selected Messages, Book 2",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/selected-messages-2.jpg",
+      "description": "Libro 2 de los tres volúmenes de «Mensajes selectos»: una compilación de escritos sobre la experiencia cristiana y la fe, para el estudio personal. Edición en inglés."
+  },
+  "selected-messages-1": {
+      "title": "Selected Messages, Book 1",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/selected-messages-1.jpg",
+      "description": "Libro 1 de los tres volúmenes de «Mensajes selectos»: una compilación de escritos sobre la Biblia, la fe y la vida cristiana, para el estudio personal. Edición en inglés."
+  },
+  "the-retirement-years": {
+      "title": "The Retirement Years",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/the-retirement-years.jpg",
+      "description": "Escritos de los últimos años de Elena G. White, una etapa de reflexión, trabajo sereno y confianza en Dios. Una lectura que acompaña a quienes viven la madurez y la jubilación. Edición en inglés."
+  },
+  "help-in-daily-living": {
+      "title": "Help in Daily Living",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/help-in-daily-living.jpg",
+      "description": "Una guía práctica para la vida de cada día: cómo aplicar la fe en el trabajo, el hogar y las relaciones, con consejos sencillos y cercanos. Edición en inglés."
+  },
+  "darkness-before-dawn": {
+      "title": "Darkness Before Dawn",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/darkness-before-dawn.jpg",
+      "description": "Edición en inglés de «Oscuridad antes del amanecer»: una lectura breve que contrasta los tiempos oscuros con la esperanza de un nuevo amanecer. Ideal para quien busca consuelo y perspectiva."
+  },
+  "country-living": {
+      "title": "Country Living",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/country-living.jpg",
+      "description": "Edición en inglés de «De la ciudad al campo»: una invitación a la vida sencilla en contacto con la naturaleza, con consejos sobre el hogar, el trabajo y la salud. Una lectura serena para repensar el estilo de vida."
+  },
+  "counsels-for-the-church": {
+      "title": "Counsels for the Church",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/counsels-for-the-church.jpg",
+      "description": "Edición en inglés de «Consejos para la iglesia»: una selección de orientaciones para la vida y la misión de la comunidad de fe, organizadas por temas. Pensada para el estudio personal y en grupo."
+  },
+  "confrontation": {
+      "title": "Confrontation",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/confrontation.jpg",
+      "description": "Edición en inglés de «El conflicto inminente»: una mirada a los acontecimientos finales anunciados por la profecía y a su relevancia para la vida cristiana de hoy."
+  },
+  "colporteur-ministry": {
+      "title": "Colporteur Ministry",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/colporteur-ministry.jpg",
+      "description": "Una guía para el ministerio del colportaje: el espíritu, la preparación y los principios de quienes llevan literatura cristiana a las familias. Edición en inglés."
+  },
+  "the-colporteur-evangelist": {
+      "title": "The Colporteur Evangelist",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/the-colporteur-evangelist.jpg",
+      "description": "Edición en inglés de «El colportor evangélico»: consejos prácticos y motivación para quienes comparten libros cristianos de casa en casa. Un clásico del colportaje."
+  },
+  "christian-leadership": {
+      "title": "Christian Leadership",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/christian-leadership.jpg",
+      "description": "Edición en inglés de «Liderazgo cristiano»: un libro breve sobre cómo dirigir a otros con el estilo de Jesús, sirviendo, escuchando y dando ejemplo. Útil para líderes, maestros y voluntarios."
+  },
+  "child-guidance": {
+      "title": "Child Guidance",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/child-guidance.jpg",
+      "description": "Edición en inglés de «La conducción del niño»: principios para educar a los hijos con firmeza y cariño, desde la primera infancia, formando el carácter dentro del hogar."
+  },
+  "an-appeal-to-the-youth": {
+      "title": "An Appeal to the Youth",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/an-appeal-to-the-youth.jpg",
+      "description": "Una llamada directa a los jóvenes sobre el carácter, las decisiones y el propósito de la vida cristiana. Edición en inglés, pensada para quienes empiezan su camino de fe o para regalar."
+  },
+  "the-adventist-home": {
+      "title": "The Adventist Home",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/the-adventist-home.jpg",
+      "description": "Edición en inglés de «El hogar cristiano»: consejos sobre el noviazgo, el matrimonio, la crianza de los hijos y el ambiente del hogar. Un manual clásico para fortalecer la vida familiar a la luz de la fe."
+  },
+  "the-acts-of-the-apostles": {
+      "title": "The Acts of the Apostles",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/the-acts-of-the-apostles.jpg",
+      "description": "Edición en inglés de «Los hechos de los apóstoles»: la historia de la iglesia primitiva, desde Pentecostés hasta los viajes misioneros de Pablo, contada con espíritu devocional. Ideal para estudiar el libro de Hechos o para lectores que prefieren leer en inglés."
+  },
   // ---- Libros añadidos automáticamente desde js/books-data.js (ver verificar-catalogo.js) ----
   "consejos-sobre-la-obra-de-la-escuela-sabatica": {
       "title": "Consejos sobre la Obra de la Escuela Sabática",
@@ -702,12 +882,12 @@ const CATALOGO = {
   "coleccion-las-bellas-historias-de-la-biblia": {
     title: "Colección Las Bellas Historias de la Biblia",
     format: "Colección de 10 tomos, tapa blanda A5",
-    price: 175.06,
+    price: 99.87,
     author: "Arthur S. Maxwell",
     category: "infantil",
     categoryLabel: "Infantil y juvenil",
     cover: "img/coleccion-las-bellas-historias-de-la-biblia.jpg",
-    description: "Los diez tomos de «Las Bellas Historias de la Biblia», de Arthur S. Maxwell, reunidos en una sola colección de historias bíblicas para niños. Precio = suma de los 10 tomos + 30,32 € por la edición de colección.",
+    description: "Los diez tomos de «Las Bellas Historias de la Biblia», de Arthur S. Maxwell, reunidos en una sola colección de historias bíblicas para niños. Precio = suma de los 10 tomos × 0,69 (descuento por colección).",
   },
   "las-bellas-historias-de-la-biblia-1": {
     title: "Las Bellas Historias de la Biblia, Tomo 1",

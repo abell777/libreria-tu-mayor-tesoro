@@ -763,6 +763,23 @@ h1, h2, h3, h4 {
   box-shadow: 0 1px 4px oklch(0 0 0 / 0.2);
 }
 .binding-tag svg { flex-shrink: 0; }
+
+/* Sello de idioma (EN, PT...) sobre la portada de libros que no están en español */
+.lang-tag {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2;
+  background: var(--navy);
+  color: #fff;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 9px;
+  border-radius: 999px;
+  box-shadow: 0 1px 4px oklch(0 0 0 / 0.2);
+}
+.product-cover-photo .lang-tag { right: 14px; bottom: 14px; font-size: 0.72rem; padding: 5px 11px; }
 .binding-tag--tapa-dura { color: var(--navy-deep); }
 .binding-tag--rustica,
 .binding-tag--tapa-blanda { color: var(--navy); }
@@ -973,6 +990,10 @@ h1, h2, h3, h4 {
   gap: 10px;
   margin: -6px 0 30px;
 }
+/* «Otros idiomas»: dos filas de pills (idioma arriba, tema debajo) */
+.subcategory-bar:has(.subcategory-row) { flex-direction: column; gap: 12px; }
+.subcategory-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.subcategory-row[aria-label="Idioma"] .subcategory-pill span { border-color: var(--gold); }
 .subcategory-pill { display: inline-flex; cursor: pointer; }
 .subcategory-pill input {
   position: absolute;

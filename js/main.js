@@ -252,7 +252,8 @@
   if (!libros.length) return;
   function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
   strip.innerHTML = libros.map(function (b) {
-    var precio = Number(b.price).toFixed(2).replace('.', ',') + '\u00a0€';
+    var sinPrecio = window.isComingSoon ? window.isComingSoon(b) : typeof b.price !== 'number';
+    var precio = sinPrecio ? 'Próximamente' : Number(b.price).toFixed(2).replace('.', ',') + '\u00a0€';
     return '<a class="novedad-card" href="producto.html?id=' + encodeURIComponent(b.id) + '">' +
       '<span class="novedad-cover"><img src="' + esc(b.cover) + '" alt="Portada de ' + esc(b.title) + '" width="200" height="300" loading="lazy" decoding="async"></span>' +
       '<span class="novedad-title">' + esc(b.title) + '</span>' +
