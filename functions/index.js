@@ -126,6 +126,206 @@ const PORTADAS_VALIDAS = {
 // Twitter muestran el título, la portada y el resumen reales del libro al
 // compartir un enlace, en vez de los genéricos de la home.
 const CATALOGO = {
+  "thoughts-from-the-mount-of-blessing": {
+      "title": "Thoughts from the Mount of Blessing",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/thoughts-from-the-mount-of-blessing.jpg",
+      "description": "Edición en inglés de «El discurso maestro de Jesucristo»: una reflexión sobre el Sermón del Monte y las bienaventuranzas. Una lectura serena para meditar cada día."
+  },
+  "testimony-treasures-1": {
+      "title": "Testimony Treasures, Volume 1",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/testimony-treasures-1.jpg",
+      "description": "Volumen 1 de una selección de los mejores consejos de los «Testimonios para la iglesia», ordenados por temas. Edición en inglés."
+  },
+  "testimonies-for-the-church-1": {
+      "title": "Testimonies for the Church, Volume 1",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/testimonies-for-the-church-1.jpg",
+      "description": "Volumen 1 de los «Testimonios para la iglesia»: mensajes de consejo sobre la vida cristiana y la misión de la iglesia. Edición en inglés."
+  },
+  "supplement-to-the-christian-experience": {
+      "title": "Supplement to the Christian Experience and Views of Ellen G. White",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/supplement-to-the-christian-experience.jpg",
+      "description": "Complemento al relato de la experiencia cristiana y de las visiones de Ellen G. White en sus primeros años. Edición en inglés."
+  },
+  "steps-to-christ": {
+      "title": "Steps to Christ",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/steps-to-christ.jpg",
+      "description": "Edición en inglés de «El camino a Cristo»: una guía breve y clara para empezar o renovar la vida cristiana. El libro ideal para regalar o para quien da sus primeros pasos de fe."
+  },
+  "spiritual-gifts-3": {
+      "title": "Spiritual Gifts, Volume 3",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/spiritual-gifts-3.jpg",
+      "description": "Volumen 3 de «Spiritual Gifts»: episodios de la historia bíblica y hechos de fe que fortalecen la confianza en Dios. Edición en inglés."
+  },
+  "spiritual-gifts-1": {
+      "title": "Spiritual Gifts, Volume 1",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/spiritual-gifts-1.jpg",
+      "description": "Volumen 1 de «Spiritual Gifts»: un relato del gran conflicto entre Cristo y Satanás, desde el origen del mal hasta la victoria final. Edición en inglés."
+  },
+  "a-solemn-appeal": {
+      "title": "A Solemn Appeal",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/a-solemn-appeal.jpg",
+      "description": "Un llamado sincero a cuidar el carácter, el cuerpo y la mente y a vivir con propósito. Edición en inglés."
+  },
+  "prayer": {
+      "title": "Prayer",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/prayer.jpg",
+      "description": "Edición en inglés de «La oración»: un libro para descubrir la oración como una conversación sencilla con Dios, con motivación para orar cada día."
+  },
+  "patriarchs-and-prophets": {
+      "title": "Patriarchs and Prophets",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/patriarchs-and-prophets.jpg",
+      "description": "Edición en inglés de «Patriarcas y profetas»: la historia bíblica desde la creación hasta el reinado de David, el primer libro de la serie del Gran Conflicto."
+  },
+  "pastoral-ministry": {
+      "title": "Pastoral Ministry",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/pastoral-ministry.jpg",
+      "description": "Edición en inglés de «El ministerio pastoral»: orientaciones para quienes cuidan de una congregación, con atención al carácter, el trabajo y la vida del pastor."
+  },
+  "a-new-life": {
+      "title": "A New Life (Revival and Beyond)",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/a-new-life.jpg",
+      "description": "Una lectura sobre el reavivamiento espiritual y la vida nueva en Cristo, con mensajes para empezar de nuevo. Edición en inglés."
+  },
+  "life-sketches-of-ellen-g-white": {
+      "title": "Life Sketches of Ellen G. White",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/life-sketches-of-ellen-g-white.jpg",
+      "description": "Un relato de la vida y de la labor de Ellen G. White, desde su infancia hasta sus años de trabajo, para conocer mejor a la autora. Edición en inglés."
+  },
+  "historical-sketches-foreign-missions": {
+      "title": "Historical Sketches of the Foreign Missions of the Seventh-day Adventists",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/historical-sketches-foreign-missions.jpg",
+      "description": "Crónica de los primeros pasos de las misiones adventistas en el extranjero y de las personas que las impulsaron. Una lectura que inspira a pensar en la misión mundial. Edición en inglés."
+  },
+  "the-healthy-food-ministry": {
+      "title": "The Healthy Food Ministry",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/the-healthy-food-ministry.jpg",
+      "description": "Una lectura sobre la alimentación sana y su lugar en la vida cristiana, con consejos para el hogar. Edición en inglés."
+  },
+  "healthful-living": {
+      "title": "Healthful Living",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/healthful-living.jpg",
+      "description": "Una guía para una vida sana: alimentación, descanso, ejercicio y buenos hábitos, con la mirada puesta en el cuidado del cuerpo y del espíritu. Edición en inglés."
+  },
+  "health-laws": {
+      "title": "Health Laws",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/health-laws.jpg",
+      "description": "Edición en inglés de «Leyes de la salud»: principios sencillos de vida sana, como alimentación, descanso, ejercicio y aire puro, vistos desde la fe."
+  },
+  "gospel-workers": {
+      "title": "Gospel Workers",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/gospel-workers.jpg",
+      "description": "Edición en inglés de «Obreros evangélicos»: consejos prácticos para pastores, maestros y voluntarios sobre cómo trabajar por los demás con espíritu de servicio."
+  },
+  "early-writings": {
+      "title": "Early Writings",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/early-writings.jpg",
+      "description": "Edición en inglés de «Primeros escritos»: los primeros escritos de Ellen G. White, con visiones sobre el pasado, el presente y el futuro de la iglesia."
+  },
+  "christian-temperance-and-bible-hygiene": {
+      "title": "Christian Temperance and Bible Hygiene",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/christian-temperance-and-bible-hygiene.jpg",
+      "description": "Escritos sobre la temperancia, la higiene y los hábitos de vida saludables desde una mirada cristiana. Edición en inglés."
+  },
   "spiritual-gifts-2": {
       "title": "Spiritual Gifts, Volume 2",
       "format": "Tapa blanda, 148 x 210 mm",
