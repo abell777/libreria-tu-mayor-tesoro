@@ -126,6 +126,206 @@ const PORTADAS_VALIDAS = {
 // Twitter muestran el título, la portada y el resumen reales del libro al
 // compartir un enlace, en vez de los genéricos de la home.
 const CATALOGO = {
+  "spiritual-gifts-2": {
+      "title": "Spiritual Gifts, Volume 2",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/spiritual-gifts-2.jpg",
+      "description": "Volumen 2 de «Spiritual Gifts»: un relato personal de experiencias y mensajes de los primeros años del movimiento adventista. Edición en inglés."
+  },
+  "a-sketch-of-the-christian-experience": {
+      "title": "A Sketch of the Christian Experience and Views of Ellen G. White",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/a-sketch-of-the-christian-experience.jpg",
+      "description": "Un relato breve de la experiencia cristiana y de las visiones de Ellen G. White en sus primeros años. Edición en inglés."
+  },
+  "the-publishing-ministry": {
+      "title": "The Publishing Ministry",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/the-publishing-ministry.jpg",
+      "description": "Edición en inglés de «El ministerio de publicaciones»: el valor de la literatura cristiana y consejos para quienes la preparan y la reparten."
+  },
+  "prophets-and-kings": {
+      "title": "Prophets and Kings",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/prophets-and-kings.jpg",
+      "description": "Edición en inglés de «Profetas y reyes»: la historia de los reyes de Israel y Judá y del ministerio de los profetas, desde Salomón hasta la restauración después del exilio."
+  },
+  "peters-counsel-to-parents": {
+      "title": "Peter’s Counsel to Parents",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/peters-counsel-to-parents.jpg",
+      "description": "Consejos a los padres sobre la educación de los hijos y la vida del hogar, con el ejemplo del apóstol Pedro. Edición en inglés."
+  },
+  "letters-to-young-lovers": {
+      "title": "Letters to Young Lovers",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/letters-to-young-lovers.jpg",
+      "description": "Edición en inglés de «Cartas a jóvenes enamorados»: consejos sobre el noviazgo, la elección de pareja y la preparación para el matrimonio. Una lectura útil para parejas jóvenes."
+  },
+  "last-day-events": {
+      "title": "Last Day Events",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/last-day-events.jpg",
+      "description": "Edición en inglés de «Eventos de los últimos días»: una guía de los acontecimientos finales anunciados por la profecía, presentada por temas."
+  },
+  "heaven": {
+      "title": "Heaven",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/heaven.jpg",
+      "description": "Una mirada a la esperanza del cielo, la segunda venida de Cristo y la vida en la tierra nueva. Una lectura de consuelo para quienes han perdido a un ser querido. Edición en inglés."
+  },
+  "gods-remnant-church": {
+      "title": "God’s Remnant Church",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/gods-remnant-church.jpg",
+      "description": "Edición en inglés de «La iglesia remanente»: qué es y qué misión tiene la iglesia de Dios en los últimos tiempos, según la Biblia."
+  },
+  "from-here-to-forever": {
+      "title": "From Here to Forever",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/from-here-to-forever.jpg",
+      "description": "Una lectura sobre el matrimonio y el amor duradero, desde el noviazgo hasta la vida en común, vistos a la luz de la fe. Edición en inglés."
+  },
+  "from-heaven-with-love": {
+      "title": "From Heaven with Love",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/from-heaven-with-love.jpg",
+      "description": "Una lectura devocional sobre el amor de Dios revelado en Jesús, para meditar y fortalecer la fe cada día. Edición en inglés."
+  },
+  "evangelism": {
+      "title": "Evangelism",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/evangelism.jpg",
+      "description": "Edición en inglés de «El evangelismo»: principios y métodos para compartir el mensaje cristiano con espíritu de servicio."
+  },
+  "education": {
+      "title": "Education",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/education.jpg",
+      "description": "Edición en inglés de «La educación»: un clásico sobre la educación integral (física, mental y espiritual) y el desarrollo del carácter."
+  },
+  "the-desire-of-ages": {
+      "title": "The Desire of Ages",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/the-desire-of-ages.jpg",
+      "description": "Edición en inglés de «El Deseado de todas las gentes»: la vida de Jesús, desde su nacimiento hasta su ascensión, contada con profundidad y sensibilidad. Ideal para conocer mejor a Cristo."
+  },
+  "counsels-to-writers-and-editors": {
+      "title": "Counsels to Writers and Editors",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/counsels-to-writers-and-editors.jpg",
+      "description": "Orientaciones para quienes escriben, editan y publican mensajes cristianos: el carácter, el propósito y el espíritu del trabajo editorial. Edición en inglés."
+  },
+  "counsels-to-parents-teachers-and-students": {
+      "title": "Counsels to Parents, Teachers and Students",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/counsels-to-parents-teachers-and-students.jpg",
+      "description": "Edición en inglés de «Consejos para los maestros, padres y alumnos»: principios de educación cristiana para el hogar y la escuela, dirigidos a padres, maestros y estudiantes."
+  },
+  "counsels-on-stewardship": {
+      "title": "Counsels on Stewardship",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/counsels-on-stewardship.jpg",
+      "description": "Edición en inglés de «Consejos sobre la mayordomía cristiana»: principios sobre el uso del tiempo, los talentos y los recursos como administradores de lo que Dios nos confía."
+  },
+  "counsels-on-sabbath-school-work": {
+      "title": "Counsels on Sabbath School Work",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/counsels-on-sabbath-school-work.jpg",
+      "description": "Edición en inglés de «Consejos sobre la obra de la escuela sabática»: orientaciones para maestros y líderes sobre cómo enseñar la Biblia con eficacia y cariño."
+  },
+  "christian-education": {
+      "title": "Christian Education",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/christian-education.jpg",
+      "description": "Edición en inglés de «La educación cristiana»: la importancia de una educación que forme la mente, el carácter y la fe de los jóvenes."
+  },
+  "christ-in-his-sanctuary": {
+      "title": "Christ in His Sanctuary",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": null,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/christ-in-his-sanctuary.jpg",
+      "description": "Edición en inglés de «Cristo en Su santuario»: el ministerio de Jesús como sumo sacerdote en el santuario celestial y su significado para la vida del creyente."
+  },
   "the-spirit-of-the-prophecy": {
       "title": "The Spirit of the Prophecy",
       "format": "Tapa blanda, 148 x 210 mm",
