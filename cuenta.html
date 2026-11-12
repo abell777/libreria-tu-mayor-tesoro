@@ -288,6 +288,11 @@
                 <label>Código postal<input type="text" name="cp" required></label>
                 <label>Ciudad<input type="text" name="ciudad" required></label>
               </div>
+              <label>País
+                <select name="pais" required>
+                  <option value="ES">España</option>
+                </select>
+              </label>
               <label>Teléfono<input type="tel" name="telefono" required></label>
               <label class="checkbox-label"><input type="checkbox" name="predeterminada"> Usar como dirección predeterminada</label>
               <p class="auth-error" id="addressError" role="alert" hidden></p>
@@ -434,6 +439,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script src="js/config.js"></script>
 <script src="js/auth.js"></script>
+<script src="js/shipping.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/gift-options.js"></script>
 <script src="js/books-data.js"></script>

@@ -187,10 +187,16 @@
       var elegida = direcciones.filter(function (d) { return d.predeterminada; })[0] || direcciones[0];
       if (!elegida) return;
       if (shippingForm.elements.nombre) shippingForm.elements.nombre.value = elegida.nombre || user.displayName || '';
+      if (shippingForm.elements.telefono) shippingForm.elements.telefono.value = elegida.telefono || '';
+      // Las direcciones guardadas antes de que hubiera varios países son de
+      // España. Solo se rellena la dirección si es del mismo país que el
+      // cliente ha elegido en el carrito (si no, el envío cambiaría de precio
+      // sin que se dé cuenta).
+      var paisElegido = window.ENVIO ? window.ENVIO.getPais() : 'ES';
+      if ((elegida.pais || 'ES') !== paisElegido) return;
       if (shippingForm.elements.direccion) shippingForm.elements.direccion.value = elegida.direccion || '';
       if (shippingForm.elements.ciudad) shippingForm.elements.ciudad.value = elegida.ciudad || '';
       if (shippingForm.elements.cp) shippingForm.elements.cp.value = elegida.cp || '';
-      if (shippingForm.elements.telefono) shippingForm.elements.telefono.value = elegida.telefono || '';
       if (shippingForm.elements.addressId) shippingForm.elements.addressId.value = elegida.id || '';
     }).catch(function (err) {
       console.error('Error al precargar la dirección guardada', err);
@@ -209,6 +215,7 @@
         direccion: envio.direccion,
         ciudad: envio.ciudad,
         cp: envio.cp,
+        pais: envio.pais || 'ES',
         telefono: envio.telefono,
         predeterminada: true
       };
@@ -293,8 +300,17 @@
           direccion: fd.get('direccion') || (document.getElementById('shippingAddress') ? document.getElementById('shippingAddress').value : ''),
           ciudad: fd.get('ciudad') || (document.getElementById('shippingCity') ? document.getElementById('shippingCity').value : ''),
           cp: fd.get('cp') || (document.getElementById('shippingZip') ? document.getElementById('shippingZip').value : ''),
+          // País: el del formulario (sincronizado con el del resumen del pedido).
+          pais: fd.get('pais') || (window.ENVIO ? window.ENVIO.getPais() : 'ES'),
           telefono: fd.get('telefono') || (document.getElementById('shippingPhone') ? document.getElementById('shippingPhone').value : '')
         };
+
+        // Comprobación rápida del código postal según el país (el servidor la
+        // repite): así el cliente ve el error sin esperar.
+        var errorCP = window.ENVIO ? window.ENVIO.errorCP(envio.pais, envio.cp) : '';
+        if (errorCP) {
+          throw new Error(errorCP);
+        }
 
         // Código promocional aplicado en el carrito (si hay). El descuento
         // real lo vuelve a calcular "crearPedido" en el servidor: aquí solo
@@ -417,7 +433,7 @@
       gastos_envio: pedido.gastosEnvio ? eur(pedido.gastosEnvio) : 'Gratis',
       descuento: ((pedido.descuento || 0) + (pedido.descuentoCantidad || 0)) > 0 ? '-' + eur((pedido.descuento || 0) + (pedido.descuentoCantidad || 0)) : '0,00 €',
       total: pedido.total.toFixed(2).replace('.', ',') + ' €',
-      direccion_envio: pedido.envio.direccion + ', ' + pedido.envio.cp + ' ' + pedido.envio.ciudad,
+      direccion_envio: pedido.envio.direccion + ', ' + pedido.envio.cp + ' ' + pedido.envio.ciudad + (pedido.envio.paisNombre ? ', ' + pedido.envio.paisNombre : ''),
       telefono: pedido.envio.telefono,
       // 👉 Variable nueva para la plantilla de EmailJS: un enlace directo a
       // seguimiento.html con el número de pedido ya escrito. Si quieres que

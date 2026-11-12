@@ -113,6 +113,6 @@
 
     var envio = pedido.envio || {};
     document.getElementById('trackingDireccion').innerHTML =
-      esc(envio.nombre) + '<br>' + esc(envio.direccion) + '<br>' + esc(envio.cp) + ' ' + esc(envio.ciudad);
+      esc(envio.nombre) + '<br>' + esc(envio.direccion) + '<br>' + esc(envio.cp) + ' ' + esc(envio.ciudad) + '<br>' + esc(envio.paisNombre || 'España');
   }
 })();

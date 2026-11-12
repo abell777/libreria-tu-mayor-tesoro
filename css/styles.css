@@ -4699,3 +4699,68 @@ body { overflow-x: clip; }
 @media (max-width: 900px) {
   .hero-collection { max-width: 340px; }
 }
+
+
+/* ==========================================================================
+   Envíos por país: selector en el carrito y tabla de tarifas (envios.html)
+   ========================================================================== */
+.cart-summary-country { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; font-size: 0.85rem; font-weight: 600; color: var(--foreground); }
+.cart-summary-country select,
+.shipping-form select,
+.account-form select {
+  font: inherit;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--background);
+  color: var(--foreground);
+}
+.account-form label select { font-weight: 400; }
+.shipping-form select:focus-visible,
+.account-form select:focus-visible,
+.cart-summary-country select:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+
+.shipping-rates { max-width: 980px; margin: 0 0 3rem; }
+.shipping-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+}
+.shipping-table { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 0.95rem; }
+.shipping-table thead th {
+  background: var(--navy);
+  color: var(--parchment);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  padding: 0.95rem 0.75rem;
+}
+.shipping-table thead th:first-child { text-align: left; padding-left: 1.25rem; }
+.shipping-table tbody tr { background: var(--card); }
+.shipping-table tbody tr:nth-child(even) { background: var(--muted); }
+.shipping-table tbody th {
+  position: sticky;
+  left: 0;
+  background: inherit;
+  text-align: left;
+  padding: 0.9rem 0.75rem 0.9rem 1.25rem;
+  white-space: nowrap;
+  font-weight: 600;
+  color: var(--foreground);
+}
+.shipping-table td {
+  text-align: center;
+  padding: 0.9rem 0.75rem;
+  color: var(--foreground);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.shipping-country { display: inline-flex; align-items: center; gap: 0.75rem; }
+.shipping-country small { display: block; font-weight: 400; font-size: 0.76rem; color: var(--muted-foreground); }
+.shipping-flag { width: 30px; height: 20px; flex: none; border-radius: 3px; box-shadow: 0 0 0 1px var(--border); }
+.shipping-table-note { font-size: 0.85rem; color: var(--muted-foreground); line-height: 1.6; margin: 0.9rem 0 0; }

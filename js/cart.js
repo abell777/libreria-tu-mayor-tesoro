@@ -459,19 +459,20 @@ document.addEventListener('DOMContentLoaded', function () {
   function updateSummary() {
     var subtotal = Cart.totalPrice();
     // Envío gratis solo si TODOS los libros del carrito lo tienen marcado
-    // en el catálogo (book.freeShipping); si hay alguno sin esa marca, o si
-    // el catálogo aún no ha cargado, se cobran los 6€ de siempre.
+    // en el catálogo (book.freeShipping) Y el envío es a España; si hay alguno
+    // sin esa marca, o si el catálogo aún no ha cargado, se cobra la tarifa.
     var items = Cart.getItems();
-    var todosEnvioGratis = items.length > 0 && window.BooksCatalog && items.every(function (item) {
+    var pais = window.ENVIO ? window.ENVIO.getPais() : 'ES';
+    var todosEnvioGratis = pais === 'ES' && items.length > 0 && window.BooksCatalog && items.every(function (item) {
       var libro = window.BooksCatalog.getById(item.id);
       return !!(libro && libro.freeShipping);
     });
-    // Envío por nº total de libros (cada colección cuenta como los libros que lleva: Tesoros de Vida 5, Las Bellas Historias 10).
-    // Debe coincidir con functions/index.js (TRAMOS_ENVIO).
+    // Envío por país y nº total de libros (cada colección cuenta como los libros que lleva: Tesoros de Vida 5, Las Bellas Historias 10).
+    // Las tarifas están en js/shipping.js y deben coincidir con functions/shipping.js.
     // Libros que contiene cada colección (cuentan como tantos libros en el envío).
     var LIBROS_POR_COLECCION = { 'coleccion-tesoros-de-vida': 5, 'coleccion-las-bellas-historias-de-la-biblia': 10 };
     var numLibros = items.reduce(function (n, i) { return n + i.qty * (LIBROS_POR_COLECCION[i.id] || 1); }, 0);
-    var costeEnvioTramo = numLibros <= 5 ? 6 : numLibros <= 10 ? 10 : numLibros <= 16 ? 15 : 16;
+    var costeEnvioTramo = window.ENVIO ? window.ENVIO.costeEnvio(pais, numLibros) : 8;
     var SHIPPING = todosEnvioGratis ? 0 : costeEnvioTramo;
 
     // Descuento por cantidad del MISMO libro y edición (mismo criterio que el servidor).
@@ -491,9 +492,18 @@ document.addEventListener('DOMContentLoaded', function () {
     descCantidad = Math.round(descCantidad * 100) / 100;
     var hintEl = document.getElementById('summaryShipHint');
     if (hintEl) {
-      hintEl.textContent = numLibros > 21
-        ? 'Un pedido admite como máximo 21 libros. Divide el pedido o escríbenos.'
-        : 'Envío según nº de libros: hasta 5 → 6 €, 6-10 → 10 €, 11-16 → 15 €, 17-21 → 16 €.';
+      var nombrePais = window.ENVIO && window.ENVIO.PAISES[pais] ? window.ENVIO.PAISES[pais].nombre : 'España';
+      hintEl.innerHTML = '';
+      if (numLibros > 21) {
+        hintEl.textContent = 'Un pedido admite como máximo 21 libros. Divide el pedido o escríbenos.';
+      } else {
+        hintEl.appendChild(document.createTextNode('Envío a ' + nombrePais + ' según el nº de libros del pedido. '));
+        var enlaceTarifas = document.createElement('a');
+        enlaceTarifas.href = 'envios.html';
+        enlaceTarifas.className = 'link-inline';
+        enlaceTarifas.textContent = 'Ver tarifas';
+        hintEl.appendChild(enlaceTarifas);
+      }
     }
 
     // El descuento se recalcula aquí a partir del subtotal actual (nunca se
@@ -532,6 +542,37 @@ document.addEventListener('DOMContentLoaded', function () {
     var total = Math.max(0, subtotal + extras + SHIPPING - descCantidad - descuento);
     if (totalEl) totalEl.textContent = fmtEUR(total);
   }
+
+  // ---- País de entrega ------------------------------------------------------
+  // Hay dos selectores (resumen del pedido y formulario de datos de envío) que
+  // se mantienen sincronizados y recuerdan el país elegido entre visitas.
+  (function iniciarPais() {
+    var selResumen = document.getElementById('summaryCountry');
+    var selForm = document.getElementById('shippingCountry');
+    if (!window.ENVIO || (!selResumen && !selForm)) return;
+    var inicial = window.ENVIO.getPais();
+    window.ENVIO.rellenarSelect(selResumen, inicial);
+    window.ENVIO.rellenarSelect(selForm, inicial);
+
+    function aplicarPlaceholderCP(codigo) {
+      var cpInput = document.getElementById('shippingZip');
+      var ayuda = window.ENVIO.AYUDA_CP[codigo];
+      if (cpInput && ayuda) cpInput.placeholder = 'Ej.: ' + ayuda.placeholder;
+    }
+    aplicarPlaceholderCP(inicial);
+
+    [selResumen, selForm].forEach(function (sel) {
+      if (!sel) return;
+      sel.addEventListener('change', function () { window.ENVIO.setPais(sel.value); });
+    });
+    window.addEventListener('lt:pais', function () {
+      var actual = window.ENVIO.getPais();
+      if (selResumen) selResumen.value = actual;
+      if (selForm) selForm.value = actual;
+      aplicarPlaceholderCP(actual);
+      updateSummary();
+    });
+  })();
 
   // ---- Formulario de código promocional -----------------------------------
   var promoForm = document.getElementById('promoForm');
