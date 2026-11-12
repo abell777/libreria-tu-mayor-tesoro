@@ -56,6 +56,20 @@ const pv = src.match(/PORTADAS_VALIDAS = \{([\s\S]*?)\};/)[1];
 const validas = [...pv.matchAll(/"?([a-z-]+)"?\s*:/g)].map((m) => m[1]);
 
 const errores = [], avisos = [];
+
+// ---- Tarifas de envío: web y servidor deben ser IDÉNTICAS -------------------
+// (js/shipping-rates.js y functions/shipping-rates.js). Si cambias una, copia
+// el archivo entero encima de la otra.
+(function comprobarEnvios() {
+  const web = R('js/shipping-rates.js').replace(/\r\n/g, '\n');
+  const srv = R('functions/shipping-rates.js').replace(/\r\n/g, '\n');
+  if (web !== srv) errores.push('Las tarifas de envío de js/shipping-rates.js y functions/shipping-rates.js NO son iguales: copia el archivo entero de uno sobre el otro.');
+  const SR = require('./functions/shipping-rates.js');
+  SR.ORDEN.forEach((c) => {
+    if (SR.PAISES[c].costes.length !== SR.TRAMOS.length) errores.push('Envío ' + c + ': hay ' + SR.PAISES[c].costes.length + ' precios y ' + SR.TRAMOS.length + ' tramos.');
+  });
+  if (!/require\(\s*["']\.\/shipping-rates["']\s*\)/.test(src)) errores.push('functions/index.js no usa shipping-rates.js: el servidor cobraría un envío distinto al de la web.');
+})();
 const B = window.BOOKS;
 const vistos = {}; B.forEach((b) => { vistos[b.id] = (vistos[b.id] || 0) + 1; });
 Object.entries(vistos).filter((x) => x[1] > 1).forEach((x) => avisos.push('ID repetido en books-data.js (se usa solo el primero): ' + x[0]));

@@ -878,7 +878,7 @@
         qtyInput.value = Math.max(1, (parseInt(qtyInput.value, 10) || 1) - 1);
       });
       inc.addEventListener('click', function () {
-        qtyInput.value = Math.min(20, (parseInt(qtyInput.value, 10) || 1) + 1);
+        qtyInput.value = Math.min(600, (parseInt(qtyInput.value, 10) || 1) + 1);
       });
     }
   }

@@ -422,12 +422,13 @@
     return window.fbDb.collection('usuarios').doc(uid).set({ direcciones: direcciones }, { merge: true });
   }
 
+  var NOMBRES_PAIS = { ES: 'España', PT: 'Portugal', FR: 'Francia', DE: 'Alemania', NL: 'Países Bajos', GB: 'Reino Unido' };
   function addressCardHTML(dir) {
     return (
       '<article class="address-card' + (dir.predeterminada ? ' is-default' : '') + '" data-id="' + escapeHTML(dir.id) + '">' +
         (dir.predeterminada ? '<span class="address-badge">Predeterminada</span>' : '') +
         '<p class="address-label">' + escapeHTML(dir.etiqueta) + '</p>' +
-        '<p class="address-details">' + escapeHTML(dir.nombre) + '<br>' + escapeHTML(dir.direccion) + '<br>' + escapeHTML(dir.cp) + ' ' + escapeHTML(dir.ciudad) + '<br>' + escapeHTML((window.ENVIO && window.ENVIO.PAISES[(dir.pais || 'ES')] ? window.ENVIO.PAISES[(dir.pais || 'ES')].nombre : 'España')) + '<br>' + escapeHTML(dir.telefono) + '</p>' +
+        '<p class="address-details">' + escapeHTML(dir.nombre) + '<br>' + escapeHTML(dir.direccion) + '<br>' + escapeHTML(dir.cp) + ' ' + escapeHTML(dir.ciudad) + '<br>' + escapeHTML(NOMBRES_PAIS[dir.pais] || NOMBRES_PAIS.ES) + '<br>' + escapeHTML(dir.telefono) + '</p>' +
         '<div class="address-actions">' +
           '<button type="button" data-edit-address>Editar</button>' +
           (dir.predeterminada ? '' : '<button type="button" data-set-default>Predeterminada</button>') +
@@ -482,9 +483,6 @@
   function abrirFormularioDireccion(direccion) {
     if (!addressForm) return;
     addressForm.reset();
-    if (window.ENVIO && addressForm.elements.pais) {
-      window.ENVIO.rellenarSelect(addressForm.elements.pais, direccion ? (direccion.pais || 'ES') : window.ENVIO.getPais());
-    }
     addressForm.hidden = false;
     addressForm.elements.addressId.value = direccion ? direccion.id : '';
     if (direccion) {
@@ -493,6 +491,7 @@
       addressForm.elements.direccion.value = direccion.direccion || '';
       addressForm.elements.ciudad.value = direccion.ciudad || '';
       addressForm.elements.cp.value = direccion.cp || '';
+      if (addressForm.elements.pais) addressForm.elements.pais.value = NOMBRES_PAIS[direccion.pais] ? direccion.pais : 'ES';
       addressForm.elements.telefono.value = direccion.telefono || '';
       addressForm.elements.predeterminada.checked = !!direccion.predeterminada;
     }
@@ -523,7 +522,7 @@
         direccion: fd.get('direccion'),
         ciudad: fd.get('ciudad'),
         cp: fd.get('cp'),
-        pais: fd.get('pais') || 'ES',
+        pais: NOMBRES_PAIS[fd.get('pais')] ? fd.get('pais') : 'ES',
         telefono: fd.get('telefono'),
         predeterminada: esPredeterminada
       };

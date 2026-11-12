@@ -52,6 +52,24 @@
     pintarMetodoPago();
   }
 
+  // Bizum solo funciona con cuentas españolas: si el país de envío no es
+  // España, se oculta esa opción y se deja el pago con tarjeta.
+  function ajustarBizumPorPais() {
+    var radioBizum = document.getElementById('metodoPagoBizum');
+    var radioTarjeta = document.getElementById('metodoPagoTarjeta');
+    if (!radioBizum) return;
+    var esEspana = !window.Cart || !Cart.getPais || Cart.getPais() === 'ES';
+    var etiqueta = radioBizum.closest ? radioBizum.closest('label') : radioBizum.parentNode;
+    if (etiqueta) etiqueta.hidden = !esEspana;
+    if (!esEspana && radioBizum.checked && radioTarjeta) {
+      radioTarjeta.checked = true;
+      pintarMetodoPago();
+    }
+  }
+  ajustarBizumPorPais();
+  document.addEventListener('cart:change', ajustarBizumPorPais);
+  document.addEventListener('pais:change', ajustarBizumPorPais);
+
   // ------------------------------------------------------------------------
   // 1. Inicializar Stripe Elements al cargar el DOM
   // ------------------------------------------------------------------------
@@ -187,16 +205,14 @@
       var elegida = direcciones.filter(function (d) { return d.predeterminada; })[0] || direcciones[0];
       if (!elegida) return;
       if (shippingForm.elements.nombre) shippingForm.elements.nombre.value = elegida.nombre || user.displayName || '';
-      if (shippingForm.elements.telefono) shippingForm.elements.telefono.value = elegida.telefono || '';
-      // Las direcciones guardadas antes de que hubiera varios países son de
-      // España. Solo se rellena la dirección si es del mismo país que el
-      // cliente ha elegido en el carrito (si no, el envío cambiaría de precio
-      // sin que se dé cuenta).
-      var paisElegido = window.ENVIO ? window.ENVIO.getPais() : 'ES';
-      if ((elegida.pais || 'ES') !== paisElegido) return;
       if (shippingForm.elements.direccion) shippingForm.elements.direccion.value = elegida.direccion || '';
       if (shippingForm.elements.ciudad) shippingForm.elements.ciudad.value = elegida.ciudad || '';
       if (shippingForm.elements.cp) shippingForm.elements.cp.value = elegida.cp || '';
+      if (shippingForm.elements.telefono) shippingForm.elements.telefono.value = elegida.telefono || '';
+      if (window.Cart && Cart.setPais && window.ShippingRates) {
+        var paisGuardado = ShippingRates.paisValido(elegida.pais) ? elegida.pais : 'ES';
+        Cart.setPais(paisGuardado);
+      }
       if (shippingForm.elements.addressId) shippingForm.elements.addressId.value = elegida.id || '';
     }).catch(function (err) {
       console.error('Error al precargar la dirección guardada', err);
@@ -300,16 +316,26 @@
           direccion: fd.get('direccion') || (document.getElementById('shippingAddress') ? document.getElementById('shippingAddress').value : ''),
           ciudad: fd.get('ciudad') || (document.getElementById('shippingCity') ? document.getElementById('shippingCity').value : ''),
           cp: fd.get('cp') || (document.getElementById('shippingZip') ? document.getElementById('shippingZip').value : ''),
-          // País: el del formulario (sincronizado con el del resumen del pedido).
-          pais: fd.get('pais') || (window.ENVIO ? window.ENVIO.getPais() : 'ES'),
+          pais: fd.get('pais') || (window.Cart && Cart.getPais ? Cart.getPais() : 'ES'),
           telefono: fd.get('telefono') || (document.getElementById('shippingPhone') ? document.getElementById('shippingPhone').value : '')
         };
 
-        // Comprobación rápida del código postal según el país (el servidor la
-        // repite): así el cliente ve el error sin esperar.
-        var errorCP = window.ENVIO ? window.ENVIO.errorCP(envio.pais, envio.cp) : '';
-        if (errorCP) {
-          throw new Error(errorCP);
+        // Comprueba el código postal según el país (el servidor lo vuelve a
+        // comprobar, esto solo evita ir y volver para un simple error).
+        if (window.ShippingRates) {
+          var cpComprobado = ShippingRates.validarCP(envio.pais, envio.cp);
+          if (!cpComprobado.ok) {
+            if (paymentErrors) {
+              paymentErrors.textContent = cpComprobado.mensaje;
+              paymentErrors.hidden = false;
+            }
+            if (btnSubmit) {
+              btnSubmit.disabled = false;
+              btnSubmit.textContent = textoOriginal;
+            }
+            return;
+          }
+          envio.cp = cpComprobado.cp;
         }
 
         // Código promocional aplicado en el carrito (si hay). El descuento
@@ -433,7 +459,7 @@
       gastos_envio: pedido.gastosEnvio ? eur(pedido.gastosEnvio) : 'Gratis',
       descuento: ((pedido.descuento || 0) + (pedido.descuentoCantidad || 0)) > 0 ? '-' + eur((pedido.descuento || 0) + (pedido.descuentoCantidad || 0)) : '0,00 €',
       total: pedido.total.toFixed(2).replace('.', ',') + ' €',
-      direccion_envio: pedido.envio.direccion + ', ' + pedido.envio.cp + ' ' + pedido.envio.ciudad + (pedido.envio.paisNombre ? ', ' + pedido.envio.paisNombre : ''),
+      direccion_envio: pedido.envio.direccion + ', ' + pedido.envio.cp + ' ' + pedido.envio.ciudad + (window.ShippingRates && ShippingRates.PAISES[pedido.envio.pais] ? ', ' + ShippingRates.PAISES[pedido.envio.pais].nombre : ''),
       telefono: pedido.envio.telefono,
       // 👉 Variable nueva para la plantilla de EmailJS: un enlace directo a
       // seguimiento.html con el número de pedido ya escrito. Si quieres que

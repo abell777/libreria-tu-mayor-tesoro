@@ -289,8 +289,13 @@
                 <label>Ciudad<input type="text" name="ciudad" required></label>
               </div>
               <label>País
-                <select name="pais" required>
+                <select name="pais" required style="font:inherit;padding:11px 13px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--background);color:inherit;">
                   <option value="ES">España</option>
+                  <option value="PT">Portugal</option>
+                  <option value="FR">Francia</option>
+                  <option value="DE">Alemania</option>
+                  <option value="NL">Países Bajos</option>
+                  <option value="GB">Reino Unido</option>
                 </select>
               </label>
               <label>Teléfono<input type="tel" name="telefono" required></label>
@@ -439,7 +444,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script src="js/config.js"></script>
 <script src="js/auth.js"></script>
-<script src="js/shipping.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/gift-options.js"></script>
 <script src="js/books-data.js"></script>

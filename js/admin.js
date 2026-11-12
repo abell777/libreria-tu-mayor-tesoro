@@ -53,7 +53,7 @@
           '</div>' +
           '<div class="admin-order-col">' +
             '<h4>Dirección de envío</h4>' +
-            '<p>' + escapeHTML(envio.nombre || '') + '<br>' + escapeHTML(envio.direccion || '') + '<br>' + escapeHTML(envio.cp || '') + ' ' + escapeHTML(envio.ciudad || '') + '<br>' + escapeHTML(envio.paisNombre || 'España') + '<br>' + escapeHTML(envio.telefono || '') + '</p>' +
+            '<p>' + escapeHTML(envio.nombre || '') + '<br>' + escapeHTML(envio.direccion || '') + '<br>' + escapeHTML(envio.cp || '') + ' ' + escapeHTML(envio.ciudad || '') + '<br>' + escapeHTML(({ ES: 'España', PT: 'Portugal', FR: 'Francia', DE: 'Alemania', NL: 'Países Bajos', GB: 'Reino Unido' })[envio.pais || 'ES'] || 'España') + '<br>' + escapeHTML(envio.telefono || '') + '</p>' +
           '</div>' +
           '<div class="admin-order-col admin-order-actions">' +
             '<label>Estado del pedido' +

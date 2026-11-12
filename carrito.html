@@ -99,14 +99,11 @@
         <h2>Resumen del pedido</h2>
         <div class="cart-summary-row"><span>Subtotal</span><span id="summarySubtotal">0,00&nbsp;€</span></div>
         <div class="cart-summary-row" id="summaryExtrasRow" hidden><span>Extras de regalo</span><span id="summaryExtras">0,00&nbsp;€</span></div>
-        <div class="cart-summary-country">
-          <label for="summaryCountry">Enviar a</label>
-          <select id="summaryCountry" name="paisResumen" aria-label="País de entrega">
-            <option value="ES">España</option>
-          </select>
-        </div>
-        <div class="cart-summary-row"><span>Envío</span><span id="summaryShipping">8,00&nbsp;€</span></div>
-        <p class="pay-hint" id="summaryShipHint" style="margin:-4px 0 8px;font-size:.82rem;">El envío depende del país y del nº de libros. <a href="envios.html" class="link-inline">Ver tarifas</a></p>
+        <label class="ship-country" for="summaryCountry" style="display:flex;flex-direction:column;gap:6px;font-size:.83rem;font-weight:600;margin:6px 0 10px;">País de envío
+          <select id="summaryCountry" aria-label="País de envío" style="font:inherit;padding:11px 13px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--background);color:inherit;"></select>
+        </label>
+        <div class="cart-summary-row"><span>Envío</span><span id="summaryShipping">—</span></div>
+        <p class="pay-hint" id="summaryShipHint" style="margin:-4px 0 8px;font-size:.82rem;">Envío según país y nº de ejemplares.</p>
         <div class="cart-summary-row" id="summaryQtyDiscountRow" hidden><span>Descuento por cantidad</span><span id="summaryQtyDiscount">−0,00&nbsp;€</span></div>
         <div class="cart-summary-row" id="summaryDiscountRow" hidden><span>Descuento</span><span id="summaryDiscount">−0,00&nbsp;€</span></div>
         <div class="cart-summary-row total"><span>Total</span><span id="summaryTotal">0,00&nbsp;€</span></div>
@@ -141,12 +138,9 @@
           <label>Ciudad<input type="text" id="shippingCity" name="ciudad" required autocomplete="address-level2"></label>
           <label>Código postal<input type="text" id="shippingZip" name="cp" required autocomplete="postal-code"></label>
         </div>
-        <label>País de entrega
-          <select id="shippingCountry" name="pais" required autocomplete="country">
-            <option value="ES">España</option>
-          </select>
+        <label>País
+          <select id="shippingCountry" name="pais" required autocomplete="country" style="font:inherit;padding:11px 13px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--background);color:inherit;"></select>
         </label>
-        <p class="checkout-note" id="shippingCountryNote">Si cambias de país, el envío se recalcula en el resumen del pedido.</p>
         <label><span>Teléfono <span class="label-optional">(opcional)</span></span><input type="tel" id="shippingPhone" name="telefono" autocomplete="tel" placeholder="Por si el transportista necesita avisarte"></label>
         <label class="checkbox-label"><input type="checkbox" name="guardarDireccion" checked> Guardar esta dirección para la próxima compra</label>
         
@@ -334,7 +328,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script src="js/config.js"></script>
 <script src="js/auth.js"></script>
-<script src="js/shipping.js"></script>
+<script src="js/shipping-rates.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/gift-options.js"></script>
 <script src="js/books-data.js"></script>

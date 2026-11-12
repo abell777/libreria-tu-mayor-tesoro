@@ -28,6 +28,7 @@ const { initializeApp } = require("firebase-admin/app");
 const { getFirestore, FieldValue } = require("firebase-admin/firestore");
 const { getAuth } = require("firebase-admin/auth");
 const { hasEWPrintOptions, resolverImpresion } = require("./ew-pricing");
+const ShippingRates = require("./shipping-rates");
 
 initializeApp();
 const db = getFirestore();
@@ -1584,15 +1585,15 @@ const LIBROS_POR_COLECCION = {
   "coleccion-las-bellas-historias-de-la-biblia": 10,
 };
 const MAX_ITEMS = 30;
-const MAX_QTY = 20;
-// Envío por PAÍS y por nº TOTAL de libros del pedido (los extras de regalo no
+const MAX_QTY = 600; // por línea del carrito (pedidos grandes: hay tarifas de envío hasta 500+ ejemplares)
+
+// Envío por PAÍS y nº TOTAL de ejemplares del pedido (los extras de regalo no
 // cuentan; cada colección cuenta como sus libros: Tesoros de Vida 5, Las Bellas
-// Historias 10). Las tarifas viven en functions/shipping.js (copia de
-// js/shipping.js, que usa el carrito): ahí se cambian los precios.
-const ENVIO = require("./shipping");
-const MAX_LIBROS_PEDIDO = 21;
+// Historias 10). Las tarifas viven en shipping-rates.js (idéntico a
+// js/shipping-rates.js): coste del transportista + 1,10 €.
+const MAX_LIBROS_PEDIDO = 1000;
 function costeEnvio(pais, numLibros) {
-  return ENVIO.costeEnvio(pais, numLibros);
+  return ShippingRates.costeEnvio(pais, numLibros);
 }
 // Descuento por cantidad del MISMO libro y edición (€ por ejemplar).
 // Cambia estos números si quieres más/menos margen. Debe coincidir con js/cart.js.
@@ -1690,18 +1691,19 @@ exports.crearPedido = onCall(async (request) => {
   ) {
     throw new HttpsError("invalid-argument", "Faltan datos de envío, o son demasiado largos.");
   }
-  // País de entrega: uno de los de la tabla de envíos (por defecto España,
-  // que era lo único que se servía antes). El código postal se valida con el
-  // formato de ese país; en España siguen fuera Canarias, Ceuta y Melilla.
-  const pais = envio.pais == null || envio.pais === "" ? "ES" : String(envio.pais).trim().toUpperCase();
-  if (!ENVIO.PAISES[pais]) {
-    throw new HttpsError("invalid-argument", "Ese país no está disponible para envíos. Escríbenos a libreriamayortesoro@gmail.com y lo miramos.");
+  // País de envío (si no llega, se asume España: direcciones guardadas antiguas)
+  // y código postal según el país. Cada país tiene su formato; en España solo
+  // península y Baleares, en Portugal solo continental y en Francia solo
+  // metropolitana (ver js/shipping-rates.js).
+  const paisEnvio = typeof envio.pais === "string" && envio.pais ? envio.pais.trim().toUpperCase() : "ES";
+  if (!ShippingRates.paisValido(paisEnvio)) {
+    throw new HttpsError("invalid-argument", "Ahora mismo no enviamos a ese país. Escríbenos a libreriamayortesoro@gmail.com y lo miramos.");
   }
-  const errorCP = ENVIO.errorCP(pais, envio.cp);
-  if (errorCP) {
-    throw new HttpsError("invalid-argument", errorCP);
+  const resultadoCP = ShippingRates.validarCP(paisEnvio, envio.cp);
+  if (!resultadoCP.ok) {
+    throw new HttpsError("invalid-argument", resultadoCP.mensaje);
   }
-  const cpLimpio = ENVIO.normalizarCP(pais, envio.cp);
+  const cpLimpio = resultadoCP.cp;
   // El teléfono es opcional (así se indica en el formulario): solo se
   // valida su longitud si el cliente ha escrito algo.
   if (envio.telefono && !textoValido(envio.telefono, 40)) {
@@ -1790,10 +1792,10 @@ exports.crearPedido = onCall(async (request) => {
   }
   descuentoCantidad = Math.round(descuentoCantidad * 100) / 100;
   // Envío gratis solo si TODOS los libros del pedido lo llevan incluido
-  // (mismo criterio que en js/cart.js) Y el pedido va a España: fuera de
-  // España el envío tiene un coste real, así que se cobra la tarifa del país.
-  const todosEnvioGratis = pais === "ES" && itemsFinales.every((it) => it.envioGratis);
-  const gastosEnvio = todosEnvioGratis ? 0 : costeEnvio(pais, numLibros);
+  // (mismo criterio que en js/cart.js); si no, se cobra el envío según país y nº de ejemplares.
+  // Solo a España (así se prometió en las fichas): a otros países se cobra la tarifa.
+  const todosEnvioGratis = paisEnvio === "ES" && itemsFinales.every((it) => it.envioGratis);
+  const gastosEnvio = todosEnvioGratis ? 0 : costeEnvio(paisEnvio, numLibros);
   const subtotalRedondeado = Math.round(subtotal * 100) / 100;
 
   // Nombre y correo del cliente: se leen de la cuenta autenticada, no del
@@ -1826,6 +1828,10 @@ exports.crearPedido = onCall(async (request) => {
   // (pago manual, verificado a mano desde el panel de administración). Si
   // llega cualquier otro valor, se asume "tarjeta" por seguridad.
   const metodoPago = data.metodoPago === "bizum" ? "bizum" : "tarjeta";
+  // Bizum solo funciona con cuentas españolas.
+  if (metodoPago === "bizum" && paisEnvio !== "ES") {
+    throw new HttpsError("invalid-argument", "Bizum solo está disponible para envíos a España. Elige pago con tarjeta.");
+  }
 
   function construirPedido() {
     const total = Math.max(0, Math.round((subtotalRedondeado + gastosEnvio - descuentoCantidad - descuento) * 100) / 100);
@@ -1839,8 +1845,7 @@ exports.crearPedido = onCall(async (request) => {
         direccion: envio.direccion.trim(),
         ciudad: envio.ciudad.trim(),
         cp: cpLimpio,
-        pais,
-        paisNombre: ENVIO.PAISES[pais].nombre,
+        pais: paisEnvio,
         telefono: envio.telefono ? envio.telefono.trim() : "",
       },
       items: itemsFinales,
@@ -2202,7 +2207,8 @@ async function enviarCorreosPedidoPagado(p) {
   const transporter = crearTransporterGmail();
   const from = '"Librería tu mayor tesoro" <' + GMAIL_USER.value().trim() + ">";
   const envio = p.envio || {};
-  const direccion = escapeHtml([envio.direccion, [envio.cp, envio.ciudad].filter(Boolean).join(" "), envio.paisNombre || (envio.pais && ENVIO.PAISES[envio.pais] ? ENVIO.PAISES[envio.pais].nombre : "")].filter(Boolean).join(", "));
+  const nombrePais = (ShippingRates.PAISES[envio.pais] || ShippingRates.PAISES.ES).nombre;
+  const direccion = escapeHtml([envio.direccion, [envio.cp, envio.ciudad].filter(Boolean).join(" "), nombrePais].filter(Boolean).join(", "));
   const enlace = SITE_URL + "/seguimiento.html?numero=" + encodeURIComponent(p.numero || "");
   const marco = (titulo, cuerpo) =>
     '<div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;color:#2b2b2b"><h2 style="color:#20304f;margin-bottom:4px">' + titulo + "</h2>" + cuerpo +
@@ -2426,7 +2432,7 @@ exports.buscarPedidoPublico = onCall(async (request) => {
       direccion: (pedido.envio && pedido.envio.direccion) || "",
       ciudad: (pedido.envio && pedido.envio.ciudad) || "",
       cp: (pedido.envio && pedido.envio.cp) || "",
-      paisNombre: (pedido.envio && pedido.envio.paisNombre) || "",
+      pais: (pedido.envio && pedido.envio.pais) || "ES",
     },
   };
 });
@@ -2880,8 +2886,7 @@ exports.avisoCambioEstado = onDocumentUpdated(
     const saludo = despues.clienteNombre ? "Hola, " + escapeHtml(despues.clienteNombre) + ":" : "Hola:";
     const esEnviado = despues.estado === "enviado";
     const cuerpo = esEnviado
-      ? "<p>¡Buenas noticias! Tu pedido <strong>" + numero + "</strong> ya está <strong>enviado</strong>. " +
-        "Lo recibirás muy pronto.</p>" +
+      ? "<p>¡Buenas noticias! Tu pedido <strong>" + numero + "</strong> ya está <strong>enviado</strong>.</p>" +
         '<p style="text-align:center;margin:26px 0"><a href="' + enlace + '" style="background:#20304f;color:#f6efe2;padding:12px 26px;border-radius:6px;text-decoration:none;font-weight:bold">Ver el estado de mi pedido</a></p>' +
         "<p>Cuando lo tengas en tus manos, puedes confirmarlo en <em>Mi cuenta → Mis pedidos</em>.</p>"
       : "<p>Tu pedido <strong>" + numero + "</strong> figura como <strong>entregado</strong>. Esperamos que lo disfrutes.</p>" +

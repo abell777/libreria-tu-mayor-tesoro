@@ -26,6 +26,24 @@ window.Cart = (function () {
   // el resumen se recalcule siempre a partir del subtotal actual. El
   // descuento DE VERDAD (el que se cobra) siempre lo decide el servidor
   // en "crearPedido", esto es solo para mostrarlo en el carrito.
+  // ---- País de envío --------------------------------------------------------
+  // Se guarda en el navegador (localStorage) para que el resumen del carrito y
+  // el formulario de envío siempre hablen del mismo país. Por defecto, España.
+  // Cambiarlo NO modifica el carrito: solo recalcula el envío.
+  var PAIS_KEY = 'fundamento_pais';
+  function getPais() {
+    try {
+      var p = localStorage.getItem(PAIS_KEY);
+      if (p && window.ShippingRates && window.ShippingRates.paisValido(p)) return p;
+    } catch (e) { /* sin almacenamiento: se usa España */ }
+    return 'ES';
+  }
+  function setPais(pais) {
+    if (!window.ShippingRates || !window.ShippingRates.paisValido(pais)) return;
+    try { localStorage.setItem(PAIS_KEY, pais); } catch (e) { /* ignorar */ }
+    document.dispatchEvent(new CustomEvent('pais:change'));
+  }
+
   function getPromo() {
     try {
       return JSON.parse(sessionStorage.getItem(PROMO_STORAGE_KEY)) || null;
@@ -85,7 +103,7 @@ window.Cart = (function () {
     var items = getItems();
     var item = items.filter(function (i) { return sameLine(i, id, format, giftKey); })[0];
     if (item) {
-      item.qty = Math.max(1, qty);
+      item.qty = Math.min(600, Math.max(1, qty));
       saveItems(items);
     }
   }
@@ -126,6 +144,8 @@ window.Cart = (function () {
     totalPrice: totalPrice,
     extrasTotal: extrasTotal,
     updateBadge: updateBadge,
+    getPais: getPais,
+    setPais: setPais,
     getPromo: getPromo,
     setPromo: setPromo,
     clearPromo: clearPromo
@@ -166,7 +186,7 @@ window.Cart = (function () {
       return {
         id: item.id || '',
         titulo: (item.title || '').slice(0, 200),
-        cantidad: Math.max(1, Math.min(20, item.qty || 1))
+        cantidad: Math.max(1, Math.min(600, item.qty || 1))
       };
     });
 
@@ -424,7 +444,7 @@ document.addEventListener('DOMContentLoaded', function () {
           '</div>' +
           '<div class="qty-stepper">' +
             '<button type="button" class="qty-btn" data-decrease aria-label="Restar cantidad">−</button>' +
-            '<input type="number" class="qty-input" data-qty value="' + item.qty + '" min="1" max="20" aria-label="Cantidad">' +
+            '<input type="number" class="qty-input" data-qty value="' + item.qty + '" min="1" max="600" aria-label="Cantidad">' +
             '<button type="button" class="qty-btn" data-increase aria-label="Sumar cantidad">+</button>' +
           '</div>' +
           '<div class="cart-item-price">' + fmtEUR(item.price * item.qty) + '</div>' +
@@ -456,24 +476,52 @@ document.addEventListener('DOMContentLoaded', function () {
     updateSummary();
   }
 
+  // ---- Selectores de país (resumen del carrito y formulario de envío) --------
+  // Se rellenan desde js/shipping-rates.js y se mantienen sincronizados: da
+  // igual en cuál lo cambies, el otro se actualiza y el envío se recalcula.
+  function rellenarSelectorPais(select) {
+    if (!select || select.options.length || !window.ShippingRates) return;
+    window.ShippingRates.ORDEN.forEach(function (codigo) {
+      var op = document.createElement('option');
+      op.value = codigo;
+      op.textContent = window.ShippingRates.PAISES[codigo].nombre;
+      select.appendChild(op);
+    });
+    select.addEventListener('change', function () { Cart.setPais(select.value); });
+  }
+  function sincronizarSelectoresPais() {
+    ['summaryCountry', 'shippingCountry'].forEach(function (id) {
+      var sel = document.getElementById(id);
+      if (!sel) return;
+      rellenarSelectorPais(sel);
+      if (sel.value !== Cart.getPais()) sel.value = Cart.getPais();
+    });
+  }
+  document.addEventListener('pais:change', function () {
+    if (document.getElementById('summaryShipping')) updateSummary();
+    else sincronizarSelectoresPais();
+  });
+
   function updateSummary() {
     var subtotal = Cart.totalPrice();
     // Envío gratis solo si TODOS los libros del carrito lo tienen marcado
-    // en el catálogo (book.freeShipping) Y el envío es a España; si hay alguno
-    // sin esa marca, o si el catálogo aún no ha cargado, se cobra la tarifa.
+    // en el catálogo (book.freeShipping); si hay alguno sin esa marca, o si
+    // el catálogo aún no ha cargado, se cobran los 6€ de siempre.
     var items = Cart.getItems();
-    var pais = window.ENVIO ? window.ENVIO.getPais() : 'ES';
-    var todosEnvioGratis = pais === 'ES' && items.length > 0 && window.BooksCatalog && items.every(function (item) {
+    var todosEnvioGratis = items.length > 0 && window.BooksCatalog && items.every(function (item) {
       var libro = window.BooksCatalog.getById(item.id);
       return !!(libro && libro.freeShipping);
     });
-    // Envío por país y nº total de libros (cada colección cuenta como los libros que lleva: Tesoros de Vida 5, Las Bellas Historias 10).
-    // Las tarifas están en js/shipping.js y deben coincidir con functions/shipping.js.
+    // Envío por PAÍS y nº total de ejemplares (cada colección cuenta como los libros que lleva: Tesoros de Vida 5, Las Bellas Historias 10).
+    // Las tarifas están en js/shipping-rates.js (idéntico a functions/shipping-rates.js): coste del transportista + 1,10 €.
     // Libros que contiene cada colección (cuentan como tantos libros en el envío).
     var LIBROS_POR_COLECCION = { 'coleccion-tesoros-de-vida': 5, 'coleccion-las-bellas-historias-de-la-biblia': 10 };
     var numLibros = items.reduce(function (n, i) { return n + i.qty * (LIBROS_POR_COLECCION[i.id] || 1); }, 0);
-    var costeEnvioTramo = window.ENVIO ? window.ENVIO.costeEnvio(pais, numLibros) : 8;
-    var SHIPPING = todosEnvioGratis ? 0 : costeEnvioTramo;
+    var SR = window.ShippingRates;
+    var pais = Cart.getPais();
+    // Envío gratis (libros con «envío incluido»): solo a España; a otros países se cobra la tarifa.
+    var envioGratis = todosEnvioGratis && pais === 'ES';
+    var SHIPPING = envioGratis || !SR ? 0 : SR.costeEnvio(pais, numLibros);
 
     // Descuento por cantidad del MISMO libro y edición (mismo criterio que el servidor).
     var grupos = {};
@@ -491,20 +539,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     descCantidad = Math.round(descCantidad * 100) / 100;
     var hintEl = document.getElementById('summaryShipHint');
-    if (hintEl) {
-      var nombrePais = window.ENVIO && window.ENVIO.PAISES[pais] ? window.ENVIO.PAISES[pais].nombre : 'España';
-      hintEl.innerHTML = '';
-      if (numLibros > 21) {
-        hintEl.textContent = 'Un pedido admite como máximo 21 libros. Divide el pedido o escríbenos.';
+    if (hintEl && SR) {
+      if (numLibros > 1000) {
+        hintEl.textContent = 'Un pedido admite como máximo 1000 libros. Divide el pedido o escríbenos.';
+      } else if (envioGratis) {
+        hintEl.textContent = 'Envío incluido en tus libros.';
       } else {
-        hintEl.appendChild(document.createTextNode('Envío a ' + nombrePais + ' según el nº de libros del pedido. '));
-        var enlaceTarifas = document.createElement('a');
-        enlaceTarifas.href = 'envios.html';
-        enlaceTarifas.className = 'link-inline';
-        enlaceTarifas.textContent = 'Ver tarifas';
-        hintEl.appendChild(enlaceTarifas);
+        var tramo = SR.TRAMOS[SR.indiceTramo(numLibros)];
+        hintEl.innerHTML = 'Envío a ' + SR.PAISES[pais].nombre + ' · ' + tramo.etiqueta.replace(/ /g, '') +
+          ' ejemplares. Cuantos más ejemplares, menos pagas de envío por libro. ' +
+          '<a href="envios.html">Ver todas las tarifas</a>';
       }
     }
+    sincronizarSelectoresPais();
 
     // El descuento se recalcula aquí a partir del subtotal actual (nunca se
     // guarda un importe fijo), así que si cambias cantidades en el carrito
@@ -542,37 +589,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var total = Math.max(0, subtotal + extras + SHIPPING - descCantidad - descuento);
     if (totalEl) totalEl.textContent = fmtEUR(total);
   }
-
-  // ---- País de entrega ------------------------------------------------------
-  // Hay dos selectores (resumen del pedido y formulario de datos de envío) que
-  // se mantienen sincronizados y recuerdan el país elegido entre visitas.
-  (function iniciarPais() {
-    var selResumen = document.getElementById('summaryCountry');
-    var selForm = document.getElementById('shippingCountry');
-    if (!window.ENVIO || (!selResumen && !selForm)) return;
-    var inicial = window.ENVIO.getPais();
-    window.ENVIO.rellenarSelect(selResumen, inicial);
-    window.ENVIO.rellenarSelect(selForm, inicial);
-
-    function aplicarPlaceholderCP(codigo) {
-      var cpInput = document.getElementById('shippingZip');
-      var ayuda = window.ENVIO.AYUDA_CP[codigo];
-      if (cpInput && ayuda) cpInput.placeholder = 'Ej.: ' + ayuda.placeholder;
-    }
-    aplicarPlaceholderCP(inicial);
-
-    [selResumen, selForm].forEach(function (sel) {
-      if (!sel) return;
-      sel.addEventListener('change', function () { window.ENVIO.setPais(sel.value); });
-    });
-    window.addEventListener('lt:pais', function () {
-      var actual = window.ENVIO.getPais();
-      if (selResumen) selResumen.value = actual;
-      if (selForm) selForm.value = actual;
-      aplicarPlaceholderCP(actual);
-      updateSummary();
-    });
-  })();
 
   // ---- Formulario de código promocional -----------------------------------
   var promoForm = document.getElementById('promoForm');
@@ -754,7 +770,7 @@ function renderCartDrawer() {
           '<div class="cart-drawer-item-actions">' +
             '<div class="qty-stepper">' +
               '<button type="button" class="qty-btn" data-decrease aria-label="Restar cantidad">−</button>' +
-              '<input type="number" class="qty-input" data-qty value="' + item.qty + '" min="1" max="20" aria-label="Cantidad">' +
+              '<input type="number" class="qty-input" data-qty value="' + item.qty + '" min="1" max="600" aria-label="Cantidad">' +
               '<button type="button" class="qty-btn" data-increase aria-label="Sumar cantidad">+</button>' +
             '</div>' +
             '<button type="button" class="cart-drawer-item-remove" data-remove>Eliminar</button>' +
