@@ -187,6 +187,16 @@ const CATALOGO = {
       "cover": "img/en-the-sanctified-life.jpg",
       "description": "A short book on what it means to live a holy life day by day through the grace of Christ."
   },
+  "en-historical-sketches-of-the-foreign-missions": {
+      "title": "Historical Sketches of the Foreign Missions of the Seventh-day Adventists",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 12.34,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-historical-sketches-of-the-foreign-missions.jpg",
+      "description": "An 1886 history of the first foreign missions of the Seventh-day Adventist Church, with contributions by Ellen G. White."
+  },
   "en-the-colporteur-evangelist": {
       "title": "The Colporteur Evangelist",
       "format": "Tapa blanda, 148 x 210 mm",
@@ -196,6 +206,26 @@ const CATALOGO = {
       "categoryLabel": "Otros idiomas",
       "cover": "img/en-the-colporteur-evangelist.jpg",
       "description": "Counsel on the work of the book evangelist, with encouragement for those who share the printed page."
+  },
+  "en-manual-for-canvassers": {
+      "title": "Manual for Canvassers",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 10.51,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-manual-for-canvassers.jpg",
+      "description": "Practical counsel for canvassers and colporteurs, the people who carry books from door to door."
+  },
+  "en-messages-to-young-people": {
+      "title": "Messages to Young People",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 13.79,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-messages-to-young-people.jpg",
+      "description": "Counsel for young people on character, friendships, habits, study, work and Christian service, drawn from her writings."
   },
   "en-counsels-to-parents-teachers-and-students": {
       "title": "Counsels to Parents, Teachers, and Students",
@@ -227,6 +257,16 @@ const CATALOGO = {
       "cover": "img/en-christian-education.jpg",
       "description": "Counsel on the purpose and principles of true education, for parents, teachers and church schools."
   },
+  "en-christian-temperance-and-bible-hygiene": {
+      "title": "Christian Temperance and Bible Hygiene",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 11.22,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-christian-temperance-and-bible-hygiene.jpg",
+      "description": "Early health and temperance counsel on diet, healthful living, self-control and the care of the body, drawing on Scripture and on her earlier writings."
+  },
   "en-an-appeal-to-the-youth": {
       "title": "An Appeal to the Youth",
       "format": "Tapa blanda, 148 x 210 mm",
@@ -236,6 +276,16 @@ const CATALOGO = {
       "categoryLabel": "Otros idiomas",
       "cover": "img/en-an-appeal-to-the-youth.jpg",
       "description": "A pamphlet of counsel and encouragement for young people on character, conduct and faith, published in 1864."
+  },
+  "en-an-appeal-to-mothers": {
+      "title": "An Appeal to Mothers",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 10.38,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-an-appeal-to-mothers.jpg",
+      "description": "A short 1864 appeal to parents on the physical, mental and moral wellbeing of their children."
   },
   "en-spiritual-gifts-vol-2": {
       "title": "Spiritual Gifts, Vol. 2",
@@ -267,6 +317,26 @@ const CATALOGO = {
       "cover": "img/en-christian-experience-and-teachings-of-ellen-g-white.jpg",
       "description": "An introduction to the life, experience and teachings of Ellen G. White in her own words, a good starting point for understanding her ministry."
   },
+  "en-life-sketches-of-ellen-g-white": {
+      "title": "Life Sketches of Ellen G. White",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 13.91,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-life-sketches-of-ellen-g-white.jpg",
+      "description": "The 1915 account of the life and labors of Ellen G. White, from her childhood and the Advent movement to her work in America, Europe and Australia."
+  },
+  "en-early-writings": {
+      "title": "Early Writings",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 12.42,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-early-writings.jpg",
+      "description": "Ellen G. White's earliest visions and experiences, recounting the beginnings of the Advent movement and glimpses of heaven, earth's history and the future of the church."
+  },
   "en-the-story-of-jesus": {
       "title": "The Story of Jesus",
       "format": "Tapa blanda, 148 x 210 mm",
@@ -276,6 +346,16 @@ const CATALOGO = {
       "categoryLabel": "Otros idiomas",
       "cover": "img/en-the-story-of-jesus.jpg",
       "description": "The life of Jesus told in simple language, adapted from The Desire of Ages for younger readers and for anyone meeting the Gospel story for the first time."
+  },
+  "en-thoughts-from-the-mount-of-blessing": {
+      "title": "Thoughts from the Mount of Blessing",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 11.14,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-thoughts-from-the-mount-of-blessing.jpg",
+      "description": "A short, devotional commentary on the Sermon on the Mount, from the Beatitudes to the call to build on the rock, with practical guidance for a life of true discipleship."
   },
   "en-christs-object-lessons": {
       "title": "Christ's Object Lessons",
@@ -307,6 +387,16 @@ const CATALOGO = {
       "cover": "img/en-prophets-and-kings.jpg",
       "description": "The history of Israel's kings and prophets, from Solomon through the captivity in Babylon and the restoration, to the close of the Old Testament, with lessons for the church today."
   },
+  "en-patriarchs-and-prophets": {
+      "title": "Patriarchs and Prophets",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 16.31,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-patriarchs-and-prophets.jpg",
+      "description": "The Bible story from the creation and the fall through the patriarchs, the exodus and the wilderness years, to the reign of King David, told as part of the great conflict between good and evil."
+  },
   "en-the-desire-of-ages": {
       "title": "The Desire of Ages",
       "format": "Tapa blanda, 148 x 210 mm",
@@ -316,6 +406,16 @@ const CATALOGO = {
       "categoryLabel": "Otros idiomas",
       "cover": "img/en-the-desire-of-ages.jpg",
       "description": "A devotional and historical portrait of the life of Jesus, from His birth in Bethlehem to His resurrection and ascension, drawing the reader into the Gospel story chapter by chapter."
+  },
+  "en-steps-to-christ": {
+      "title": "Steps to Christ",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 11.14,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-steps-to-christ.jpg",
+      "description": "Ellen G. White's best-loved little book: a warm, simple guide to knowing Jesus, from the first desire to draw near to God to a steady life of faith, prayer and trust. The ideal place to begin reading her work."
   },
   "un-soldado-sin-descanso": {
       "title": "Un Soldado sin Descanso",
