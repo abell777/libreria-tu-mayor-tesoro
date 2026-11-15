@@ -177,6 +177,16 @@ const CATALOGO = {
       "cover": "img/en-sketches-from-the-life-of-paul.jpg",
       "description": "A portrait of the apostle Paul — his conversion, journeys, letters and imprisonment — written as a study of devotion and character."
   },
+  "en-the-sanctified-life": {
+      "title": "The Sanctified Life",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 10.66,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-the-sanctified-life.jpg",
+      "description": "A short book on what it means to live a holy life day by day through the grace of Christ."
+  },
   "en-the-colporteur-evangelist": {
       "title": "The Colporteur Evangelist",
       "format": "Tapa blanda, 148 x 210 mm",
@@ -237,6 +247,46 @@ const CATALOGO = {
       "cover": "img/en-spiritual-gifts-vol-2.jpg",
       "description": "My Christian Experience, Views and Labours in Connection with the Rise and Progress of the Third Angel's Message: her own story of the early years of the movement."
   },
+  "en-a-sketch-of-the-christian-experience-and-views": {
+      "title": "A Sketch of the Christian Experience and Views of Ellen G. White",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 10.39,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-a-sketch-of-the-christian-experience-and-views.jpg",
+      "description": "Her first published pamphlet (1851), recounting her early Christian experience and the first visions she received."
+  },
+  "en-christian-experience-and-teachings-of-ellen-g-white": {
+      "title": "Christian Experience and Teachings of Ellen G. White",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 12.05,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-christian-experience-and-teachings-of-ellen-g-white.jpg",
+      "description": "An introduction to the life, experience and teachings of Ellen G. White in her own words, a good starting point for understanding her ministry."
+  },
+  "en-the-story-of-jesus": {
+      "title": "The Story of Jesus",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 11.42,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-the-story-of-jesus.jpg",
+      "description": "The life of Jesus told in simple language, adapted from The Desire of Ages for younger readers and for anyone meeting the Gospel story for the first time."
+  },
+  "en-christs-object-lessons": {
+      "title": "Christ's Object Lessons",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 13.41,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-christs-object-lessons.jpg",
+      "description": "A study of the parables of Jesus, unfolding the spiritual truths He drew from seeds, sowers, treasure, pearls and everyday life, and how to apply them to daily Christian living."
+  },
   "en-the-acts-of-the-apostles": {
       "title": "The Acts of the Apostles",
       "format": "Tapa blanda, 148 x 210 mm",
@@ -256,6 +306,16 @@ const CATALOGO = {
       "categoryLabel": "Otros idiomas",
       "cover": "img/en-prophets-and-kings.jpg",
       "description": "The history of Israel's kings and prophets, from Solomon through the captivity in Babylon and the restoration, to the close of the Old Testament, with lessons for the church today."
+  },
+  "en-the-desire-of-ages": {
+      "title": "The Desire of Ages",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 16.91,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-the-desire-of-ages.jpg",
+      "description": "A devotional and historical portrait of the life of Jesus, from His birth in Bethlehem to His resurrection and ascension, drawing the reader into the Gospel story chapter by chapter."
   },
   "un-soldado-sin-descanso": {
       "title": "Un Soldado sin Descanso",
