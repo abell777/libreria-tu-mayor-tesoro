@@ -1,45 +1,40 @@
-This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+This file is a merged representation of a subset of the codebase, containing files not matching ignore patterns, combined into a single document by Repomix.
 
-<file_summary>
-This section contains a summary of this file.
+# File Summary
 
-<purpose>
-This file contains a packed representation of the entire repository's contents.
+## Purpose
+This file contains a packed representation of a subset of the repository's contents that is considered the most important context.
 It is designed to be easily consumable by AI systems for analysis, code review,
 or other automated processes.
-</purpose>
 
-<file_format>
+## File Format
 The content is organized as follows:
 1. This summary section
 2. Repository information
 3. Directory structure
 4. Repository files (if enabled)
 5. Multiple file entries, each consisting of:
-  - File path as an attribute
-  - Full contents of the file
-</file_format>
+  a. A header with the file path (## File: path/to/file)
+  b. The full contents of the file in a code block
 
-<usage_guidelines>
+## Usage Guidelines
 - This file should be treated as read-only. Any changes should be made to the
   original repository files, not this packed version.
 - When processing this file, use the file path to distinguish
   between different files in the repository.
 - Be aware that this file may contain sensitive information. Handle it with
   the same level of security as you would the original repository.
-</usage_guidelines>
 
-<notes>
+## Notes
 - Some files may have been excluded based on .gitignore rules and Repomix's configuration
 - Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching these patterns are excluded: node_modules/**, .git/**, .firebase/**, img/**, *.png, *.ico, *.svg, *.webp, package-lock.json, skills-lock.json
 - Files matching patterns in .gitignore are excluded
 - Files matching default ignore patterns are excluded
 - Files are sorted by Git change count (files with more changes are at the bottom)
-</notes>
 
-</file_summary>
-
-<directory_structure>
+# Directory Structure
+````
 css/
   styles.css
 functions/
@@ -47,1204 +42,8 @@ functions/
   ew-pricing.js
   index.js
   package.json
-img/
-  a-fin-de-conocerle-clasica.jpg
-  a-fin-de-conocerle-clasica.webp
-  a-fin-de-conocerle-tipografica-oscura.jpg
-  a-fin-de-conocerle-tipografica-oscura.webp
-  a-fin-de-conocerle-tipografica.jpg
-  a-fin-de-conocerle-tipografica.webp
-  a-fin-de-conocerle.jpg
-  a-fin-de-conocerle.webp
-  a-new-life-clasica.jpg
-  a-new-life-clasica.webp
-  a-new-life-tipografica-oscura.jpg
-  a-new-life-tipografica-oscura.webp
-  a-new-life-tipografica.jpg
-  a-new-life-tipografica.webp
-  a-new-life.jpg
-  a-new-life.webp
-  a-sketch-of-the-christian-experience-clasica.jpg
-  a-sketch-of-the-christian-experience-clasica.webp
-  a-sketch-of-the-christian-experience-tipografica-oscura.jpg
-  a-sketch-of-the-christian-experience-tipografica-oscura.webp
-  a-sketch-of-the-christian-experience-tipografica.jpg
-  a-sketch-of-the-christian-experience-tipografica.webp
-  a-sketch-of-the-christian-experience.jpg
-  a-sketch-of-the-christian-experience.webp
-  a-solemn-appeal-clasica.jpg
-  a-solemn-appeal-clasica.webp
-  a-solemn-appeal-tipografica-oscura.jpg
-  a-solemn-appeal-tipografica-oscura.webp
-  a-solemn-appeal-tipografica.jpg
-  a-solemn-appeal-tipografica.webp
-  a-solemn-appeal.jpg
-  a-solemn-appeal.webp
-  alza-tus-ojos-clasica.jpg
-  alza-tus-ojos-clasica.webp
-  alza-tus-ojos-tipografica-oscura.jpg
-  alza-tus-ojos-tipografica-oscura.webp
-  alza-tus-ojos-tipografica.jpg
-  alza-tus-ojos-tipografica.webp
-  alza-tus-ojos.jpg
-  alza-tus-ojos.webp
-  an-appeal-to-the-youth-clasica.jpg
-  an-appeal-to-the-youth-clasica.webp
-  an-appeal-to-the-youth-tipografica-oscura.jpg
-  an-appeal-to-the-youth-tipografica-oscura.webp
-  an-appeal-to-the-youth-tipografica.jpg
-  an-appeal-to-the-youth-tipografica.webp
-  an-appeal-to-the-youth.jpg
-  an-appeal-to-the-youth.webp
-  biblia-apuntes-negro.jpg
-  biblia-apuntes-negro.webp
-  biblia-apuntes-rosa-floreada.jpg
-  biblia-apuntes-rosa-floreada.webp
-  biblia-bilingue-rvr-nkjv-marron.jpg
-  biblia-bilingue-rvr-nkjv-marron.webp
-  biblia-compacta-fucsia-floral-cierre.jpg
-  biblia-compacta-fucsia-floral-cierre.webp
-  biblia-rvr60-aguila-cierre.jpg
-  biblia-rvr60-aguila-cierre.webp
-  biblia-rvr60-amarillo-abejas-cierre.jpg
-  biblia-rvr60-amarillo-abejas-cierre.webp
-  biblia-rvr60-beige-floral-cierre.jpg
-  biblia-rvr60-beige-floral-cierre.webp
-  biblia-rvr60-cafe-cierre.jpg
-  biblia-rvr60-cafe-cierre.webp
-  biblia-rvr60-cafe.jpg
-  biblia-rvr60-cafe.webp
-  biblia-rvr60-marron-elegante-cierre.jpg
-  biblia-rvr60-marron-elegante-cierre.webp
-  biblia-rvr60-marron.jpg
-  biblia-rvr60-marron.webp
-  biblia-rvr60-morado-flor-dorada-cierre.jpg
-  biblia-rvr60-morado-flor-dorada-cierre.webp
-  biblia-rvr60-negro-cierre.jpg
-  biblia-rvr60-negro-cierre.webp
-  biblia-rvr60-negro.jpg
-  biblia-rvr60-negro.webp
-  biblia-rvr60-verde-mariposas.jpg
-  biblia-rvr60-verde-mariposas.webp
-  biblia-rvr60-verde-olivo-cierre.jpg
-  biblia-rvr60-verde-olivo-cierre.webp
-  cada-dia-con-dios-clasica.jpg
-  cada-dia-con-dios-clasica.webp
-  cada-dia-con-dios-tipografica-oscura.jpg
-  cada-dia-con-dios-tipografica-oscura.webp
-  cada-dia-con-dios-tipografica.jpg
-  cada-dia-con-dios-tipografica.webp
-  cada-dia-con-dios.jpg
-  cada-dia-con-dios.webp
-  cartas-a-jovenes-enamorados-clasica.jpg
-  cartas-a-jovenes-enamorados-clasica.webp
-  cartas-a-jovenes-enamorados-tipografica-oscura.jpg
-  cartas-a-jovenes-enamorados-tipografica-oscura.webp
-  cartas-a-jovenes-enamorados-tipografica.jpg
-  cartas-a-jovenes-enamorados-tipografica.webp
-  cartas-a-jovenes-enamorados.jpg
-  cartas-a-jovenes-enamorados.webp
-  child-guidance-clasica.jpg
-  child-guidance-clasica.webp
-  child-guidance-tipografica-oscura.jpg
-  child-guidance-tipografica-oscura.webp
-  child-guidance-tipografica.jpg
-  child-guidance-tipografica.webp
-  child-guidance.jpg
-  child-guidance.webp
-  christ-in-his-sanctuary-clasica.jpg
-  christ-in-his-sanctuary-clasica.webp
-  christ-in-his-sanctuary-tipografica-oscura.jpg
-  christ-in-his-sanctuary-tipografica-oscura.webp
-  christ-in-his-sanctuary-tipografica.jpg
-  christ-in-his-sanctuary-tipografica.webp
-  christ-in-his-sanctuary.jpg
-  christ-in-his-sanctuary.webp
-  christian-education-clasica.jpg
-  christian-education-clasica.webp
-  christian-education-tipografica-oscura.jpg
-  christian-education-tipografica-oscura.webp
-  christian-education-tipografica.jpg
-  christian-education-tipografica.webp
-  christian-education.jpg
-  christian-education.webp
-  christian-leadership-clasica.jpg
-  christian-leadership-clasica.webp
-  christian-leadership-tipografica-oscura.jpg
-  christian-leadership-tipografica-oscura.webp
-  christian-leadership-tipografica.jpg
-  christian-leadership-tipografica.webp
-  christian-leadership.jpg
-  christian-leadership.webp
-  christian-temperance-and-bible-hygiene-clasica.jpg
-  christian-temperance-and-bible-hygiene-clasica.webp
-  christian-temperance-and-bible-hygiene-tipografica-oscura.jpg
-  christian-temperance-and-bible-hygiene-tipografica-oscura.webp
-  christian-temperance-and-bible-hygiene-tipografica.jpg
-  christian-temperance-and-bible-hygiene-tipografica.webp
-  christian-temperance-and-bible-hygiene.jpg
-  christian-temperance-and-bible-hygiene.webp
-  coleccion-kress-clasica.jpg
-  coleccion-kress-clasica.webp
-  coleccion-kress-tipografica-oscura.jpg
-  coleccion-kress-tipografica-oscura.webp
-  coleccion-kress-tipografica.jpg
-  coleccion-kress-tipografica.webp
-  coleccion-kress.jpg
-  coleccion-kress.webp
-  coleccion-las-bellas-historias-de-la-biblia.jpg
-  coleccion-las-bellas-historias-de-la-biblia.webp
-  coleccion-tesoros-de-vida.jpg
-  coleccion-tesoros-de-vida.webp
-  colporteur-ministry-clasica.jpg
-  colporteur-ministry-clasica.webp
-  colporteur-ministry-tipografica-oscura.jpg
-  colporteur-ministry-tipografica-oscura.webp
-  colporteur-ministry-tipografica.jpg
-  colporteur-ministry-tipografica.webp
-  colporteur-ministry.jpg
-  colporteur-ministry.webp
-  conduccion-del-nino-clasica.jpg
-  conduccion-del-nino-clasica.webp
-  conduccion-del-nino-tipografica-oscura.jpg
-  conduccion-del-nino-tipografica-oscura.webp
-  conduccion-del-nino-tipografica.jpg
-  conduccion-del-nino-tipografica.webp
-  conduccion-del-nino.jpg
-  conduccion-del-nino.webp
-  confeccion-manual-portada.jpg
-  confeccion-manual-portada.webp
-  conflicto-y-valor-clasica.jpg
-  conflicto-y-valor-clasica.webp
-  conflicto-y-valor-tipografica-oscura.jpg
-  conflicto-y-valor-tipografica-oscura.webp
-  conflicto-y-valor-tipografica.jpg
-  conflicto-y-valor-tipografica.webp
-  conflicto-y-valor.jpg
-  conflicto-y-valor.webp
-  confrontation-clasica.jpg
-  confrontation-clasica.webp
-  confrontation-tipografica-oscura.jpg
-  confrontation-tipografica-oscura.webp
-  confrontation-tipografica.jpg
-  confrontation-tipografica.webp
-  confrontation.jpg
-  confrontation.webp
-  consejos-para-la-iglesia-clasica.jpg
-  consejos-para-la-iglesia-clasica.webp
-  consejos-para-la-iglesia-tipografica-oscura.jpg
-  consejos-para-la-iglesia-tipografica-oscura.webp
-  consejos-para-la-iglesia-tipografica.jpg
-  consejos-para-la-iglesia-tipografica.webp
-  consejos-para-la-iglesia.jpg
-  consejos-para-la-iglesia.webp
-  consejos-para-los-maestros-clasica.jpg
-  consejos-para-los-maestros-clasica.webp
-  consejos-para-los-maestros-tipografica-oscura.jpg
-  consejos-para-los-maestros-tipografica-oscura.webp
-  consejos-para-los-maestros-tipografica.jpg
-  consejos-para-los-maestros-tipografica.webp
-  consejos-para-los-maestros.jpg
-  consejos-para-los-maestros.webp
-  consejos-sobre-la-mayordomia-cristiana-tipografica-oscura.jpg
-  consejos-sobre-la-mayordomia-cristiana-tipografica-oscura.webp
-  consejos-sobre-la-mayordomia-cristiana-tipografica.jpg
-  consejos-sobre-la-mayordomia-cristiana-tipografica.webp
-  consejos-sobre-la-mayordomia-cristiana.jpg
-  consejos-sobre-la-mayordomia-cristiana.webp
-  consejos-sobre-la-obra-de-escuela-sabatica-tipografica-oscura.jpg
-  consejos-sobre-la-obra-de-escuela-sabatica-tipografica-oscura.webp
-  consejos-sobre-la-obra-de-escuela-sabatica-tipografica.jpg
-  consejos-sobre-la-obra-de-escuela-sabatica-tipografica.webp
-  consejos-sobre-la-obra-de-escuela-sabatica.jpg
-  consejos-sobre-la-obra-de-escuela-sabatica.webp
-  consejos-sobre-la-obra-de-la-escuela-sabatica-clasica.jpg
-  consejos-sobre-la-obra-de-la-escuela-sabatica-clasica.webp
-  consejos-sobre-la-salud-clasica.jpg
-  consejos-sobre-la-salud-clasica.webp
-  consejos-sobre-la-salud.jpg
-  consejos-sobre-la-salud.webp
-  consejos-sobre-mayordomia-cristiana-clasica.jpg
-  consejos-sobre-mayordomia-cristiana-clasica.webp
-  counsels-for-the-church-clasica.jpg
-  counsels-for-the-church-clasica.webp
-  counsels-for-the-church-tipografica-oscura.jpg
-  counsels-for-the-church-tipografica-oscura.webp
-  counsels-for-the-church-tipografica.jpg
-  counsels-for-the-church-tipografica.webp
-  counsels-for-the-church.jpg
-  counsels-for-the-church.webp
-  counsels-on-sabbath-school-work-clasica.jpg
-  counsels-on-sabbath-school-work-clasica.webp
-  counsels-on-sabbath-school-work-tipografica-oscura.jpg
-  counsels-on-sabbath-school-work-tipografica-oscura.webp
-  counsels-on-sabbath-school-work-tipografica.jpg
-  counsels-on-sabbath-school-work-tipografica.webp
-  counsels-on-sabbath-school-work.jpg
-  counsels-on-sabbath-school-work.webp
-  counsels-on-stewardship-clasica.jpg
-  counsels-on-stewardship-clasica.webp
-  counsels-on-stewardship-tipografica-oscura.jpg
-  counsels-on-stewardship-tipografica-oscura.webp
-  counsels-on-stewardship-tipografica.jpg
-  counsels-on-stewardship-tipografica.webp
-  counsels-on-stewardship.jpg
-  counsels-on-stewardship.webp
-  counsels-to-parents-teachers-and-students-clasica.jpg
-  counsels-to-parents-teachers-and-students-clasica.webp
-  counsels-to-parents-teachers-and-students-tipografica-oscura.jpg
-  counsels-to-parents-teachers-and-students-tipografica-oscura.webp
-  counsels-to-parents-teachers-and-students-tipografica.jpg
-  counsels-to-parents-teachers-and-students-tipografica.webp
-  counsels-to-parents-teachers-and-students.jpg
-  counsels-to-parents-teachers-and-students.webp
-  counsels-to-writers-and-editors-clasica.jpg
-  counsels-to-writers-and-editors-clasica.webp
-  counsels-to-writers-and-editors-tipografica-oscura.jpg
-  counsels-to-writers-and-editors-tipografica-oscura.webp
-  counsels-to-writers-and-editors-tipografica.jpg
-  counsels-to-writers-and-editors-tipografica.webp
-  counsels-to-writers-and-editors.jpg
-  counsels-to-writers-and-editors.webp
-  country-living-clasica.jpg
-  country-living-clasica.webp
-  country-living-tipografica-oscura.jpg
-  country-living-tipografica-oscura.webp
-  country-living-tipografica.jpg
-  country-living-tipografica.webp
-  country-living.jpg
-  country-living.webp
-  creencias-de-los-adventistas-del-septimo-dia.jpg
-  creencias-de-los-adventistas-del-septimo-dia.webp
-  cristo-en-su-santuario-clasica.jpg
-  cristo-en-su-santuario-clasica.webp
-  cristo-en-su-santuario-tipografica-oscura.jpg
-  cristo-en-su-santuario-tipografica-oscura.webp
-  cristo-en-su-santuario-tipografica.jpg
-  cristo-en-su-santuario-tipografica.webp
-  cristo-en-su-santuario.jpg
-  cristo-en-su-santuario.webp
-  cristo-nuestro-salvador-clasica.jpg
-  cristo-nuestro-salvador-clasica.webp
-  cristo-nuestro-salvador-tipografica-oscura.jpg
-  cristo-nuestro-salvador-tipografica-oscura.webp
-  cristo-nuestro-salvador-tipografica.jpg
-  cristo-nuestro-salvador-tipografica.webp
-  cristo-nuestro-salvador.jpg
-  cristo-nuestro-salvador.webp
-  darkness-before-dawn-clasica.jpg
-  darkness-before-dawn-clasica.webp
-  darkness-before-dawn-tipografica-oscura.jpg
-  darkness-before-dawn-tipografica-oscura.webp
-  darkness-before-dawn-tipografica.jpg
-  darkness-before-dawn-tipografica.webp
-  darkness-before-dawn.jpg
-  darkness-before-dawn.webp
-  de-la-ciudad-al-campo-clasica.jpg
-  de-la-ciudad-al-campo-clasica.webp
-  de-la-ciudad-al-campo-tipografica-oscura.jpg
-  de-la-ciudad-al-campo-tipografica-oscura.webp
-  de-la-ciudad-al-campo-tipografica.jpg
-  de-la-ciudad-al-campo-tipografica.webp
-  de-la-ciudad-al-campo.jpg
-  de-la-ciudad-al-campo.webp
-  desde-el-corazon-tipografica-oscura.jpg
-  desde-el-corazon-tipografica-oscura.webp
-  desde-el-corazon-tipografica.jpg
-  desde-el-corazon-tipografica.webp
-  desde-el-corazon.jpg
-  desde-el-corazon.webp
-  dios-nos-cuida-clasica.jpg
-  dios-nos-cuida-tipografica-oscura.jpg
-  dios-nos-cuida-tipografica-oscura.webp
-  dios-nos-cuida-tipografica.jpg
-  dios-nos-cuida-tipografica.webp
-  dios-nos-cuida.jpg
-  dios-nos-cuida.webp
-  discurso-maestro-de-jesucristo-clasica.jpg
-  discurso-maestro-de-jesucristo-tipografica-oscura.jpg
-  discurso-maestro-de-jesucristo-tipografica-oscura.webp
-  discurso-maestro-de-jesucristo-tipografica.jpg
-  discurso-maestro-de-jesucristo-tipografica.webp
-  discurso-maestro-de-jesucristo.jpg
-  early-writings-clasica.jpg
-  early-writings-clasica.webp
-  early-writings-tipografica-oscura.jpg
-  early-writings-tipografica-oscura.webp
-  early-writings-tipografica.jpg
-  early-writings-tipografica.webp
-  early-writings.jpg
-  early-writings.webp
-  edificacion-del-caracter-tipografica-oscura.jpg
-  edificacion-del-caracter-tipografica-oscura.webp
-  edificacion-del-caracter-tipografica.jpg
-  edificacion-del-caracter-tipografica.webp
-  edificacion-del-caracter.jpg
-  edificacion-del-caracter.webp
-  education-clasica.jpg
-  education-clasica.webp
-  education-tipografica-oscura.jpg
-  education-tipografica-oscura.webp
-  education-tipografica.jpg
-  education-tipografica.webp
-  education.jpg
-  education.webp
-  el-buey-adventista.jpg
-  el-camino-a-cristo-tipografica-oscura.jpg
-  el-camino-a-cristo-tipografica-oscura.webp
-  el-camino-a-cristo-tipografica.jpg
-  el-camino-a-cristo-tipografica.webp
-  el-camino-a-cristo.jpg
-  el-camino-a-cristo.webp
-  el-colportor-evangelico-clasica.jpg
-  el-colportor-evangelico-tipografica-oscura.jpg
-  el-colportor-evangelico-tipografica-oscura.webp
-  el-colportor-evangelico-tipografica.jpg
-  el-colportor-evangelico-tipografica.webp
-  el-colportor-evangelico.jpg
-  el-colportor-evangelico.webp
-  el-conflicto-de-los-siglos-tipografica-oscura.jpg
-  el-conflicto-de-los-siglos-tipografica-oscura.webp
-  el-conflicto-de-los-siglos-tipografica.jpg
-  el-conflicto-de-los-siglos-tipografica.webp
-  el-conflicto-de-los-siglos.jpg
-  el-conflicto-de-los-siglos.webp
-  el-conflicto-inminente-tipografica-oscura.jpg
-  el-conflicto-inminente-tipografica-oscura.webp
-  el-conflicto-inminente-tipografica.jpg
-  el-conflicto-inminente-tipografica.webp
-  el-conflicto-inminente.jpg
-  el-conflicto-inminente.webp
-  el-cristo-triunfante-tipografica-oscura.jpg
-  el-cristo-triunfante-tipografica-oscura.webp
-  el-cristo-triunfante-tipografica.jpg
-  el-cristo-triunfante-tipografica.webp
-  el-cristo-triunfante.jpg
-  el-cristo-triunfante.webp
-  el-deseado-de-todas-las-gentes-clasica.jpg
-  el-deseado-de-todas-las-gentes-portada-unica.jpg
-  el-deseado-de-todas-las-gentes-portada-unica.webp
-  el-deseado-de-todas-las-gentes-tapa-blanda.jpg
-  el-deseado-de-todas-las-gentes-tapa-blanda.webp
-  el-deseado-de-todas-las-gentes-tapa-dura.jpg
-  el-deseado-de-todas-las-gentes-tapa-dura.webp
-  el-deseado-de-todas-las-gentes-tipografica-oscura.jpg
-  el-deseado-de-todas-las-gentes-tipografica-oscura.webp
-  el-deseado-de-todas-las-gentes-tipografica.jpg
-  el-deseado-de-todas-las-gentes-tipografica.webp
-  el-deseado-de-todas-las-gentes.jpg
-  el-deseado-de-todas-las-gentes.webp
-  el-evangelismo-tipografica-oscura.jpg
-  el-evangelismo-tipografica-oscura.webp
-  el-evangelismo-tipografica.jpg
-  el-evangelismo-tipografica.webp
-  el-evangelismo.jpg
-  el-evangelismo.webp
-  el-hogar-cristiano-clasica.jpg
-  el-hogar-cristiano-tipografica-oscura.jpg
-  el-hogar-cristiano-tipografica-oscura.webp
-  el-hogar-cristiano-tipografica.jpg
-  el-hogar-cristiano-tipografica.webp
-  el-hogar-cristiano.jpg
-  el-hogar-cristiano.webp
-  el-ministerio-de-curacion-clasica.jpg
-  el-ministerio-de-curacion-tipografica-oscura.jpg
-  el-ministerio-de-curacion-tipografica-oscura.webp
-  el-ministerio-de-curacion-tipografica.jpg
-  el-ministerio-de-curacion-tipografica.webp
-  el-ministerio-de-curacion.jpg
-  el-ministerio-de-curacion.webp
-  el-ministerio-de-la-bondad-clasica.jpg
-  el-ministerio-de-la-bondad-tipografica-oscura.jpg
-  el-ministerio-de-la-bondad-tipografica-oscura.webp
-  el-ministerio-de-la-bondad-tipografica.jpg
-  el-ministerio-de-la-bondad-tipografica.webp
-  el-ministerio-de-la-bondad.jpg
-  el-ministerio-de-la-bondad.webp
-  el-ministerio-de-publicaciones-tipografica-oscura.jpg
-  el-ministerio-de-publicaciones-tipografica-oscura.webp
-  el-ministerio-de-publicaciones-tipografica.jpg
-  el-ministerio-de-publicaciones-tipografica.webp
-  el-ministerio-de-publicaciones.jpg
-  el-ministerio-de-publicaciones.webp
-  el-ministerio-medico-clasica.jpg
-  el-ministerio-medico-tipografica-oscura.jpg
-  el-ministerio-medico-tipografica-oscura.webp
-  el-ministerio-medico-tipografica.jpg
-  el-ministerio-medico-tipografica.webp
-  el-ministerio-medico.jpg
-  el-ministerio-medico.webp
-  el-ministerio-pastoral-tipografica-oscura.jpg
-  el-ministerio-pastoral-tipografica-oscura.webp
-  el-ministerio-pastoral-tipografica.jpg
-  el-ministerio-pastoral-tipografica.webp
-  el-ministerio-pastoral.jpg
-  el-ministerio-pastoral.webp
-  el-otro-poder-tipografica-oscura.jpg
-  el-otro-poder-tipografica-oscura.webp
-  el-otro-poder-tipografica.jpg
-  el-otro-poder-tipografica.webp
-  el-otro-poder.jpg
-  el-otro-poder.webp
-  el-poder-de-la-oracion-tipografica.jpg
-  el-poder-de-la-oracion-tipografica.webp
-  el-poder-de-la-oracion.jpg
-  en-el-desierto-de-la-tentacion-clasica.jpg
-  en-el-desierto-de-la-tentacion-tipografica-oscura.jpg
-  en-el-desierto-de-la-tentacion-tipografica-oscura.webp
-  en-el-desierto-de-la-tentacion-tipografica.jpg
-  en-el-desierto-de-la-tentacion-tipografica.webp
-  en-el-desierto-de-la-tentacion.jpg
-  en-el-desierto-de-la-tentacion.webp
-  en-los-lugares-celestiales-tipografica-oscura.jpg
-  en-los-lugares-celestiales-tipografica-oscura.webp
-  en-los-lugares-celestiales-tipografica.jpg
-  en-los-lugares-celestiales-tipografica.webp
-  en-los-lugares-celestiales.jpg
-  en-los-lugares-celestiales.webp
-  evangelism-clasica.jpg
-  evangelism-clasica.webp
-  evangelism-tipografica-oscura.jpg
-  evangelism-tipografica-oscura.webp
-  evangelism-tipografica.jpg
-  evangelism-tipografica.webp
-  evangelism.jpg
-  evangelism.webp
-  eventos-de-los-ultimos-dias-tipografica-oscura.jpg
-  eventos-de-los-ultimos-dias-tipografica-oscura.webp
-  eventos-de-los-ultimos-dias-tipografica.jpg
-  eventos-de-los-ultimos-dias-tipografica.webp
-  eventos-de-los-ultimos-dias.jpg
-  exaltad-a-jesus-tipografica-oscura.jpg
-  exaltad-a-jesus-tipografica-oscura.webp
-  exaltad-a-jesus-tipografica.jpg
-  exaltad-a-jesus-tipografica.webp
-  exaltad-a-jesus.jpg
-  exaltad-a-jesus.webp
-  fe-y-obras-tipografica-oscura.jpg
-  fe-y-obras-tipografica-oscura.webp
-  fe-y-obras-tipografica.jpg
-  fe-y-obras-tipografica.webp
-  fe-y-obras.jpg
-  fe-y-obras.webp
-  from-heaven-with-love-clasica.jpg
-  from-heaven-with-love-clasica.webp
-  from-heaven-with-love-tipografica-oscura.jpg
-  from-heaven-with-love-tipografica-oscura.webp
-  from-heaven-with-love-tipografica.jpg
-  from-heaven-with-love-tipografica.webp
-  from-heaven-with-love.jpg
-  from-heaven-with-love.webp
-  from-here-to-forever-clasica.jpg
-  from-here-to-forever-clasica.webp
-  from-here-to-forever-tipografica-oscura.jpg
-  from-here-to-forever-tipografica-oscura.webp
-  from-here-to-forever-tipografica.jpg
-  from-here-to-forever-tipografica.webp
-  from-here-to-forever.jpg
-  from-here-to-forever.webp
-  gods-remnant-church-clasica.jpg
-  gods-remnant-church-clasica.webp
-  gods-remnant-church-tipografica-oscura.jpg
-  gods-remnant-church-tipografica-oscura.webp
-  gods-remnant-church-tipografica.jpg
-  gods-remnant-church-tipografica.webp
-  gods-remnant-church.jpg
-  gods-remnant-church.webp
-  gospel-workers-clasica.jpg
-  gospel-workers-clasica.webp
-  gospel-workers-tipografica-oscura.jpg
-  gospel-workers-tipografica-oscura.webp
-  gospel-workers-tipografica.jpg
-  gospel-workers-tipografica.webp
-  gospel-workers.jpg
-  gospel-workers.webp
-  health-laws-clasica.jpg
-  health-laws-clasica.webp
-  health-laws-tipografica-oscura.jpg
-  health-laws-tipografica-oscura.webp
-  health-laws-tipografica.jpg
-  health-laws-tipografica.webp
-  health-laws.jpg
-  health-laws.webp
-  healthful-living-clasica.jpg
-  healthful-living-clasica.webp
-  healthful-living-tipografica-oscura.jpg
-  healthful-living-tipografica-oscura.webp
-  healthful-living-tipografica.jpg
-  healthful-living-tipografica.webp
-  healthful-living.jpg
-  healthful-living.webp
-  heaven-clasica.jpg
-  heaven-clasica.webp
-  heaven-tipografica-oscura.jpg
-  heaven-tipografica-oscura.webp
-  heaven-tipografica.jpg
-  heaven-tipografica.webp
-  heaven.jpg
-  heaven.webp
-  help-in-daily-living-clasica.jpg
-  help-in-daily-living-clasica.webp
-  help-in-daily-living-tipografica-oscura.jpg
-  help-in-daily-living-tipografica-oscura.webp
-  help-in-daily-living-tipografica.jpg
-  help-in-daily-living-tipografica.webp
-  help-in-daily-living.jpg
-  help-in-daily-living.webp
-  hijas-de-dios-tipografica-oscura.jpg
-  hijas-de-dios-tipografica-oscura.webp
-  hijas-de-dios-tipografica.jpg
-  hijas-de-dios-tipografica.webp
-  hijas-de-dios.jpg
-  hijas-de-dios.webp
-  hijos-e-hijas-de-dios-tipografica-oscura.jpg
-  hijos-e-hijas-de-dios-tipografica-oscura.webp
-  hijos-e-hijas-de-dios-tipografica.jpg
-  hijos-e-hijas-de-dios-tipografica.webp
-  hijos-e-hijas-de-dios.jpg
-  hijos-e-hijas-de-dios.webp
-  historia-de-los-patriarcas-y-profetas-clasica.jpg
-  historia-de-los-patriarcas-y-profetas-tipografica-oscura.jpg
-  historia-de-los-patriarcas-y-profetas-tipografica-oscura.webp
-  historia-de-los-patriarcas-y-profetas-tipografica.jpg
-  historia-de-los-patriarcas-y-profetas-tipografica.webp
-  historia-de-los-patriarcas-y-profetas.jpg
-  historia-de-los-patriarcas-y-profetas.webp
-  historical-sketches-foreign-missions-clasica.jpg
-  historical-sketches-foreign-missions-clasica.webp
-  historical-sketches-foreign-missions-tipografica-oscura.jpg
-  historical-sketches-foreign-missions-tipografica-oscura.webp
-  historical-sketches-foreign-missions-tipografica.jpg
-  historical-sketches-foreign-missions-tipografica.webp
-  historical-sketches-foreign-missions.jpg
-  historical-sketches-foreign-missions.webp
-  joyas-de-los-testimonios-1-tipografica-oscura.jpg
-  joyas-de-los-testimonios-1-tipografica-oscura.webp
-  joyas-de-los-testimonios-1-tipografica.jpg
-  joyas-de-los-testimonios-1-tipografica.webp
-  joyas-de-los-testimonios-2-tipografica-oscura.jpg
-  joyas-de-los-testimonios-2-tipografica-oscura.webp
-  joyas-de-los-testimonios-2-tipografica.jpg
-  joyas-de-los-testimonios-2-tipografica.webp
-  joyas-de-los-testimonios-3-tipografica-oscura.jpg
-  joyas-de-los-testimonios-3-tipografica-oscura.webp
-  joyas-de-los-testimonios-3-tipografica.jpg
-  joyas-de-los-testimonios-3-tipografica.webp
-  joyas-de-los-testimonios.jpg
-  joyas-de-los-testimonios.webp
-  la-educacion-cristiana-tipografica-oscura.jpg
-  la-educacion-cristiana-tipografica-oscura.webp
-  la-educacion-cristiana-tipografica.jpg
-  la-educacion-cristiana-tipografica.webp
-  la-educacion-cristiana.jpg
-  la-educacion-cristiana.webp
-  la-educacion-tipografica-oscura.jpg
-  la-educacion-tipografica-oscura.webp
-  la-educacion-tipografica.jpg
-  la-educacion-tipografica.webp
-  la-educacion.jpg
-  la-educacion.webp
-  la-fe-por-la-cual-vivo-tipografica-oscura.jpg
-  la-fe-por-la-cual-vivo-tipografica-oscura.webp
-  la-fe-por-la-cual-vivo-tipografica.jpg
-  la-fe-por-la-cual-vivo-tipografica.webp
-  la-fe-por-la-cual-vivo.jpg
-  la-fe-por-la-cual-vivo.webp
-  la-historia-de-la-redencion-clasica.jpg
-  la-historia-de-la-redencion-tipografica-oscura.jpg
-  la-historia-de-la-redencion-tipografica-oscura.webp
-  la-historia-de-la-redencion-tipografica.jpg
-  la-historia-de-la-redencion-tipografica.webp
-  la-historia-de-la-redencion.jpg
-  la-historia-de-la-redencion.webp
-  la-iglesia-remanente-clasica.jpg
-  la-iglesia-remanente-tipografica-oscura.jpg
-  la-iglesia-remanente-tipografica-oscura.webp
-  la-iglesia-remanente-tipografica.jpg
-  la-iglesia-remanente-tipografica.webp
-  la-iglesia-remanente.jpg
-  la-iglesia-remanente.webp
-  la-maravillosa-gracia-de-dios-tipografica-oscura.jpg
-  la-maravillosa-gracia-de-dios-tipografica-oscura.webp
-  la-maravillosa-gracia-de-dios-tipografica.jpg
-  la-maravillosa-gracia-de-dios-tipografica.webp
-  la-maravillosa-gracia-de-dios.jpg
-  la-maravillosa-gracia-de-dios.webp
-  la-musica-clasica.jpg
-  la-musica-tipografica-oscura.jpg
-  la-musica-tipografica-oscura.webp
-  la-musica-tipografica.jpg
-  la-musica-tipografica.webp
-  la-musica.jpg
-  la-musica.webp
-  la-oracion-clasica.jpg
-  la-oracion-tipografica-oscura.jpg
-  la-oracion-tipografica-oscura.webp
-  la-oracion-tipografica.jpg
-  la-oracion-tipografica.webp
-  la-oracion.jpg
-  la-oracion.webp
-  la-pasion-del-amor.jpg
-  la-pasion-del-amor.webp
-  la-segunda-venida-y-el-cielo-clasica.jpg
-  la-segunda-venida-y-el-cielo-tipografica-oscura.jpg
-  la-segunda-venida-y-el-cielo-tipografica-oscura.webp
-  la-segunda-venida-y-el-cielo-tipografica.jpg
-  la-segunda-venida-y-el-cielo-tipografica.webp
-  la-segunda-venida-y-el-cielo.jpg
-  la-segunda-venida-y-el-cielo.webp
-  la-temperancia-tipografica-oscura.jpg
-  la-temperancia-tipografica-oscura.webp
-  la-temperancia-tipografica.jpg
-  la-temperancia-tipografica.webp
-  la-temperancia.jpg
-  la-unica-esperanza-clasica.jpg
-  la-unica-esperanza-tipografica-oscura.jpg
-  la-unica-esperanza-tipografica-oscura.webp
-  la-unica-esperanza-tipografica.jpg
-  la-unica-esperanza-tipografica.webp
-  la-unica-esperanza.jpg
-  la-verdad-acerca-de-los-angeles-2.jpg
-  la-verdad-acerca-de-los-angeles-clasica.jpg
-  la-verdad-acerca-de-los-angeles-tipografica-oscura.jpg
-  la-verdad-acerca-de-los-angeles-tipografica-oscura.webp
-  la-verdad-acerca-de-los-angeles-tipografica.jpg
-  la-verdad-acerca-de-los-angeles-tipografica.webp
-  la-verdad-acerca-de-los-angeles.jpg
-  la-verdad-acerca-de-los-angeles.webp
-  la-voz-su-educacion-y-uso-correcto-tipografica-oscura.jpg
-  la-voz-su-educacion-y-uso-correcto-tipografica-oscura.webp
-  la-voz-su-educacion-y-uso-correcto-tipografica.jpg
-  la-voz-su-educacion-y-uso-correcto-tipografica.webp
-  la-voz-su-educacion-y-uso-correcto.jpg
-  las-bellas-historias-de-la-biblia-1-clasica.jpg
-  las-bellas-historias-de-la-biblia-1-clasica.webp
-  las-bellas-historias-de-la-biblia-1-tipografica-oscura.jpg
-  las-bellas-historias-de-la-biblia-1-tipografica-oscura.webp
-  las-bellas-historias-de-la-biblia-1-tipografica.jpg
-  las-bellas-historias-de-la-biblia-1-tipografica.webp
-  las-bellas-historias-de-la-biblia-1.jpg
-  las-bellas-historias-de-la-biblia-1.webp
-  las-bellas-historias-de-la-biblia-10-clasica.jpg
-  las-bellas-historias-de-la-biblia-10-clasica.webp
-  las-bellas-historias-de-la-biblia-10-tipografica-oscura.jpg
-  las-bellas-historias-de-la-biblia-10-tipografica-oscura.webp
-  las-bellas-historias-de-la-biblia-10-tipografica.jpg
-  las-bellas-historias-de-la-biblia-10-tipografica.webp
-  las-bellas-historias-de-la-biblia-10.jpg
-  las-bellas-historias-de-la-biblia-10.webp
-  las-bellas-historias-de-la-biblia-2-clasica.jpg
-  las-bellas-historias-de-la-biblia-2-clasica.webp
-  las-bellas-historias-de-la-biblia-2-tipografica-oscura.jpg
-  las-bellas-historias-de-la-biblia-2-tipografica-oscura.webp
-  las-bellas-historias-de-la-biblia-2-tipografica.jpg
-  las-bellas-historias-de-la-biblia-2-tipografica.webp
-  las-bellas-historias-de-la-biblia-2.jpg
-  las-bellas-historias-de-la-biblia-2.webp
-  las-bellas-historias-de-la-biblia-3-clasica.jpg
-  las-bellas-historias-de-la-biblia-3-clasica.webp
-  las-bellas-historias-de-la-biblia-3-tipografica-oscura.jpg
-  las-bellas-historias-de-la-biblia-3-tipografica-oscura.webp
-  las-bellas-historias-de-la-biblia-3-tipografica.jpg
-  las-bellas-historias-de-la-biblia-3-tipografica.webp
-  las-bellas-historias-de-la-biblia-3.jpg
-  las-bellas-historias-de-la-biblia-3.webp
-  las-bellas-historias-de-la-biblia-4-clasica.jpg
-  las-bellas-historias-de-la-biblia-4-clasica.webp
-  las-bellas-historias-de-la-biblia-4-tipografica-oscura.jpg
-  las-bellas-historias-de-la-biblia-4-tipografica-oscura.webp
-  las-bellas-historias-de-la-biblia-4-tipografica.jpg
-  las-bellas-historias-de-la-biblia-4-tipografica.webp
-  las-bellas-historias-de-la-biblia-4.jpg
-  las-bellas-historias-de-la-biblia-4.webp
-  las-bellas-historias-de-la-biblia-5-clasica.jpg
-  las-bellas-historias-de-la-biblia-5-clasica.webp
-  las-bellas-historias-de-la-biblia-5-tipografica-oscura.jpg
-  las-bellas-historias-de-la-biblia-5-tipografica-oscura.webp
-  las-bellas-historias-de-la-biblia-5-tipografica.jpg
-  las-bellas-historias-de-la-biblia-5-tipografica.webp
-  las-bellas-historias-de-la-biblia-5.jpg
-  las-bellas-historias-de-la-biblia-5.webp
-  las-bellas-historias-de-la-biblia-6-clasica.jpg
-  las-bellas-historias-de-la-biblia-6-clasica.webp
-  las-bellas-historias-de-la-biblia-6-tipografica-oscura.jpg
-  las-bellas-historias-de-la-biblia-6-tipografica-oscura.webp
-  las-bellas-historias-de-la-biblia-6-tipografica.jpg
-  las-bellas-historias-de-la-biblia-6-tipografica.webp
-  las-bellas-historias-de-la-biblia-6.jpg
-  las-bellas-historias-de-la-biblia-6.webp
-  las-bellas-historias-de-la-biblia-7-clasica.jpg
-  las-bellas-historias-de-la-biblia-7-clasica.webp
-  las-bellas-historias-de-la-biblia-7-tipografica-oscura.jpg
-  las-bellas-historias-de-la-biblia-7-tipografica-oscura.webp
-  las-bellas-historias-de-la-biblia-7-tipografica.jpg
-  las-bellas-historias-de-la-biblia-7-tipografica.webp
-  las-bellas-historias-de-la-biblia-7.jpg
-  las-bellas-historias-de-la-biblia-7.webp
-  las-bellas-historias-de-la-biblia-8-clasica.jpg
-  las-bellas-historias-de-la-biblia-8-clasica.webp
-  las-bellas-historias-de-la-biblia-8-tipografica-oscura.jpg
-  las-bellas-historias-de-la-biblia-8-tipografica-oscura.webp
-  las-bellas-historias-de-la-biblia-8-tipografica.jpg
-  las-bellas-historias-de-la-biblia-8-tipografica.webp
-  las-bellas-historias-de-la-biblia-8.jpg
-  las-bellas-historias-de-la-biblia-8.webp
-  las-bellas-historias-de-la-biblia-9-clasica.jpg
-  las-bellas-historias-de-la-biblia-9-clasica.webp
-  las-bellas-historias-de-la-biblia-9-tipografica-oscura.jpg
-  las-bellas-historias-de-la-biblia-9-tipografica-oscura.webp
-  las-bellas-historias-de-la-biblia-9-tipografica.jpg
-  las-bellas-historias-de-la-biblia-9-tipografica.webp
-  las-bellas-historias-de-la-biblia-9.jpg
-  las-bellas-historias-de-la-biblia-9.webp
-  last-day-events-clasica.jpg
-  last-day-events-clasica.webp
-  last-day-events-tipografica-oscura.jpg
-  last-day-events-tipografica-oscura.webp
-  last-day-events-tipografica.jpg
-  last-day-events-tipografica.webp
-  last-day-events.jpg
-  last-day-events.webp
-  letters-to-young-lovers-clasica.jpg
-  letters-to-young-lovers-clasica.webp
-  letters-to-young-lovers-tipografica-oscura.jpg
-  letters-to-young-lovers-tipografica-oscura.webp
-  letters-to-young-lovers-tipografica.jpg
-  letters-to-young-lovers-tipografica.webp
-  letters-to-young-lovers.jpg
-  letters-to-young-lovers.webp
-  leyes-de-la-salud-clasica.jpg
-  leyes-de-la-salud-clasica.webp
-  leyes-de-la-salud-tipografica-oscura.jpg
-  leyes-de-la-salud-tipografica-oscura.webp
-  leyes-de-la-salud-tipografica.jpg
-  leyes-de-la-salud-tipografica.webp
-  leyes-de-la-salud.jpg
-  leyes-de-la-salud.webp
-  leyes-sobre-el-regimen-alimenticio-clasica.jpg
-  leyes-sobre-el-regimen-alimenticio-clasica.webp
-  leyes-sobre-el-regimen-alimenticio-tipografica-oscura.jpg
-  leyes-sobre-el-regimen-alimenticio-tipografica-oscura.webp
-  leyes-sobre-el-regimen-alimenticio-tipografica.jpg
-  leyes-sobre-el-regimen-alimenticio-tipografica.webp
-  leyes-sobre-el-regimen-alimenticio.jpg
-  leyes-sobre-el-regimen-alimenticio.webp
-  liderazgo-cristiano-tipografica-oscura.jpg
-  liderazgo-cristiano-tipografica-oscura.webp
-  liderazgo-cristiano-tipografica.jpg
-  liderazgo-cristiano-tipografica.webp
-  liderazgo-cristiano.jpg
-  life-sketches-of-ellen-g-white-clasica.jpg
-  life-sketches-of-ellen-g-white-clasica.webp
-  life-sketches-of-ellen-g-white-tipografica-oscura.jpg
-  life-sketches-of-ellen-g-white-tipografica-oscura.webp
-  life-sketches-of-ellen-g-white-tipografica.jpg
-  life-sketches-of-ellen-g-white-tipografica.webp
-  life-sketches-of-ellen-g-white.jpg
-  life-sketches-of-ellen-g-white.webp
-  los-hechos-de-los-apostoles-tipografica-oscura.jpg
-  los-hechos-de-los-apostoles-tipografica-oscura.webp
-  los-hechos-de-los-apostoles-tipografica.jpg
-  los-hechos-de-los-apostoles-tipografica.webp
-  los-hechos-de-los-apostoles.jpg
-  maranata-el-senor-viene-clasica.jpg
-  maranata-el-senor-viene-clasica.webp
-  maranatha-el-senor-viene-tipografica-oscura.jpg
-  maranatha-el-senor-viene-tipografica-oscura.webp
-  maranatha-el-senor-viene-tipografica.jpg
-  maranatha-el-senor-viene-tipografica.webp
-  maranatha-el-senor-viene.jpg
-  mensajes-para-los-jovenes-clasica.jpg
-  mensajes-para-los-jovenes-tipografica.jpg
-  mensajes-para-los-jovenes-tipografica.webp
-  mensajes-para-los-jovenes.jpg
-  mensajes-para-los-jovenes.webp
-  mensajes-selectos-1-clasica.jpg
-  mensajes-selectos-1-tipografica-oscura.jpg
-  mensajes-selectos-1-tipografica-oscura.webp
-  mensajes-selectos-2-clasica.jpg
-  mensajes-selectos-2-tipografica-oscura.jpg
-  mensajes-selectos-2-tipografica-oscura.webp
-  mensajes-selectos-3-clasica.jpg
-  mensajes-selectos-3-tipografica-oscura.jpg
-  mensajes-selectos-3-tipografica-oscura.webp
-  mensajes-selectos-tomo-i-tipografica.jpg
-  mensajes-selectos-tomo-i-tipografica.webp
-  mensajes-selectos-tomo-ii-tipografica.jpg
-  mensajes-selectos-tomo-ii-tipografica.webp
-  mensajes-selectos-tomo-iii-tipografica.jpg
-  mensajes-selectos-tomo-iii-tipografica.webp
-  mensajes-selectos.jpg
-  mente-caracter-y-personalidad-1-tipografica.jpg
-  mente-caracter-y-personalidad-1-tipografica.webp
-  mente-caracter-y-personalidad-2-tipografica.jpg
-  mente-caracter-y-personalidad-2-tipografica.webp
-  mente-caracter-y-personalidad.jpg
-  mente-caracter-y-personalidad.webp
-  mi-vida-hoy-tipografica.jpg
-  mi-vida-hoy-tipografica.webp
-  mi-vida-hoy.jpg
-  mi-vida-hoy.webp
-  notas-biograficas-de-elena-g-de-white.jpg
-  notas-biograficas-de-elena-g-de-white.webp
-  notas-biograficas-de-elena-g-white-tipografica.jpg
-  notas-biograficas-de-elena-g-white-tipografica.webp
-  nuestra-elevada-vocacion-tipografica.jpg
-  nuestra-elevada-vocacion-tipografica.webp
-  nuestra-elevada-vocacion.jpg
-  nuestra-elevada-vocacion.webp
-  obreros-evangelicos-tipografica.jpg
-  obreros-evangelicos-tipografica.webp
-  obreros-evangelicos.jpg
-  obreros-evangelicos.webp
-  og-image.jpg
-  oscuridad-antes-del-amanecer-tipografica.jpg
-  oscuridad-antes-del-amanecer-tipografica.webp
-  oscuridad-antes-del-amanecer.jpg
-  oscuridad-antes-del-amanecer.webp
-  palabras-de-vida-del-gran-maestro-tipografica-oscura.jpg
-  palabras-de-vida-del-gran-maestro-tipografica-oscura.webp
-  palabras-de-vida-del-gran-maestro-tipografica.jpg
-  palabras-de-vida-del-gran-maestro-tipografica.webp
-  palabras-de-vida-del-gran-maestro.jpg
-  pastoral-ministry-clasica.jpg
-  pastoral-ministry-clasica.webp
-  pastoral-ministry-tipografica-oscura.jpg
-  pastoral-ministry-tipografica-oscura.webp
-  pastoral-ministry-tipografica.jpg
-  pastoral-ministry-tipografica.webp
-  pastoral-ministry.jpg
-  pastoral-ministry.webp
-  patriarchs-and-prophets-clasica.jpg
-  patriarchs-and-prophets-clasica.webp
-  patriarchs-and-prophets-tipografica-oscura.jpg
-  patriarchs-and-prophets-tipografica-oscura.webp
-  patriarchs-and-prophets-tipografica.jpg
-  patriarchs-and-prophets-tipografica.webp
-  patriarchs-and-prophets.jpg
-  patriarchs-and-prophets.webp
-  peters-counsel-to-parents-clasica.jpg
-  peters-counsel-to-parents-clasica.webp
-  peters-counsel-to-parents-tipografica-oscura.jpg
-  peters-counsel-to-parents-tipografica-oscura.webp
-  peters-counsel-to-parents-tipografica.jpg
-  peters-counsel-to-parents-tipografica.webp
-  peters-counsel-to-parents.jpg
-  peters-counsel-to-parents.webp
-  portada-proximamente.jpg
-  portada-proximamente.webp
-  prayer-clasica.jpg
-  prayer-clasica.webp
-  prayer-tipografica-oscura.jpg
-  prayer-tipografica-oscura.webp
-  prayer-tipografica.jpg
-  prayer-tipografica.webp
-  prayer.jpg
-  prayer.webp
-  primeros-escritos-tipografica-oscura.jpg
-  primeros-escritos-tipografica-oscura.webp
-  primeros-escritos-tipografica.jpg
-  primeros-escritos-tipografica.webp
-  primeros-escritos.jpg
-  profetas-y-reyes-tipografica-oscura.jpg
-  profetas-y-reyes-tipografica-oscura.webp
-  profetas-y-reyes-tipografica.jpg
-  profetas-y-reyes-tipografica.webp
-  profetas-y-reyes.jpg
-  profetas-y-reyes.webp
-  prophets-and-kings-clasica.jpg
-  prophets-and-kings-clasica.webp
-  prophets-and-kings-tipografica-oscura.jpg
-  prophets-and-kings-tipografica-oscura.webp
-  prophets-and-kings-tipografica.jpg
-  prophets-and-kings-tipografica.webp
-  prophets-and-kings.jpg
-  prophets-and-kings.webp
-  reavivamientos-modernos-tipografica.jpg
-  reavivamientos-modernos-tipografica.webp
-  reavivamientos-modernos.jpg
-  reavivamientos-modernos.webp
-  recibireis-poder-tipografica.jpg
-  recibireis-poder-tipografica.webp
-  recibireis-poder.jpg
-  recibireis-poder.webp
-  reflejemos-a-jesus-tipografica.jpg
-  reflejemos-a-jesus-tipografica.webp
-  reflejemos-a-jesus.jpg
-  reflejemos-a-jesus.webp
-  review-and-herald.jpg
-  review-and-herald.webp
-  selected-messages-1-clasica.jpg
-  selected-messages-1-clasica.webp
-  selected-messages-1-tipografica-oscura.jpg
-  selected-messages-1-tipografica-oscura.webp
-  selected-messages-1-tipografica.jpg
-  selected-messages-1-tipografica.webp
-  selected-messages-1.jpg
-  selected-messages-1.webp
-  selected-messages-2-clasica.jpg
-  selected-messages-2-clasica.webp
-  selected-messages-2-tipografica-oscura.jpg
-  selected-messages-2-tipografica-oscura.webp
-  selected-messages-2-tipografica.jpg
-  selected-messages-2-tipografica.webp
-  selected-messages-2.jpg
-  selected-messages-2.webp
-  selected-messages-3-clasica.jpg
-  selected-messages-3-clasica.webp
-  selected-messages-3-tipografica-oscura.jpg
-  selected-messages-3-tipografica-oscura.webp
-  selected-messages-3-tipografica.jpg
-  selected-messages-3-tipografica.webp
-  selected-messages-3.jpg
-  selected-messages-3.webp
-  ser-semejante-a-jesus-tipografica-oscura.jpg
-  ser-semejante-a-jesus-tipografica-oscura.webp
-  ser-semejante-a-jesus-tipografica.jpg
-  ser-semejante-a-jesus-tipografica.webp
-  ser-semejante-a-jesus.jpg
-  ser-semejante-a-jesus.webp
-  sermones-escogidos-1-tipografica-oscura.jpg
-  sermones-escogidos-1-tipografica-oscura.webp
-  sermones-escogidos-1-tipografica.jpg
-  sermones-escogidos-1-tipografica.webp
-  sermones-escogidos-2-tipografica-oscura.jpg
-  sermones-escogidos-2-tipografica-oscura.webp
-  sermones-escogidos-2-tipografica.jpg
-  sermones-escogidos-2-tipografica.webp
-  sermones-escogidos.jpg
-  sermones-escogidos.webp
-  servicio-cristiano-tipografica-oscura.jpg
-  servicio-cristiano-tipografica-oscura.webp
-  servicio-cristiano-tipografica.jpg
-  servicio-cristiano-tipografica.webp
-  servicio-cristiano.jpg
-  servicio-cristiano.webp
-  sketches-from-the-life-of-paul-clasica.jpg
-  sketches-from-the-life-of-paul-clasica.webp
-  sketches-from-the-life-of-paul-tipografica-oscura.jpg
-  sketches-from-the-life-of-paul-tipografica-oscura.webp
-  sketches-from-the-life-of-paul-tipografica.jpg
-  sketches-from-the-life-of-paul-tipografica.webp
-  sketches-from-the-life-of-paul.jpg
-  sketches-from-the-life-of-paul.webp
-  spiritual-gifts-1-clasica.jpg
-  spiritual-gifts-1-clasica.webp
-  spiritual-gifts-1-tipografica-oscura.jpg
-  spiritual-gifts-1-tipografica-oscura.webp
-  spiritual-gifts-1-tipografica.jpg
-  spiritual-gifts-1-tipografica.webp
-  spiritual-gifts-1.jpg
-  spiritual-gifts-1.webp
-  spiritual-gifts-2-clasica.jpg
-  spiritual-gifts-2-clasica.webp
-  spiritual-gifts-2-tipografica-oscura.jpg
-  spiritual-gifts-2-tipografica-oscura.webp
-  spiritual-gifts-2-tipografica.jpg
-  spiritual-gifts-2-tipografica.webp
-  spiritual-gifts-2.jpg
-  spiritual-gifts-2.webp
-  spiritual-gifts-3-clasica.jpg
-  spiritual-gifts-3-clasica.webp
-  spiritual-gifts-3-tipografica-oscura.jpg
-  spiritual-gifts-3-tipografica-oscura.webp
-  spiritual-gifts-3-tipografica.jpg
-  spiritual-gifts-3-tipografica.webp
-  spiritual-gifts-3.jpg
-  spiritual-gifts-3.webp
-  steps-to-christ-clasica.jpg
-  steps-to-christ-clasica.webp
-  steps-to-christ-tipografica-oscura.jpg
-  steps-to-christ-tipografica-oscura.webp
-  steps-to-christ-tipografica.jpg
-  steps-to-christ-tipografica.webp
-  steps-to-christ.jpg
-  steps-to-christ.webp
-  supplement-to-the-christian-experience-clasica.jpg
-  supplement-to-the-christian-experience-clasica.webp
-  supplement-to-the-christian-experience-tipografica-oscura.jpg
-  supplement-to-the-christian-experience-tipografica-oscura.webp
-  supplement-to-the-christian-experience-tipografica.jpg
-  supplement-to-the-christian-experience-tipografica.webp
-  supplement-to-the-christian-experience.jpg
-  supplement-to-the-christian-experience.webp
-  tesoros-de-vida-el-conflicto-de-los-siglos.jpg
-  tesoros-de-vida-el-conflicto-de-los-siglos.webp
-  tesoros-de-vida-el-deseado-de-todas-las-gentes.jpg
-  tesoros-de-vida-el-deseado-de-todas-las-gentes.webp
-  tesoros-de-vida-hechos-de-los-apostoles.jpg
-  tesoros-de-vida-hechos-de-los-apostoles.webp
-  tesoros-de-vida-patriarcas-y-profetas.jpg
-  tesoros-de-vida-patriarcas-y-profetas.webp
-  tesoros-de-vida-profetas-y-reyes.jpg
-  tesoros-de-vida-profetas-y-reyes.webp
-  testimonies-for-the-church-1-clasica.jpg
-  testimonies-for-the-church-1-clasica.webp
-  testimonies-for-the-church-1-tipografica-oscura.jpg
-  testimonies-for-the-church-1-tipografica-oscura.webp
-  testimonies-for-the-church-1-tipografica.jpg
-  testimonies-for-the-church-1-tipografica.webp
-  testimonies-for-the-church-1.jpg
-  testimonies-for-the-church-1.webp
-  testimonios-conducta-sexual-adulterio-divorcio-tipografica-oscura.jpg
-  testimonios-conducta-sexual-adulterio-divorcio-tipografica-oscura.webp
-  testimonios-conducta-sexual-adulterio-divorcio-tipografica.jpg
-  testimonios-conducta-sexual-adulterio-divorcio-tipografica.webp
-  testimonios-conducta-sexual-adulterio-divorcio.jpg
-  testimonios-conducta-sexual-adulterio-divorcio.webp
-  testimonios-para-la-iglesia-tomo-1-tipografica-oscura.jpg
-  testimonios-para-la-iglesia-tomo-1-tipografica-oscura.webp
-  testimonios-para-la-iglesia-tomo-1-tipografica.jpg
-  testimonios-para-la-iglesia-tomo-1-tipografica.webp
-  testimonios-para-la-iglesia-tomo-2-tipografica-oscura.jpg
-  testimonios-para-la-iglesia-tomo-2-tipografica-oscura.webp
-  testimonios-para-la-iglesia-tomo-2-tipografica.jpg
-  testimonios-para-la-iglesia-tomo-2-tipografica.webp
-  testimonios-para-la-iglesia-tomo-3-tipografica-oscura.jpg
-  testimonios-para-la-iglesia-tomo-3-tipografica-oscura.webp
-  testimonios-para-la-iglesia-tomo-3-tipografica.jpg
-  testimonios-para-la-iglesia-tomo-3-tipografica.webp
-  testimonios-para-la-iglesia-tomo-4-tipografica-oscura.jpg
-  testimonios-para-la-iglesia-tomo-4-tipografica-oscura.webp
-  testimonios-para-la-iglesia-tomo-4-tipografica.jpg
-  testimonios-para-la-iglesia-tomo-4-tipografica.webp
-  testimonios-para-la-iglesia-tomo-5-tipografica-oscura.jpg
-  testimonios-para-la-iglesia-tomo-5-tipografica-oscura.webp
-  testimonios-para-la-iglesia-tomo-5-tipografica.jpg
-  testimonios-para-la-iglesia-tomo-5-tipografica.webp
-  testimonios-para-la-iglesia-tomo-6-tipografica-oscura.jpg
-  testimonios-para-la-iglesia-tomo-6-tipografica-oscura.webp
-  testimonios-para-la-iglesia-tomo-6-tipografica.jpg
-  testimonios-para-la-iglesia-tomo-6-tipografica.webp
-  testimonios-para-la-iglesia-tomo-7-tipografica-oscura.jpg
-  testimonios-para-la-iglesia-tomo-7-tipografica-oscura.webp
-  testimonios-para-la-iglesia-tomo-7-tipografica.jpg
-  testimonios-para-la-iglesia-tomo-7-tipografica.webp
-  testimonios-para-la-iglesia-tomo-8-tipografica-oscura.jpg
-  testimonios-para-la-iglesia-tomo-8-tipografica-oscura.webp
-  testimonios-para-la-iglesia-tomo-8-tipografica.jpg
-  testimonios-para-la-iglesia-tomo-8-tipografica.webp
-  testimonios-para-la-iglesia-tomo-9-tipografica-oscura.jpg
-  testimonios-para-la-iglesia-tomo-9-tipografica-oscura.webp
-  testimonios-para-la-iglesia-tomo-9-tipografica.jpg
-  testimonios-para-la-iglesia-tomo-9-tipografica.webp
-  testimonios-para-la-iglesia.jpg
-  testimonios-para-la-iglesia.webp
-  testimonios-para-los-ministros-tipografica-oscura.jpg
-  testimonios-para-los-ministros-tipografica-oscura.webp
-  testimonios-para-los-ministros-tipografica.jpg
-  testimonios-para-los-ministros-tipografica.webp
-  testimonios-para-los-ministros.jpg
-  testimonios-para-los-ministros.webp
-  testimonios-selectos-tomo-i-tipografica-oscura.jpg
-  testimonios-selectos-tomo-i-tipografica-oscura.webp
-  testimonios-selectos-tomo-i-tipografica.jpg
-  testimonios-selectos-tomo-i-tipografica.webp
-  testimonios-selectos-tomo-ii-tipografica-oscura.jpg
-  testimonios-selectos-tomo-ii-tipografica-oscura.webp
-  testimonios-selectos-tomo-ii-tipografica.jpg
-  testimonios-selectos-tomo-ii-tipografica.webp
-  testimonios-selectos-tomo-iii-tipografica-oscura.jpg
-  testimonios-selectos-tomo-iii-tipografica-oscura.webp
-  testimonios-selectos-tomo-iii-tipografica.jpg
-  testimonios-selectos-tomo-iii-tipografica.webp
-  testimonios-selectos-tomo-iv-tipografica-oscura.jpg
-  testimonios-selectos-tomo-iv-tipografica-oscura.webp
-  testimonios-selectos-tomo-iv-tipografica.jpg
-  testimonios-selectos-tomo-iv-tipografica.webp
-  testimonios-selectos-tomo-v-tipografica-oscura.jpg
-  testimonios-selectos-tomo-v-tipografica-oscura.webp
-  testimonios-selectos-tomo-v-tipografica.jpg
-  testimonios-selectos-tomo-v-tipografica.webp
-  testimonios-selectos.jpg
-  testimony-treasures-1-clasica.jpg
-  testimony-treasures-1-clasica.webp
-  testimony-treasures-1-tipografica-oscura.jpg
-  testimony-treasures-1-tipografica-oscura.webp
-  testimony-treasures-1-tipografica.jpg
-  testimony-treasures-1-tipografica.webp
-  testimony-treasures-1.jpg
-  testimony-treasures-1.webp
-  the-acts-of-the-apostles-clasica.jpg
-  the-acts-of-the-apostles-clasica.webp
-  the-acts-of-the-apostles-tipografica-oscura.jpg
-  the-acts-of-the-apostles-tipografica-oscura.webp
-  the-acts-of-the-apostles-tipografica.jpg
-  the-acts-of-the-apostles-tipografica.webp
-  the-acts-of-the-apostles.jpg
-  the-acts-of-the-apostles.webp
-  the-adventist-home-clasica.jpg
-  the-adventist-home-clasica.webp
-  the-adventist-home-tipografica-oscura.jpg
-  the-adventist-home-tipografica-oscura.webp
-  the-adventist-home-tipografica.jpg
-  the-adventist-home-tipografica.webp
-  the-adventist-home.jpg
-  the-adventist-home.webp
-  the-colporteur-evangelist-clasica.jpg
-  the-colporteur-evangelist-clasica.webp
-  the-colporteur-evangelist-tipografica-oscura.jpg
-  the-colporteur-evangelist-tipografica-oscura.webp
-  the-colporteur-evangelist-tipografica.jpg
-  the-colporteur-evangelist-tipografica.webp
-  the-colporteur-evangelist.jpg
-  the-colporteur-evangelist.webp
-  the-desire-of-ages-clasica.jpg
-  the-desire-of-ages-clasica.webp
-  the-desire-of-ages-tipografica-oscura.jpg
-  the-desire-of-ages-tipografica-oscura.webp
-  the-desire-of-ages-tipografica.jpg
-  the-desire-of-ages-tipografica.webp
-  the-desire-of-ages.jpg
-  the-desire-of-ages.webp
-  the-healthy-food-ministry-clasica.jpg
-  the-healthy-food-ministry-clasica.webp
-  the-healthy-food-ministry-tipografica-oscura.jpg
-  the-healthy-food-ministry-tipografica-oscura.webp
-  the-healthy-food-ministry-tipografica.jpg
-  the-healthy-food-ministry-tipografica.webp
-  the-healthy-food-ministry.jpg
-  the-healthy-food-ministry.webp
-  the-publishing-ministry-clasica.jpg
-  the-publishing-ministry-clasica.webp
-  the-publishing-ministry-tipografica-oscura.jpg
-  the-publishing-ministry-tipografica-oscura.webp
-  the-publishing-ministry-tipografica.jpg
-  the-publishing-ministry-tipografica.webp
-  the-publishing-ministry.jpg
-  the-publishing-ministry.webp
-  the-retirement-years-clasica.jpg
-  the-retirement-years-clasica.webp
-  the-retirement-years-tipografica-oscura.jpg
-  the-retirement-years-tipografica-oscura.webp
-  the-retirement-years-tipografica.jpg
-  the-retirement-years-tipografica.webp
-  the-retirement-years.jpg
-  the-retirement-years.webp
-  the-spirit-of-the-prophecy-clasica.jpg
-  the-spirit-of-the-prophecy-clasica.webp
-  the-spirit-of-the-prophecy-tipografica-oscura.jpg
-  the-spirit-of-the-prophecy-tipografica-oscura.webp
-  the-spirit-of-the-prophecy-tipografica.jpg
-  the-spirit-of-the-prophecy-tipografica.webp
-  the-spirit-of-the-prophecy.jpg
-  the-spirit-of-the-prophecy.webp
-  thoughts-from-the-mount-of-blessing-clasica.jpg
-  thoughts-from-the-mount-of-blessing-clasica.webp
-  thoughts-from-the-mount-of-blessing-tipografica-oscura.jpg
-  thoughts-from-the-mount-of-blessing-tipografica-oscura.webp
-  thoughts-from-the-mount-of-blessing-tipografica.jpg
-  thoughts-from-the-mount-of-blessing-tipografica.webp
-  thoughts-from-the-mount-of-blessing.jpg
-  thoughts-from-the-mount-of-blessing.webp
-  un-llamado-a-ser-diferente-tipografica-oscura.jpg
-  un-llamado-a-ser-diferente-tipografica-oscura.webp
-  un-llamado-a-ser-diferente-tipografica.jpg
-  un-llamado-a-ser-diferente-tipografica.webp
-  un-llamado-a-ser-diferente.jpg
-  un-llamado-a-ser-diferente.webp
-  un-soldado-sin-descanso.jpg
-  un-viaje-a-lo-sobrenatural.jpg
+  shipping-rates.js
+  shipping.js
 js/
   account.js
   admin-encargos.js
@@ -1269,6 +68,8 @@ js/
   recursos.js
   search.js
   seguimiento.js
+  shipping-rates.js
+  shipping.js
   shop.js
   soul-finder.js
   wishlist.js
@@ -1276,7 +77,6 @@ js/
 .gitignore
 404.html
 admin.html
-apple-touch-icon.png
 asistente.html
 blog.html
 carrito.html
@@ -1287,15 +87,10 @@ consejo.html
 cuenta.html
 devoluciones.html
 envios.html
-favicon-32.png
-favicon.ico
-favicon.svg
 firebase.json
 firestore.indexes.json
 firestore.rules
 glosario.html
-icon-192.png
-icon-512.png
 index.html
 nuestra-mision.html
 nuestro-compromiso.html
@@ -1314,26 +109,27 @@ quien-fue-elena-g-white.html
 quienes-somos.html
 README.md
 recursos.html
+repomix.config.json
 robots.txt
 seguimiento.html
 site.webmanifest
 sitemap.xml
-skills-lock.json
 storage.rules
 terminos.html
 trabaja-con-nosotros.html
 verificar-catalogo.js
-</directory_structure>
+````
 
-<files>
-This section contains the contents of the repository's files.
+# Files
 
-<file path="functions/.gitignore">
+## File: functions/.gitignore
+````
 node_modules/
 *.local
-</file>
+````
 
-<file path="js/admin-encargos.js">
+## File: js/admin-encargos.js
+````javascript
 // ==========================================================================
 // Encargos personalizados en el panel de administración (admin.html)
 // --------------------------------------------------------------------------
@@ -1480,9 +276,10 @@ node_modules/
     else observer.observe(dashboard, { attributes: true, attributeFilter: ['hidden'] });
   }
 })();
-</file>
+````
 
-<file path="js/admin-stats.js">
+## File: js/admin-stats.js
+````javascript
 // ==========================================================================
 // Panel de estadísticas (admin.html → pestaña "Estadísticas").
 //
@@ -1668,9 +465,10 @@ node_modules/
     }
   };
 })();
-</file>
+````
 
-<file path="js/consejo.js">
+## File: js/consejo.js
+````javascript
 // ==========================================================================
 // "Pide consejo a nuestro librero" — consejo.html
 // --------------------------------------------------------------------------
@@ -1757,9 +555,10 @@ node_modules/
     });
   });
 })();
-</file>
+````
 
-<file path="js/cookies.js">
+## File: js/cookies.js
+````javascript
 // ==========================================================================
 // Consentimiento de cookies — bloquea Google Tag Manager hasta que el
 // usuario acepte. Solo se cargan cookies de analítica si hay consentimiento
@@ -1834,9 +633,10 @@ node_modules/
     if (!document.getElementById('cookieBanner')) showBanner();
   };
 })();
-</file>
+````
 
-<file path="js/gift-options.js">
+## File: js/gift-options.js
+````javascript
 // ==========================================================================
 // "Regala con propósito" — extras de regalo y cuidado del libro
 // --------------------------------------------------------------------------
@@ -1951,9 +751,10 @@ window.giftSummary = function (regalo) {
     return e.texto ? e.label + ' («' + e.texto + '»)' : e.label;
   }).join(' · ');
 };
-</file>
+````
 
-<file path="js/personalizado.js">
+## File: js/personalizado.js
+````javascript
 // ==========================================================================
 // Pedidos personalizados (personalizado.html)
 // --------------------------------------------------------------------------
@@ -2356,9 +1157,10 @@ window.giftSummary = function (regalo) {
       });
   }
 })();
-</file>
+````
 
-<file path="js/search.js">
+## File: js/search.js
+````javascript
 // ==========================================================================
 // Buscador con autocompletado: se engancha a cualquier .search-form del
 // header (misma barra que ya existe) y muestra sugerencias en vivo desde
@@ -2475,9 +1277,10 @@ window.giftSummary = function (regalo) {
 
   forms.forEach(setupForm);
 })();
-</file>
+````
 
-<file path="js/soul-finder.js">
+## File: js/soul-finder.js
+````javascript
 // ==========================================================================
 // "¿Qué busca tu alma hoy?" — tarjetas de la home
 // --------------------------------------------------------------------------
@@ -2538,9 +1341,10 @@ window.giftSummary = function (regalo) {
     );
   }).join('');
 })();
-</file>
+````
 
-<file path="js/wishlist.js">
+## File: js/wishlist.js
+````javascript
 // ==========================================================================
 // Lista de deseos — guardada en Firestore (colección "deseos", 1 documento
 // por usuario). Requiere sesión iniciada: si el visitante no ha iniciado
@@ -2667,24 +1471,19 @@ window.Wishlist = (function () {
     refresh: refreshButtons
   };
 })();
-</file>
+````
 
-<file path="favicon.svg">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <circle cx="32" cy="32" r="32" fill="#20304f"/>
-  <text x="32" y="43" font-family="Georgia, 'Playfair Display', serif" font-size="34" font-weight="700" fill="#c9a15a" text-anchor="middle">L</text>
-</svg>
-</file>
-
-<file path="package.json">
+## File: package.json
+````json
 {
   "dependencies": {
     "firebase-functions": "^7.3.2"
   }
 }
-</file>
+````
 
-<file path="README.md">
+## File: README.md
+````markdown
 # Librería Fundamento — Home
 
 Página principal (Home) de la tienda de libros (Biblias, Elena G. White y literatura afín),
@@ -2764,9 +1563,34 @@ propaga a toda la página.
 Puntos de corte principales: `980px` (grids pasan a 2 columnas), `900px` (hero y footer pasan
 a una columna), `860px` (menú de categorías se convierte en desplegable móvil), `560px`
 (grids a 1 columna). Probado visualmente en móvil y escritorio.
-</file>
+````
 
-<file path="site.webmanifest">
+## File: repomix.config.json
+````json
+{
+  "output": {
+    "filePath": "repomix-output.md",
+    "style": "markdown"
+  },
+  "ignore": {
+    "customPatterns": [
+      "node_modules/**",
+      ".git/**",
+      ".firebase/**",
+      "img/**",
+      "*.png",
+      "*.ico",
+      "*.svg",
+      "*.webp",
+      "package-lock.json",
+      "skills-lock.json"
+    ]
+  }
+}
+````
+
+## File: site.webmanifest
+````
 {
   "name": "Librería tu mayor tesoro",
   "short_name": "Tu mayor tesoro",
@@ -2792,89 +1616,10 @@ a una columna), `860px` (menú de categorías se convierte en desplegable móvil
     }
   ]
 }
-</file>
+````
 
-<file path="skills-lock.json">
-{
-  "version": 1,
-  "skills": {
-    "extension-to-functions-codebase": {
-      "source": "firebase/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/extension-to-functions-codebase/SKILL.md",
-      "computedHash": "1b0b4150895374330ff51a6f0d99663eda4d266730802eec85882443aeca9539"
-    },
-    "firebase-ai-logic-basics": {
-      "source": "firebase/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/firebase-ai-logic-basics/SKILL.md",
-      "computedHash": "bab9220a5f6c214310adb2aa8ed267463719574209d9e0429426d168d43f27a5"
-    },
-    "firebase-app-hosting-basics": {
-      "source": "firebase/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/firebase-app-hosting-basics/SKILL.md",
-      "computedHash": "052ef64fe35efdf02b7e0dc121abc09b1514e8b228454ab2002af31448c0a212"
-    },
-    "firebase-auth-basics": {
-      "source": "firebase/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/firebase-auth-basics/SKILL.md",
-      "computedHash": "c2eead02bc534bd12d7d3bc8f7d99e10dc44ab13f416d1c5293df38ecc2f6848"
-    },
-    "firebase-basics": {
-      "source": "firebase/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/firebase-basics/SKILL.md",
-      "computedHash": "c0e06c4f5be407fcf74c9b76c91a4f87cac653a07c639904f82424fc4dbbe864"
-    },
-    "firebase-crashlytics": {
-      "source": "firebase/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/firebase-crashlytics/SKILL.md",
-      "computedHash": "15c3cca501773a8e29ea852b6d3a2e5dcc9d43d1e69a0d85a6b0eae82c6ac2cc"
-    },
-    "firebase-data-connect": {
-      "source": "firebase/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/firebase-data-connect-basics/SKILL.md",
-      "computedHash": "72a5f0c53909db6a7bd9237e74eccfff0d469bbe6df5126e25f019627fa0583c"
-    },
-    "firebase-firestore": {
-      "source": "firebase/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/firebase-firestore/SKILL.md",
-      "computedHash": "090565389f17369f9c97cbe8d76c4ac7f0b93254c52fbc2f1d10f8234ad63500"
-    },
-    "firebase-hosting-basics": {
-      "source": "firebase/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/firebase-hosting-basics/SKILL.md",
-      "computedHash": "3df1714a23bde9fbce5c0e6fb7ce4502a0a88e5fbcf2e1ad341deb1b9e648e67"
-    },
-    "firebase-remote-config-basics": {
-      "source": "firebase/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/firebase-remote-config-basics/SKILL.md",
-      "computedHash": "4a6e2f5ce701c81ac75c138f2fbae0f9ec9159b5c67c825ee173dfe6147da9ee"
-    },
-    "firebase-security-rules-auditor": {
-      "source": "firebase/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/firebase-security-rules-auditor/SKILL.md",
-      "computedHash": "be877f6c7aaf460791dd6103a08906734036c26bd7c686cfdb8b60e4b2f65742"
-    },
-    "xcode-project-setup": {
-      "source": "firebase/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/xcode-project-setup/SKILL.md",
-      "computedHash": "673e1c3a078c3a77c4ae706ddc731c9efc5d151b82097ef52f10c575e4cdc1c1"
-    }
-  }
-}
-</file>
-
-<file path="functions/package.json">
+## File: functions/package.json
+````json
 {
   "name": "functions",
   "description": "Cloud Functions de Librería tu mayor tesoro",
@@ -2890,9 +1635,278 @@ a una columna), `860px` (menú de categorías se convierte en desplegable móvil
     "stripe": "^17.4.0"
   }
 }
-</file>
+````
 
-<file path="js/cover-carousel.js">
+## File: functions/shipping-rates.js
+````javascript
+// ==========================================================================
+// Tarifas de envío por país y nº de ejemplares — Librería tu mayor tesoro
+//
+// 👉 ESTE ARCHIVO ES IDÉNTICO EN DOS SITIOS (js/shipping-rates.js para la web
+//    y functions/shipping-rates.js para el servidor). Si cambias algo, cámbialo
+//    en los dos (copia y pega el archivo entero). «node verificar-catalogo.js»
+//    —que se ejecuta solo antes de cada «firebase deploy»— PARA el despliegue
+//    si no son idénticos.
+//
+// Cómo se calcula lo que paga el cliente:
+//    precio al cliente = lo que te cuesta a ti (tabla COSTES) + RECARGO (1,10 €)
+//    Sin redondeos a números "bonitos": justo tu coste + 1,10 €.
+//
+// Los costes son los de tu tabla del transportista, por tramo de ejemplares
+// (cada colección cuenta como los libros que lleva; los extras de regalo no).
+// El Reino Unido te lo cobran en LIBRAS: se pasa a euros con TASA_GBP_EUR
+// (mira «TASA_GBP_EUR» abajo) y luego se suma el recargo en euros.
+// ==========================================================================
+(function (root) {
+  'use strict';
+
+  var RECARGO = 1.10;       // € que se suman a tu coste (exactos)
+  var TASA_GBP_EUR = 1.20;  // 1 £ = 1,20 € → revísala de vez en cuando (solo afecta al Reino Unido)
+
+  // Tramos de ejemplares: "hasta" es el máximo de cada tramo.
+  var TRAMOS = [
+    { hasta: 2,        etiqueta: '1 – 2' },
+    { hasta: 9,        etiqueta: '3 – 9' },
+    { hasta: 49,       etiqueta: '10 – 49' },
+    { hasta: 99,       etiqueta: '50 – 99' },
+    { hasta: 249,      etiqueta: '100 – 249' },
+    { hasta: 499,      etiqueta: '250 – 499' },
+    { hasta: Infinity, etiqueta: '500 +' }
+  ];
+
+  // Lo que te cuesta a ti, por país y tramo (mismo orden que TRAMOS).
+  var PAISES = {
+    ES: { nombre: 'España',       moneda: 'EUR', costes: [5.91, 5.59, 5.01, 4.48, 4.08, 3.73, 3.73] },
+    PT: { nombre: 'Portugal',     moneda: 'EUR', costes: [5.91, 5.59, 5.01, 4.48, 4.08, 3.73, 3.73] },
+    FR: { nombre: 'Francia',      moneda: 'EUR', costes: [7.72, 7.12, 6.78, 6.51, 6.25, 6.00, 5.50] },
+    DE: { nombre: 'Alemania',     moneda: 'EUR', costes: [7.42, 6.43, 5.99, 5.82, 5.72, 5.71, 5.71] },
+    NL: { nombre: 'Países Bajos', moneda: 'EUR', costes: [8.89, 8.52, 8.21, 7.30, 6.18, 5.07, 4.33] },
+    GB: { nombre: 'Reino Unido',  moneda: 'GBP', costes: [7.50, 6.85, 6.32, 6.04, 5.79, 5.55, 5.55] }
+  };
+  var ORDEN = ['ES', 'PT', 'FR', 'DE', 'NL', 'GB'];
+
+  function indiceTramo(numLibros) {
+    var n = Math.max(1, Math.floor(Number(numLibros) || 1));
+    for (var i = 0; i < TRAMOS.length; i++) if (n <= TRAMOS[i].hasta) return i;
+    return TRAMOS.length - 1;
+  }
+
+  // Céntimos que paga el cliente (número entero → sin errores de decimales).
+  function centimosTramo(pais, i) {
+    var p = PAISES[pais];
+    if (!p) return null;
+    var coste = p.costes[i];
+    var centimosCoste = p.moneda === 'GBP' ? Math.round(coste * 100 * TASA_GBP_EUR) : Math.round(coste * 100);
+    return centimosCoste + Math.round(RECARGO * 100);
+  }
+
+  // Euros de envío para un país y un nº de ejemplares.
+  function costeEnvio(pais, numLibros) {
+    var c = centimosTramo(pais, indiceTramo(numLibros));
+    return c === null ? null : c / 100;
+  }
+
+  function paisValido(pais) { return Object.prototype.hasOwnProperty.call(PAISES, pais); }
+
+  // Valida y normaliza el código postal de cada país.
+  // Devuelve { ok: true, cp: '...' } o { ok: false, mensaje: '...' }.
+  function validarCP(pais, cpBruto) {
+    var cp = String(cpBruto == null ? '' : cpBruto).trim();
+    var m;
+    switch (pais) {
+      case 'ES':
+        cp = cp.replace(/\s+/g, '');
+        if (!/^\d{5}$/.test(cp) || Number(cp.slice(0, 2)) < 1 || Number(cp.slice(0, 2)) > 52) {
+          return { ok: false, mensaje: 'El código postal no es válido (5 cifras).' };
+        }
+        if (['35', '38', '51', '52'].indexOf(cp.slice(0, 2)) !== -1) {
+          return { ok: false, mensaje: 'Ahora mismo solo enviamos a la península y Baleares. Escríbenos a libreriamayortesoro@gmail.com y lo miramos.' };
+        }
+        return { ok: true, cp: cp };
+      case 'PT':
+        m = cp.replace(/\s+/g, '').match(/^(\d{4})-?(\d{3})$/);
+        if (!m) return { ok: false, mensaje: 'El código postal de Portugal no es válido (formato 1234-567).' };
+        if (m[1].charAt(0) === '9') {
+          return { ok: false, mensaje: 'Ahora mismo solo enviamos a Portugal continental (no a Azores ni Madeira). Escríbenos a libreriamayortesoro@gmail.com y lo miramos.' };
+        }
+        return { ok: true, cp: m[1] + '-' + m[2] };
+      case 'FR':
+        cp = cp.replace(/\s+/g, '');
+        if (!/^\d{5}$/.test(cp) || Number(cp.slice(0, 2)) < 1 || Number(cp.slice(0, 2)) > 98) {
+          return { ok: false, mensaje: 'El código postal de Francia no es válido (5 cifras).' };
+        }
+        if (Number(cp.slice(0, 2)) > 95) {
+          return { ok: false, mensaje: 'Ahora mismo solo enviamos a Francia metropolitana. Escríbenos a libreriamayortesoro@gmail.com y lo miramos.' };
+        }
+        return { ok: true, cp: cp };
+      case 'DE':
+        cp = cp.replace(/\s+/g, '');
+        if (!/^\d{5}$/.test(cp)) return { ok: false, mensaje: 'El código postal de Alemania no es válido (5 cifras).' };
+        return { ok: true, cp: cp };
+      case 'NL':
+        m = cp.replace(/\s+/g, '').match(/^(\d{4})([A-Za-z]{2})$/);
+        if (!m) return { ok: false, mensaje: 'El código postal de Países Bajos no es válido (formato 1234 AB).' };
+        return { ok: true, cp: m[1] + ' ' + m[2].toUpperCase() };
+      case 'GB':
+        m = cp.replace(/\s+/g, '').toUpperCase().match(/^([A-Z]{1,2}\d[A-Z\d]?)(\d[A-Z]{2})$/);
+        if (!m) return { ok: false, mensaje: 'El código postal del Reino Unido no es válido (por ejemplo SW1A 1AA).' };
+        if (/^(GY|JE|IM)/.test(m[1])) {
+          return { ok: false, mensaje: 'Ahora mismo no enviamos a las Islas del Canal ni a la Isla de Man. Escríbenos a libreriamayortesoro@gmail.com y lo miramos.' };
+        }
+        return { ok: true, cp: m[1] + ' ' + m[2] };
+      default:
+        return { ok: false, mensaje: 'País de envío no válido.' };
+    }
+  }
+
+  var API = {
+    RECARGO: RECARGO,
+    TASA_GBP_EUR: TASA_GBP_EUR,
+    TRAMOS: TRAMOS,
+    PAISES: PAISES,
+    ORDEN: ORDEN,
+    indiceTramo: indiceTramo,
+    centimosTramo: centimosTramo,
+    costeEnvio: costeEnvio,
+    paisValido: paisValido,
+    validarCP: validarCP
+  };
+
+  if (typeof module !== 'undefined' && module.exports) module.exports = API;
+  else root.ShippingRates = API;
+})(typeof window !== 'undefined' ? window : this);
+````
+
+## File: functions/shipping.js
+````javascript
+// ==========================================================================
+// Envíos por país y nº de libros — SERVIDOR
+// COPIA de js/shipping.js (MISMOS NÚMEROS). Esta es la que de verdad decide
+// cuánto se cobra en "crearPedido": nunca nos fiamos del precio del navegador.
+//
+// Precio al cliente = coste del proveedor + 2 € de margen, redondeado hacia
+// arriba al euro entero (España 1-2 libros: 5,91 + 2 = 7,91 → 8 €). Reino
+// Unido: el proveedor cobra en libras y se pasa a euros con TASA_GBP_EUR.
+// Si cambian las tarifas, actualiza ESTE archivo Y js/shipping.js a la vez.
+// ==========================================================================
+'use strict';
+var MARGEN_EUR = 2;
+  var TASA_GBP_EUR = 1.17;
+
+  // Tramos de ejemplares (el último no tiene tope).
+  var TRAMOS = [
+    { min: 1,   max: 2,        etiqueta: '1 - 2' },
+    { min: 3,   max: 9,        etiqueta: '3 - 9' },
+    { min: 10,  max: 49,       etiqueta: '10 - 49' },
+    { min: 50,  max: 99,       etiqueta: '50 - 99' },
+    { min: 100, max: 249,      etiqueta: '100 - 249' },
+    { min: 250, max: 499,      etiqueta: '250 - 499' },
+    { min: 500, max: Infinity, etiqueta: '500 +' }
+  ];
+
+  // coste = lo que te cobra el proveedor por tramo (en la moneda indicada).
+  var PAISES = {
+    ES: { nombre: 'España',       moneda: 'EUR', coste: [5.91, 5.59, 5.01, 4.48, 4.08, 3.73, 3.73], cp: 'ES' },
+    PT: { nombre: 'Portugal',     moneda: 'EUR', coste: [5.91, 5.59, 5.01, 4.48, 4.08, 3.73, 3.73], cp: 'PT' },
+    FR: { nombre: 'Francia',      moneda: 'EUR', coste: [7.72, 7.12, 6.78, 6.51, 6.25, 6.00, 5.50], cp: 'FR' },
+    DE: { nombre: 'Alemania',     moneda: 'EUR', coste: [7.42, 6.43, 5.99, 5.82, 5.72, 5.71, 5.71], cp: 'DE' },
+    NL: { nombre: 'Países Bajos', moneda: 'EUR', coste: [8.89, 8.52, 8.21, 7.30, 6.18, 5.07, 4.33], cp: 'NL' },
+    GB: { nombre: 'Reino Unido',  moneda: 'GBP', coste: [7.50, 6.85, 6.32, 6.04, 5.79, 5.55, 5.55], cp: 'GB' }
+  };
+  var ORDEN = ['ES', 'PT', 'FR', 'DE', 'NL', 'GB'];
+  var PAIS_POR_DEFECTO = 'ES';
+
+  function redondea2(n) { return Math.round(n * 100) / 100; }
+
+  function precioTramo(pais, i) {
+    var p = PAISES[pais];
+    if (!p) return null;
+    var coste = p.coste[i] * (p.moneda === 'GBP' ? TASA_GBP_EUR : 1);
+    return Math.ceil(redondea2(coste + MARGEN_EUR) - 1e-9);
+  }
+
+  function indiceTramo(numLibros) {
+    var n = Math.max(1, Math.floor(Number(numLibros) || 1));
+    for (var i = 0; i < TRAMOS.length; i++) {
+      if (n >= TRAMOS[i].min && n <= TRAMOS[i].max) return i;
+    }
+    return TRAMOS.length - 1;
+  }
+
+  // Gastos de envío (€) de un pedido con "numLibros" libros enviado a "pais".
+  function costeEnvio(pais, numLibros) {
+    if (!PAISES[pais]) pais = PAIS_POR_DEFECTO;
+    return precioTramo(pais, indiceTramo(numLibros));
+  }
+
+  // ---- Códigos postales ---------------------------------------------------
+  // Devuelve el código postal normalizado, o null si no es válido.
+  function normalizarCP(pais, cp) {
+    var s = String(cp == null ? '' : cp).trim().toUpperCase();
+    var m;
+    switch (pais) {
+      case 'ES':
+      case 'FR':
+      case 'DE':
+        s = s.replace(/\s+/g, '');
+        return /^\d{5}$/.test(s) ? s : null;
+      case 'PT':
+        s = s.replace(/\s+/g, '');
+        m = /^(\d{4})-?(\d{3})$/.exec(s);
+        return m ? m[1] + '-' + m[2] : null;
+      case 'NL':
+        m = /^(\d{4})\s?([A-Z]{2})$/.exec(s);
+        return m ? m[1] + ' ' + m[2] : null;
+      case 'GB':
+        s = s.replace(/\s+/g, '');
+        m = /^([A-Z]{1,2}\d[A-Z\d]?)(\d[A-Z]{2})$/.exec(s);
+        return m ? m[1] + ' ' + m[2] : null;
+      default:
+        return null;
+    }
+  }
+
+  var AYUDA_CP = {
+    ES: { placeholder: '03001', mensaje: 'El código postal no es válido (5 cifras).' },
+    PT: { placeholder: '1000-001', mensaje: 'El código postal no es válido (formato 0000-000).' },
+    FR: { placeholder: '75001', mensaje: 'El código postal no es válido (5 cifras).' },
+    DE: { placeholder: '10115', mensaje: 'El código postal no es válido (5 cifras).' },
+    NL: { placeholder: '1012 AB', mensaje: 'El código postal no es válido (formato 1234 AB).' },
+    GB: { placeholder: 'SW1A 1AA', mensaje: 'El código postal no es válido (por ejemplo SW1A 1AA).' }
+  };
+
+  // Mensaje de error si el CP no sirve para ese país (o "" si está bien).
+  function errorCP(pais, cp) {
+    var norm = normalizarCP(pais, cp);
+    if (!norm) return (AYUDA_CP[pais] || AYUDA_CP.ES).mensaje;
+    if (pais === 'ES') {
+      var prov = Number(norm.slice(0, 2));
+      if (prov < 1 || prov > 52) return AYUDA_CP.ES.mensaje;
+      if (['35', '38', '51', '52'].indexOf(norm.slice(0, 2)) !== -1) {
+        return 'Para España solo enviamos a la península y Baleares. Escríbenos a libreriamayortesoro@gmail.com y lo miramos.';
+      }
+    }
+    return '';
+  }
+
+  module.exports = {
+    MARGEN_EUR: MARGEN_EUR,
+    TASA_GBP_EUR: TASA_GBP_EUR,
+    TRAMOS: TRAMOS,
+    PAISES: PAISES,
+    ORDEN: ORDEN,
+    PAIS_POR_DEFECTO: PAIS_POR_DEFECTO,
+    AYUDA_CP: AYUDA_CP,
+    precioTramo: precioTramo,
+    indiceTramo: indiceTramo,
+    costeEnvio: costeEnvio,
+    normalizarCP: normalizarCP,
+    errorCP: errorCP
+  };
+````
+
+## File: js/cover-carousel.js
+````javascript
 // ==========================================================================
 // Carrusel automático de portadas en las tarjetas de libro
 // --------------------------------------------------------------------------
@@ -3339,9 +2353,10 @@ window.CoverCarousel = (function () {
 
   return { init: init };
 })();
-</file>
+````
 
-<file path="js/gift-product.js">
+## File: js/gift-product.js
+````javascript
 // ==========================================================================
 // "Regala con propósito" — bloque de la ficha de producto
 // --------------------------------------------------------------------------
@@ -3389,130 +2404,316 @@ window.CoverCarousel = (function () {
   // A propósito, sin listener de click ni panel: el botón se ve exactamente
   // igual (con su flecha), pero no abre nada.
 })();
-</file>
+````
 
-<file path="js/seguimiento.js">
+## File: js/shipping-rates.js
+````javascript
 // ==========================================================================
-// Seguimiento de pedido (seguimiento.html)
-// --------------------------------------------------------------------------
-// No requiere sesión iniciada: el número de pedido + el email de compra
-// hacen de "contraseña" del pedido. Todo el trabajo de comprobar que
-// coinciden lo hace la Cloud Function "buscarPedidoPublico" (con el SDK de
-// administrador, así que ve el pedido aunque el que pregunta no haya
-// iniciado sesión) — aquí solo se pinta el resultado.
+// Tarifas de envío por país y nº de ejemplares — Librería tu mayor tesoro
+//
+// 👉 ESTE ARCHIVO ES IDÉNTICO EN DOS SITIOS (js/shipping-rates.js para la web
+//    y functions/shipping-rates.js para el servidor). Si cambias algo, cámbialo
+//    en los dos (copia y pega el archivo entero). «node verificar-catalogo.js»
+//    —que se ejecuta solo antes de cada «firebase deploy»— PARA el despliegue
+//    si no son idénticos.
+//
+// Cómo se calcula lo que paga el cliente:
+//    precio al cliente = lo que te cuesta a ti (tabla COSTES) + RECARGO (1,10 €)
+//    Sin redondeos a números "bonitos": justo tu coste + 1,10 €.
+//
+// Los costes son los de tu tabla del transportista, por tramo de ejemplares
+// (cada colección cuenta como los libros que lleva; los extras de regalo no).
+// El Reino Unido te lo cobran en LIBRAS: se pasa a euros con TASA_GBP_EUR
+// (mira «TASA_GBP_EUR» abajo) y luego se suma el recargo en euros.
 // ==========================================================================
-(function () {
-  var form = document.getElementById('trackingForm');
-  if (!form) return;
+(function (root) {
+  'use strict';
 
-  var errorBox = document.getElementById('trackingError');
-  var submitBtn = document.getElementById('trackingSubmit');
-  var resultBox = document.getElementById('trackingResult');
-  var anotherBtn = document.getElementById('trackingAnotherBtn');
+  var RECARGO = 1.10;       // € que se suman a tu coste (exactos)
+  var TASA_GBP_EUR = 1.20;  // 1 £ = 1,20 € → revísala de vez en cuando (solo afecta al Reino Unido)
 
-  var ESTADOS = {
-    pendiente: 'Pedido recibido',
-    enviado: 'Enviado',
-    entregado: 'Entregado'
+  // Tramos de ejemplares: "hasta" es el máximo de cada tramo.
+  var TRAMOS = [
+    { hasta: 2,        etiqueta: '1 – 2' },
+    { hasta: 9,        etiqueta: '3 – 9' },
+    { hasta: 49,       etiqueta: '10 – 49' },
+    { hasta: 99,       etiqueta: '50 – 99' },
+    { hasta: 249,      etiqueta: '100 – 249' },
+    { hasta: 499,      etiqueta: '250 – 499' },
+    { hasta: Infinity, etiqueta: '500 +' }
+  ];
+
+  // Lo que te cuesta a ti, por país y tramo (mismo orden que TRAMOS).
+  var PAISES = {
+    ES: { nombre: 'España',       moneda: 'EUR', costes: [5.91, 5.59, 5.01, 4.48, 4.08, 3.73, 3.73] },
+    PT: { nombre: 'Portugal',     moneda: 'EUR', costes: [5.91, 5.59, 5.01, 4.48, 4.08, 3.73, 3.73] },
+    FR: { nombre: 'Francia',      moneda: 'EUR', costes: [7.72, 7.12, 6.78, 6.51, 6.25, 6.00, 5.50] },
+    DE: { nombre: 'Alemania',     moneda: 'EUR', costes: [7.42, 6.43, 5.99, 5.82, 5.72, 5.71, 5.71] },
+    NL: { nombre: 'Países Bajos', moneda: 'EUR', costes: [8.89, 8.52, 8.21, 7.30, 6.18, 5.07, 4.33] },
+    GB: { nombre: 'Reino Unido',  moneda: 'GBP', costes: [7.50, 6.85, 6.32, 6.04, 5.79, 5.55, 5.55] }
+  };
+  var ORDEN = ['ES', 'PT', 'FR', 'DE', 'NL', 'GB'];
+
+  function indiceTramo(numLibros) {
+    var n = Math.max(1, Math.floor(Number(numLibros) || 1));
+    for (var i = 0; i < TRAMOS.length; i++) if (n <= TRAMOS[i].hasta) return i;
+    return TRAMOS.length - 1;
+  }
+
+  // Céntimos que paga el cliente (número entero → sin errores de decimales).
+  function centimosTramo(pais, i) {
+    var p = PAISES[pais];
+    if (!p) return null;
+    var coste = p.costes[i];
+    var centimosCoste = p.moneda === 'GBP' ? Math.round(coste * 100 * TASA_GBP_EUR) : Math.round(coste * 100);
+    return centimosCoste + Math.round(RECARGO * 100);
+  }
+
+  // Euros de envío para un país y un nº de ejemplares.
+  function costeEnvio(pais, numLibros) {
+    var c = centimosTramo(pais, indiceTramo(numLibros));
+    return c === null ? null : c / 100;
+  }
+
+  function paisValido(pais) { return Object.prototype.hasOwnProperty.call(PAISES, pais); }
+
+  // Valida y normaliza el código postal de cada país.
+  // Devuelve { ok: true, cp: '...' } o { ok: false, mensaje: '...' }.
+  function validarCP(pais, cpBruto) {
+    var cp = String(cpBruto == null ? '' : cpBruto).trim();
+    var m;
+    switch (pais) {
+      case 'ES':
+        cp = cp.replace(/\s+/g, '');
+        if (!/^\d{5}$/.test(cp) || Number(cp.slice(0, 2)) < 1 || Number(cp.slice(0, 2)) > 52) {
+          return { ok: false, mensaje: 'El código postal no es válido (5 cifras).' };
+        }
+        if (['35', '38', '51', '52'].indexOf(cp.slice(0, 2)) !== -1) {
+          return { ok: false, mensaje: 'Ahora mismo solo enviamos a la península y Baleares. Escríbenos a libreriamayortesoro@gmail.com y lo miramos.' };
+        }
+        return { ok: true, cp: cp };
+      case 'PT':
+        m = cp.replace(/\s+/g, '').match(/^(\d{4})-?(\d{3})$/);
+        if (!m) return { ok: false, mensaje: 'El código postal de Portugal no es válido (formato 1234-567).' };
+        if (m[1].charAt(0) === '9') {
+          return { ok: false, mensaje: 'Ahora mismo solo enviamos a Portugal continental (no a Azores ni Madeira). Escríbenos a libreriamayortesoro@gmail.com y lo miramos.' };
+        }
+        return { ok: true, cp: m[1] + '-' + m[2] };
+      case 'FR':
+        cp = cp.replace(/\s+/g, '');
+        if (!/^\d{5}$/.test(cp) || Number(cp.slice(0, 2)) < 1 || Number(cp.slice(0, 2)) > 98) {
+          return { ok: false, mensaje: 'El código postal de Francia no es válido (5 cifras).' };
+        }
+        if (Number(cp.slice(0, 2)) > 95) {
+          return { ok: false, mensaje: 'Ahora mismo solo enviamos a Francia metropolitana. Escríbenos a libreriamayortesoro@gmail.com y lo miramos.' };
+        }
+        return { ok: true, cp: cp };
+      case 'DE':
+        cp = cp.replace(/\s+/g, '');
+        if (!/^\d{5}$/.test(cp)) return { ok: false, mensaje: 'El código postal de Alemania no es válido (5 cifras).' };
+        return { ok: true, cp: cp };
+      case 'NL':
+        m = cp.replace(/\s+/g, '').match(/^(\d{4})([A-Za-z]{2})$/);
+        if (!m) return { ok: false, mensaje: 'El código postal de Países Bajos no es válido (formato 1234 AB).' };
+        return { ok: true, cp: m[1] + ' ' + m[2].toUpperCase() };
+      case 'GB':
+        m = cp.replace(/\s+/g, '').toUpperCase().match(/^([A-Z]{1,2}\d[A-Z\d]?)(\d[A-Z]{2})$/);
+        if (!m) return { ok: false, mensaje: 'El código postal del Reino Unido no es válido (por ejemplo SW1A 1AA).' };
+        if (/^(GY|JE|IM)/.test(m[1])) {
+          return { ok: false, mensaje: 'Ahora mismo no enviamos a las Islas del Canal ni a la Isla de Man. Escríbenos a libreriamayortesoro@gmail.com y lo miramos.' };
+        }
+        return { ok: true, cp: m[1] + ' ' + m[2] };
+      default:
+        return { ok: false, mensaje: 'País de envío no válido.' };
+    }
+  }
+
+  var API = {
+    RECARGO: RECARGO,
+    TASA_GBP_EUR: TASA_GBP_EUR,
+    TRAMOS: TRAMOS,
+    PAISES: PAISES,
+    ORDEN: ORDEN,
+    indiceTramo: indiceTramo,
+    centimosTramo: centimosTramo,
+    costeEnvio: costeEnvio,
+    paisValido: paisValido,
+    validarCP: validarCP
   };
 
-  function esc(s) {
-    return String(s == null ? '' : s)
-      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  if (typeof module !== 'undefined' && module.exports) module.exports = API;
+  else root.ShippingRates = API;
+})(typeof window !== 'undefined' ? window : this);
+````
+
+## File: js/shipping.js
+````javascript
+// ==========================================================================
+// Envíos por país y nº de libros — CLIENTE
+// COPIA de functions/shipping.js (la del servidor es la que de verdad decide
+// cuánto se cobra en "crearPedido"). Si cambias algo aquí, cámbialo también
+// allí, con los mismos números.
+//
+// CÓMO SE CALCULA EL PRECIO QUE VE EL CLIENTE
+//   precio = coste del proveedor + 2 € de margen, redondeado hacia arriba al
+//   euro entero (el "pico" se ajusta para que quede un número redondo).
+//   Ej.: España 1-2 libros: 5,91 + 2 = 7,91 → 8 €.
+//   Reino Unido: el proveedor cobra en libras, se pasa a euros con TASA_GBP.
+//
+// PARA ACTUALIZAR TARIFAS: cambia los números de "coste" (lo que te cuesta a
+// ti) y deja que el precio final se recalcule solo; o toca MARGEN_EUR /
+// TASA_GBP_EUR. Cada tramo es el nº TOTAL de libros del pedido (cada colección
+// cuenta como los libros que lleva).
+// ==========================================================================
+(function (global) {
+  var MARGEN_EUR = 2;
+  var TASA_GBP_EUR = 1.17;
+
+  // Tramos de ejemplares (el último no tiene tope).
+  var TRAMOS = [
+    { min: 1,   max: 2,        etiqueta: '1 - 2' },
+    { min: 3,   max: 9,        etiqueta: '3 - 9' },
+    { min: 10,  max: 49,       etiqueta: '10 - 49' },
+    { min: 50,  max: 99,       etiqueta: '50 - 99' },
+    { min: 100, max: 249,      etiqueta: '100 - 249' },
+    { min: 250, max: 499,      etiqueta: '250 - 499' },
+    { min: 500, max: Infinity, etiqueta: '500 +' }
+  ];
+
+  // coste = lo que te cobra el proveedor por tramo (en la moneda indicada).
+  var PAISES = {
+    ES: { nombre: 'España',       moneda: 'EUR', coste: [5.91, 5.59, 5.01, 4.48, 4.08, 3.73, 3.73], cp: 'ES' },
+    PT: { nombre: 'Portugal',     moneda: 'EUR', coste: [5.91, 5.59, 5.01, 4.48, 4.08, 3.73, 3.73], cp: 'PT' },
+    FR: { nombre: 'Francia',      moneda: 'EUR', coste: [7.72, 7.12, 6.78, 6.51, 6.25, 6.00, 5.50], cp: 'FR' },
+    DE: { nombre: 'Alemania',     moneda: 'EUR', coste: [7.42, 6.43, 5.99, 5.82, 5.72, 5.71, 5.71], cp: 'DE' },
+    NL: { nombre: 'Países Bajos', moneda: 'EUR', coste: [8.89, 8.52, 8.21, 7.30, 6.18, 5.07, 4.33], cp: 'NL' },
+    GB: { nombre: 'Reino Unido',  moneda: 'GBP', coste: [7.50, 6.85, 6.32, 6.04, 5.79, 5.55, 5.55], cp: 'GB' }
+  };
+  var ORDEN = ['ES', 'PT', 'FR', 'DE', 'NL', 'GB'];
+  var PAIS_POR_DEFECTO = 'ES';
+
+  function redondea2(n) { return Math.round(n * 100) / 100; }
+
+  function precioTramo(pais, i) {
+    var p = PAISES[pais];
+    if (!p) return null;
+    var coste = p.coste[i] * (p.moneda === 'GBP' ? TASA_GBP_EUR : 1);
+    return Math.ceil(redondea2(coste + MARGEN_EUR) - 1e-9);
   }
-  function fmtEUR(n) { return (n || 0).toFixed(2).replace('.', ',') + '\u00A0€'; }
 
-  function mostrarError(msg) {
-    errorBox.textContent = msg;
-    errorBox.hidden = false;
+  function indiceTramo(numLibros) {
+    var n = Math.max(1, Math.floor(Number(numLibros) || 1));
+    for (var i = 0; i < TRAMOS.length; i++) {
+      if (n >= TRAMOS[i].min && n <= TRAMOS[i].max) return i;
+    }
+    return TRAMOS.length - 1;
   }
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    errorBox.hidden = true;
+  // Gastos de envío (€) de un pedido con "numLibros" libros enviado a "pais".
+  function costeEnvio(pais, numLibros) {
+    if (!PAISES[pais]) pais = PAIS_POR_DEFECTO;
+    return precioTramo(pais, indiceTramo(numLibros));
+  }
 
-    if (typeof firebase === 'undefined' || !firebase.apps.length) {
-      return mostrarError('No hemos podido conectar. Recarga la página e inténtalo de nuevo.');
+  // ---- Códigos postales ---------------------------------------------------
+  // Devuelve el código postal normalizado, o null si no es válido.
+  function normalizarCP(pais, cp) {
+    var s = String(cp == null ? '' : cp).trim().toUpperCase();
+    var m;
+    switch (pais) {
+      case 'ES':
+      case 'FR':
+      case 'DE':
+        s = s.replace(/\s+/g, '');
+        return /^\d{5}$/.test(s) ? s : null;
+      case 'PT':
+        s = s.replace(/\s+/g, '');
+        m = /^(\d{4})-?(\d{3})$/.exec(s);
+        return m ? m[1] + '-' + m[2] : null;
+      case 'NL':
+        m = /^(\d{4})\s?([A-Z]{2})$/.exec(s);
+        return m ? m[1] + ' ' + m[2] : null;
+      case 'GB':
+        s = s.replace(/\s+/g, '');
+        m = /^([A-Z]{1,2}\d[A-Z\d]?)(\d[A-Z]{2})$/.exec(s);
+        return m ? m[1] + ' ' + m[2] : null;
+      default:
+        return null;
     }
+  }
 
-    var numero = document.getElementById('trackingNumero').value.trim();
-    var email = document.getElementById('trackingEmail').value.trim();
-    if (!numero || !email) {
-      return mostrarError('Escribe el número de pedido y el correo con el que compraste.');
+  var AYUDA_CP = {
+    ES: { placeholder: '03001', mensaje: 'El código postal no es válido (5 cifras).' },
+    PT: { placeholder: '1000-001', mensaje: 'El código postal no es válido (formato 0000-000).' },
+    FR: { placeholder: '75001', mensaje: 'El código postal no es válido (5 cifras).' },
+    DE: { placeholder: '10115', mensaje: 'El código postal no es válido (5 cifras).' },
+    NL: { placeholder: '1012 AB', mensaje: 'El código postal no es válido (formato 1234 AB).' },
+    GB: { placeholder: 'SW1A 1AA', mensaje: 'El código postal no es válido (por ejemplo SW1A 1AA).' }
+  };
+
+  // Mensaje de error si el CP no sirve para ese país (o "" si está bien).
+  function errorCP(pais, cp) {
+    var norm = normalizarCP(pais, cp);
+    if (!norm) return (AYUDA_CP[pais] || AYUDA_CP.ES).mensaje;
+    if (pais === 'ES') {
+      var prov = Number(norm.slice(0, 2));
+      if (prov < 1 || prov > 52) return AYUDA_CP.ES.mensaje;
+      if (['35', '38', '51', '52'].indexOf(norm.slice(0, 2)) !== -1) {
+        return 'Para España solo enviamos a la península y Baleares. Escríbenos a libreriamayortesoro@gmail.com y lo miramos.';
+      }
     }
+    return '';
+  }
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Consultando…';
+  // ---- País elegido por el cliente (se recuerda entre páginas) -----------
+  var CLAVE = 'lt_envio_pais';
+  function getPais() {
+    var v = PAIS_POR_DEFECTO;
+    try { v = global.localStorage.getItem(CLAVE) || PAIS_POR_DEFECTO; } catch (e) {}
+    return PAISES[v] ? v : PAIS_POR_DEFECTO;
+  }
+  function setPais(codigo) {
+    if (!PAISES[codigo]) codigo = PAIS_POR_DEFECTO;
+    try { global.localStorage.setItem(CLAVE, codigo); } catch (e) {}
+    try { global.dispatchEvent(new Event('lt:pais')); } catch (e) {}
+    return codigo;
+  }
 
-    firebase.functions().httpsCallable('buscarPedidoPublico')({ numero: numero, email: email })
-      .then(function (res) {
-        pintarPedido(res.data);
-        form.hidden = true;
-        document.querySelector('.tracking-help').hidden = true;
-        resultBox.hidden = false;
-        resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      })
-      .catch(function (err) {
-        console.error('Error al consultar el pedido', err);
-        mostrarError(err && err.message
-          ? err.message
-          : 'No hemos encontrado ningún pedido con esos datos. Revisa el número y el correo.');
-      })
-      .finally(function () {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Consultar mi pedido';
-      });
-  });
-
-  anotherBtn.addEventListener('click', function () {
-    resultBox.hidden = true;
-    form.hidden = false;
-    document.querySelector('.tracking-help').hidden = false;
-    form.reset();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  function pintarPedido(pedido) {
-    document.getElementById('trackingResultNumero').textContent = pedido.numero;
-    document.getElementById('trackingResultEstado').textContent = ESTADOS[pedido.estado] || pedido.estado;
-
-    var pagoEl = document.getElementById('trackingResultPago');
-    pagoEl.textContent = pedido.pagado ? 'Pagado' : 'Pago pendiente';
-    pagoEl.className = 'pay-badge pay-badge--' + (pedido.pagado ? 'ok' : 'pendiente');
-
-    var ORDEN = ['pendiente', 'enviado', 'entregado'];
-    var actual = ORDEN.indexOf(pedido.estado);
-    document.querySelectorAll('#trackingSteps li').forEach(function (li) {
-      var i = ORDEN.indexOf(li.getAttribute('data-step'));
-      li.classList.toggle('is-done', actual >= 0 && i <= actual);
-      li.classList.toggle('is-current', i === actual);
+  // Rellena un <select> con los países (en el orden de ORDEN).
+  function rellenarSelect(select, seleccionado) {
+    if (!select) return;
+    select.innerHTML = '';
+    ORDEN.forEach(function (c) {
+      var o = document.createElement('option');
+      o.value = c;
+      o.textContent = PAISES[c].nombre;
+      select.appendChild(o);
     });
-
-    document.getElementById('trackingItems').innerHTML = (pedido.items || []).map(function (it) {
-      return '<li>' + it.cantidad + ' × ' + esc(it.titulo) + (it.formato ? ' (' + esc(it.formato) + ')' : '') +
-        ' — ' + fmtEUR(it.precio * it.cantidad) + (window.portadaMiniaturaHTML ? window.portadaMiniaturaHTML(it, esc) : '') + '</li>';
-    }).join('');
-
-    document.getElementById('trackingSubtotal').textContent = fmtEUR(pedido.subtotal);
-    document.getElementById('trackingEnvio').textContent = pedido.gastosEnvio ? fmtEUR(pedido.gastosEnvio) : 'Gratis';
-    var descRow = document.getElementById('trackingDescuentoRow');
-    if (pedido.descuento > 0) {
-      descRow.hidden = false;
-      document.getElementById('trackingDescuento').textContent = '−' + fmtEUR(pedido.descuento);
-    } else {
-      descRow.hidden = true;
-    }
-    document.getElementById('trackingTotal').textContent = fmtEUR(pedido.total);
-
-    var envio = pedido.envio || {};
-    document.getElementById('trackingDireccion').innerHTML =
-      esc(envio.nombre) + '<br>' + esc(envio.direccion) + '<br>' + esc(envio.cp) + ' ' + esc(envio.ciudad);
+    select.value = PAISES[seleccionado] ? seleccionado : PAIS_POR_DEFECTO;
   }
-})();
-</file>
 
-<file path=".firebaserc">
+  global.ENVIO = {
+    MARGEN_EUR: MARGEN_EUR,
+    TASA_GBP_EUR: TASA_GBP_EUR,
+    TRAMOS: TRAMOS,
+    PAISES: PAISES,
+    ORDEN: ORDEN,
+    PAIS_POR_DEFECTO: PAIS_POR_DEFECTO,
+    AYUDA_CP: AYUDA_CP,
+    precioTramo: precioTramo,
+    indiceTramo: indiceTramo,
+    costeEnvio: costeEnvio,
+    normalizarCP: normalizarCP,
+    errorCP: errorCP,
+    getPais: getPais,
+    setPais: setPais,
+    rellenarSelect: rellenarSelect
+  };
+})(window);
+````
+
+## File: .firebaserc
+````
 {
   "projects": {
     "default": "libreria-tu-mayor-tesoro"
@@ -3520,9 +2721,10 @@ window.CoverCarousel = (function () {
   "targets": {},
   "etags": {}
 }
-</file>
+````
 
-<file path=".gitignore">
+## File: .gitignore
+````
 # Logs
 logs
 *.log
@@ -3595,9 +2797,10 @@ node_modules/
 
 # Temporales de Office
 ~$*
-</file>
+````
 
-<file path="firestore.indexes.json">
+## File: firestore.indexes.json
+````json
 {
   "indexes": [
     {
@@ -3619,9 +2822,10 @@ node_modules/
   ],
   "fieldOverrides": []
 }
-</file>
+````
 
-<file path="storage.rules">
+## File: storage.rules
+````
 rules_version = '2';
 
 // ==========================================================================
@@ -3678,9 +2882,10 @@ service firebase.storage {
     }
   }
 }
-</file>
+````
 
-<file path="js/glosario.js">
+## File: js/glosario.js
+````javascript
 // ==========================================================================
 // Glosario de términos — glosario.html
 // --------------------------------------------------------------------------
@@ -3906,9 +3111,10 @@ service firebase.storage {
   script.textContent = JSON.stringify(ld);
   document.head.appendChild(script);
 })();
-</file>
+````
 
-<file path="js/recommender.js">
+## File: js/recommender.js
+````javascript
 // ==========================================================================
 // Asistente de recomendación — asistente.html
 // --------------------------------------------------------------------------
@@ -4320,9 +3526,10 @@ service firebase.storage {
   pintarPasos();
   pintarPregunta();
 })();
-</file>
+````
 
-<file path="js/recursos.js">
+## File: js/recursos.js
+````javascript
 // ==========================================================================
 // Recursos de lectura — recursos.html
 // --------------------------------------------------------------------------
@@ -4572,9 +3779,10 @@ service firebase.storage {
   var close = document.getElementById('printableClose');
   if (close) close.addEventListener('click', cerrar);
 })();
-</file>
+````
 
-<file path="firestore.rules">
+## File: firestore.rules
+````
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -4857,9 +4065,10 @@ service cloud.firestore {
     }
   }
 }
-</file>
+````
 
-<file path="robots.txt">
+## File: robots.txt
+````
 User-agent: *
 Allow: /
 
@@ -4868,9 +4077,132 @@ Disallow: /carrito.html
 Disallow: /cuenta.html
 
 Sitemap: https://libreriatumayortesoro.com/sitemap.xml
-</file>
+````
 
-<file path="verificar-catalogo.js">
+## File: js/seguimiento.js
+````javascript
+// ==========================================================================
+// Seguimiento de pedido (seguimiento.html)
+// --------------------------------------------------------------------------
+// No requiere sesión iniciada: el número de pedido + el email de compra
+// hacen de "contraseña" del pedido. Todo el trabajo de comprobar que
+// coinciden lo hace la Cloud Function "buscarPedidoPublico" (con el SDK de
+// administrador, así que ve el pedido aunque el que pregunta no haya
+// iniciado sesión) — aquí solo se pinta el resultado.
+// ==========================================================================
+(function () {
+  var form = document.getElementById('trackingForm');
+  if (!form) return;
+
+  var errorBox = document.getElementById('trackingError');
+  var submitBtn = document.getElementById('trackingSubmit');
+  var resultBox = document.getElementById('trackingResult');
+  var anotherBtn = document.getElementById('trackingAnotherBtn');
+
+  var ESTADOS = {
+    pendiente: 'Pedido recibido',
+    enviado: 'Enviado',
+    entregado: 'Entregado'
+  };
+
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+  function fmtEUR(n) { return (n || 0).toFixed(2).replace('.', ',') + '\u00A0€'; }
+
+  function mostrarError(msg) {
+    errorBox.textContent = msg;
+    errorBox.hidden = false;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errorBox.hidden = true;
+
+    if (typeof firebase === 'undefined' || !firebase.apps.length) {
+      return mostrarError('No hemos podido conectar. Recarga la página e inténtalo de nuevo.');
+    }
+
+    var numero = document.getElementById('trackingNumero').value.trim();
+    var email = document.getElementById('trackingEmail').value.trim();
+    if (!numero || !email) {
+      return mostrarError('Escribe el número de pedido y el correo con el que compraste.');
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Consultando…';
+
+    firebase.functions().httpsCallable('buscarPedidoPublico')({ numero: numero, email: email })
+      .then(function (res) {
+        pintarPedido(res.data);
+        form.hidden = true;
+        document.querySelector('.tracking-help').hidden = true;
+        resultBox.hidden = false;
+        resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      })
+      .catch(function (err) {
+        console.error('Error al consultar el pedido', err);
+        mostrarError(err && err.message
+          ? err.message
+          : 'No hemos encontrado ningún pedido con esos datos. Revisa el número y el correo.');
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Consultar mi pedido';
+      });
+  });
+
+  anotherBtn.addEventListener('click', function () {
+    resultBox.hidden = true;
+    form.hidden = false;
+    document.querySelector('.tracking-help').hidden = false;
+    form.reset();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  function pintarPedido(pedido) {
+    document.getElementById('trackingResultNumero').textContent = pedido.numero;
+    document.getElementById('trackingResultEstado').textContent = ESTADOS[pedido.estado] || pedido.estado;
+
+    var pagoEl = document.getElementById('trackingResultPago');
+    pagoEl.textContent = pedido.pagado ? 'Pagado' : 'Pago pendiente';
+    pagoEl.className = 'pay-badge pay-badge--' + (pedido.pagado ? 'ok' : 'pendiente');
+
+    var ORDEN = ['pendiente', 'enviado', 'entregado'];
+    var actual = ORDEN.indexOf(pedido.estado);
+    document.querySelectorAll('#trackingSteps li').forEach(function (li) {
+      var i = ORDEN.indexOf(li.getAttribute('data-step'));
+      li.classList.toggle('is-done', actual >= 0 && i <= actual);
+      li.classList.toggle('is-current', i === actual);
+    });
+
+    document.getElementById('trackingItems').innerHTML = (pedido.items || []).map(function (it) {
+      return '<li>' + it.cantidad + ' × ' + esc(it.titulo) + (it.formato ? ' (' + esc(it.formato) + ')' : '') +
+        ' — ' + fmtEUR(it.precio * it.cantidad) + (window.portadaMiniaturaHTML ? window.portadaMiniaturaHTML(it, esc) : '') + '</li>';
+    }).join('');
+
+    document.getElementById('trackingSubtotal').textContent = fmtEUR(pedido.subtotal);
+    document.getElementById('trackingEnvio').textContent = pedido.gastosEnvio ? fmtEUR(pedido.gastosEnvio) : 'Gratis';
+    var descRow = document.getElementById('trackingDescuentoRow');
+    if (pedido.descuento > 0) {
+      descRow.hidden = false;
+      document.getElementById('trackingDescuento').textContent = '−' + fmtEUR(pedido.descuento);
+    } else {
+      descRow.hidden = true;
+    }
+    document.getElementById('trackingTotal').textContent = fmtEUR(pedido.total);
+
+    var envio = pedido.envio || {};
+    document.getElementById('trackingDireccion').innerHTML =
+      esc(envio.nombre) + '<br>' + esc(envio.direccion) + '<br>' + esc(envio.cp) + ' ' + esc(envio.ciudad) + '<br>' + esc(({ ES: 'España', PT: 'Portugal', FR: 'Francia', DE: 'Alemania', NL: 'Países Bajos', GB: 'Reino Unido' })[envio.pais || 'ES'] || 'España');
+  }
+})();
+````
+
+## File: verificar-catalogo.js
+````javascript
 // ============================================================================
 // verificar-catalogo.js — se ejecuta SOLO antes de cada «firebase deploy»
 // (está enlazado en firebase.json → "predeploy"). No tienes que acordarte.
@@ -4929,6 +4261,20 @@ const pv = src.match(/PORTADAS_VALIDAS = \{([\s\S]*?)\};/)[1];
 const validas = [...pv.matchAll(/"?([a-z-]+)"?\s*:/g)].map((m) => m[1]);
 
 const errores = [], avisos = [];
+
+// ---- Tarifas de envío: web y servidor deben ser IDÉNTICAS -------------------
+// (js/shipping-rates.js y functions/shipping-rates.js). Si cambias una, copia
+// el archivo entero encima de la otra.
+(function comprobarEnvios() {
+  const web = R('js/shipping-rates.js').replace(/\r\n/g, '\n');
+  const srv = R('functions/shipping-rates.js').replace(/\r\n/g, '\n');
+  if (web !== srv) errores.push('Las tarifas de envío de js/shipping-rates.js y functions/shipping-rates.js NO son iguales: copia el archivo entero de uno sobre el otro.');
+  const SR = require('./functions/shipping-rates.js');
+  SR.ORDEN.forEach((c) => {
+    if (SR.PAISES[c].costes.length !== SR.TRAMOS.length) errores.push('Envío ' + c + ': hay ' + SR.PAISES[c].costes.length + ' precios y ' + SR.TRAMOS.length + ' tramos.');
+  });
+  if (!/require\(\s*["']\.\/shipping-rates["']\s*\)/.test(src)) errores.push('functions/index.js no usa shipping-rates.js: el servidor cobraría un envío distinto al de la web.');
+})();
 const B = window.BOOKS;
 const vistos = {}; B.forEach((b) => { vistos[b.id] = (vistos[b.id] || 0) + 1; });
 Object.entries(vistos).filter((x) => x[1] > 1).forEach((x) => avisos.push('ID repetido en books-data.js (se usa solo el primero): ' + x[0]));
@@ -5007,328 +4353,10 @@ console.log('Libros revisados: ' + B.length + ' | combinaciones de precio compar
 avisos.forEach((a) => console.log('AVISO: ' + a));
 if (errores.length) { errores.forEach((e) => console.log('ERROR: ' + e)); console.log('\n' + errores.length + ' ERROR(ES). No despliegues todavía.'); process.exit(1); }
 console.log('\nTODO CORRECTO: web y servidor están de acuerdo.');
-</file>
+````
 
-<file path="js/admin.js">
-// ==========================================================================
-// Panel de administración (admin.html): solo visible para los UID definidos
-// en ADMIN_UIDS (js/config.js). La seguridad real la dan las reglas de
-// Firestore — esta comprobación en el cliente solo controla qué se muestra.
-// ==========================================================================
-(function () {
-  var guard = document.getElementById('adminGuard');
-  var dashboard = document.getElementById('adminDashboard');
-  if (!guard || !dashboard) return;
-
-  var pedidosCache = [];
-  var filtroEstado = 'todos';
-  var textoBusqueda = '';
-
-  function fmtEUR(n) {
-    return (n || 0).toFixed(2).replace('.', ',') + '\u00A0€';
-  }
-
-  function capitaliza(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
-
-  function normaliza(s) {
-    return (s || '').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  }
-
-  // ---- Renderizado ----------------------------------------------------------
-  function pedidoAdminHTML(pedido) {
-    var fecha = pedido.createdAt && pedido.createdAt.toDate
-      ? pedido.createdAt.toDate().toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })
-      : 'Procesando…';
-    var envio = pedido.envio || {};
-    var items = (pedido.items || []).map(function (it) {
-      return '<li>' + it.cantidad + ' × ' + escapeHTML(it.titulo) + (it.formato ? ' (' + escapeHTML(it.formato) + ')' : '') + ' — ' + fmtEUR(it.precio * it.cantidad) + '</li>';
-    }).join('');
-
-    return (
-      '<details class="admin-order-card" data-id="' + escapeHTML(pedido._id) + '">' +
-        '<summary>' +
-          '<span class="admin-order-numero">#' + escapeHTML(pedido.numero) + '</span>' +
-          '<span class="admin-order-cliente">' + escapeHTML(pedido.clienteNombre || '') + '<small>' + escapeHTML(pedido.clienteEmail || '') + '</small></span>' +
-          '<span class="admin-order-fecha">' + fecha + '</span>' +
-          '<span class="admin-order-total">' + fmtEUR(pedido.total) + '</span>' +
-          '<span class="pay-badge pay-badge--' + (pedido.pagado ? 'ok' : 'pendiente') + '">' + (pedido.pagado ? 'Pagado' : 'Pago pendiente') + '</span>' +
-          '<span class="admin-order-metodo">' + (pedido.metodoPago === 'bizum' ? 'Bizum' : 'Tarjeta') + '</span>' +
-          '<span class="order-status order-status--' + escapeHTML(pedido.estado) + '">' + capitaliza(pedido.estado) + '</span>' +
-        '</summary>' +
-        '<div class="admin-order-body">' +
-          '<div class="admin-order-col">' +
-            '<h4>Artículos</h4>' +
-            '<ul class="order-items">' + items + '</ul>' +
-            '<p class="admin-order-line">Subtotal: ' + fmtEUR(pedido.subtotal) + '</p>' +
-            '<p class="admin-order-line">Envío: ' + (pedido.gastosEnvio ? fmtEUR(pedido.gastosEnvio) : 'Gratis') + '</p>' +
-            '<p class="admin-order-line admin-order-line--total">Total: ' + fmtEUR(pedido.total) + '</p>' +
-          '</div>' +
-          '<div class="admin-order-col">' +
-            '<h4>Dirección de envío</h4>' +
-            '<p>' + escapeHTML(envio.nombre || '') + '<br>' + escapeHTML(envio.direccion || '') + '<br>' + escapeHTML(envio.cp || '') + ' ' + escapeHTML(envio.ciudad || '') + '<br>' + escapeHTML(envio.telefono || '') + '</p>' +
-          '</div>' +
-          '<div class="admin-order-col admin-order-actions">' +
-            '<label>Estado del pedido' +
-              '<select data-estado-select data-id="' + pedido._id + '">' +
-                '<option value="pendiente"' + (pedido.estado === 'pendiente' ? ' selected' : '') + '>Pendiente</option>' +
-                '<option value="enviado"' + (pedido.estado === 'enviado' ? ' selected' : '') + '>Enviado</option>' +
-                '<option value="entregado"' + (pedido.estado === 'entregado' ? ' selected' : '') + '>Entregado</option>' +
-              '</select>' +
-            '</label>' +
-            (pedido.metodoPago === 'bizum' && !pedido.pagado
-              ? '<button type="button" class="btn btn--outline btn--sm" data-marcar-pagado data-id="' + pedido._id + '">Marcar pago Bizum recibido</button>'
-              : '') +
-            '<span class="admin-save-flash" data-save-flash hidden>Guardado ✓</span>' +
-          '</div>' +
-        '</div>' +
-      '</details>'
-    );
-  }
-
-  function pedidoCoincide(pedido) {
-    if (filtroEstado !== 'todos' && pedido.estado !== filtroEstado) return false;
-    if (!textoBusqueda) return true;
-    var campo = normaliza(pedido.numero + ' ' + pedido.clienteNombre + ' ' + pedido.clienteEmail);
-    return campo.indexOf(normaliza(textoBusqueda)) !== -1;
-  }
-
-  function renderLista() {
-    var list = document.getElementById('adminOrdersList');
-    var empty = document.getElementById('adminOrdersEmpty');
-    var visibles = pedidosCache.filter(pedidoCoincide);
-    list.innerHTML = visibles.map(pedidoAdminHTML).join('');
-    empty.hidden = visibles.length > 0;
-  }
-
-  function actualizarEstadisticas() {
-    var total = pedidosCache.length;
-    var ingresos = pedidosCache.reduce(function (acc, p) { return acc + (p.total || 0); }, 0);
-    var pendientes = pedidosCache.filter(function (p) { return p.estado === 'pendiente'; }).length;
-    document.getElementById('adminStatTotal').textContent = String(total);
-    document.getElementById('adminStatIngresos').textContent = fmtEUR(ingresos);
-    document.getElementById('adminStatPendientes').textContent = String(pendientes);
-  }
-
-  // ---- Carga de pedidos -------------------------------------------------------
-  // pedidosCache se comparte con js/admin-stats.js (mismo array, por
-  // referencia) a través de window.__adminPedidos + el evento
-  // 'admin-pedidos-cargados', para que el panel de estadísticas no tenga
-  // que volver a leer Firestore por su cuenta.
-  function cargarPedidosAdmin() {
-    document.getElementById('adminOrdersList').innerHTML = '<p class="orders-empty">Cargando pedidos…</p>';
-    window.fbDb.collection('pedidos').orderBy('createdAt', 'desc').get()
-      .then(function (snapshot) {
-        pedidosCache = [];
-        snapshot.forEach(function (doc) {
-          var data = doc.data();
-          data._id = doc.id;
-          pedidosCache.push(data);
-        });
-        actualizarEstadisticas();
-        renderLista();
-        window.__adminPedidos = pedidosCache;
-        window.dispatchEvent(new CustomEvent('admin-pedidos-cargados', { detail: pedidosCache }));
-      })
-      .catch(function (err) {
-        console.error('Error al cargar los pedidos', err);
-        document.getElementById('adminOrdersList').innerHTML = '<p class="orders-empty">No se han podido cargar los pedidos. Revisa las reglas de Firestore.</p>';
-      });
-  }
-
-  // ---- Moderación de reseñas -------------------------------------------------
-  function estrellas(n) {
-    n = Math.round(n || 0);
-    return '★★★★★☆☆☆☆☆'.slice(5 - n, 10 - n);
-  }
-
-  function resenaAdminHTML(r) {
-    var fecha = r.createdAt && r.createdAt.toDate
-      ? r.createdAt.toDate().toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })
-      : 'Procesando…';
-    var fotosHTML = '';
-    if (Array.isArray(r.fotos) && r.fotos.length) {
-      fotosHTML = '<div class="review-photos-grid">' + r.fotos.map(function (url) {
-        return '<a href="' + url + '" target="_blank" rel="noopener"><img src="' + url + '" alt="Foto añadida por quien opina" loading="lazy"></a>';
-      }).join('') + '</div>';
-    }
-    return (
-      '<details class="admin-order-card" data-id="' + escapeHTML(r._id) + '">' +
-        '<summary>' +
-          '<span class="admin-order-cliente">' + escapeHTML(r.nombre || 'Cliente') + '<small>' + escapeHTML(r.bookTitle || r.productId || '') + '</small></span>' +
-          '<span class="admin-order-fecha">' + fecha + '</span>' +
-          '<span class="stars" aria-hidden="true">' + estrellas(r.valoracion) + '</span>' +
-        '</summary>' +
-        '<div class="admin-order-body">' +
-          '<div class="admin-order-col">' +
-            '<p class="review-comment">' + escapeHTML(r.comentario || '') + '</p>' +
-            fotosHTML +
-            (r.productId ? '<p><a href="producto.html?id=' + encodeURIComponent(r.productId) + '" target="_blank" rel="noopener" class="link-inline">Ver ficha del libro</a></p>' : '') +
-            '<div class="admin-resena-actions">' +
-              '<button type="button" class="btn btn--primary btn--sm" data-resena-aprobar>Aprobar</button>' +
-              '<button type="button" class="btn btn--outline btn--sm" data-resena-rechazar>Rechazar</button>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
-      '</details>'
-    );
-  }
-
-  function cargarResenasPendientes() {
-    var list = document.getElementById('adminResenasList');
-    var empty = document.getElementById('adminResenasEmpty');
-    var count = document.getElementById('adminResenasCount');
-    if (!list) return;
-    list.innerHTML = '<p class="orders-empty">Cargando reseñas…</p>';
-    window.fbDb.collection('resenas').where('estado', '==', 'pendiente').orderBy('createdAt', 'desc').get()
-      .then(function (snapshot) {
-        var resenas = [];
-        snapshot.forEach(function (doc) {
-          var data = doc.data();
-          data._id = doc.id;
-          resenas.push(data);
-        });
-        list.innerHTML = resenas.map(resenaAdminHTML).join('');
-        if (empty) empty.hidden = resenas.length > 0;
-        if (count) {
-          count.hidden = resenas.length === 0;
-          count.textContent = resenas.length;
-        }
-      })
-      .catch(function (err) {
-        console.error('Error al cargar las reseñas pendientes', err);
-        list.innerHTML = '<p class="orders-empty">No se han podido cargar las reseñas. Revisa las reglas de Firestore.</p>';
-      });
-  }
-
-  var adminResenasListEl = document.getElementById('adminResenasList');
-  if (adminResenasListEl) {
-    adminResenasListEl.addEventListener('click', function (e) {
-      var card = e.target.closest('.admin-order-card');
-      var estado = e.target.closest('[data-resena-aprobar]') ? 'aprobada'
-        : e.target.closest('[data-resena-rechazar]') ? 'rechazada' : null;
-      if (!card || !estado) return;
-      var id = card.getAttribute('data-id');
-      window.fbDb.collection('resenas').doc(id).update({ estado: estado })
-        .then(function () { cargarResenasPendientes(); })
-        .catch(function (err) { console.error('Error al moderar la reseña', err); });
-    });
-  }
-
-  // ---- Interacción: filtros, búsqueda y cambio de estado ----------------------
-  document.getElementById('adminFilterTabs').addEventListener('click', function (e) {
-    var btn = e.target.closest('[data-status-filter]');
-    if (!btn) return;
-    document.querySelectorAll('.admin-filter-btn').forEach(function (b) { b.classList.remove('is-active'); });
-    btn.classList.add('is-active');
-    filtroEstado = btn.getAttribute('data-status-filter');
-    renderLista();
-  });
-
-  document.getElementById('adminSearch').addEventListener('input', function (e) {
-    textoBusqueda = e.target.value;
-    renderLista();
-  });
-
-  document.getElementById('adminOrdersList').addEventListener('change', function (e) {
-    var select = e.target.closest('[data-estado-select]');
-    if (!select) return;
-    var id = select.getAttribute('data-id');
-    var nuevoEstado = select.value;
-    var card = select.closest('.admin-order-card');
-    var flash = card.querySelector('[data-save-flash]');
-    var badge = card.querySelector('.order-status');
-
-    window.fbDb.collection('pedidos').doc(id).update({ estado: nuevoEstado })
-      .then(function () {
-        var pedido = pedidosCache.filter(function (p) { return p._id === id; })[0];
-        if (pedido) pedido.estado = nuevoEstado;
-        badge.className = 'order-status order-status--' + nuevoEstado;
-        badge.textContent = capitaliza(nuevoEstado);
-        actualizarEstadisticas();
-        window.dispatchEvent(new CustomEvent('admin-pedidos-cargados', { detail: pedidosCache }));
-        if (flash) {
-          flash.hidden = false;
-          setTimeout(function () { flash.hidden = true; }, 1800);
-        }
-      })
-      .catch(function (err) {
-        console.error('Error al actualizar el pedido', err);
-        alert('No se ha podido actualizar el estado. Revisa las reglas de Firestore.');
-      });
-  });
-
-  document.getElementById('adminOrdersList').addEventListener('click', function (e) {
-    var btn = e.target.closest('[data-marcar-pagado]');
-    if (!btn) return;
-    var id = btn.getAttribute('data-id');
-    if (!window.confirm('¿Confirmas que el pago por Bizum de este pedido ya ha llegado?')) return;
-
-    btn.disabled = true;
-    btn.textContent = 'Confirmando…';
-
-    var marcarPedidoPagadoFn = firebase.functions().httpsCallable('marcarPedidoPagado');
-    marcarPedidoPagadoFn({ pedidoId: id })
-      .then(function () {
-        var pedido = pedidosCache.filter(function (p) { return p._id === id; })[0];
-        if (pedido) pedido.pagado = true;
-        renderLista();
-      })
-      .catch(function (err) {
-        console.error('Error al confirmar el pago por Bizum', err);
-        alert('No se ha podido confirmar el pago. Inténtalo de nuevo.');
-        btn.disabled = false;
-        btn.textContent = 'Marcar pago Bizum recibido';
-      });
-  });
-
-  // ---- Comprobación de acceso ---------------------------------------------------
-  var logoutBtn = document.getElementById('adminLogoutBtn');
-  if (logoutBtn) {
-    logoutBtn.addEventListener('click', function () {
-      window.authLogout();
-    });
-  }
-
-  // ---- Pestañas "Pedidos" / "Estadísticas" ---------------------------------
-  var viewTabs = document.getElementById('adminViewTabs');
-  if (viewTabs) {
-    viewTabs.addEventListener('click', function (e) {
-      var btn = e.target.closest('[data-view-tab]');
-      if (!btn) return;
-      var vista = btn.getAttribute('data-view-tab');
-      viewTabs.querySelectorAll('.admin-view-tab').forEach(function (b) { b.classList.remove('is-active'); });
-      btn.classList.add('is-active');
-      document.getElementById('adminViewPedidos').hidden = vista !== 'pedidos';
-      document.getElementById('adminViewResenas').hidden = vista !== 'resenas';
-      document.getElementById('adminViewEstadisticas').hidden = vista !== 'estadisticas';
-      if (vista === 'estadisticas' && window.adminStats) {
-        window.adminStats.refrescar();
-      }
-      if (vista === 'resenas') {
-        cargarResenasPendientes();
-      }
-    });
-  }
-
-  window.fbAuth.onAuthStateChanged(function (user) {
-    var esAdmin = user && typeof ADMIN_UIDS !== 'undefined' && ADMIN_UIDS.indexOf(user.uid) !== -1;
-    if (esAdmin) {
-      guard.hidden = true;
-      dashboard.hidden = false;
-      cargarPedidosAdmin();
-      cargarResenasPendientes();
-    } else {
-      guard.hidden = false;
-      dashboard.hidden = true;
-      guard.innerHTML = user
-        ? '<p class="admin-denied">Esta cuenta no tiene permisos de administración. <a href="index.html">Volver a la tienda</a>.</p>'
-        : '<p class="admin-denied">Inicia sesión con una cuenta de administrador para continuar. <a href="cuenta.html">Iniciar sesión</a>.</p>';
-    }
-  });
-})();
-</file>
-
-<file path="js/auth.js">
+## File: js/auth.js
+````javascript
 // ==========================================================================
 // Autenticación compartida (Firebase) — sesión y estado del icono "Cuenta"
 // en cualquier página. La lógica propia de formularios vive en
@@ -5694,9 +4722,10 @@ console.log('\nTODO CORRECTO: web y servidor están de acuerdo.');
     });
   });
 })();
-</file>
+````
 
-<file path="js/config.js">
+## File: js/config.js
+````javascript
 // ==========================================================================
 // CONFIGURACIÓN — sustituye estos valores por los de TU propio proyecto
 // ==========================================================================
@@ -5784,9 +4813,10 @@ var metodosAcceso = {
 // antes de comprar. Las anteriores no se bloquean. Debe coincidir con
 // VERIFICACION_OBLIGATORIA_DESDE en functions/index.js.
 var VERIFICACION_OBLIGATORIA_DESDE = Date.parse('2026-09-21T00:00:00Z');
-</file>
+````
 
-<file path="js/shop.js">
+## File: js/shop.js
+````javascript
 // ==========================================================================
 // Página de listado/categoría: pinta el catálogo desde window.BOOKS y
 // aplica filtros, orden, chips activos, buscador y PAGINACIÓN sobre TODO
@@ -6398,9 +5428,10 @@ var VERIFICACION_OBLIGATORIA_DESDE = Date.parse('2026-09-21T00:00:00Z');
 
   render();
 })();
-</file>
+````
 
-<file path="que-es-el-camino-a-cristo.html">
+## File: que-es-el-camino-a-cristo.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6654,9 +5685,10 @@ var VERIFICACION_OBLIGATORIA_DESDE = Date.parse('2026-09-21T00:00:00Z');
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="que-es-el-deseado-de-todas-las-gentes.html">
+## File: que-es-el-deseado-de-todas-las-gentes.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6907,9 +5939,330 @@ var VERIFICACION_OBLIGATORIA_DESDE = Date.parse('2026-09-21T00:00:00Z');
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="js/main.js">
+## File: js/admin.js
+````javascript
+// ==========================================================================
+// Panel de administración (admin.html): solo visible para los UID definidos
+// en ADMIN_UIDS (js/config.js). La seguridad real la dan las reglas de
+// Firestore — esta comprobación en el cliente solo controla qué se muestra.
+// ==========================================================================
+(function () {
+  var guard = document.getElementById('adminGuard');
+  var dashboard = document.getElementById('adminDashboard');
+  if (!guard || !dashboard) return;
+
+  var pedidosCache = [];
+  var filtroEstado = 'todos';
+  var textoBusqueda = '';
+
+  function fmtEUR(n) {
+    return (n || 0).toFixed(2).replace('.', ',') + '\u00A0€';
+  }
+
+  function capitaliza(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+
+  function normaliza(s) {
+    return (s || '').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  // ---- Renderizado ----------------------------------------------------------
+  function pedidoAdminHTML(pedido) {
+    var fecha = pedido.createdAt && pedido.createdAt.toDate
+      ? pedido.createdAt.toDate().toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+      : 'Procesando…';
+    var envio = pedido.envio || {};
+    var items = (pedido.items || []).map(function (it) {
+      return '<li>' + it.cantidad + ' × ' + escapeHTML(it.titulo) + (it.formato ? ' (' + escapeHTML(it.formato) + ')' : '') + ' — ' + fmtEUR(it.precio * it.cantidad) + '</li>';
+    }).join('');
+
+    return (
+      '<details class="admin-order-card" data-id="' + escapeHTML(pedido._id) + '">' +
+        '<summary>' +
+          '<span class="admin-order-numero">#' + escapeHTML(pedido.numero) + '</span>' +
+          '<span class="admin-order-cliente">' + escapeHTML(pedido.clienteNombre || '') + '<small>' + escapeHTML(pedido.clienteEmail || '') + '</small></span>' +
+          '<span class="admin-order-fecha">' + fecha + '</span>' +
+          '<span class="admin-order-total">' + fmtEUR(pedido.total) + '</span>' +
+          '<span class="pay-badge pay-badge--' + (pedido.pagado ? 'ok' : 'pendiente') + '">' + (pedido.pagado ? 'Pagado' : 'Pago pendiente') + '</span>' +
+          '<span class="admin-order-metodo">' + (pedido.metodoPago === 'bizum' ? 'Bizum' : 'Tarjeta') + '</span>' +
+          '<span class="order-status order-status--' + escapeHTML(pedido.estado) + '">' + capitaliza(pedido.estado) + '</span>' +
+        '</summary>' +
+        '<div class="admin-order-body">' +
+          '<div class="admin-order-col">' +
+            '<h4>Artículos</h4>' +
+            '<ul class="order-items">' + items + '</ul>' +
+            '<p class="admin-order-line">Subtotal: ' + fmtEUR(pedido.subtotal) + '</p>' +
+            '<p class="admin-order-line">Envío: ' + (pedido.gastosEnvio ? fmtEUR(pedido.gastosEnvio) : 'Gratis') + '</p>' +
+            '<p class="admin-order-line admin-order-line--total">Total: ' + fmtEUR(pedido.total) + '</p>' +
+          '</div>' +
+          '<div class="admin-order-col">' +
+            '<h4>Dirección de envío</h4>' +
+            '<p>' + escapeHTML(envio.nombre || '') + '<br>' + escapeHTML(envio.direccion || '') + '<br>' + escapeHTML(envio.cp || '') + ' ' + escapeHTML(envio.ciudad || '') + '<br>' + escapeHTML(({ ES: 'España', PT: 'Portugal', FR: 'Francia', DE: 'Alemania', NL: 'Países Bajos', GB: 'Reino Unido' })[envio.pais || 'ES'] || 'España') + '<br>' + escapeHTML(envio.telefono || '') + '</p>' +
+          '</div>' +
+          '<div class="admin-order-col admin-order-actions">' +
+            '<label>Estado del pedido' +
+              '<select data-estado-select data-id="' + pedido._id + '">' +
+                '<option value="pendiente"' + (pedido.estado === 'pendiente' ? ' selected' : '') + '>Pendiente</option>' +
+                '<option value="enviado"' + (pedido.estado === 'enviado' ? ' selected' : '') + '>Enviado</option>' +
+                '<option value="entregado"' + (pedido.estado === 'entregado' ? ' selected' : '') + '>Entregado</option>' +
+              '</select>' +
+            '</label>' +
+            (pedido.metodoPago === 'bizum' && !pedido.pagado
+              ? '<button type="button" class="btn btn--outline btn--sm" data-marcar-pagado data-id="' + pedido._id + '">Marcar pago Bizum recibido</button>'
+              : '') +
+            '<span class="admin-save-flash" data-save-flash hidden>Guardado ✓</span>' +
+          '</div>' +
+        '</div>' +
+      '</details>'
+    );
+  }
+
+  function pedidoCoincide(pedido) {
+    if (filtroEstado !== 'todos' && pedido.estado !== filtroEstado) return false;
+    if (!textoBusqueda) return true;
+    var campo = normaliza(pedido.numero + ' ' + pedido.clienteNombre + ' ' + pedido.clienteEmail);
+    return campo.indexOf(normaliza(textoBusqueda)) !== -1;
+  }
+
+  function renderLista() {
+    var list = document.getElementById('adminOrdersList');
+    var empty = document.getElementById('adminOrdersEmpty');
+    var visibles = pedidosCache.filter(pedidoCoincide);
+    list.innerHTML = visibles.map(pedidoAdminHTML).join('');
+    empty.hidden = visibles.length > 0;
+  }
+
+  function actualizarEstadisticas() {
+    var total = pedidosCache.length;
+    var ingresos = pedidosCache.reduce(function (acc, p) { return acc + (p.total || 0); }, 0);
+    var pendientes = pedidosCache.filter(function (p) { return p.estado === 'pendiente'; }).length;
+    document.getElementById('adminStatTotal').textContent = String(total);
+    document.getElementById('adminStatIngresos').textContent = fmtEUR(ingresos);
+    document.getElementById('adminStatPendientes').textContent = String(pendientes);
+  }
+
+  // ---- Carga de pedidos -------------------------------------------------------
+  // pedidosCache se comparte con js/admin-stats.js (mismo array, por
+  // referencia) a través de window.__adminPedidos + el evento
+  // 'admin-pedidos-cargados', para que el panel de estadísticas no tenga
+  // que volver a leer Firestore por su cuenta.
+  function cargarPedidosAdmin() {
+    document.getElementById('adminOrdersList').innerHTML = '<p class="orders-empty">Cargando pedidos…</p>';
+    window.fbDb.collection('pedidos').orderBy('createdAt', 'desc').get()
+      .then(function (snapshot) {
+        pedidosCache = [];
+        snapshot.forEach(function (doc) {
+          var data = doc.data();
+          data._id = doc.id;
+          pedidosCache.push(data);
+        });
+        actualizarEstadisticas();
+        renderLista();
+        window.__adminPedidos = pedidosCache;
+        window.dispatchEvent(new CustomEvent('admin-pedidos-cargados', { detail: pedidosCache }));
+      })
+      .catch(function (err) {
+        console.error('Error al cargar los pedidos', err);
+        document.getElementById('adminOrdersList').innerHTML = '<p class="orders-empty">No se han podido cargar los pedidos. Revisa las reglas de Firestore.</p>';
+      });
+  }
+
+  // ---- Moderación de reseñas -------------------------------------------------
+  function estrellas(n) {
+    n = Math.round(n || 0);
+    return '★★★★★☆☆☆☆☆'.slice(5 - n, 10 - n);
+  }
+
+  function resenaAdminHTML(r) {
+    var fecha = r.createdAt && r.createdAt.toDate
+      ? r.createdAt.toDate().toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+      : 'Procesando…';
+    var fotosHTML = '';
+    if (Array.isArray(r.fotos) && r.fotos.length) {
+      fotosHTML = '<div class="review-photos-grid">' + r.fotos.map(function (url) {
+        return '<a href="' + url + '" target="_blank" rel="noopener"><img src="' + url + '" alt="Foto añadida por quien opina" loading="lazy"></a>';
+      }).join('') + '</div>';
+    }
+    return (
+      '<details class="admin-order-card" data-id="' + escapeHTML(r._id) + '">' +
+        '<summary>' +
+          '<span class="admin-order-cliente">' + escapeHTML(r.nombre || 'Cliente') + '<small>' + escapeHTML(r.bookTitle || r.productId || '') + '</small></span>' +
+          '<span class="admin-order-fecha">' + fecha + '</span>' +
+          '<span class="stars" aria-hidden="true">' + estrellas(r.valoracion) + '</span>' +
+        '</summary>' +
+        '<div class="admin-order-body">' +
+          '<div class="admin-order-col">' +
+            '<p class="review-comment">' + escapeHTML(r.comentario || '') + '</p>' +
+            fotosHTML +
+            (r.productId ? '<p><a href="producto.html?id=' + encodeURIComponent(r.productId) + '" target="_blank" rel="noopener" class="link-inline">Ver ficha del libro</a></p>' : '') +
+            '<div class="admin-resena-actions">' +
+              '<button type="button" class="btn btn--primary btn--sm" data-resena-aprobar>Aprobar</button>' +
+              '<button type="button" class="btn btn--outline btn--sm" data-resena-rechazar>Rechazar</button>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</details>'
+    );
+  }
+
+  function cargarResenasPendientes() {
+    var list = document.getElementById('adminResenasList');
+    var empty = document.getElementById('adminResenasEmpty');
+    var count = document.getElementById('adminResenasCount');
+    if (!list) return;
+    list.innerHTML = '<p class="orders-empty">Cargando reseñas…</p>';
+    window.fbDb.collection('resenas').where('estado', '==', 'pendiente').orderBy('createdAt', 'desc').get()
+      .then(function (snapshot) {
+        var resenas = [];
+        snapshot.forEach(function (doc) {
+          var data = doc.data();
+          data._id = doc.id;
+          resenas.push(data);
+        });
+        list.innerHTML = resenas.map(resenaAdminHTML).join('');
+        if (empty) empty.hidden = resenas.length > 0;
+        if (count) {
+          count.hidden = resenas.length === 0;
+          count.textContent = resenas.length;
+        }
+      })
+      .catch(function (err) {
+        console.error('Error al cargar las reseñas pendientes', err);
+        list.innerHTML = '<p class="orders-empty">No se han podido cargar las reseñas. Revisa las reglas de Firestore.</p>';
+      });
+  }
+
+  var adminResenasListEl = document.getElementById('adminResenasList');
+  if (adminResenasListEl) {
+    adminResenasListEl.addEventListener('click', function (e) {
+      var card = e.target.closest('.admin-order-card');
+      var estado = e.target.closest('[data-resena-aprobar]') ? 'aprobada'
+        : e.target.closest('[data-resena-rechazar]') ? 'rechazada' : null;
+      if (!card || !estado) return;
+      var id = card.getAttribute('data-id');
+      window.fbDb.collection('resenas').doc(id).update({ estado: estado })
+        .then(function () { cargarResenasPendientes(); })
+        .catch(function (err) { console.error('Error al moderar la reseña', err); });
+    });
+  }
+
+  // ---- Interacción: filtros, búsqueda y cambio de estado ----------------------
+  document.getElementById('adminFilterTabs').addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-status-filter]');
+    if (!btn) return;
+    document.querySelectorAll('.admin-filter-btn').forEach(function (b) { b.classList.remove('is-active'); });
+    btn.classList.add('is-active');
+    filtroEstado = btn.getAttribute('data-status-filter');
+    renderLista();
+  });
+
+  document.getElementById('adminSearch').addEventListener('input', function (e) {
+    textoBusqueda = e.target.value;
+    renderLista();
+  });
+
+  document.getElementById('adminOrdersList').addEventListener('change', function (e) {
+    var select = e.target.closest('[data-estado-select]');
+    if (!select) return;
+    var id = select.getAttribute('data-id');
+    var nuevoEstado = select.value;
+    var card = select.closest('.admin-order-card');
+    var flash = card.querySelector('[data-save-flash]');
+    var badge = card.querySelector('.order-status');
+
+    window.fbDb.collection('pedidos').doc(id).update({ estado: nuevoEstado })
+      .then(function () {
+        var pedido = pedidosCache.filter(function (p) { return p._id === id; })[0];
+        if (pedido) pedido.estado = nuevoEstado;
+        badge.className = 'order-status order-status--' + nuevoEstado;
+        badge.textContent = capitaliza(nuevoEstado);
+        actualizarEstadisticas();
+        window.dispatchEvent(new CustomEvent('admin-pedidos-cargados', { detail: pedidosCache }));
+        if (flash) {
+          flash.hidden = false;
+          setTimeout(function () { flash.hidden = true; }, 1800);
+        }
+      })
+      .catch(function (err) {
+        console.error('Error al actualizar el pedido', err);
+        alert('No se ha podido actualizar el estado. Revisa las reglas de Firestore.');
+      });
+  });
+
+  document.getElementById('adminOrdersList').addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-marcar-pagado]');
+    if (!btn) return;
+    var id = btn.getAttribute('data-id');
+    if (!window.confirm('¿Confirmas que el pago por Bizum de este pedido ya ha llegado?')) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Confirmando…';
+
+    var marcarPedidoPagadoFn = firebase.functions().httpsCallable('marcarPedidoPagado');
+    marcarPedidoPagadoFn({ pedidoId: id })
+      .then(function () {
+        var pedido = pedidosCache.filter(function (p) { return p._id === id; })[0];
+        if (pedido) pedido.pagado = true;
+        renderLista();
+      })
+      .catch(function (err) {
+        console.error('Error al confirmar el pago por Bizum', err);
+        alert('No se ha podido confirmar el pago. Inténtalo de nuevo.');
+        btn.disabled = false;
+        btn.textContent = 'Marcar pago Bizum recibido';
+      });
+  });
+
+  // ---- Comprobación de acceso ---------------------------------------------------
+  var logoutBtn = document.getElementById('adminLogoutBtn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', function () {
+      window.authLogout();
+    });
+  }
+
+  // ---- Pestañas "Pedidos" / "Estadísticas" ---------------------------------
+  var viewTabs = document.getElementById('adminViewTabs');
+  if (viewTabs) {
+    viewTabs.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-view-tab]');
+      if (!btn) return;
+      var vista = btn.getAttribute('data-view-tab');
+      viewTabs.querySelectorAll('.admin-view-tab').forEach(function (b) { b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      document.getElementById('adminViewPedidos').hidden = vista !== 'pedidos';
+      document.getElementById('adminViewResenas').hidden = vista !== 'resenas';
+      document.getElementById('adminViewEstadisticas').hidden = vista !== 'estadisticas';
+      if (vista === 'estadisticas' && window.adminStats) {
+        window.adminStats.refrescar();
+      }
+      if (vista === 'resenas') {
+        cargarResenasPendientes();
+      }
+    });
+  }
+
+  window.fbAuth.onAuthStateChanged(function (user) {
+    var esAdmin = user && typeof ADMIN_UIDS !== 'undefined' && ADMIN_UIDS.indexOf(user.uid) !== -1;
+    if (esAdmin) {
+      guard.hidden = true;
+      dashboard.hidden = false;
+      cargarPedidosAdmin();
+      cargarResenasPendientes();
+    } else {
+      guard.hidden = false;
+      dashboard.hidden = true;
+      guard.innerHTML = user
+        ? '<p class="admin-denied">Esta cuenta no tiene permisos de administración. <a href="index.html">Volver a la tienda</a>.</p>'
+        : '<p class="admin-denied">Inicia sesión con una cuenta de administrador para continuar. <a href="cuenta.html">Iniciar sesión</a>.</p>';
+    }
+  });
+})();
+````
+
+## File: js/main.js
+````javascript
 // ==========================================================================
 // Año del copyright del pie de página — se actualiza solo cada año en vez
 // de tener "© 2026" escrito a mano en las 29 páginas del sitio.
@@ -7173,9 +6526,10 @@ var VERIFICACION_OBLIGATORIA_DESDE = Date.parse('2026-09-21T00:00:00Z');
   }).join('');
   sec.hidden = false;
 })();
-</file>
+````
 
-<file path="firebase.json">
+## File: firebase.json
+````json
 {
   "hosting": {
     "public": ".",
@@ -7297,9 +6651,239 @@ var VERIFICACION_OBLIGATORIA_DESDE = Date.parse('2026-09-21T00:00:00Z');
     }
   ]
 }
-</file>
+````
 
-<file path="js/account.js">
+## File: confeccion-manual.html
+````html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script src="js/cookies.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="index, follow">
+<title>Confección manual — Librería tu mayor tesoro</title>
+<meta name="description" content="Trabajo hecho a mano: Biblias con recubrimientos y acabados artesanales. Sección en preparación, muy pronto disponible en Librería tu mayor tesoro.">
+<link rel="canonical" href="https://libreriatumayortesoro.com/confeccion-manual.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Librería tu mayor tesoro">
+<meta property="og:title" content="Confección manual — Librería tu mayor tesoro">
+<meta property="og:description" content="Trabajo hecho a mano: Biblias con recubrimientos y acabados artesanales. Sección en preparación, muy pronto disponible.">
+<meta property="og:url" content="https://libreriatumayortesoro.com/confeccion-manual.html">
+<meta property="og:image" content="https://libreriatumayortesoro.com/img/confeccion-manual-portada.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Confección manual — Librería tu mayor tesoro">
+<meta name="twitter:description" content="Trabajo hecho a mano: Biblias con recubrimientos y acabados artesanales. Sección en preparación, muy pronto disponible.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#20304f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+<header class="site-header">
+  <div class="container header-top">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">L</span>
+      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+    </a>
+
+    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
+      <button type="submit">Buscar</button>
+    </form>
+
+    <div class="header-actions">
+      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
+    <div class="container">
+      <ul class="category-list">
+        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
+        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
+        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
+        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
+        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
+        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
+        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
+        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
+        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+  <div class="container custom-page">
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      <a href="index.html">Inicio</a>
+      <span>/</span>
+      <span class="breadcrumb-current">Confección manual</span>
+    </nav>
+
+    <section class="handmade-hero">
+      <div class="handmade-media">
+        <img src="img/confeccion-manual-portada.webp" onerror="this.onerror=null;this.src='img/confeccion-manual-portada.jpg'" alt="Manos envolviendo y confeccionando un libro a mano, con hilo, papel kraft y ramitas de eucalipto sobre una mesa de madera" loading="eager" decoding="async">
+      </div>
+      <div class="handmade-content">
+        <span class="eyebrow">Trabajo hecho a mano</span>
+        <h1 class="section-title">Confección manual</h1>
+        <p class="custom-intro">Estamos preparando una sección dedicada por completo al trabajo artesanal: piezas confeccionadas y acabadas a mano, con el mismo cuidado con el que envolvemos cada pedido.</p>
+        <div class="coming-soon-notice">
+          <strong>Próximamente.</strong> Esta sección todavía no está activa: de momento puedes entrar y hacerte una idea de lo que viene, pero aún no se puede comprar nada aquí.
+        </div>
+        <a class="btn btn--primary" href="categoria.html">Ver el catálogo actual</a>
+      </div>
+    </section>
+
+    <section class="handmade-preview">
+      <h2 class="account-subheading">Lo que ya sabemos que llegará</h2>
+      <ul class="custom-steps handmade-steps">
+        <li>
+          <span class="custom-step-num">✓</span>
+          <h2>Biblias con recubrimientos hechos a mano</h2>
+          <p>Confeccionadas y acabadas a mano, cuidando cada detalle de la tapa.</p>
+        </li>
+        <li>
+          <span class="custom-step-num">–</span>
+          <h2>Más piezas artesanales en camino</h2>
+          <p>Todavía estamos definiendo el resto de artículos de esta sección.</p>
+        </li>
+        <li>
+          <span class="custom-step-num">i</span>
+          <h2>Sin fecha cerrada todavía</h2>
+          <p>Iremos publicando aquí cada pieza en cuanto esté lista, con su precio y su ficha completa.</p>
+        </li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">L</span>
+        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+      </a>
+      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Institucional</h5>
+      <ul class="footer-links">
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda para elegir</h5>
+      <ul class="footer-links">
+        <li><a href="asistente.html">Asistente de recomendación</a></li>
+        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
+        <li><a href="recursos.html">Recursos de lectura</a></li>
+        <li><a href="glosario.html">Glosario de términos</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda</h5>
+      <ul class="footer-links">
+        <li><a href="envios.html">Envíos y entregas</a></li>
+        <li><a href="devoluciones.html">Devoluciones</a></li>
+        <li><a href="terminos.html">Términos y condiciones</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Contacto</h5>
+      <ul class="footer-contact">
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Alicante, España
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
+        </li>
+        <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-contact-banner">
+    <div class="container">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
+    <div class="legal-links">
+      <a href="privacidad.html">Privacidad </a>
+      <a href="terminos.html">Términos</a>
+      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+````
+
+## File: js/account.js
+````javascript
 // ==========================================================================
 // Panel de cuenta: pestañas login/registro, Google, y el panel completo
 // tras iniciar sesión (resumen, pedidos, datos, direcciones, seguridad).
@@ -7724,12 +7308,13 @@ var VERIFICACION_OBLIGATORIA_DESDE = Date.parse('2026-09-21T00:00:00Z');
     return window.fbDb.collection('usuarios').doc(uid).set({ direcciones: direcciones }, { merge: true });
   }
 
+  var NOMBRES_PAIS = { ES: 'España', PT: 'Portugal', FR: 'Francia', DE: 'Alemania', NL: 'Países Bajos', GB: 'Reino Unido' };
   function addressCardHTML(dir) {
     return (
       '<article class="address-card' + (dir.predeterminada ? ' is-default' : '') + '" data-id="' + escapeHTML(dir.id) + '">' +
         (dir.predeterminada ? '<span class="address-badge">Predeterminada</span>' : '') +
         '<p class="address-label">' + escapeHTML(dir.etiqueta) + '</p>' +
-        '<p class="address-details">' + escapeHTML(dir.nombre) + '<br>' + escapeHTML(dir.direccion) + '<br>' + escapeHTML(dir.cp) + ' ' + escapeHTML(dir.ciudad) + '<br>' + escapeHTML(dir.telefono) + '</p>' +
+        '<p class="address-details">' + escapeHTML(dir.nombre) + '<br>' + escapeHTML(dir.direccion) + '<br>' + escapeHTML(dir.cp) + ' ' + escapeHTML(dir.ciudad) + '<br>' + escapeHTML(NOMBRES_PAIS[dir.pais] || NOMBRES_PAIS.ES) + '<br>' + escapeHTML(dir.telefono) + '</p>' +
         '<div class="address-actions">' +
           '<button type="button" data-edit-address>Editar</button>' +
           (dir.predeterminada ? '' : '<button type="button" data-set-default>Predeterminada</button>') +
@@ -7792,6 +7377,7 @@ var VERIFICACION_OBLIGATORIA_DESDE = Date.parse('2026-09-21T00:00:00Z');
       addressForm.elements.direccion.value = direccion.direccion || '';
       addressForm.elements.ciudad.value = direccion.ciudad || '';
       addressForm.elements.cp.value = direccion.cp || '';
+      if (addressForm.elements.pais) addressForm.elements.pais.value = NOMBRES_PAIS[direccion.pais] ? direccion.pais : 'ES';
       addressForm.elements.telefono.value = direccion.telefono || '';
       addressForm.elements.predeterminada.checked = !!direccion.predeterminada;
     }
@@ -7822,6 +7408,7 @@ var VERIFICACION_OBLIGATORIA_DESDE = Date.parse('2026-09-21T00:00:00Z');
         direccion: fd.get('direccion'),
         ciudad: fd.get('ciudad'),
         cp: fd.get('cp'),
+        pais: NOMBRES_PAIS[fd.get('pais')] ? fd.get('pais') : 'ES',
         telefono: fd.get('telefono'),
         predeterminada: esPredeterminada
       };
@@ -8087,237 +7674,10 @@ var VERIFICACION_OBLIGATORIA_DESDE = Date.parse('2026-09-21T00:00:00Z');
     }
   };
 })();
-</file>
+````
 
-<file path="confeccion-manual.html">
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<script src="js/cookies.js" defer></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="robots" content="index, follow">
-<title>Confección manual — Librería tu mayor tesoro</title>
-<meta name="description" content="Trabajo hecho a mano: Biblias con recubrimientos y acabados artesanales. Sección en preparación, muy pronto disponible en Librería tu mayor tesoro.">
-<link rel="canonical" href="https://libreriatumayortesoro.com/confeccion-manual.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Librería tu mayor tesoro">
-<meta property="og:title" content="Confección manual — Librería tu mayor tesoro">
-<meta property="og:description" content="Trabajo hecho a mano: Biblias con recubrimientos y acabados artesanales. Sección en preparación, muy pronto disponible.">
-<meta property="og:url" content="https://libreriatumayortesoro.com/confeccion-manual.html">
-<meta property="og:image" content="https://libreriatumayortesoro.com/img/confeccion-manual-portada.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Confección manual — Librería tu mayor tesoro">
-<meta name="twitter:description" content="Trabajo hecho a mano: Biblias con recubrimientos y acabados artesanales. Sección en preparación, muy pronto disponible.">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#20304f">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-
-<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
-<header class="site-header">
-  <div class="container header-top">
-    <a href="index.html" class="brand">
-      <span class="brand-mark">L</span>
-      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-    </a>
-
-    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
-      <button type="submit">Buscar</button>
-    </form>
-
-    <div class="header-actions">
-      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </a>
-      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <span class="cart-count" data-cart-count hidden>0</span>
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
-
-  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
-    <div class="container">
-      <ul class="category-list">
-        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
-        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
-        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
-        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
-        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
-        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
-        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
-        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
-        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
-
-<main id="main-content">
-  <div class="container custom-page">
-    <nav class="breadcrumb" aria-label="Ruta de navegación">
-      <a href="index.html">Inicio</a>
-      <span>/</span>
-      <span class="breadcrumb-current">Confección manual</span>
-    </nav>
-
-    <section class="handmade-hero">
-      <div class="handmade-media">
-        <img src="img/confeccion-manual-portada.webp" onerror="this.onerror=null;this.src='img/confeccion-manual-portada.jpg'" alt="Manos envolviendo y confeccionando un libro a mano, con hilo, papel kraft y ramitas de eucalipto sobre una mesa de madera" loading="eager" decoding="async">
-      </div>
-      <div class="handmade-content">
-        <span class="eyebrow">Trabajo hecho a mano</span>
-        <h1 class="section-title">Confección manual</h1>
-        <p class="custom-intro">Estamos preparando una sección dedicada por completo al trabajo artesanal: piezas confeccionadas y acabadas a mano, con el mismo cuidado con el que envolvemos cada pedido.</p>
-        <div class="coming-soon-notice">
-          <strong>Próximamente.</strong> Esta sección todavía no está activa: de momento puedes entrar y hacerte una idea de lo que viene, pero aún no se puede comprar nada aquí.
-        </div>
-        <a class="btn btn--primary" href="categoria.html">Ver el catálogo actual</a>
-      </div>
-    </section>
-
-    <section class="handmade-preview">
-      <h2 class="account-subheading">Lo que ya sabemos que llegará</h2>
-      <ul class="custom-steps handmade-steps">
-        <li>
-          <span class="custom-step-num">✓</span>
-          <h2>Biblias con recubrimientos hechos a mano</h2>
-          <p>Confeccionadas y acabadas a mano, cuidando cada detalle de la tapa.</p>
-        </li>
-        <li>
-          <span class="custom-step-num">–</span>
-          <h2>Más piezas artesanales en camino</h2>
-          <p>Todavía estamos definiendo el resto de artículos de esta sección.</p>
-        </li>
-        <li>
-          <span class="custom-step-num">i</span>
-          <h2>Sin fecha cerrada todavía</h2>
-          <p>Iremos publicando aquí cada pieza en cuanto esté lista, con su precio y su ficha completa.</p>
-        </li>
-      </ul>
-    </section>
-  </div>
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-top">
-    <div class="footer-brand">
-      <a href="index.html" class="brand">
-        <span class="brand-mark">L</span>
-        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-      </a>
-      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Institucional</h5>
-      <ul class="footer-links">
-        <li><a href="quienes-somos.html">Quiénes somos</a></li>
-        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
-        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda para elegir</h5>
-      <ul class="footer-links">
-        <li><a href="asistente.html">Asistente de recomendación</a></li>
-        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
-        <li><a href="recursos.html">Recursos de lectura</a></li>
-        <li><a href="glosario.html">Glosario de términos</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda</h5>
-      <ul class="footer-links">
-        <li><a href="envios.html">Envíos y entregas</a></li>
-        <li><a href="devoluciones.html">Devoluciones</a></li>
-        <li><a href="terminos.html">Términos y condiciones</a></li>
-        <li><a href="privacidad.html">Política de privacidad</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Contacto</h5>
-      <ul class="footer-contact">
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Alicante, España
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
-          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
-        </li>
-        <li>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-            </svg>
-            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-contact-banner">
-    <div class="container">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
-    <div class="legal-links">
-      <a href="privacidad.html">Privacidad </a>
-      <a href="terminos.html">Términos</a>
-      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
-    </div>
-  </div>
-</footer>
-
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
-<script src="js/config.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/cart.js"></script>
-<script src="js/main.js"></script>
-</body>
-</html>
-</file>
-
-<file path="404.html">
+## File: 404.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8503,1336 +7863,10 @@ var VERIFICACION_OBLIGATORIA_DESDE = Date.parse('2026-09-21T00:00:00Z');
 <script src="js/gift-options.js"></script>
 <script src="js/main.js"></script>
 </body>
-</file>
+````
 
-<file path="js/cart.js">
-// ==========================================================================
-// Carrito de compra — estado compartido (localStorage) entre
-// Home, Catálogo, Ficha de producto y Carrito.
-// ==========================================================================
-window.Cart = (function () {
-  var STORAGE_KEY = 'fundamento_cart';
-  var PROMO_STORAGE_KEY = 'fundamento_promo';
-
-  function getItems() {
-    try {
-      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-    } catch (e) {
-      return [];
-    }
-  }
-
-  function saveItems(items) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-    updateBadge();
-    document.dispatchEvent(new CustomEvent('cart:change'));
-  }
-
-  // ---- Código promocional aplicado ----------------------------------------
-  // Solo guarda el código + su tipo/valor, tal como los devolvió
-  // "validarPromo" — nunca un importe de descuento ya calculado, para que
-  // el resumen se recalcule siempre a partir del subtotal actual. El
-  // descuento DE VERDAD (el que se cobra) siempre lo decide el servidor
-  // en "crearPedido", esto es solo para mostrarlo en el carrito.
-  function getPromo() {
-    try {
-      return JSON.parse(sessionStorage.getItem(PROMO_STORAGE_KEY)) || null;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function setPromo(promo) {
-    sessionStorage.setItem(PROMO_STORAGE_KEY, JSON.stringify(promo));
-    document.dispatchEvent(new CustomEvent('cart:change'));
-  }
-
-  function clearPromo() {
-    sessionStorage.removeItem(PROMO_STORAGE_KEY);
-    document.dispatchEvent(new CustomEvent('cart:change'));
-  }
-
-  // Dos líneas del mismo libro se consideran la MISMA solo si coinciden el
-  // id, el formato (que ya incluye la portada elegida) y los extras de
-  // regalo. Así se puede pedir un ejemplar envuelto y otro sin envolver.
-  function lineKeyOf(item) {
-    return item.giftKey || (window.giftKey ? window.giftKey(item.regalo) : '');
-  }
-  function sameLine(i, id, format, giftKey) {
-    return i.id === id && i.format === format && lineKeyOf(i) === (giftKey || '');
-  }
-
-  // Enlace a la ficha del libro de una línea del carrito. Si la línea tiene una
-  // portada elegida, se pasa en la URL para que la ficha se abra con ESA portada
-  // seleccionada (ver "portada" en js/product.js).
-  function productUrl(item) {
-    if (!item || !item.id || String(item.id).indexOf('extra-') === 0) return '';
-    return 'producto.html?id=' + encodeURIComponent(item.id) +
-      (item.coverStyle ? '&portada=' + encodeURIComponent(item.coverStyle) : '');
-  }
-  window.cartProductUrl = productUrl;
-
-  function addItem(item) {
-    var items = getItems();
-    item.giftKey = lineKeyOf(item);
-    var existing = items.filter(function (i) { return sameLine(i, item.id, item.format, item.giftKey); })[0];
-    if (existing) {
-      existing.qty += item.qty || 1;
-    } else {
-      item.qty = item.qty || 1;
-      items.push(item);
-    }
-    saveItems(items);
-  }
-
-  function removeItem(id, format, giftKey) {
-    saveItems(getItems().filter(function (i) { return !sameLine(i, id, format, giftKey); }));
-  }
-
-  function setQty(id, format, qty, giftKey) {
-    var items = getItems();
-    var item = items.filter(function (i) { return sameLine(i, id, format, giftKey); })[0];
-    if (item) {
-      item.qty = Math.max(1, qty);
-      saveItems(items);
-    }
-  }
-
-  function totalCount() {
-    return getItems().reduce(function (sum, i) { return sum + i.qty; }, 0);
-  }
-
-  function totalPrice() {
-    return getItems().reduce(function (sum, i) { return sum + i.qty * i.price; }, 0);
-  }
-
-  // Importe de los extras de regalo (envoltorio, exlibris, funda…). Se
-  // calcula siempre desde js/gift-options.js, nunca se guarda un total.
-  function extrasTotal() {
-    return window.giftExtrasTotal ? Math.round(window.giftExtrasTotal(getItems()) * 100) / 100 : 0;
-  }
-
-  function clearItems() {
-    saveItems([]);
-  }
-
-  function updateBadge() {
-    var badge = document.querySelector('[data-cart-count]');
-    if (!badge) return;
-    var count = totalCount();
-    badge.textContent = count;
-    badge.hidden = count === 0;
-  }
-
-  return {
-    getItems: getItems,
-    addItem: addItem,
-    removeItem: removeItem,
-    setQty: setQty,
-    clear: clearItems,
-    totalCount: totalCount,
-    totalPrice: totalPrice,
-    extrasTotal: extrasTotal,
-    updateBadge: updateBadge,
-    getPromo: getPromo,
-    setPromo: setPromo,
-    clearPromo: clearPromo
-  };
-})();
-
-// ==========================================================================
-// Sincronización del "carrito abandonado" — solo con sesión iniciada
-// --------------------------------------------------------------------------
-// Cada vez que cambia el carrito (con sesión iniciada), guarda una copia
-// mínima en Firestore (colección "carritosAbandonados/{uid}"): solo el id,
-// el título y la cantidad de cada libro — NUNCA el precio, que siempre lo
-// vuelve a calcular el servidor contra el catálogo real antes de mandar
-// cualquier correo. Sin sesión no se guarda nada (no tendríamos a qué
-// email escribir). Al vaciar el carrito, se borra el documento.
-//
-// La Cloud Function "recordatorioCarritoAbandonado" (functions/index.js)
-// revisa esta colección una vez por hora y, si el carrito lleva varias
-// horas sin cambios, manda un correo recordándolo — no hace falta tocar
-// nada más aquí para que funcione.
-// ==========================================================================
-(function () {
-  var SYNC_DEBOUNCE_MS = 4000;
-  var syncTimer = null;
-  var usuarioActual = null;
-
-  function sincronizarCarritoAbandonado() {
-    if (!window.fbDb || !usuarioActual || typeof firebase === 'undefined') return;
-    var ref = window.fbDb.collection('carritosAbandonados').doc(usuarioActual.uid);
-    var items = Cart.getItems();
-
-    if (items.length === 0) {
-      ref.delete().catch(function () {});
-      return;
-    }
-
-    var itemsParaGuardar = items.slice(0, 30).map(function (item) {
-      return {
-        id: item.id || '',
-        titulo: (item.title || '').slice(0, 200),
-        cantidad: Math.max(1, Math.min(20, item.qty || 1))
-      };
-    });
-
-    ref.set({
-      uid: usuarioActual.uid,
-      email: usuarioActual.email || '',
-      nombre: usuarioActual.displayName || '',
-      items: itemsParaGuardar,
-      actualizadoEn: firebase.firestore.FieldValue.serverTimestamp(),
-      recordatorioEnviado: false
-    }).catch(function (err) {
-      console.error('No se pudo guardar el carrito para el recordatorio', err);
-    });
-  }
-
-  function programarSync() {
-    if (!usuarioActual) return;
-    clearTimeout(syncTimer);
-    syncTimer = setTimeout(sincronizarCarritoAbandonado, SYNC_DEBOUNCE_MS);
-  }
-
-  document.addEventListener('cart:change', programarSync);
-
-  if (window.fbAuth) {
-    window.fbAuth.onAuthStateChanged(function (user) {
-      usuarioActual = user || null;
-      // Al iniciar sesión con libros ya en el carrito (añadidos como
-      // invitado), los sincroniza también; sin sesión, no hay nada que
-      // sincronizar (y "sincronizarCarritoAbandonado" no hace nada, por
-      // el "if (!usuarioActual)" de arriba).
-      if (usuarioActual) programarSync();
-    });
-  }
-})();
-
-// ---- Utilidades -----------------------------------------------------------
-// Escapa HTML antes de insertar cualquier texto con innerHTML. Se usa en
-// todo el sitio (carrito, opiniones, panel de admin) para que un nombre,
-// dirección o comentario con < > " ' nunca se interprete como código.
-// Pulsar en cualquier parte de una línea del carrito (salvo en los botones, el
-// selector de cantidad o un enlace) abre la ficha del libro.
-function makeRowClickable(row) {
-  var href = row.getAttribute('data-href');
-  if (!href) return;
-  row.classList.add('is-clickable');
-  row.addEventListener('click', function (e) {
-    if (e.target.closest('a, button, input, .qty-stepper')) return;
-    window.location.href = href;
-  });
-}
-
-function escapeHTML(str) {
-  return String(str == null ? '' : str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
-}
-
-function fmtEUR(value) {
-  return value.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '\u00A0€';
-}
-
-function slugify(text) {
-  return text.toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '');
-}
-
-function flashAdded(btn) {
-  var original = btn.textContent;
-  btn.textContent = 'Añadido ✓';
-  btn.classList.add('is-added');
-  setTimeout(function () {
-    btn.textContent = original;
-    btn.classList.remove('is-added');
-  }, 1300);
-}
-
-// Función auxiliar para asociar la imagen según el título del libro.
-// Primero mira en el catálogo centralizado (js/books-data.js); si un libro
-// no está ahí (o esa página no lo carga), usa este mapa de respaldo.
-function getBookImage(title) {
-  if (window.BOOKS) {
-    var match = window.BOOKS.filter(function (b) { return b.title === title; })[0];
-    if (match) return match.cover;
-  }
-  const imageMap = {
-    "El Conflicto de los Siglos": "img/el-conflicto-de-los-siglos.jpg",
-    "El Deseado de Todas las Gentes": "img/el-deseado-de-todas-las-gentes.jpg",
-    "Historia de los Patriarcas y Profetas": "img/historia-de-los-patriarcas-y-profetas.jpg",
-    "Profetas y Reyes": "img/profetas-y-reyes.jpg"
-  };
-  
-  return imageMap[title] || DEFAULT_BOOK_COVER;
-}
-
-// Portada genérica (SVG en línea) para libros sin foto propia — así nunca
-// se rompe la imagen en el carrito aunque el título no esté en imageMap.
-var DEFAULT_BOOK_COVER = 'data:image/svg+xml;utf8,' + encodeURIComponent(
-  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160">' +
-  '<rect width="120" height="160" fill="#1f2b45"/>' +
-  '<rect x="10" y="10" width="100" height="140" fill="none" stroke="#c9a15a" stroke-width="2"/>' +
-  '<line x1="24" y1="60" x2="96" y2="60" stroke="#c9a15a" stroke-width="1.5"/>' +
-  '<line x1="24" y1="72" x2="96" y2="72" stroke="#c9a15a" stroke-width="1.5"/>' +
-  '</svg>'
-);
-document.addEventListener('DOMContentLoaded', function () {
-  Cart.updateBadge();
-  setupCartDrawer();
-
-  // ---- Botones "Añadir" en tarjetas de libro (Home / Catálogo / relacionados) ----
-  // Delegado en el documento (no un listener por tarjeta): así también
-  // funcionan las tarjetas que se pintan después de cargar la página, como la
-  // lista de deseos de Mi cuenta, que antes no podía añadir al carrito.
-  document.addEventListener('click', function (e) {
-    var btn = e.target.closest('.book-card .book-footer .btn');
-    if (!btn) return;
-    var card = btn.closest('.book-card');
-    (function () {
-      e.preventDefault();
-      var titleEl = card.querySelector('.book-title');
-      var authorEl = card.querySelector('.book-author');
-      var priceEl = card.querySelector('.book-price');
-      var title = titleEl ? titleEl.textContent.trim() : 'Libro';
-      var author = authorEl ? authorEl.textContent.trim() : '';
-      var priceText = priceEl ? priceEl.childNodes[0].textContent : '0';
-      var price = parseFloat(priceText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
-      var id = card.dataset.productId || slugify(title);
-
-      // Si el libro está en el catálogo, se usan su formato real y la
-      // portada que la tarjeta está mostrando en ese momento (las tarjetas
-      // con dos diseños van alternando: ver js/cover-carousel.js). Así el
-      // cliente mete en el carrito exactamente la versión que ve.
-      var libro = window.BooksCatalog ? window.BooksCatalog.getById(id) : null;
-      var coverFile = card.dataset.coverFile || (libro ? libro.cover : getBookImage(title));
-      var coverStyle = card.dataset.coverStyle || '';
-      var coverLabel = card.dataset.coverLabel || '';
-      var varias = libro && window.hasMultipleCovers ? window.hasMultipleCovers(libro) : false;
-      var formato = libro ? libro.format : 'Estándar';
-      if (varias && coverLabel) formato += ' · ' + coverLabel;
-
-      Cart.addItem({
-        id: id,
-        title: title,
-        author: author,
-        price: price,
-        format: formato,
-        coverStyle: coverStyle,
-        cover: coverFile,
-        qty: 1
-      });
-      flashAdded(btn);
-      openCartDrawer();
-    })();
-  });
-
-  // ---- Botón "Añadir al carrito" dedicado (Ficha de producto) ----
-  var mainAddBtn = document.querySelector('[data-add-to-cart]');
-  if (mainAddBtn) {
-    var block = mainAddBtn.closest('[data-product-block]');
-    mainAddBtn.addEventListener('click', function (e) {
-      e.preventDefault();
-      var qtyInput = block ? block.querySelector('[data-qty-input]') : null;
-      var qty = qtyInput ? (parseInt(qtyInput.value, 10) || 1) : 1;
-      var activePill = block ? block.querySelector('.option-pill.is-active') : null;
-
-      var regalo = null;
-      try {
-        regalo = mainAddBtn.dataset.gift ? JSON.parse(mainAddBtn.dataset.gift) : null;
-      } catch (err) { regalo = null; }
-      if (regalo && !Object.keys(regalo).length) regalo = null;
-
-      // Libros con configurador de impresión (colección Elena G. White):
-      // la combinación elegida (tapa, tamaño, acabado, papel) viaja con la
-      // línea del carrito para que, al pedir de verdad, el servidor pueda
-      // volver a calcular el precio exacto contra su propia tabla — nunca
-      // se cobra el precio que calcula el navegador tal cual.
-      var imp = null;
-      try {
-        imp = mainAddBtn.dataset.imp ? JSON.parse(mainAddBtn.dataset.imp) : null;
-      } catch (err) { imp = null; }
-
-      Cart.addItem({
-        id: mainAddBtn.dataset.id,
-        title: mainAddBtn.dataset.title,
-        author: mainAddBtn.dataset.author,
-        regalo: regalo,
-        imp: imp,
-        price: activePill ? parseFloat(activePill.dataset.price) : parseFloat(mainAddBtn.dataset.price),
-        format: activePill ? activePill.dataset.format : (mainAddBtn.dataset.format || 'Estándar'),
-        coverStyle: mainAddBtn.dataset.coverStyle || '',
-        cover: mainAddBtn.dataset.cover || getBookImage(mainAddBtn.dataset.title),
-        qty: qty
-      });
-      flashAdded(mainAddBtn);
-      openCartDrawer();
-    });
-  }
-
-  // ---- Página de carrito ----
-  var cartItemsEl = document.getElementById('cartItems');
-  if (cartItemsEl) {
-    renderCartPage();
-    document.addEventListener('cart:change', renderCartPage);
-  }
-
-  function renderCartPage() {
-    var items = Cart.getItems();
-    var layout = document.getElementById('cartLayout');
-    var emptyState = document.getElementById('cartEmpty');
-
-    if (items.length === 0) {
-      if (layout) layout.hidden = true;
-      if (emptyState) emptyState.hidden = false;
-      return;
-    }
-    if (layout) layout.hidden = false;
-    if (emptyState) emptyState.hidden = true;
-
-    cartItemsEl.innerHTML = items.map(function (item) {
-      // Usamos item.cover si ya viene guardado, o comprobamos con getBookImage si falta
-      var imagePath = item.cover && item.cover.startsWith('img/') ? item.cover : getBookImage(item.title);
-
-      var extras = window.giftExtrasFor ? window.giftExtrasFor(item) : [];
-      var extrasHTML = extras.length
-        ? '<ul class="cart-item-gifts">' + extras.map(function (e) {
-            return '<li><span>' + escapeHTML(e.label) + (e.texto ? ': «' + escapeHTML(e.texto) + '»' : '') + '</span>' +
-              '<span>' + (e.total > 0 ? fmtEUR(e.total) : 'Incluido') + '</span></li>';
-          }).join('') + '</ul>'
-        : '';
-
-      return (
-        '<article class="cart-item" data-id="' + escapeHTML(item.id) + '" data-format="' + escapeHTML(item.format) +
-        '" data-gift-key="' + escapeHTML(item.giftKey || '') + '"' +
-        (window.cartProductUrl(item) ? ' data-href="' + escapeHTML(window.cartProductUrl(item)) + '"' : '') + '>' +
-          (window.cartProductUrl(item)
-            ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '" class="cart-item-img-link" aria-label="Ver «' + escapeHTML(item.title) + '»">' +
-                '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '" class="cart-item-img"></a>'
-            : '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '" class="cart-item-img">') +
-          '<div class="cart-item-info">' +
-            '<h3>' + (window.cartProductUrl(item)
-              ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '">' + escapeHTML(item.title) + '</a>'
-              : escapeHTML(item.title)) + '</h3>' +
-            '<p class="cart-item-format">' + escapeHTML(item.author) + (item.format && item.format !== 'Estándar' ? ' · ' + escapeHTML(item.format) : '') + '</p>' +
-            extrasHTML +
-            '<div class="cart-item-links">' +
-              (window.cartProductUrl(item)
-                ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '" class="cart-item-details">Ver detalles del libro</a>'
-                : '') +
-              '<button class="cart-item-remove" type="button" data-remove>Eliminar</button>' +
-            '</div>' +
-          '</div>' +
-          '<div class="qty-stepper">' +
-            '<button type="button" class="qty-btn" data-decrease aria-label="Restar cantidad">−</button>' +
-            '<input type="number" class="qty-input" data-qty value="' + item.qty + '" min="1" max="20" aria-label="Cantidad">' +
-            '<button type="button" class="qty-btn" data-increase aria-label="Sumar cantidad">+</button>' +
-          '</div>' +
-          '<div class="cart-item-price">' + fmtEUR(item.price * item.qty) + '</div>' +
-        '</article>'
-      );
-    }).join('');
-
-    cartItemsEl.querySelectorAll('.cart-item').forEach(function (row) {
-      makeRowClickable(row);
-      var id = row.dataset.id;
-      var format = row.dataset.format;
-      var giftKey = row.dataset.giftKey || '';
-      var qtyInput = row.querySelector('[data-qty]');
-
-      row.querySelector('[data-remove]').addEventListener('click', function () {
-        Cart.removeItem(id, format, giftKey);
-      });
-      row.querySelector('[data-decrease]').addEventListener('click', function () {
-        Cart.setQty(id, format, parseInt(qtyInput.value, 10) - 1, giftKey);
-      });
-      row.querySelector('[data-increase]').addEventListener('click', function () {
-        Cart.setQty(id, format, parseInt(qtyInput.value, 10) + 1, giftKey);
-      });
-      qtyInput.addEventListener('change', function () {
-        Cart.setQty(id, format, parseInt(qtyInput.value, 10) || 1, giftKey);
-      });
-    });
-
-    updateSummary();
-  }
-
-  function updateSummary() {
-    var subtotal = Cart.totalPrice();
-    // Envío gratis solo si TODOS los libros del carrito lo tienen marcado
-    // en el catálogo (book.freeShipping); si hay alguno sin esa marca, o si
-    // el catálogo aún no ha cargado, se cobran los 6€ de siempre.
-    var items = Cart.getItems();
-    var todosEnvioGratis = items.length > 0 && window.BooksCatalog && items.every(function (item) {
-      var libro = window.BooksCatalog.getById(item.id);
-      return !!(libro && libro.freeShipping);
-    });
-    // Envío por nº total de libros (cada colección cuenta como los libros que lleva: Tesoros de Vida 5, Las Bellas Historias 10).
-    // Debe coincidir con functions/index.js (TRAMOS_ENVIO).
-    // Libros que contiene cada colección (cuentan como tantos libros en el envío).
-    var LIBROS_POR_COLECCION = { 'coleccion-tesoros-de-vida': 5, 'coleccion-las-bellas-historias-de-la-biblia': 10 };
-    var numLibros = items.reduce(function (n, i) { return n + i.qty * (LIBROS_POR_COLECCION[i.id] || 1); }, 0);
-    var costeEnvioTramo = numLibros <= 5 ? 6 : numLibros <= 10 ? 10 : numLibros <= 16 ? 15 : 16;
-    var SHIPPING = todosEnvioGratis ? 0 : costeEnvioTramo;
-
-    // Descuento por cantidad del MISMO libro y edición (mismo criterio que el servidor).
-    var grupos = {};
-    items.forEach(function (i) {
-      var libro = window.BooksCatalog ? window.BooksCatalog.getById(i.id) : null;
-      var elegible = !LIBROS_POR_COLECCION[i.id] && String(i.id).indexOf('extra-') !== 0 && !(libro && libro.freeShipping);
-      var k = i.id + '|' + (i.format || '');
-      if (!grupos[k]) grupos[k] = { q: 0, elegible: elegible };
-      grupos[k].q += i.qty;
-    });
-    var descCantidad = 0;
-    Object.keys(grupos).forEach(function (k) {
-      var g = grupos[k];
-      if (g.elegible) descCantidad += (g.q >= 10 ? 0.5 : g.q >= 3 ? 0.25 : 0) * g.q;
-    });
-    descCantidad = Math.round(descCantidad * 100) / 100;
-    var hintEl = document.getElementById('summaryShipHint');
-    if (hintEl) {
-      hintEl.textContent = numLibros > 21
-        ? 'Un pedido admite como máximo 21 libros. Divide el pedido o escríbenos.'
-        : 'Envío según nº de libros: hasta 5 → 6 €, 6-10 → 10 €, 11-16 → 15 €, 17-21 → 16 €.';
-    }
-
-    // El descuento se recalcula aquí a partir del subtotal actual (nunca se
-    // guarda un importe fijo), así que si cambias cantidades en el carrito
-    // se actualiza solo. Es solo una vista previa: el importe que de verdad
-    // se cobra lo vuelve a calcular el servidor al crear el pedido.
-    var promo = Cart.getPromo();
-    var descuento = 0;
-    if (promo && items.length) {
-      var bruto = promo.tipo === 'porcentaje' ? (subtotal - descCantidad) * (promo.valor / 100) : promo.valor;
-      descuento = Math.max(0, Math.min(subtotal - descCantidad, Math.round(bruto * 100) / 100));
-    }
-
-    // Extras de regalo: se muestran en su propia fila para que el cliente
-    // vea con claridad qué está pagando por el libro y qué por el detalle.
-    var extras = Cart.extrasTotal();
-    var extrasRow = document.getElementById('summaryExtrasRow');
-    var extrasEl = document.getElementById('summaryExtras');
-    if (extrasRow) extrasRow.hidden = extras <= 0;
-    if (extrasEl) extrasEl.textContent = fmtEUR(extras);
-
-    var subtotalEl = document.getElementById('summarySubtotal');
-    var shippingEl = document.getElementById('summaryShipping');
-    var totalEl = document.getElementById('summaryTotal');
-    var discountRow = document.getElementById('summaryDiscountRow');
-    var discountEl = document.getElementById('summaryDiscount');
-
-    if (subtotalEl) subtotalEl.textContent = fmtEUR(subtotal);
-    if (shippingEl) shippingEl.textContent = SHIPPING === 0 ? 'Gratis' : fmtEUR(SHIPPING);
-    var qtyRow = document.getElementById('summaryQtyDiscountRow');
-    var qtyEl = document.getElementById('summaryQtyDiscount');
-    if (qtyRow) qtyRow.hidden = descCantidad <= 0;
-    if (qtyEl) qtyEl.textContent = '−' + fmtEUR(descCantidad);
-    if (discountRow) discountRow.hidden = descuento <= 0;
-    if (discountEl) discountEl.textContent = '−' + fmtEUR(descuento);
-    var total = Math.max(0, subtotal + extras + SHIPPING - descCantidad - descuento);
-    if (totalEl) totalEl.textContent = fmtEUR(total);
-  }
-
-  // ---- Formulario de código promocional -----------------------------------
-  var promoForm = document.getElementById('promoForm');
-  if (promoForm) {
-    var promoInput = promoForm.querySelector('input');
-    var promoBtn = promoForm.querySelector('button');
-    var promoMsg = document.getElementById('promoMessage');
-
-    function pintarEstadoPromo() {
-      var promo = Cart.getPromo();
-      if (promo) {
-        promoInput.value = promo.codigo;
-        promoInput.disabled = true;
-        promoBtn.textContent = 'Quitar';
-      } else {
-        promoInput.disabled = false;
-        promoBtn.textContent = 'Aplicar';
-      }
-    }
-    pintarEstadoPromo();
-    document.addEventListener('cart:change', pintarEstadoPromo);
-
-    promoForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      // Si ya hay un código aplicado, este mismo botón sirve para quitarlo.
-      if (Cart.getPromo()) {
-        Cart.clearPromo();
-        promoInput.value = '';
-        if (promoMsg) promoMsg.hidden = true;
-        return;
-      }
-
-      var codigo = promoInput.value.trim();
-      if (!codigo) return;
-      if (!window.firebase || !firebase.functions) return;
-
-      promoBtn.disabled = true;
-      promoBtn.textContent = 'Comprobando…';
-      if (promoMsg) promoMsg.hidden = true;
-
-      var itemsParaValidar = Cart.getItems().map(function (i) { return { id: i.id, qty: i.qty }; });
-      var validarPromoFn = firebase.functions().httpsCallable('validarPromo');
-
-      validarPromoFn({ codigo: codigo, items: itemsParaValidar }).then(function (res) {
-        Cart.setPromo({ codigo: res.data.codigo, tipo: res.data.tipo, valor: res.data.valor });
-        if (promoMsg) {
-          promoMsg.textContent = 'Código "' + res.data.codigo + '" aplicado: −' + fmtEUR(res.data.descuento) + '.';
-          promoMsg.classList.remove('is-error');
-          promoMsg.hidden = false;
-        }
-      }).catch(function (err) {
-        Cart.clearPromo();
-        if (promoMsg) {
-          promoMsg.textContent = (err && err.message) || 'Ese código no es válido.';
-          promoMsg.classList.add('is-error');
-          promoMsg.hidden = false;
-        }
-      }).finally(function () {
-        promoBtn.disabled = false;
-        pintarEstadoPromo();
-      });
-    });
-  }
-});
-
-// ==========================================================================
-// Mini-carrito lateral (drawer) — se crea una sola vez y se reutiliza en
-// todas las páginas. Se abre al pulsar el icono del carrito del header o
-// justo después de añadir un libro, sin salir de la página en la que
-// estés. En carrito.html, el icono sigue llevando a la página completa.
-// ==========================================================================
-var cartDrawerOverlay = null;
-var cartDrawerEl = null;
-
-function setupCartDrawer() {
-  // No hace falta el drawer si ya estamos en la página del carrito.
-  if (document.getElementById('cartItems')) return;
-
-  var cartLink = document.querySelector('a.icon-btn[href="carrito.html"]');
-  if (!cartLink) return;
-
-  buildCartDrawer();
-
-  cartLink.addEventListener('click', function (e) {
-    e.preventDefault();
-    openCartDrawer();
-  });
-
-  document.addEventListener('cart:change', function () {
-    if (cartDrawerOverlay && cartDrawerOverlay.classList.contains('is-open')) {
-      renderCartDrawer();
-    }
-  });
-}
-
-function buildCartDrawer() {
-  // El fondo oscuro (overlay) y el panel (aside) se crean como HERMANOS,
-  // los dos añadidos directamente a <body>, no uno dentro del otro: si el
-  // panel fuera hijo del overlay, su z-index quedaría "encerrado" dentro del
-  // contexto de apilamiento del overlay y jamás podría superar a
-  // .site-header aunque tenga un z-index mayor — eso hacía que la zona del
-  // carrito que coincide con la cabecera (el propio botón de cerrar) no se
-  // pudiera pulsar, tanto en móvil como en escritorio.
-  cartDrawerOverlay = document.createElement('div');
-  cartDrawerOverlay.className = 'cart-drawer-overlay';
-
-  cartDrawerEl = document.createElement('aside');
-  cartDrawerEl.className = 'cart-drawer';
-  cartDrawerEl.setAttribute('role', 'dialog');
-  cartDrawerEl.setAttribute('aria-modal', 'true');
-  cartDrawerEl.setAttribute('aria-label', 'Tu carrito');
-  cartDrawerEl.innerHTML =
-      '<div class="cart-drawer-header">' +
-        '<h2>Tu carrito</h2>' +
-        '<button type="button" class="cart-drawer-close" aria-label="Cerrar carrito">' +
-          '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>' +
-        '</button>' +
-      '</div>' +
-      '<div class="cart-drawer-body" id="cartDrawerBody"></div>' +
-      '<div class="cart-drawer-footer" id="cartDrawerFooter"></div>';
-
-  document.body.appendChild(cartDrawerOverlay);
-  document.body.appendChild(cartDrawerEl);
-
-  cartDrawerOverlay.addEventListener('click', function (e) {
-    if (e.target === cartDrawerOverlay) closeCartDrawer();
-  });
-  cartDrawerEl.querySelector('.cart-drawer-close').addEventListener('click', closeCartDrawer);
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && cartDrawerOverlay && cartDrawerOverlay.classList.contains('is-open')) {
-      closeCartDrawer();
-    }
-  });
-}
-
-function renderCartDrawer() {
-  var items = Cart.getItems();
-  var body = document.getElementById('cartDrawerBody');
-  var footer = document.getElementById('cartDrawerFooter');
-  if (!body || !footer) return;
-
-  if (items.length === 0) {
-    body.innerHTML =
-      '<div class="cart-drawer-empty">' +
-        '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' +
-        '<p>Tu carrito está vacío.</p>' +
-      '</div>';
-    footer.innerHTML = '<a href="categoria.html" class="btn btn--primary">Ver el catálogo</a>';
-    return;
-  }
-
-  body.innerHTML = items.map(function (item) {
-    var imagePath = item.cover && item.cover.startsWith('img/') ? item.cover : getBookImage(item.title);
-    var extras = window.giftExtrasFor ? window.giftExtrasFor(item) : [];
-    var extrasHTML = extras.length
-      ? '<ul class="cart-item-gifts">' + extras.map(function (e) {
-          return '<li><span>' + escapeHTML(e.label) + (e.texto ? ': «' + escapeHTML(e.texto) + '»' : '') + '</span>' +
-            '<span>' + (e.total > 0 ? fmtEUR(e.total) : 'Incluido') + '</span></li>';
-        }).join('') + '</ul>'
-      : '';
-    var extrasSumaItem = extras.reduce(function (s, e) { return s + e.total; }, 0);
-    return (
-      '<article class="cart-drawer-item" data-id="' + escapeHTML(item.id) + '" data-format="' + escapeHTML(item.format) + '"' +
-      (window.cartProductUrl(item) ? ' data-href="' + escapeHTML(window.cartProductUrl(item)) + '"' : '') + '>' +
-        (window.cartProductUrl(item)
-          ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '" class="cart-drawer-item-img" aria-label="Ver «' + escapeHTML(item.title) + '»">' +
-              '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '"></a>'
-          : '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '">') +
-        '<div class="cart-drawer-item-info">' +
-          '<h3>' + (window.cartProductUrl(item)
-            ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '">' + escapeHTML(item.title) + '</a>'
-            : escapeHTML(item.title)) + '</h3>' +
-          '<p>' + escapeHTML(item.format && item.format !== 'Estándar' ? item.format : '') + '</p>' +
-          extrasHTML +
-          (window.cartProductUrl(item)
-            ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '" class="cart-drawer-item-details">Ver detalles</a>'
-            : '') +
-          '<div class="cart-drawer-item-actions">' +
-            '<div class="qty-stepper">' +
-              '<button type="button" class="qty-btn" data-decrease aria-label="Restar cantidad">−</button>' +
-              '<input type="number" class="qty-input" data-qty value="' + item.qty + '" min="1" max="20" aria-label="Cantidad">' +
-              '<button type="button" class="qty-btn" data-increase aria-label="Sumar cantidad">+</button>' +
-            '</div>' +
-            '<button type="button" class="cart-drawer-item-remove" data-remove>Eliminar</button>' +
-          '</div>' +
-        '</div>' +
-        '<div class="cart-drawer-item-price">' + fmtEUR(item.price * item.qty + extrasSumaItem) + '</div>' +
-      '</article>'
-    );
-  }).join('');
-
-  body.querySelectorAll('.cart-drawer-item').forEach(function (row) {
-    makeRowClickable(row);
-    var id = row.dataset.id;
-    var format = row.dataset.format;
-    var qtyInput = row.querySelector('[data-qty]');
-
-    row.querySelector('[data-remove]').addEventListener('click', function () {
-      Cart.removeItem(id, format);
-    });
-    row.querySelector('[data-decrease]').addEventListener('click', function () {
-      Cart.setQty(id, format, parseInt(qtyInput.value, 10) - 1);
-    });
-    row.querySelector('[data-increase]').addEventListener('click', function () {
-      Cart.setQty(id, format, parseInt(qtyInput.value, 10) + 1);
-    });
-    qtyInput.addEventListener('change', function () {
-      Cart.setQty(id, format, parseInt(qtyInput.value, 10) || 1);
-    });
-  });
-
-  var subtotal = Cart.totalPrice();
-  var extrasDrawer = Cart.extrasTotal();
-  footer.innerHTML =
-    (extrasDrawer > 0 ? '<div class="cart-drawer-subtotal"><span>Extras de regalo</span><span>' + fmtEUR(extrasDrawer) + '</span></div>' : '') +
-    '<div class="cart-drawer-subtotal"><span>Subtotal</span><span>' + fmtEUR(subtotal + extrasDrawer) + '</span></div>' +
-    '<a href="carrito.html" class="btn btn--outline">Ver carrito</a>' +
-    '<a href="carrito.html" class="btn btn--primary">Finalizar compra</a>';
-}
-
-function openCartDrawer() {
-  if (!cartDrawerOverlay) return;
-  renderCartDrawer();
-  cartDrawerOverlay.classList.add('is-open');
-  if (cartDrawerEl) cartDrawerEl.classList.add('is-open');
-  document.body.classList.add('no-scroll');
-}
-
-function closeCartDrawer() {
-  if (!cartDrawerOverlay) return;
-  cartDrawerOverlay.classList.remove('is-open');
-  if (cartDrawerEl) cartDrawerEl.classList.remove('is-open');
-  document.body.classList.remove('no-scroll');
-}
-</file>
-
-<file path="js/checkout.js">
-// ==========================================================================
-// Checkout Nativo de Marca Blanca — Librería tu mayor tesoro
-//
-// Integra Stripe Elements dentro de la misma pantalla del carrito/checkout,
-// precarga y guarda direcciones en el perfil de Firestore del cliente, llama
-// a "crearPedido" y "crearIntentPago" en el backend, procesa el pago in-site,
-// vacía el carrito y envía las notificaciones por EmailJS tras confirmarse.
-// ==========================================================================
-(function () {
-  var checkoutBtn = document.getElementById('checkoutBtn');
-  var loginNotice = document.getElementById('checkoutLoginNotice');
-  var shippingSection = document.getElementById('checkoutShipping');
-  var shippingForm = document.getElementById('shippingForm');
-  var confirmation = document.getElementById('orderConfirmation');
-  var paymentPending = document.getElementById('paymentPending');
-  var paymentCancelled = document.getElementById('paymentCancelled');
-  var retryPaymentBtn = document.getElementById('retryPaymentBtn');
-  var cartLayout = document.getElementById('cartLayout');
-
-  var stripe = null;
-  var elements = null;
-  var card = null;
-  var orderConfirmationBizum = document.getElementById('orderConfirmationBizum');
-
-  // ------------------------------------------------------------------------
-  // 0. Alternar entre Bizum y Tarjeta según el método elegido
-  // ------------------------------------------------------------------------
-  var metodoPagoRadios = document.querySelectorAll('input[name="metodoPago"]');
-  var bizumBlock = document.getElementById('bizumPaymentBlock');
-  var cardBlock = document.getElementById('cardPaymentBlock');
-  var btnSubmitOrderEl = document.getElementById('btnSubmitOrder');
-
-  function metodoPagoActual() {
-    var seleccionado = document.querySelector('input[name="metodoPago"]:checked');
-    return seleccionado ? seleccionado.value : 'bizum';
-  }
-
-  function pintarMetodoPago() {
-    var esBizum = metodoPagoActual() === 'bizum';
-    if (bizumBlock) bizumBlock.hidden = !esBizum;
-    if (cardBlock) cardBlock.hidden = esBizum;
-    if (btnSubmitOrderEl) {
-      btnSubmitOrderEl.dataset.textoOriginal = esBizum ? 'Confirmar pedido con obligación de pago (pagar por Bizum)' : 'Pagar (pedido con obligación de pago)';
-      btnSubmitOrderEl.textContent = btnSubmitOrderEl.dataset.textoOriginal;
-    }
-  }
-
-  if (metodoPagoRadios.length) {
-    metodoPagoRadios.forEach(function (radio) {
-      radio.addEventListener('change', pintarMetodoPago);
-    });
-    pintarMetodoPago();
-  }
-
-  // ------------------------------------------------------------------------
-  // 1. Inicializar Stripe Elements al cargar el DOM
-  // ------------------------------------------------------------------------
-  document.addEventListener('DOMContentLoaded', function () {
-    var cardElementContainer = document.getElementById('card-element');
-    if (!cardElementContainer) return;
-
-    // Sustituye con tu Clave Publicable de Stripe (pk_live_... o pk_test_...)
-    stripe = Stripe('pk_live_51UADO2L8aFj5g4tzzrr2Hu6XSBy9z9rRY6ooWgOgXxDz7DxqnD0geQba6HnKVJfIQ0g1jyAfWQpk5nwVKZve4u2E00a5iZP0aN');
-    elements = stripe.elements();
-
-    var style = {
-      base: {
-        color: '#1f2b45',
-        fontFamily: '"Source Sans 3", "Segoe UI", system-ui, sans-serif',
-        fontSmoothing: 'antialiased',
-        fontSize: '16px',
-        '::placeholder': { color: '#aab7c4' }
-      },
-      invalid: {
-        color: '#b3402a',
-        iconColor: '#b3402a'
-      }
-    };
-
-    card = elements.create('card', { style: style, hidePostalCode: true });
-    card.mount('#card-element');
-
-    card.on('change', function (event) {
-      var paymentErrors = document.getElementById('payment-errors');
-      if (paymentErrors) {
-        paymentErrors.textContent = event.error ? event.error.message : '';
-      }
-    });
-  });
-
-  // ------------------------------------------------------------------------
-  // 2. Interacción inicial y gestión de direcciones
-  // ------------------------------------------------------------------------
-  // ------------------------------------------------------------------------
-  // Estado de sesión (arreglo)
-  // ------------------------------------------------------------------------
-  // Firebase restaura la sesión de forma ASÍNCRONA al cargar la página: durante
-  // el primer segundo, "fbAuth.currentUser" todavía es null aunque el cliente
-  // sí haya iniciado sesión. Antes se leía ese valor directamente al pulsar
-  // "Finalizar compra", así que quien añadía al carrito, iniciaba sesión y
-  // volvía al carrito se encontraba otra vez el aviso de "inicia sesión" y no
-  // podía continuar. Al borrar y volver a añadir el artículo pasaba el tiempo
-  // suficiente y ya funcionaba — de ahí el comportamiento raro.
-  // Ahora escuchamos el estado real de la sesión y, si aún no se ha resuelto,
-  // esperamos a que lo haga antes de decidir nada.
-  var authResuelto = false;
-  var usuarioActual = null;
-  var accionPendiente = null;
-
-  function esperandoBoton(activo) {
-    if (!checkoutBtn) return;
-    if (activo) {
-      checkoutBtn.dataset.textoOriginal = checkoutBtn.dataset.textoOriginal || checkoutBtn.textContent;
-      checkoutBtn.disabled = true;
-      checkoutBtn.textContent = 'Comprobando tu sesión…';
-    } else {
-      checkoutBtn.disabled = false;
-      if (checkoutBtn.dataset.textoOriginal) checkoutBtn.textContent = checkoutBtn.dataset.textoOriginal;
-    }
-  }
-
-  function marcarSesion(user) {
-    authResuelto = true;
-    usuarioActual = user || null;
-    if (user && loginNotice) loginNotice.hidden = true;
-    if (accionPendiente) {
-      var pendiente = accionPendiente;
-      accionPendiente = null;
-      esperandoBoton(false);
-      pendiente(usuarioActual);
-    }
-  }
-
-  if (window.fbAuth && window.fbAuth.onAuthStateChanged) {
-    window.fbAuth.onAuthStateChanged(marcarSesion);
-  } else {
-    // Si Firebase no ha cargado, no dejamos la interfaz bloqueada para siempre.
-    setTimeout(function () { marcarSesion(null); }, 3000);
-  }
-
-  function conSesion(callback) {
-    if (authResuelto) return callback(usuarioActual);
-    accionPendiente = callback;
-    esperandoBoton(true);
-    // Red de seguridad por si Firebase no responde.
-    setTimeout(function () {
-      if (!authResuelto) marcarSesion(window.fbAuth ? window.fbAuth.currentUser : null);
-    }, 6000);
-  }
-
-  if (checkoutBtn) {
-    checkoutBtn.addEventListener('click', function () {
-      conSesion(function (user) {
-      if (!user) {
-        if (loginNotice) loginNotice.hidden = false;
-        if (shippingSection) shippingSection.hidden = true;
-        if (loginNotice) loginNotice.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-      }
-      var verifyNotice = document.getElementById('checkoutVerifyNotice');
-      if (window.authNeedsEmailVerification && window.authNeedsEmailVerification(user)) {
-        if (loginNotice) loginNotice.hidden = true;
-        if (shippingSection) shippingSection.hidden = true;
-        if (verifyNotice) {
-          verifyNotice.hidden = false;
-          verifyNotice.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-        return;
-      }
-      if (verifyNotice) verifyNotice.hidden = true;
-      if (loginNotice) loginNotice.hidden = true;
-      if (shippingSection) {
-        shippingSection.hidden = false;
-        shippingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-      precargarDireccionGuardada(user);
-      });
-    });
-  }
-
-  function precargarDireccionGuardada(user) {
-    if (!window.fbDb || !shippingForm) return;
-    window.fbDb.collection('usuarios').doc(user.uid).get().then(function (doc) {
-      if (!doc.exists) return;
-      var direcciones = doc.data().direcciones || [];
-      if (direcciones.length === 0) return;
-      var elegida = direcciones.filter(function (d) { return d.predeterminada; })[0] || direcciones[0];
-      if (!elegida) return;
-      if (shippingForm.elements.nombre) shippingForm.elements.nombre.value = elegida.nombre || user.displayName || '';
-      if (shippingForm.elements.direccion) shippingForm.elements.direccion.value = elegida.direccion || '';
-      if (shippingForm.elements.ciudad) shippingForm.elements.ciudad.value = elegida.ciudad || '';
-      if (shippingForm.elements.cp) shippingForm.elements.cp.value = elegida.cp || '';
-      if (shippingForm.elements.telefono) shippingForm.elements.telefono.value = elegida.telefono || '';
-      if (shippingForm.elements.addressId) shippingForm.elements.addressId.value = elegida.id || '';
-    }).catch(function (err) {
-      console.error('Error al precargar la dirección guardada', err);
-    });
-  }
-
-  function guardarDireccionSiProcede(user, envio, addressId) {
-    if (!window.fbDb) return Promise.resolve();
-    return window.fbDb.collection('usuarios').doc(user.uid).get().then(function (doc) {
-      var direcciones = (doc.exists && doc.data().direcciones) || [];
-      var existente = addressId && direcciones.filter(function (d) { return d.id === addressId; })[0];
-      var nueva = {
-        id: addressId || (Date.now().toString(36) + Math.random().toString(36).slice(2, 6)),
-        etiqueta: (existente && existente.etiqueta) || 'Dirección de envío',
-        nombre: envio.nombre,
-        direccion: envio.direccion,
-        ciudad: envio.ciudad,
-        cp: envio.cp,
-        telefono: envio.telefono,
-        predeterminada: true
-      };
-      var siguientes = direcciones.filter(function (d) { return d.id !== nueva.id; });
-      siguientes.forEach(function (d) { d.predeterminada = false; });
-      siguientes.push(nueva);
-      return window.fbDb.collection('usuarios').doc(user.uid).set({ direcciones: siguientes }, { merge: true });
-    }).catch(function (err) {
-      console.error('No se pudo guardar la dirección para la próxima compra', err);
-    });
-  }
-
-  function mensajeErrorPedido(err) {
-    var codigo = err && err.code;
-    if (codigo === 'unauthenticated') {
-      return 'Tu sesión ha caducado. Vuelve a iniciar sesión e inténtalo de nuevo.';
-    }
-    if (codigo === 'invalid-argument' && err.message) {
-      return err.message;
-    }
-    if (codigo === 'internal' || codigo === 'unavailable' || codigo === 'deadline-exceeded') {
-      return 'No se ha podido registrar tu pedido. Comprueba tu conexión e inténtalo de nuevo; si el problema continúa, escríbenos a libreriamayortesoro@gmail.com.';
-    }
-    return (err && err.message) || 'No se ha podido registrar tu pedido. Inténtalo de nuevo o escríbenos a libreriamayortesoro@gmail.com.';
-  }
-
-  // ------------------------------------------------------------------------
-  // 3. Procesamiento del pago nativo (Submit del Formulario)
-  // ------------------------------------------------------------------------
-  var checkoutForm = document.getElementById('checkoutForm') || shippingForm;
-
-  if (checkoutForm) {
-    checkoutForm.addEventListener('submit', async function (e) {
-      e.preventDefault();
-
-      var user = usuarioActual || (window.fbAuth ? window.fbAuth.currentUser : null);
-      var paymentErrors = document.getElementById('payment-errors') || document.getElementById('checkoutError');
-      var btnSubmit = document.getElementById('btnSubmitOrder') || checkoutForm.querySelector('button[type="submit"]');
-      var textoOriginal = btnSubmit ? btnSubmit.textContent : 'Pagar (pedido con obligación de pago)';
-
-      // Con Bizum el bloque de tarjeta está oculto: sus errores no se verían.
-      if (metodoPagoActual() === 'bizum') {
-        paymentErrors = document.getElementById('checkoutError') || paymentErrors;
-      }
-
-      if (paymentErrors) {
-        paymentErrors.textContent = '';
-        paymentErrors.hidden = true;
-      }
-
-      var chkTerminos = document.getElementById('aceptaTerminos');
-      if (chkTerminos && !chkTerminos.checked) {
-        if (paymentErrors) {
-          paymentErrors.textContent = 'Para continuar debes aceptar los términos y condiciones y la política de privacidad.';
-          paymentErrors.hidden = false;
-        }
-        return;
-      }
-
-      if (!user) {
-        if (paymentErrors) {
-          paymentErrors.textContent = 'Debes iniciar sesión para realizar la compra.';
-          paymentErrors.hidden = false;
-        }
-        return;
-      }
-
-      var items = Cart.getItems();
-      if (items.length === 0) return;
-
-      var metodoPago = metodoPagoActual();
-
-      if (btnSubmit) {
-        btnSubmit.disabled = true;
-        btnSubmit.textContent = metodoPago === 'bizum' ? 'Registrando pedido...' : 'Procesando pago...';
-      }
-
-      try {
-        var fd = new FormData(checkoutForm);
-        var envio = {
-          nombre: fd.get('nombre') || (document.getElementById('shippingName') ? document.getElementById('shippingName').value : ''),
-          direccion: fd.get('direccion') || (document.getElementById('shippingAddress') ? document.getElementById('shippingAddress').value : ''),
-          ciudad: fd.get('ciudad') || (document.getElementById('shippingCity') ? document.getElementById('shippingCity').value : ''),
-          cp: fd.get('cp') || (document.getElementById('shippingZip') ? document.getElementById('shippingZip').value : ''),
-          telefono: fd.get('telefono') || (document.getElementById('shippingPhone') ? document.getElementById('shippingPhone').value : '')
-        };
-
-        // Código promocional aplicado en el carrito (si hay). El descuento
-        // real lo vuelve a calcular "crearPedido" en el servidor: aquí solo
-        // le decimos QUÉ código usar, nunca cuánto debería descontar.
-        var promoActual = Cart.getPromo();
-
-        var guardarDireccion = fd.get('guardarDireccion') === 'on';
-        var addressIdActual = fd.get('addressId') || '';
-        if (guardarDireccion) guardarDireccionSiProcede(user, envio, addressIdActual);
-
-        // Además del id y la cantidad se manda la portada elegida (solo el
-        // nombre del estilo: "ilustrada" / "tipografica"). El precio lo
-        // sigue calculando el servidor; la portada solo se guarda en el
-        // pedido para saber qué versión del libro hay que enviar.
-        var itemsParaEnviar = items.map(function (i) {
-          return { id: i.id, qty: i.qty, portada: i.coverStyle || '', regalo: i.regalo || null, imp: i.imp || null };
-        });
-
-        // Step 1: Crear pedido en backend. Si el pago con tarjeta falló y el
-        // cliente reintenta con lo mismo, se reutiliza el pedido ya creado
-        // (así no se duplican pedidos ni se gasta otra vez el código promo).
-        var firmaPedido = JSON.stringify([itemsParaEnviar, envio, promoActual ? promoActual.codigo : '', metodoPago]);
-        var resultadoPedido;
-        if (window.__pedidoTarjetaPendiente && window.__pedidoTarjetaPendiente.firma === firmaPedido) {
-          resultadoPedido = window.__pedidoTarjetaPendiente.resultado;
-        } else {
-          var crearPedidoFn = firebase.functions().httpsCallable('crearPedido');
-          resultadoPedido = await crearPedidoFn({ items: itemsParaEnviar, envio: envio, codigoPromo: promoActual ? promoActual.codigo : '', metodoPago: metodoPago });
-          window.__pedidoTarjetaPendiente = metodoPago === 'tarjeta' ? { firma: firmaPedido, resultado: resultadoPedido } : null;
-        }
-        var pedidoId = resultadoPedido.data.id;
-
-        // Pago por Bizum: no hay pasarela que confirmar aquí. El pedido ya
-        // ha quedado registrado (pendiente de verificar el ingreso a mano
-        // desde el panel de administración), así que mostramos directamente
-        // la confirmación con las instrucciones de pago.
-        if (metodoPago === 'bizum') {
-          Cart.clear();
-          Cart.clearPromo();
-          // Como aquí no hay webhook que avise de que el dinero ha llegado,
-          // se manda ya el correo (al cliente y a la tienda) para que se
-          // sepa que hay un pedido nuevo pendiente de comprobar por Bizum.
-          enviarCorreos(resultadoPedido.data).catch(function (err) {
-            console.error('Error al enviar los correos de confirmación', err);
-          });
-          mostrarConfirmacionBizum(resultadoPedido.data.numero, resultadoPedido.data.total);
-          return;
-        }
-
-        // Step 2: Obtener Client Secret de Stripe
-        var crearIntentFn = firebase.functions().httpsCallable('crearIntentPago');
-        var resultadoIntent = await crearIntentFn({ pedidoId: pedidoId });
-        var clientSecret = resultadoIntent.data.clientSecret;
-
-        // Step 3: Confirmar pago directamente sin salir de la página
-        var result = await stripe.confirmCardPayment(clientSecret, {
-          payment_method: {
-            card: card,
-            billing_details: {
-              name: envio.nombre,
-              phone: envio.telefono
-            }
-          }
-        });
-
-        if (result.error) {
-          if (paymentErrors) {
-            paymentErrors.textContent = result.error.message;
-            paymentErrors.hidden = false;
-          }
-          if (btnSubmit) {
-            btnSubmit.disabled = false;
-            btnSubmit.textContent = textoOriginal;
-          }
-        } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
-          window.location.href = 'carrito.html?pago=exito&pedido=' + encodeURIComponent(pedidoId);
-        }
-      } catch (err) {
-        console.error('Error al procesar la transacción:', err);
-        if (paymentErrors) {
-          paymentErrors.textContent = mensajeErrorPedido(err);
-          paymentErrors.hidden = false;
-        }
-        if (btnSubmit) {
-          btnSubmit.disabled = false;
-          btnSubmit.textContent = textoOriginal;
-        }
-      }
-    });
-  }
-
-  // ------------------------------------------------------------------------
-  // 4. Notificaciones por email y post-procesamiento
-  // ------------------------------------------------------------------------
-  function enviarCorreos(pedido) {
-    if (typeof emailjs === 'undefined' || typeof emailjsConfig === 'undefined') return Promise.resolve();
-
-    // Cada artículo lleva TODO el detalle: formato completo (tapa, tamaño,
-    // acabado, papel y PORTADA elegida, que ya viene dentro de "formato") y su
-    // precio. Así el correo del dueño y el del cliente dicen exactamente qué
-    // hay que preparar, sin tener que abrir Firebase.
-    var eur = function (n) { return Number(n || 0).toFixed(2).replace('.', ',') + ' €'; };
-    var listaItems = pedido.items.map(function (i) {
-      return i.cantidad + ' × ' + i.titulo +
-        (i.formato ? '\n    Edición: ' + i.formato : '') +
-        '\n    Precio: ' + eur(i.precio * i.cantidad);
-    }).join('\n\n');
-
-    var ahora = new Date().toLocaleString('es-ES', { dateStyle: 'long', timeStyle: 'short' });
-
-    var datosComunes = {
-      name: pedido.clienteNombre,
-      email: pedido.clienteEmail,
-      time: ahora,
-      numero_pedido: pedido.numero,
-      cliente_nombre: pedido.clienteNombre,
-      cliente_email: pedido.clienteEmail,
-      lista_articulos: listaItems,
-      subtotal: eur(pedido.subtotal),
-      gastos_envio: pedido.gastosEnvio ? eur(pedido.gastosEnvio) : 'Gratis',
-      descuento: ((pedido.descuento || 0) + (pedido.descuentoCantidad || 0)) > 0 ? '-' + eur((pedido.descuento || 0) + (pedido.descuentoCantidad || 0)) : '0,00 €',
-      total: pedido.total.toFixed(2).replace('.', ',') + ' €',
-      direccion_envio: pedido.envio.direccion + ', ' + pedido.envio.cp + ' ' + pedido.envio.ciudad,
-      telefono: pedido.envio.telefono,
-      // 👉 Variable nueva para la plantilla de EmailJS: un enlace directo a
-      // seguimiento.html con el número de pedido ya escrito. Si quieres que
-      // salga en el correo que recibe el cliente, añade {{enlace_seguimiento}}
-      // en tu plantilla "customerTemplateId" (en el propio EmailJS, sin
-      // tocar código); en la plantilla del dueño no hace falta.
-      enlace_seguimiento: 'https://libreriatumayortesoro.com/seguimiento.html?numero=' + encodeURIComponent(pedido.numero)
-    };
-
-    var correoCliente = emailjs.send(
-      emailjsConfig.serviceId,
-      emailjsConfig.customerTemplateId,
-      Object.assign({ to_email: pedido.clienteEmail }, datosComunes)
-    );
-
-    var correoTienda = emailjs.send(
-      emailjsConfig.serviceId,
-      emailjsConfig.ownerTemplateId,
-      Object.assign({ to_email: emailjsConfig.ownerEmail }, datosComunes)
-    );
-
-    return Promise.all([correoCliente, correoTienda]).catch(function (err) {
-      console.error('Error al enviar los correos de confirmación', err);
-    });
-  }
-
-  function ocultarTodo() {
-    if (cartLayout) cartLayout.hidden = true;
-    if (shippingSection) shippingSection.hidden = true;
-    if (paymentPending) paymentPending.hidden = true;
-    if (paymentCancelled) paymentCancelled.hidden = true;
-    if (confirmation) confirmation.hidden = true;
-    if (orderConfirmationBizum) orderConfirmationBizum.hidden = true;
-    if (loginNotice) loginNotice.hidden = true;
-  }
-
-  function mostrarConfirmacion(numero, total) {
-    ocultarTodo();
-    if (confirmation) {
-      confirmation.hidden = false;
-      var num = confirmation.querySelector('[data-order-number]');
-      var tot = confirmation.querySelector('[data-order-total]');
-      if (num) num.textContent = numero;
-      if (tot) tot.textContent = typeof fmtEUR === 'function' ? fmtEUR(total) : total.toFixed(2) + ' €';
-      confirmation.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
-  function mostrarConfirmacionBizum(numero, total) {
-    ocultarTodo();
-    if (orderConfirmationBizum) {
-      orderConfirmationBizum.hidden = false;
-      var num = orderConfirmationBizum.querySelector('[data-order-number]');
-      var tot = orderConfirmationBizum.querySelector('[data-order-total]');
-      if (num) num.textContent = numero;
-      if (tot) tot.textContent = typeof fmtEUR === 'function' ? fmtEUR(total) : total.toFixed(2) + ' €';
-      orderConfirmationBizum.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
-  // ------------------------------------------------------------------------
-  // 5. Verificación tras completar el pago
-  // ------------------------------------------------------------------------
-  function comprobarVueltaDeStripe() {
-    var params = new URLSearchParams(window.location.search);
-    var pago = params.get('pago');
-    var pedidoId = params.get('pedido');
-    if (!pago || !pedidoId) return;
-
-    if (pago === 'cancelado') {
-      ocultarTodo();
-      if (paymentCancelled) {
-        paymentCancelled.hidden = false;
-        paymentCancelled.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-      return;
-    }
-
-    if (pago !== 'exito') return;
-
-    ocultarTodo();
-    if (paymentPending) paymentPending.hidden = false;
-
-    if (!window.fbAuth || !window.fbDb) return;
-
-    var yaProcesado = false;
-    window.fbAuth.onAuthStateChanged(function (user) {
-      if (!user || yaProcesado) return;
-      yaProcesado = true;
-      esperarConfirmacionDePago(pedidoId);
-    });
-  }
-
-  function esperarConfirmacionDePago(pedidoId) {
-    var intentos = 0;
-    var maxIntentos = 20;
-    var flagCorreo = 'correoEnviado:' + pedidoId;
-
-    function intentar() {
-      intentos++;
-      window.fbDb.collection('pedidos').doc(pedidoId).get().then(function (doc) {
-        if (!doc.exists) return;
-        var pedido = doc.data();
-
-        if (pedido.pagado) {
-          // Los correos del pedido pagado con tarjeta los envía ahora el servidor
-          // (stripeWebhook), aunque el cliente cierre esta página.
-          Cart.clear();
-          Cart.clearPromo();
-          mostrarConfirmacion(pedido.numero, pedido.total);
-          history.replaceState(null, '', 'carrito.html');
-          return;
-        }
-
-        if (intentos < maxIntentos) {
-          setTimeout(intentar, 1500);
-        } else {
-          if (paymentPending) {
-            var texto = paymentPending.querySelector('p');
-            if (texto) texto.textContent = 'Estamos terminando de confirmar tu pago. Si tarda más de un minuto, escríbenos a libreriamayortesoro@gmail.com con tu número de pedido y no te preocupes: no se te cobrará dos veces.';
-          }
-        }
-      }).catch(function (err) {
-        console.error('Error al comprobar el estado del pedido', err);
-      });
-    }
-
-    intentar();
-  }
-
-  comprobarVueltaDeStripe();
-})();
-</file>
-
-<file path="asistente.html">
+## File: asistente.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10044,9 +8078,10 @@ function closeCartDrawer() {
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="consejo.html">
+## File: consejo.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10310,279 +8345,10 @@ function closeCartDrawer() {
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="devoluciones.html">
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<script src="js/cookies.js" defer></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Devoluciones — Librería tu mayor tesoro</title>
-<meta name="description" content="Consulta nuestra política de devoluciones, plazos y pasos para realizar cambios o devoluciones de tus libros en Librería tu mayor tesoro.">
-<link rel="canonical" href="https://libreriatumayortesoro.com/devoluciones.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Librería tu mayor tesoro">
-<meta property="og:title" content="Devoluciones — Librería tu mayor tesoro">
-<meta property="og:description" content="Consulta nuestra política de devoluciones, plazos y pasos para realizar cambios o devoluciones de tus libros en Librería tu mayor tesoro.">
-<meta property="og:url" content="https://libreriatumayortesoro.com/devoluciones.html">
-<meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Devoluciones — Librería tu mayor tesoro">
-<meta name="twitter:description" content="Consulta nuestra política de devoluciones, plazos y pasos para realizar cambios o devoluciones de tus libros en Librería tu mayor tesoro.">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#20304f">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-
-<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
-<header class="site-header">
-  <div class="container header-top">
-    <a href="index.html" class="brand">
-      <span class="brand-mark">L</span>
-      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-    </a>
-
-    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
-      <button type="submit">Buscar</button>
-    </form>
-
-    <div class="header-actions">
-      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </a>
-      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <span class="cart-count" data-cart-count hidden>0</span>
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
-
-  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
-    <div class="container">
-      <ul class="category-list">
-        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
-        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
-        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
-        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
-        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
-        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
-        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
-        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
-        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
-
-<main id="main-content">
-  <section class="section pb-lg">
-    <div class="container">
-      <nav class="breadcrumb mb-lg" aria-label="Ruta de navegación">
-        <a href="index.html">Inicio</a>
-        <span class="breadcrumb-separator" aria-hidden="true">/</span>
-        <span data-breadcrumb-current>Devoluciones</span>
-      </nav>
-
-      <div class="section-head mb-0">
-        <div>
-          <span class="eyebrow">Garantía de satisfacción</span>
-          <h1 class="section-title">Devoluciones</h1>
-          <p class="section-lede">Conoce los plazos, condiciones y el procedimiento sencillo para gestionar cambios o devoluciones de tus pedidos.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--muted pt-lg">
-    <div class="container">
-      <div class="content-narrow-section">
-        
-        <div class="content-card content-card--lg">
-          <h3 class="card-title">Tu tranquilidad es nuestra prioridad</h3>
-          <p class="text-block">
-            En <strong>Librería tu mayor tesoro</strong> queremos que quedes plenamente satisfecho con cada adquisición. Si por algún motivo necesitas realizar un cambio o devolver un artículo.
-          </p>          
-          <p class="text-block">
-          <strong>Derecho de desistimiento</strong>: de acuerdo con el artículo 71 del Texto Refundido de la Ley General para la Defensa de los Consumidores y Usuarios (Real Decreto Legislativo 1/2007), dispones de <strong>14 días naturales</strong> desde la recepción del pedido para desistir de la compra sin necesidad de justificar tu decisión. Los artículos personalizados no admiten devolución salvo por defecto de fabricación.
-          </p>
-          <p class="text-block">
-            <strong>Para que la devolución sea aceptada</strong>, los libros o materiales deben encontrarse en perfectas condiciones, sin marcas de uso y con su embalaje original intacto. En caso de recibir un producto defectuoso o dañado durante el transporte, nos haremos cargo de todos los costes asociados al cambio de forma inmediata.
-          </p>
-          <p class="text-block">
-            <strong>Cómo ejercer el derecho de desistimiento</strong>: basta con que nos lo comuniques de forma inequívoca dentro del plazo indicado, por ejemplo por correo electrónico a <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline">libreriamayortesoro@gmail.com</a>, indicando tu número de pedido, los artículos que devuelves y tu decisión de desistir del contrato. Puedes usar este modelo, aunque no es obligatorio: <em>«Por la presente le comunico que desisto de mi contrato de venta del siguiente pedido [número], recibido el [fecha], a nombre de [nombre del cliente]»</em>.
-          </p>
-          <p class="text-block">
-            <strong>Gastos de la devolución</strong>: salvo que el producto sea defectuoso o el error sea nuestro, los gastos directos de devolución del pedido corren a cargo del cliente.
-          </p>
-          <p class="text-block">
-            <strong>Reembolso</strong>: una vez recibamos el artículo devuelto y comprobemos que cumple las condiciones anteriores, te reembolsaremos el importe total pagado (incluidos los gastos de envío originales, si devuelves el pedido completo) en un plazo máximo de 14 días naturales, usando el mismo medio de pago que utilizaste en la compra.
-          </p>
-
-          <p class="text-block text-block--end">
-            Si deseas iniciar una devolución o tienes cualquier consulta al respecto, ponte en contacto con nosotros escribiéndonos a nuestro correo electrónico: 
-            <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline link-inline--strong">libreriamayortesoro@gmail.com</a> indicando tu número de pedido y el motivo del cambio.
-          </p>
-        </div>
-
-        <div class="content-card content-card--lg mt-lg">
-          <h3 class="card-title">Resolución de litigios en línea</h3>
-          <p class="text-block text-block--end">
-            De acuerdo con el Reglamento (UE) 524/2013, si tienes cualquier disputa relacionada con tu compra que no hayamos podido resolver directamente, puedes acudir a la <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener" class="link-inline link-inline--strong">plataforma europea de resolución de litigios en línea</a>. También puedes escribirnos siempre antes a <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline">libreriamayortesoro@gmail.com</a>: intentaremos solucionar cualquier incidencia directamente contigo.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="content-narrow-left">
-        <a href="index.html" class="btn btn--outline">Volver al inicio</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="container">
-    <div class="trust-strip">
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        <div><h4>Envíos a toda España</h4><p>Recíbelo en casa en pocos días</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <div><h4>Ediciones garantizadas</h4><p>Textos fieles y cuidados</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        <div><h4>Atención cercana</h4><p>Te ayudamos a elegir</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        <div><h4>Devoluciones sencillas</h4><p>14 días para cambios</p></div>
-      </div>
-    </div>
-  </div>
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-top">
-    <div class="footer-brand">
-      <a href="index.html" class="brand">
-        <span class="brand-mark">L</span>
-        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-      </a>
-      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Institucional</h5>
-      <ul class="footer-links">
-        <li><a href="quienes-somos.html">Quiénes somos</a></li>
-        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
-        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda para elegir</h5>
-      <ul class="footer-links">
-        <li><a href="asistente.html">Asistente de recomendación</a></li>
-        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
-        <li><a href="recursos.html">Recursos de lectura</a></li>
-        <li><a href="glosario.html">Glosario de términos</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda</h5>
-      <ul class="footer-links">
-        <li><a href="envios.html">Envíos y entregas</a></li>
-        <li><a href="devoluciones.html">Devoluciones</a></li>
-        <li><a href="terminos.html">Términos y condiciones</a></li>
-        <li><a href="privacidad.html">Política de privacidad</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Contacto</h5>
-      <ul class="footer-contact">
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Alicante, España
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
-          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
-        </li>
-        <li>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-            </svg>
-            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-contact-banner">
-    <div class="container">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
-    <div class="legal-links">
-      <a href="privacidad.html">Privacidad </a>
-      <a href="terminos.html">Términos</a>
-      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
-    </div>
-  </div>
-</footer>
-
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script src="js/config.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/cart.js"></script>
-<script src="js/gift-options.js"></script>
-<script src="js/main.js"></script>
-</body>
-</html>
-</file>
-
-<file path="glosario.html">
+## File: glosario.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10799,624 +8565,10 @@ function closeCartDrawer() {
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="preguntas-frecuentes.html">
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<script src="js/cookies.js" defer></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Preguntas frecuentes — Librería tu mayor tesoro</title>
-<meta name="description" content="Encuentra respuestas a las dudas más comunes sobre envíos, pagos, plazos y compras en Librería tu mayor tesoro.">
-<link rel="canonical" href="https://libreriatumayortesoro.com/preguntas-frecuentes.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Librería tu mayor tesoro">
-<meta property="og:title" content="Preguntas frecuentes — Librería tu mayor tesoro">
-<meta property="og:description" content="Encuentra respuestas a las dudas más comunes sobre envíos, pagos, plazos y compras en Librería tu mayor tesoro.">
-<meta property="og:url" content="https://libreriatumayortesoro.com/preguntas-frecuentes.html">
-<meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Preguntas frecuentes — Librería tu mayor tesoro">
-<meta name="twitter:description" content="Encuentra respuestas a las dudas más comunes sobre envíos, pagos, plazos y compras en Librería tu mayor tesoro.">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#20304f">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-
-<!-- Datos estructurados: Google puede mostrar estas preguntas desplegadas
-     directamente en el resultado de búsqueda. El texto de cada respuesta
-     tiene que coincidir con lo que se ve en la página (si cambias una
-     pregunta o respuesta ahí abajo, cámbiala también aquí). -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Cómo se elaboran las fundas artesanales?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Cada funda y recubrimiento se confecciona individualmente a mano en nuestro taller, utilizando materiales resistentes y diseños orientados a proteger y embellecer cada ejemplar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo comprar un libro o Biblia sin la funda hecha a mano?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí. Disponemos de opciones de compra para los libros de manera individual, así como la posibilidad de adquirir la funda por separado o en paquete (pack) promocional."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Realizan envíos a todo el país?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Realizamos envíos nacionales con seguimiento. Los tiempos de entrega varían según si el producto se encuentra en stock inmediato o si requiere confección personalizada."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo personalizar una funda con mi nombre o un estampado específico?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí, ofrecemos opciones de personalización en telas y bordados para pedidos especiales o regalos. Puedes seleccionarlo directamente en la ficha del producto."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cómo puedo contactar si tengo alguna duda específica?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Puedes escribirnos a libreriamayortesoro@gmail.com (respuesta en menos de 24 horas laborables) o llamarnos al +34 711 27 32 38 para consultas sobre pedidos personalizados y costura."
-      }
-    }
-  ]
-}
-</script>
-</head>
-<body>
-
-<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
-<header class="site-header">
-  <div class="container header-top">
-    <a href="index.html" class="brand">
-      <span class="brand-mark">L</span>
-      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-    </a>
-
-    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
-      <button type="submit">Buscar</button>
-    </form>
-
-    <div class="header-actions">
-      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </a>
-      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <span class="cart-count" data-cart-count hidden>0</span>
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
-
-  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
-    <div class="container">
-      <ul class="category-list">
-        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
-        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
-        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
-        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
-        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
-        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
-        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
-        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
-        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
-
-<main id="main-content">
-  <section class="section pb-lg">
-    <div class="container">
-      <nav class="breadcrumb mb-lg" aria-label="Ruta de navegación">
-        <a href="index.html">Inicio</a>
-        <span class="breadcrumb-separator" aria-hidden="true">/</span>
-        <span data-breadcrumb-current>Preguntas frecuentes</span>
-      </nav>
-
-      <div class="section-head mb-0">
-        <div>
-          <span class="eyebrow">Resolvemos tus dudas</span>
-          <h1 class="section-title">Preguntas frecuentes</h1>
-          <p class="section-lede">Todo lo que necesitas saber sobre nuestros envíos, pagos, catálogos y gestión de pedidos.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--muted pt-lg">
-    <div class="container">
-      <div class="content-narrow-grid">
-        
-        <div class="content-card">
-          <h3 class="card-title card-title--tight">¿Cómo se elaboran las fundas artesanales?</h3>
-          <p class="text-block text-block--end">
-            Cada funda y recubrimiento se confecciona individualmente a mano en nuestro taller, utilizando materiales resistentes y diseños orientados a proteger y embellecer cada ejemplar.
-          </p>
-        </div>
-
-        <div class="content-card">
-          <h3 class="card-title card-title--tight">¿Puedo comprar un libro o Biblia sin la funda hecha a mano?</h3>
-          <p class="text-block text-block--end">
-            Sí. Disponemos de opciones de compra para los libros de manera individual, así como la posibilidad de adquirir la funda por separado o en paquete (pack) promocional.
-          </p>
-        </div>
-
-        <div class="content-card">
-          <h3 class="card-title card-title--tight">¿Realizan envíos a todo el país?</h3>
-          <p class="text-block text-block--end">
-            Realizamos envíos nacionales con seguimiento. Los tiempos de entrega varían según si el producto se encuentra en stock inmediato o si requiere confección personalizada.
-          </p>
-        </div>
-
-        <div class="content-card">
-          <h3 class="card-title card-title--tight">¿Puedo personalizar una funda con mi nombre o un estampado específico?</h3>
-          <p class="text-block text-block--end">
-            Sí, ofrecemos opciones de personalización en telas y bordados para pedidos especiales o regalos. Puedes seleccionarlo directamente en la ficha del producto.
-          </p>
-        </div>
-
-        <div class="content-card">
-          <h3 class="card-title card-title--tight">¿Cómo puedo contactar si tengo alguna duda específica?</h3>
-          <p class="text-block text-block--end">
-            Si necesitas asesoramiento personalizado o tienes consultas sobre algún título en concreto, puedes escribirnos directamente a nuestro correo de contacto o número de teléfono: <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline">libreriamayortesoro@gmail.com</a> (Respuesta en menos de 24 horas laborables) / <a href="tel:+34711273238" class="link-inline">+34 711 27 32 38</a> (Atención directa para consultas sobre pedidos personalizados y costura).
-          </p>
-        </div>
-
-      </div>
-
-      <div class="text-align-left">
-        <a href="index.html" class="btn btn--outline">Volver al inicio</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="container">
-    <div class="trust-strip">
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        <div><h4>Envíos a toda España</h4><p>Recíbelo en casa en pocos días</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <div><h4>Ediciones garantizadas</h4><p>Textos fieles y cuidados</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        <div><h4>Atención cercana</h4><p>Te ayudamos a elegir</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        <div><h4>Devoluciones sencillas</h4><p>14 días para cambios</p></div>
-      </div>
-    </div>
-  </div>
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-top">
-    <div class="footer-brand">
-      <a href="index.html" class="brand">
-        <span class="brand-mark">L</span>
-        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-      </a>
-      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Institucional</h5>
-      <ul class="footer-links">
-        <li><a href="quienes-somos.html">Quiénes somos</a></li>
-        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
-        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda para elegir</h5>
-      <ul class="footer-links">
-        <li><a href="asistente.html">Asistente de recomendación</a></li>
-        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
-        <li><a href="recursos.html">Recursos de lectura</a></li>
-        <li><a href="glosario.html">Glosario de términos</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda</h5>
-      <ul class="footer-links">
-        <li><a href="envios.html">Envíos y entregas</a></li>
-        <li><a href="devoluciones.html">Devoluciones</a></li>
-        <li><a href="terminos.html">Términos y condiciones</a></li>
-        <li><a href="privacidad.html">Política de privacidad</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Contacto</h5>
-      <ul class="footer-contact">
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Alicante, España
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
-          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
-        </li>
-        <li>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-            </svg>
-            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-contact-banner">
-    <div class="container">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
-    <div class="legal-links">
-      <a href="privacidad.html">Privacidad </a>
-      <a href="terminos.html">Términos</a>
-      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
-    </div>
-  </div>
-</footer>
-
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script src="js/config.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/cart.js"></script>
-<script src="js/gift-options.js"></script>
-<script src="js/main.js"></script>
-</body>
-</html>
-</file>
-
-<file path="privacidad.html">
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<script src="js/cookies.js" defer></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Política de privacidad — Librería tu mayor tesoro</title>
-<meta name="description" content="Consulta nuestra política de privacidad y protección de datos personales en Librería tu mayor tesoro.">
-<link rel="canonical" href="https://libreriatumayortesoro.com/privacidad.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Librería tu mayor tesoro">
-<meta property="og:title" content="Política de privacidad — Librería tu mayor tesoro">
-<meta property="og:description" content="Consulta nuestra política de privacidad y protección de datos personales en Librería tu mayor tesoro.">
-<meta property="og:url" content="https://libreriatumayortesoro.com/privacidad.html">
-<meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Política de privacidad — Librería tu mayor tesoro">
-<meta name="twitter:description" content="Consulta nuestra política de privacidad y protección de datos personales en Librería tu mayor tesoro.">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#20304f">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-
-<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
-<header class="site-header">
-  <div class="container header-top">
-    <a href="index.html" class="brand">
-      <span class="brand-mark">L</span>
-      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-    </a>
-
-    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
-      <button type="submit">Buscar</button>
-    </form>
-
-    <div class="header-actions">
-      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </a>
-      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <span class="cart-count" data-cart-count hidden>0</span>
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
-
-  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
-    <div class="container">
-      <ul class="category-list">
-        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
-        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
-        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
-        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
-        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
-        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
-        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
-        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
-        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
-
-<main id="main-content">
-  <section class="section pb-lg">
-    <div class="container">
-      <nav class="breadcrumb mb-lg" aria-label="Ruta de navegación">
-        <a href="index.html">Inicio</a>
-        <span class="breadcrumb-separator" aria-hidden="true">/</span>
-        <span data-breadcrumb-current>Política de privacidad</span>
-      </nav>
-
-      <div class="section-head mb-0">
-        <div>
-          <span class="eyebrow">Protección de datos</span>
-          <h1 class="section-title">Política de privacidad</h1>
-          <p class="section-lede">Información transparente sobre cómo recopilamos, usamos y protegemos tus datos personales en nuestra plataforma.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--muted pt-lg">
-    <div class="container">
-      <div class="content-narrow-section">
-        
-        <div class="content-card content-card--lg">
-          <h3 class="card-title">Compromiso con la confidencialidad y seguridad</h3>
-          <p class="text-block">
-            En <strong>Librería tu mayor tesoro</strong> nos tomamos muy en serio la seguridad y privacidad de tu información personal. Los datos que nos proporcionas al registrarte, realizar un pedido o comunicarte con nosotros son tratados con estricta confidencialidad y utilizados exclusivamente para gestionar tus compras, envíos y ofrecerte una mejor experiencia de atención.
-          </p>
-          <p class="text-block">
-            Implementamos medidas técnicas y organizativas adecuadas para proteger tus datos frente a accesos no autorizados, pérdida o alteración. Asimismo, te garantizamos el ejercicio de tus derechos de acceso, rectificación y supresión en cualquier momento conforme a la normativa vigente.
-          </p>
-          <p class="text-block text-block--end">
-            Si tienes cualquier duda relacionada con el tratamiento de tus datos personales o deseas ejercer tus derechos, puedes escribirnos directamente a nuestro correo electrónico oficial: 
-            <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline link-inline--strong">libreriamayortesoro@gmail.com</a>.
-          </p>
-        </div>
-
-        <div class="content-card content-card--lg mt-lg">
-          <h3 class="card-title">Responsable del tratamiento</h3>
-          <ul class="text-block text-block--loose">
-            <li><strong>Responsable:</strong> Abel Martínez Barbu (NIF 21695846S)</li>
-            <li><strong>Domicilio:</strong> Alicante, España</li>
-            <li><strong>Correo electrónico:</strong> <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline">libreriamayortesoro@gmail.com</a></li>
-          </ul>
-          <p class="text-block">
-            <strong>Finalidad:</strong> gestionar el registro de usuarios, tramitar pedidos, envíos y facturación, y atender consultas de clientes.
-          </p>
-          <p class="text-block">
-            <strong>Legitimación:</strong> ejecución de la relación contractual derivada de la compra y consentimiento del usuario al registrarse.
-          </p>
-          <p class="text-block">
-            <strong>Destinatarios:</strong> los datos se alojan en Firebase (Google Ireland Ltd.) para la gestión de cuentas y pedidos, y en EmailJS para el envío de correos de confirmación. Ambos proveedores pueden implicar transferencias de datos fuera del Espacio Económico Europeo; en ese caso se realizan amparadas en las Cláusulas Contractuales Tipo de la Comisión Europea u otra garantía equivalente prevista en el RGPD. No se ceden datos a terceros salvo obligación legal.
-          </p>
-          <p class="text-block">
-            <strong>Plazo de conservación:</strong> los datos de la cuenta se conservan mientras mantengas tu cuenta activa; los datos de cada pedido (a efectos fiscales y contables) se conservan durante los plazos exigidos por la normativa mercantil y tributaria (con carácter general, 6 años). Si solicitas la baja de tu cuenta, se eliminan o anonimizan los datos que ya no sea obligatorio conservar.
-          </p>
-          <p class="text-block">
-            <strong>Carácter de los datos:</strong> los datos solicitados en el registro y en el proceso de compra son necesarios para gestionar tu cuenta y tu pedido; si no los facilitas, no podremos tramitarlos.
-          </p>
-          <p class="text-block text-block--end">
-            <strong>Derechos:</strong> puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo al correo electrónico indicado arriba, así como reclamar ante la Agencia Española de Protección de Datos (AEPD, <a href="https://www.aepd.es" target="_blank" rel="noopener" class="link-inline">www.aepd.es</a>) si lo consideras necesario.
-          </p>
-        </div>
-
-        <div class="content-card content-card--lg mt-lg">
-          <h3 class="card-title">Política de cookies</h3>
-          <p class="text-block">
-            Una cookie es un pequeño archivo que se guarda en tu navegador. Al entrar en la web te preguntamos si aceptas o rechazas las que no son estrictamente necesarias; puedes cambiar tu decisión en cualquier momento desde el enlace "Cookies" del pie de página.
-          </p>
-          <ul class="text-block text-block--loose">
-            <li><strong>Técnicas (siempre activas):</strong> imprescindibles para que la web funcione — sesión, carrito de compra y preferencia de cookies. No requieren consentimiento porque no rastrean tu navegación.</li>
-            <li><strong>Analíticas (requieren tu aceptación):</strong> Google Analytics / Google Tag Manager, que nos ayudan a entender cómo se usa la web de forma agregada. Son de Google Ireland Ltd. y pueden mantenerse hasta 13 meses. Solo se cargan si pulsas "Aceptar" en el aviso de cookies.</li>
-          </ul>
-          <p class="text-block text-block--end">
-            Si rechazas las cookies analíticas, la web sigue funcionando con normalidad; simplemente no recogemos estadísticas de tu visita. También puedes bloquear o eliminar las cookies en cualquier momento desde la configuración de tu navegador.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="content-narrow-left">
-        <a href="index.html" class="btn btn--outline">Volver al inicio</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="container">
-    <div class="trust-strip">
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        <div><h4>Envíos a toda España</h4><p>Recíbelo en casa en pocos días</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <div><h4>Ediciones garantizadas</h4><p>Textos fieles y cuidados</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        <div><h4>Atención cercana</h4><p>Te ayudamos a elegir</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        <div><h4>Devoluciones sencillas</h4><p>14 días para cambios</p></div>
-      </div>
-    </div>
-  </div>
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-top">
-    <div class="footer-brand">
-      <a href="index.html" class="brand">
-        <span class="brand-mark">L</span>
-        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-      </a>
-      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Institucional</h5>
-      <ul class="footer-links">
-        <li><a href="quienes-somos.html">Quiénes somos</a></li>
-        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
-        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda para elegir</h5>
-      <ul class="footer-links">
-        <li><a href="asistente.html">Asistente de recomendación</a></li>
-        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
-        <li><a href="recursos.html">Recursos de lectura</a></li>
-        <li><a href="glosario.html">Glosario de términos</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda</h5>
-      <ul class="footer-links">
-        <li><a href="envios.html">Envíos y entregas</a></li>
-        <li><a href="devoluciones.html">Devoluciones</a></li>
-        <li><a href="terminos.html">Términos y condiciones</a></li>
-        <li><a href="privacidad.html">Política de privacidad</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Contacto</h5>
-      <ul class="footer-contact">
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Alicante, España
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
-          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
-        </li>
-        <li>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-            </svg>
-            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-contact-banner">
-    <div class="container">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
-    <div class="legal-links">
-      <a href="privacidad.html">Privacidad </a>
-      <a href="terminos.html">Términos</a>
-      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
-    </div>
-  </div>
-</footer>
-
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script src="js/config.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/cart.js"></script>
-<script src="js/gift-options.js"></script>
-<script src="js/main.js"></script>
-</body>
-</html>
-</file>
-
-<file path="recursos.html">
+## File: recursos.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11697,9 +8849,10 @@ function closeCartDrawer() {
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="seguimiento.html">
+## File: seguimiento.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11951,537 +9104,10 @@ function closeCartDrawer() {
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="terminos.html">
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<script src="js/cookies.js" defer></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Términos y condiciones — Librería tu mayor tesoro</title>
-<meta name="description" content="Consulta los términos y condiciones de uso, compra y contratación de servicios en Librería tu mayor tesoro.">
-<link rel="canonical" href="https://libreriatumayortesoro.com/terminos.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Librería tu mayor tesoro">
-<meta property="og:title" content="Términos y condiciones — Librería tu mayor tesoro">
-<meta property="og:description" content="Consulta los términos y condiciones de uso, compra y contratación de servicios en Librería tu mayor tesoro.">
-<meta property="og:url" content="https://libreriatumayortesoro.com/terminos.html">
-<meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Términos y condiciones — Librería tu mayor tesoro">
-<meta name="twitter:description" content="Consulta los términos y condiciones de uso, compra y contratación de servicios en Librería tu mayor tesoro.">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#20304f">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-
-<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
-<header class="site-header">
-  <div class="container header-top">
-    <a href="index.html" class="brand">
-      <span class="brand-mark">L</span>
-      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-    </a>
-
-    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
-      <button type="submit">Buscar</button>
-    </form>
-
-    <div class="header-actions">
-      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </a>
-      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <span class="cart-count" data-cart-count hidden>0</span>
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
-
-  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
-    <div class="container">
-      <ul class="category-list">
-        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
-        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
-        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
-        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
-        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
-        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
-        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
-        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
-        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
-
-<main id="main-content">
-  <section class="section pb-lg">
-    <div class="container">
-      <nav class="breadcrumb mb-lg" aria-label="Ruta de navegación">
-        <a href="index.html">Inicio</a>
-        <span class="breadcrumb-separator" aria-hidden="true">/</span>
-        <span data-breadcrumb-current>Términos y condiciones</span>
-      </nav>
-
-      <div class="section-head mb-0">
-        <div>
-          <span class="eyebrow">Marco legal</span>
-          <h1 class="section-title">Términos y condiciones</h1>
-          <p class="section-lede">Conoce las condiciones generales que regulan el uso de nuestra web, el proceso de compra y los compromisos adquiridos.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--muted pt-lg">
-    <div class="container">
-      <div class="content-narrow-section">
-        
-        <div class="content-card content-card--lg">
-          <h3 class="card-title">Condiciones generales de contratación y uso</h3>
-          <p class="text-block">
-            Bienvenido a <strong>Librería tu mayor tesoro</strong>. Al acceder, navegar y utilizar nuestro sitio web o realizar cualquier compra a través del mismo, aceptas quedar vinculado por las presentes condiciones generales. Te recomendamos leer detenidamente cada apartado antes de formalizar cualquier adquisición.
-          </p>
-          <p class="text-block">
-            <strong>Todas las compras de libros, biblias y materiales espirituales</strong> están sujetas a la disponibilidad de stock y a la confirmación del pago. Los precios indicados en la web incluyen los impuestos aplicables legalmente en el territorio nacional, quedando excluidos en su caso los gastos de envío correspondientes, los cuales se detallarán de forma transparente antes de finalizar el proceso de pago.
-          </p>
-          <p class="text-block text-block--end">
-            Si tienes cualquier duda legal o requieres aclaración sobre alguno de nuestros compromisos comerciales, puedes escribirnos directamente a nuestro correo electrónico oficial: 
-            <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline link-inline--strong">libreriamayortesoro@gmail.com</a>.
-          </p>
-        </div>
-
-        <div class="content-card content-card--lg mt-lg">
-          <h3 class="card-title">Aviso legal — Identificación del titular</h3>
-          <p class="text-block">
-            En cumplimiento del deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSICE), se informa de los siguientes datos:
-          </p>
-          <ul class="text-block text-block--loose">
-            <li><strong>Titular:</strong> Abel Martínez Barbu</li>
-            <li><strong>NIF:</strong> 21695846S</li>
-            <li><strong>Nombre comercial:</strong> Librería tu mayor tesoro</li>
-            <li><strong>Domicilio:</strong> Alicante, España</li>
-            <li><strong>Correo electrónico:</strong> <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline">libreriamayortesoro@gmail.com</a></li>
-            <li><strong>Teléfono:</strong> +34 711 27 32 38</li>
-          </ul>
-          <p class="text-block text-block--end">
-            La actividad se desarrolla como persona física (autónomo), sin estar dada de alta en el Registro Mercantil.
-          </p>
-        </div>
-
-        <div class="content-card content-card--lg mt-lg">
-          <h3 class="card-title">Legislación aplicable y resolución de conflictos</h3>
-          <p class="text-block">
-            Las presentes condiciones se rigen por la legislación española, en particular por el Real Decreto Legislativo 1/2007 (Texto Refundido de la Ley General para la Defensa de los Consumidores y Usuarios) y la Ley 34/2002 de Servicios de la Sociedad de la Información y de Comercio Electrónico.
-          </p>
-          <p class="text-block text-block--end">
-            Para cualquier controversia que no pueda resolverse de forma amistosa, y sin perjuicio de los derechos que la normativa de consumo reconoce al usuario para acudir a los tribunales de su propio domicilio, ambas partes se someten a los Juzgados y Tribunales de Alicante. Los consumidores europeos también pueden acudir a la <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener" class="link-inline">plataforma europea de resolución de litigios en línea</a>.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="content-narrow-left">
-        <a href="index.html" class="btn btn--outline">Volver al inicio</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="container">
-    <div class="trust-strip">
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        <div><h4>Envíos a toda España</h4><p>Recíbelo en casa en pocos días</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <div><h4>Ediciones garantizadas</h4><p>Textos fieles y cuidados</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        <div><h4>Atención cercana</h4><p>Te ayudamos a elegir</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        <div><h4>Devoluciones sencillas</h4><p>14 días para cambios</p></div>
-      </div>
-    </div>
-  </div>
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-top">
-    <div class="footer-brand">
-      <a href="index.html" class="brand">
-        <span class="brand-mark">L</span>
-        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-      </a>
-      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Institucional</h5>
-      <ul class="footer-links">
-        <li><a href="quienes-somos.html">Quiénes somos</a></li>
-        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
-        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda para elegir</h5>
-      <ul class="footer-links">
-        <li><a href="asistente.html">Asistente de recomendación</a></li>
-        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
-        <li><a href="recursos.html">Recursos de lectura</a></li>
-        <li><a href="glosario.html">Glosario de términos</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda</h5>
-      <ul class="footer-links">
-        <li><a href="envios.html">Envíos y entregas</a></li>
-        <li><a href="devoluciones.html">Devoluciones</a></li>
-        <li><a href="terminos.html">Términos y condiciones</a></li>
-        <li><a href="privacidad.html">Política de privacidad</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Contacto</h5>
-      <ul class="footer-contact">
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Alicante, España
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
-          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
-        </li>
-        <li>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-            </svg>
-            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-contact-banner">
-    <div class="container">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
-    <div class="legal-links">
-      <a href="privacidad.html">Privacidad </a>
-      <a href="terminos.html">Términos</a>
-      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
-    </div>
-  </div>
-</footer>
-
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script src="js/config.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/cart.js"></script>
-<script src="js/gift-options.js"></script>
-<script src="js/main.js"></script>
-</body>
-</html>
-</file>
-
-<file path="trabaja-con-nosotros.html">
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<script src="js/cookies.js" defer></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Trabaja con nosotros — Librería tu mayor tesoro</title>
-<meta name="description" content="Únete al equipo de Librería tu mayor tesoro. Envía tu currículum y colabora con nosotros en la difusión de literatura de fe y valores.">
-<link rel="canonical" href="https://libreriatumayortesoro.com/trabaja-con-nosotros.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Librería tu mayor tesoro">
-<meta property="og:title" content="Trabaja con nosotros — Librería tu mayor tesoro">
-<meta property="og:description" content="Únete al equipo de Librería tu mayor tesoro. Envía tu currículum y colabora con nosotros en la difusión de literatura de fe y valores.">
-<meta property="og:url" content="https://libreriatumayortesoro.com/trabaja-con-nosotros.html">
-<meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Trabaja con nosotros — Librería tu mayor tesoro">
-<meta name="twitter:description" content="Únete al equipo de Librería tu mayor tesoro. Envía tu currículum y colabora con nosotros en la difusión de literatura de fe y valores.">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#20304f">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-
-<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
-<header class="site-header">
-  <div class="container header-top">
-    <a href="index.html" class="brand">
-      <span class="brand-mark">L</span>
-      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-    </a>
-
-    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
-      <button type="submit">Buscar</button>
-    </form>
-
-    <div class="header-actions">
-      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </a>
-      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <span class="cart-count" data-cart-count hidden>0</span>
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
-
-  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
-    <div class="container">
-      <ul class="category-list">
-        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
-        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
-        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
-        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
-        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
-        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
-        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
-        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
-        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
-
-<main id="main-content">
-  <section class="section pb-lg">
-    <div class="container">
-      <nav class="breadcrumb mb-lg" aria-label="Ruta de navegación">
-        <a href="index.html">Inicio</a>
-        <span class="breadcrumb-separator" aria-hidden="true">/</span>
-        <span data-breadcrumb-current>Trabaja con nosotros</span>
-      </nav>
-
-      <div class="section-head mb-0">
-        <div>
-          <span class="eyebrow">Forma parte de nuestro proyecto</span>
-          <h1 class="section-title">Trabaja con nosotros</h1>
-          <p class="section-lede">¿Te apasiona la literatura, el servicio y compartir recursos de crecimiento espiritual y personal? Nos encantaría conocerte.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--muted pt-lg">
-    <div class="container">
-      <div class="content-narrow-section">
-        
-        <div class="content-card content-card--lg">
-          <h3 class="card-title">Únete a nuestra misión</h3>
-          <p class="text-block">
-            En <strong>Librería tu mayor tesoro</strong> valoramos la dedicación, el trato cercano y el compromiso con los valores cristianos. Si compartes nuestra visión y quieres colaborar, este espacio es para ti.
-          </p>
-          <p class="text-block">
-            Actualmente buscamos colaborar con personas apasionadas por el ministerio de la página impresa, la encuadernación y el arte textil. Si tienes experiencia en costura artesanal, ilustración, distribución de literatura o atención al cliente y deseas poner tus talentos al servicio de este proyecto, nos encantaría conocerte.
-          </p>
-          <p class="text-block text-block--end">
-            Si deseas formar parte de nuestro equipo, puedes enviarnos tu propuesta o currículum a nuestro correo electrónico oficial especificando tu área de especialidad: 
-            <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline link-inline--strong">libreriamayortesoro@gmail.com</a> indicando en el asunto del mensaje <em>"Especialidad - [Tu Nombre y Apellidos]"</em>.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="content-narrow-left">
-        <a href="index.html" class="btn btn--outline">Volver al inicio</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="container">
-    <div class="trust-strip">
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        <div><h4>Envíos a toda España</h4><p>Recíbelo en casa en pocos días</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <div><h4>Ediciones garantizadas</h4><p>Textos fieles y cuidados</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        <div><h4>Atención cercana</h4><p>Te ayudamos a elegir</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        <div><h4>Devoluciones sencillas</h4><p>14 días para cambios</p></div>
-      </div>
-    </div>
-  </div>
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-top">
-    <div class="footer-brand">
-      <a href="index.html" class="brand">
-        <span class="brand-mark">L</span>
-        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-      </a>
-      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Institucional</h5>
-      <ul class="footer-links">
-        <li><a href="quienes-somos.html">Quiénes somos</a></li>
-        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
-        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda para elegir</h5>
-      <ul class="footer-links">
-        <li><a href="asistente.html">Asistente de recomendación</a></li>
-        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
-        <li><a href="recursos.html">Recursos de lectura</a></li>
-        <li><a href="glosario.html">Glosario de términos</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda</h5>
-      <ul class="footer-links">
-        <li><a href="envios.html">Envíos y entregas</a></li>
-        <li><a href="devoluciones.html">Devoluciones</a></li>
-        <li><a href="terminos.html">Términos y condiciones</a></li>
-        <li><a href="privacidad.html">Política de privacidad</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Contacto</h5>
-      <ul class="footer-contact">
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Alicante, España
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
-          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
-        </li>
-        <li>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-            </svg>
-            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-contact-banner">
-    <div class="container">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
-    <div class="legal-links">
-      <a href="privacidad.html">Privacidad </a>
-      <a href="terminos.html">Términos</a>
-      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
-    </div>
-  </div>
-</footer>
-
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script src="js/config.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/cart.js"></script>
-<script src="js/gift-options.js"></script>
-<script src="js/main.js"></script>
-</body>
-</html>
-</file>
-
-<file path="admin.html">
+## File: admin.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12784,9 +9410,10 @@ function closeCartDrawer() {
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="como-elegir-tu-primera-biblia.html">
+## File: como-elegir-tu-primera-biblia.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13040,501 +9667,10 @@ function closeCartDrawer() {
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="nuestra-mision.html">
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<script src="js/cookies.js" defer></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Nuestra Misión — Librería tu mayor tesoro</title>
-<meta name="description" content="Conoce la misión de Librería tu mayor tesoro: facilitar literatura cristiana de calidad y biblias fieles.">
-<link rel="canonical" href="https://libreriatumayortesoro.com/nuestra-mision.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Librería tu mayor tesoro">
-<meta property="og:title" content="Nuestra Misión — Librería tu mayor tesoro">
-<meta property="og:description" content="Conoce la misión de Librería tu mayor tesoro: facilitar literatura cristiana de calidad y biblias fieles.">
-<meta property="og:url" content="https://libreriatumayortesoro.com/nuestra-mision.html">
-<meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nuestra Misión — Librería tu mayor tesoro">
-<meta name="twitter:description" content="Conoce la misión de Librería tu mayor tesoro: facilitar literatura cristiana de calidad y biblias fieles.">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#20304f">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-
-<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
-<header class="site-header">
-  <div class="container header-top">
-    <a href="index.html" class="brand">
-      <span class="brand-mark">L</span>
-      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-    </a>
-
-    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
-      <button type="submit">Buscar</button>
-    </form>
-
-    <div class="header-actions">
-      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </a>
-      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <span class="cart-count" data-cart-count hidden>0</span>
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
-
-  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
-    <div class="container">
-      <ul class="category-list">
-        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
-        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
-        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
-        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
-        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
-        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
-        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
-        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
-        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
-
-<main id="main-content">
-  <section class="section pb-lg">
-    <div class="container">
-      <nav class="breadcrumb mb-lg" aria-label="Ruta de navegación">
-        <a href="index.html">Inicio</a>
-        <span class="breadcrumb-separator" aria-hidden="true">/</span>
-        <a href="quienes-somos.html">Quiénes somos</a>
-        <span class="breadcrumb-separator" aria-hidden="true">/</span>
-        <span data-breadcrumb-current>Nuestra Misión</span>
-      </nav>
-
-      <div class="section-head mb-0">
-        <div>
-          <span class="eyebrow">Nuestro propósito fundamental</span>
-          <h1 class="section-title">Nuestra Misión</h1>
-          <p class="section-lede">Facilitar el acceso a la literatura de la Biblia y la espiritual a través de una experiencia de compra cercana, cuidada y de alta calidad. Nos comprometemos a promover el estudio de las Sagradas Escrituras y los testimonios, uniendo la trascendencia de su mensaje con la calidez del trabajo artesanal hecho con dedicación y reverencia.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section pt-lg">
-    <div class="container">
-      <div class="content-lede">
-        <p class="mb-lg">
-          En <strong>Librería tu mayor tesoro</strong>, nuestra misión principal es proveer literatura cristiana de alta calidad, Biblias con textos rigurosos y las valiosas obras completas de Elena G. White para acompañar el estudio devocional de cada creyente.
-        </p>
-        <p class="mb-lg">
-          Trabajamos con el firme propósito de acercar herramientas espirituales y educativas que promuevan valores arraigados en las Sagradas Escrituras, contribuyendo al crecimiento y la firmeza en la fe de las familias.
-        </p>
-        <p>
-          Cada libro que seleccionamos cumple con el objetivo de inspirar una comunión más profunda con Dios y ofrecer respuestas prácticas para la vida diaria a la luz de los principios bíblicos.
-        </p>
-      </div>
-
-      <div class="text-align-left">
-        <a href="quienes-somos.html" class="btn btn--outline">Volver a Quiénes somos</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="container">
-    <div class="trust-strip">
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        <div><h4>Envíos a toda España</h4><p>Recíbelo en casa en pocos días</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <div><h4>Ediciones garantizadas</h4><p>Textos fieles y cuidados</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        <div><h4>Atención cercana</h4><p>Te ayudamos a elegir</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        <div><h4>Devoluciones sencillas</h4><p>14 días para cambios</p></div>
-      </div>
-    </div>
-  </div>
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-top">
-    <div class="footer-brand">
-      <a href="index.html" class="brand">
-        <span class="brand-mark">L</span>
-        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-      </a>
-      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Institucional</h5>
-      <ul class="footer-links">
-        <li><a href="quienes-somos.html">Quiénes somos</a></li>
-        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
-        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda para elegir</h5>
-      <ul class="footer-links">
-        <li><a href="asistente.html">Asistente de recomendación</a></li>
-        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
-        <li><a href="recursos.html">Recursos de lectura</a></li>
-        <li><a href="glosario.html">Glosario de términos</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda</h5>
-      <ul class="footer-links">
-        <li><a href="envios.html">Envíos y entregas</a></li>
-        <li><a href="devoluciones.html">Devoluciones</a></li>
-        <li><a href="terminos.html">Términos y condiciones</a></li>
-        <li><a href="privacidad.html">Política de privacidad</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Contacto</h5>
-      <ul class="footer-contact">
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Alicante, España
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
-          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
-        </li>
-        <li>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-            </svg>
-            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-contact-banner">
-    <div class="container">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
-    <div class="legal-links">
-      <a href="privacidad.html">Privacidad </a>
-      <a href="terminos.html">Términos</a>
-      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
-    </div>
-  </div>
-</footer>
-
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script src="js/config.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/cart.js"></script>
-<script src="js/gift-options.js"></script>
-<script src="js/main.js"></script>
-</body>
-</html>
-</file>
-
-<file path="nuestro-compromiso.html">
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<script src="js/cookies.js" defer></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Nuestro Compromiso — Librería tu mayor tesoro</title>
-<meta name="description" content="Conoce nuestro compromiso con la atención cercana, la calidad editorial y los envíos seguros en Librería tu mayor tesoro.">
-<link rel="canonical" href="https://libreriatumayortesoro.com/nuestro-compromiso.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Librería tu mayor tesoro">
-<meta property="og:title" content="Nuestro Compromiso — Librería tu mayor tesoro">
-<meta property="og:description" content="Conoce nuestro compromiso con la atención cercana, la calidad editorial y los envíos seguros en Librería tu mayor tesoro.">
-<meta property="og:url" content="https://libreriatumayortesoro.com/nuestro-compromiso.html">
-<meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nuestro Compromiso — Librería tu mayor tesoro">
-<meta name="twitter:description" content="Conoce nuestro compromiso con la atención cercana, la calidad editorial y los envíos seguros en Librería tu mayor tesoro.">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#20304f">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-
-<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
-<header class="site-header">
-  <div class="container header-top">
-    <a href="index.html" class="brand">
-      <span class="brand-mark">L</span>
-      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-    </a>
-
-    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
-      <button type="submit">Buscar</button>
-    </form>
-
-    <div class="header-actions">
-      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </a>
-      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <span class="cart-count" data-cart-count hidden>0</span>
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
-
-  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
-    <div class="container">
-      <ul class="category-list">
-        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
-        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
-        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
-        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
-        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
-        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
-        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
-        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
-        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
-
-<main id="main-content">
-  <section class="section pb-lg">
-    <div class="container">
-      <nav class="breadcrumb mb-lg" aria-label="Ruta de navegación">
-        <a href="index.html">Inicio</a>
-        <span class="breadcrumb-separator" aria-hidden="true">/</span>
-        <a href="quienes-somos.html">Quiénes somos</a>
-        <span class="breadcrumb-separator" aria-hidden="true">/</span>
-        <span data-breadcrumb-current>Nuestro Compromiso</span>
-      </nav>
-
-      <div class="section-head mb-0">
-        <div>
-          <span class="eyebrow">Nuestra garantía de calidad y servicio</span>
-          <h1 class="section-title">Nuestro Compromiso</h1>
-          <p class="section-lede">Atención cercana, transparencia y cuidado en cada detalle de tu experiencia con nosotros.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section pt-lg">
-    <div class="container">
-      <div class="content-lede">
-        <p class="mb-lg">
-          En <strong>Librería tu mayor tesoro</strong> asumimos un compromiso absoluto con la satisfacción y la confianza de cada lector. Cuidamos cada fase del proceso, desde la selección cuidadosa de los títulos editoriales hasta que el paquete llega a tus manos.
-        </p>
-        <p class="mb-lg">
-          Nos esforzamos por ofrecer una atención al cliente humana, personalizada y eficiente, ayudándote a resolver cualquier duda sobre nuestros catálogos de Biblias, devocionales o literatura de Elena G. White.
-        </p>
-        <p>
-          Asimismo, garantizamos envíos rápidos, seguros y transparentes a toda España, asegurando que cada libro conserve su integridad y cumpla con tus expectativas.
-        </p>
-      </div>
-
-      <div class="text-align-left">
-        <a href="quienes-somos.html" class="btn btn--outline">Volver a Quiénes somos</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="container">
-    <div class="trust-strip">
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        <div><h4>Envíos a toda España</h4><p>Recíbelo en casa en pocos días</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <div><h4>Ediciones garantizadas</h4><p>Textos fieles y cuidados</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        <div><h4>Atención cercana</h4><p>Te ayudamos a elegir</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        <div><h4>Devoluciones sencillas</h4><p>14 días para cambios</p></div>
-      </div>
-    </div>
-  </div>
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-top">
-    <div class="footer-brand">
-      <a href="index.html" class="brand">
-        <span class="brand-mark">L</span>
-        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-      </a>
-      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Institucional</h5>
-      <ul class="footer-links">
-        <li><a href="quienes-somos.html">Quiénes somos</a></li>
-        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
-        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda para elegir</h5>
-      <ul class="footer-links">
-        <li><a href="asistente.html">Asistente de recomendación</a></li>
-        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
-        <li><a href="recursos.html">Recursos de lectura</a></li>
-        <li><a href="glosario.html">Glosario de términos</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda</h5>
-      <ul class="footer-links">
-        <li><a href="envios.html">Envíos y entregas</a></li>
-        <li><a href="devoluciones.html">Devoluciones</a></li>
-        <li><a href="terminos.html">Términos y condiciones</a></li>
-        <li><a href="privacidad.html">Política de privacidad</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Contacto</h5>
-      <ul class="footer-contact">
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Alicante, España
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
-          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
-        </li>
-        <li>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-            </svg>
-            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-contact-banner">
-    <div class="container">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
-    <div class="legal-links">
-      <a href="privacidad.html">Privacidad </a>
-      <a href="terminos.html">Términos</a>
-      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
-    </div>
-  </div>
-</footer>
-
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script src="js/config.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/cart.js"></script>
-<script src="js/gift-options.js"></script>
-<script src="js/main.js"></script>
-</body>
-</html>
-</file>
-
-<file path="por-donde-empezar-elena-g-white.html">
+## File: por-donde-empezar-elena-g-white.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13788,9 +9924,10 @@ function closeCartDrawer() {
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="que-es-el-conflicto-de-los-siglos.html">
+## File: que-es-el-conflicto-de-los-siglos.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14041,9 +10178,10 @@ function closeCartDrawer() {
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="quien-fue-elena-g-white.html">
+## File: quien-fue-elena-g-white.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14294,284 +10432,1438 @@ function closeCartDrawer() {
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="quienes-somos.html">
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<script src="js/cookies.js" defer></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Quiénes somos — Librería tu mayor tesoro</title>
-<meta name="description" content="Conoce la historia, misión y valores de Librería tu mayor tesoro. Literatura cristiana, Biblias y obras de Elena G. White.">
-<link rel="canonical" href="https://libreriatumayortesoro.com/quienes-somos.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Librería tu mayor tesoro">
-<meta property="og:title" content="Quiénes somos — Librería tu mayor tesoro">
-<meta property="og:description" content="Conoce la historia, misión y valores de Librería tu mayor tesoro. Literatura cristiana, Biblias y obras de Elena G. White.">
-<meta property="og:url" content="https://libreriatumayortesoro.com/quienes-somos.html">
-<meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Quiénes somos — Librería tu mayor tesoro">
-<meta name="twitter:description" content="Conoce la historia, misión y valores de Librería tu mayor tesoro. Literatura cristiana, Biblias y obras de Elena G. White.">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#20304f">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+## File: js/cart.js
+````javascript
+// ==========================================================================
+// Carrito de compra — estado compartido (localStorage) entre
+// Home, Catálogo, Ficha de producto y Carrito.
+// ==========================================================================
+window.Cart = (function () {
+  var STORAGE_KEY = 'fundamento_cart';
+  var PROMO_STORAGE_KEY = 'fundamento_promo';
 
-<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
-<!-- ==========================================================================
-     1. HEADER — buscador + menú de categorías
-     ========================================================================== -->
-<header class="site-header">
-  <div class="container header-top">
-    <a href="index.html" class="brand">
-      <span class="brand-mark">L</span>
-      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-    </a>
+  function getItems() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    } catch (e) {
+      return [];
+    }
+  }
 
-    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
-      <button type="submit">Buscar</button>
-    </form>
+  function saveItems(items) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    updateBadge();
+    document.dispatchEvent(new CustomEvent('cart:change'));
+  }
 
-    <div class="header-actions">
-      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </a>
-      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <span class="cart-count" data-cart-count hidden>0</span>
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
+  // ---- Código promocional aplicado ----------------------------------------
+  // Solo guarda el código + su tipo/valor, tal como los devolvió
+  // "validarPromo" — nunca un importe de descuento ya calculado, para que
+  // el resumen se recalcule siempre a partir del subtotal actual. El
+  // descuento DE VERDAD (el que se cobra) siempre lo decide el servidor
+  // en "crearPedido", esto es solo para mostrarlo en el carrito.
+  // ---- País de envío --------------------------------------------------------
+  // Se guarda en el navegador (localStorage) para que el resumen del carrito y
+  // el formulario de envío siempre hablen del mismo país. Por defecto, España.
+  // Cambiarlo NO modifica el carrito: solo recalcula el envío.
+  var PAIS_KEY = 'fundamento_pais';
+  function getPais() {
+    try {
+      var p = localStorage.getItem(PAIS_KEY);
+      if (p && window.ShippingRates && window.ShippingRates.paisValido(p)) return p;
+    } catch (e) { /* sin almacenamiento: se usa España */ }
+    return 'ES';
+  }
+  function setPais(pais) {
+    if (!window.ShippingRates || !window.ShippingRates.paisValido(pais)) return;
+    try { localStorage.setItem(PAIS_KEY, pais); } catch (e) { /* ignorar */ }
+    document.dispatchEvent(new CustomEvent('pais:change'));
+  }
 
-  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
-    <div class="container">
-      <ul class="category-list">
-        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
-        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
-        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
-        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
-        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
-        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
-        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
-        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
-        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
+  function getPromo() {
+    try {
+      return JSON.parse(sessionStorage.getItem(PROMO_STORAGE_KEY)) || null;
+    } catch (e) {
+      return null;
+    }
+  }
 
-<main id="main-content">
-  <!-- ========================================================================
-       2. CABECERA DE LA PÁGINA (Estilo idéntico a las secciones principales)
-       ======================================================================== -->
-  <section class="section pb-lg">
-    <div class="container">
-      <div class="section-head mb-0">
-        <div>
-          <span class="eyebrow">Nuestra historia y propósito</span>
-          <h1 class="section-title">Quiénes somos</h1>
-          <p class="section-lede">Somos un proyecto dedicado a la difusión de la literatura cristiana y la artesanía textil. Nacemos con el propósito de poner al alcance de cada hogar la Palabra de Dios y los escritos de Elena G. White, acompañados por un trabajo de confección manual único. Cada una de nuestras Biblias y libros puede complementarse con fundas y recubrimientos artesanales, elaborados a mano cuidando cada detalle para ofrecer piezas perdurables que dignifican la lectura de la fe.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  function setPromo(promo) {
+    sessionStorage.setItem(PROMO_STORAGE_KEY, JSON.stringify(promo));
+    document.dispatchEvent(new CustomEvent('cart:change'));
+  }
 
-  <!-- ========================================================================
-       3. CONTENIDO PRINCIPAL: QUIÉNES SOMOS (Uso de tarjetas y rejillas oficiales)
-       ======================================================================== -->
-  <section class="section pt-lg">
-    <div class="container">
-      
-      <!-- Bloque introductorio -->
-      <div class="content-lede">
-        <p class="mb-lg">
-          En <strong>Librería tu mayor tesoro</strong> concebimos la lectura no solo como un hábito cultural, sino como una herramienta fundamental para la edificación personal y comunitaria. Trabajamos cuidadosamente para ofrecer un catálogo enfocado en la fidelidad doctrinal, el estudio profundo de las Escrituras y el bienestar integral.
-        </p>
-        <p>
-          Ponemos a disposición de nuestros lectores ediciones cuidadas de las obras completas de Elena G. White, una amplia variedad de Biblias en distintas versiones y recursos prácticos para el hogar, la salud y la familia.
-        </p>
-      </div>
+  function clearPromo() {
+    sessionStorage.removeItem(PROMO_STORAGE_KEY);
+    document.dispatchEvent(new CustomEvent('cart:change'));
+  }
 
-      <!-- Tarjetas de Misión y Valores (Aprovechando la estructura de .category-grid o .trust-strip) -->
-      <div class="category-grid auto-grid-300">
-        
-        <a href="nuestra-mision.html" class="category-card link-plain">
-          <span class="cat-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5c-1.5-2-4.5-3-8-3V5c3.5 0 6.5 1 8 3"/><path d="M12 20.5c1.5-2 4.5-3 8-3V5c-3.5 0-6.5 1-8 3"/></svg>
-          </span>
-          <h3>Nuestra Misión</h3>
-          <p>Facilitar el acceso a literatura cristiana de alta calidad y contenido doctrinal sólido que inspire, instruya y fortalezca la vida espiritual de cada creyente y su hogar.</p>
-          <span class="cat-count inline-cta-link">Saber más
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </a>
+  // Dos líneas del mismo libro se consideran la MISMA solo si coinciden el
+  // id, el formato (que ya incluye la portada elegida) y los extras de
+  // regalo. Así se puede pedir un ejemplar envuelto y otro sin envolver.
+  function lineKeyOf(item) {
+    return item.giftKey || (window.giftKey ? window.giftKey(item.regalo) : '');
+  }
+  function sameLine(i, id, format, giftKey) {
+    return i.id === id && i.format === format && lineKeyOf(i) === (giftKey || '');
+  }
 
-        <a href="nuestro-compromiso.html" class="category-card link-plain">
-          <span class="cat-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </span>
-          <h3>Nuestro Compromiso</h3>
-          <p>Ofrecer una atención cercana y personalizada, garantizando selecciones editoriales cuidadas y un servicio de envío eficiente y transparente en cada pedido.</p>
-          <span class="cat-count inline-cta-link">Saber más
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </a>
+  // Enlace a la ficha del libro de una línea del carrito. Si la línea tiene una
+  // portada elegida, se pasa en la URL para que la ficha se abra con ESA portada
+  // seleccionada (ver "portada" en js/product.js).
+  function productUrl(item) {
+    if (!item || !item.id || String(item.id).indexOf('extra-') === 0) return '';
+    return 'producto.html?id=' + encodeURIComponent(item.id) +
+      (item.coverStyle ? '&portada=' + encodeURIComponent(item.coverStyle) : '');
+  }
+  window.cartProductUrl = productUrl;
 
-    </div>
+  function addItem(item) {
+    var items = getItems();
+    item.giftKey = lineKeyOf(item);
+    var existing = items.filter(function (i) { return sameLine(i, item.id, item.format, item.giftKey); })[0];
+    if (existing) {
+      existing.qty += item.qty || 1;
+    } else {
+      item.qty = item.qty || 1;
+      items.push(item);
+    }
+    saveItems(items);
+  }
 
-    </div>
-  </section>
+  function removeItem(id, format, giftKey) {
+    saveItems(getItems().filter(function (i) { return !sameLine(i, id, format, giftKey); }));
+  }
 
-  <!-- Banda de confianza (Mantenida idéntica a la home para conservar la coherencia visual) -->
-  <div class="container">
-    <div class="trust-strip">
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        <div><h4>Envíos a toda España</h4><p>Recíbelo en casa en pocos días</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <div><h4>Ediciones garantizadas</h4><p>Textos fieles y cuidados</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        <div><h4>Atención cercana</h4><p>Te ayudamos a elegir</p></div>
-      </div>
-      <div class="trust-item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        <div><h4>Devoluciones sencillas</h4><p>14 días para cambios</p></div>
-      </div>
-    </div>
-  </div>
+  function setQty(id, format, qty, giftKey) {
+    var items = getItems();
+    var item = items.filter(function (i) { return sameLine(i, id, format, giftKey); })[0];
+    if (item) {
+      item.qty = Math.min(600, Math.max(1, qty));
+      saveItems(items);
+    }
+  }
 
-</main>
+  function totalCount() {
+    return getItems().reduce(function (sum, i) { return sum + i.qty; }, 0);
+  }
 
-<!-- ==========================================================================
-     4. FOOTER
-     ========================================================================== -->
-<footer class="site-footer">
-  <div class="container footer-top">
-    <div class="footer-brand">
-      <a href="index.html" class="brand">
-        <span class="brand-mark">L</span>
-        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-      </a>
-      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-      </div>
-    </div>
+  function totalPrice() {
+    return getItems().reduce(function (sum, i) { return sum + i.qty * i.price; }, 0);
+  }
 
-    <div class="footer-col">
-      <h5 class="footer-heading">Institucional</h5>
-      <ul class="footer-links">
-        <li><a href="quienes-somos.html">Quiénes somos</a></li>
-        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
-        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
-      </ul>
-    </div>
+  // Importe de los extras de regalo (envoltorio, exlibris, funda…). Se
+  // calcula siempre desde js/gift-options.js, nunca se guarda un total.
+  function extrasTotal() {
+    return window.giftExtrasTotal ? Math.round(window.giftExtrasTotal(getItems()) * 100) / 100 : 0;
+  }
 
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda para elegir</h5>
-      <ul class="footer-links">
-        <li><a href="asistente.html">Asistente de recomendación</a></li>
-        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
-        <li><a href="recursos.html">Recursos de lectura</a></li>
-        <li><a href="glosario.html">Glosario de términos</a></li>
-      </ul>
-    </div>
+  function clearItems() {
+    saveItems([]);
+  }
 
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda</h5>
-      <ul class="footer-links">
-        <li><a href="envios.html">Envíos y entregas</a></li>
-        <li><a href="devoluciones.html">Devoluciones</a></li>
-        <li><a href="terminos.html">Términos y condiciones</a></li>
-        <li><a href="privacidad.html">Política de privacidad</a></li>
-      </ul>
-    </div>
+  function updateBadge() {
+    var badge = document.querySelector('[data-cart-count]');
+    if (!badge) return;
+    var count = totalCount();
+    badge.textContent = count;
+    badge.hidden = count === 0;
+  }
 
-    <div class="footer-col">
-      <h5 class="footer-heading">Contacto</h5>
-      <ul class="footer-contact">
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Alicante, España
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
-          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
-        </li>
-        <li>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-            </svg>
-            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
-        </li>
-      </ul>
-    </div>
-  </div>
+  return {
+    getItems: getItems,
+    addItem: addItem,
+    removeItem: removeItem,
+    setQty: setQty,
+    clear: clearItems,
+    totalCount: totalCount,
+    totalPrice: totalPrice,
+    extrasTotal: extrasTotal,
+    updateBadge: updateBadge,
+    getPais: getPais,
+    setPais: setPais,
+    getPromo: getPromo,
+    setPromo: setPromo,
+    clearPromo: clearPromo
+  };
+})();
 
-  <div class="footer-contact-banner">
-    <div class="container">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
-    <div class="legal-links">
-      <a href="privacidad.html">Privacidad </a>
-      <a href="terminos.html">Términos</a>
-      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
-    </div>
-  </div>
-</footer>
+// ==========================================================================
+// Sincronización del "carrito abandonado" — solo con sesión iniciada
+// --------------------------------------------------------------------------
+// Cada vez que cambia el carrito (con sesión iniciada), guarda una copia
+// mínima en Firestore (colección "carritosAbandonados/{uid}"): solo el id,
+// el título y la cantidad de cada libro — NUNCA el precio, que siempre lo
+// vuelve a calcular el servidor contra el catálogo real antes de mandar
+// cualquier correo. Sin sesión no se guarda nada (no tendríamos a qué
+// email escribir). Al vaciar el carrito, se borra el documento.
+//
+// La Cloud Function "recordatorioCarritoAbandonado" (functions/index.js)
+// revisa esta colección una vez por hora y, si el carrito lleva varias
+// horas sin cambios, manda un correo recordándolo — no hace falta tocar
+// nada más aquí para que funcione.
+// ==========================================================================
+(function () {
+  var SYNC_DEBOUNCE_MS = 4000;
+  var syncTimer = null;
+  var usuarioActual = null;
 
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script src="js/config.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/cart.js"></script>
-<script src="js/gift-options.js"></script>
-<script src="js/main.js"></script>
-</body>
-</html>
-</file>
+  function sincronizarCarritoAbandonado() {
+    if (!window.fbDb || !usuarioActual || typeof firebase === 'undefined') return;
+    var ref = window.fbDb.collection('carritosAbandonados').doc(usuarioActual.uid);
+    var items = Cart.getItems();
 
-<file path="blog.html">
+    if (items.length === 0) {
+      ref.delete().catch(function () {});
+      return;
+    }
+
+    var itemsParaGuardar = items.slice(0, 30).map(function (item) {
+      return {
+        id: item.id || '',
+        titulo: (item.title || '').slice(0, 200),
+        cantidad: Math.max(1, Math.min(600, item.qty || 1))
+      };
+    });
+
+    ref.set({
+      uid: usuarioActual.uid,
+      email: usuarioActual.email || '',
+      nombre: usuarioActual.displayName || '',
+      items: itemsParaGuardar,
+      actualizadoEn: firebase.firestore.FieldValue.serverTimestamp(),
+      recordatorioEnviado: false
+    }).catch(function (err) {
+      console.error('No se pudo guardar el carrito para el recordatorio', err);
+    });
+  }
+
+  function programarSync() {
+    if (!usuarioActual) return;
+    clearTimeout(syncTimer);
+    syncTimer = setTimeout(sincronizarCarritoAbandonado, SYNC_DEBOUNCE_MS);
+  }
+
+  document.addEventListener('cart:change', programarSync);
+
+  if (window.fbAuth) {
+    window.fbAuth.onAuthStateChanged(function (user) {
+      usuarioActual = user || null;
+      // Al iniciar sesión con libros ya en el carrito (añadidos como
+      // invitado), los sincroniza también; sin sesión, no hay nada que
+      // sincronizar (y "sincronizarCarritoAbandonado" no hace nada, por
+      // el "if (!usuarioActual)" de arriba).
+      if (usuarioActual) programarSync();
+    });
+  }
+})();
+
+// ---- Utilidades -----------------------------------------------------------
+// Escapa HTML antes de insertar cualquier texto con innerHTML. Se usa en
+// todo el sitio (carrito, opiniones, panel de admin) para que un nombre,
+// dirección o comentario con < > " ' nunca se interprete como código.
+// Pulsar en cualquier parte de una línea del carrito (salvo en los botones, el
+// selector de cantidad o un enlace) abre la ficha del libro.
+function makeRowClickable(row) {
+  var href = row.getAttribute('data-href');
+  if (!href) return;
+  row.classList.add('is-clickable');
+  row.addEventListener('click', function (e) {
+    if (e.target.closest('a, button, input, .qty-stepper')) return;
+    window.location.href = href;
+  });
+}
+
+function escapeHTML(str) {
+  return String(str == null ? '' : str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function fmtEUR(value) {
+  return value.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '\u00A0€';
+}
+
+function slugify(text) {
+  return text.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
+function flashAdded(btn) {
+  var original = btn.textContent;
+  btn.textContent = 'Añadido ✓';
+  btn.classList.add('is-added');
+  setTimeout(function () {
+    btn.textContent = original;
+    btn.classList.remove('is-added');
+  }, 1300);
+}
+
+// Función auxiliar para asociar la imagen según el título del libro.
+// Primero mira en el catálogo centralizado (js/books-data.js); si un libro
+// no está ahí (o esa página no lo carga), usa este mapa de respaldo.
+function getBookImage(title) {
+  if (window.BOOKS) {
+    var match = window.BOOKS.filter(function (b) { return b.title === title; })[0];
+    if (match) return match.cover;
+  }
+  const imageMap = {
+    "El Conflicto de los Siglos": "img/el-conflicto-de-los-siglos.jpg",
+    "El Deseado de Todas las Gentes": "img/el-deseado-de-todas-las-gentes.jpg",
+    "Historia de los Patriarcas y Profetas": "img/historia-de-los-patriarcas-y-profetas.jpg",
+    "Profetas y Reyes": "img/profetas-y-reyes.jpg"
+  };
+  
+  return imageMap[title] || DEFAULT_BOOK_COVER;
+}
+
+// Portada genérica (SVG en línea) para libros sin foto propia — así nunca
+// se rompe la imagen en el carrito aunque el título no esté en imageMap.
+var DEFAULT_BOOK_COVER = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160">' +
+  '<rect width="120" height="160" fill="#1f2b45"/>' +
+  '<rect x="10" y="10" width="100" height="140" fill="none" stroke="#c9a15a" stroke-width="2"/>' +
+  '<line x1="24" y1="60" x2="96" y2="60" stroke="#c9a15a" stroke-width="1.5"/>' +
+  '<line x1="24" y1="72" x2="96" y2="72" stroke="#c9a15a" stroke-width="1.5"/>' +
+  '</svg>'
+);
+document.addEventListener('DOMContentLoaded', function () {
+  Cart.updateBadge();
+  setupCartDrawer();
+
+  // ---- Botones "Añadir" en tarjetas de libro (Home / Catálogo / relacionados) ----
+  // Delegado en el documento (no un listener por tarjeta): así también
+  // funcionan las tarjetas que se pintan después de cargar la página, como la
+  // lista de deseos de Mi cuenta, que antes no podía añadir al carrito.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.book-card .book-footer .btn');
+    if (!btn) return;
+    var card = btn.closest('.book-card');
+    (function () {
+      e.preventDefault();
+      var titleEl = card.querySelector('.book-title');
+      var authorEl = card.querySelector('.book-author');
+      var priceEl = card.querySelector('.book-price');
+      var title = titleEl ? titleEl.textContent.trim() : 'Libro';
+      var author = authorEl ? authorEl.textContent.trim() : '';
+      var priceText = priceEl ? priceEl.childNodes[0].textContent : '0';
+      var price = parseFloat(priceText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+      var id = card.dataset.productId || slugify(title);
+
+      // Si el libro está en el catálogo, se usan su formato real y la
+      // portada que la tarjeta está mostrando en ese momento (las tarjetas
+      // con dos diseños van alternando: ver js/cover-carousel.js). Así el
+      // cliente mete en el carrito exactamente la versión que ve.
+      var libro = window.BooksCatalog ? window.BooksCatalog.getById(id) : null;
+      var coverFile = card.dataset.coverFile || (libro ? libro.cover : getBookImage(title));
+      var coverStyle = card.dataset.coverStyle || '';
+      var coverLabel = card.dataset.coverLabel || '';
+      var varias = libro && window.hasMultipleCovers ? window.hasMultipleCovers(libro) : false;
+      var formato = libro ? libro.format : 'Estándar';
+      if (varias && coverLabel) formato += ' · ' + coverLabel;
+
+      Cart.addItem({
+        id: id,
+        title: title,
+        author: author,
+        price: price,
+        format: formato,
+        coverStyle: coverStyle,
+        cover: coverFile,
+        qty: 1
+      });
+      flashAdded(btn);
+      openCartDrawer();
+    })();
+  });
+
+  // ---- Botón "Añadir al carrito" dedicado (Ficha de producto) ----
+  var mainAddBtn = document.querySelector('[data-add-to-cart]');
+  if (mainAddBtn) {
+    var block = mainAddBtn.closest('[data-product-block]');
+    mainAddBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var qtyInput = block ? block.querySelector('[data-qty-input]') : null;
+      var qty = qtyInput ? (parseInt(qtyInput.value, 10) || 1) : 1;
+      var activePill = block ? block.querySelector('.option-pill.is-active') : null;
+
+      var regalo = null;
+      try {
+        regalo = mainAddBtn.dataset.gift ? JSON.parse(mainAddBtn.dataset.gift) : null;
+      } catch (err) { regalo = null; }
+      if (regalo && !Object.keys(regalo).length) regalo = null;
+
+      // Libros con configurador de impresión (colección Elena G. White):
+      // la combinación elegida (tapa, tamaño, acabado, papel) viaja con la
+      // línea del carrito para que, al pedir de verdad, el servidor pueda
+      // volver a calcular el precio exacto contra su propia tabla — nunca
+      // se cobra el precio que calcula el navegador tal cual.
+      var imp = null;
+      try {
+        imp = mainAddBtn.dataset.imp ? JSON.parse(mainAddBtn.dataset.imp) : null;
+      } catch (err) { imp = null; }
+
+      Cart.addItem({
+        id: mainAddBtn.dataset.id,
+        title: mainAddBtn.dataset.title,
+        author: mainAddBtn.dataset.author,
+        regalo: regalo,
+        imp: imp,
+        price: activePill ? parseFloat(activePill.dataset.price) : parseFloat(mainAddBtn.dataset.price),
+        format: activePill ? activePill.dataset.format : (mainAddBtn.dataset.format || 'Estándar'),
+        coverStyle: mainAddBtn.dataset.coverStyle || '',
+        cover: mainAddBtn.dataset.cover || getBookImage(mainAddBtn.dataset.title),
+        qty: qty
+      });
+      flashAdded(mainAddBtn);
+      openCartDrawer();
+    });
+  }
+
+  // ---- Página de carrito ----
+  var cartItemsEl = document.getElementById('cartItems');
+  if (cartItemsEl) {
+    renderCartPage();
+    document.addEventListener('cart:change', renderCartPage);
+  }
+
+  function renderCartPage() {
+    var items = Cart.getItems();
+    var layout = document.getElementById('cartLayout');
+    var emptyState = document.getElementById('cartEmpty');
+
+    if (items.length === 0) {
+      if (layout) layout.hidden = true;
+      if (emptyState) emptyState.hidden = false;
+      return;
+    }
+    if (layout) layout.hidden = false;
+    if (emptyState) emptyState.hidden = true;
+
+    cartItemsEl.innerHTML = items.map(function (item) {
+      // Usamos item.cover si ya viene guardado, o comprobamos con getBookImage si falta
+      var imagePath = item.cover && item.cover.startsWith('img/') ? item.cover : getBookImage(item.title);
+
+      var extras = window.giftExtrasFor ? window.giftExtrasFor(item) : [];
+      var extrasHTML = extras.length
+        ? '<ul class="cart-item-gifts">' + extras.map(function (e) {
+            return '<li><span>' + escapeHTML(e.label) + (e.texto ? ': «' + escapeHTML(e.texto) + '»' : '') + '</span>' +
+              '<span>' + (e.total > 0 ? fmtEUR(e.total) : 'Incluido') + '</span></li>';
+          }).join('') + '</ul>'
+        : '';
+
+      return (
+        '<article class="cart-item" data-id="' + escapeHTML(item.id) + '" data-format="' + escapeHTML(item.format) +
+        '" data-gift-key="' + escapeHTML(item.giftKey || '') + '"' +
+        (window.cartProductUrl(item) ? ' data-href="' + escapeHTML(window.cartProductUrl(item)) + '"' : '') + '>' +
+          (window.cartProductUrl(item)
+            ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '" class="cart-item-img-link" aria-label="Ver «' + escapeHTML(item.title) + '»">' +
+                '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '" class="cart-item-img"></a>'
+            : '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '" class="cart-item-img">') +
+          '<div class="cart-item-info">' +
+            '<h3>' + (window.cartProductUrl(item)
+              ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '">' + escapeHTML(item.title) + '</a>'
+              : escapeHTML(item.title)) + '</h3>' +
+            '<p class="cart-item-format">' + escapeHTML(item.author) + (item.format && item.format !== 'Estándar' ? ' · ' + escapeHTML(item.format) : '') + '</p>' +
+            extrasHTML +
+            '<div class="cart-item-links">' +
+              (window.cartProductUrl(item)
+                ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '" class="cart-item-details">Ver detalles del libro</a>'
+                : '') +
+              '<button class="cart-item-remove" type="button" data-remove>Eliminar</button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="qty-stepper">' +
+            '<button type="button" class="qty-btn" data-decrease aria-label="Restar cantidad">−</button>' +
+            '<input type="number" class="qty-input" data-qty value="' + item.qty + '" min="1" max="600" aria-label="Cantidad">' +
+            '<button type="button" class="qty-btn" data-increase aria-label="Sumar cantidad">+</button>' +
+          '</div>' +
+          '<div class="cart-item-price">' + fmtEUR(item.price * item.qty) + '</div>' +
+        '</article>'
+      );
+    }).join('');
+
+    cartItemsEl.querySelectorAll('.cart-item').forEach(function (row) {
+      makeRowClickable(row);
+      var id = row.dataset.id;
+      var format = row.dataset.format;
+      var giftKey = row.dataset.giftKey || '';
+      var qtyInput = row.querySelector('[data-qty]');
+
+      row.querySelector('[data-remove]').addEventListener('click', function () {
+        Cart.removeItem(id, format, giftKey);
+      });
+      row.querySelector('[data-decrease]').addEventListener('click', function () {
+        Cart.setQty(id, format, parseInt(qtyInput.value, 10) - 1, giftKey);
+      });
+      row.querySelector('[data-increase]').addEventListener('click', function () {
+        Cart.setQty(id, format, parseInt(qtyInput.value, 10) + 1, giftKey);
+      });
+      qtyInput.addEventListener('change', function () {
+        Cart.setQty(id, format, parseInt(qtyInput.value, 10) || 1, giftKey);
+      });
+    });
+
+    updateSummary();
+  }
+
+  // ---- Selectores de país (resumen del carrito y formulario de envío) --------
+  // Se rellenan desde js/shipping-rates.js y se mantienen sincronizados: da
+  // igual en cuál lo cambies, el otro se actualiza y el envío se recalcula.
+  function rellenarSelectorPais(select) {
+    if (!select || select.options.length || !window.ShippingRates) return;
+    window.ShippingRates.ORDEN.forEach(function (codigo) {
+      var op = document.createElement('option');
+      op.value = codigo;
+      op.textContent = window.ShippingRates.PAISES[codigo].nombre;
+      select.appendChild(op);
+    });
+    select.addEventListener('change', function () { Cart.setPais(select.value); });
+  }
+  function sincronizarSelectoresPais() {
+    ['summaryCountry', 'shippingCountry'].forEach(function (id) {
+      var sel = document.getElementById(id);
+      if (!sel) return;
+      rellenarSelectorPais(sel);
+      if (sel.value !== Cart.getPais()) sel.value = Cart.getPais();
+    });
+  }
+  document.addEventListener('pais:change', function () {
+    if (document.getElementById('summaryShipping')) updateSummary();
+    else sincronizarSelectoresPais();
+  });
+
+  function updateSummary() {
+    var subtotal = Cart.totalPrice();
+    // Envío gratis solo si TODOS los libros del carrito lo tienen marcado
+    // en el catálogo (book.freeShipping); si hay alguno sin esa marca, o si
+    // el catálogo aún no ha cargado, se cobran los 6€ de siempre.
+    var items = Cart.getItems();
+    var todosEnvioGratis = items.length > 0 && window.BooksCatalog && items.every(function (item) {
+      var libro = window.BooksCatalog.getById(item.id);
+      return !!(libro && libro.freeShipping);
+    });
+    // Envío por PAÍS y nº total de ejemplares (cada colección cuenta como los libros que lleva: Tesoros de Vida 5, Las Bellas Historias 10).
+    // Las tarifas están en js/shipping-rates.js (idéntico a functions/shipping-rates.js): coste del transportista + 1,10 €.
+    // Libros que contiene cada colección (cuentan como tantos libros en el envío).
+    var LIBROS_POR_COLECCION = { 'coleccion-tesoros-de-vida': 5, 'coleccion-las-bellas-historias-de-la-biblia': 10 };
+    var numLibros = items.reduce(function (n, i) { return n + i.qty * (LIBROS_POR_COLECCION[i.id] || 1); }, 0);
+    var SR = window.ShippingRates;
+    var pais = Cart.getPais();
+    // Envío gratis (libros con «envío incluido»): solo a España; a otros países se cobra la tarifa.
+    var envioGratis = todosEnvioGratis && pais === 'ES';
+    var SHIPPING = envioGratis || !SR ? 0 : SR.costeEnvio(pais, numLibros);
+
+    // Descuento por cantidad del MISMO libro y edición (mismo criterio que el servidor).
+    var grupos = {};
+    items.forEach(function (i) {
+      var libro = window.BooksCatalog ? window.BooksCatalog.getById(i.id) : null;
+      var elegible = !LIBROS_POR_COLECCION[i.id] && String(i.id).indexOf('extra-') !== 0 && !(libro && libro.freeShipping);
+      var k = i.id + '|' + (i.format || '');
+      if (!grupos[k]) grupos[k] = { q: 0, elegible: elegible };
+      grupos[k].q += i.qty;
+    });
+    var descCantidad = 0;
+    Object.keys(grupos).forEach(function (k) {
+      var g = grupos[k];
+      if (g.elegible) descCantidad += (g.q >= 10 ? 0.5 : g.q >= 3 ? 0.25 : 0) * g.q;
+    });
+    descCantidad = Math.round(descCantidad * 100) / 100;
+    var hintEl = document.getElementById('summaryShipHint');
+    if (hintEl && SR) {
+      if (numLibros > 1000) {
+        hintEl.textContent = 'Un pedido admite como máximo 1000 libros. Divide el pedido o escríbenos.';
+      } else if (envioGratis) {
+        hintEl.textContent = 'Envío incluido en tus libros.';
+      } else {
+        var tramo = SR.TRAMOS[SR.indiceTramo(numLibros)];
+        hintEl.innerHTML = 'Envío a ' + SR.PAISES[pais].nombre + ' · ' + tramo.etiqueta.replace(/ /g, '') +
+          ' ejemplares. Cuantos más ejemplares, menos pagas de envío por libro. ' +
+          '<a href="envios.html">Ver todas las tarifas</a>';
+      }
+    }
+    sincronizarSelectoresPais();
+
+    // El descuento se recalcula aquí a partir del subtotal actual (nunca se
+    // guarda un importe fijo), así que si cambias cantidades en el carrito
+    // se actualiza solo. Es solo una vista previa: el importe que de verdad
+    // se cobra lo vuelve a calcular el servidor al crear el pedido.
+    var promo = Cart.getPromo();
+    var descuento = 0;
+    if (promo && items.length) {
+      var bruto = promo.tipo === 'porcentaje' ? (subtotal - descCantidad) * (promo.valor / 100) : promo.valor;
+      descuento = Math.max(0, Math.min(subtotal - descCantidad, Math.round(bruto * 100) / 100));
+    }
+
+    // Extras de regalo: se muestran en su propia fila para que el cliente
+    // vea con claridad qué está pagando por el libro y qué por el detalle.
+    var extras = Cart.extrasTotal();
+    var extrasRow = document.getElementById('summaryExtrasRow');
+    var extrasEl = document.getElementById('summaryExtras');
+    if (extrasRow) extrasRow.hidden = extras <= 0;
+    if (extrasEl) extrasEl.textContent = fmtEUR(extras);
+
+    var subtotalEl = document.getElementById('summarySubtotal');
+    var shippingEl = document.getElementById('summaryShipping');
+    var totalEl = document.getElementById('summaryTotal');
+    var discountRow = document.getElementById('summaryDiscountRow');
+    var discountEl = document.getElementById('summaryDiscount');
+
+    if (subtotalEl) subtotalEl.textContent = fmtEUR(subtotal);
+    if (shippingEl) shippingEl.textContent = SHIPPING === 0 ? 'Gratis' : fmtEUR(SHIPPING);
+    var qtyRow = document.getElementById('summaryQtyDiscountRow');
+    var qtyEl = document.getElementById('summaryQtyDiscount');
+    if (qtyRow) qtyRow.hidden = descCantidad <= 0;
+    if (qtyEl) qtyEl.textContent = '−' + fmtEUR(descCantidad);
+    if (discountRow) discountRow.hidden = descuento <= 0;
+    if (discountEl) discountEl.textContent = '−' + fmtEUR(descuento);
+    var total = Math.max(0, subtotal + extras + SHIPPING - descCantidad - descuento);
+    if (totalEl) totalEl.textContent = fmtEUR(total);
+  }
+
+  // ---- Formulario de código promocional -----------------------------------
+  var promoForm = document.getElementById('promoForm');
+  if (promoForm) {
+    var promoInput = promoForm.querySelector('input');
+    var promoBtn = promoForm.querySelector('button');
+    var promoMsg = document.getElementById('promoMessage');
+
+    function pintarEstadoPromo() {
+      var promo = Cart.getPromo();
+      if (promo) {
+        promoInput.value = promo.codigo;
+        promoInput.disabled = true;
+        promoBtn.textContent = 'Quitar';
+      } else {
+        promoInput.disabled = false;
+        promoBtn.textContent = 'Aplicar';
+      }
+    }
+    pintarEstadoPromo();
+    document.addEventListener('cart:change', pintarEstadoPromo);
+
+    promoForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Si ya hay un código aplicado, este mismo botón sirve para quitarlo.
+      if (Cart.getPromo()) {
+        Cart.clearPromo();
+        promoInput.value = '';
+        if (promoMsg) promoMsg.hidden = true;
+        return;
+      }
+
+      var codigo = promoInput.value.trim();
+      if (!codigo) return;
+      if (!window.firebase || !firebase.functions) return;
+
+      promoBtn.disabled = true;
+      promoBtn.textContent = 'Comprobando…';
+      if (promoMsg) promoMsg.hidden = true;
+
+      var itemsParaValidar = Cart.getItems().map(function (i) { return { id: i.id, qty: i.qty }; });
+      var validarPromoFn = firebase.functions().httpsCallable('validarPromo');
+
+      validarPromoFn({ codigo: codigo, items: itemsParaValidar }).then(function (res) {
+        Cart.setPromo({ codigo: res.data.codigo, tipo: res.data.tipo, valor: res.data.valor });
+        if (promoMsg) {
+          promoMsg.textContent = 'Código "' + res.data.codigo + '" aplicado: −' + fmtEUR(res.data.descuento) + '.';
+          promoMsg.classList.remove('is-error');
+          promoMsg.hidden = false;
+        }
+      }).catch(function (err) {
+        Cart.clearPromo();
+        if (promoMsg) {
+          promoMsg.textContent = (err && err.message) || 'Ese código no es válido.';
+          promoMsg.classList.add('is-error');
+          promoMsg.hidden = false;
+        }
+      }).finally(function () {
+        promoBtn.disabled = false;
+        pintarEstadoPromo();
+      });
+    });
+  }
+});
+
+// ==========================================================================
+// Mini-carrito lateral (drawer) — se crea una sola vez y se reutiliza en
+// todas las páginas. Se abre al pulsar el icono del carrito del header o
+// justo después de añadir un libro, sin salir de la página en la que
+// estés. En carrito.html, el icono sigue llevando a la página completa.
+// ==========================================================================
+var cartDrawerOverlay = null;
+var cartDrawerEl = null;
+
+function setupCartDrawer() {
+  // No hace falta el drawer si ya estamos en la página del carrito.
+  if (document.getElementById('cartItems')) return;
+
+  var cartLink = document.querySelector('a.icon-btn[href="carrito.html"]');
+  if (!cartLink) return;
+
+  buildCartDrawer();
+
+  cartLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    openCartDrawer();
+  });
+
+  document.addEventListener('cart:change', function () {
+    if (cartDrawerOverlay && cartDrawerOverlay.classList.contains('is-open')) {
+      renderCartDrawer();
+    }
+  });
+}
+
+function buildCartDrawer() {
+  // El fondo oscuro (overlay) y el panel (aside) se crean como HERMANOS,
+  // los dos añadidos directamente a <body>, no uno dentro del otro: si el
+  // panel fuera hijo del overlay, su z-index quedaría "encerrado" dentro del
+  // contexto de apilamiento del overlay y jamás podría superar a
+  // .site-header aunque tenga un z-index mayor — eso hacía que la zona del
+  // carrito que coincide con la cabecera (el propio botón de cerrar) no se
+  // pudiera pulsar, tanto en móvil como en escritorio.
+  cartDrawerOverlay = document.createElement('div');
+  cartDrawerOverlay.className = 'cart-drawer-overlay';
+
+  cartDrawerEl = document.createElement('aside');
+  cartDrawerEl.className = 'cart-drawer';
+  cartDrawerEl.setAttribute('role', 'dialog');
+  cartDrawerEl.setAttribute('aria-modal', 'true');
+  cartDrawerEl.setAttribute('aria-label', 'Tu carrito');
+  cartDrawerEl.innerHTML =
+      '<div class="cart-drawer-header">' +
+        '<h2>Tu carrito</h2>' +
+        '<button type="button" class="cart-drawer-close" aria-label="Cerrar carrito">' +
+          '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>' +
+        '</button>' +
+      '</div>' +
+      '<div class="cart-drawer-body" id="cartDrawerBody"></div>' +
+      '<div class="cart-drawer-footer" id="cartDrawerFooter"></div>';
+
+  document.body.appendChild(cartDrawerOverlay);
+  document.body.appendChild(cartDrawerEl);
+
+  cartDrawerOverlay.addEventListener('click', function (e) {
+    if (e.target === cartDrawerOverlay) closeCartDrawer();
+  });
+  cartDrawerEl.querySelector('.cart-drawer-close').addEventListener('click', closeCartDrawer);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && cartDrawerOverlay && cartDrawerOverlay.classList.contains('is-open')) {
+      closeCartDrawer();
+    }
+  });
+}
+
+function renderCartDrawer() {
+  var items = Cart.getItems();
+  var body = document.getElementById('cartDrawerBody');
+  var footer = document.getElementById('cartDrawerFooter');
+  if (!body || !footer) return;
+
+  if (items.length === 0) {
+    body.innerHTML =
+      '<div class="cart-drawer-empty">' +
+        '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' +
+        '<p>Tu carrito está vacío.</p>' +
+      '</div>';
+    footer.innerHTML = '<a href="categoria.html" class="btn btn--primary">Ver el catálogo</a>';
+    return;
+  }
+
+  body.innerHTML = items.map(function (item) {
+    var imagePath = item.cover && item.cover.startsWith('img/') ? item.cover : getBookImage(item.title);
+    var extras = window.giftExtrasFor ? window.giftExtrasFor(item) : [];
+    var extrasHTML = extras.length
+      ? '<ul class="cart-item-gifts">' + extras.map(function (e) {
+          return '<li><span>' + escapeHTML(e.label) + (e.texto ? ': «' + escapeHTML(e.texto) + '»' : '') + '</span>' +
+            '<span>' + (e.total > 0 ? fmtEUR(e.total) : 'Incluido') + '</span></li>';
+        }).join('') + '</ul>'
+      : '';
+    var extrasSumaItem = extras.reduce(function (s, e) { return s + e.total; }, 0);
+    return (
+      '<article class="cart-drawer-item" data-id="' + escapeHTML(item.id) + '" data-format="' + escapeHTML(item.format) + '"' +
+      (window.cartProductUrl(item) ? ' data-href="' + escapeHTML(window.cartProductUrl(item)) + '"' : '') + '>' +
+        (window.cartProductUrl(item)
+          ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '" class="cart-drawer-item-img" aria-label="Ver «' + escapeHTML(item.title) + '»">' +
+              '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '"></a>'
+          : '<img src="' + imagePath + '" alt="' + escapeHTML(item.title) + '">') +
+        '<div class="cart-drawer-item-info">' +
+          '<h3>' + (window.cartProductUrl(item)
+            ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '">' + escapeHTML(item.title) + '</a>'
+            : escapeHTML(item.title)) + '</h3>' +
+          '<p>' + escapeHTML(item.format && item.format !== 'Estándar' ? item.format : '') + '</p>' +
+          extrasHTML +
+          (window.cartProductUrl(item)
+            ? '<a href="' + escapeHTML(window.cartProductUrl(item)) + '" class="cart-drawer-item-details">Ver detalles</a>'
+            : '') +
+          '<div class="cart-drawer-item-actions">' +
+            '<div class="qty-stepper">' +
+              '<button type="button" class="qty-btn" data-decrease aria-label="Restar cantidad">−</button>' +
+              '<input type="number" class="qty-input" data-qty value="' + item.qty + '" min="1" max="600" aria-label="Cantidad">' +
+              '<button type="button" class="qty-btn" data-increase aria-label="Sumar cantidad">+</button>' +
+            '</div>' +
+            '<button type="button" class="cart-drawer-item-remove" data-remove>Eliminar</button>' +
+          '</div>' +
+        '</div>' +
+        '<div class="cart-drawer-item-price">' + fmtEUR(item.price * item.qty + extrasSumaItem) + '</div>' +
+      '</article>'
+    );
+  }).join('');
+
+  body.querySelectorAll('.cart-drawer-item').forEach(function (row) {
+    makeRowClickable(row);
+    var id = row.dataset.id;
+    var format = row.dataset.format;
+    var qtyInput = row.querySelector('[data-qty]');
+
+    row.querySelector('[data-remove]').addEventListener('click', function () {
+      Cart.removeItem(id, format);
+    });
+    row.querySelector('[data-decrease]').addEventListener('click', function () {
+      Cart.setQty(id, format, parseInt(qtyInput.value, 10) - 1);
+    });
+    row.querySelector('[data-increase]').addEventListener('click', function () {
+      Cart.setQty(id, format, parseInt(qtyInput.value, 10) + 1);
+    });
+    qtyInput.addEventListener('change', function () {
+      Cart.setQty(id, format, parseInt(qtyInput.value, 10) || 1);
+    });
+  });
+
+  var subtotal = Cart.totalPrice();
+  var extrasDrawer = Cart.extrasTotal();
+  footer.innerHTML =
+    (extrasDrawer > 0 ? '<div class="cart-drawer-subtotal"><span>Extras de regalo</span><span>' + fmtEUR(extrasDrawer) + '</span></div>' : '') +
+    '<div class="cart-drawer-subtotal"><span>Subtotal</span><span>' + fmtEUR(subtotal + extrasDrawer) + '</span></div>' +
+    '<a href="carrito.html" class="btn btn--outline">Ver carrito</a>' +
+    '<a href="carrito.html" class="btn btn--primary">Finalizar compra</a>';
+}
+
+function openCartDrawer() {
+  if (!cartDrawerOverlay) return;
+  renderCartDrawer();
+  cartDrawerOverlay.classList.add('is-open');
+  if (cartDrawerEl) cartDrawerEl.classList.add('is-open');
+  document.body.classList.add('no-scroll');
+}
+
+function closeCartDrawer() {
+  if (!cartDrawerOverlay) return;
+  cartDrawerOverlay.classList.remove('is-open');
+  if (cartDrawerEl) cartDrawerEl.classList.remove('is-open');
+  document.body.classList.remove('no-scroll');
+}
+````
+
+## File: js/checkout.js
+````javascript
+// ==========================================================================
+// Checkout Nativo de Marca Blanca — Librería tu mayor tesoro
+//
+// Integra Stripe Elements dentro de la misma pantalla del carrito/checkout,
+// precarga y guarda direcciones en el perfil de Firestore del cliente, llama
+// a "crearPedido" y "crearIntentPago" en el backend, procesa el pago in-site,
+// vacía el carrito y envía las notificaciones por EmailJS tras confirmarse.
+// ==========================================================================
+(function () {
+  var checkoutBtn = document.getElementById('checkoutBtn');
+  var loginNotice = document.getElementById('checkoutLoginNotice');
+  var shippingSection = document.getElementById('checkoutShipping');
+  var shippingForm = document.getElementById('shippingForm');
+  var confirmation = document.getElementById('orderConfirmation');
+  var paymentPending = document.getElementById('paymentPending');
+  var paymentCancelled = document.getElementById('paymentCancelled');
+  var retryPaymentBtn = document.getElementById('retryPaymentBtn');
+  var cartLayout = document.getElementById('cartLayout');
+
+  var stripe = null;
+  var elements = null;
+  var card = null;
+  var orderConfirmationBizum = document.getElementById('orderConfirmationBizum');
+
+  // ------------------------------------------------------------------------
+  // 0. Alternar entre Bizum y Tarjeta según el método elegido
+  // ------------------------------------------------------------------------
+  var metodoPagoRadios = document.querySelectorAll('input[name="metodoPago"]');
+  var bizumBlock = document.getElementById('bizumPaymentBlock');
+  var cardBlock = document.getElementById('cardPaymentBlock');
+  var btnSubmitOrderEl = document.getElementById('btnSubmitOrder');
+
+  function metodoPagoActual() {
+    var seleccionado = document.querySelector('input[name="metodoPago"]:checked');
+    return seleccionado ? seleccionado.value : 'bizum';
+  }
+
+  function pintarMetodoPago() {
+    var esBizum = metodoPagoActual() === 'bizum';
+    if (bizumBlock) bizumBlock.hidden = !esBizum;
+    if (cardBlock) cardBlock.hidden = esBizum;
+    if (btnSubmitOrderEl) {
+      btnSubmitOrderEl.dataset.textoOriginal = esBizum ? 'Confirmar pedido con obligación de pago (pagar por Bizum)' : 'Pagar (pedido con obligación de pago)';
+      btnSubmitOrderEl.textContent = btnSubmitOrderEl.dataset.textoOriginal;
+    }
+  }
+
+  if (metodoPagoRadios.length) {
+    metodoPagoRadios.forEach(function (radio) {
+      radio.addEventListener('change', pintarMetodoPago);
+    });
+    pintarMetodoPago();
+  }
+
+  // Bizum solo funciona con cuentas españolas: si el país de envío no es
+  // España, se oculta esa opción y se deja el pago con tarjeta.
+  function ajustarBizumPorPais() {
+    var radioBizum = document.getElementById('metodoPagoBizum');
+    var radioTarjeta = document.getElementById('metodoPagoTarjeta');
+    if (!radioBizum) return;
+    var esEspana = !window.Cart || !Cart.getPais || Cart.getPais() === 'ES';
+    var etiqueta = radioBizum.closest ? radioBizum.closest('label') : radioBizum.parentNode;
+    if (etiqueta) etiqueta.hidden = !esEspana;
+    if (!esEspana && radioBizum.checked && radioTarjeta) {
+      radioTarjeta.checked = true;
+      pintarMetodoPago();
+    }
+  }
+  ajustarBizumPorPais();
+  document.addEventListener('cart:change', ajustarBizumPorPais);
+  document.addEventListener('pais:change', ajustarBizumPorPais);
+
+  // ------------------------------------------------------------------------
+  // 1. Inicializar Stripe Elements al cargar el DOM
+  // ------------------------------------------------------------------------
+  document.addEventListener('DOMContentLoaded', function () {
+    var cardElementContainer = document.getElementById('card-element');
+    if (!cardElementContainer) return;
+
+    // Sustituye con tu Clave Publicable de Stripe (pk_live_... o pk_test_...)
+    stripe = Stripe('pk_live_51UADO2L8aFj5g4tzzrr2Hu6XSBy9z9rRY6ooWgOgXxDz7DxqnD0geQba6HnKVJfIQ0g1jyAfWQpk5nwVKZve4u2E00a5iZP0aN');
+    elements = stripe.elements();
+
+    var style = {
+      base: {
+        color: '#1f2b45',
+        fontFamily: '"Source Sans 3", "Segoe UI", system-ui, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': { color: '#aab7c4' }
+      },
+      invalid: {
+        color: '#b3402a',
+        iconColor: '#b3402a'
+      }
+    };
+
+    card = elements.create('card', { style: style, hidePostalCode: true });
+    card.mount('#card-element');
+
+    card.on('change', function (event) {
+      var paymentErrors = document.getElementById('payment-errors');
+      if (paymentErrors) {
+        paymentErrors.textContent = event.error ? event.error.message : '';
+      }
+    });
+  });
+
+  // ------------------------------------------------------------------------
+  // 2. Interacción inicial y gestión de direcciones
+  // ------------------------------------------------------------------------
+  // ------------------------------------------------------------------------
+  // Estado de sesión (arreglo)
+  // ------------------------------------------------------------------------
+  // Firebase restaura la sesión de forma ASÍNCRONA al cargar la página: durante
+  // el primer segundo, "fbAuth.currentUser" todavía es null aunque el cliente
+  // sí haya iniciado sesión. Antes se leía ese valor directamente al pulsar
+  // "Finalizar compra", así que quien añadía al carrito, iniciaba sesión y
+  // volvía al carrito se encontraba otra vez el aviso de "inicia sesión" y no
+  // podía continuar. Al borrar y volver a añadir el artículo pasaba el tiempo
+  // suficiente y ya funcionaba — de ahí el comportamiento raro.
+  // Ahora escuchamos el estado real de la sesión y, si aún no se ha resuelto,
+  // esperamos a que lo haga antes de decidir nada.
+  var authResuelto = false;
+  var usuarioActual = null;
+  var accionPendiente = null;
+
+  function esperandoBoton(activo) {
+    if (!checkoutBtn) return;
+    if (activo) {
+      checkoutBtn.dataset.textoOriginal = checkoutBtn.dataset.textoOriginal || checkoutBtn.textContent;
+      checkoutBtn.disabled = true;
+      checkoutBtn.textContent = 'Comprobando tu sesión…';
+    } else {
+      checkoutBtn.disabled = false;
+      if (checkoutBtn.dataset.textoOriginal) checkoutBtn.textContent = checkoutBtn.dataset.textoOriginal;
+    }
+  }
+
+  function marcarSesion(user) {
+    authResuelto = true;
+    usuarioActual = user || null;
+    if (user && loginNotice) loginNotice.hidden = true;
+    if (accionPendiente) {
+      var pendiente = accionPendiente;
+      accionPendiente = null;
+      esperandoBoton(false);
+      pendiente(usuarioActual);
+    }
+  }
+
+  if (window.fbAuth && window.fbAuth.onAuthStateChanged) {
+    window.fbAuth.onAuthStateChanged(marcarSesion);
+  } else {
+    // Si Firebase no ha cargado, no dejamos la interfaz bloqueada para siempre.
+    setTimeout(function () { marcarSesion(null); }, 3000);
+  }
+
+  function conSesion(callback) {
+    if (authResuelto) return callback(usuarioActual);
+    accionPendiente = callback;
+    esperandoBoton(true);
+    // Red de seguridad por si Firebase no responde.
+    setTimeout(function () {
+      if (!authResuelto) marcarSesion(window.fbAuth ? window.fbAuth.currentUser : null);
+    }, 6000);
+  }
+
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', function () {
+      conSesion(function (user) {
+      if (!user) {
+        if (loginNotice) loginNotice.hidden = false;
+        if (shippingSection) shippingSection.hidden = true;
+        if (loginNotice) loginNotice.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      var verifyNotice = document.getElementById('checkoutVerifyNotice');
+      if (window.authNeedsEmailVerification && window.authNeedsEmailVerification(user)) {
+        if (loginNotice) loginNotice.hidden = true;
+        if (shippingSection) shippingSection.hidden = true;
+        if (verifyNotice) {
+          verifyNotice.hidden = false;
+          verifyNotice.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
+      if (verifyNotice) verifyNotice.hidden = true;
+      if (loginNotice) loginNotice.hidden = true;
+      if (shippingSection) {
+        shippingSection.hidden = false;
+        shippingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      precargarDireccionGuardada(user);
+      });
+    });
+  }
+
+  function precargarDireccionGuardada(user) {
+    if (!window.fbDb || !shippingForm) return;
+    window.fbDb.collection('usuarios').doc(user.uid).get().then(function (doc) {
+      if (!doc.exists) return;
+      var direcciones = doc.data().direcciones || [];
+      if (direcciones.length === 0) return;
+      var elegida = direcciones.filter(function (d) { return d.predeterminada; })[0] || direcciones[0];
+      if (!elegida) return;
+      if (shippingForm.elements.nombre) shippingForm.elements.nombre.value = elegida.nombre || user.displayName || '';
+      if (shippingForm.elements.direccion) shippingForm.elements.direccion.value = elegida.direccion || '';
+      if (shippingForm.elements.ciudad) shippingForm.elements.ciudad.value = elegida.ciudad || '';
+      if (shippingForm.elements.cp) shippingForm.elements.cp.value = elegida.cp || '';
+      if (shippingForm.elements.telefono) shippingForm.elements.telefono.value = elegida.telefono || '';
+      if (window.Cart && Cart.setPais && window.ShippingRates) {
+        var paisGuardado = ShippingRates.paisValido(elegida.pais) ? elegida.pais : 'ES';
+        Cart.setPais(paisGuardado);
+      }
+      if (shippingForm.elements.addressId) shippingForm.elements.addressId.value = elegida.id || '';
+    }).catch(function (err) {
+      console.error('Error al precargar la dirección guardada', err);
+    });
+  }
+
+  function guardarDireccionSiProcede(user, envio, addressId) {
+    if (!window.fbDb) return Promise.resolve();
+    return window.fbDb.collection('usuarios').doc(user.uid).get().then(function (doc) {
+      var direcciones = (doc.exists && doc.data().direcciones) || [];
+      var existente = addressId && direcciones.filter(function (d) { return d.id === addressId; })[0];
+      var nueva = {
+        id: addressId || (Date.now().toString(36) + Math.random().toString(36).slice(2, 6)),
+        etiqueta: (existente && existente.etiqueta) || 'Dirección de envío',
+        nombre: envio.nombre,
+        direccion: envio.direccion,
+        ciudad: envio.ciudad,
+        cp: envio.cp,
+        pais: envio.pais || 'ES',
+        telefono: envio.telefono,
+        predeterminada: true
+      };
+      var siguientes = direcciones.filter(function (d) { return d.id !== nueva.id; });
+      siguientes.forEach(function (d) { d.predeterminada = false; });
+      siguientes.push(nueva);
+      return window.fbDb.collection('usuarios').doc(user.uid).set({ direcciones: siguientes }, { merge: true });
+    }).catch(function (err) {
+      console.error('No se pudo guardar la dirección para la próxima compra', err);
+    });
+  }
+
+  function mensajeErrorPedido(err) {
+    var codigo = err && err.code;
+    if (codigo === 'unauthenticated') {
+      return 'Tu sesión ha caducado. Vuelve a iniciar sesión e inténtalo de nuevo.';
+    }
+    if (codigo === 'invalid-argument' && err.message) {
+      return err.message;
+    }
+    if (codigo === 'internal' || codigo === 'unavailable' || codigo === 'deadline-exceeded') {
+      return 'No se ha podido registrar tu pedido. Comprueba tu conexión e inténtalo de nuevo; si el problema continúa, escríbenos a libreriamayortesoro@gmail.com.';
+    }
+    return (err && err.message) || 'No se ha podido registrar tu pedido. Inténtalo de nuevo o escríbenos a libreriamayortesoro@gmail.com.';
+  }
+
+  // ------------------------------------------------------------------------
+  // 3. Procesamiento del pago nativo (Submit del Formulario)
+  // ------------------------------------------------------------------------
+  var checkoutForm = document.getElementById('checkoutForm') || shippingForm;
+
+  if (checkoutForm) {
+    checkoutForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      var user = usuarioActual || (window.fbAuth ? window.fbAuth.currentUser : null);
+      var paymentErrors = document.getElementById('payment-errors') || document.getElementById('checkoutError');
+      var btnSubmit = document.getElementById('btnSubmitOrder') || checkoutForm.querySelector('button[type="submit"]');
+      var textoOriginal = btnSubmit ? btnSubmit.textContent : 'Pagar (pedido con obligación de pago)';
+
+      // Con Bizum el bloque de tarjeta está oculto: sus errores no se verían.
+      if (metodoPagoActual() === 'bizum') {
+        paymentErrors = document.getElementById('checkoutError') || paymentErrors;
+      }
+
+      if (paymentErrors) {
+        paymentErrors.textContent = '';
+        paymentErrors.hidden = true;
+      }
+
+      var chkTerminos = document.getElementById('aceptaTerminos');
+      if (chkTerminos && !chkTerminos.checked) {
+        if (paymentErrors) {
+          paymentErrors.textContent = 'Para continuar debes aceptar los términos y condiciones y la política de privacidad.';
+          paymentErrors.hidden = false;
+        }
+        return;
+      }
+
+      if (!user) {
+        if (paymentErrors) {
+          paymentErrors.textContent = 'Debes iniciar sesión para realizar la compra.';
+          paymentErrors.hidden = false;
+        }
+        return;
+      }
+
+      var items = Cart.getItems();
+      if (items.length === 0) return;
+
+      var metodoPago = metodoPagoActual();
+
+      if (btnSubmit) {
+        btnSubmit.disabled = true;
+        btnSubmit.textContent = metodoPago === 'bizum' ? 'Registrando pedido...' : 'Procesando pago...';
+      }
+
+      try {
+        var fd = new FormData(checkoutForm);
+        var envio = {
+          nombre: fd.get('nombre') || (document.getElementById('shippingName') ? document.getElementById('shippingName').value : ''),
+          direccion: fd.get('direccion') || (document.getElementById('shippingAddress') ? document.getElementById('shippingAddress').value : ''),
+          ciudad: fd.get('ciudad') || (document.getElementById('shippingCity') ? document.getElementById('shippingCity').value : ''),
+          cp: fd.get('cp') || (document.getElementById('shippingZip') ? document.getElementById('shippingZip').value : ''),
+          pais: fd.get('pais') || (window.Cart && Cart.getPais ? Cart.getPais() : 'ES'),
+          telefono: fd.get('telefono') || (document.getElementById('shippingPhone') ? document.getElementById('shippingPhone').value : '')
+        };
+
+        // Comprueba el código postal según el país (el servidor lo vuelve a
+        // comprobar, esto solo evita ir y volver para un simple error).
+        if (window.ShippingRates) {
+          var cpComprobado = ShippingRates.validarCP(envio.pais, envio.cp);
+          if (!cpComprobado.ok) {
+            if (paymentErrors) {
+              paymentErrors.textContent = cpComprobado.mensaje;
+              paymentErrors.hidden = false;
+            }
+            if (btnSubmit) {
+              btnSubmit.disabled = false;
+              btnSubmit.textContent = textoOriginal;
+            }
+            return;
+          }
+          envio.cp = cpComprobado.cp;
+        }
+
+        // Código promocional aplicado en el carrito (si hay). El descuento
+        // real lo vuelve a calcular "crearPedido" en el servidor: aquí solo
+        // le decimos QUÉ código usar, nunca cuánto debería descontar.
+        var promoActual = Cart.getPromo();
+
+        var guardarDireccion = fd.get('guardarDireccion') === 'on';
+        var addressIdActual = fd.get('addressId') || '';
+        if (guardarDireccion) guardarDireccionSiProcede(user, envio, addressIdActual);
+
+        // Además del id y la cantidad se manda la portada elegida (solo el
+        // nombre del estilo: "ilustrada" / "tipografica"). El precio lo
+        // sigue calculando el servidor; la portada solo se guarda en el
+        // pedido para saber qué versión del libro hay que enviar.
+        var itemsParaEnviar = items.map(function (i) {
+          return { id: i.id, qty: i.qty, portada: i.coverStyle || '', regalo: i.regalo || null, imp: i.imp || null };
+        });
+
+        // Step 1: Crear pedido en backend. Si el pago con tarjeta falló y el
+        // cliente reintenta con lo mismo, se reutiliza el pedido ya creado
+        // (así no se duplican pedidos ni se gasta otra vez el código promo).
+        var firmaPedido = JSON.stringify([itemsParaEnviar, envio, promoActual ? promoActual.codigo : '', metodoPago]);
+        var resultadoPedido;
+        if (window.__pedidoTarjetaPendiente && window.__pedidoTarjetaPendiente.firma === firmaPedido) {
+          resultadoPedido = window.__pedidoTarjetaPendiente.resultado;
+        } else {
+          var crearPedidoFn = firebase.functions().httpsCallable('crearPedido');
+          resultadoPedido = await crearPedidoFn({ items: itemsParaEnviar, envio: envio, codigoPromo: promoActual ? promoActual.codigo : '', metodoPago: metodoPago });
+          window.__pedidoTarjetaPendiente = metodoPago === 'tarjeta' ? { firma: firmaPedido, resultado: resultadoPedido } : null;
+        }
+        var pedidoId = resultadoPedido.data.id;
+
+        // Pago por Bizum: no hay pasarela que confirmar aquí. El pedido ya
+        // ha quedado registrado (pendiente de verificar el ingreso a mano
+        // desde el panel de administración), así que mostramos directamente
+        // la confirmación con las instrucciones de pago.
+        if (metodoPago === 'bizum') {
+          Cart.clear();
+          Cart.clearPromo();
+          // Como aquí no hay webhook que avise de que el dinero ha llegado,
+          // se manda ya el correo (al cliente y a la tienda) para que se
+          // sepa que hay un pedido nuevo pendiente de comprobar por Bizum.
+          enviarCorreos(resultadoPedido.data).catch(function (err) {
+            console.error('Error al enviar los correos de confirmación', err);
+          });
+          mostrarConfirmacionBizum(resultadoPedido.data.numero, resultadoPedido.data.total);
+          return;
+        }
+
+        // Step 2: Obtener Client Secret de Stripe
+        var crearIntentFn = firebase.functions().httpsCallable('crearIntentPago');
+        var resultadoIntent = await crearIntentFn({ pedidoId: pedidoId });
+        var clientSecret = resultadoIntent.data.clientSecret;
+
+        // Step 3: Confirmar pago directamente sin salir de la página
+        var result = await stripe.confirmCardPayment(clientSecret, {
+          payment_method: {
+            card: card,
+            billing_details: {
+              name: envio.nombre,
+              phone: envio.telefono
+            }
+          }
+        });
+
+        if (result.error) {
+          if (paymentErrors) {
+            paymentErrors.textContent = result.error.message;
+            paymentErrors.hidden = false;
+          }
+          if (btnSubmit) {
+            btnSubmit.disabled = false;
+            btnSubmit.textContent = textoOriginal;
+          }
+        } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
+          window.location.href = 'carrito.html?pago=exito&pedido=' + encodeURIComponent(pedidoId);
+        }
+      } catch (err) {
+        console.error('Error al procesar la transacción:', err);
+        if (paymentErrors) {
+          paymentErrors.textContent = mensajeErrorPedido(err);
+          paymentErrors.hidden = false;
+        }
+        if (btnSubmit) {
+          btnSubmit.disabled = false;
+          btnSubmit.textContent = textoOriginal;
+        }
+      }
+    });
+  }
+
+  // ------------------------------------------------------------------------
+  // 4. Notificaciones por email y post-procesamiento
+  // ------------------------------------------------------------------------
+  function enviarCorreos(pedido) {
+    if (typeof emailjs === 'undefined' || typeof emailjsConfig === 'undefined') return Promise.resolve();
+
+    // Cada artículo lleva TODO el detalle: formato completo (tapa, tamaño,
+    // acabado, papel y PORTADA elegida, que ya viene dentro de "formato") y su
+    // precio. Así el correo del dueño y el del cliente dicen exactamente qué
+    // hay que preparar, sin tener que abrir Firebase.
+    var eur = function (n) { return Number(n || 0).toFixed(2).replace('.', ',') + ' €'; };
+    var listaItems = pedido.items.map(function (i) {
+      return i.cantidad + ' × ' + i.titulo +
+        (i.formato ? '\n    Edición: ' + i.formato : '') +
+        '\n    Precio: ' + eur(i.precio * i.cantidad);
+    }).join('\n\n');
+
+    var ahora = new Date().toLocaleString('es-ES', { dateStyle: 'long', timeStyle: 'short' });
+
+    var datosComunes = {
+      name: pedido.clienteNombre,
+      email: pedido.clienteEmail,
+      time: ahora,
+      numero_pedido: pedido.numero,
+      cliente_nombre: pedido.clienteNombre,
+      cliente_email: pedido.clienteEmail,
+      lista_articulos: listaItems,
+      subtotal: eur(pedido.subtotal),
+      gastos_envio: pedido.gastosEnvio ? eur(pedido.gastosEnvio) : 'Gratis',
+      descuento: ((pedido.descuento || 0) + (pedido.descuentoCantidad || 0)) > 0 ? '-' + eur((pedido.descuento || 0) + (pedido.descuentoCantidad || 0)) : '0,00 €',
+      total: pedido.total.toFixed(2).replace('.', ',') + ' €',
+      direccion_envio: pedido.envio.direccion + ', ' + pedido.envio.cp + ' ' + pedido.envio.ciudad + (window.ShippingRates && ShippingRates.PAISES[pedido.envio.pais] ? ', ' + ShippingRates.PAISES[pedido.envio.pais].nombre : ''),
+      telefono: pedido.envio.telefono,
+      // 👉 Variable nueva para la plantilla de EmailJS: un enlace directo a
+      // seguimiento.html con el número de pedido ya escrito. Si quieres que
+      // salga en el correo que recibe el cliente, añade {{enlace_seguimiento}}
+      // en tu plantilla "customerTemplateId" (en el propio EmailJS, sin
+      // tocar código); en la plantilla del dueño no hace falta.
+      enlace_seguimiento: 'https://libreriatumayortesoro.com/seguimiento.html?numero=' + encodeURIComponent(pedido.numero)
+    };
+
+    var correoCliente = emailjs.send(
+      emailjsConfig.serviceId,
+      emailjsConfig.customerTemplateId,
+      Object.assign({ to_email: pedido.clienteEmail }, datosComunes)
+    );
+
+    var correoTienda = emailjs.send(
+      emailjsConfig.serviceId,
+      emailjsConfig.ownerTemplateId,
+      Object.assign({ to_email: emailjsConfig.ownerEmail }, datosComunes)
+    );
+
+    return Promise.all([correoCliente, correoTienda]).catch(function (err) {
+      console.error('Error al enviar los correos de confirmación', err);
+    });
+  }
+
+  function ocultarTodo() {
+    if (cartLayout) cartLayout.hidden = true;
+    if (shippingSection) shippingSection.hidden = true;
+    if (paymentPending) paymentPending.hidden = true;
+    if (paymentCancelled) paymentCancelled.hidden = true;
+    if (confirmation) confirmation.hidden = true;
+    if (orderConfirmationBizum) orderConfirmationBizum.hidden = true;
+    if (loginNotice) loginNotice.hidden = true;
+  }
+
+  function mostrarConfirmacion(numero, total) {
+    ocultarTodo();
+    if (confirmation) {
+      confirmation.hidden = false;
+      var num = confirmation.querySelector('[data-order-number]');
+      var tot = confirmation.querySelector('[data-order-total]');
+      if (num) num.textContent = numero;
+      if (tot) tot.textContent = typeof fmtEUR === 'function' ? fmtEUR(total) : total.toFixed(2) + ' €';
+      confirmation.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function mostrarConfirmacionBizum(numero, total) {
+    ocultarTodo();
+    if (orderConfirmationBizum) {
+      orderConfirmationBizum.hidden = false;
+      var num = orderConfirmationBizum.querySelector('[data-order-number]');
+      var tot = orderConfirmationBizum.querySelector('[data-order-total]');
+      if (num) num.textContent = numero;
+      if (tot) tot.textContent = typeof fmtEUR === 'function' ? fmtEUR(total) : total.toFixed(2) + ' €';
+      orderConfirmationBizum.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  // ------------------------------------------------------------------------
+  // 5. Verificación tras completar el pago
+  // ------------------------------------------------------------------------
+  function comprobarVueltaDeStripe() {
+    var params = new URLSearchParams(window.location.search);
+    var pago = params.get('pago');
+    var pedidoId = params.get('pedido');
+    if (!pago || !pedidoId) return;
+
+    if (pago === 'cancelado') {
+      ocultarTodo();
+      if (paymentCancelled) {
+        paymentCancelled.hidden = false;
+        paymentCancelled.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      return;
+    }
+
+    if (pago !== 'exito') return;
+
+    ocultarTodo();
+    if (paymentPending) paymentPending.hidden = false;
+
+    if (!window.fbAuth || !window.fbDb) return;
+
+    var yaProcesado = false;
+    window.fbAuth.onAuthStateChanged(function (user) {
+      if (!user || yaProcesado) return;
+      yaProcesado = true;
+      esperarConfirmacionDePago(pedidoId);
+    });
+  }
+
+  function esperarConfirmacionDePago(pedidoId) {
+    var intentos = 0;
+    var maxIntentos = 20;
+    var flagCorreo = 'correoEnviado:' + pedidoId;
+
+    function intentar() {
+      intentos++;
+      window.fbDb.collection('pedidos').doc(pedidoId).get().then(function (doc) {
+        if (!doc.exists) return;
+        var pedido = doc.data();
+
+        if (pedido.pagado) {
+          // Los correos del pedido pagado con tarjeta los envía ahora el servidor
+          // (stripeWebhook), aunque el cliente cierre esta página.
+          Cart.clear();
+          Cart.clearPromo();
+          mostrarConfirmacion(pedido.numero, pedido.total);
+          history.replaceState(null, '', 'carrito.html');
+          return;
+        }
+
+        if (intentos < maxIntentos) {
+          setTimeout(intentar, 1500);
+        } else {
+          if (paymentPending) {
+            var texto = paymentPending.querySelector('p');
+            if (texto) texto.textContent = 'Estamos terminando de confirmar tu pago. Si tarda más de un minuto, escríbenos a libreriamayortesoro@gmail.com con tu número de pedido y no te preocupes: no se te cobrará dos veces.';
+          }
+        }
+      }).catch(function (err) {
+        console.error('Error al comprobar el estado del pedido', err);
+      });
+    }
+
+    intentar();
+  }
+
+  comprobarVueltaDeStripe();
+})();
+````
+
+## File: blog.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14861,9 +12153,10 @@ function closeCartDrawer() {
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="categoria.html">
+## File: categoria.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15187,475 +12480,28 @@ function closeCartDrawer() {
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="cuenta.html">
+## File: devoluciones.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <script src="js/cookies.js" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="robots" content="noindex, follow">
-<title>Mi cuenta — Librería tu mayor tesoro</title>
-<meta name="description" content="Inicia sesión o crea una cuenta en Librería tu mayor tesoro para hacer seguimiento de tus pedidos.">
-<link rel="canonical" href="https://libreriatumayortesoro.com/cuenta.html">
+<title>Devoluciones — Librería tu mayor tesoro</title>
+<meta name="description" content="Consulta nuestra política de devoluciones, plazos y pasos para realizar cambios o devoluciones de tus libros en Librería tu mayor tesoro.">
+<link rel="canonical" href="https://libreriatumayortesoro.com/devoluciones.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Librería tu mayor tesoro">
-<meta property="og:title" content="Mi cuenta — Librería tu mayor tesoro">
-<meta property="og:description" content="Inicia sesión o crea una cuenta en Librería tu mayor tesoro para hacer seguimiento de tus pedidos.">
-<meta property="og:url" content="https://libreriatumayortesoro.com/cuenta.html">
+<meta property="og:title" content="Devoluciones — Librería tu mayor tesoro">
+<meta property="og:description" content="Consulta nuestra política de devoluciones, plazos y pasos para realizar cambios o devoluciones de tus libros en Librería tu mayor tesoro.">
+<meta property="og:url" content="https://libreriatumayortesoro.com/devoluciones.html">
 <meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Mi cuenta — Librería tu mayor tesoro">
-<meta name="twitter:description" content="Inicia sesión o crea una cuenta en Librería tu mayor tesoro para hacer seguimiento de tus pedidos.">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#20304f">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-
-<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
-<header class="site-header">
-  <div class="container header-top">
-    <a href="index.html" class="brand">
-      <span class="brand-mark">L</span>
-      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-    </a>
-
-    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
-      <button type="submit">Buscar</button>
-    </form>
-
-    <div class="header-actions">
-      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </a>
-      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <span class="cart-count" data-cart-count hidden>0</span>
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
-
-  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
-    <div class="container">
-      <ul class="category-list">
-        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
-        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
-        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
-        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
-        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
-        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
-        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
-        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
-        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
-
-<main id="main-content">
-  <div class="container account-page">
-    <nav class="breadcrumb" aria-label="Ruta de navegación">
-      <a href="index.html">Inicio</a>
-      <span>/</span>
-      <span class="breadcrumb-current">Mi cuenta</span>
-    </nav>
-
-    <!-- ---- Sin sesión iniciada: login / registro ---- -->
-    <div id="authLoggedOut">
-      <h1 class="section-title">Mi cuenta</h1>
-      <p class="account-intro">Inicia sesión o crea una cuenta para finalizar tus compras y hacer seguimiento de tus pedidos por correo.</p>
-
-      <div class="auth-card">
-        <div class="auth-tabs">
-          <button type="button" class="auth-tab is-active" data-auth-tab="login">Iniciar sesión</button>
-          <button type="button" class="auth-tab" data-auth-tab="register">Crear cuenta</button>
-        </div>
-
-        <form id="loginForm" class="auth-form" data-panel="login">
-          <label>Correo electrónico<input type="email" name="email" required autocomplete="email"></label>
-          <label>Contraseña<input type="password" name="password" required autocomplete="current-password"></label>
-          <p class="auth-error" id="loginError" role="alert" hidden></p>
-          <p class="auth-success" id="resetSuccess" role="status" hidden>Te hemos enviado un correo para restablecer tu contraseña.</p>
-          <button type="button" id="forgotPasswordBtn" class="auth-forgot-link">¿Olvidaste tu contraseña?</button>
-          <button type="submit" class="btn btn--primary btn--block">Iniciar sesión</button>
-        </form>
-
-        <form id="registerForm" class="auth-form" data-panel="register" hidden>
-          <label>Nombre completo<input type="text" name="nombre" required autocomplete="name"></label>
-          <label>Correo electrónico<input type="email" name="email" required autocomplete="email"></label>
-          <label>Contraseña<input type="password" name="password" required minlength="6" autocomplete="new-password"></label>
-          <p class="auth-error" id="registerError" role="alert" hidden></p>
-          <button type="submit" class="btn btn--primary btn--block">Crear cuenta</button>
-          <p class="auth-switch">¿Ya tienes cuenta? <button type="button" class="auth-switch-link" data-auth-switch="login">Inicia sesión</button></p>
-        </form>
-
-        <div id="authProviders" hidden>
-          <div class="auth-divider"><span>o continúa con</span></div>
-          <div class="auth-providers">
-            <button type="button" class="btn btn--outline btn--block auth-provider" data-provider="google" hidden>
-              <span class="auth-icon auth-icon--google" aria-hidden="true"></span> Continuar con Google
-            </button>
-            <button type="button" class="btn btn--outline btn--block auth-provider" data-provider="facebook" hidden>
-              <span class="auth-icon auth-icon--facebook" aria-hidden="true"></span> Continuar con Facebook
-            </button>
-            <button type="button" class="btn btn--outline btn--block auth-provider" data-provider="apple" hidden>
-              <span class="auth-icon auth-icon--apple" aria-hidden="true"></span> Continuar con Apple
-            </button>
-            <button type="button" class="btn btn--outline btn--block auth-provider" data-provider="microsoft" hidden>
-              <span class="auth-icon auth-icon--microsoft" aria-hidden="true"></span> Continuar con Microsoft
-            </button>
-            <button type="button" class="btn btn--outline btn--block auth-provider" data-provider="emailLink" hidden>
-              <span class="auth-icon auth-icon--mail" aria-hidden="true"></span> Recibir un enlace por correo
-            </button>
-          </div>
-          <p class="auth-error" id="providerError" role="alert" hidden></p>
-        </div>
-
-        <form id="emailLinkForm" class="auth-form" hidden>
-          <p class="auth-hint">Escribe tu correo y te enviamos un enlace para entrar, sin contraseña. Si aún no tienes cuenta, se crea al abrirlo.</p>
-          <label>Correo electrónico<input type="email" name="email" required autocomplete="email"></label>
-          <p class="auth-error" id="emailLinkError" role="alert" hidden></p>
-          <p class="auth-success" id="emailLinkSuccess" role="status" hidden></p>
-          <button type="submit" class="btn btn--primary btn--block">Enviarme el enlace</button>
-          <button type="button" id="emailLinkBack" class="auth-forgot-link">← Volver a las otras opciones</button>
-        </form>
-      </div>
-    </div>
-
-    <!-- ---- Cuenta creada pero con el correo sin verificar ---- -->
-    <div id="authVerify" hidden>
-      <h1 class="section-title">Verifica tu correo</h1>
-      <p class="account-intro" id="verifyIntro">Te hemos enviado un código de 6 dígitos. Escríbelo aquí para activar tu cuenta.</p>
-
-      <div class="auth-card">
-        <form id="verifyForm" class="auth-form" novalidate>
-          <label>Código de verificación
-            <input type="text" name="codigo" class="verify-code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code" placeholder="······" required>
-          </label>
-          <p class="auth-error" id="verifyError" role="alert" hidden></p>
-          <p class="auth-success" id="verifyInfo" role="status" hidden></p>
-          <button type="submit" class="btn btn--primary btn--block">Verificar mi correo</button>
-          <div class="verify-links">
-            <button type="button" id="verifyResend" class="auth-forgot-link">Reenviar código</button>
-            <button type="button" id="verifyWrongEmail" class="auth-forgot-link">Me equivoqué de correo</button>
-            <button type="button" id="verifyLogout" class="auth-forgot-link">Cerrar sesión</button>
-          </div>
-        </form>
-      </div>
-      <p class="auth-hint verify-hint">¿No llega? Mira en la carpeta de spam. El código vale 10 minutos.</p>
-    </div>
-
-    <!-- ---- Con sesión iniciada ---- -->
-    <div id="authLoggedIn" hidden>
-      <div class="account-dashboard">
-        <aside class="account-sidebar">
-          <div class="account-sidebar-user">
-            <span class="account-avatar" id="accountAvatar">?</span>
-            <div>
-              <p class="account-sidebar-name" id="accountNameHead">Cliente</p>
-              <p class="account-sidebar-email" id="accountEmail"></p>
-            </div>
-          </div>
-          <nav class="account-nav">
-            <button type="button" class="account-nav-btn is-active" data-account-panel="resumen">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-              Resumen
-            </button>
-            <button type="button" class="account-nav-btn" data-account-panel="pedidos">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-              Mis pedidos
-            </button>
-            <button type="button" class="account-nav-btn" data-account-panel="datos">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
-              Datos personales
-            </button>
-            <button type="button" class="account-nav-btn" data-account-panel="direcciones">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Direcciones
-            </button>
-            <button type="button" class="account-nav-btn" data-account-panel="deseos">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
-              Lista de deseos
-            </button>
-            <button type="button" class="account-nav-btn" data-account-panel="seguridad">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              Seguridad
-            </button>
-          </nav>
-          <button type="button" class="account-logout" id="logoutBtn">Cerrar sesión</button>
-        </aside>
-
-        <div class="account-content">
-          <!-- Resumen -->
-          <section class="account-panel is-active" data-panel="resumen">
-            <div class="account-panel-head">
-              <div>
-                <span class="eyebrow">Mi cuenta</span>
-                <h1 class="section-title">Hola, <span id="accountName">cliente</span></h1>
-              </div>
-            </div>
-            <div class="account-stats">
-              <div class="account-stat-card">
-                <span class="account-stat-value" id="statPedidos">0</span>
-                <span class="account-stat-label">Pedidos</span>
-              </div>
-              <div class="account-stat-card">
-                <span class="account-stat-value" id="statTotal">0,00&nbsp;€</span>
-                <span class="account-stat-label">Total gastado</span>
-              </div>
-              <div class="account-stat-card">
-                <span class="account-stat-value" id="statDesde">—</span>
-                <span class="account-stat-label">Cliente desde</span>
-              </div>
-            </div>
-            <h2 class="account-subheading">Tu último pedido</h2>
-            <div id="lastOrderPreview"></div>
-            <p id="lastOrderEmpty" class="reviews-empty">Todavía no has hecho ningún pedido. <a href="categoria.html">Explora el catálogo</a>.</p>
-          </section>
-
-          <!-- Pedidos -->
-          <section class="account-panel" data-panel="pedidos" hidden>
-            <div class="account-panel-head">
-              <h1 class="section-title">Mis pedidos</h1>
-            </div>
-            <div id="ordersList" class="orders-list"></div>
-            <p id="ordersEmpty" class="reviews-empty">Todavía no has hecho ningún pedido.</p>
-          </section>
-
-          <!-- Datos personales -->
-          <section class="account-panel" data-panel="datos" hidden>
-            <div class="account-panel-head">
-              <h1 class="section-title">Datos personales</h1>
-            </div>
-            <form id="datosForm" class="account-form">
-              <div class="account-form-row">
-                <label>Nombre<input type="text" name="nombre" id="datosNombre" required></label>
-                <label>Correo electrónico<input type="email" id="datosEmail" disabled></label>
-              </div>
-              <label>Teléfono<input type="tel" name="telefono" id="datosTelefono" autocomplete="tel"></label>
-              <p class="auth-error" id="datosError" role="alert" hidden></p>
-              <p class="auth-success" id="datosSuccess" role="status" hidden>Tus datos se han guardado.</p>
-              <div class="account-form-actions">
-                <button type="submit" class="btn btn--primary">Guardar cambios</button>
-              </div>
-            </form>
-          </section>
-
-          <!-- Direcciones -->
-          <section class="account-panel" data-panel="direcciones" hidden>
-            <div class="account-panel-head">
-              <h1 class="section-title">Direcciones</h1>
-              <button type="button" class="btn btn--outline btn--sm" id="addAddressBtn">+ Añadir dirección</button>
-            </div>
-            <div id="addressList" class="address-list"></div>
-            <p id="addressEmpty" class="reviews-empty">Todavía no tienes ninguna dirección guardada.</p>
-
-            <form id="addressForm" class="account-form" hidden>
-              <h2 class="account-subheading">Dirección de envío</h2>
-              <input type="hidden" name="addressId">
-              <div class="account-form-row">
-                <label>Etiqueta<input type="text" name="etiqueta" placeholder="Casa, trabajo…" required></label>
-                <label>Nombre y apellidos<input type="text" name="nombre" required></label>
-              </div>
-              <label>Dirección<input type="text" name="direccion" required></label>
-              <div class="account-form-row">
-                <label>Código postal<input type="text" name="cp" required></label>
-                <label>Ciudad<input type="text" name="ciudad" required></label>
-              </div>
-              <label>Teléfono<input type="tel" name="telefono" required></label>
-              <label class="checkbox-label"><input type="checkbox" name="predeterminada"> Usar como dirección predeterminada</label>
-              <p class="auth-error" id="addressError" role="alert" hidden></p>
-              <div class="account-form-actions">
-                <button type="button" class="btn btn--outline" id="cancelAddressBtn">Cancelar</button>
-                <button type="submit" class="btn btn--primary">Guardar dirección</button>
-              </div>
-            </form>
-          </section>
-
-          <!-- Lista de deseos -->
-          <section class="account-panel" data-panel="deseos" hidden>
-            <div class="account-panel-head">
-              <h1 class="section-title">Lista de deseos</h1>
-            </div>
-            <div id="wishlistGrid" class="book-grid"></div>
-            <p id="wishlistEmpty" class="reviews-empty">Todavía no has guardado ningún libro. Pulsa el corazón de un libro para añadirlo aquí.</p>
-          </section>
-
-          <!-- Seguridad -->
-          <section class="account-panel" data-panel="seguridad" hidden>
-            <div class="account-panel-head">
-              <h1 class="section-title">Seguridad</h1>
-            </div>
-            <p class="review-login-notice" id="googleAccountNotice" hidden>Has iniciado sesión con otro servicio (Google, Facebook, Apple o Microsoft), así que tu contraseña se gestiona desde ese servicio.</p>
-            <div id="passwordBlock">
-              <form id="passwordForm" class="account-form">
-                <h2 class="account-subheading">Cambiar contraseña</h2>
-                <label>Contraseña actual<input type="password" name="actual" required autocomplete="current-password"></label>
-                <label>Nueva contraseña<input type="password" name="nueva" required minlength="6" autocomplete="new-password"></label>
-                <p class="auth-error" id="passwordError" role="alert" hidden></p>
-                <p class="auth-success" id="passwordSuccess" role="status" hidden>Tu contraseña se ha actualizado.</p>
-                <div class="account-form-actions">
-                  <button type="submit" class="btn btn--primary">Actualizar contraseña</button>
-                </div>
-              </form>
-            </div>
-            <div class="account-danger-zone">
-              <h2 class="account-subheading">Eliminar cuenta</h2>
-              <p>Esta acción es permanente y no se puede deshacer.</p>
-              <button type="button" class="btn btn--danger" id="deleteAccountBtn">Eliminar mi cuenta</button>
-            </div>
-          </section>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-top">
-    <div class="footer-brand">
-      <a href="index.html" class="brand">
-        <span class="brand-mark">L</span>
-        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
-      </a>
-      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Institucional</h5>
-      <ul class="footer-links">
-        <li><a href="quienes-somos.html">Quiénes somos</a></li>
-        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
-        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda para elegir</h5>
-      <ul class="footer-links">
-        <li><a href="asistente.html">Asistente de recomendación</a></li>
-        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
-        <li><a href="recursos.html">Recursos de lectura</a></li>
-        <li><a href="glosario.html">Glosario de términos</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Ayuda</h5>
-      <ul class="footer-links">
-        <li><a href="envios.html">Envíos y entregas</a></li>
-        <li><a href="devoluciones.html">Devoluciones</a></li>
-        <li><a href="terminos.html">Términos y condiciones</a></li>
-        <li><a href="privacidad.html">Política de privacidad</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5 class="footer-heading">Contacto</h5>
-      <ul class="footer-contact">
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Alicante, España
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
-          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
-        </li>
-        <li>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-            </svg>
-            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-contact-banner">
-    <div class="container">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
-    <div class="legal-links">
-      <a href="privacidad.html">Privacidad </a>
-      <a href="terminos.html">Términos</a>
-      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
-    </div>
-  </div>
-</footer>
-
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-functions-compat.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script src="js/config.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/cart.js"></script>
-<script src="js/gift-options.js"></script>
-<script src="js/books-data.js"></script>
-<script src="js/wishlist.js"></script>
-<script src="js/account.js"></script>
-<script src="js/search.js"></script>
-<script src="js/main.js"></script>
-</body>
-</html>
-</file>
-
-<file path="envios.html">
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<script src="js/cookies.js" defer></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Envíos y entregas — Librería tu mayor tesoro</title>
-<meta name="description" content="Consulta toda la información sobre nuestros plazos de envío, costes, métodos de entrega y cobertura para toda España en Librería tu mayor tesoro.">
-<link rel="canonical" href="https://libreriatumayortesoro.com/envios.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Librería tu mayor tesoro">
-<meta property="og:title" content="Envíos y entregas — Librería tu mayor tesoro">
-<meta property="og:description" content="Consulta toda la información sobre nuestros plazos de envío, costes, métodos de entrega y cobertura para toda España en Librería tu mayor tesoro.">
-<meta property="og:url" content="https://libreriatumayortesoro.com/envios.html">
-<meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Envíos y entregas — Librería tu mayor tesoro">
-<meta name="twitter:description" content="Consulta toda la información sobre nuestros plazos de envío, costes, métodos de entrega y cobertura para toda España en Librería tu mayor tesoro.">
+<meta name="twitter:title" content="Devoluciones — Librería tu mayor tesoro">
+<meta name="twitter:description" content="Consulta nuestra política de devoluciones, plazos y pasos para realizar cambios o devoluciones de tus libros en Librería tu mayor tesoro.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15723,14 +12569,14 @@ function closeCartDrawer() {
       <nav class="breadcrumb mb-lg" aria-label="Ruta de navegación">
         <a href="index.html">Inicio</a>
         <span class="breadcrumb-separator" aria-hidden="true">/</span>
-        <span data-breadcrumb-current>Envíos y entregas</span>
+        <span data-breadcrumb-current>Devoluciones</span>
       </nav>
 
       <div class="section-head mb-0">
         <div>
-          <span class="eyebrow">Información logística</span>
-          <h1 class="section-title">Envíos y entregas</h1>
-          <p class="section-lede">Conoce los plazos, métodos de transporte y costes para recibir tus pedidos de forma rápida y segura en tu domicilio.</p>
+          <span class="eyebrow">Garantía de satisfacción</span>
+          <h1 class="section-title">Devoluciones</h1>
+          <p class="section-lede">Conoce los plazos, condiciones y el procedimiento sencillo para gestionar cambios o devoluciones de tus pedidos.</p>
         </div>
       </div>
     </div>
@@ -15741,19 +12587,36 @@ function closeCartDrawer() {
       <div class="content-narrow-section">
         
         <div class="content-card content-card--lg">
-          <h3 class="card-title">Comprometidos con que tus libros lleguen a tiempo</h3>
+          <h3 class="card-title">Tu tranquilidad es nuestra prioridad</h3>
           <p class="text-block">
-            En <strong>Librería tu mayor tesoro</strong> nos encargamos de preparar cada pedido con sumo cuidado, asegurando que las obras, biblias y materiales de estudio lleguen en perfectas condiciones a tus manos. Realizamos envíos a toda la península y Baleares a través de servicios de mensajería de confianza.
+            En <strong>Librería tu mayor tesoro</strong> queremos que quedes plenamente satisfecho con cada adquisición. Si por algún motivo necesitas realizar un cambio o devolver un artículo.
+          </p>          
+          <p class="text-block">
+          <strong>Derecho de desistimiento</strong>: de acuerdo con el artículo 71 del Texto Refundido de la Ley General para la Defensa de los Consumidores y Usuarios (Real Decreto Legislativo 1/2007), dispones de <strong>14 días naturales</strong> desde la recepción del pedido para desistir de la compra sin necesidad de justificar tu decisión. Los artículos personalizados no admiten devolución salvo por defecto de fabricación.
           </p>
           <p class="text-block">
-            <strong>Tiempos de preparación</strong>: Los libros en stock se envían en 24-48 horas laborables. Los productos que incluyan confección textil o personalización artesanal requieren de más días laborables de elaboración previa al envío.
+            <strong>Para que la devolución sea aceptada</strong>, los libros o materiales deben encontrarse en perfectas condiciones, sin marcas de uso y con su embalaje original intacto. En caso de recibir un producto defectuoso o dañado durante el transporte, nos haremos cargo de todos los costes asociados al cambio de forma inmediata.
           </p>
           <p class="text-block">
-            <strong>Coste de envío</strong> (total del pedido): hasta 5 libros, 6&nbsp;€; de 6 a 10 libros, 10&nbsp;€; de 11 a 16 libros, 15&nbsp;€; de 17 a 21 libros, 16&nbsp;€. Si compras varios ejemplares del mismo libro, aplicamos un descuento automático por cantidad. Algunos títulos incluyen el envío gratuito (se indica en su ficha); si todos los libros de tu carrito lo incluyen, no se te cobrará ningún gasto de envío.
+            <strong>Cómo ejercer el derecho de desistimiento</strong>: basta con que nos lo comuniques de forma inequívoca dentro del plazo indicado, por ejemplo por correo electrónico a <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline">libreriamayortesoro@gmail.com</a>, indicando tu número de pedido, los artículos que devuelves y tu decisión de desistir del contrato. Puedes usar este modelo, aunque no es obligatorio: <em>«Por la presente le comunico que desisto de mi contrato de venta del siguiente pedido [número], recibido el [fecha], a nombre de [nombre del cliente]»</em>.
           </p>
+          <p class="text-block">
+            <strong>Gastos de la devolución</strong>: salvo que el producto sea defectuoso o el error sea nuestro, los gastos directos de devolución del pedido corren a cargo del cliente.
+          </p>
+          <p class="text-block">
+            <strong>Reembolso</strong>: una vez recibamos el artículo devuelto y comprobemos que cumple las condiciones anteriores, te reembolsaremos el importe total pagado (incluidos los gastos de envío originales, si devuelves el pedido completo) en un plazo máximo de 14 días naturales, usando el mismo medio de pago que utilizaste en la compra.
+          </p>
+
           <p class="text-block text-block--end">
-            Si tienes cualquier duda específica sobre el estado de tu envío o requieres asistencia personalizada con tu entrega, puedes escribirnos directamente a nuestro correo electrónico: 
-            <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline link-inline--strong">libreriamayortesoro@gmail.com</a>.
+            Si deseas iniciar una devolución o tienes cualquier consulta al respecto, ponte en contacto con nosotros escribiéndonos a nuestro correo electrónico: 
+            <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline link-inline--strong">libreriamayortesoro@gmail.com</a> indicando tu número de pedido y el motivo del cambio.
+          </p>
+        </div>
+
+        <div class="content-card content-card--lg mt-lg">
+          <h3 class="card-title">Resolución de litigios en línea</h3>
+          <p class="text-block text-block--end">
+            De acuerdo con el Reglamento (UE) 524/2013, si tienes cualquier disputa relacionada con tu compra que no hayamos podido resolver directamente, puedes acudir a la <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener" class="link-inline link-inline--strong">plataforma europea de resolución de litigios en línea</a>. También puedes escribirnos siempre antes a <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline">libreriamayortesoro@gmail.com</a>: intentaremos solucionar cualquier incidencia directamente contigo.
           </p>
         </div>
 
@@ -15769,7 +12632,7 @@ function closeCartDrawer() {
     <div class="trust-strip">
       <div class="trust-item">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        <div><h4>Envíos a toda España</h4><p>Recíbelo en casa en pocos días</p></div>
+        <div><h4>Envíos a España y Europa</h4><p>Envío ágil a tu casa</p></div>
       </div>
       <div class="trust-item">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -15888,9 +12751,10 @@ function closeCartDrawer() {
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="personalizado.html">
+## File: personalizado.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16271,9 +13135,627 @@ function closeCartDrawer() {
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="que-regalar-en-un-bautismo-cristiano.html">
+## File: preguntas-frecuentes.html
+````html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script src="js/cookies.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Preguntas frecuentes — Librería tu mayor tesoro</title>
+<meta name="description" content="Encuentra respuestas a las dudas más comunes sobre envíos, pagos, plazos y compras en Librería tu mayor tesoro.">
+<link rel="canonical" href="https://libreriatumayortesoro.com/preguntas-frecuentes.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Librería tu mayor tesoro">
+<meta property="og:title" content="Preguntas frecuentes — Librería tu mayor tesoro">
+<meta property="og:description" content="Encuentra respuestas a las dudas más comunes sobre envíos, pagos, plazos y compras en Librería tu mayor tesoro.">
+<meta property="og:url" content="https://libreriatumayortesoro.com/preguntas-frecuentes.html">
+<meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Preguntas frecuentes — Librería tu mayor tesoro">
+<meta name="twitter:description" content="Encuentra respuestas a las dudas más comunes sobre envíos, pagos, plazos y compras en Librería tu mayor tesoro.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#20304f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- Datos estructurados: Google puede mostrar estas preguntas desplegadas
+     directamente en el resultado de búsqueda. El texto de cada respuesta
+     tiene que coincidir con lo que se ve en la página (si cambias una
+     pregunta o respuesta ahí abajo, cámbiala también aquí). -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo se elaboran las fundas artesanales?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cada funda y recubrimiento se confecciona individualmente a mano en nuestro taller, utilizando materiales resistentes y diseños orientados a proteger y embellecer cada ejemplar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo comprar un libro o Biblia sin la funda hecha a mano?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Disponemos de opciones de compra para los libros de manera individual, así como la posibilidad de adquirir la funda por separado o en paquete (pack) promocional."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿A qué países realizan envíos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Realizamos envíos con seguimiento a España (península y Baleares), Portugal, Francia, Alemania, Países Bajos y Reino Unido; en el carrito eliges el país y ves el coste exacto. Los tiempos de entrega varían según si el producto se encuentra en stock inmediato o si requiere confección personalizada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo personalizar una funda con mi nombre o un estampado específico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, ofrecemos opciones de personalización en telas y bordados para pedidos especiales o regalos. Puedes seleccionarlo directamente en la ficha del producto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo puedo contactar si tengo alguna duda específica?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Puedes escribirnos a libreriamayortesoro@gmail.com (respuesta en menos de 24 horas laborables) o llamarnos al +34 711 27 32 38 para consultas sobre pedidos personalizados y costura."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+<header class="site-header">
+  <div class="container header-top">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">L</span>
+      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+    </a>
+
+    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
+      <button type="submit">Buscar</button>
+    </form>
+
+    <div class="header-actions">
+      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
+    <div class="container">
+      <ul class="category-list">
+        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
+        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
+        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
+        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
+        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
+        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
+        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
+        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
+        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+  <section class="section pb-lg">
+    <div class="container">
+      <nav class="breadcrumb mb-lg" aria-label="Ruta de navegación">
+        <a href="index.html">Inicio</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span data-breadcrumb-current>Preguntas frecuentes</span>
+      </nav>
+
+      <div class="section-head mb-0">
+        <div>
+          <span class="eyebrow">Resolvemos tus dudas</span>
+          <h1 class="section-title">Preguntas frecuentes</h1>
+          <p class="section-lede">Todo lo que necesitas saber sobre nuestros envíos, pagos, catálogos y gestión de pedidos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted pt-lg">
+    <div class="container">
+      <div class="content-narrow-grid">
+        
+        <div class="content-card">
+          <h3 class="card-title card-title--tight">¿Cómo se elaboran las fundas artesanales?</h3>
+          <p class="text-block text-block--end">
+            Cada funda y recubrimiento se confecciona individualmente a mano en nuestro taller, utilizando materiales resistentes y diseños orientados a proteger y embellecer cada ejemplar.
+          </p>
+        </div>
+
+        <div class="content-card">
+          <h3 class="card-title card-title--tight">¿Puedo comprar un libro o Biblia sin la funda hecha a mano?</h3>
+          <p class="text-block text-block--end">
+            Sí. Disponemos de opciones de compra para los libros de manera individual, así como la posibilidad de adquirir la funda por separado o en paquete (pack) promocional.
+          </p>
+        </div>
+
+        <div class="content-card">
+          <h3 class="card-title card-title--tight">¿A qué países realizan envíos?</h3>
+          <p class="text-block text-block--end">
+            Realizamos envíos con seguimiento a España (península y Baleares), Portugal, Francia, Alemania, Países Bajos y Reino Unido; en el carrito eliges el país y ves el coste exacto. Los tiempos de entrega varían según si el producto se encuentra en stock inmediato o si requiere confección personalizada.
+          </p>
+        </div>
+
+        <div class="content-card">
+          <h3 class="card-title card-title--tight">¿Puedo personalizar una funda con mi nombre o un estampado específico?</h3>
+          <p class="text-block text-block--end">
+            Sí, ofrecemos opciones de personalización en telas y bordados para pedidos especiales o regalos. Puedes seleccionarlo directamente en la ficha del producto.
+          </p>
+        </div>
+
+        <div class="content-card">
+          <h3 class="card-title card-title--tight">¿Cómo puedo contactar si tengo alguna duda específica?</h3>
+          <p class="text-block text-block--end">
+            Si necesitas asesoramiento personalizado o tienes consultas sobre algún título en concreto, puedes escribirnos directamente a nuestro correo de contacto o número de teléfono: <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline">libreriamayortesoro@gmail.com</a> (Respuesta en menos de 24 horas laborables) / <a href="tel:+34711273238" class="link-inline">+34 711 27 32 38</a> (Atención directa para consultas sobre pedidos personalizados y costura).
+          </p>
+        </div>
+
+      </div>
+
+      <div class="text-align-left">
+        <a href="index.html" class="btn btn--outline">Volver al inicio</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="trust-strip">
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div><h4>Envíos a España y Europa</h4><p>Envío ágil a tu casa</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div><h4>Ediciones garantizadas</h4><p>Textos fieles y cuidados</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <div><h4>Atención cercana</h4><p>Te ayudamos a elegir</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <div><h4>Devoluciones sencillas</h4><p>14 días para cambios</p></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">L</span>
+        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+      </a>
+      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Institucional</h5>
+      <ul class="footer-links">
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda para elegir</h5>
+      <ul class="footer-links">
+        <li><a href="asistente.html">Asistente de recomendación</a></li>
+        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
+        <li><a href="recursos.html">Recursos de lectura</a></li>
+        <li><a href="glosario.html">Glosario de términos</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda</h5>
+      <ul class="footer-links">
+        <li><a href="envios.html">Envíos y entregas</a></li>
+        <li><a href="devoluciones.html">Devoluciones</a></li>
+        <li><a href="terminos.html">Términos y condiciones</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Contacto</h5>
+      <ul class="footer-contact">
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Alicante, España
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
+        </li>
+        <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-contact-banner">
+    <div class="container">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
+    <div class="legal-links">
+      <a href="privacidad.html">Privacidad </a>
+      <a href="terminos.html">Términos</a>
+      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/gift-options.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+````
+
+## File: privacidad.html
+````html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script src="js/cookies.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Política de privacidad — Librería tu mayor tesoro</title>
+<meta name="description" content="Consulta nuestra política de privacidad y protección de datos personales en Librería tu mayor tesoro.">
+<link rel="canonical" href="https://libreriatumayortesoro.com/privacidad.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Librería tu mayor tesoro">
+<meta property="og:title" content="Política de privacidad — Librería tu mayor tesoro">
+<meta property="og:description" content="Consulta nuestra política de privacidad y protección de datos personales en Librería tu mayor tesoro.">
+<meta property="og:url" content="https://libreriatumayortesoro.com/privacidad.html">
+<meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Política de privacidad — Librería tu mayor tesoro">
+<meta name="twitter:description" content="Consulta nuestra política de privacidad y protección de datos personales en Librería tu mayor tesoro.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#20304f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+<header class="site-header">
+  <div class="container header-top">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">L</span>
+      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+    </a>
+
+    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
+      <button type="submit">Buscar</button>
+    </form>
+
+    <div class="header-actions">
+      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
+    <div class="container">
+      <ul class="category-list">
+        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
+        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
+        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
+        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
+        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
+        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
+        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
+        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
+        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+  <section class="section pb-lg">
+    <div class="container">
+      <nav class="breadcrumb mb-lg" aria-label="Ruta de navegación">
+        <a href="index.html">Inicio</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span data-breadcrumb-current>Política de privacidad</span>
+      </nav>
+
+      <div class="section-head mb-0">
+        <div>
+          <span class="eyebrow">Protección de datos</span>
+          <h1 class="section-title">Política de privacidad</h1>
+          <p class="section-lede">Información transparente sobre cómo recopilamos, usamos y protegemos tus datos personales en nuestra plataforma.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted pt-lg">
+    <div class="container">
+      <div class="content-narrow-section">
+        
+        <div class="content-card content-card--lg">
+          <h3 class="card-title">Compromiso con la confidencialidad y seguridad</h3>
+          <p class="text-block">
+            En <strong>Librería tu mayor tesoro</strong> nos tomamos muy en serio la seguridad y privacidad de tu información personal. Los datos que nos proporcionas al registrarte, realizar un pedido o comunicarte con nosotros son tratados con estricta confidencialidad y utilizados exclusivamente para gestionar tus compras, envíos y ofrecerte una mejor experiencia de atención.
+          </p>
+          <p class="text-block">
+            Implementamos medidas técnicas y organizativas adecuadas para proteger tus datos frente a accesos no autorizados, pérdida o alteración. Asimismo, te garantizamos el ejercicio de tus derechos de acceso, rectificación y supresión en cualquier momento conforme a la normativa vigente.
+          </p>
+          <p class="text-block text-block--end">
+            Si tienes cualquier duda relacionada con el tratamiento de tus datos personales o deseas ejercer tus derechos, puedes escribirnos directamente a nuestro correo electrónico oficial: 
+            <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline link-inline--strong">libreriamayortesoro@gmail.com</a>.
+          </p>
+        </div>
+
+        <div class="content-card content-card--lg mt-lg">
+          <h3 class="card-title">Responsable del tratamiento</h3>
+          <ul class="text-block text-block--loose">
+            <li><strong>Responsable:</strong> Abel Martínez Barbu (NIF 21695846S)</li>
+            <li><strong>Domicilio:</strong> Alicante, España</li>
+            <li><strong>Correo electrónico:</strong> <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline">libreriamayortesoro@gmail.com</a></li>
+          </ul>
+          <p class="text-block">
+            <strong>Finalidad:</strong> gestionar el registro de usuarios, tramitar pedidos, envíos y facturación, y atender consultas de clientes.
+          </p>
+          <p class="text-block">
+            <strong>Legitimación:</strong> ejecución de la relación contractual derivada de la compra y consentimiento del usuario al registrarse.
+          </p>
+          <p class="text-block">
+            <strong>Destinatarios:</strong> los datos se alojan en Firebase (Google Ireland Ltd.) para la gestión de cuentas y pedidos, y en EmailJS para el envío de correos de confirmación. Ambos proveedores pueden implicar transferencias de datos fuera del Espacio Económico Europeo; en ese caso se realizan amparadas en las Cláusulas Contractuales Tipo de la Comisión Europea u otra garantía equivalente prevista en el RGPD. No se ceden datos a terceros salvo obligación legal.
+          </p>
+          <p class="text-block">
+            <strong>Plazo de conservación:</strong> los datos de la cuenta se conservan mientras mantengas tu cuenta activa; los datos de cada pedido (a efectos fiscales y contables) se conservan durante los plazos exigidos por la normativa mercantil y tributaria (con carácter general, 6 años). Si solicitas la baja de tu cuenta, se eliminan o anonimizan los datos que ya no sea obligatorio conservar.
+          </p>
+          <p class="text-block">
+            <strong>Carácter de los datos:</strong> los datos solicitados en el registro y en el proceso de compra son necesarios para gestionar tu cuenta y tu pedido; si no los facilitas, no podremos tramitarlos.
+          </p>
+          <p class="text-block text-block--end">
+            <strong>Derechos:</strong> puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo al correo electrónico indicado arriba, así como reclamar ante la Agencia Española de Protección de Datos (AEPD, <a href="https://www.aepd.es" target="_blank" rel="noopener" class="link-inline">www.aepd.es</a>) si lo consideras necesario.
+          </p>
+        </div>
+
+        <div class="content-card content-card--lg mt-lg">
+          <h3 class="card-title">Política de cookies</h3>
+          <p class="text-block">
+            Una cookie es un pequeño archivo que se guarda en tu navegador. Al entrar en la web te preguntamos si aceptas o rechazas las que no son estrictamente necesarias; puedes cambiar tu decisión en cualquier momento desde el enlace "Cookies" del pie de página.
+          </p>
+          <ul class="text-block text-block--loose">
+            <li><strong>Técnicas (siempre activas):</strong> imprescindibles para que la web funcione — sesión, carrito de compra y preferencia de cookies. No requieren consentimiento porque no rastrean tu navegación.</li>
+            <li><strong>Analíticas (requieren tu aceptación):</strong> Google Analytics / Google Tag Manager, que nos ayudan a entender cómo se usa la web de forma agregada. Son de Google Ireland Ltd. y pueden mantenerse hasta 13 meses. Solo se cargan si pulsas "Aceptar" en el aviso de cookies.</li>
+          </ul>
+          <p class="text-block text-block--end">
+            Si rechazas las cookies analíticas, la web sigue funcionando con normalidad; simplemente no recogemos estadísticas de tu visita. También puedes bloquear o eliminar las cookies en cualquier momento desde la configuración de tu navegador.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="content-narrow-left">
+        <a href="index.html" class="btn btn--outline">Volver al inicio</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="trust-strip">
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div><h4>Envíos a España y Europa</h4><p>Envío ágil a tu casa</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div><h4>Ediciones garantizadas</h4><p>Textos fieles y cuidados</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <div><h4>Atención cercana</h4><p>Te ayudamos a elegir</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <div><h4>Devoluciones sencillas</h4><p>14 días para cambios</p></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">L</span>
+        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+      </a>
+      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Institucional</h5>
+      <ul class="footer-links">
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda para elegir</h5>
+      <ul class="footer-links">
+        <li><a href="asistente.html">Asistente de recomendación</a></li>
+        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
+        <li><a href="recursos.html">Recursos de lectura</a></li>
+        <li><a href="glosario.html">Glosario de términos</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda</h5>
+      <ul class="footer-links">
+        <li><a href="envios.html">Envíos y entregas</a></li>
+        <li><a href="devoluciones.html">Devoluciones</a></li>
+        <li><a href="terminos.html">Términos y condiciones</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Contacto</h5>
+      <ul class="footer-contact">
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Alicante, España
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
+        </li>
+        <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-contact-banner">
+    <div class="container">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
+    <div class="legal-links">
+      <a href="privacidad.html">Privacidad </a>
+      <a href="terminos.html">Términos</a>
+      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/gift-options.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+````
+
+## File: que-regalar-en-un-bautismo-cristiano.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16530,28 +14012,28 @@ function closeCartDrawer() {
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="carrito.html">
+## File: terminos.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <script src="js/cookies.js" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Tu carrito — Librería tu mayor tesoro</title>
-<meta name="description" content="Revisa los libros de tu carrito antes de finalizar la compra en Librería tu mayor tesoro.">
-<link rel="canonical" href="https://libreriatumayortesoro.com/carrito.html">
-<meta name="robots" content="noindex, follow">
+<title>Términos y condiciones — Librería tu mayor tesoro</title>
+<meta name="description" content="Consulta los términos y condiciones de uso, compra y contratación de servicios en Librería tu mayor tesoro.">
+<link rel="canonical" href="https://libreriatumayortesoro.com/terminos.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Librería tu mayor tesoro">
-<meta property="og:title" content="Tu carrito — Librería tu mayor tesoro">
-<meta property="og:description" content="Revisa los libros de tu carrito antes de finalizar la compra en Librería tu mayor tesoro.">
-<meta property="og:url" content="https://libreriatumayortesoro.com/carrito.html">
+<meta property="og:title" content="Términos y condiciones — Librería tu mayor tesoro">
+<meta property="og:description" content="Consulta los términos y condiciones de uso, compra y contratación de servicios en Librería tu mayor tesoro.">
+<meta property="og:url" content="https://libreriatumayortesoro.com/terminos.html">
 <meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tu carrito — Librería tu mayor tesoro">
-<meta name="twitter:description" content="Revisa los libros de tu carrito antes de finalizar la compra en Librería tu mayor tesoro.">
+<meta name="twitter:title" content="Términos y condiciones — Librería tu mayor tesoro">
+<meta name="twitter:description" content="Consulta los términos y condiciones de uso, compra y contratación de servicios en Librería tu mayor tesoro.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -16565,8 +14047,6 @@ function closeCartDrawer() {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
-<!-- SDK Oficial de Stripe JS v3 -->
-<script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
 
@@ -16616,146 +14096,1571 @@ function closeCartDrawer() {
 </header>
 
 <main id="main-content">
-  <div class="container cart-page">
-    <nav class="breadcrumb" aria-label="Ruta de navegación">
-      <a href="index.html">Inicio</a>
-      <span>/</span>
-      <span class="breadcrumb-current">Carrito</span>
-    </nav>
+  <section class="section pb-lg">
+    <div class="container">
+      <nav class="breadcrumb mb-lg" aria-label="Ruta de navegación">
+        <a href="index.html">Inicio</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span data-breadcrumb-current>Términos y condiciones</span>
+      </nav>
 
-    <h1 class="section-title">Tu carrito</h1>
-
-    <div class="cart-layout" id="cartLayout">
-      <div class="cart-items" id="cartItems">
-        <!-- Las filas del carrito se generan dinámicamente con js/cart.js -->
+      <div class="section-head mb-0">
+        <div>
+          <span class="eyebrow">Marco legal</span>
+          <h1 class="section-title">Términos y condiciones</h1>
+          <p class="section-lede">Conoce las condiciones generales que regulan el uso de nuestra web, el proceso de compra y los compromisos adquiridos.</p>
+        </div>
       </div>
-
-      <aside class="cart-summary">
-        <h2>Resumen del pedido</h2>
-        <div class="cart-summary-row"><span>Subtotal</span><span id="summarySubtotal">0,00&nbsp;€</span></div>
-        <div class="cart-summary-row" id="summaryExtrasRow" hidden><span>Extras de regalo</span><span id="summaryExtras">0,00&nbsp;€</span></div>
-        <div class="cart-summary-row"><span>Envío</span><span id="summaryShipping">6,00&nbsp;€</span></div>
-        <p class="pay-hint" id="summaryShipHint" style="margin:-4px 0 8px;font-size:.82rem;">Envío según nº de libros: hasta 5 → 6 €, 6-10 → 10 €, 11-16 → 15 €, 17-21 → 16 €.</p>
-        <div class="cart-summary-row" id="summaryQtyDiscountRow" hidden><span>Descuento por cantidad</span><span id="summaryQtyDiscount">−0,00&nbsp;€</span></div>
-        <div class="cart-summary-row" id="summaryDiscountRow" hidden><span>Descuento</span><span id="summaryDiscount">−0,00&nbsp;€</span></div>
-        <div class="cart-summary-row total"><span>Total</span><span id="summaryTotal">0,00&nbsp;€</span></div>
-
-        <form class="promo-form" id="promoForm">
-          <input type="text" placeholder="Código promocional" aria-label="Código promocional">
-          <button type="submit" class="btn btn--outline btn--sm">Aplicar</button>
-        </form>
-        <p class="promo-message" id="promoMessage" hidden></p>
-
-        <button type="button" class="btn btn--primary btn--block" id="checkoutBtn">Finalizar compra</button>
-        <a href="categoria.html" class="continue-shopping">← Seguir comprando</a>
-      </aside>
     </div>
+  </section>
 
-    <p class="checkout-login-notice" id="checkoutLoginNotice" hidden>
-      Para finalizar la compra necesitas <a href="cuenta.html">iniciar sesión o crear una cuenta</a>. Así podrás recibir la confirmación por correo y hacer seguimiento de tu pedido.
-    </p>
-
-    <p class="checkout-login-notice" id="checkoutVerifyNotice" hidden>
-      Antes de comprar tienes que <a href="cuenta.html">verificar tu correo</a> con el código de 6 dígitos que te enviamos al crear la cuenta. Así te llegarán bien la confirmación y el seguimiento de tu pedido.
-    </p>
-
-    <section class="checkout-shipping" id="checkoutShipping" hidden>
-      <h2>Datos de envío y pago</h2>
-      <p class="checkout-shipping-sub">Son los datos a los que enviaremos tu pedido y el método de pago seguro.</p>
-      <form id="shippingForm" class="shipping-form">
-        <input type="hidden" name="addressId" value="">
-        <label>Nombre y apellidos<input type="text" id="shippingName" name="nombre" required autocomplete="name"></label>
-        <label>Dirección<input type="text" id="shippingAddress" name="direccion" required autocomplete="street-address"></label>
-        <div class="shipping-form-row">
-          <label>Ciudad<input type="text" id="shippingCity" name="ciudad" required autocomplete="address-level2"></label>
-          <label>Código postal<input type="text" id="shippingZip" name="cp" required autocomplete="postal-code"></label>
-        </div>
-        <label><span>Teléfono <span class="label-optional">(opcional)</span></span><input type="tel" id="shippingPhone" name="telefono" autocomplete="tel" placeholder="Por si el transportista necesita avisarte"></label>
-        <label class="checkbox-label"><input type="checkbox" name="guardarDireccion" checked> Guardar esta dirección para la próxima compra</label>
+  <section class="section section--muted pt-lg">
+    <div class="container">
+      <div class="content-narrow-section">
         
-        <!-- Método de pago: Bizum primero (más rápido), tarjeta después -->
-        <div class="pay-group">
-          <p class="pay-legend">Método de pago</p>
-          <div class="payment-method-options">
-            <label class="pay-option">
-              <input type="radio" name="metodoPago" value="bizum" id="metodoPagoBizum">
-              <span class="pay-option-text">Bizum <small>Pago rápido desde tu móvil</small></span>
-            </label>
-            <label class="pay-option">
-              <input type="radio" name="metodoPago" value="tarjeta" id="metodoPagoTarjeta" checked>
-              <span class="pay-option-text">Tarjeta de crédito o débito <small>Pago cifrado con Stripe</small></span>
-            </label>
-          </div>
-        </div>
-
-        <!-- Instrucciones de pago por Bizum -->
-        <div class="pay-instructions" id="bizumPaymentBlock" hidden>
-          <p class="pay-hint" style="background:#fff4d6;border:1px solid #e0b84c;border-radius:8px;padding:10px 12px;color:#5a4300;"><strong>⚠️ Importante:</strong> al confirmar, el pedido queda registrado pero <strong>no está pagado</strong> hasta que hagas tú el Bizum. Tu pedido solo se prepara cuando recibimos el importe.</p>
-          <p class="pay-instructions-lead">Envía el importe total del pedido por Bizum a este número:</p>
-          <p class="pay-number">+34 644 734 911</p>
-          <p class="pay-hint">Indica tu nombre como concepto. En cuanto confirmemos el pago, prepararemos tu pedido. Al pulsar "Confirmar pedido con obligación de pago (pagar por Bizum)" quedará registrado como pendiente de verificar hasta que recibamos tu Bizum.</p>
-        </div>
-
-        <!-- Componente embebido de Stripe Elements -->
-        <div class="pay-group" id="cardPaymentBlock">
-          <label for="card-element" class="pay-legend">Tarjeta de crédito o débito</label>
-          <div id="card-element" class="stripe-card-input"></div>
-          <div id="payment-errors" class="form-error" role="alert"></div>
-          <p class="checkout-trust">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            Pago cifrado y seguro, procesado por Stripe. No almacenamos los datos de tu tarjeta.
+        <div class="content-card content-card--lg">
+          <h3 class="card-title">Condiciones generales de contratación y uso</h3>
+          <p class="text-block">
+            Bienvenido a <strong>Librería tu mayor tesoro</strong>. Al acceder, navegar y utilizar nuestro sitio web o realizar cualquier compra a través del mismo, aceptas quedar vinculado por las presentes condiciones generales. Te recomendamos leer detenidamente cada apartado antes de formalizar cualquier adquisición.
+          </p>
+          <p class="text-block">
+            <strong>Todas las compras de libros, biblias y materiales espirituales</strong> están sujetas a la disponibilidad de stock y a la confirmación del pago. Los precios indicados en la web incluyen los impuestos aplicables legalmente en el territorio nacional, quedando excluidos en su caso los gastos de envío correspondientes, los cuales se detallarán de forma transparente antes de finalizar el proceso de pago.
+          </p>
+          <p class="text-block text-block--end">
+            Si tienes cualquier duda legal o requieres aclaración sobre alguno de nuestros compromisos comerciales, puedes escribirnos directamente a nuestro correo electrónico oficial: 
+            <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline link-inline--strong">libreriamayortesoro@gmail.com</a>.
           </p>
         </div>
 
-        <p class="auth-error" id="checkoutError" role="alert" hidden>No se ha podido registrar tu pedido. Comprueba tu conexión e inténtalo de nuevo; si el problema continúa, escríbenos a libreriamayortesoro@gmail.com.</p>
+        <div class="content-card content-card--lg mt-lg">
+          <h3 class="card-title">Aviso legal — Identificación del titular</h3>
+          <p class="text-block">
+            En cumplimiento del deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSICE), se informa de los siguientes datos:
+          </p>
+          <ul class="text-block text-block--loose">
+            <li><strong>Titular:</strong> Abel Martínez Barbu</li>
+            <li><strong>NIF:</strong> 21695846S</li>
+            <li><strong>Nombre comercial:</strong> Librería tu mayor tesoro</li>
+            <li><strong>Domicilio:</strong> Alicante, España</li>
+            <li><strong>Correo electrónico:</strong> <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline">libreriamayortesoro@gmail.com</a></li>
+            <li><strong>Teléfono:</strong> +34 711 27 32 38</li>
+          </ul>
+          <p class="text-block text-block--end">
+            La actividad se desarrolla como persona física (autónomo), sin estar dada de alta en el Registro Mercantil.
+          </p>
+        </div>
+
+        <div class="content-card content-card--lg mt-lg">
+          <h3 class="card-title">Legislación aplicable y resolución de conflictos</h3>
+          <p class="text-block">
+            Las presentes condiciones se rigen por la legislación española, en particular por el Real Decreto Legislativo 1/2007 (Texto Refundido de la Ley General para la Defensa de los Consumidores y Usuarios) y la Ley 34/2002 de Servicios de la Sociedad de la Información y de Comercio Electrónico.
+          </p>
+          <p class="text-block text-block--end">
+            Para cualquier controversia que no pueda resolverse de forma amistosa, y sin perjuicio de los derechos que la normativa de consumo reconoce al usuario para acudir a los tribunales de su propio domicilio, ambas partes se someten a los Juzgados y Tribunales de Alicante. Los consumidores europeos también pueden acudir a la <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener" class="link-inline">plataforma europea de resolución de litigios en línea</a>.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="content-narrow-left">
+        <a href="index.html" class="btn btn--outline">Volver al inicio</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="trust-strip">
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div><h4>Envíos a España y Europa</h4><p>Envío ágil a tu casa</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div><h4>Ediciones garantizadas</h4><p>Textos fieles y cuidados</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <div><h4>Atención cercana</h4><p>Te ayudamos a elegir</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <div><h4>Devoluciones sencillas</h4><p>14 días para cambios</p></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">L</span>
+        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+      </a>
+      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Institucional</h5>
+      <ul class="footer-links">
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda para elegir</h5>
+      <ul class="footer-links">
+        <li><a href="asistente.html">Asistente de recomendación</a></li>
+        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
+        <li><a href="recursos.html">Recursos de lectura</a></li>
+        <li><a href="glosario.html">Glosario de términos</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda</h5>
+      <ul class="footer-links">
+        <li><a href="envios.html">Envíos y entregas</a></li>
+        <li><a href="devoluciones.html">Devoluciones</a></li>
+        <li><a href="terminos.html">Términos y condiciones</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Contacto</h5>
+      <ul class="footer-contact">
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Alicante, España
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
+        </li>
+        <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-contact-banner">
+    <div class="container">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
+    <div class="legal-links">
+      <a href="privacidad.html">Privacidad </a>
+      <a href="terminos.html">Términos</a>
+      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/gift-options.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+````
+
+## File: trabaja-con-nosotros.html
+````html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script src="js/cookies.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Trabaja con nosotros — Librería tu mayor tesoro</title>
+<meta name="description" content="Únete al equipo de Librería tu mayor tesoro. Envía tu currículum y colabora con nosotros en la difusión de literatura de fe y valores.">
+<link rel="canonical" href="https://libreriatumayortesoro.com/trabaja-con-nosotros.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Librería tu mayor tesoro">
+<meta property="og:title" content="Trabaja con nosotros — Librería tu mayor tesoro">
+<meta property="og:description" content="Únete al equipo de Librería tu mayor tesoro. Envía tu currículum y colabora con nosotros en la difusión de literatura de fe y valores.">
+<meta property="og:url" content="https://libreriatumayortesoro.com/trabaja-con-nosotros.html">
+<meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Trabaja con nosotros — Librería tu mayor tesoro">
+<meta name="twitter:description" content="Únete al equipo de Librería tu mayor tesoro. Envía tu currículum y colabora con nosotros en la difusión de literatura de fe y valores.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#20304f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+<header class="site-header">
+  <div class="container header-top">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">L</span>
+      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+    </a>
+
+    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
+      <button type="submit">Buscar</button>
+    </form>
+
+    <div class="header-actions">
+      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
+    <div class="container">
+      <ul class="category-list">
+        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
+        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
+        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
+        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
+        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
+        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
+        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
+        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
+        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+  <section class="section pb-lg">
+    <div class="container">
+      <nav class="breadcrumb mb-lg" aria-label="Ruta de navegación">
+        <a href="index.html">Inicio</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span data-breadcrumb-current>Trabaja con nosotros</span>
+      </nav>
+
+      <div class="section-head mb-0">
+        <div>
+          <span class="eyebrow">Forma parte de nuestro proyecto</span>
+          <h1 class="section-title">Trabaja con nosotros</h1>
+          <p class="section-lede">¿Te apasiona la literatura, el servicio y compartir recursos de crecimiento espiritual y personal? Nos encantaría conocerte.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted pt-lg">
+    <div class="container">
+      <div class="content-narrow-section">
         
-        <label class="checkbox-label" style="align-items:flex-start;margin:12px 0;">
-          <input type="checkbox" id="aceptaTerminos" required>
-          <span>He leído y acepto los <a href="terminos.html" target="_blank" rel="noopener">Términos y condiciones</a>, la <a href="privacidad.html" target="_blank" rel="noopener">Política de privacidad</a> y la <a href="devoluciones.html" target="_blank" rel="noopener">política de devoluciones</a> (los artículos personalizados no admiten desistimiento salvo defecto de fabricación).</span>
-        </label>
-        <button type="submit" id="btnSubmitOrder" class="btn btn--primary btn--block">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          Pagar (pedido con obligación de pago)
-        </button>
-        <p class="checkout-trust checkout-trust--center">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Compra protegida — <a href="devoluciones.html">devolución fácil en 14 días</a>
+        <div class="content-card content-card--lg">
+          <h3 class="card-title">Únete a nuestra misión</h3>
+          <p class="text-block">
+            En <strong>Librería tu mayor tesoro</strong> valoramos la dedicación, el trato cercano y el compromiso con los valores cristianos. Si compartes nuestra visión y quieres colaborar, este espacio es para ti.
+          </p>
+          <p class="text-block">
+            Actualmente buscamos colaborar con personas apasionadas por el ministerio de la página impresa, la encuadernación y el arte textil. Si tienes experiencia en costura artesanal, ilustración, distribución de literatura o atención al cliente y deseas poner tus talentos al servicio de este proyecto, nos encantaría conocerte.
+          </p>
+          <p class="text-block text-block--end">
+            Si deseas formar parte de nuestro equipo, puedes enviarnos tu propuesta o currículum a nuestro correo electrónico oficial especificando tu área de especialidad: 
+            <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline link-inline--strong">libreriamayortesoro@gmail.com</a> indicando en el asunto del mensaje <em>"Especialidad - [Tu Nombre y Apellidos]"</em>.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="content-narrow-left">
+        <a href="index.html" class="btn btn--outline">Volver al inicio</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="trust-strip">
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div><h4>Envíos a España y Europa</h4><p>Envío ágil a tu casa</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div><h4>Ediciones garantizadas</h4><p>Textos fieles y cuidados</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <div><h4>Atención cercana</h4><p>Te ayudamos a elegir</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <div><h4>Devoluciones sencillas</h4><p>14 días para cambios</p></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">L</span>
+        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+      </a>
+      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Institucional</h5>
+      <ul class="footer-links">
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda para elegir</h5>
+      <ul class="footer-links">
+        <li><a href="asistente.html">Asistente de recomendación</a></li>
+        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
+        <li><a href="recursos.html">Recursos de lectura</a></li>
+        <li><a href="glosario.html">Glosario de términos</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda</h5>
+      <ul class="footer-links">
+        <li><a href="envios.html">Envíos y entregas</a></li>
+        <li><a href="devoluciones.html">Devoluciones</a></li>
+        <li><a href="terminos.html">Términos y condiciones</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Contacto</h5>
+      <ul class="footer-contact">
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Alicante, España
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
+        </li>
+        <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-contact-banner">
+    <div class="container">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
+    <div class="legal-links">
+      <a href="privacidad.html">Privacidad </a>
+      <a href="terminos.html">Términos</a>
+      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/gift-options.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+````
+
+## File: nuestra-mision.html
+````html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script src="js/cookies.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Nuestra Misión — Librería tu mayor tesoro</title>
+<meta name="description" content="Conoce la misión de Librería tu mayor tesoro: facilitar literatura cristiana de calidad y biblias fieles.">
+<link rel="canonical" href="https://libreriatumayortesoro.com/nuestra-mision.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Librería tu mayor tesoro">
+<meta property="og:title" content="Nuestra Misión — Librería tu mayor tesoro">
+<meta property="og:description" content="Conoce la misión de Librería tu mayor tesoro: facilitar literatura cristiana de calidad y biblias fieles.">
+<meta property="og:url" content="https://libreriatumayortesoro.com/nuestra-mision.html">
+<meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nuestra Misión — Librería tu mayor tesoro">
+<meta name="twitter:description" content="Conoce la misión de Librería tu mayor tesoro: facilitar literatura cristiana de calidad y biblias fieles.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#20304f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+<header class="site-header">
+  <div class="container header-top">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">L</span>
+      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+    </a>
+
+    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
+      <button type="submit">Buscar</button>
+    </form>
+
+    <div class="header-actions">
+      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
+    <div class="container">
+      <ul class="category-list">
+        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
+        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
+        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
+        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
+        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
+        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
+        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
+        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
+        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+  <section class="section pb-lg">
+    <div class="container">
+      <nav class="breadcrumb mb-lg" aria-label="Ruta de navegación">
+        <a href="index.html">Inicio</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="quienes-somos.html">Quiénes somos</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span data-breadcrumb-current>Nuestra Misión</span>
+      </nav>
+
+      <div class="section-head mb-0">
+        <div>
+          <span class="eyebrow">Nuestro propósito fundamental</span>
+          <h1 class="section-title">Nuestra Misión</h1>
+          <p class="section-lede">Facilitar el acceso a la literatura de la Biblia y la espiritual a través de una experiencia de compra cercana, cuidada y de alta calidad. Nos comprometemos a promover el estudio de las Sagradas Escrituras y los testimonios, uniendo la trascendencia de su mensaje con la calidez del trabajo artesanal hecho con dedicación y reverencia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-lg">
+    <div class="container">
+      <div class="content-lede">
+        <p class="mb-lg">
+          En <strong>Librería tu mayor tesoro</strong>, nuestra misión principal es proveer literatura cristiana de alta calidad, Biblias con textos rigurosos y las valiosas obras completas de Elena G. White para acompañar el estudio devocional de cada creyente.
         </p>
-      </form>
-    </section>
+        <p class="mb-lg">
+          Trabajamos con el firme propósito de acercar herramientas espirituales y educativas que promuevan valores arraigados en las Sagradas Escrituras, contribuyendo al crecimiento y la firmeza en la fe de las familias.
+        </p>
+        <p>
+          Cada libro que seleccionamos cumple con el objetivo de inspirar una comunión más profunda con Dios y ofrecer respuestas prácticas para la vida diaria a la luz de los principios bíblicos.
+        </p>
+      </div>
 
-    <div class="order-confirmation" id="paymentPending" hidden>
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-      <h2>Confirmando tu pago…</h2>
-      <p>Un momento, estamos confirmando el pago con Stripe. No cierres ni recargues esta página.</p>
+      <div class="text-align-left">
+        <a href="quienes-somos.html" class="btn btn--outline">Volver a Quiénes somos</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="trust-strip">
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div><h4>Envíos a España y Europa</h4><p>Envío ágil a tu casa</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div><h4>Ediciones garantizadas</h4><p>Textos fieles y cuidados</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <div><h4>Atención cercana</h4><p>Te ayudamos a elegir</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <div><h4>Devoluciones sencillas</h4><p>14 días para cambios</p></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">L</span>
+        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+      </a>
+      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
     </div>
 
-    <div class="order-confirmation" id="paymentCancelled" hidden>
-      <h2>Pago cancelado</h2>
-      <p>No te hemos cobrado nada. Tu pedido se ha guardado y puedes reintentar el pago cuando quieras.</p>
-      <button type="button" class="btn btn--primary" id="retryPaymentBtn">Reintentar pago</button>
+    <div class="footer-col">
+      <h5 class="footer-heading">Institucional</h5>
+      <ul class="footer-links">
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
+      </ul>
     </div>
 
-    <div class="order-confirmation" id="orderConfirmationBizum" hidden>
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-      <h2>¡Pedido registrado!</h2>
-      <p>Tu número de pedido es <strong data-order-number></strong>, por un total de <strong data-order-total></strong>.</p>
-      <p>Recuerda enviar el pago por Bizum al <strong>+34 644 734 911</strong> si todavía no lo has hecho. En cuanto confirmemos el pago, prepararemos tu pedido y podrás ver el estado en <a href="cuenta.html">Mi cuenta</a>.</p>
-      <a href="categoria.html" class="btn btn--primary">Seguir explorando</a>
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda para elegir</h5>
+      <ul class="footer-links">
+        <li><a href="asistente.html">Asistente de recomendación</a></li>
+        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
+        <li><a href="recursos.html">Recursos de lectura</a></li>
+        <li><a href="glosario.html">Glosario de términos</a></li>
+      </ul>
     </div>
 
-    <div class="order-confirmation" id="orderConfirmation" hidden>
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
-      <h2>¡Pedido confirmado y pagado!</h2>
-      <p>Tu número de pedido es <strong data-order-number></strong>, por un total de <strong data-order-total></strong>.</p>
-      <p>Te hemos enviado la confirmación por correo, y puedes consultar el estado en cualquier momento desde <a href="cuenta.html">Mi cuenta</a>.</p>
-      <a href="categoria.html" class="btn btn--primary">Seguir explorando</a>
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda</h5>
+      <ul class="footer-links">
+        <li><a href="envios.html">Envíos y entregas</a></li>
+        <li><a href="devoluciones.html">Devoluciones</a></li>
+        <li><a href="terminos.html">Términos y condiciones</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+      </ul>
     </div>
 
-    <div class="cart-empty" id="cartEmpty" hidden>
-      <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-      <p>Tu carrito está vacío todavía.</p>
-      <a href="categoria.html" class="btn btn--primary">Explorar catálogo</a>
+    <div class="footer-col">
+      <h5 class="footer-heading">Contacto</h5>
+      <ul class="footer-contact">
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Alicante, España
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
+        </li>
+        <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-contact-banner">
+    <div class="container">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
+    <div class="legal-links">
+      <a href="privacidad.html">Privacidad </a>
+      <a href="terminos.html">Términos</a>
+      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/gift-options.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+````
+
+## File: nuestro-compromiso.html
+````html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script src="js/cookies.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Nuestro Compromiso — Librería tu mayor tesoro</title>
+<meta name="description" content="Conoce nuestro compromiso con la atención cercana, la calidad editorial y los envíos seguros en Librería tu mayor tesoro.">
+<link rel="canonical" href="https://libreriatumayortesoro.com/nuestro-compromiso.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Librería tu mayor tesoro">
+<meta property="og:title" content="Nuestro Compromiso — Librería tu mayor tesoro">
+<meta property="og:description" content="Conoce nuestro compromiso con la atención cercana, la calidad editorial y los envíos seguros en Librería tu mayor tesoro.">
+<meta property="og:url" content="https://libreriatumayortesoro.com/nuestro-compromiso.html">
+<meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nuestro Compromiso — Librería tu mayor tesoro">
+<meta name="twitter:description" content="Conoce nuestro compromiso con la atención cercana, la calidad editorial y los envíos seguros en Librería tu mayor tesoro.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#20304f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+<header class="site-header">
+  <div class="container header-top">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">L</span>
+      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+    </a>
+
+    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
+      <button type="submit">Buscar</button>
+    </form>
+
+    <div class="header-actions">
+      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
+    <div class="container">
+      <ul class="category-list">
+        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
+        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
+        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
+        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
+        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
+        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
+        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
+        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
+        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+  <section class="section pb-lg">
+    <div class="container">
+      <nav class="breadcrumb mb-lg" aria-label="Ruta de navegación">
+        <a href="index.html">Inicio</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="quienes-somos.html">Quiénes somos</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span data-breadcrumb-current>Nuestro Compromiso</span>
+      </nav>
+
+      <div class="section-head mb-0">
+        <div>
+          <span class="eyebrow">Nuestra garantía de calidad y servicio</span>
+          <h1 class="section-title">Nuestro Compromiso</h1>
+          <p class="section-lede">Atención cercana, transparencia y cuidado en cada detalle de tu experiencia con nosotros.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-lg">
+    <div class="container">
+      <div class="content-lede">
+        <p class="mb-lg">
+          En <strong>Librería tu mayor tesoro</strong> asumimos un compromiso absoluto con la satisfacción y la confianza de cada lector. Cuidamos cada fase del proceso, desde la selección cuidadosa de los títulos editoriales hasta que el paquete llega a tus manos.
+        </p>
+        <p class="mb-lg">
+          Nos esforzamos por ofrecer una atención al cliente humana, personalizada y eficiente, ayudándote a resolver cualquier duda sobre nuestros catálogos de Biblias, devocionales o literatura de Elena G. White.
+        </p>
+        <p>
+          Asimismo, garantizamos envíos rápidos, seguros y transparentes a España y a otros países de Europa, asegurando que cada libro conserve su integridad y cumpla con tus expectativas.
+        </p>
+      </div>
+
+      <div class="text-align-left">
+        <a href="quienes-somos.html" class="btn btn--outline">Volver a Quiénes somos</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="trust-strip">
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div><h4>Envíos a España y Europa</h4><p>Envío ágil a tu casa</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div><h4>Ediciones garantizadas</h4><p>Textos fieles y cuidados</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <div><h4>Atención cercana</h4><p>Te ayudamos a elegir</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <div><h4>Devoluciones sencillas</h4><p>14 días para cambios</p></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">L</span>
+        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+      </a>
+      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Institucional</h5>
+      <ul class="footer-links">
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda para elegir</h5>
+      <ul class="footer-links">
+        <li><a href="asistente.html">Asistente de recomendación</a></li>
+        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
+        <li><a href="recursos.html">Recursos de lectura</a></li>
+        <li><a href="glosario.html">Glosario de términos</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda</h5>
+      <ul class="footer-links">
+        <li><a href="envios.html">Envíos y entregas</a></li>
+        <li><a href="devoluciones.html">Devoluciones</a></li>
+        <li><a href="terminos.html">Términos y condiciones</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Contacto</h5>
+      <ul class="footer-contact">
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Alicante, España
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
+        </li>
+        <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-contact-banner">
+    <div class="container">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
+    <div class="legal-links">
+      <a href="privacidad.html">Privacidad </a>
+      <a href="terminos.html">Términos</a>
+      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/gift-options.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+````
+
+## File: quienes-somos.html
+````html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script src="js/cookies.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Quiénes somos — Librería tu mayor tesoro</title>
+<meta name="description" content="Conoce la historia, misión y valores de Librería tu mayor tesoro. Literatura cristiana, Biblias y obras de Elena G. White.">
+<link rel="canonical" href="https://libreriatumayortesoro.com/quienes-somos.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Librería tu mayor tesoro">
+<meta property="og:title" content="Quiénes somos — Librería tu mayor tesoro">
+<meta property="og:description" content="Conoce la historia, misión y valores de Librería tu mayor tesoro. Literatura cristiana, Biblias y obras de Elena G. White.">
+<meta property="og:url" content="https://libreriatumayortesoro.com/quienes-somos.html">
+<meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Quiénes somos — Librería tu mayor tesoro">
+<meta name="twitter:description" content="Conoce la historia, misión y valores de Librería tu mayor tesoro. Literatura cristiana, Biblias y obras de Elena G. White.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#20304f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+<!-- ==========================================================================
+     1. HEADER — buscador + menú de categorías
+     ========================================================================== -->
+<header class="site-header">
+  <div class="container header-top">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">L</span>
+      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+    </a>
+
+    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
+      <button type="submit">Buscar</button>
+    </form>
+
+    <div class="header-actions">
+      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
+    <div class="container">
+      <ul class="category-list">
+        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
+        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
+        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
+        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
+        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
+        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
+        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
+        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
+        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+  <!-- ========================================================================
+       2. CABECERA DE LA PÁGINA (Estilo idéntico a las secciones principales)
+       ======================================================================== -->
+  <section class="section pb-lg">
+    <div class="container">
+      <div class="section-head mb-0">
+        <div>
+          <span class="eyebrow">Nuestra historia y propósito</span>
+          <h1 class="section-title">Quiénes somos</h1>
+          <p class="section-lede">Somos un proyecto dedicado a la difusión de la literatura cristiana y la artesanía textil. Nacemos con el propósito de poner al alcance de cada hogar la Palabra de Dios y los escritos de Elena G. White, acompañados por un trabajo de confección manual único. Cada una de nuestras Biblias y libros puede complementarse con fundas y recubrimientos artesanales, elaborados a mano cuidando cada detalle para ofrecer piezas perdurables que dignifican la lectura de la fe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. CONTENIDO PRINCIPAL: QUIÉNES SOMOS (Uso de tarjetas y rejillas oficiales)
+       ======================================================================== -->
+  <section class="section pt-lg">
+    <div class="container">
+      
+      <!-- Bloque introductorio -->
+      <div class="content-lede">
+        <p class="mb-lg">
+          En <strong>Librería tu mayor tesoro</strong> concebimos la lectura no solo como un hábito cultural, sino como una herramienta fundamental para la edificación personal y comunitaria. Trabajamos cuidadosamente para ofrecer un catálogo enfocado en la fidelidad doctrinal, el estudio profundo de las Escrituras y el bienestar integral.
+        </p>
+        <p>
+          Ponemos a disposición de nuestros lectores ediciones cuidadas de las obras completas de Elena G. White, una amplia variedad de Biblias en distintas versiones y recursos prácticos para el hogar, la salud y la familia.
+        </p>
+      </div>
+
+      <!-- Tarjetas de Misión y Valores (Aprovechando la estructura de .category-grid o .trust-strip) -->
+      <div class="category-grid auto-grid-300">
+        
+        <a href="nuestra-mision.html" class="category-card link-plain">
+          <span class="cat-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5c-1.5-2-4.5-3-8-3V5c3.5 0 6.5 1 8 3"/><path d="M12 20.5c1.5-2 4.5-3 8-3V5c-3.5 0-6.5 1-8 3"/></svg>
+          </span>
+          <h3>Nuestra Misión</h3>
+          <p>Facilitar el acceso a literatura cristiana de alta calidad y contenido doctrinal sólido que inspire, instruya y fortalezca la vida espiritual de cada creyente y su hogar.</p>
+          <span class="cat-count inline-cta-link">Saber más
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
+
+        <a href="nuestro-compromiso.html" class="category-card link-plain">
+          <span class="cat-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </span>
+          <h3>Nuestro Compromiso</h3>
+          <p>Ofrecer una atención cercana y personalizada, garantizando selecciones editoriales cuidadas y un servicio de envío eficiente y transparente en cada pedido.</p>
+          <span class="cat-count inline-cta-link">Saber más
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
+
+    </div>
+
+    </div>
+  </section>
+
+  <!-- Banda de confianza (Mantenida idéntica a la home para conservar la coherencia visual) -->
+  <div class="container">
+    <div class="trust-strip">
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div><h4>Envíos a España y Europa</h4><p>Envío ágil a tu casa</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div><h4>Ediciones garantizadas</h4><p>Textos fieles y cuidados</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <div><h4>Atención cercana</h4><p>Te ayudamos a elegir</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <div><h4>Devoluciones sencillas</h4><p>14 días para cambios</p></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ==========================================================================
+     4. FOOTER
+     ========================================================================== -->
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">L</span>
+        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+      </a>
+      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Institucional</h5>
+      <ul class="footer-links">
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda para elegir</h5>
+      <ul class="footer-links">
+        <li><a href="asistente.html">Asistente de recomendación</a></li>
+        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
+        <li><a href="recursos.html">Recursos de lectura</a></li>
+        <li><a href="glosario.html">Glosario de términos</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda</h5>
+      <ul class="footer-links">
+        <li><a href="envios.html">Envíos y entregas</a></li>
+        <li><a href="devoluciones.html">Devoluciones</a></li>
+        <li><a href="terminos.html">Términos y condiciones</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Contacto</h5>
+      <ul class="footer-contact">
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Alicante, España
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
+        </li>
+        <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-contact-banner">
+    <div class="container">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
+    <div class="legal-links">
+      <a href="privacidad.html">Privacidad </a>
+      <a href="terminos.html">Términos</a>
+      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/gift-options.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+````
+
+## File: cuenta.html
+````html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script src="js/cookies.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, follow">
+<title>Mi cuenta — Librería tu mayor tesoro</title>
+<meta name="description" content="Inicia sesión o crea una cuenta en Librería tu mayor tesoro para hacer seguimiento de tus pedidos.">
+<link rel="canonical" href="https://libreriatumayortesoro.com/cuenta.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Librería tu mayor tesoro">
+<meta property="og:title" content="Mi cuenta — Librería tu mayor tesoro">
+<meta property="og:description" content="Inicia sesión o crea una cuenta en Librería tu mayor tesoro para hacer seguimiento de tus pedidos.">
+<meta property="og:url" content="https://libreriatumayortesoro.com/cuenta.html">
+<meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mi cuenta — Librería tu mayor tesoro">
+<meta name="twitter:description" content="Inicia sesión o crea una cuenta en Librería tu mayor tesoro para hacer seguimiento de tus pedidos.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#20304f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+<header class="site-header">
+  <div class="container header-top">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">L</span>
+      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+    </a>
+
+    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
+      <button type="submit">Buscar</button>
+    </form>
+
+    <div class="header-actions">
+      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
+    <div class="container">
+      <ul class="category-list">
+        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
+        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
+        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
+        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
+        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
+        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
+        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
+        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
+        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+  <div class="container account-page">
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      <a href="index.html">Inicio</a>
+      <span>/</span>
+      <span class="breadcrumb-current">Mi cuenta</span>
+    </nav>
+
+    <!-- ---- Sin sesión iniciada: login / registro ---- -->
+    <div id="authLoggedOut">
+      <h1 class="section-title">Mi cuenta</h1>
+      <p class="account-intro">Inicia sesión o crea una cuenta para finalizar tus compras y hacer seguimiento de tus pedidos por correo.</p>
+
+      <div class="auth-card">
+        <div class="auth-tabs">
+          <button type="button" class="auth-tab is-active" data-auth-tab="login">Iniciar sesión</button>
+          <button type="button" class="auth-tab" data-auth-tab="register">Crear cuenta</button>
+        </div>
+
+        <form id="loginForm" class="auth-form" data-panel="login">
+          <label>Correo electrónico<input type="email" name="email" required autocomplete="email"></label>
+          <label>Contraseña<input type="password" name="password" required autocomplete="current-password"></label>
+          <p class="auth-error" id="loginError" role="alert" hidden></p>
+          <p class="auth-success" id="resetSuccess" role="status" hidden>Te hemos enviado un correo para restablecer tu contraseña.</p>
+          <button type="button" id="forgotPasswordBtn" class="auth-forgot-link">¿Olvidaste tu contraseña?</button>
+          <button type="submit" class="btn btn--primary btn--block">Iniciar sesión</button>
+        </form>
+
+        <form id="registerForm" class="auth-form" data-panel="register" hidden>
+          <label>Nombre completo<input type="text" name="nombre" required autocomplete="name"></label>
+          <label>Correo electrónico<input type="email" name="email" required autocomplete="email"></label>
+          <label>Contraseña<input type="password" name="password" required minlength="6" autocomplete="new-password"></label>
+          <p class="auth-error" id="registerError" role="alert" hidden></p>
+          <button type="submit" class="btn btn--primary btn--block">Crear cuenta</button>
+          <p class="auth-switch">¿Ya tienes cuenta? <button type="button" class="auth-switch-link" data-auth-switch="login">Inicia sesión</button></p>
+        </form>
+
+        <div id="authProviders" hidden>
+          <div class="auth-divider"><span>o continúa con</span></div>
+          <div class="auth-providers">
+            <button type="button" class="btn btn--outline btn--block auth-provider" data-provider="google" hidden>
+              <span class="auth-icon auth-icon--google" aria-hidden="true"></span> Continuar con Google
+            </button>
+            <button type="button" class="btn btn--outline btn--block auth-provider" data-provider="facebook" hidden>
+              <span class="auth-icon auth-icon--facebook" aria-hidden="true"></span> Continuar con Facebook
+            </button>
+            <button type="button" class="btn btn--outline btn--block auth-provider" data-provider="apple" hidden>
+              <span class="auth-icon auth-icon--apple" aria-hidden="true"></span> Continuar con Apple
+            </button>
+            <button type="button" class="btn btn--outline btn--block auth-provider" data-provider="microsoft" hidden>
+              <span class="auth-icon auth-icon--microsoft" aria-hidden="true"></span> Continuar con Microsoft
+            </button>
+            <button type="button" class="btn btn--outline btn--block auth-provider" data-provider="emailLink" hidden>
+              <span class="auth-icon auth-icon--mail" aria-hidden="true"></span> Recibir un enlace por correo
+            </button>
+          </div>
+          <p class="auth-error" id="providerError" role="alert" hidden></p>
+        </div>
+
+        <form id="emailLinkForm" class="auth-form" hidden>
+          <p class="auth-hint">Escribe tu correo y te enviamos un enlace para entrar, sin contraseña. Si aún no tienes cuenta, se crea al abrirlo.</p>
+          <label>Correo electrónico<input type="email" name="email" required autocomplete="email"></label>
+          <p class="auth-error" id="emailLinkError" role="alert" hidden></p>
+          <p class="auth-success" id="emailLinkSuccess" role="status" hidden></p>
+          <button type="submit" class="btn btn--primary btn--block">Enviarme el enlace</button>
+          <button type="button" id="emailLinkBack" class="auth-forgot-link">← Volver a las otras opciones</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ---- Cuenta creada pero con el correo sin verificar ---- -->
+    <div id="authVerify" hidden>
+      <h1 class="section-title">Verifica tu correo</h1>
+      <p class="account-intro" id="verifyIntro">Te hemos enviado un código de 6 dígitos. Escríbelo aquí para activar tu cuenta.</p>
+
+      <div class="auth-card">
+        <form id="verifyForm" class="auth-form" novalidate>
+          <label>Código de verificación
+            <input type="text" name="codigo" class="verify-code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code" placeholder="······" required>
+          </label>
+          <p class="auth-error" id="verifyError" role="alert" hidden></p>
+          <p class="auth-success" id="verifyInfo" role="status" hidden></p>
+          <button type="submit" class="btn btn--primary btn--block">Verificar mi correo</button>
+          <div class="verify-links">
+            <button type="button" id="verifyResend" class="auth-forgot-link">Reenviar código</button>
+            <button type="button" id="verifyWrongEmail" class="auth-forgot-link">Me equivoqué de correo</button>
+            <button type="button" id="verifyLogout" class="auth-forgot-link">Cerrar sesión</button>
+          </div>
+        </form>
+      </div>
+      <p class="auth-hint verify-hint">¿No llega? Mira en la carpeta de spam. El código vale 10 minutos.</p>
+    </div>
+
+    <!-- ---- Con sesión iniciada ---- -->
+    <div id="authLoggedIn" hidden>
+      <div class="account-dashboard">
+        <aside class="account-sidebar">
+          <div class="account-sidebar-user">
+            <span class="account-avatar" id="accountAvatar">?</span>
+            <div>
+              <p class="account-sidebar-name" id="accountNameHead">Cliente</p>
+              <p class="account-sidebar-email" id="accountEmail"></p>
+            </div>
+          </div>
+          <nav class="account-nav">
+            <button type="button" class="account-nav-btn is-active" data-account-panel="resumen">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              Resumen
+            </button>
+            <button type="button" class="account-nav-btn" data-account-panel="pedidos">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              Mis pedidos
+            </button>
+            <button type="button" class="account-nav-btn" data-account-panel="datos">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+              Datos personales
+            </button>
+            <button type="button" class="account-nav-btn" data-account-panel="direcciones">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Direcciones
+            </button>
+            <button type="button" class="account-nav-btn" data-account-panel="deseos">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+              Lista de deseos
+            </button>
+            <button type="button" class="account-nav-btn" data-account-panel="seguridad">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Seguridad
+            </button>
+          </nav>
+          <button type="button" class="account-logout" id="logoutBtn">Cerrar sesión</button>
+        </aside>
+
+        <div class="account-content">
+          <!-- Resumen -->
+          <section class="account-panel is-active" data-panel="resumen">
+            <div class="account-panel-head">
+              <div>
+                <span class="eyebrow">Mi cuenta</span>
+                <h1 class="section-title">Hola, <span id="accountName">cliente</span></h1>
+              </div>
+            </div>
+            <div class="account-stats">
+              <div class="account-stat-card">
+                <span class="account-stat-value" id="statPedidos">0</span>
+                <span class="account-stat-label">Pedidos</span>
+              </div>
+              <div class="account-stat-card">
+                <span class="account-stat-value" id="statTotal">0,00&nbsp;€</span>
+                <span class="account-stat-label">Total gastado</span>
+              </div>
+              <div class="account-stat-card">
+                <span class="account-stat-value" id="statDesde">—</span>
+                <span class="account-stat-label">Cliente desde</span>
+              </div>
+            </div>
+            <h2 class="account-subheading">Tu último pedido</h2>
+            <div id="lastOrderPreview"></div>
+            <p id="lastOrderEmpty" class="reviews-empty">Todavía no has hecho ningún pedido. <a href="categoria.html">Explora el catálogo</a>.</p>
+          </section>
+
+          <!-- Pedidos -->
+          <section class="account-panel" data-panel="pedidos" hidden>
+            <div class="account-panel-head">
+              <h1 class="section-title">Mis pedidos</h1>
+            </div>
+            <div id="ordersList" class="orders-list"></div>
+            <p id="ordersEmpty" class="reviews-empty">Todavía no has hecho ningún pedido.</p>
+          </section>
+
+          <!-- Datos personales -->
+          <section class="account-panel" data-panel="datos" hidden>
+            <div class="account-panel-head">
+              <h1 class="section-title">Datos personales</h1>
+            </div>
+            <form id="datosForm" class="account-form">
+              <div class="account-form-row">
+                <label>Nombre<input type="text" name="nombre" id="datosNombre" required></label>
+                <label>Correo electrónico<input type="email" id="datosEmail" disabled></label>
+              </div>
+              <label>Teléfono<input type="tel" name="telefono" id="datosTelefono" autocomplete="tel"></label>
+              <p class="auth-error" id="datosError" role="alert" hidden></p>
+              <p class="auth-success" id="datosSuccess" role="status" hidden>Tus datos se han guardado.</p>
+              <div class="account-form-actions">
+                <button type="submit" class="btn btn--primary">Guardar cambios</button>
+              </div>
+            </form>
+          </section>
+
+          <!-- Direcciones -->
+          <section class="account-panel" data-panel="direcciones" hidden>
+            <div class="account-panel-head">
+              <h1 class="section-title">Direcciones</h1>
+              <button type="button" class="btn btn--outline btn--sm" id="addAddressBtn">+ Añadir dirección</button>
+            </div>
+            <div id="addressList" class="address-list"></div>
+            <p id="addressEmpty" class="reviews-empty">Todavía no tienes ninguna dirección guardada.</p>
+
+            <form id="addressForm" class="account-form" hidden>
+              <h2 class="account-subheading">Dirección de envío</h2>
+              <input type="hidden" name="addressId">
+              <div class="account-form-row">
+                <label>Etiqueta<input type="text" name="etiqueta" placeholder="Casa, trabajo…" required></label>
+                <label>Nombre y apellidos<input type="text" name="nombre" required></label>
+              </div>
+              <label>Dirección<input type="text" name="direccion" required></label>
+              <div class="account-form-row">
+                <label>Código postal<input type="text" name="cp" required></label>
+                <label>Ciudad<input type="text" name="ciudad" required></label>
+              </div>
+              <label>País
+                <select name="pais" required style="font:inherit;padding:11px 13px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--background);color:inherit;">
+                  <option value="ES">España</option>
+                  <option value="PT">Portugal</option>
+                  <option value="FR">Francia</option>
+                  <option value="DE">Alemania</option>
+                  <option value="NL">Países Bajos</option>
+                  <option value="GB">Reino Unido</option>
+                </select>
+              </label>
+              <label>Teléfono<input type="tel" name="telefono" required></label>
+              <label class="checkbox-label"><input type="checkbox" name="predeterminada"> Usar como dirección predeterminada</label>
+              <p class="auth-error" id="addressError" role="alert" hidden></p>
+              <div class="account-form-actions">
+                <button type="button" class="btn btn--outline" id="cancelAddressBtn">Cancelar</button>
+                <button type="submit" class="btn btn--primary">Guardar dirección</button>
+              </div>
+            </form>
+          </section>
+
+          <!-- Lista de deseos -->
+          <section class="account-panel" data-panel="deseos" hidden>
+            <div class="account-panel-head">
+              <h1 class="section-title">Lista de deseos</h1>
+            </div>
+            <div id="wishlistGrid" class="book-grid"></div>
+            <p id="wishlistEmpty" class="reviews-empty">Todavía no has guardado ningún libro. Pulsa el corazón de un libro para añadirlo aquí.</p>
+          </section>
+
+          <!-- Seguridad -->
+          <section class="account-panel" data-panel="seguridad" hidden>
+            <div class="account-panel-head">
+              <h1 class="section-title">Seguridad</h1>
+            </div>
+            <p class="review-login-notice" id="googleAccountNotice" hidden>Has iniciado sesión con otro servicio (Google, Facebook, Apple o Microsoft), así que tu contraseña se gestiona desde ese servicio.</p>
+            <div id="passwordBlock">
+              <form id="passwordForm" class="account-form">
+                <h2 class="account-subheading">Cambiar contraseña</h2>
+                <label>Contraseña actual<input type="password" name="actual" required autocomplete="current-password"></label>
+                <label>Nueva contraseña<input type="password" name="nueva" required minlength="6" autocomplete="new-password"></label>
+                <p class="auth-error" id="passwordError" role="alert" hidden></p>
+                <p class="auth-success" id="passwordSuccess" role="status" hidden>Tu contraseña se ha actualizado.</p>
+                <div class="account-form-actions">
+                  <button type="submit" class="btn btn--primary">Actualizar contraseña</button>
+                </div>
+              </form>
+            </div>
+            <div class="account-danger-zone">
+              <h2 class="account-subheading">Eliminar cuenta</h2>
+              <p>Esta acción es permanente y no se puede deshacer.</p>
+              <button type="button" class="btn btn--danger" id="deleteAccountBtn">Eliminar mi cuenta</button>
+            </div>
+          </section>
+        </div>
+      </div>
     </div>
   </div>
 </main>
@@ -16861,33 +15766,33 @@ function closeCartDrawer() {
 <script src="js/gift-options.js"></script>
 <script src="js/books-data.js"></script>
 <script src="js/wishlist.js"></script>
-<script src="js/checkout.js"></script>
+<script src="js/account.js"></script>
 <script src="js/search.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="producto.html">
+## File: envios.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <script src="js/cookies.js" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title id="pageTitle">Ficha de producto — Librería tu mayor tesoro</title>
-<meta id="metaDescription" name="description" content="Descubre este título en Librería tu mayor tesoro: Biblias, obras de Elena G. White y literatura afín.">
-<link id="canonicalLink" rel="canonical" href="https://libreriatumayortesoro.com/producto.html">
+<title>Envíos y entregas — Librería tu mayor tesoro</title>
+<meta name="description" content="Consulta toda la información sobre nuestros plazos de envío, costes por país, métodos de entrega y cobertura (España, Portugal, Francia, Alemania, Países Bajos y Reino Unido) en Librería tu mayor tesoro.">
+<link rel="canonical" href="https://libreriatumayortesoro.com/envios.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Librería tu mayor tesoro">
-<meta id="ogTitle" property="og:title" content="Librería tu mayor tesoro">
-<meta id="ogDescription" property="og:description" content="Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.">
-<meta id="ogUrl" property="og:url" content="https://libreriatumayortesoro.com/producto.html">
-<meta id="ogImage" property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
+<meta property="og:title" content="Envíos y entregas — Librería tu mayor tesoro">
+<meta property="og:description" content="Consulta toda la información sobre nuestros plazos de envío, costes por país, métodos de entrega y cobertura (España, Portugal, Francia, Alemania, Países Bajos y Reino Unido) en Librería tu mayor tesoro.">
+<meta property="og:url" content="https://libreriatumayortesoro.com/envios.html">
+<meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta id="twitterTitle" name="twitter:title" content="Librería tu mayor tesoro">
-<meta id="twitterDescription" name="twitter:description" content="Biblias, obras de Elena G. White y literatura afín.">
-<meta id="twitterImage" name="twitter:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
+<meta name="twitter:title" content="Envíos y entregas — Librería tu mayor tesoro">
+<meta name="twitter:description" content="Consulta toda la información sobre nuestros plazos de envío, costes por país, métodos de entrega y cobertura (España, Portugal, Francia, Alemania, Países Bajos y Reino Unido) en Librería tu mayor tesoro.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -16901,7 +15806,16 @@ function closeCartDrawer() {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
-<!-- product.js genera aquí el JSON-LD del producto real (con su valoración media si tiene reseñas) -->
+<style>
+.ship-table-wrap{overflow-x:auto;margin:14px 0 18px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--card)}
+.ship-table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:640px}
+.ship-table caption{caption-side:top;text-align:left;padding:12px 14px 4px;font-size:.82rem;color:var(--muted-foreground)}
+.ship-table th,.ship-table td{padding:11px 14px;text-align:center;white-space:nowrap}
+.ship-table thead th{background:var(--muted);font-weight:700;font-size:.82rem;letter-spacing:.02em}
+.ship-table tbody th{text-align:left;font-weight:600}
+.ship-table tbody tr+tr th,.ship-table tbody tr+tr td{border-top:1px solid var(--border)}
+.ship-table tbody tr:nth-child(even){background:var(--muted)}
+</style>
 </head>
 <body>
 
@@ -16951,142 +15865,89 @@ function closeCartDrawer() {
 </header>
 
 <main id="main-content">
-  <div class="container product-page">
-    <nav class="breadcrumb" aria-label="Ruta de navegación">
-      <a href="index.html">Inicio</a>
-      <span>/</span>
-      <a href="categoria.html" id="breadcrumbCategory">Catálogo</a>
-      <span>/</span>
-      <span class="breadcrumb-current" id="breadcrumbTitle">Ficha de producto</span>
-    </nav>
+  <section class="section pb-lg">
+    <div class="container">
+      <nav class="breadcrumb mb-lg" aria-label="Ruta de navegación">
+        <a href="index.html">Inicio</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span data-breadcrumb-current>Envíos y entregas</span>
+      </nav>
 
-    <!-- Se muestra si la URL no trae ?id= o el id no existe en el catálogo -->
-    <div id="productNotFound" class="empty-results" hidden>
-      No se ha encontrado este libro. <a href="categoria.html">Volver al catálogo</a>.
-    </div>
-
-    <div class="product-layout" id="productLayout" hidden>
-      <div class="product-gallery">
-        <div class="product-cover-photo">
-          <span class="badge" id="productBadge" hidden></span>
-          <span class="binding-tag" id="productBinding" hidden></span>
-          <img id="productCoverImg" src="" alt="">
-        </div>
-      </div>
-
-      <div class="product-info-block" data-product-block>
-        <span class="book-category" id="productCategory">Categoría</span>
-        <h1 class="product-title" id="productTitle">Título del libro</h1>
-        <p class="product-author" id="productAuthor">Autor</p>
-
-        <div class="product-rating" id="productRating" hidden>
-          <span class="stars" id="productStars" aria-hidden="true">★★★★★</span>
-          <span class="rating-count" id="productRatingCount">0 valoraciones</span>
-        </div>
-
-        <p class="product-price" id="productPrice">0,00&nbsp;€ <small id="productPriceNote">IVA incluido</small></p>
-
-        <span class="stock-badge" id="productStock" role="status" hidden></span>
-
-        <p class="product-desc" id="productDesc">Descripción del libro.</p>
-
-        <div class="product-actions">
-          <div class="qty-stepper">
-            <button type="button" class="qty-btn" data-qty-decrease aria-label="Restar cantidad">−</button>
-            <input type="number" class="qty-input" data-qty-input value="1" min="1" max="20" aria-label="Cantidad">
-            <button type="button" class="qty-btn" data-qty-increase aria-label="Sumar cantidad">+</button>
-          </div>
-          <button type="button" class="btn btn--primary" id="addToCartBtn" data-add-to-cart>Añadir al carrito</button>
-          <a href="carrito.html" class="btn btn--outline">Comprar ahora</a>
-          <button type="button" class="btn btn--outline product-fav" id="productFavBtn" data-fav-toggle aria-pressed="false" aria-label="Añadir a mi lista de deseos">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
-            <span>Lista de deseos</span>
-          </button>
-        </div>
-
-        <ul class="product-trust">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Envío a península y Baleares: hasta 5 libros por 6&nbsp;€ (total del pedido)</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Ediciones garantizadas, textos fieles y cuidados</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Pago 100% seguro con tarjeta o Bizum</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v5h5"/></svg> Devoluciones fáciles en 14 días</li>
-        </ul>
-
-        <div class="product-tabs">
-          <div class="tab-buttons" role="tablist">
-            <button type="button" class="tab-btn is-active" role="tab" data-tab="descripcion">Descripción</button>
-            <button type="button" class="tab-btn" role="tab" data-tab="detalles">Detalles</button>
-            <button type="button" class="tab-btn" role="tab" data-tab="opiniones">Opiniones <span id="tabReviewCount"></span></button>
-            <button type="button" class="tab-btn" role="tab" data-tab="envio">Envío y devoluciones</button>
-          </div>
-
-          <div class="tab-panel is-active" data-tab-panel="descripcion">
-            <p id="productDescLong">Descripción del libro.</p>
-          </div>
-          <div class="tab-panel" data-tab-panel="detalles">
-            <ul class="spec-list" id="productSpecList"></ul>
-          </div>
-          <div class="tab-panel" data-tab-panel="opiniones">
-            <div id="reviewSummary" class="review-summary" hidden>
-              <span class="review-summary-value" id="reviewAvgValue">0.0</span>
-              <div>
-                <span class="stars" id="reviewAvgStars" aria-hidden="true">★★★★★</span>
-                <span class="rating-count" id="reviewAvgCount">0 valoraciones</span>
-              </div>
-            </div>
-
-            <div id="reviewsList" class="reviews-list"></div>
-            <p id="reviewsEmpty" class="reviews-empty">Todavía no hay opiniones sobre este libro. ¡Sé el primero en dejar la tuya!</p>
-
-            <div id="reviewLoginNotice" class="review-login-notice" hidden>
-              <a href="cuenta.html">Inicia sesión</a> para dejar tu opinión sobre este libro.
-            </div>
-
-            <form id="reviewForm" class="review-form" hidden>
-              <h3 class="account-subheading">Deja tu opinión</h3>
-              <div class="review-stars-input" role="radiogroup" aria-label="Valoración">
-                <button type="button" class="review-star-btn" data-star="1" aria-label="1 estrella">★</button>
-                <button type="button" class="review-star-btn" data-star="2" aria-label="2 estrellas">★</button>
-                <button type="button" class="review-star-btn" data-star="3" aria-label="3 estrellas">★</button>
-                <button type="button" class="review-star-btn" data-star="4" aria-label="4 estrellas">★</button>
-                <button type="button" class="review-star-btn" data-star="5" aria-label="5 estrellas">★</button>
-              </div>
-              <input type="hidden" name="valoracion" id="reviewRatingInput" value="0" required>
-              <textarea name="comentario" id="reviewComment" aria-label="Tu opinión sobre el libro" placeholder="Cuéntanos qué te ha parecido este libro…" rows="3" required maxlength="600"></textarea>
-              <div class="review-photos-field">
-                <label class="review-photos-label" for="reviewPhotos">Añade fotos (opcional, máx. 4)</label>
-                <input type="file" id="reviewPhotos" accept="image/jpeg,image/png,image/webp" multiple>
-                <div class="review-photos-preview" id="reviewPhotosPreview"></div>
-              </div>
-              <p class="auth-error" id="reviewError" role="alert" hidden></p>
-              <button type="submit" class="btn btn--primary">Publicar opinión</button>
-            </form>
-          </div>
-          <div class="tab-panel" data-tab-panel="envio">
-            <p>Envíos a toda España en 2–5 días laborables. Coste de envío por pedido: hasta 5 libros, 6&nbsp;€; de 6 a 10, 10&nbsp;€; de 11 a 16, 15&nbsp;€; de 17 a 21, 16&nbsp;€. Descuento automático si compras varios ejemplares del mismo libro. Dispones de 14 días naturales desde la recepción del pedido para solicitar una devolución o un cambio, siempre que el libro se encuentre en su estado original.</p>
-          </div>
+      <div class="section-head mb-0">
+        <div>
+          <span class="eyebrow">Información logística</span>
+          <h1 class="section-title">Envíos y entregas</h1>
+          <p class="section-lede">Conoce los plazos, métodos de transporte y costes para recibir tus pedidos de forma rápida y segura en tu domicilio.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <section class="related-products" id="relatedSection" hidden>
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">También te puede interesar</span>
-          <h2 class="section-title">Productos relacionados</h2>
+  <section class="section section--muted pt-lg">
+    <div class="container">
+      <div class="content-narrow-section">
+        
+        <div class="content-card content-card--lg">
+          <h3 class="card-title">Comprometidos con que tus libros lleguen a tiempo</h3>
+          <p class="text-block">
+            En <strong>Librería tu mayor tesoro</strong> nos encargamos de preparar cada pedido con sumo cuidado, asegurando que las obras, biblias y materiales de estudio lleguen en perfectas condiciones a tus manos. Realizamos envíos a España (península y Baleares), Portugal, Francia, Alemania, Países Bajos y Reino Unido a través de servicios de mensajería de confianza.
+          </p>
+          <p class="text-block">
+            <strong>Tiempos de preparación</strong>: envío ágil para los libros en stock. Los productos que incluyan confección textil o personalización artesanal requieren de más días laborables de elaboración previa al envío.
+          </p>
+          <p class="text-block">
+            <strong>Coste de envío</strong>: se calcula por pedido, según el país de destino y el número total de ejemplares (cada colección cuenta como los libros que contiene). Cuantos más ejemplares incluyas en el mismo pedido, menos pagas de envío por libro. Eliges el país en el carrito y ves el importe exacto antes de pagar.
+          </p>
+          <div class="ship-table-wrap">
+            <table class="ship-table">
+              <caption>Gastos de envío por pedido, según el país de destino y el nº total de ejemplares</caption>
+              <thead><tr><th scope="col">Ejemplares</th><th scope="col">1&nbsp;–&nbsp;2</th><th scope="col">3&nbsp;–&nbsp;9</th><th scope="col">10&nbsp;–&nbsp;49</th><th scope="col">50&nbsp;–&nbsp;99</th><th scope="col">100&nbsp;–&nbsp;249</th><th scope="col">250&nbsp;–&nbsp;499</th><th scope="col">500&nbsp;+</th></tr></thead>
+              <tbody>
+<tr><th scope="row">España</th><td>7,01&nbsp;€</td><td>6,69&nbsp;€</td><td>6,11&nbsp;€</td><td>5,58&nbsp;€</td><td>5,18&nbsp;€</td><td>4,83&nbsp;€</td><td>4,83&nbsp;€</td></tr>
+<tr><th scope="row">Portugal</th><td>7,01&nbsp;€</td><td>6,69&nbsp;€</td><td>6,11&nbsp;€</td><td>5,58&nbsp;€</td><td>5,18&nbsp;€</td><td>4,83&nbsp;€</td><td>4,83&nbsp;€</td></tr>
+<tr><th scope="row">Francia</th><td>8,82&nbsp;€</td><td>8,22&nbsp;€</td><td>7,88&nbsp;€</td><td>7,61&nbsp;€</td><td>7,35&nbsp;€</td><td>7,10&nbsp;€</td><td>6,60&nbsp;€</td></tr>
+<tr><th scope="row">Alemania</th><td>8,52&nbsp;€</td><td>7,53&nbsp;€</td><td>7,09&nbsp;€</td><td>6,92&nbsp;€</td><td>6,82&nbsp;€</td><td>6,81&nbsp;€</td><td>6,81&nbsp;€</td></tr>
+<tr><th scope="row">Países Bajos</th><td>9,99&nbsp;€</td><td>9,62&nbsp;€</td><td>9,31&nbsp;€</td><td>8,40&nbsp;€</td><td>7,28&nbsp;€</td><td>6,17&nbsp;€</td><td>5,43&nbsp;€</td></tr>
+<tr><th scope="row">Reino Unido</th><td>10,10&nbsp;€</td><td>9,32&nbsp;€</td><td>8,68&nbsp;€</td><td>8,35&nbsp;€</td><td>8,05&nbsp;€</td><td>7,76&nbsp;€</td><td>7,76&nbsp;€</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-block">
+            <strong>Cobertura</strong>: en España enviamos a la península y Baleares; en Portugal, a Portugal continental; en Francia, a Francia metropolitana; y en el Reino Unido, a Gran Bretaña e Irlanda del Norte. Para otros destinos (Canarias, Ceuta, Melilla, Azores, Madeira, Islas del Canal u otros países), escríbenos y lo miramos. Los importes del Reino Unido se muestran y se cobran en euros. Si compras varios ejemplares del mismo libro, aplicamos además un descuento automático por cantidad. Algunos títulos incluyen el envío gratuito (se indica en su ficha); si todos los libros de tu carrito lo incluyen, no se te cobrará ningún gasto de envío.
+          </p>
+          <p class="text-block text-block--end">
+            Si tienes cualquier duda específica sobre el estado de tu envío o requieres asistencia personalizada con tu entrega, puedes escribirnos directamente a nuestro correo electrónico: 
+            <a href="mailto:libreriamayortesoro@gmail.com" class="link-inline link-inline--strong">libreriamayortesoro@gmail.com</a>.
+          </p>
         </div>
-      </div>
-      <div class="book-grid" id="relatedGrid"></div>
-    </section>
 
-    <section class="related-products" id="recentSection" hidden>
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">Tu historial</span>
-          <h2 class="section-title">Vistos recientemente</h2>
-        </div>
       </div>
-      <div class="book-grid" id="recentGrid"></div>
-    </section>
+
+      <div class="content-narrow-left">
+        <a href="index.html" class="btn btn--outline">Volver al inicio</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="trust-strip">
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div><h4>Envíos a España y Europa</h4><p>Envío ágil a tu casa</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div><h4>Ediciones garantizadas</h4><p>Textos fieles y cuidados</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <div><h4>Atención cercana</h4><p>Te ayudamos a elegir</p></div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <div><h4>Devoluciones sencillas</h4><p>14 días para cambios</p></div>
+      </div>
+    </div>
   </div>
 </main>
 
@@ -17163,7 +16024,6 @@ function closeCartDrawer() {
     </div>
   </div>
 
-
   <div class="footer-contact-banner">
     <div class="container">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
@@ -17184,25 +16044,18 @@ function closeCartDrawer() {
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-storage-compat.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script src="js/config.js"></script>
 <script src="js/auth.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/gift-options.js"></script>
-<script src="js/books-data.js"></script>
-<script src="js/ew-pricing.js"></script>
-<script src="js/wishlist.js"></script>
-<script src="js/product.js"></script>
-<script src="js/cover-carousel.js"></script>
-<script src="js/gift-product.js"></script>
-<script src="js/search.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="functions/ew-pricing.js">
+## File: functions/ew-pricing.js
+````javascript
 // ==========================================================================
 // Precios de impresión bajo demanda — Colección Elena G. White (servidor)
 // COPIA DE SERVIDOR de js/ew-pricing.js — MISMOS NÚMEROS, generados a la
@@ -17401,9 +16254,354 @@ function resolverImpresion(bookId, impSolicitada) {
 }
 
 module.exports = { hasEWPrintOptions, resolverImpresion, getEWPrice, EW_BOOK_DEFAULTS };
-</file>
+````
 
-<file path="producto-app.html">
+## File: carrito.html
+````html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script src="js/cookies.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Tu carrito — Librería tu mayor tesoro</title>
+<meta name="description" content="Revisa los libros de tu carrito antes de finalizar la compra en Librería tu mayor tesoro.">
+<link rel="canonical" href="https://libreriatumayortesoro.com/carrito.html">
+<meta name="robots" content="noindex, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Librería tu mayor tesoro">
+<meta property="og:title" content="Tu carrito — Librería tu mayor tesoro">
+<meta property="og:description" content="Revisa los libros de tu carrito antes de finalizar la compra en Librería tu mayor tesoro.">
+<meta property="og:url" content="https://libreriatumayortesoro.com/carrito.html">
+<meta property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tu carrito — Librería tu mayor tesoro">
+<meta name="twitter:description" content="Revisa los libros de tu carrito antes de finalizar la compra en Librería tu mayor tesoro.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#20304f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<!-- SDK Oficial de Stripe JS v3 -->
+<script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+<header class="site-header">
+  <div class="container header-top">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">L</span>
+      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+    </a>
+
+    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
+      <button type="submit">Buscar</button>
+    </form>
+
+    <div class="header-actions">
+      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
+    <div class="container">
+      <ul class="category-list">
+        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
+        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
+        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
+        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
+        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
+        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
+        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
+        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
+        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+  <div class="container cart-page">
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      <a href="index.html">Inicio</a>
+      <span>/</span>
+      <span class="breadcrumb-current">Carrito</span>
+    </nav>
+
+    <h1 class="section-title">Tu carrito</h1>
+
+    <div class="cart-layout" id="cartLayout">
+      <div class="cart-items" id="cartItems">
+        <!-- Las filas del carrito se generan dinámicamente con js/cart.js -->
+      </div>
+
+      <aside class="cart-summary">
+        <h2>Resumen del pedido</h2>
+        <div class="cart-summary-row"><span>Subtotal</span><span id="summarySubtotal">0,00&nbsp;€</span></div>
+        <div class="cart-summary-row" id="summaryExtrasRow" hidden><span>Extras de regalo</span><span id="summaryExtras">0,00&nbsp;€</span></div>
+        <label class="ship-country" for="summaryCountry" style="display:flex;flex-direction:column;gap:6px;font-size:.83rem;font-weight:600;margin:6px 0 10px;">País de envío
+          <select id="summaryCountry" aria-label="País de envío" style="font:inherit;padding:11px 13px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--background);color:inherit;"></select>
+        </label>
+        <div class="cart-summary-row"><span>Envío</span><span id="summaryShipping">—</span></div>
+        <p class="pay-hint" id="summaryShipHint" style="margin:-4px 0 8px;font-size:.82rem;">Envío según país y nº de ejemplares.</p>
+        <div class="cart-summary-row" id="summaryQtyDiscountRow" hidden><span>Descuento por cantidad</span><span id="summaryQtyDiscount">−0,00&nbsp;€</span></div>
+        <div class="cart-summary-row" id="summaryDiscountRow" hidden><span>Descuento</span><span id="summaryDiscount">−0,00&nbsp;€</span></div>
+        <div class="cart-summary-row total"><span>Total</span><span id="summaryTotal">0,00&nbsp;€</span></div>
+
+        <form class="promo-form" id="promoForm">
+          <input type="text" placeholder="Código promocional" aria-label="Código promocional">
+          <button type="submit" class="btn btn--outline btn--sm">Aplicar</button>
+        </form>
+        <p class="promo-message" id="promoMessage" hidden></p>
+
+        <button type="button" class="btn btn--primary btn--block" id="checkoutBtn">Finalizar compra</button>
+        <a href="categoria.html" class="continue-shopping">← Seguir comprando</a>
+      </aside>
+    </div>
+
+    <p class="checkout-login-notice" id="checkoutLoginNotice" hidden>
+      Para finalizar la compra necesitas <a href="cuenta.html">iniciar sesión o crear una cuenta</a>. Así podrás recibir la confirmación por correo y hacer seguimiento de tu pedido.
+    </p>
+
+    <p class="checkout-login-notice" id="checkoutVerifyNotice" hidden>
+      Antes de comprar tienes que <a href="cuenta.html">verificar tu correo</a> con el código de 6 dígitos que te enviamos al crear la cuenta. Así te llegarán bien la confirmación y el seguimiento de tu pedido.
+    </p>
+
+    <section class="checkout-shipping" id="checkoutShipping" hidden>
+      <h2>Datos de envío y pago</h2>
+      <p class="checkout-shipping-sub">Son los datos a los que enviaremos tu pedido y el método de pago seguro.</p>
+      <form id="shippingForm" class="shipping-form">
+        <input type="hidden" name="addressId" value="">
+        <label>Nombre y apellidos<input type="text" id="shippingName" name="nombre" required autocomplete="name"></label>
+        <label>Dirección<input type="text" id="shippingAddress" name="direccion" required autocomplete="street-address"></label>
+        <div class="shipping-form-row">
+          <label>Ciudad<input type="text" id="shippingCity" name="ciudad" required autocomplete="address-level2"></label>
+          <label>Código postal<input type="text" id="shippingZip" name="cp" required autocomplete="postal-code"></label>
+        </div>
+        <label>País
+          <select id="shippingCountry" name="pais" required autocomplete="country" style="font:inherit;padding:11px 13px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--background);color:inherit;"></select>
+        </label>
+        <label><span>Teléfono <span class="label-optional">(opcional)</span></span><input type="tel" id="shippingPhone" name="telefono" autocomplete="tel" placeholder="Por si el transportista necesita avisarte"></label>
+        <label class="checkbox-label"><input type="checkbox" name="guardarDireccion" checked> Guardar esta dirección para la próxima compra</label>
+        
+        <!-- Método de pago: Bizum primero (más rápido), tarjeta después -->
+        <div class="pay-group">
+          <p class="pay-legend">Método de pago</p>
+          <div class="payment-method-options">
+            <label class="pay-option">
+              <input type="radio" name="metodoPago" value="bizum" id="metodoPagoBizum">
+              <span class="pay-option-text">Bizum <small>Pago rápido desde tu móvil</small></span>
+            </label>
+            <label class="pay-option">
+              <input type="radio" name="metodoPago" value="tarjeta" id="metodoPagoTarjeta" checked>
+              <span class="pay-option-text">Tarjeta de crédito o débito <small>Pago cifrado con Stripe</small></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Instrucciones de pago por Bizum -->
+        <div class="pay-instructions" id="bizumPaymentBlock" hidden>
+          <p class="pay-hint" style="background:#fff4d6;border:1px solid #e0b84c;border-radius:8px;padding:10px 12px;color:#5a4300;"><strong>⚠️ Importante:</strong> al confirmar, el pedido queda registrado pero <strong>no está pagado</strong> hasta que hagas tú el Bizum. Tu pedido solo se prepara cuando recibimos el importe.</p>
+          <p class="pay-instructions-lead">Envía el importe total del pedido por Bizum a este número:</p>
+          <p class="pay-number">+34 644 734 911</p>
+          <p class="pay-hint">Indica tu nombre como concepto. En cuanto confirmemos el pago, prepararemos tu pedido. Al pulsar "Confirmar pedido con obligación de pago (pagar por Bizum)" quedará registrado como pendiente de verificar hasta que recibamos tu Bizum.</p>
+        </div>
+
+        <!-- Componente embebido de Stripe Elements -->
+        <div class="pay-group" id="cardPaymentBlock">
+          <label for="card-element" class="pay-legend">Tarjeta de crédito o débito</label>
+          <div id="card-element" class="stripe-card-input"></div>
+          <div id="payment-errors" class="form-error" role="alert"></div>
+          <p class="checkout-trust">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Pago cifrado y seguro, procesado por Stripe. No almacenamos los datos de tu tarjeta.
+          </p>
+        </div>
+
+        <p class="auth-error" id="checkoutError" role="alert" hidden>No se ha podido registrar tu pedido. Comprueba tu conexión e inténtalo de nuevo; si el problema continúa, escríbenos a libreriamayortesoro@gmail.com.</p>
+        
+        <label class="checkbox-label" style="align-items:flex-start;margin:12px 0;">
+          <input type="checkbox" id="aceptaTerminos" required>
+          <span>He leído y acepto los <a href="terminos.html" target="_blank" rel="noopener">Términos y condiciones</a>, la <a href="privacidad.html" target="_blank" rel="noopener">Política de privacidad</a> y la <a href="devoluciones.html" target="_blank" rel="noopener">política de devoluciones</a> (los artículos personalizados no admiten desistimiento salvo defecto de fabricación).</span>
+        </label>
+        <button type="submit" id="btnSubmitOrder" class="btn btn--primary btn--block">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Pagar (pedido con obligación de pago)
+        </button>
+        <p class="checkout-trust checkout-trust--center">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Compra protegida — <a href="devoluciones.html">devolución fácil en 14 días</a>
+        </p>
+      </form>
+    </section>
+
+    <div class="order-confirmation" id="paymentPending" hidden>
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <h2>Confirmando tu pago…</h2>
+      <p>Un momento, estamos confirmando el pago con Stripe. No cierres ni recargues esta página.</p>
+    </div>
+
+    <div class="order-confirmation" id="paymentCancelled" hidden>
+      <h2>Pago cancelado</h2>
+      <p>No te hemos cobrado nada. Tu pedido se ha guardado y puedes reintentar el pago cuando quieras.</p>
+      <button type="button" class="btn btn--primary" id="retryPaymentBtn">Reintentar pago</button>
+    </div>
+
+    <div class="order-confirmation" id="orderConfirmationBizum" hidden>
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <h2>¡Pedido registrado!</h2>
+      <p>Tu número de pedido es <strong data-order-number></strong>, por un total de <strong data-order-total></strong>.</p>
+      <p>Recuerda enviar el pago por Bizum al <strong>+34 644 734 911</strong> si todavía no lo has hecho. En cuanto confirmemos el pago, prepararemos tu pedido y podrás ver el estado en <a href="cuenta.html">Mi cuenta</a>.</p>
+      <a href="categoria.html" class="btn btn--primary">Seguir explorando</a>
+    </div>
+
+    <div class="order-confirmation" id="orderConfirmation" hidden>
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+      <h2>¡Pedido confirmado y pagado!</h2>
+      <p>Tu número de pedido es <strong data-order-number></strong>, por un total de <strong data-order-total></strong>.</p>
+      <p>Te hemos enviado la confirmación por correo, y puedes consultar el estado en cualquier momento desde <a href="cuenta.html">Mi cuenta</a>.</p>
+      <a href="categoria.html" class="btn btn--primary">Seguir explorando</a>
+    </div>
+
+    <div class="cart-empty" id="cartEmpty" hidden>
+      <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <p>Tu carrito está vacío todavía.</p>
+      <a href="categoria.html" class="btn btn--primary">Explorar catálogo</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">L</span>
+        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+      </a>
+      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Institucional</h5>
+      <ul class="footer-links">
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda para elegir</h5>
+      <ul class="footer-links">
+        <li><a href="asistente.html">Asistente de recomendación</a></li>
+        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
+        <li><a href="recursos.html">Recursos de lectura</a></li>
+        <li><a href="glosario.html">Glosario de términos</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda</h5>
+      <ul class="footer-links">
+        <li><a href="envios.html">Envíos y entregas</a></li>
+        <li><a href="devoluciones.html">Devoluciones</a></li>
+        <li><a href="terminos.html">Términos y condiciones</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Contacto</h5>
+      <ul class="footer-contact">
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Alicante, España
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
+        </li>
+        <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-contact-banner">
+    <div class="container">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
+    <div class="legal-links">
+      <a href="privacidad.html">Privacidad </a>
+      <a href="terminos.html">Términos</a>
+      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-functions-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/shipping-rates.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/gift-options.js"></script>
+<script src="js/books-data.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/search.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+````
+
+## File: producto.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17528,7 +16726,7 @@ module.exports = { hasEWPrintOptions, resolverImpresion, getEWPrice, EW_BOOK_DEF
         <div class="product-actions">
           <div class="qty-stepper">
             <button type="button" class="qty-btn" data-qty-decrease aria-label="Restar cantidad">−</button>
-            <input type="number" class="qty-input" data-qty-input value="1" min="1" max="20" aria-label="Cantidad">
+            <input type="number" class="qty-input" data-qty-input value="1" min="1" max="600" aria-label="Cantidad">
             <button type="button" class="qty-btn" data-qty-increase aria-label="Sumar cantidad">+</button>
           </div>
           <button type="button" class="btn btn--primary" id="addToCartBtn" data-add-to-cart>Añadir al carrito</button>
@@ -17540,7 +16738,7 @@ module.exports = { hasEWPrintOptions, resolverImpresion, getEWPrice, EW_BOOK_DEF
         </div>
 
         <ul class="product-trust">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Envío a toda España por 6&nbsp;€, sea cual sea el pedido</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Envío a España, Portugal, Francia, Alemania, Países Bajos y Reino Unido</li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Ediciones garantizadas, textos fieles y cuidados</li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Pago 100% seguro con tarjeta o Bizum</li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v5h5"/></svg> Devoluciones fáciles en 14 días</li>
@@ -17593,12 +16791,11 @@ module.exports = { hasEWPrintOptions, resolverImpresion, getEWPrice, EW_BOOK_DEF
                 <div class="review-photos-preview" id="reviewPhotosPreview"></div>
               </div>
               <p class="auth-error" id="reviewError" role="alert" hidden></p>
-              <p class="auth-success" id="reviewSuccess" role="status" hidden></p>
               <button type="submit" class="btn btn--primary">Publicar opinión</button>
             </form>
           </div>
           <div class="tab-panel" data-tab-panel="envio">
-            <p>Envíos a toda España en 2–5 días laborables. El coste de envío es de 6&nbsp;€ por pedido, sea cual sea el número de libros. Dispones de 14 días naturales desde la recepción del pedido para solicitar una devolución o un cambio, siempre que el libro se encuentre en su estado original.</p>
+            <p>Envíos con seguimiento a España, Portugal, Francia, Alemania, Países Bajos y Reino Unido. El coste de envío depende del país y del nº total de ejemplares del pedido (cuantos más ejemplares, menos pagas por libro); lo ves exacto en el carrito, antes de pagar. <a href="envios.html">Ver tarifas de envío</a>. Descuento automático si compras varios ejemplares del mismo libro. Dispones de 14 días naturales desde la recepción del pedido para solicitar una devolución o un cambio, siempre que el libro se encuentre en su estado original.</p>
           </div>
         </div>
       </div>
@@ -17736,9 +16933,258 @@ module.exports = { hasEWPrintOptions, resolverImpresion, getEWPrice, EW_BOOK_DEF
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="js/product.js">
+## File: js/ew-pricing.js
+````javascript
+// ==========================================================================
+// Precios de impresión bajo demanda — Colección Elena G. White (24BookPrint)
+// ARCHIVO GENERADO A PARTIR DE: precios_libros_elena_white.pdf
+// No editar los números a mano: si el proveedor manda una tabla nueva,
+// hay que regenerar este archivo entero a partir del PDF nuevo.
+//
+// Contiene:
+//   1) EW_PRICE_TABLE  → precio de fábrica (los del PDF, SIN el euro extra)
+//      para cada uno de los 99 títulos, en las 5 combinaciones de
+//      tipo+tamaño habilitadas en la tienda:
+//        - bolsillo        (Tapa blanda, 110 x 180 mm)
+//        - a5              (Tapa blanda, 148 x 210 mm)
+//        - mediano_blanda  (Tapa blanda, 155 x 235 mm)
+//        - mediano_dura    (Tapa dura,   155 x 235 mm)
+//        - grande_dura     (Tapa dura,   193 x 260 mm)
+//      y dentro de cada tamaño, por acabado/papel:
+//        tapa blanda → mate_crema, mate_offset, mate_semi,
+//                      brillo_crema, brillo_offset, brillo_semi
+//        tapa dura   → crema, offset, semi (el acabado mate/brillo no
+//                      cambia el precio en tapa dura, según el PDF)
+//
+//   2) EW_BOOK_DEFAULTS → para cada libro publicado en la tienda:
+//      - la combinación y precio que tiene AHORA MISMO por defecto (no se
+//        toca si el cliente no cambia nada).
+//      - "extra" (opcional): otras combinaciones que TAMBIÉN estaban ya
+//        publicadas en la tienda con su propio precio, normalmente porque
+//        antes eran una ficha de producto aparte (p. ej. "... Tapa dura")
+//        que se ha unificado dentro de esta misma ficha. Si el cliente
+//        elige una de esas combinaciones, se respeta ese precio ya
+//        publicado en vez de calcularlo con la tabla del PDF + 1 €.
+//
+//   3) window.getEWPrice(bookId, tipo, tamano, acabado, papel) → precio
+//      final en euros para esa combinación:
+//        - combinación por defecto del libro → precio ya publicado, tal cual.
+//        - combinación dentro de "extra"     → ese precio ya publicado, tal cual.
+//        - cualquier otra combinación        → precio del PDF para esa
+//          combinación + 1,00 € (el € de subida acordado para todo lo que
+//          no estaba ya publicado).
+//      Devuelve null si la combinación no existe (p. ej. tapa dura no
+//      tiene tamaño "bolsillo") o si el libro no tiene tabla de precios.
+// ==========================================================================
+
+window.EW_PRICE_TABLE = {"A Fin de Conocerle":{"bolsillo":{"pages":396,"mate_crema":6.92,"mate_offset":6.79,"mate_semi":7.51,"brillo_crema":6.94,"brillo_offset":6.81,"brillo_semi":7.53},"a5":{"pages":396,"mate_crema":8.51,"mate_offset":8.32,"mate_semi":9.21,"brillo_crema":8.3,"brillo_offset":8.2,"brillo_semi":9.18},"mediano_blanda":{"pages":396,"mate_crema":8.77,"mate_offset":8.57,"mate_semi":9.49,"brillo_crema":8.53,"brillo_offset":8.43,"brillo_semi":9.45},"mediano_dura":{"pages":396,"crema":15.34,"offset":15.14,"semi":16.06},"grande_dura":{"pages":396,"crema":19.55,"offset":19.29,"semi":21.13}},"Alza tus Ojos":{"bolsillo":{"pages":388,"mate_crema":6.85,"mate_offset":6.72,"mate_semi":7.44,"brillo_crema":6.87,"brillo_offset":6.74,"brillo_semi":7.46},"a5":{"pages":388,"mate_crema":8.44,"mate_offset":8.25,"mate_semi":9.14,"brillo_crema":8.24,"brillo_offset":8.13,"brillo_semi":9.11},"mediano_blanda":{"pages":388,"mate_crema":8.7,"mate_offset":8.5,"mate_semi":9.42,"brillo_crema":8.46,"brillo_offset":8.36,"brillo_semi":9.38},"mediano_dura":{"pages":388,"crema":15.27,"offset":15.07,"semi":15.99},"grande_dura":{"pages":388,"crema":19.48,"offset":19.22,"semi":21.06}},"Cada Día con Dios":{"bolsillo":{"pages":390,"mate_crema":6.87,"mate_offset":6.74,"mate_semi":7.46,"brillo_crema":6.89,"brillo_offset":6.76,"brillo_semi":7.48},"a5":{"pages":390,"mate_crema":8.46,"mate_offset":8.27,"mate_semi":9.16,"brillo_crema":8.25,"brillo_offset":8.15,"brillo_semi":9.13},"mediano_blanda":{"pages":390,"mate_crema":8.72,"mate_offset":8.52,"mate_semi":9.44,"brillo_crema":8.48,"brillo_offset":8.38,"brillo_semi":9.4},"mediano_dura":{"pages":390,"crema":15.28,"offset":15.08,"semi":16.0},"grande_dura":{"pages":390,"crema":19.49,"offset":19.23,"semi":21.07}},"Cartas a Jóvenes Enamorados":{"bolsillo":{"pages":94,"mate_crema":4.37,"mate_offset":4.24,"mate_semi":4.96,"brillo_crema":4.39,"brillo_offset":4.26,"brillo_semi":4.98},"a5":{"pages":94,"mate_crema":5.95,"mate_offset":5.76,"mate_semi":6.65,"brillo_crema":5.75,"brillo_offset":5.65,"brillo_semi":6.62},"mediano_blanda":{"pages":94,"mate_crema":6.22,"mate_offset":6.02,"mate_semi":6.94,"brillo_crema":5.98,"brillo_offset":5.88,"brillo_semi":6.9},"mediano_dura":{"pages":94,"crema":12.48,"offset":12.28,"semi":13.2},"grande_dura":{"pages":94,"crema":16.69,"offset":16.43,"semi":18.27}},"Colección Kress":{"bolsillo":{"pages":253,"mate_crema":5.71,"mate_offset":5.58,"mate_semi":6.3,"brillo_crema":5.73,"brillo_offset":5.6,"brillo_semi":6.32},"a5":{"pages":253,"mate_crema":7.3,"mate_offset":7.11,"mate_semi":8.0,"brillo_crema":7.09,"brillo_offset":6.99,"brillo_semi":7.97},"mediano_blanda":{"pages":253,"mate_crema":7.56,"mate_offset":7.36,"mate_semi":8.28,"brillo_crema":7.32,"brillo_offset":7.22,"brillo_semi":8.24},"mediano_dura":{"pages":253,"crema":13.99,"offset":13.79,"semi":14.71},"grande_dura":{"pages":253,"crema":18.2,"offset":17.94,"semi":19.78}},"Conducción del Niño":{"bolsillo":{"pages":459,"mate_crema":7.45,"mate_offset":7.32,"mate_semi":8.04,"brillo_crema":7.47,"brillo_offset":7.34,"brillo_semi":8.06},"a5":{"pages":459,"mate_crema":9.04,"mate_offset":8.85,"mate_semi":9.74,"brillo_crema":8.84,"brillo_offset":8.73,"brillo_semi":9.71},"mediano_blanda":{"pages":459,"mate_crema":9.3,"mate_offset":9.1,"mate_semi":10.02,"brillo_crema":9.06,"brillo_offset":8.96,"brillo_semi":9.98},"mediano_dura":{"pages":459,"crema":15.94,"offset":15.74,"semi":16.66},"grande_dura":{"pages":459,"crema":20.15,"offset":19.89,"semi":21.73}},"Conflicto y Valor":{"bolsillo":{"pages":390,"mate_crema":6.87,"mate_offset":6.74,"mate_semi":7.46,"brillo_crema":6.89,"brillo_offset":6.76,"brillo_semi":7.48},"a5":{"pages":390,"mate_crema":8.46,"mate_offset":8.27,"mate_semi":9.16,"brillo_crema":8.25,"brillo_offset":8.15,"brillo_semi":9.13},"mediano_blanda":{"pages":390,"mate_crema":8.72,"mate_offset":8.52,"mate_semi":9.44,"brillo_crema":8.48,"brillo_offset":8.38,"brillo_semi":9.4},"mediano_dura":{"pages":390,"crema":15.28,"offset":15.08,"semi":16.0},"grande_dura":{"pages":390,"crema":19.49,"offset":19.23,"semi":21.07}},"Leyes sobre el Régimen Alimenticio":{"bolsillo":{"pages":486,"mate_crema":7.68,"mate_offset":7.55,"mate_semi":8.27,"brillo_crema":7.7,"brillo_offset":7.57,"brillo_semi":8.29},"a5":{"pages":486,"mate_crema":9.27,"mate_offset":9.08,"mate_semi":9.97,"brillo_crema":9.07,"brillo_offset":8.96,"brillo_semi":9.94},"mediano_blanda":{"pages":486,"mate_crema":9.53,"mate_offset":9.33,"mate_semi":10.25,"brillo_crema":9.29,"brillo_offset":9.19,"brillo_semi":10.21},"mediano_dura":{"pages":486,"crema":16.19,"offset":15.99,"semi":16.91},"grande_dura":{"pages":486,"crema":20.4,"offset":20.14,"semi":21.98}},"Consejos Sobre la Obra de la Escuela Sabática":{"bolsillo":{"pages":223,"mate_crema":5.46,"mate_offset":5.33,"mate_semi":6.05,"brillo_crema":5.48,"brillo_offset":5.35,"brillo_semi":6.07},"a5":{"pages":223,"mate_crema":7.04,"mate_offset":6.85,"mate_semi":7.75,"brillo_crema":6.84,"brillo_offset":6.74,"brillo_semi":7.71},"mediano_blanda":{"pages":223,"mate_crema":7.31,"mate_offset":7.11,"mate_semi":8.03,"brillo_crema":7.07,"brillo_offset":6.97,"brillo_semi":7.99},"mediano_dura":{"pages":223,"crema":13.7,"offset":13.5,"semi":14.42},"grande_dura":{"pages":223,"crema":17.91,"offset":17.65,"semi":19.49}},"Consejos Sobre la Salud":{"bolsillo":{"pages":692,"mate_crema":9.43,"mate_offset":9.3,"mate_semi":10.02,"brillo_crema":9.45,"brillo_offset":9.32,"brillo_semi":10.04},"a5":{"pages":692,"mate_crema":11.01,"mate_offset":10.82,"mate_semi":11.71,"brillo_crema":10.81,"brillo_offset":10.7,"brillo_semi":11.68},"mediano_blanda":{"pages":692,"mate_crema":11.28,"mate_offset":11.08,"mate_semi":12.0,"brillo_crema":11.04,"brillo_offset":10.94,"brillo_semi":11.96},"mediano_dura":{"pages":692,"crema":18.14,"offset":17.94,"semi":18.86},"grande_dura":{"pages":692,"crema":22.35,"offset":22.09,"semi":23.93}},"Consejos para la Iglesia":{"bolsillo":{"pages":489,"mate_crema":7.71,"mate_offset":7.58,"mate_semi":8.3,"brillo_crema":7.73,"brillo_offset":7.6,"brillo_semi":8.32},"a5":{"pages":489,"mate_crema":9.29,"mate_offset":9.1,"mate_semi":10.0,"brillo_crema":9.09,"brillo_offset":8.99,"brillo_semi":9.96},"mediano_blanda":{"pages":489,"mate_crema":9.56,"mate_offset":9.36,"mate_semi":10.28,"brillo_crema":9.32,"brillo_offset":9.22,"brillo_semi":10.24},"mediano_dura":{"pages":489,"crema":16.22,"offset":16.02,"semi":16.94},"grande_dura":{"pages":489,"crema":20.43,"offset":20.17,"semi":22.01}},"Consejos para los Maestros":{"bolsillo":{"pages":455,"mate_crema":7.42,"mate_offset":7.29,"mate_semi":8.01,"brillo_crema":7.44,"brillo_offset":7.31,"brillo_semi":8.03},"a5":{"pages":455,"mate_crema":9.01,"mate_offset":8.82,"mate_semi":9.71,"brillo_crema":8.8,"brillo_offset":8.7,"brillo_semi":9.68},"mediano_blanda":{"pages":455,"mate_crema":9.27,"mate_offset":9.07,"mate_semi":9.99,"brillo_crema":9.03,"brillo_offset":8.93,"brillo_semi":9.95},"mediano_dura":{"pages":455,"crema":15.9,"offset":15.7,"semi":16.62},"grande_dura":{"pages":455,"crema":20.11,"offset":19.85,"semi":21.69}},"Consejos sobre Mayordomía Cristiana":{"bolsillo":{"pages":326,"mate_crema":6.33,"mate_offset":6.2,"mate_semi":6.92,"brillo_crema":6.35,"brillo_offset":6.22,"brillo_semi":6.94},"a5":{"pages":326,"mate_crema":7.92,"mate_offset":7.73,"mate_semi":8.62,"brillo_crema":7.71,"brillo_offset":7.61,"brillo_semi":8.59},"mediano_blanda":{"pages":326,"mate_crema":8.18,"mate_offset":7.98,"mate_semi":8.9,"brillo_crema":7.94,"brillo_offset":7.84,"brillo_semi":8.86},"mediano_dura":{"pages":326,"crema":14.68,"offset":14.48,"semi":15.4},"grande_dura":{"pages":326,"crema":18.89,"offset":18.63,"semi":20.47}},"Cristo Nuestro Salvador":{"bolsillo":{"pages":118,"mate_crema":4.57,"mate_offset":4.44,"mate_semi":5.16,"brillo_crema":4.59,"brillo_offset":4.46,"brillo_semi":5.18},"a5":{"pages":118,"mate_crema":6.16,"mate_offset":5.97,"mate_semi":6.86,"brillo_crema":5.95,"brillo_offset":5.85,"brillo_semi":6.83},"mediano_blanda":{"pages":118,"mate_crema":6.42,"mate_offset":6.22,"mate_semi":7.14,"brillo_crema":6.18,"brillo_offset":6.08,"brillo_semi":7.1},"mediano_dura":{"pages":118,"crema":12.71,"offset":12.51,"semi":13.43},"grande_dura":{"pages":118,"crema":16.92,"offset":16.66,"semi":18.5}},"Cristo en Su Santuario":{"bolsillo":{"pages":128,"mate_crema":4.65,"mate_offset":4.52,"mate_semi":5.24,"brillo_crema":4.67,"brillo_offset":4.54,"brillo_semi":5.26},"a5":{"pages":128,"mate_crema":6.24,"mate_offset":6.05,"mate_semi":6.94,"brillo_crema":6.04,"brillo_offset":5.93,"brillo_semi":6.91},"mediano_blanda":{"pages":128,"mate_crema":6.5,"mate_offset":6.3,"mate_semi":7.22,"brillo_crema":6.26,"brillo_offset":6.16,"brillo_semi":7.18},"mediano_dura":{"pages":128,"crema":12.81,"offset":12.61,"semi":13.53},"grande_dura":{"pages":128,"crema":17.02,"offset":16.76,"semi":18.6}},"De la Cuidad al Campo":{"bolsillo":{"pages":92,"mate_crema":4.35,"mate_offset":4.22,"mate_semi":4.94,"brillo_crema":4.37,"brillo_offset":4.24,"brillo_semi":4.96},"a5":{"pages":92,"mate_crema":5.94,"mate_offset":5.75,"mate_semi":6.64,"brillo_crema":5.73,"brillo_offset":5.63,"brillo_semi":6.61},"mediano_blanda":{"pages":92,"mate_crema":6.2,"mate_offset":6.0,"mate_semi":6.92,"brillo_crema":5.96,"brillo_offset":5.86,"brillo_semi":6.88},"mediano_dura":{"pages":92,"crema":12.46,"offset":12.26,"semi":13.18},"grande_dura":{"pages":92,"crema":16.67,"offset":16.41,"semi":18.25}},"Desde el Corazón":{"bolsillo":{"pages":382,"mate_crema":6.8,"mate_offset":6.67,"mate_semi":7.39,"brillo_crema":6.82,"brillo_offset":6.69,"brillo_semi":7.41},"a5":{"pages":382,"mate_crema":8.39,"mate_offset":8.2,"mate_semi":9.09,"brillo_crema":8.19,"brillo_offset":8.08,"brillo_semi":9.06},"mediano_blanda":{"pages":382,"mate_crema":8.65,"mate_offset":8.45,"mate_semi":9.37,"brillo_crema":8.41,"brillo_offset":8.31,"brillo_semi":9.33},"mediano_dura":{"pages":382,"crema":15.21,"offset":15.01,"semi":15.93},"grande_dura":{"pages":382,"crema":19.42,"offset":19.16,"semi":21.0}},"Dios nos Cuida":{"bolsillo":{"pages":409,"mate_crema":7.03,"mate_offset":6.9,"mate_semi":7.62,"brillo_crema":7.05,"brillo_offset":6.92,"brillo_semi":7.64},"a5":{"pages":409,"mate_crema":8.62,"mate_offset":8.43,"mate_semi":9.32,"brillo_crema":8.41,"brillo_offset":8.31,"brillo_semi":9.29},"mediano_blanda":{"pages":409,"mate_crema":8.88,"mate_offset":8.68,"mate_semi":9.6,"brillo_crema":8.64,"brillo_offset":8.54,"brillo_semi":9.56},"mediano_dura":{"pages":409,"crema":15.46,"offset":15.26,"semi":16.18},"grande_dura":{"pages":409,"crema":19.67,"offset":19.41,"semi":21.25}},"El Camino a Cristo":{"bolsillo":{"pages":94,"mate_crema":4.37,"mate_offset":4.24,"mate_semi":4.96,"brillo_crema":4.39,"brillo_offset":4.26,"brillo_semi":4.98},"a5":{"pages":94,"mate_crema":5.95,"mate_offset":5.76,"mate_semi":6.65,"brillo_crema":5.75,"brillo_offset":5.65,"brillo_semi":6.62},"mediano_blanda":{"pages":94,"mate_crema":6.22,"mate_offset":6.02,"mate_semi":6.94,"brillo_crema":5.98,"brillo_offset":5.88,"brillo_semi":6.9},"mediano_dura":{"pages":94,"crema":12.48,"offset":12.28,"semi":13.2},"grande_dura":{"pages":94,"crema":16.69,"offset":16.43,"semi":18.27}},"El Colportor Evangélico":{"bolsillo":{"pages":194,"mate_crema":5.21,"mate_offset":5.08,"mate_semi":5.8,"brillo_crema":5.23,"brillo_offset":5.1,"brillo_semi":5.82},"a5":{"pages":194,"mate_crema":6.8,"mate_offset":6.61,"mate_semi":7.5,"brillo_crema":6.6,"brillo_offset":6.49,"brillo_semi":7.47},"mediano_blanda":{"pages":194,"mate_crema":7.06,"mate_offset":6.86,"mate_semi":7.78,"brillo_crema":6.82,"brillo_offset":6.72,"brillo_semi":7.74},"mediano_dura":{"pages":194,"crema":13.43,"offset":13.23,"semi":14.15},"grande_dura":{"pages":194,"crema":17.64,"offset":17.38,"semi":19.22}},"El Conflicto Inminente":{"bolsillo":{"pages":118,"mate_crema":4.57,"mate_offset":4.44,"mate_semi":5.16,"brillo_crema":4.59,"brillo_offset":4.46,"brillo_semi":5.18},"a5":{"pages":118,"mate_crema":6.16,"mate_offset":5.97,"mate_semi":6.86,"brillo_crema":5.95,"brillo_offset":5.85,"brillo_semi":6.83},"mediano_blanda":{"pages":118,"mate_crema":6.42,"mate_offset":6.22,"mate_semi":7.14,"brillo_crema":6.18,"brillo_offset":6.08,"brillo_semi":7.1},"mediano_dura":{"pages":118,"crema":12.71,"offset":12.51,"semi":13.43},"grande_dura":{"pages":118,"crema":16.92,"offset":16.66,"semi":18.5}},"El Conflicto de los Siglos":{"bolsillo":{"pages":654,"mate_crema":9.1,"mate_offset":8.97,"mate_semi":9.69,"brillo_crema":9.12,"brillo_offset":8.99,"brillo_semi":9.71},"a5":{"pages":654,"mate_crema":10.69,"mate_offset":10.5,"mate_semi":11.39,"brillo_crema":10.49,"brillo_offset":10.38,"brillo_semi":11.36},"mediano_blanda":{"pages":654,"mate_crema":10.95,"mate_offset":10.75,"mate_semi":11.67,"brillo_crema":10.71,"brillo_offset":10.61,"brillo_semi":11.63},"mediano_dura":{"pages":654,"crema":17.78,"offset":17.58,"semi":18.5},"grande_dura":{"pages":654,"crema":21.99,"offset":21.73,"semi":23.57}},"El Cristo Triunfante":{"bolsillo":{"pages":390,"mate_crema":6.87,"mate_offset":6.74,"mate_semi":7.46,"brillo_crema":6.89,"brillo_offset":6.76,"brillo_semi":7.48},"a5":{"pages":390,"mate_crema":8.46,"mate_offset":8.27,"mate_semi":9.16,"brillo_crema":8.25,"brillo_offset":8.15,"brillo_semi":9.13},"mediano_blanda":{"pages":390,"mate_crema":8.72,"mate_offset":8.52,"mate_semi":9.44,"brillo_crema":8.48,"brillo_offset":8.38,"brillo_semi":9.4},"mediano_dura":{"pages":390,"crema":15.28,"offset":15.08,"semi":16.0},"grande_dura":{"pages":390,"crema":19.49,"offset":19.23,"semi":21.07}},"El Deseado de Todas las Gentes":{"bolsillo":{"pages":782,"mate_crema":10.19,"mate_offset":10.06,"mate_semi":10.78,"brillo_crema":10.21,"brillo_offset":10.08,"brillo_semi":10.8},"a5":{"pages":782,"mate_crema":11.77,"mate_offset":11.58,"mate_semi":12.47,"brillo_crema":11.57,"brillo_offset":11.47,"brillo_semi":12.44},"mediano_blanda":{"pages":782,"mate_crema":12.04,"mate_offset":11.84,"mate_semi":12.76,"brillo_crema":11.8,"brillo_offset":11.7,"brillo_semi":12.72},"mediano_dura":{"pages":782,"crema":18.99,"offset":18.79,"semi":19.71},"grande_dura":{"pages":782,"crema":23.2,"offset":22.94,"semi":24.78}},"El Discurso Maestro de Jesucristo":{"bolsillo":{"pages":120,"mate_crema":4.59,"mate_offset":4.46,"mate_semi":5.18,"brillo_crema":4.61,"brillo_offset":4.48,"brillo_semi":5.2},"a5":{"pages":120,"mate_crema":6.17,"mate_offset":5.98,"mate_semi":6.87,"brillo_crema":5.97,"brillo_offset":5.87,"brillo_semi":6.84},"mediano_blanda":{"pages":120,"mate_crema":6.44,"mate_offset":6.24,"mate_semi":7.16,"brillo_crema":6.2,"brillo_offset":6.1,"brillo_semi":7.12},"mediano_dura":{"pages":120,"crema":12.73,"offset":12.53,"semi":13.45},"grande_dura":{"pages":120,"crema":16.94,"offset":16.68,"semi":18.52}},"El Evangelismo":{"bolsillo":{"pages":579,"mate_crema":8.47,"mate_offset":8.34,"mate_semi":9.06,"brillo_crema":8.49,"brillo_offset":8.36,"brillo_semi":9.08},"a5":{"pages":579,"mate_crema":10.06,"mate_offset":9.87,"mate_semi":10.76,"brillo_crema":9.85,"brillo_offset":9.75,"brillo_semi":10.73},"mediano_blanda":{"pages":579,"mate_crema":10.32,"mate_offset":10.12,"mate_semi":11.04,"brillo_crema":10.08,"brillo_offset":9.98,"brillo_semi":11.0},"mediano_dura":{"pages":579,"crema":17.07,"offset":16.87,"semi":17.79},"grande_dura":{"pages":579,"crema":21.28,"offset":21.02,"semi":22.86}},"El Hogar Cristiano":{"bolsillo":{"pages":452,"mate_crema":7.4,"mate_offset":7.27,"mate_semi":7.99,"brillo_crema":7.42,"brillo_offset":7.29,"brillo_semi":8.01},"a5":{"pages":452,"mate_crema":8.98,"mate_offset":8.79,"mate_semi":9.68,"brillo_crema":8.78,"brillo_offset":8.67,"brillo_semi":9.65},"mediano_blanda":{"pages":452,"mate_crema":9.25,"mate_offset":9.05,"mate_semi":9.97,"brillo_crema":9.01,"brillo_offset":8.91,"brillo_semi":9.93},"mediano_dura":{"pages":452,"crema":15.87,"offset":15.67,"semi":16.59},"grande_dura":{"pages":452,"crema":20.08,"offset":19.82,"semi":21.66}},"El Ministerio Médico":{"bolsillo":{"pages":601,"mate_crema":8.66,"mate_offset":8.53,"mate_semi":9.25,"brillo_crema":8.68,"brillo_offset":8.55,"brillo_semi":9.27},"a5":{"pages":601,"mate_crema":10.24,"mate_offset":10.05,"mate_semi":10.94,"brillo_crema":10.04,"brillo_offset":9.93,"brillo_semi":10.91},"mediano_blanda":{"pages":601,"mate_crema":10.51,"mate_offset":10.31,"mate_semi":11.23,"brillo_crema":10.27,"brillo_offset":10.17,"brillo_semi":11.19},"mediano_dura":{"pages":601,"crema":17.28,"offset":17.08,"semi":18.0},"grande_dura":{"pages":601,"crema":21.49,"offset":21.23,"semi":23.07}},"El Ministerio Pastoral":{"bolsillo":{"pages":322,"mate_crema":6.3,"mate_offset":6.17,"mate_semi":6.89,"brillo_crema":6.32,"brillo_offset":6.19,"brillo_semi":6.91},"a5":{"pages":322,"mate_crema":7.88,"mate_offset":7.69,"mate_semi":8.58,"brillo_crema":7.68,"brillo_offset":7.57,"brillo_semi":8.55},"mediano_blanda":{"pages":322,"mate_crema":8.15,"mate_offset":7.95,"mate_semi":8.87,"brillo_crema":7.91,"brillo_offset":7.81,"brillo_semi":8.83},"mediano_dura":{"pages":322,"crema":14.64,"offset":14.44,"semi":15.36},"grande_dura":{"pages":322,"crema":18.85,"offset":18.59,"semi":20.43}},"El Ministerio de Curación":{"bolsillo":{"pages":368,"mate_crema":6.68,"mate_offset":6.55,"mate_semi":7.27,"brillo_crema":6.7,"brillo_offset":6.57,"brillo_semi":7.29},"a5":{"pages":368,"mate_crema":8.27,"mate_offset":8.08,"mate_semi":8.97,"brillo_crema":8.07,"brillo_offset":7.96,"brillo_semi":8.94},"mediano_blanda":{"pages":368,"mate_crema":8.53,"mate_offset":8.33,"mate_semi":9.25,"brillo_crema":8.29,"brillo_offset":8.19,"brillo_semi":9.21},"mediano_dura":{"pages":368,"crema":15.08,"offset":14.88,"semi":15.8},"grande_dura":{"pages":368,"crema":19.29,"offset":19.03,"semi":20.87}},"El Ministerio de Publicaciones":{"bolsillo":{"pages":389,"mate_crema":6.86,"mate_offset":6.73,"mate_semi":7.45,"brillo_crema":6.88,"brillo_offset":6.75,"brillo_semi":7.47},"a5":{"pages":389,"mate_crema":8.45,"mate_offset":8.26,"mate_semi":9.15,"brillo_crema":8.25,"brillo_offset":8.14,"brillo_semi":9.12},"mediano_blanda":{"pages":389,"mate_crema":8.71,"mate_offset":8.51,"mate_semi":9.43,"brillo_crema":8.47,"brillo_offset":8.37,"brillo_semi":9.39},"mediano_dura":{"pages":389,"crema":15.27,"offset":15.07,"semi":15.99},"grande_dura":{"pages":389,"crema":19.48,"offset":19.22,"semi":21.06}},"El Ministerio de la Bondad":{"bolsillo":{"pages":281,"mate_crema":5.95,"mate_offset":5.82,"mate_semi":6.54,"brillo_crema":5.97,"brillo_offset":5.84,"brillo_semi":6.56},"a5":{"pages":281,"mate_crema":7.53,"mate_offset":7.34,"mate_semi":8.24,"brillo_crema":7.33,"brillo_offset":7.23,"brillo_semi":8.2},"mediano_blanda":{"pages":281,"mate_crema":7.8,"mate_offset":7.6,"mate_semi":8.52,"brillo_crema":7.56,"brillo_offset":7.46,"brillo_semi":8.48},"mediano_dura":{"pages":281,"crema":14.25,"offset":14.05,"semi":14.97},"grande_dura":{"pages":281,"crema":18.46,"offset":18.2,"semi":20.04}},"El otro Poder":{"bolsillo":{"pages":133,"mate_crema":4.7,"mate_offset":4.57,"mate_semi":5.29,"brillo_crema":4.72,"brillo_offset":4.59,"brillo_semi":5.31},"a5":{"pages":133,"mate_crema":6.28,"mate_offset":6.09,"mate_semi":6.98,"brillo_crema":6.08,"brillo_offset":5.98,"brillo_semi":6.95},"mediano_blanda":{"pages":133,"mate_crema":6.55,"mate_offset":6.35,"mate_semi":7.27,"brillo_crema":6.31,"brillo_offset":6.21,"brillo_semi":7.23},"mediano_dura":{"pages":133,"crema":12.85,"offset":12.65,"semi":13.57},"grande_dura":{"pages":133,"crema":17.06,"offset":16.8,"semi":18.64}},"En el Desierto de la Tentación":{"bolsillo":{"pages":96,"mate_crema":4.38,"mate_offset":4.25,"mate_semi":4.97,"brillo_crema":4.4,"brillo_offset":4.27,"brillo_semi":4.99},"a5":{"pages":96,"mate_crema":5.97,"mate_offset":5.78,"mate_semi":6.67,"brillo_crema":5.77,"brillo_offset":5.66,"brillo_semi":6.64},"mediano_blanda":{"pages":96,"mate_crema":6.23,"mate_offset":6.03,"mate_semi":6.95,"brillo_crema":5.99,"brillo_offset":5.89,"brillo_semi":6.91},"mediano_dura":{"pages":96,"crema":12.5,"offset":12.3,"semi":13.22},"grande_dura":{"pages":96,"crema":16.71,"offset":16.45,"semi":18.29}},"En los Lugares Celestiales":{"bolsillo":{"pages":388,"mate_crema":6.85,"mate_offset":6.72,"mate_semi":7.44,"brillo_crema":6.87,"brillo_offset":6.74,"brillo_semi":7.46},"a5":{"pages":388,"mate_crema":8.44,"mate_offset":8.25,"mate_semi":9.14,"brillo_crema":8.24,"brillo_offset":8.13,"brillo_semi":9.11},"mediano_blanda":{"pages":388,"mate_crema":8.7,"mate_offset":8.5,"mate_semi":9.42,"brillo_crema":8.46,"brillo_offset":8.36,"brillo_semi":9.38},"mediano_dura":{"pages":388,"crema":15.27,"offset":15.07,"semi":15.99},"grande_dura":{"pages":388,"crema":19.48,"offset":19.22,"semi":21.06}},"Eventos de los Últimos Días":{"bolsillo":{"pages":242,"mate_crema":5.62,"mate_offset":5.49,"mate_semi":6.21,"brillo_crema":5.64,"brillo_offset":5.51,"brillo_semi":6.23},"a5":{"pages":242,"mate_crema":7.2,"mate_offset":7.01,"mate_semi":7.91,"brillo_crema":7.0,"brillo_offset":6.9,"brillo_semi":7.87},"mediano_blanda":{"pages":242,"mate_crema":7.47,"mate_offset":7.27,"mate_semi":8.19,"brillo_crema":7.23,"brillo_offset":7.13,"brillo_semi":8.15},"mediano_dura":{"pages":242,"crema":13.88,"offset":13.68,"semi":14.6},"grande_dura":{"pages":242,"crema":18.09,"offset":17.83,"semi":19.67}},"Exaltad a Jesús":{"bolsillo":{"pages":398,"mate_crema":6.94,"mate_offset":6.81,"mate_semi":7.53,"brillo_crema":6.96,"brillo_offset":6.83,"brillo_semi":7.55},"a5":{"pages":398,"mate_crema":8.52,"mate_offset":8.33,"mate_semi":9.23,"brillo_crema":8.32,"brillo_offset":8.22,"brillo_semi":9.19},"mediano_blanda":{"pages":398,"mate_crema":8.79,"mate_offset":8.59,"mate_semi":9.51,"brillo_crema":8.55,"brillo_offset":8.45,"brillo_semi":9.47},"mediano_dura":{"pages":398,"crema":15.36,"offset":15.16,"semi":16.08},"grande_dura":{"pages":398,"crema":19.57,"offset":19.31,"semi":21.15}},"Fe y Obras":{"bolsillo":{"pages":107,"mate_crema":4.48,"mate_offset":4.35,"mate_semi":5.07,"brillo_crema":4.5,"brillo_offset":4.37,"brillo_semi":5.09},"a5":{"pages":107,"mate_crema":6.06,"mate_offset":5.87,"mate_semi":6.76,"brillo_crema":5.86,"brillo_offset":5.76,"brillo_semi":6.73},"mediano_blanda":{"pages":107,"mate_crema":6.33,"mate_offset":6.13,"mate_semi":7.05,"brillo_crema":6.09,"brillo_offset":5.99,"brillo_semi":7.01},"mediano_dura":{"pages":107,"crema":12.61,"offset":12.41,"semi":13.33},"grande_dura":{"pages":107,"crema":16.82,"offset":16.56,"semi":18.4}},"Hijas de Dios":{"bolsillo":{"pages":281,"mate_crema":5.95,"mate_offset":5.82,"mate_semi":6.54,"brillo_crema":5.97,"brillo_offset":5.84,"brillo_semi":6.56},"a5":{"pages":281,"mate_crema":7.53,"mate_offset":7.34,"mate_semi":8.24,"brillo_crema":7.33,"brillo_offset":7.23,"brillo_semi":8.2},"mediano_blanda":{"pages":281,"mate_crema":7.8,"mate_offset":7.6,"mate_semi":8.52,"brillo_crema":7.56,"brillo_offset":7.46,"brillo_semi":8.48},"mediano_dura":{"pages":281,"crema":14.25,"offset":14.05,"semi":14.97},"grande_dura":{"pages":281,"crema":18.46,"offset":18.2,"semi":20.04}},"Hijos e Hijas de Dios":{"bolsillo":{"pages":396,"mate_crema":6.92,"mate_offset":6.79,"mate_semi":7.51,"brillo_crema":6.94,"brillo_offset":6.81,"brillo_semi":7.53},"a5":{"pages":396,"mate_crema":8.51,"mate_offset":8.32,"mate_semi":9.21,"brillo_crema":8.3,"brillo_offset":8.2,"brillo_semi":9.18},"mediano_blanda":{"pages":396,"mate_crema":8.77,"mate_offset":8.57,"mate_semi":9.49,"brillo_crema":8.53,"brillo_offset":8.43,"brillo_semi":9.45},"mediano_dura":{"pages":396,"crema":15.34,"offset":15.14,"semi":16.06},"grande_dura":{"pages":396,"crema":19.55,"offset":19.29,"semi":21.13}},"Historia de los Patriarcas y Profetas":{"bolsillo":{"pages":728,"mate_crema":9.73,"mate_offset":9.6,"mate_semi":10.32,"brillo_crema":9.75,"brillo_offset":9.62,"brillo_semi":10.34},"a5":{"pages":728,"mate_crema":11.32,"mate_offset":11.13,"mate_semi":12.02,"brillo_crema":11.11,"brillo_offset":11.01,"brillo_semi":11.99},"mediano_blanda":{"pages":728,"mate_crema":11.58,"mate_offset":11.38,"mate_semi":12.3,"brillo_crema":11.34,"brillo_offset":11.24,"brillo_semi":12.26},"mediano_dura":{"pages":728,"crema":18.48,"offset":18.28,"semi":19.2},"grande_dura":{"pages":728,"crema":22.69,"offset":22.43,"semi":24.27}},"Joyas de los Testimonios 1":{"bolsillo":{"pages":565,"mate_crema":8.35,"mate_offset":8.22,"mate_semi":8.94,"brillo_crema":8.37,"brillo_offset":8.24,"brillo_semi":8.96},"a5":{"pages":565,"mate_crema":9.94,"mate_offset":9.75,"mate_semi":10.64,"brillo_crema":9.73,"brillo_offset":9.63,"brillo_semi":10.61},"mediano_blanda":{"pages":565,"mate_crema":10.2,"mate_offset":10.0,"mate_semi":10.92,"brillo_crema":9.96,"brillo_offset":9.86,"brillo_semi":10.88},"mediano_dura":{"pages":565,"crema":16.94,"offset":16.74,"semi":17.66},"grande_dura":{"pages":565,"crema":21.15,"offset":20.89,"semi":22.73}},"Joyas de los Testimonios 2":{"bolsillo":{"pages":529,"mate_crema":8.05,"mate_offset":7.92,"mate_semi":8.64,"brillo_crema":8.07,"brillo_offset":7.94,"brillo_semi":8.66},"a5":{"pages":529,"mate_crema":9.63,"mate_offset":9.44,"mate_semi":10.33,"brillo_crema":9.43,"brillo_offset":9.33,"brillo_semi":10.3},"mediano_blanda":{"pages":529,"mate_crema":9.9,"mate_offset":9.7,"mate_semi":10.62,"brillo_crema":9.66,"brillo_offset":9.56,"brillo_semi":10.58},"mediano_dura":{"pages":529,"crema":16.6,"offset":16.4,"semi":17.32},"grande_dura":{"pages":529,"crema":20.81,"offset":20.55,"semi":22.39}},"Joyas de los Testimonios 3":{"bolsillo":{"pages":415,"mate_crema":7.08,"mate_offset":6.95,"mate_semi":7.67,"brillo_crema":7.1,"brillo_offset":6.97,"brillo_semi":7.69},"a5":{"pages":415,"mate_crema":8.67,"mate_offset":8.48,"mate_semi":9.37,"brillo_crema":8.47,"brillo_offset":8.36,"brillo_semi":9.34},"mediano_blanda":{"pages":415,"mate_crema":8.93,"mate_offset":8.73,"mate_semi":9.65,"brillo_crema":8.69,"brillo_offset":8.59,"brillo_semi":9.61},"mediano_dura":{"pages":415,"crema":15.52,"offset":15.32,"semi":16.24},"grande_dura":{"pages":415,"crema":19.73,"offset":19.47,"semi":21.31}},"La Edificación del Carácter":{"bolsillo":{"pages":79,"mate_crema":4.24,"mate_offset":4.11,"mate_semi":4.83,"brillo_crema":4.26,"brillo_offset":4.13,"brillo_semi":4.85},"a5":{"pages":79,"mate_crema":5.83,"mate_offset":5.64,"mate_semi":6.53,"brillo_crema":5.62,"brillo_offset":5.52,"brillo_semi":6.5},"mediano_blanda":{"pages":79,"mate_crema":6.09,"mate_offset":5.89,"mate_semi":6.81,"brillo_crema":5.85,"brillo_offset":5.75,"brillo_semi":6.77},"mediano_dura":{"pages":79,"crema":12.34,"offset":12.14,"semi":13.06},"grande_dura":{"pages":79,"crema":16.55,"offset":16.29,"semi":18.13}},"La Educación":{"bolsillo":{"pages":260,"mate_crema":5.77,"mate_offset":5.64,"mate_semi":6.36,"brillo_crema":5.79,"brillo_offset":5.66,"brillo_semi":6.38},"a5":{"pages":260,"mate_crema":7.36,"mate_offset":7.17,"mate_semi":8.06,"brillo_crema":7.15,"brillo_offset":7.05,"brillo_semi":8.03},"mediano_blanda":{"pages":260,"mate_crema":7.62,"mate_offset":7.42,"mate_semi":8.34,"brillo_crema":7.38,"brillo_offset":7.28,"brillo_semi":8.3},"mediano_dura":{"pages":260,"crema":14.05,"offset":13.85,"semi":14.77},"grande_dura":{"pages":260,"crema":18.26,"offset":18.0,"semi":19.84}},"La Educación Cristiana":{"bolsillo":{"pages":453,"mate_crema":7.4,"mate_offset":7.27,"mate_semi":7.99,"brillo_crema":7.42,"brillo_offset":7.29,"brillo_semi":8.01},"a5":{"pages":453,"mate_crema":8.99,"mate_offset":8.8,"mate_semi":9.69,"brillo_crema":8.79,"brillo_offset":8.68,"brillo_semi":9.66},"mediano_blanda":{"pages":453,"mate_crema":9.25,"mate_offset":9.05,"mate_semi":9.97,"brillo_crema":9.01,"brillo_offset":8.91,"brillo_semi":9.93},"mediano_dura":{"pages":453,"crema":15.88,"offset":15.68,"semi":16.6},"grande_dura":{"pages":453,"crema":20.09,"offset":19.83,"semi":21.67}},"La Fe por la Cual Vivo":{"bolsillo":{"pages":390,"mate_crema":6.87,"mate_offset":6.74,"mate_semi":7.46,"brillo_crema":6.89,"brillo_offset":6.76,"brillo_semi":7.48},"a5":{"pages":390,"mate_crema":8.46,"mate_offset":8.27,"mate_semi":9.16,"brillo_crema":8.25,"brillo_offset":8.15,"brillo_semi":9.13},"mediano_blanda":{"pages":390,"mate_crema":8.72,"mate_offset":8.52,"mate_semi":9.44,"brillo_crema":8.48,"brillo_offset":8.38,"brillo_semi":9.4},"mediano_dura":{"pages":390,"crema":15.28,"offset":15.08,"semi":16.0},"grande_dura":{"pages":390,"crema":19.49,"offset":19.23,"semi":21.07}},"La Historia de la Redención":{"bolsillo":{"pages":356,"mate_crema":6.58,"mate_offset":6.45,"mate_semi":7.17,"brillo_crema":6.6,"brillo_offset":6.47,"brillo_semi":7.19},"a5":{"pages":356,"mate_crema":8.17,"mate_offset":7.98,"mate_semi":8.87,"brillo_crema":7.97,"brillo_offset":7.86,"brillo_semi":8.84},"mediano_blanda":{"pages":356,"mate_crema":8.43,"mate_offset":8.23,"mate_semi":9.15,"brillo_crema":8.19,"brillo_offset":8.09,"brillo_semi":9.11},"mediano_dura":{"pages":356,"crema":14.96,"offset":14.76,"semi":15.68},"grande_dura":{"pages":356,"crema":19.17,"offset":18.91,"semi":20.75}},"La Iglesia Remanente":{"bolsillo":{"pages":74,"mate_crema":4.2,"mate_offset":4.07,"mate_semi":4.79,"brillo_crema":4.22,"brillo_offset":4.09,"brillo_semi":4.81},"a5":{"pages":74,"mate_crema":5.78,"mate_offset":5.59,"mate_semi":6.48,"brillo_crema":5.58,"brillo_offset":5.48,"brillo_semi":6.45},"mediano_blanda":{"pages":74,"mate_crema":6.05,"mate_offset":5.85,"mate_semi":6.77,"brillo_crema":5.81,"brillo_offset":5.71,"brillo_semi":6.73},"mediano_dura":{"pages":74,"crema":12.29,"offset":12.09,"semi":13.01},"grande_dura":{"pages":74,"crema":16.5,"offset":16.24,"semi":18.08}},"La Maravillosa Gracia de Dios":{"bolsillo":{"pages":390,"mate_crema":6.87,"mate_offset":6.74,"mate_semi":7.46,"brillo_crema":6.89,"brillo_offset":6.76,"brillo_semi":7.48},"a5":{"pages":390,"mate_crema":8.46,"mate_offset":8.27,"mate_semi":9.16,"brillo_crema":8.25,"brillo_offset":8.15,"brillo_semi":9.13},"mediano_blanda":{"pages":390,"mate_crema":8.72,"mate_offset":8.52,"mate_semi":9.44,"brillo_crema":8.48,"brillo_offset":8.38,"brillo_semi":9.4},"mediano_dura":{"pages":390,"crema":15.28,"offset":15.08,"semi":16.0},"grande_dura":{"pages":390,"crema":19.49,"offset":19.23,"semi":21.07}},"La Música":{"bolsillo":{"pages":70,"mate_crema":4.16,"mate_offset":4.03,"mate_semi":4.75,"brillo_crema":4.18,"brillo_offset":4.05,"brillo_semi":4.77},"a5":{"pages":70,"mate_crema":5.75,"mate_offset":5.56,"mate_semi":6.45,"brillo_crema":5.55,"brillo_offset":5.44,"brillo_semi":6.42},"mediano_blanda":{"pages":70,"mate_crema":6.01,"mate_offset":5.81,"mate_semi":6.73,"brillo_crema":5.77,"brillo_offset":5.67,"brillo_semi":6.69},"mediano_dura":{"pages":70,"crema":12.26,"offset":12.06,"semi":12.98},"grande_dura":{"pages":70,"crema":16.47,"offset":16.21,"semi":18.05}},"La Oración":{"bolsillo":{"pages":337,"mate_crema":6.42,"mate_offset":6.29,"mate_semi":7.01,"brillo_crema":6.44,"brillo_offset":6.31,"brillo_semi":7.03},"a5":{"pages":337,"mate_crema":8.01,"mate_offset":7.82,"mate_semi":8.71,"brillo_crema":7.81,"brillo_offset":7.7,"brillo_semi":8.68},"mediano_blanda":{"pages":337,"mate_crema":8.27,"mate_offset":8.07,"mate_semi":8.99,"brillo_crema":8.03,"brillo_offset":7.93,"brillo_semi":8.95},"mediano_dura":{"pages":337,"crema":14.78,"offset":14.58,"semi":15.5},"grande_dura":{"pages":337,"crema":18.99,"offset":18.73,"semi":20.57}},"La Segunda Venida y el Cielo":{"bolsillo":{"pages":143,"mate_crema":4.78,"mate_offset":4.65,"mate_semi":5.37,"brillo_crema":4.8,"brillo_offset":4.67,"brillo_semi":5.39},"a5":{"pages":143,"mate_crema":6.37,"mate_offset":6.18,"mate_semi":7.07,"brillo_crema":6.16,"brillo_offset":6.06,"brillo_semi":7.04},"mediano_blanda":{"pages":143,"mate_crema":6.63,"mate_offset":6.43,"mate_semi":7.35,"brillo_crema":6.39,"brillo_offset":6.29,"brillo_semi":7.31},"mediano_dura":{"pages":143,"crema":12.95,"offset":12.75,"semi":13.67},"grande_dura":{"pages":143,"crema":17.16,"offset":16.9,"semi":18.74}},"La Temperancia":{"bolsillo":{"pages":306,"mate_crema":6.16,"mate_offset":6.03,"mate_semi":6.75,"brillo_crema":6.18,"brillo_offset":6.05,"brillo_semi":6.77},"a5":{"pages":306,"mate_crema":7.75,"mate_offset":7.56,"mate_semi":8.45,"brillo_crema":7.54,"brillo_offset":7.44,"brillo_semi":8.42},"mediano_blanda":{"pages":306,"mate_crema":8.01,"mate_offset":7.81,"mate_semi":8.73,"brillo_crema":7.77,"brillo_offset":7.67,"brillo_semi":8.69},"mediano_dura":{"pages":306,"crema":14.49,"offset":14.29,"semi":15.21},"grande_dura":{"pages":306,"crema":18.7,"offset":18.44,"semi":20.28}},"La Verdad acerca de los Ángeles":{"bolsillo":{"pages":226,"mate_crema":5.48,"mate_offset":5.35,"mate_semi":6.07,"brillo_crema":5.5,"brillo_offset":5.37,"brillo_semi":6.09},"a5":{"pages":226,"mate_crema":7.07,"mate_offset":6.88,"mate_semi":7.77,"brillo_crema":6.87,"brillo_offset":6.76,"brillo_semi":7.74},"mediano_blanda":{"pages":226,"mate_crema":7.33,"mate_offset":7.13,"mate_semi":8.05,"brillo_crema":7.09,"brillo_offset":6.99,"brillo_semi":8.01},"mediano_dura":{"pages":226,"crema":13.73,"offset":13.53,"semi":14.45},"grande_dura":{"pages":226,"crema":17.94,"offset":17.68,"semi":19.52}},"La Voz, Su Educación y Uso Correcto":{"bolsillo":{"pages":342,"mate_crema":6.46,"mate_offset":6.33,"mate_semi":7.05,"brillo_crema":6.48,"brillo_offset":6.35,"brillo_semi":7.07},"a5":{"pages":342,"mate_crema":8.05,"mate_offset":7.86,"mate_semi":8.75,"brillo_crema":7.85,"brillo_offset":7.74,"brillo_semi":8.72},"mediano_blanda":{"pages":342,"mate_crema":8.31,"mate_offset":8.11,"mate_semi":9.03,"brillo_crema":8.07,"brillo_offset":7.97,"brillo_semi":8.99},"mediano_dura":{"pages":342,"crema":14.83,"offset":14.63,"semi":15.55},"grande_dura":{"pages":342,"crema":19.04,"offset":18.78,"semi":20.62}},"La Única Esperanza":{"bolsillo":{"pages":121,"mate_crema":4.6,"mate_offset":4.47,"mate_semi":5.19,"brillo_crema":4.62,"brillo_offset":4.49,"brillo_semi":5.21},"a5":{"pages":121,"mate_crema":6.18,"mate_offset":5.99,"mate_semi":6.88,"brillo_crema":5.98,"brillo_offset":5.87,"brillo_semi":6.85},"mediano_blanda":{"pages":121,"mate_crema":6.45,"mate_offset":6.25,"mate_semi":7.17,"brillo_crema":6.21,"brillo_offset":6.11,"brillo_semi":7.13},"mediano_dura":{"pages":121,"crema":12.74,"offset":12.54,"semi":13.46},"grande_dura":{"pages":121,"crema":16.95,"offset":16.69,"semi":18.53}},"Liderazgo Cristiano":{"bolsillo":{"pages":109,"mate_crema":4.49,"mate_offset":4.36,"mate_semi":5.08,"brillo_crema":4.51,"brillo_offset":4.38,"brillo_semi":5.1},"a5":{"pages":109,"mate_crema":6.08,"mate_offset":5.89,"mate_semi":6.78,"brillo_crema":5.88,"brillo_offset":5.77,"brillo_semi":6.75},"mediano_blanda":{"pages":109,"mate_crema":6.34,"mate_offset":6.14,"mate_semi":7.06,"brillo_crema":6.1,"brillo_offset":6.0,"brillo_semi":7.02},"mediano_dura":{"pages":109,"crema":12.63,"offset":12.43,"semi":13.35},"grande_dura":{"pages":109,"crema":16.84,"offset":16.58,"semi":18.42}},"Los Hechos de los Apóstoles":{"bolsillo":{"pages":422,"mate_crema":7.14,"mate_offset":7.01,"mate_semi":7.73,"brillo_crema":7.16,"brillo_offset":7.03,"brillo_semi":7.75},"a5":{"pages":422,"mate_crema":8.73,"mate_offset":8.54,"mate_semi":9.43,"brillo_crema":8.52,"brillo_offset":8.42,"brillo_semi":9.4},"mediano_blanda":{"pages":422,"mate_crema":8.99,"mate_offset":8.79,"mate_semi":9.71,"brillo_crema":8.75,"brillo_offset":8.65,"brillo_semi":9.67},"mediano_dura":{"pages":422,"crema":15.59,"offset":15.39,"semi":16.31},"grande_dura":{"pages":422,"crema":19.8,"offset":19.54,"semi":21.38}},"Maranata, El Señor Viene":{"bolsillo":{"pages":396,"mate_crema":6.92,"mate_offset":6.79,"mate_semi":7.51,"brillo_crema":6.94,"brillo_offset":6.81,"brillo_semi":7.53},"a5":{"pages":396,"mate_crema":8.51,"mate_offset":8.32,"mate_semi":9.21,"brillo_crema":8.3,"brillo_offset":8.2,"brillo_semi":9.18},"mediano_blanda":{"pages":396,"mate_crema":8.77,"mate_offset":8.57,"mate_semi":9.49,"brillo_crema":8.53,"brillo_offset":8.43,"brillo_semi":9.45},"mediano_dura":{"pages":396,"crema":15.34,"offset":15.14,"semi":16.06},"grande_dura":{"pages":396,"crema":19.55,"offset":19.29,"semi":21.13}},"Mensajes Selectos Tomo 1":{"bolsillo":{"pages":415,"mate_crema":7.08,"mate_offset":6.95,"mate_semi":7.67,"brillo_crema":7.1,"brillo_offset":6.97,"brillo_semi":7.69},"a5":{"pages":415,"mate_crema":8.67,"mate_offset":8.48,"mate_semi":9.37,"brillo_crema":8.47,"brillo_offset":8.36,"brillo_semi":9.34},"mediano_blanda":{"pages":415,"mate_crema":8.93,"mate_offset":8.73,"mate_semi":9.65,"brillo_crema":8.69,"brillo_offset":8.59,"brillo_semi":9.61},"mediano_dura":{"pages":415,"crema":15.52,"offset":15.32,"semi":16.24},"grande_dura":{"pages":415,"crema":19.73,"offset":19.47,"semi":21.31}},"Mensajes Selectos Tomo 2":{"bolsillo":{"pages":506,"mate_crema":7.85,"mate_offset":7.72,"mate_semi":8.44,"brillo_crema":7.87,"brillo_offset":7.74,"brillo_semi":8.46},"a5":{"pages":506,"mate_crema":9.44,"mate_offset":9.25,"mate_semi":10.14,"brillo_crema":9.24,"brillo_offset":9.13,"brillo_semi":10.11},"mediano_blanda":{"pages":506,"mate_crema":9.7,"mate_offset":9.5,"mate_semi":10.42,"brillo_crema":9.46,"brillo_offset":9.36,"brillo_semi":10.38},"mediano_dura":{"pages":506,"crema":16.38,"offset":16.18,"semi":17.1},"grande_dura":{"pages":506,"crema":20.59,"offset":20.33,"semi":22.17}},"Mensajes Selectos Tomo 3":{"bolsillo":{"pages":448,"mate_crema":7.36,"mate_offset":7.23,"mate_semi":7.95,"brillo_crema":7.38,"brillo_offset":7.25,"brillo_semi":7.97},"a5":{"pages":448,"mate_crema":8.95,"mate_offset":8.76,"mate_semi":9.65,"brillo_crema":8.74,"brillo_offset":8.64,"brillo_semi":9.62},"mediano_blanda":{"pages":448,"mate_crema":9.21,"mate_offset":9.01,"mate_semi":9.93,"brillo_crema":8.97,"brillo_offset":8.87,"brillo_semi":9.89},"mediano_dura":{"pages":448,"crema":15.83,"offset":15.63,"semi":16.55},"grande_dura":{"pages":448,"crema":20.04,"offset":19.78,"semi":21.62}},"Mensajes para los Jóvenes":{"bolsillo":{"pages":431,"mate_crema":7.22,"mate_offset":7.09,"mate_semi":7.81,"brillo_crema":7.24,"brillo_offset":7.11,"brillo_semi":7.83},"a5":{"pages":431,"mate_crema":8.8,"mate_offset":8.61,"mate_semi":9.5,"brillo_crema":8.6,"brillo_offset":8.5,"brillo_semi":9.47},"mediano_blanda":{"pages":431,"mate_crema":9.07,"mate_offset":8.87,"mate_semi":9.79,"brillo_crema":8.83,"brillo_offset":8.73,"brillo_semi":9.75},"mediano_dura":{"pages":431,"crema":15.67,"offset":15.47,"semi":16.39},"grande_dura":{"pages":431,"crema":19.88,"offset":19.62,"semi":21.46}},"Mente, Carácter y Personalidad 1":{"bolsillo":{"pages":399,"mate_crema":6.95,"mate_offset":6.82,"mate_semi":7.54,"brillo_crema":6.97,"brillo_offset":6.84,"brillo_semi":7.56},"a5":{"pages":399,"mate_crema":8.53,"mate_offset":8.34,"mate_semi":9.23,"brillo_crema":8.33,"brillo_offset":8.23,"brillo_semi":9.2},"mediano_blanda":{"pages":399,"mate_crema":8.8,"mate_offset":8.6,"mate_semi":9.52,"brillo_crema":8.56,"brillo_offset":8.46,"brillo_semi":9.48},"mediano_dura":{"pages":399,"crema":15.37,"offset":15.17,"semi":16.09},"grande_dura":{"pages":399,"crema":19.58,"offset":19.32,"semi":21.16}},"Mente, Carácter y Personalidad 2":{"bolsillo":{"pages":483,"mate_crema":7.66,"mate_offset":7.53,"mate_semi":8.25,"brillo_crema":7.68,"brillo_offset":7.55,"brillo_semi":8.27},"a5":{"pages":483,"mate_crema":9.24,"mate_offset":9.05,"mate_semi":9.94,"brillo_crema":9.04,"brillo_offset":8.94,"brillo_semi":9.91},"mediano_blanda":{"pages":483,"mate_crema":9.51,"mate_offset":9.31,"mate_semi":10.23,"brillo_crema":9.27,"brillo_offset":9.17,"brillo_semi":10.19},"mediano_dura":{"pages":483,"crema":16.16,"offset":15.96,"semi":16.88},"grande_dura":{"pages":483,"crema":20.37,"offset":20.11,"semi":21.95}},"Mi Vida Hoy":{"bolsillo":{"pages":389,"mate_crema":6.86,"mate_offset":6.73,"mate_semi":7.45,"brillo_crema":6.88,"brillo_offset":6.75,"brillo_semi":7.47},"a5":{"pages":389,"mate_crema":8.45,"mate_offset":8.26,"mate_semi":9.15,"brillo_crema":8.25,"brillo_offset":8.14,"brillo_semi":9.12},"mediano_blanda":{"pages":389,"mate_crema":8.71,"mate_offset":8.51,"mate_semi":9.43,"brillo_crema":8.47,"brillo_offset":8.37,"brillo_semi":9.39},"mediano_dura":{"pages":389,"crema":15.27,"offset":15.07,"semi":15.99},"grande_dura":{"pages":389,"crema":19.48,"offset":19.22,"semi":21.06}},"Notas biográficas de Elena G. de White":{"bolsillo":{"pages":414,"mate_crema":7.07,"mate_offset":6.94,"mate_semi":7.66,"brillo_crema":7.09,"brillo_offset":6.96,"brillo_semi":7.68},"a5":{"pages":414,"mate_crema":8.66,"mate_offset":8.47,"mate_semi":9.36,"brillo_crema":8.46,"brillo_offset":8.35,"brillo_semi":9.33},"mediano_blanda":{"pages":414,"mate_crema":8.92,"mate_offset":8.72,"mate_semi":9.64,"brillo_crema":8.68,"brillo_offset":8.58,"brillo_semi":9.6},"mediano_dura":{"pages":414,"crema":15.51,"offset":15.31,"semi":16.23},"grande_dura":{"pages":414,"crema":19.72,"offset":19.46,"semi":21.3}},"Nuestra Elevada Vocación":{"bolsillo":{"pages":390,"mate_crema":6.87,"mate_offset":6.74,"mate_semi":7.46,"brillo_crema":6.89,"brillo_offset":6.76,"brillo_semi":7.48},"a5":{"pages":390,"mate_crema":8.46,"mate_offset":8.27,"mate_semi":9.16,"brillo_crema":8.25,"brillo_offset":8.15,"brillo_semi":9.13},"mediano_blanda":{"pages":390,"mate_crema":8.72,"mate_offset":8.52,"mate_semi":9.44,"brillo_crema":8.48,"brillo_offset":8.38,"brillo_semi":9.4},"mediano_dura":{"pages":390,"crema":15.28,"offset":15.08,"semi":16.0},"grande_dura":{"pages":390,"crema":19.49,"offset":19.23,"semi":21.07}},"Obreros Evangélicos":{"bolsillo":{"pages":463,"mate_crema":7.49,"mate_offset":7.36,"mate_semi":8.08,"brillo_crema":7.51,"brillo_offset":7.38,"brillo_semi":8.1},"a5":{"pages":463,"mate_crema":9.07,"mate_offset":8.88,"mate_semi":9.78,"brillo_crema":8.87,"brillo_offset":8.77,"brillo_semi":9.74},"mediano_blanda":{"pages":463,"mate_crema":9.34,"mate_offset":9.14,"mate_semi":10.06,"brillo_crema":9.1,"brillo_offset":9.0,"brillo_semi":10.02},"mediano_dura":{"pages":463,"crema":15.97,"offset":15.77,"semi":16.69},"grande_dura":{"pages":463,"crema":20.18,"offset":19.92,"semi":21.76}},"Oscuridad antes del Amanecer":{"bolsillo":{"pages":89,"mate_crema":4.32,"mate_offset":4.19,"mate_semi":4.91,"brillo_crema":4.34,"brillo_offset":4.21,"brillo_semi":4.93},"a5":{"pages":89,"mate_crema":5.91,"mate_offset":5.72,"mate_semi":6.61,"brillo_crema":5.71,"brillo_offset":5.6,"brillo_semi":6.58},"mediano_blanda":{"pages":89,"mate_crema":6.17,"mate_offset":5.97,"mate_semi":6.89,"brillo_crema":5.93,"brillo_offset":5.83,"brillo_semi":6.85},"mediano_dura":{"pages":89,"crema":12.44,"offset":12.24,"semi":13.16},"grande_dura":{"pages":89,"crema":16.65,"offset":16.39,"semi":18.23}},"Palabras de Vida del Gran Maestro":{"bolsillo":{"pages":295,"mate_crema":6.07,"mate_offset":5.94,"mate_semi":6.66,"brillo_crema":6.09,"brillo_offset":5.96,"brillo_semi":6.68},"a5":{"pages":295,"mate_crema":7.65,"mate_offset":7.46,"mate_semi":8.35,"brillo_crema":7.45,"brillo_offset":7.35,"brillo_semi":8.32},"mediano_blanda":{"pages":295,"mate_crema":7.92,"mate_offset":7.72,"mate_semi":8.64,"brillo_crema":7.68,"brillo_offset":7.58,"brillo_semi":8.6},"mediano_dura":{"pages":295,"crema":14.39,"offset":14.19,"semi":15.11},"grande_dura":{"pages":295,"crema":18.6,"offset":18.34,"semi":20.18}},"Primeros Escritos":{"bolsillo":{"pages":315,"mate_crema":6.24,"mate_offset":6.11,"mate_semi":6.83,"brillo_crema":6.26,"brillo_offset":6.13,"brillo_semi":6.85},"a5":{"pages":315,"mate_crema":7.82,"mate_offset":7.63,"mate_semi":8.52,"brillo_crema":7.62,"brillo_offset":7.51,"brillo_semi":8.49},"mediano_blanda":{"pages":315,"mate_crema":8.09,"mate_offset":7.89,"mate_semi":8.81,"brillo_crema":7.85,"brillo_offset":7.75,"brillo_semi":8.77},"mediano_dura":{"pages":315,"crema":14.57,"offset":14.37,"semi":15.29},"grande_dura":{"pages":315,"crema":18.78,"offset":18.52,"semi":20.36}},"Profetas y Reyes":{"bolsillo":{"pages":483,"mate_crema":7.66,"mate_offset":7.53,"mate_semi":8.25,"brillo_crema":7.68,"brillo_offset":7.55,"brillo_semi":8.27},"a5":{"pages":483,"mate_crema":9.24,"mate_offset":9.05,"mate_semi":9.94,"brillo_crema":9.04,"brillo_offset":8.94,"brillo_semi":9.91},"mediano_blanda":{"pages":483,"mate_crema":9.51,"mate_offset":9.31,"mate_semi":10.23,"brillo_crema":9.27,"brillo_offset":9.17,"brillo_semi":10.19},"mediano_dura":{"pages":483,"crema":16.16,"offset":15.96,"semi":16.88},"grande_dura":{"pages":483,"crema":20.37,"offset":20.11,"semi":21.95}},"Reavivamientos Modernos":{"bolsillo":{"pages":65,"mate_crema":4.12,"mate_offset":3.99,"mate_semi":4.71,"brillo_crema":4.14,"brillo_offset":4.01,"brillo_semi":4.73},"a5":{"pages":65,"mate_crema":5.71,"mate_offset":5.52,"mate_semi":6.41,"brillo_crema":5.5,"brillo_offset":5.4,"brillo_semi":6.38},"mediano_blanda":{"pages":65,"mate_crema":5.97,"mate_offset":5.77,"mate_semi":6.69,"brillo_crema":5.73,"brillo_offset":5.63,"brillo_semi":6.65},"mediano_dura":{"pages":65,"crema":12.21,"offset":12.01,"semi":12.93},"grande_dura":{"pages":65,"crema":16.42,"offset":16.16,"semi":18.0}},"Recibiréis Poder":{"bolsillo":{"pages":390,"mate_crema":6.87,"mate_offset":6.74,"mate_semi":7.46,"brillo_crema":6.89,"brillo_offset":6.76,"brillo_semi":7.48},"a5":{"pages":390,"mate_crema":8.46,"mate_offset":8.27,"mate_semi":9.16,"brillo_crema":8.25,"brillo_offset":8.15,"brillo_semi":9.13},"mediano_blanda":{"pages":390,"mate_crema":8.72,"mate_offset":8.52,"mate_semi":9.44,"brillo_crema":8.48,"brillo_offset":8.38,"brillo_semi":9.4},"mediano_dura":{"pages":390,"crema":15.28,"offset":15.08,"semi":16.0},"grande_dura":{"pages":390,"crema":19.49,"offset":19.23,"semi":21.07}},"Reflejemos a Jesús":{"bolsillo":{"pages":388,"mate_crema":6.85,"mate_offset":6.72,"mate_semi":7.44,"brillo_crema":6.87,"brillo_offset":6.74,"brillo_semi":7.46},"a5":{"pages":388,"mate_crema":8.44,"mate_offset":8.25,"mate_semi":9.14,"brillo_crema":8.24,"brillo_offset":8.13,"brillo_semi":9.11},"mediano_blanda":{"pages":388,"mate_crema":8.7,"mate_offset":8.5,"mate_semi":9.42,"brillo_crema":8.46,"brillo_offset":8.36,"brillo_semi":9.38},"mediano_dura":{"pages":388,"crema":15.27,"offset":15.07,"semi":15.99},"grande_dura":{"pages":388,"crema":19.48,"offset":19.22,"semi":21.06}},"Ser Semejante a Jesús":{"bolsillo":{"pages":390,"mate_crema":6.87,"mate_offset":6.74,"mate_semi":7.46,"brillo_crema":6.89,"brillo_offset":6.76,"brillo_semi":7.48},"a5":{"pages":390,"mate_crema":8.46,"mate_offset":8.27,"mate_semi":9.16,"brillo_crema":8.25,"brillo_offset":8.15,"brillo_semi":9.13},"mediano_blanda":{"pages":390,"mate_crema":8.72,"mate_offset":8.52,"mate_semi":9.44,"brillo_crema":8.48,"brillo_offset":8.38,"brillo_semi":9.4},"mediano_dura":{"pages":390,"crema":15.28,"offset":15.08,"semi":16.0},"grande_dura":{"pages":390,"crema":19.49,"offset":19.23,"semi":21.07}},"Servicio Cristiano":{"bolsillo":{"pages":292,"mate_crema":6.04,"mate_offset":5.91,"mate_semi":6.63,"brillo_crema":6.06,"brillo_offset":5.93,"brillo_semi":6.65},"a5":{"pages":292,"mate_crema":7.63,"mate_offset":7.44,"mate_semi":8.33,"brillo_crema":7.42,"brillo_offset":7.32,"brillo_semi":8.3},"mediano_blanda":{"pages":292,"mate_crema":7.89,"mate_offset":7.69,"mate_semi":8.61,"brillo_crema":7.65,"brillo_offset":7.55,"brillo_semi":8.57},"mediano_dura":{"pages":292,"crema":14.36,"offset":14.16,"semi":15.08},"grande_dura":{"pages":292,"crema":18.57,"offset":18.31,"semi":20.15}},"Testimonios Acerca de Conducta Sexual, Adulterio y Divorcio":{"bolsillo":{"pages":255,"mate_crema":5.73,"mate_offset":5.6,"mate_semi":6.32,"brillo_crema":5.75,"brillo_offset":5.62,"brillo_semi":6.34},"a5":{"pages":255,"mate_crema":7.31,"mate_offset":7.12,"mate_semi":8.02,"brillo_crema":7.11,"brillo_offset":7.01,"brillo_semi":7.98},"mediano_blanda":{"pages":255,"mate_crema":7.58,"mate_offset":7.38,"mate_semi":8.3,"brillo_crema":7.34,"brillo_offset":7.24,"brillo_semi":8.26},"mediano_dura":{"pages":255,"crema":14.01,"offset":13.81,"semi":14.73},"grande_dura":{"pages":255,"crema":18.22,"offset":17.96,"semi":19.8}},"Testimonios Selectos Tomo 1":{"bolsillo":{"pages":203,"mate_crema":5.29,"mate_offset":5.16,"mate_semi":5.88,"brillo_crema":5.31,"brillo_offset":5.18,"brillo_semi":5.9},"a5":{"pages":203,"mate_crema":6.87,"mate_offset":6.68,"mate_semi":7.58,"brillo_crema":6.67,"brillo_offset":6.57,"brillo_semi":7.54},"mediano_blanda":{"pages":203,"mate_crema":7.14,"mate_offset":6.94,"mate_semi":7.86,"brillo_crema":6.9,"brillo_offset":6.8,"brillo_semi":7.82},"mediano_dura":{"pages":203,"crema":13.51,"offset":13.31,"semi":14.23},"grande_dura":{"pages":203,"crema":17.72,"offset":17.46,"semi":19.3}},"Testimonios Selectos Tomo 2":{"bolsillo":{"pages":207,"mate_crema":5.32,"mate_offset":5.19,"mate_semi":5.91,"brillo_crema":5.34,"brillo_offset":5.21,"brillo_semi":5.93},"a5":{"pages":207,"mate_crema":6.91,"mate_offset":6.72,"mate_semi":7.61,"brillo_crema":6.71,"brillo_offset":6.6,"brillo_semi":7.58},"mediano_blanda":{"pages":207,"mate_crema":7.17,"mate_offset":6.97,"mate_semi":7.89,"brillo_crema":6.93,"brillo_offset":6.83,"brillo_semi":7.85},"mediano_dura":{"pages":207,"crema":13.55,"offset":13.35,"semi":14.27},"grande_dura":{"pages":207,"crema":17.76,"offset":17.5,"semi":19.34}},"Testimonios Selectos Tomo 3":{"bolsillo":{"pages":355,"mate_crema":6.57,"mate_offset":6.44,"mate_semi":7.16,"brillo_crema":6.59,"brillo_offset":6.46,"brillo_semi":7.18},"a5":{"pages":355,"mate_crema":8.16,"mate_offset":7.97,"mate_semi":8.86,"brillo_crema":7.96,"brillo_offset":7.85,"brillo_semi":8.83},"mediano_blanda":{"pages":355,"mate_crema":8.42,"mate_offset":8.22,"mate_semi":9.14,"brillo_crema":8.18,"brillo_offset":8.08,"brillo_semi":9.1},"mediano_dura":{"pages":355,"crema":14.95,"offset":14.75,"semi":15.67},"grande_dura":{"pages":355,"crema":19.16,"offset":18.9,"semi":20.74}},"Testimonios Selectos Tomo 4":{"bolsillo":{"pages":392,"mate_crema":6.89,"mate_offset":6.76,"mate_semi":7.48,"brillo_crema":6.91,"brillo_offset":6.78,"brillo_semi":7.5},"a5":{"pages":392,"mate_crema":8.47,"mate_offset":8.28,"mate_semi":9.17,"brillo_crema":8.27,"brillo_offset":8.17,"brillo_semi":9.14},"mediano_blanda":{"pages":392,"mate_crema":8.74,"mate_offset":8.54,"mate_semi":9.46,"brillo_crema":8.5,"brillo_offset":8.4,"brillo_semi":9.42},"mediano_dura":{"pages":392,"crema":15.3,"offset":15.1,"semi":16.02},"grande_dura":{"pages":392,"crema":19.51,"offset":19.25,"semi":21.09}},"Testimonios Selectos Tomo 5":{"bolsillo":{"pages":149,"mate_crema":4.83,"mate_offset":4.7,"mate_semi":5.42,"brillo_crema":4.85,"brillo_offset":4.72,"brillo_semi":5.44},"a5":{"pages":149,"mate_crema":6.42,"mate_offset":6.23,"mate_semi":7.12,"brillo_crema":6.21,"brillo_offset":6.11,"brillo_semi":7.09},"mediano_blanda":{"pages":149,"mate_crema":6.68,"mate_offset":6.48,"mate_semi":7.4,"brillo_crema":6.44,"brillo_offset":6.34,"brillo_semi":7.36},"mediano_dura":{"pages":149,"crema":13.0,"offset":12.8,"semi":13.72},"grande_dura":{"pages":149,"crema":17.21,"offset":16.95,"semi":18.79}},"Testimonios para la Iglesia, Tomo 1":{"bolsillo":{"pages":739,"mate_crema":9.82,"mate_offset":9.69,"mate_semi":10.41,"brillo_crema":9.84,"brillo_offset":9.71,"brillo_semi":10.43},"a5":{"pages":739,"mate_crema":11.41,"mate_offset":11.22,"mate_semi":12.11,"brillo_crema":11.21,"brillo_offset":11.1,"brillo_semi":12.08},"mediano_blanda":{"pages":739,"mate_crema":11.67,"mate_offset":11.47,"mate_semi":12.39,"brillo_crema":11.43,"brillo_offset":11.33,"brillo_semi":12.35},"mediano_dura":{"pages":739,"crema":18.59,"offset":18.39,"semi":19.31},"grande_dura":{"pages":739,"crema":22.8,"offset":22.54,"semi":24.38}},"Testimonios para la Iglesia, Tomo 2":{"bolsillo":{"pages":657,"mate_crema":9.13,"mate_offset":9.0,"mate_semi":9.72,"brillo_crema":9.15,"brillo_offset":9.02,"brillo_semi":9.74},"a5":{"pages":657,"mate_crema":10.72,"mate_offset":10.53,"mate_semi":11.42,"brillo_crema":10.51,"brillo_offset":10.41,"brillo_semi":11.39},"mediano_blanda":{"pages":657,"mate_crema":10.98,"mate_offset":10.78,"mate_semi":11.7,"brillo_crema":10.74,"brillo_offset":10.64,"brillo_semi":11.66},"mediano_dura":{"pages":657,"crema":17.81,"offset":17.61,"semi":18.53},"grande_dura":{"pages":657,"crema":22.02,"offset":21.76,"semi":23.6}},"Testimonios para la Iglesia, Tomo 3":{"bolsillo":{"pages":591,"mate_crema":8.57,"mate_offset":8.44,"mate_semi":9.16,"brillo_crema":8.59,"brillo_offset":8.46,"brillo_semi":9.18},"a5":{"pages":591,"mate_crema":10.16,"mate_offset":9.97,"mate_semi":10.86,"brillo_crema":9.95,"brillo_offset":9.85,"brillo_semi":10.83},"mediano_blanda":{"pages":591,"mate_crema":10.42,"mate_offset":10.22,"mate_semi":11.14,"brillo_crema":10.18,"brillo_offset":10.08,"brillo_semi":11.1},"mediano_dura":{"pages":591,"crema":17.19,"offset":16.99,"semi":17.91},"grande_dura":{"pages":591,"crema":21.4,"offset":21.14,"semi":22.98}},"Testimonios para la Iglesia, Tomo 4":{"bolsillo":{"pages":648,"mate_crema":9.05,"mate_offset":8.92,"mate_semi":9.64,"brillo_crema":9.07,"brillo_offset":8.94,"brillo_semi":9.66},"a5":{"pages":648,"mate_crema":10.64,"mate_offset":10.45,"mate_semi":11.34,"brillo_crema":10.44,"brillo_offset":10.33,"brillo_semi":11.31},"mediano_blanda":{"pages":648,"mate_crema":10.9,"mate_offset":10.7,"mate_semi":11.62,"brillo_crema":10.66,"brillo_offset":10.56,"brillo_semi":11.58},"mediano_dura":{"pages":648,"crema":17.72,"offset":17.52,"semi":18.44},"grande_dura":{"pages":648,"crema":21.93,"offset":21.67,"semi":23.51}},"Testimonios para la Iglesia, Tomo 5":{"bolsillo":{"pages":736,"mate_crema":9.8,"mate_offset":9.67,"mate_semi":10.39,"brillo_crema":9.82,"brillo_offset":9.69,"brillo_semi":10.41},"a5":{"pages":736,"mate_crema":11.38,"mate_offset":11.19,"mate_semi":12.09,"brillo_crema":11.18,"brillo_offset":11.08,"brillo_semi":12.05},"mediano_blanda":{"pages":736,"mate_crema":11.65,"mate_offset":11.45,"mate_semi":12.37,"brillo_crema":11.41,"brillo_offset":11.31,"brillo_semi":12.33},"mediano_dura":{"pages":736,"crema":18.56,"offset":18.36,"semi":19.28},"grande_dura":{"pages":736,"crema":22.77,"offset":22.51,"semi":24.35}},"Testimonios para la Iglesia, Tomo 6":{"bolsillo":{"pages":447,"mate_crema":7.35,"mate_offset":7.22,"mate_semi":7.94,"brillo_crema":7.37,"brillo_offset":7.24,"brillo_semi":7.96},"a5":{"pages":447,"mate_crema":8.94,"mate_offset":8.75,"mate_semi":9.64,"brillo_crema":8.74,"brillo_offset":8.63,"brillo_semi":9.61},"mediano_blanda":{"pages":447,"mate_crema":9.2,"mate_offset":9.0,"mate_semi":9.92,"brillo_crema":8.96,"brillo_offset":8.86,"brillo_semi":9.88},"mediano_dura":{"pages":447,"crema":15.82,"offset":15.62,"semi":16.54},"grande_dura":{"pages":447,"crema":20.03,"offset":19.77,"semi":21.61}},"Testimonios para la Iglesia, Tomo 7":{"bolsillo":{"pages":293,"mate_crema":6.05,"mate_offset":5.92,"mate_semi":6.64,"brillo_crema":6.07,"brillo_offset":5.94,"brillo_semi":6.66},"a5":{"pages":293,"mate_crema":7.64,"mate_offset":7.45,"mate_semi":8.34,"brillo_crema":7.43,"brillo_offset":7.33,"brillo_semi":8.31},"mediano_blanda":{"pages":293,"mate_crema":7.9,"mate_offset":7.7,"mate_semi":8.62,"brillo_crema":7.66,"brillo_offset":7.56,"brillo_semi":8.58},"mediano_dura":{"pages":293,"crema":14.37,"offset":14.17,"semi":15.09},"grande_dura":{"pages":293,"crema":18.58,"offset":18.32,"semi":20.16}},"Testimonios para la Iglesia, Tomo 8":{"bolsillo":{"pages":330,"mate_crema":6.36,"mate_offset":6.23,"mate_semi":6.95,"brillo_crema":6.38,"brillo_offset":6.25,"brillo_semi":6.97},"a5":{"pages":330,"mate_crema":7.95,"mate_offset":7.76,"mate_semi":8.65,"brillo_crema":7.75,"brillo_offset":7.64,"brillo_semi":8.62},"mediano_blanda":{"pages":330,"mate_crema":8.21,"mate_offset":8.01,"mate_semi":8.93,"brillo_crema":7.97,"brillo_offset":7.87,"brillo_semi":8.89},"mediano_dura":{"pages":330,"crema":14.72,"offset":14.52,"semi":15.44},"grande_dura":{"pages":330,"crema":18.93,"offset":18.67,"semi":20.51}},"Testimonios para la Iglesia, Tomo 9":{"bolsillo":{"pages":260,"mate_crema":5.77,"mate_offset":5.64,"mate_semi":6.36,"brillo_crema":5.79,"brillo_offset":5.66,"brillo_semi":6.38},"a5":{"pages":260,"mate_crema":7.36,"mate_offset":7.17,"mate_semi":8.06,"brillo_crema":7.15,"brillo_offset":7.05,"brillo_semi":8.03},"mediano_blanda":{"pages":260,"mate_crema":7.62,"mate_offset":7.42,"mate_semi":8.34,"brillo_crema":7.38,"brillo_offset":7.28,"brillo_semi":8.3},"mediano_dura":{"pages":260,"crema":14.05,"offset":13.85,"semi":14.77},"grande_dura":{"pages":260,"crema":18.26,"offset":18.0,"semi":19.84}},"Testimonios para los Ministros":{"bolsillo":{"pages":450,"mate_crema":7.38,"mate_offset":7.25,"mate_semi":7.97,"brillo_crema":7.4,"brillo_offset":7.27,"brillo_semi":7.99},"a5":{"pages":450,"mate_crema":8.96,"mate_offset":8.77,"mate_semi":9.67,"brillo_crema":8.76,"brillo_offset":8.66,"brillo_semi":9.63},"mediano_blanda":{"pages":450,"mate_crema":9.23,"mate_offset":9.03,"mate_semi":9.95,"brillo_crema":8.99,"brillo_offset":8.89,"brillo_semi":9.91},"mediano_dura":{"pages":450,"crema":15.85,"offset":15.65,"semi":16.57},"grande_dura":{"pages":450,"crema":20.06,"offset":19.8,"semi":21.64}},"Sermones Escogidos Tomo 1":{"bolsillo":{"pages":351,"mate_crema":6.54,"mate_offset":6.41,"mate_semi":7.13,"brillo_crema":6.56,"brillo_offset":6.43,"brillo_semi":7.15},"a5":{"pages":351,"mate_crema":8.13,"mate_offset":7.94,"mate_semi":8.83,"brillo_crema":7.92,"brillo_offset":7.82,"brillo_semi":8.8},"mediano_blanda":{"pages":351,"mate_crema":8.39,"mate_offset":8.19,"mate_semi":9.11,"brillo_crema":8.15,"brillo_offset":8.05,"brillo_semi":9.07},"mediano_dura":{"pages":351,"crema":14.92,"offset":14.72,"semi":15.64},"grande_dura":{"pages":351,"crema":19.13,"offset":18.87,"semi":20.71}},"Sermones Escogidos Tomo 2":{"bolsillo":{"pages":431,"mate_crema":7.22,"mate_offset":7.09,"mate_semi":7.81,"brillo_crema":7.24,"brillo_offset":7.11,"brillo_semi":7.83},"a5":{"pages":431,"mate_crema":8.8,"mate_offset":8.61,"mate_semi":9.5,"brillo_crema":8.6,"brillo_offset":8.5,"brillo_semi":9.47},"mediano_blanda":{"pages":431,"mate_crema":9.07,"mate_offset":8.87,"mate_semi":9.79,"brillo_crema":8.83,"brillo_offset":8.73,"brillo_semi":9.75},"mediano_dura":{"pages":431,"crema":15.67,"offset":15.47,"semi":16.39},"grande_dura":{"pages":431,"crema":19.88,"offset":19.62,"semi":21.46}},"Un Llamado a Ser Diferente":{"bolsillo":{"pages":113,"mate_crema":4.53,"mate_offset":4.4,"mate_semi":5.12,"brillo_crema":4.55,"brillo_offset":4.42,"brillo_semi":5.14},"a5":{"pages":113,"mate_crema":6.11,"mate_offset":5.92,"mate_semi":6.81,"brillo_crema":5.91,"brillo_offset":5.81,"brillo_semi":6.78},"mediano_blanda":{"pages":113,"mate_crema":6.38,"mate_offset":6.18,"mate_semi":7.1,"brillo_crema":6.14,"brillo_offset":6.04,"brillo_semi":7.06},"mediano_dura":{"pages":113,"crema":12.66,"offset":12.46,"semi":13.38},"grande_dura":{"pages":113,"crema":16.87,"offset":16.61,"semi":18.45}}};
+
+window.EW_BOOK_DEFAULTS = {"el-conflicto-de-los-siglos":{"title":"El Conflicto de los Siglos","price":20.04,"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","pdfTitle":"El Conflicto de los Siglos"},"el-deseado-de-todas-las-gentes":{"title":"El Deseado de Todas las Gentes","price":14.7,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Deseado de Todas las Gentes","extra":[{"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","price":18.08}]},"historia-de-los-patriarcas-y-profetas":{"title":"Historia de los Patriarcas y Profetas","price":26.7,"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","pdfTitle":"Historia de los Patriarcas y Profetas"},"profetas-y-reyes":{"title":"Profetas y Reyes","price":12.33,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Profetas y Reyes"},"la-fe-por-la-cual-vivo":{"title":"La Fe por la Cual Vivo","price":9.64,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Fe por la Cual Vivo"},"la-educacion":{"title":"La Educación","price":8.55,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Educación"},"edificacion-del-caracter":{"title":"Edificación del Carácter","price":7.02,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Edificación del Carácter"},"hijos-e-hijas-de-dios":{"title":"Hijos e Hijas de Dios","price":9.71,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Hijos e Hijas de Dios"},"exaltad-a-jesus":{"title":"Exaltad a Jesús","price":9.72,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Exaltad a Jesús"},"en-los-lugares-celestiales":{"title":"En los Lugares Celestiales","price":9.62,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"En los Lugares Celestiales"},"fe-y-obras":{"title":"Fe y Obras","price":7.25,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Fe y Obras"},"el-otro-poder":{"title":"El Otro Poder","price":7.53,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El otro Poder"},"el-ministerio-pastoral":{"title":"El Ministerio Pastoral","price":9.07,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Ministerio Pastoral"},"el-deseado-de-todas-las-gentes-tapa-blanda":{"title":"El Deseado de Todas las Gentes","price":10.82,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Deseado de Todas las Gentes"},"el-ministerio-de-publicaciones":{"title":"El Ministerio de Publicaciones","price":9.64,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Ministerio de Publicaciones"},"el-ministerio-de-la-bondad":{"title":"El Ministerio de la Bondad","price":8.73,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Ministerio de la Bondad"},"el-ministerio-medico":{"title":"El Ministerio Médico","price":11.44,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Ministerio Médico"},"el-hogar-cristiano":{"title":"El Hogar Cristiano","price":10.18,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Hogar Cristiano"},"el-evangelismo":{"title":"El Evangelismo","price":11.26,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Evangelismo"},"el-conflicto-inminente":{"title":"El Conflicto Inminente","price":7.34,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Conflicto Inminente"},"el-colportor-evangelico":{"title":"El Colportor Evangélico","price":7.99,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Colportor Evangélico"},"dios-nos-cuida":{"title":"Dios Nos Cuida","price":9.81,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Dios nos Cuida"},"de-la-ciudad-al-campo":{"title":"De la Ciudad al Campo","price":7.13,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"De la Cuidad al Campo"},"la-pasion-del-amor":{"title":"La Pasión del Amor","price":8.51,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":null},"cristo-nuestro-salvador":{"title":"Cristo Nuestro Salvador","price":7.43,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Cristo Nuestro Salvador"},"cristo-en-su-santuario":{"title":"Cristo en Su Santuario","price":7.43,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Cristo en Su Santuario"},"el-deseado-de-todas-las-gentes-tapa-dura":{"title":"El Deseado de Todas las Gentes","price":18.08,"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","pdfTitle":"El Deseado de Todas las Gentes"},"consejos-sobre-la-mayordomia-cristiana":{"title":"Consejos sobre la Mayordomía Cristiana","price":9.01,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Consejos sobre Mayordomía Cristiana"},"consejos-sobre-la-obra-de-escuela-sabatica":{"title":"Consejos sobre la Obra de Escuela Sabática","price":8.19,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Consejos Sobre la Obra de la Escuela Sabática"},"consejos-para-los-maestros":{"title":"Consejos para los Maestros","price":10.15,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Consejos para los Maestros"},"consejos-para-la-iglesia":{"title":"Consejos para la Iglesia","price":10.46,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Consejos para la Iglesia"},"cada-dia-con-dios":{"title":"Cada Día con Dios","price":9.63,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Cada Día con Dios"},"el-poder-de-la-oracion":{"title":"El Poder Increíble de la Oración","price":7.26,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":null},"alza-tus-ojos":{"title":"Alza Tus Ojos","price":9.62,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Alza tus Ojos"},"a-fin-de-conocerle":{"title":"A Fin de Conocerle","price":9.7,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"A Fin de Conocerle"},"review-and-herald":{"title":"Review and Herald","price":16.24,"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","pdfTitle":null},"la-verdad-acerca-de-los-angeles":{"title":"La Verdad Acerca de los Ángeles","price":8.4,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Verdad acerca de los Ángeles"},"la-historia-de-la-redencion":{"title":"La Historia de la Redención","price":10.36,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Historia de la Redención"},"la-iglesia-remanente":{"title":"La Iglesia Remanente","price":6.98,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Iglesia Remanente"},"la-maravillosa-gracia-de-dios":{"title":"La Maravillosa Gracia de Dios","price":9.65,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Maravillosa Gracia de Dios"},"la-musica":{"title":"La Música","price":6.94,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Música"},"la-segunda-venida-y-el-cielo":{"title":"La Segunda Venida y el Cielo","price":7.55,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Segunda Venida y el Cielo"},"la-temperancia":{"title":"La Temperancia","price":8.94,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Temperancia"},"la-unica-esperanza":{"title":"La Única Esperanza","price":7.38,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Única Esperanza"},"la-verdad-acerca-de-los-angeles-2":{"title":"La Verdad Acerca de los Ángeles","price":8.26,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Verdad acerca de los Ángeles"},"la-voz-su-educacion-y-uso-correcto":{"title":"La Voz, su Educación y Uso Correcto","price":9.25,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Voz, Su Educación y Uso Correcto"},"los-hechos-de-los-apostoles":{"title":"Los Hechos de los Apóstoles","price":16.9,"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","pdfTitle":"Los Hechos de los Apóstoles","extra":[{"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","price":9.89}]},"los-hechos-de-los-apostoles-tapa-blanda":{"title":"Los Hechos de los Apóstoles","price":9.89,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Los Hechos de los Apóstoles"},"palabras-de-vida-del-gran-maestro":{"title":"Palabras de Vida del Gran Maestro","price":9,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Palabras de Vida del Gran Maestro"},"primeros-escritos":{"title":"Primeros Escritos","price":9.18,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Primeros Escritos","extra":[{"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","price":16.07}]},"primeros-escritos-tapa-dura":{"title":"Primeros Escritos","price":16.07,"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","pdfTitle":"Primeros Escritos"},"testimonios-para-la-iglesia-tomo-2":{"title":"Testimonios para la Iglesia, Tomo 2","price":12.2,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para la Iglesia, Tomo 2"},"testimonios-para-la-iglesia-tomo-3":{"title":"Testimonios para la Iglesia, Tomo 3","price":10.3,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para la Iglesia, Tomo 3"},"testimonios-para-la-iglesia-tomo-4":{"title":"Testimonios para la Iglesia, Tomo 4","price":12.11,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para la Iglesia, Tomo 4"},"testimonios-para-la-iglesia-tomo-6":{"title":"Testimonios para la Iglesia, Tomo 6","price":10.33,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para la Iglesia, Tomo 6"},"testimonios-para-la-iglesia-tomo-7":{"title":"Testimonios para la Iglesia, Tomo 7","price":8.98,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para la Iglesia, Tomo 7"},"testimonios-para-la-iglesia-tomo-8":{"title":"Testimonios para la Iglesia, Tomo 8","price":9.3,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para la Iglesia, Tomo 8"},"testimonios-para-la-iglesia-tomo-9":{"title":"Testimonios para la Iglesia, Tomo 9","price":8.69,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para la Iglesia, Tomo 9"},"eventos-de-los-ultimos-dias":{"title":"Eventos de los Últimos Días","price":8.37,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Eventos de los Últimos Días"},"testimonios-selectos-tomo-i":{"title":"Testimonios Selectos, Tomo I","price":8.18,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios Selectos Tomo 1"},"testimonios-selectos-tomo-ii":{"title":"Testimonios Selectos, Tomo II","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios Selectos Tomo 2"},"testimonios-selectos-tomo-iii":{"title":"Testimonios Selectos, Tomo III","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios Selectos Tomo 3"},"testimonios-selectos-tomo-iv":{"title":"Testimonios Selectos, Tomo IV","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios Selectos Tomo 4"},"testimonios-selectos-tomo-v":{"title":"Testimonios Selectos, Tomo V","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios Selectos Tomo 5"},"testimonios-para-la-iglesia-tomo-1":{"title":"Testimonios para la Iglesia, Tomo 1","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para la Iglesia, Tomo 1"},"testimonios-para-la-iglesia-tomo-5":{"title":"Testimonios para la Iglesia, Tomo 5","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para la Iglesia, Tomo 5"},"testimonios-para-los-ministros":{"title":"Testimonios para los Ministros","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para los Ministros"},"testimonios-conducta-sexual-adulterio-divorcio":{"title":"Testimonios acerca de Conducta Sexual, Adulterio y Divorcio","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios Acerca de Conducta Sexual, Adulterio y Divorcio"},"sermones-escogidos-1":{"title":"Sermones Escogidos 1","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Sermones Escogidos Tomo 1"},"sermones-escogidos-2":{"title":"Sermones Escogidos 2","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Sermones Escogidos Tomo 2"},"servicio-cristiano":{"title":"Servicio Cristiano","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Servicio Cristiano"},"ser-semejante-a-jesus":{"title":"Ser Semejante a Jesús","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Ser Semejante a Jesús"},"un-llamado-a-ser-diferente":{"title":"Un Llamado a Ser Diferente","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Un Llamado a Ser Diferente"},"liderazgo-cristiano":{"title":"Liderazgo Cristiano","price":7.27,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Liderazgo Cristiano"},"maranatha-el-senor-viene":{"title":"Maranatha, el Señor Viene","price":9.71,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Maranata, El Señor Viene"},"mensajes-selectos-tomo-i":{"title":"Mensajes Selectos, Tomo I","price":9.86,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Mensajes Selectos Tomo 1"},"mensajes-selectos-tomo-ii":{"title":"Mensajes Selectos, Tomo II","price":10.63,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Mensajes Selectos Tomo 2"},"mensajes-selectos-tomo-iii":{"title":"Mensajes Selectos, Tomo III","price":10.14,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Mensajes Selectos Tomo 3"},"discurso-maestro-de-jesucristo":{"title":"El Discurso Maestro de Jesucristo","price":7.34,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Discurso Maestro de Jesucristo","extra":[{"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","price":14.16}]},"discurso-maestro-de-jesucristo-tapa-dura":{"title":"El Discurso Maestro de Jesucristo","price":14.16,"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","pdfTitle":"El Discurso Maestro de Jesucristo"},"el-camino-a-cristo":{"title":"El Camino a Cristo","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Camino a Cristo"},"desde-el-corazon":{"title":"Desde el Corazón","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Desde el Corazón"},"leyes-de-la-salud":{"title":"Leyes de la Salud","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":null},"leyes-sobre-el-regimen-alimenticio":{"title":"Leyes sobre el Régimen Alimenticio","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":null},"conflicto-y-valor":{"title":"Conflicto y Valor","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Conflicto y Valor"},"conduccion-del-nino":{"title":"Conducción del Niño","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Conducción del Niño"},"coleccion-kress":{"title":"Colección Kress","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Colección Kress"},"cartas-a-jovenes-enamorados":{"title":"Cartas a Jóvenes Enamorados","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Cartas a Jóvenes Enamorados"},"hijas-de-dios":{"title":"Hijas de Dios","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Hijas de Dios"},"en-el-desierto-de-la-tentacion":{"title":"En el Desierto de la Tentación","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"En el Desierto de la Tentación"},"el-ministerio-de-curacion":{"title":"El Ministerio de Curación","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Ministerio de Curación"},"el-cristo-triunfante":{"title":"El Cristo Triunfante","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Cristo Triunfante"},"la-oracion":{"title":"La Oración","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Oración"},"la-educacion-cristiana":{"title":"La Educación Cristiana","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Educación Cristiana"},"joyas-de-los-testimonios-1":{"title":"Joyas de los Testimonios 1","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Joyas de los Testimonios 1"},"joyas-de-los-testimonios-2":{"title":"Joyas de los Testimonios 2","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Joyas de los Testimonios 2"},"joyas-de-los-testimonios-3":{"title":"Joyas de los Testimonios 3","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Joyas de los Testimonios 3"}};
+
+// ==========================================================================
+// AÑADIDO — «Las Bellas Historias de la Biblia» (Arthur S. Maxwell), 10 tomos.
+// No están en el PDF de 99 títulos, así que sus precios de fábrica se calculan
+// con la MISMA fórmula del proveedor: el PDF es lineal en las páginas
+// (precio = a·páginas + b, distinto para cada tamaño/papel/acabado; la fórmula
+// reproduce los 99 títulos del PDF al céntimo). Por defecto: tapa blanda A5,
+// brillo, papel blanco offset = precio de fábrica + 1,50 € (igual que el resto).
+// Formato BOLSILLO NO DISPONIBLE: estos tomos no tienen la clave "bolsillo",
+// así que el configurador no lo ofrece y el servidor lo rechaza.
+// Si el PDF del proveedor trae precios reales para estos tomos, sustituye las
+// cifras de aquí (y las de functions/ew-pricing.js) por las del PDF.
+// ==========================================================================
+Object.assign(window.EW_PRICE_TABLE, {"Las Bellas Historias de la Biblia, Tomo 1":{"a5":{"pages":172,"mate_crema":6.61,"mate_offset":6.42,"mate_semi":7.31,"brillo_crema":6.41,"brillo_offset":6.31,"brillo_semi":7.28},"mediano_blanda":{"pages":172,"mate_crema":6.88,"mate_offset":6.68,"mate_semi":7.6,"brillo_crema":6.64,"brillo_offset":6.54,"brillo_semi":7.56},"mediano_dura":{"pages":172,"crema":13.22,"offset":13.02,"semi":13.94},"grande_dura":{"pages":172,"crema":17.43,"offset":17.17,"semi":19.01}},"Las Bellas Historias de la Biblia, Tomo 2":{"a5":{"pages":190,"mate_crema":6.76,"mate_offset":6.57,"mate_semi":7.47,"brillo_crema":6.56,"brillo_offset":6.46,"brillo_semi":7.43},"mediano_blanda":{"pages":190,"mate_crema":7.03,"mate_offset":6.83,"mate_semi":7.75,"brillo_crema":6.79,"brillo_offset":6.69,"brillo_semi":7.71},"mediano_dura":{"pages":190,"crema":13.39,"offset":13.19,"semi":14.11},"grande_dura":{"pages":190,"crema":17.6,"offset":17.34,"semi":19.18}},"Las Bellas Historias de la Biblia, Tomo 3":{"a5":{"pages":192,"mate_crema":6.78,"mate_offset":6.59,"mate_semi":7.48,"brillo_crema":6.58,"brillo_offset":6.47,"brillo_semi":7.45},"mediano_blanda":{"pages":192,"mate_crema":7.05,"mate_offset":6.85,"mate_semi":7.77,"brillo_crema":6.81,"brillo_offset":6.71,"brillo_semi":7.73},"mediano_dura":{"pages":192,"crema":13.41,"offset":13.21,"semi":14.13},"grande_dura":{"pages":192,"crema":17.62,"offset":17.36,"semi":19.2}},"Las Bellas Historias de la Biblia, Tomo 4":{"a5":{"pages":193,"mate_crema":6.79,"mate_offset":6.6,"mate_semi":7.49,"brillo_crema":6.59,"brillo_offset":6.48,"brillo_semi":7.46},"mediano_blanda":{"pages":193,"mate_crema":7.05,"mate_offset":6.85,"mate_semi":7.77,"brillo_crema":6.81,"brillo_offset":6.71,"brillo_semi":7.73},"mediano_dura":{"pages":193,"crema":13.42,"offset":13.22,"semi":14.14},"grande_dura":{"pages":193,"crema":17.63,"offset":17.37,"semi":19.21}},"Las Bellas Historias de la Biblia, Tomo 5":{"a5":{"pages":193,"mate_crema":6.79,"mate_offset":6.6,"mate_semi":7.49,"brillo_crema":6.59,"brillo_offset":6.48,"brillo_semi":7.46},"mediano_blanda":{"pages":193,"mate_crema":7.05,"mate_offset":6.85,"mate_semi":7.77,"brillo_crema":6.81,"brillo_offset":6.71,"brillo_semi":7.73},"mediano_dura":{"pages":193,"crema":13.42,"offset":13.22,"semi":14.14},"grande_dura":{"pages":193,"crema":17.63,"offset":17.37,"semi":19.21}},"Las Bellas Historias de la Biblia, Tomo 6":{"a5":{"pages":193,"mate_crema":6.79,"mate_offset":6.6,"mate_semi":7.49,"brillo_crema":6.59,"brillo_offset":6.48,"brillo_semi":7.46},"mediano_blanda":{"pages":193,"mate_crema":7.05,"mate_offset":6.85,"mate_semi":7.77,"brillo_crema":6.81,"brillo_offset":6.71,"brillo_semi":7.73},"mediano_dura":{"pages":193,"crema":13.42,"offset":13.22,"semi":14.14},"grande_dura":{"pages":193,"crema":17.63,"offset":17.37,"semi":19.21}},"Las Bellas Historias de la Biblia, Tomo 7":{"a5":{"pages":193,"mate_crema":6.79,"mate_offset":6.6,"mate_semi":7.49,"brillo_crema":6.59,"brillo_offset":6.48,"brillo_semi":7.46},"mediano_blanda":{"pages":193,"mate_crema":7.05,"mate_offset":6.85,"mate_semi":7.77,"brillo_crema":6.81,"brillo_offset":6.71,"brillo_semi":7.73},"mediano_dura":{"pages":193,"crema":13.42,"offset":13.22,"semi":14.14},"grande_dura":{"pages":193,"crema":17.63,"offset":17.37,"semi":19.21}},"Las Bellas Historias de la Biblia, Tomo 8":{"a5":{"pages":193,"mate_crema":6.79,"mate_offset":6.6,"mate_semi":7.49,"brillo_crema":6.59,"brillo_offset":6.48,"brillo_semi":7.46},"mediano_blanda":{"pages":193,"mate_crema":7.05,"mate_offset":6.85,"mate_semi":7.77,"brillo_crema":6.81,"brillo_offset":6.71,"brillo_semi":7.73},"mediano_dura":{"pages":193,"crema":13.42,"offset":13.22,"semi":14.14},"grande_dura":{"pages":193,"crema":17.63,"offset":17.37,"semi":19.21}},"Las Bellas Historias de la Biblia, Tomo 9":{"a5":{"pages":193,"mate_crema":6.79,"mate_offset":6.6,"mate_semi":7.49,"brillo_crema":6.59,"brillo_offset":6.48,"brillo_semi":7.46},"mediano_blanda":{"pages":193,"mate_crema":7.05,"mate_offset":6.85,"mate_semi":7.77,"brillo_crema":6.81,"brillo_offset":6.71,"brillo_semi":7.73},"mediano_dura":{"pages":193,"crema":13.42,"offset":13.22,"semi":14.14},"grande_dura":{"pages":193,"crema":17.63,"offset":17.37,"semi":19.21}},"Las Bellas Historias de la Biblia, Tomo 10":{"a5":{"pages":209,"mate_crema":6.93,"mate_offset":6.74,"mate_semi":7.63,"brillo_crema":6.72,"brillo_offset":6.62,"brillo_semi":7.6},"mediano_blanda":{"pages":209,"mate_crema":7.19,"mate_offset":6.99,"mate_semi":7.91,"brillo_crema":6.95,"brillo_offset":6.85,"brillo_semi":7.87},"mediano_dura":{"pages":209,"crema":13.57,"offset":13.37,"semi":14.29},"grande_dura":{"pages":209,"crema":17.78,"offset":17.52,"semi":19.36}}});
+Object.assign(window.EW_BOOK_DEFAULTS, {"las-bellas-historias-de-la-biblia-1":{"title":"Las Bellas Historias de la Biblia, Tomo 1","price":14.31,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 1"},"las-bellas-historias-de-la-biblia-2":{"title":"Las Bellas Historias de la Biblia, Tomo 2","price":14.46,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 2"},"las-bellas-historias-de-la-biblia-3":{"title":"Las Bellas Historias de la Biblia, Tomo 3","price":14.47,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 3"},"las-bellas-historias-de-la-biblia-4":{"title":"Las Bellas Historias de la Biblia, Tomo 4","price":14.48,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 4"},"las-bellas-historias-de-la-biblia-5":{"title":"Las Bellas Historias de la Biblia, Tomo 5","price":14.48,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 5"},"las-bellas-historias-de-la-biblia-6":{"title":"Las Bellas Historias de la Biblia, Tomo 6","price":14.48,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 6"},"las-bellas-historias-de-la-biblia-7":{"title":"Las Bellas Historias de la Biblia, Tomo 7","price":14.48,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 7"},"las-bellas-historias-de-la-biblia-8":{"title":"Las Bellas Historias de la Biblia, Tomo 8","price":14.48,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 8"},"las-bellas-historias-de-la-biblia-9":{"title":"Las Bellas Historias de la Biblia, Tomo 9","price":14.48,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 9"},"las-bellas-historias-de-la-biblia-10":{"title":"Las Bellas Historias de la Biblia, Tomo 10","price":14.62,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 10"}});
+
+// ==========================================================================
+// AÑADIDO — «El Buey Adventista» (222 pág.), «Un Soldado sin Descanso» (295 pág.)
+// y «Un Viaje a lo Sobrenatural» (138 pág.). No están en el PDF de 99 títulos:
+// precios de fábrica calculados con la MISMA fórmula lineal del proveedor
+// (reproduce los 99 títulos del PDF al céntimo). Cada combinación que elija el
+// cliente (tamaño, tapa, acabado, papel) = precio de fábrica + 5,00 € (surcharge).
+// ==========================================================================
+Object.assign(window.EW_PRICE_TABLE, {"El Buey Adventista":{"bolsillo":{"pages":222,"mate_crema":5.45,"mate_offset":5.32,"mate_semi":6.04,"brillo_crema":5.47,"brillo_offset":5.34,"brillo_semi":6.06},"a5":{"pages":222,"mate_crema":7.04,"mate_offset":6.85,"mate_semi":7.74,"brillo_crema":6.83,"brillo_offset":6.73,"brillo_semi":7.71},"mediano_blanda":{"pages":222,"mate_crema":7.3,"mate_offset":7.1,"mate_semi":8.02,"brillo_crema":7.06,"brillo_offset":6.96,"brillo_semi":7.98},"mediano_dura":{"pages":222,"crema":13.69,"offset":13.49,"semi":14.41},"grande_dura":{"pages":222,"crema":17.9,"offset":17.64,"semi":19.48}},"Un Soldado sin Descanso":{"bolsillo":{"pages":295,"mate_crema":6.07,"mate_offset":5.94,"mate_semi":6.66,"brillo_crema":6.09,"brillo_offset":5.96,"brillo_semi":6.68},"a5":{"pages":295,"mate_crema":7.65,"mate_offset":7.46,"mate_semi":8.35,"brillo_crema":7.45,"brillo_offset":7.35,"brillo_semi":8.32},"mediano_blanda":{"pages":295,"mate_crema":7.92,"mate_offset":7.72,"mate_semi":8.64,"brillo_crema":7.68,"brillo_offset":7.58,"brillo_semi":8.6},"mediano_dura":{"pages":295,"crema":14.38,"offset":14.18,"semi":15.1},"grande_dura":{"pages":295,"crema":18.59,"offset":18.33,"semi":20.17}},"Un Viaje a lo Sobrenatural":{"bolsillo":{"pages":138,"mate_crema":4.74,"mate_offset":4.61,"mate_semi":5.33,"brillo_crema":4.76,"brillo_offset":4.63,"brillo_semi":5.35},"a5":{"pages":138,"mate_crema":6.33,"mate_offset":6.14,"mate_semi":7.03,"brillo_crema":6.12,"brillo_offset":6.02,"brillo_semi":7},"mediano_blanda":{"pages":138,"mate_crema":6.59,"mate_offset":6.39,"mate_semi":7.31,"brillo_crema":6.35,"brillo_offset":6.25,"brillo_semi":7.27},"mediano_dura":{"pages":138,"crema":12.9,"offset":12.7,"semi":13.62},"grande_dura":{"pages":138,"crema":17.11,"offset":16.85,"semi":18.69}}});
+Object.assign(window.EW_BOOK_DEFAULTS, {"el-buey-adventista":{"title":"El Buey Adventista","price":11.73,"surcharge":5,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Buey Adventista"},"un-soldado-sin-descanso":{"title":"Un Soldado sin Descanso","price":12.35,"surcharge":5,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Un Soldado sin Descanso"},"un-viaje-a-lo-sobrenatural":{"title":"Un Viaje a lo Sobrenatural","price":11.02,"surcharge":5,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Un Viaje a lo Sobrenatural"}});
+
+// Tamaños disponibles según el tipo de tapa (solo los que tienen precio
+// calculado en el PDF; el proveedor ofrece más tamaños, pero no se han
+// pedido precios para todos, así que no se muestran en la tienda).
+window.EW_SIZES_BY_TIPO = {
+  blanda: [
+    { slug: 'bolsillo', label: 'Bolsillo', dims: '110 x 180 mm' },
+    { slug: 'a5',       label: 'A5',       dims: '148 x 210 mm' },
+    { slug: 'mediano',  label: 'Mediano',  dims: '155 x 235 mm' }
+  ],
+  dura: [
+    { slug: 'mediano',  label: 'Mediano',  dims: '155 x 235 mm' },
+    { slug: 'grande',   label: 'Grande',   dims: '193 x 260 mm' }
+  ]
+};
+
+window.EW_PAPERS = [
+  { slug: 'crema',  label: 'Papel crema' },
+  { slug: 'offset', label: 'Papel blanco (Offset)' },
+  { slug: 'semi',   label: 'Papel blanco semi brillante' }
+];
+
+window.EW_FINISHES = [
+  { slug: 'mate',   label: 'Mate' },
+  { slug: 'brillo', label: 'Brillo' }
+];
+
+// Tamaños de un tipo de tapa que de verdad tienen precio PARA ESE LIBRO.
+// Para casi todos son todos; p. ej. «Las Bellas Historias de la Biblia» no
+// tiene «bolsillo», así que ahí solo salen A5 y Mediano.
+window.getEWSizes = function (bookId, tipo) {
+  var all = window.EW_SIZES_BY_TIPO[tipo] || [];
+  if (!bookId || typeof window.getEWPrice !== 'function') return all;
+  return all.filter(function (s) { return window.getEWPrice(bookId, tipo, s.slug, 'brillo', 'offset') !== null; });
+};
+
+// Combinación por defecto cuando el cliente no elige nada (o para libros
+// nuevos sin publicar aún): Tapa blanda, A5, Brillo, Blanco offset.
+window.EW_DEFAULT_SELECTION = { tipo: 'blanda', tamano: 'a5', acabado: 'brillo', papel: 'offset' };
+
+// Recargo aplicado a cualquier combinación que NO sea una de las ya
+// publicadas para ese libro (ni la de por defecto ni ninguna de "extra").
+window.EW_PDF_SURCHARGE = 1.50;
+
+// --- Helpers internos --------------------------------------------------
+function ewTableKey(tipo, tamano) {
+  if (tipo === 'blanda') {
+    if (tamano === 'bolsillo') return 'bolsillo';
+    if (tamano === 'a5') return 'a5';
+    if (tamano === 'mediano') return 'mediano_blanda';
+  } else if (tipo === 'dura') {
+    if (tamano === 'mediano') return 'mediano_dura';
+    if (tamano === 'grande') return 'grande_dura';
+  }
+  return null;
+}
+
+function ewColumnKey(tipo, acabado, papel) {
+  if (tipo === 'blanda') {
+    var ac = (acabado === 'mate') ? 'mate' : 'brillo';
+    var pa = (papel === 'crema') ? 'crema' : (papel === 'semi') ? 'semi' : 'offset';
+    return ac + '_' + pa;
+  }
+  // tapa dura: el acabado no afecta al precio
+  return (papel === 'crema') ? 'crema' : (papel === 'semi') ? 'semi' : 'offset';
+}
+
+function ewComboMatches(a, tipo, tamano, acabado, papel) {
+  return a.tipo === tipo && a.tamano === tamano && a.acabado === acabado && a.papel === papel;
+}
+
+// Precio de fábrica (PDF, sin el euro extra) para un título exacto del PDF.
+window.getEWRawPrice = function (pdfTitle, tipo, tamano, acabado, papel) {
+  var byTitle = window.EW_PRICE_TABLE[pdfTitle];
+  if (!byTitle) return null;
+  var sizeKey = ewTableKey(tipo, tamano);
+  if (!sizeKey) return null;
+  var sizeData = byTitle[sizeKey];
+  if (!sizeData) return null;
+  var col = ewColumnKey(tipo, acabado, papel);
+  var v = sizeData[col];
+  return (typeof v === 'number') ? v : null;
+};
+
+// Precio final a cobrar (ya con la regla de "precio ya publicado se queda
+// igual" / "+1€ para el resto") para un libro de la tienda (por su id).
+window.getEWPrice = function (bookId, tipo, tamano, acabado, papel) {
+  var def = window.EW_BOOK_DEFAULTS[bookId];
+  if (!def || !def.pdfTitle) return null;
+
+  if (ewComboMatches(def, tipo, tamano, acabado, papel)) return def.price;
+
+  if (def.extra) {
+    for (var i = 0; i < def.extra.length; i++) {
+      if (ewComboMatches(def.extra[i], tipo, tamano, acabado, papel)) return def.extra[i].price;
+    }
+  }
+
+  var raw = window.getEWRawPrice(def.pdfTitle, tipo, tamano, acabado, papel);
+  if (raw === null) return null;
+  return Math.round((raw + (typeof def.surcharge === 'number' ? def.surcharge : window.EW_PDF_SURCHARGE)) * 100) / 100;
+};
+
+// ¿Tiene este libro tabla de precios de impresión (configurador) o es un
+// libro con precio fijo (no está en el PDF de 99 títulos)?
+window.hasEWPrintOptions = function (bookId) {
+  var def = window.EW_BOOK_DEFAULTS[bookId];
+  if (!def || !def.pdfTitle) return false;
+  // Solo hay configurador si de verdad existe precio para la combinación por
+  // defecto. Si no, el libro se vende como libro de precio fijo (el de la web),
+  // igual en el navegador y en el servidor, y así nunca se puede pedir algo
+  // que el servidor luego rechace.
+  var p = window.getEWPrice(bookId, def.tipo, def.tamano, def.acabado, def.papel);
+  return p !== null && p !== undefined;
+};
+
+// Fichas antiguas que se han fusionado dentro de otra: id antiguo → id
+// canónico + el "tipo" (tapa) que representaba, para poder redirigir
+// automáticamente (ver js/product.js) y no romper enlaces ya compartidos.
+window.EW_MERGED_REDIRECTS = {
+  'el-deseado-de-todas-las-gentes-tapa-blanda': { id: 'el-deseado-de-todas-las-gentes', tipo: 'blanda' },
+  'el-deseado-de-todas-las-gentes-tapa-dura': { id: 'el-deseado-de-todas-las-gentes', tipo: 'dura' },
+  'los-hechos-de-los-apostoles-tapa-blanda': { id: 'los-hechos-de-los-apostoles', tipo: 'blanda' },
+  'primeros-escritos-tapa-dura': { id: 'primeros-escritos', tipo: 'dura' },
+  'discurso-maestro-de-jesucristo-tapa-dura': { id: 'discurso-maestro-de-jesucristo', tipo: 'dura' }
+};
+
+// ==========================================================================
+// COLECCIONES: un "libro" cuyo precio es la SUMA de los libros que lo forman,
+// con la misma combinación de tapa, tamaño, acabado y papel, multiplicada por EW_COLLECTION_FACTOR
+// (Tesoros de Vida: ×1,3047 → 79,99 € en tapa blanda A5; Las Bellas Historias: ×0,69).
+// Así la colección ofrece el mismo configurador que el resto de libros.
+// Debe ser idéntico en functions/ew-pricing.js.
+// ==========================================================================
+// Descuento por llevarse la colección completa (multiplicador sobre la suma de los tomos).
+// Igual en functions/ew-pricing.js.
+// Puede ser un número (igual para todos los formatos) o un objeto con «default» y
+// excepciones por 'tipo/tamaño'. Tesoros de Vida: tapa dura con factor propio para
+// quedar en 105,40 € (mediano) y 120,06 € (grande) con brillo + offset.
+window.EW_COLLECTION_FACTOR = {
+  'coleccion-las-bellas-historias-de-la-biblia': 0.69,
+  'coleccion-tesoros-de-vida': { 'default': 1.3047, 'dura/mediano': 1.0627, 'dura/grande': 1.05085 }
+};
+window.getEWCollectionFactor = function (bookId, tipo, tamano) {
+  var f = window.EW_COLLECTION_FACTOR[bookId];
+  if (f && typeof f === 'object') return f[tipo + '/' + tamano] || f['default'] || 1;
+  return f || 1;
+};
+window.EW_COLLECTIONS = {
+  'coleccion-las-bellas-historias-de-la-biblia': ["las-bellas-historias-de-la-biblia-1", "las-bellas-historias-de-la-biblia-2", "las-bellas-historias-de-la-biblia-3", "las-bellas-historias-de-la-biblia-4", "las-bellas-historias-de-la-biblia-5", "las-bellas-historias-de-la-biblia-6", "las-bellas-historias-de-la-biblia-7", "las-bellas-historias-de-la-biblia-8", "las-bellas-historias-de-la-biblia-9", "las-bellas-historias-de-la-biblia-10"],
+  'coleccion-tesoros-de-vida': ["historia-de-los-patriarcas-y-profetas","profetas-y-reyes","el-deseado-de-todas-las-gentes","los-hechos-de-los-apostoles","el-conflicto-de-los-siglos"]
+};
+window.EW_BOOK_DEFAULTS['coleccion-las-bellas-historias-de-la-biblia'] = {
+  title: 'Colección Las Bellas Historias de la Biblia', price: 99.87, tipo: 'blanda', tamano: 'a5',
+  acabado: 'brillo', papel: 'offset', pdfTitle: 'Colección Las Bellas Historias de la Biblia'
+};
+window.EW_BOOK_DEFAULTS['coleccion-tesoros-de-vida'] = {
+  title: 'Colección Tesoros de Vida', price: 79.99, tipo: 'blanda', tamano: 'a5',
+  acabado: 'brillo', papel: 'offset', pdfTitle: 'Colección Tesoros de Vida'
+};
+(function () {
+  var precioIndividual = window.getEWPrice;
+  window.getEWPrice = function (bookId, tipo, tamano, acabado, papel) {
+    var partes = window.EW_COLLECTIONS[bookId];
+    if (!partes) return precioIndividual(bookId, tipo, tamano, acabado, papel);
+    var total = 0;
+    for (var i = 0; i < partes.length; i++) {
+      var p = precioIndividual(partes[i], tipo, tamano, acabado, papel);
+      if (p === null || p === undefined) return null;
+      total += p;
+    }
+    return Math.round(total * window.getEWCollectionFactor(bookId, tipo, tamano) * 100) / 100;
+  };
+})();
+````
+
+## File: js/product.js
+````javascript
 // ==========================================================================
 // Ficha de producto dinámica: lee ?id= de la URL, busca el libro en
 // window.BOOKS (js/books-data.js) y rellena toda la página. Incluye
@@ -18619,7 +18065,7 @@ module.exports = { hasEWPrintOptions, resolverImpresion, getEWPrice, EW_BOOK_DEF
         qtyInput.value = Math.max(1, (parseInt(qtyInput.value, 10) || 1) - 1);
       });
       inc.addEventListener('click', function () {
-        qtyInput.value = Math.min(20, (parseInt(qtyInput.value, 10) || 1) + 1);
+        qtyInput.value = Math.min(600, (parseInt(qtyInput.value, 10) || 1) + 1);
       });
     }
   }
@@ -19098,256 +18544,497 @@ module.exports = { hasEWPrintOptions, resolverImpresion, getEWPrice, EW_BOOK_DEF
     document.head.appendChild(bookScript);
   }
 })();
-</file>
+````
 
-<file path="js/ew-pricing.js">
-// ==========================================================================
-// Precios de impresión bajo demanda — Colección Elena G. White (24BookPrint)
-// ARCHIVO GENERADO A PARTIR DE: precios_libros_elena_white.pdf
-// No editar los números a mano: si el proveedor manda una tabla nueva,
-// hay que regenerar este archivo entero a partir del PDF nuevo.
-//
-// Contiene:
-//   1) EW_PRICE_TABLE  → precio de fábrica (los del PDF, SIN el euro extra)
-//      para cada uno de los 99 títulos, en las 5 combinaciones de
-//      tipo+tamaño habilitadas en la tienda:
-//        - bolsillo        (Tapa blanda, 110 x 180 mm)
-//        - a5              (Tapa blanda, 148 x 210 mm)
-//        - mediano_blanda  (Tapa blanda, 155 x 235 mm)
-//        - mediano_dura    (Tapa dura,   155 x 235 mm)
-//        - grande_dura     (Tapa dura,   193 x 260 mm)
-//      y dentro de cada tamaño, por acabado/papel:
-//        tapa blanda → mate_crema, mate_offset, mate_semi,
-//                      brillo_crema, brillo_offset, brillo_semi
-//        tapa dura   → crema, offset, semi (el acabado mate/brillo no
-//                      cambia el precio en tapa dura, según el PDF)
-//
-//   2) EW_BOOK_DEFAULTS → para cada libro publicado en la tienda:
-//      - la combinación y precio que tiene AHORA MISMO por defecto (no se
-//        toca si el cliente no cambia nada).
-//      - "extra" (opcional): otras combinaciones que TAMBIÉN estaban ya
-//        publicadas en la tienda con su propio precio, normalmente porque
-//        antes eran una ficha de producto aparte (p. ej. "... Tapa dura")
-//        que se ha unificado dentro de esta misma ficha. Si el cliente
-//        elige una de esas combinaciones, se respeta ese precio ya
-//        publicado en vez de calcularlo con la tabla del PDF + 1 €.
-//
-//   3) window.getEWPrice(bookId, tipo, tamano, acabado, papel) → precio
-//      final en euros para esa combinación:
-//        - combinación por defecto del libro → precio ya publicado, tal cual.
-//        - combinación dentro de "extra"     → ese precio ya publicado, tal cual.
-//        - cualquier otra combinación        → precio del PDF para esa
-//          combinación + 1,00 € (el € de subida acordado para todo lo que
-//          no estaba ya publicado).
-//      Devuelve null si la combinación no existe (p. ej. tapa dura no
-//      tiene tamaño "bolsillo") o si el libro no tiene tabla de precios.
-// ==========================================================================
+## File: producto-app.html
+````html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script src="js/cookies.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title id="pageTitle">Ficha de producto — Librería tu mayor tesoro</title>
+<meta id="metaDescription" name="description" content="Descubre este título en Librería tu mayor tesoro: Biblias, obras de Elena G. White y literatura afín.">
+<link id="canonicalLink" rel="canonical" href="https://libreriatumayortesoro.com/producto.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Librería tu mayor tesoro">
+<meta id="ogTitle" property="og:title" content="Librería tu mayor tesoro">
+<meta id="ogDescription" property="og:description" content="Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.">
+<meta id="ogUrl" property="og:url" content="https://libreriatumayortesoro.com/producto.html">
+<meta id="ogImage" property="og:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta id="twitterTitle" name="twitter:title" content="Librería tu mayor tesoro">
+<meta id="twitterDescription" name="twitter:description" content="Biblias, obras de Elena G. White y literatura afín.">
+<meta id="twitterImage" name="twitter:image" content="https://libreriatumayortesoro.com/img/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#20304f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tu mayor tesoro">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<!-- product.js genera aquí el JSON-LD del producto real (con su valoración media si tiene reseñas) -->
+</head>
+<body>
 
-window.EW_PRICE_TABLE = {"A Fin de Conocerle":{"bolsillo":{"pages":396,"mate_crema":6.92,"mate_offset":6.79,"mate_semi":7.51,"brillo_crema":6.94,"brillo_offset":6.81,"brillo_semi":7.53},"a5":{"pages":396,"mate_crema":8.51,"mate_offset":8.32,"mate_semi":9.21,"brillo_crema":8.3,"brillo_offset":8.2,"brillo_semi":9.18},"mediano_blanda":{"pages":396,"mate_crema":8.77,"mate_offset":8.57,"mate_semi":9.49,"brillo_crema":8.53,"brillo_offset":8.43,"brillo_semi":9.45},"mediano_dura":{"pages":396,"crema":15.34,"offset":15.14,"semi":16.06},"grande_dura":{"pages":396,"crema":19.55,"offset":19.29,"semi":21.13}},"Alza tus Ojos":{"bolsillo":{"pages":388,"mate_crema":6.85,"mate_offset":6.72,"mate_semi":7.44,"brillo_crema":6.87,"brillo_offset":6.74,"brillo_semi":7.46},"a5":{"pages":388,"mate_crema":8.44,"mate_offset":8.25,"mate_semi":9.14,"brillo_crema":8.24,"brillo_offset":8.13,"brillo_semi":9.11},"mediano_blanda":{"pages":388,"mate_crema":8.7,"mate_offset":8.5,"mate_semi":9.42,"brillo_crema":8.46,"brillo_offset":8.36,"brillo_semi":9.38},"mediano_dura":{"pages":388,"crema":15.27,"offset":15.07,"semi":15.99},"grande_dura":{"pages":388,"crema":19.48,"offset":19.22,"semi":21.06}},"Cada Día con Dios":{"bolsillo":{"pages":390,"mate_crema":6.87,"mate_offset":6.74,"mate_semi":7.46,"brillo_crema":6.89,"brillo_offset":6.76,"brillo_semi":7.48},"a5":{"pages":390,"mate_crema":8.46,"mate_offset":8.27,"mate_semi":9.16,"brillo_crema":8.25,"brillo_offset":8.15,"brillo_semi":9.13},"mediano_blanda":{"pages":390,"mate_crema":8.72,"mate_offset":8.52,"mate_semi":9.44,"brillo_crema":8.48,"brillo_offset":8.38,"brillo_semi":9.4},"mediano_dura":{"pages":390,"crema":15.28,"offset":15.08,"semi":16.0},"grande_dura":{"pages":390,"crema":19.49,"offset":19.23,"semi":21.07}},"Cartas a Jóvenes Enamorados":{"bolsillo":{"pages":94,"mate_crema":4.37,"mate_offset":4.24,"mate_semi":4.96,"brillo_crema":4.39,"brillo_offset":4.26,"brillo_semi":4.98},"a5":{"pages":94,"mate_crema":5.95,"mate_offset":5.76,"mate_semi":6.65,"brillo_crema":5.75,"brillo_offset":5.65,"brillo_semi":6.62},"mediano_blanda":{"pages":94,"mate_crema":6.22,"mate_offset":6.02,"mate_semi":6.94,"brillo_crema":5.98,"brillo_offset":5.88,"brillo_semi":6.9},"mediano_dura":{"pages":94,"crema":12.48,"offset":12.28,"semi":13.2},"grande_dura":{"pages":94,"crema":16.69,"offset":16.43,"semi":18.27}},"Colección Kress":{"bolsillo":{"pages":253,"mate_crema":5.71,"mate_offset":5.58,"mate_semi":6.3,"brillo_crema":5.73,"brillo_offset":5.6,"brillo_semi":6.32},"a5":{"pages":253,"mate_crema":7.3,"mate_offset":7.11,"mate_semi":8.0,"brillo_crema":7.09,"brillo_offset":6.99,"brillo_semi":7.97},"mediano_blanda":{"pages":253,"mate_crema":7.56,"mate_offset":7.36,"mate_semi":8.28,"brillo_crema":7.32,"brillo_offset":7.22,"brillo_semi":8.24},"mediano_dura":{"pages":253,"crema":13.99,"offset":13.79,"semi":14.71},"grande_dura":{"pages":253,"crema":18.2,"offset":17.94,"semi":19.78}},"Conducción del Niño":{"bolsillo":{"pages":459,"mate_crema":7.45,"mate_offset":7.32,"mate_semi":8.04,"brillo_crema":7.47,"brillo_offset":7.34,"brillo_semi":8.06},"a5":{"pages":459,"mate_crema":9.04,"mate_offset":8.85,"mate_semi":9.74,"brillo_crema":8.84,"brillo_offset":8.73,"brillo_semi":9.71},"mediano_blanda":{"pages":459,"mate_crema":9.3,"mate_offset":9.1,"mate_semi":10.02,"brillo_crema":9.06,"brillo_offset":8.96,"brillo_semi":9.98},"mediano_dura":{"pages":459,"crema":15.94,"offset":15.74,"semi":16.66},"grande_dura":{"pages":459,"crema":20.15,"offset":19.89,"semi":21.73}},"Conflicto y Valor":{"bolsillo":{"pages":390,"mate_crema":6.87,"mate_offset":6.74,"mate_semi":7.46,"brillo_crema":6.89,"brillo_offset":6.76,"brillo_semi":7.48},"a5":{"pages":390,"mate_crema":8.46,"mate_offset":8.27,"mate_semi":9.16,"brillo_crema":8.25,"brillo_offset":8.15,"brillo_semi":9.13},"mediano_blanda":{"pages":390,"mate_crema":8.72,"mate_offset":8.52,"mate_semi":9.44,"brillo_crema":8.48,"brillo_offset":8.38,"brillo_semi":9.4},"mediano_dura":{"pages":390,"crema":15.28,"offset":15.08,"semi":16.0},"grande_dura":{"pages":390,"crema":19.49,"offset":19.23,"semi":21.07}},"Leyes sobre el Régimen Alimenticio":{"bolsillo":{"pages":486,"mate_crema":7.68,"mate_offset":7.55,"mate_semi":8.27,"brillo_crema":7.7,"brillo_offset":7.57,"brillo_semi":8.29},"a5":{"pages":486,"mate_crema":9.27,"mate_offset":9.08,"mate_semi":9.97,"brillo_crema":9.07,"brillo_offset":8.96,"brillo_semi":9.94},"mediano_blanda":{"pages":486,"mate_crema":9.53,"mate_offset":9.33,"mate_semi":10.25,"brillo_crema":9.29,"brillo_offset":9.19,"brillo_semi":10.21},"mediano_dura":{"pages":486,"crema":16.19,"offset":15.99,"semi":16.91},"grande_dura":{"pages":486,"crema":20.4,"offset":20.14,"semi":21.98}},"Consejos Sobre la Obra de la Escuela Sabática":{"bolsillo":{"pages":223,"mate_crema":5.46,"mate_offset":5.33,"mate_semi":6.05,"brillo_crema":5.48,"brillo_offset":5.35,"brillo_semi":6.07},"a5":{"pages":223,"mate_crema":7.04,"mate_offset":6.85,"mate_semi":7.75,"brillo_crema":6.84,"brillo_offset":6.74,"brillo_semi":7.71},"mediano_blanda":{"pages":223,"mate_crema":7.31,"mate_offset":7.11,"mate_semi":8.03,"brillo_crema":7.07,"brillo_offset":6.97,"brillo_semi":7.99},"mediano_dura":{"pages":223,"crema":13.7,"offset":13.5,"semi":14.42},"grande_dura":{"pages":223,"crema":17.91,"offset":17.65,"semi":19.49}},"Consejos Sobre la Salud":{"bolsillo":{"pages":692,"mate_crema":9.43,"mate_offset":9.3,"mate_semi":10.02,"brillo_crema":9.45,"brillo_offset":9.32,"brillo_semi":10.04},"a5":{"pages":692,"mate_crema":11.01,"mate_offset":10.82,"mate_semi":11.71,"brillo_crema":10.81,"brillo_offset":10.7,"brillo_semi":11.68},"mediano_blanda":{"pages":692,"mate_crema":11.28,"mate_offset":11.08,"mate_semi":12.0,"brillo_crema":11.04,"brillo_offset":10.94,"brillo_semi":11.96},"mediano_dura":{"pages":692,"crema":18.14,"offset":17.94,"semi":18.86},"grande_dura":{"pages":692,"crema":22.35,"offset":22.09,"semi":23.93}},"Consejos para la Iglesia":{"bolsillo":{"pages":489,"mate_crema":7.71,"mate_offset":7.58,"mate_semi":8.3,"brillo_crema":7.73,"brillo_offset":7.6,"brillo_semi":8.32},"a5":{"pages":489,"mate_crema":9.29,"mate_offset":9.1,"mate_semi":10.0,"brillo_crema":9.09,"brillo_offset":8.99,"brillo_semi":9.96},"mediano_blanda":{"pages":489,"mate_crema":9.56,"mate_offset":9.36,"mate_semi":10.28,"brillo_crema":9.32,"brillo_offset":9.22,"brillo_semi":10.24},"mediano_dura":{"pages":489,"crema":16.22,"offset":16.02,"semi":16.94},"grande_dura":{"pages":489,"crema":20.43,"offset":20.17,"semi":22.01}},"Consejos para los Maestros":{"bolsillo":{"pages":455,"mate_crema":7.42,"mate_offset":7.29,"mate_semi":8.01,"brillo_crema":7.44,"brillo_offset":7.31,"brillo_semi":8.03},"a5":{"pages":455,"mate_crema":9.01,"mate_offset":8.82,"mate_semi":9.71,"brillo_crema":8.8,"brillo_offset":8.7,"brillo_semi":9.68},"mediano_blanda":{"pages":455,"mate_crema":9.27,"mate_offset":9.07,"mate_semi":9.99,"brillo_crema":9.03,"brillo_offset":8.93,"brillo_semi":9.95},"mediano_dura":{"pages":455,"crema":15.9,"offset":15.7,"semi":16.62},"grande_dura":{"pages":455,"crema":20.11,"offset":19.85,"semi":21.69}},"Consejos sobre Mayordomía Cristiana":{"bolsillo":{"pages":326,"mate_crema":6.33,"mate_offset":6.2,"mate_semi":6.92,"brillo_crema":6.35,"brillo_offset":6.22,"brillo_semi":6.94},"a5":{"pages":326,"mate_crema":7.92,"mate_offset":7.73,"mate_semi":8.62,"brillo_crema":7.71,"brillo_offset":7.61,"brillo_semi":8.59},"mediano_blanda":{"pages":326,"mate_crema":8.18,"mate_offset":7.98,"mate_semi":8.9,"brillo_crema":7.94,"brillo_offset":7.84,"brillo_semi":8.86},"mediano_dura":{"pages":326,"crema":14.68,"offset":14.48,"semi":15.4},"grande_dura":{"pages":326,"crema":18.89,"offset":18.63,"semi":20.47}},"Cristo Nuestro Salvador":{"bolsillo":{"pages":118,"mate_crema":4.57,"mate_offset":4.44,"mate_semi":5.16,"brillo_crema":4.59,"brillo_offset":4.46,"brillo_semi":5.18},"a5":{"pages":118,"mate_crema":6.16,"mate_offset":5.97,"mate_semi":6.86,"brillo_crema":5.95,"brillo_offset":5.85,"brillo_semi":6.83},"mediano_blanda":{"pages":118,"mate_crema":6.42,"mate_offset":6.22,"mate_semi":7.14,"brillo_crema":6.18,"brillo_offset":6.08,"brillo_semi":7.1},"mediano_dura":{"pages":118,"crema":12.71,"offset":12.51,"semi":13.43},"grande_dura":{"pages":118,"crema":16.92,"offset":16.66,"semi":18.5}},"Cristo en Su Santuario":{"bolsillo":{"pages":128,"mate_crema":4.65,"mate_offset":4.52,"mate_semi":5.24,"brillo_crema":4.67,"brillo_offset":4.54,"brillo_semi":5.26},"a5":{"pages":128,"mate_crema":6.24,"mate_offset":6.05,"mate_semi":6.94,"brillo_crema":6.04,"brillo_offset":5.93,"brillo_semi":6.91},"mediano_blanda":{"pages":128,"mate_crema":6.5,"mate_offset":6.3,"mate_semi":7.22,"brillo_crema":6.26,"brillo_offset":6.16,"brillo_semi":7.18},"mediano_dura":{"pages":128,"crema":12.81,"offset":12.61,"semi":13.53},"grande_dura":{"pages":128,"crema":17.02,"offset":16.76,"semi":18.6}},"De la Cuidad al Campo":{"bolsillo":{"pages":92,"mate_crema":4.35,"mate_offset":4.22,"mate_semi":4.94,"brillo_crema":4.37,"brillo_offset":4.24,"brillo_semi":4.96},"a5":{"pages":92,"mate_crema":5.94,"mate_offset":5.75,"mate_semi":6.64,"brillo_crema":5.73,"brillo_offset":5.63,"brillo_semi":6.61},"mediano_blanda":{"pages":92,"mate_crema":6.2,"mate_offset":6.0,"mate_semi":6.92,"brillo_crema":5.96,"brillo_offset":5.86,"brillo_semi":6.88},"mediano_dura":{"pages":92,"crema":12.46,"offset":12.26,"semi":13.18},"grande_dura":{"pages":92,"crema":16.67,"offset":16.41,"semi":18.25}},"Desde el Corazón":{"bolsillo":{"pages":382,"mate_crema":6.8,"mate_offset":6.67,"mate_semi":7.39,"brillo_crema":6.82,"brillo_offset":6.69,"brillo_semi":7.41},"a5":{"pages":382,"mate_crema":8.39,"mate_offset":8.2,"mate_semi":9.09,"brillo_crema":8.19,"brillo_offset":8.08,"brillo_semi":9.06},"mediano_blanda":{"pages":382,"mate_crema":8.65,"mate_offset":8.45,"mate_semi":9.37,"brillo_crema":8.41,"brillo_offset":8.31,"brillo_semi":9.33},"mediano_dura":{"pages":382,"crema":15.21,"offset":15.01,"semi":15.93},"grande_dura":{"pages":382,"crema":19.42,"offset":19.16,"semi":21.0}},"Dios nos Cuida":{"bolsillo":{"pages":409,"mate_crema":7.03,"mate_offset":6.9,"mate_semi":7.62,"brillo_crema":7.05,"brillo_offset":6.92,"brillo_semi":7.64},"a5":{"pages":409,"mate_crema":8.62,"mate_offset":8.43,"mate_semi":9.32,"brillo_crema":8.41,"brillo_offset":8.31,"brillo_semi":9.29},"mediano_blanda":{"pages":409,"mate_crema":8.88,"mate_offset":8.68,"mate_semi":9.6,"brillo_crema":8.64,"brillo_offset":8.54,"brillo_semi":9.56},"mediano_dura":{"pages":409,"crema":15.46,"offset":15.26,"semi":16.18},"grande_dura":{"pages":409,"crema":19.67,"offset":19.41,"semi":21.25}},"El Camino a Cristo":{"bolsillo":{"pages":94,"mate_crema":4.37,"mate_offset":4.24,"mate_semi":4.96,"brillo_crema":4.39,"brillo_offset":4.26,"brillo_semi":4.98},"a5":{"pages":94,"mate_crema":5.95,"mate_offset":5.76,"mate_semi":6.65,"brillo_crema":5.75,"brillo_offset":5.65,"brillo_semi":6.62},"mediano_blanda":{"pages":94,"mate_crema":6.22,"mate_offset":6.02,"mate_semi":6.94,"brillo_crema":5.98,"brillo_offset":5.88,"brillo_semi":6.9},"mediano_dura":{"pages":94,"crema":12.48,"offset":12.28,"semi":13.2},"grande_dura":{"pages":94,"crema":16.69,"offset":16.43,"semi":18.27}},"El Colportor Evangélico":{"bolsillo":{"pages":194,"mate_crema":5.21,"mate_offset":5.08,"mate_semi":5.8,"brillo_crema":5.23,"brillo_offset":5.1,"brillo_semi":5.82},"a5":{"pages":194,"mate_crema":6.8,"mate_offset":6.61,"mate_semi":7.5,"brillo_crema":6.6,"brillo_offset":6.49,"brillo_semi":7.47},"mediano_blanda":{"pages":194,"mate_crema":7.06,"mate_offset":6.86,"mate_semi":7.78,"brillo_crema":6.82,"brillo_offset":6.72,"brillo_semi":7.74},"mediano_dura":{"pages":194,"crema":13.43,"offset":13.23,"semi":14.15},"grande_dura":{"pages":194,"crema":17.64,"offset":17.38,"semi":19.22}},"El Conflicto Inminente":{"bolsillo":{"pages":118,"mate_crema":4.57,"mate_offset":4.44,"mate_semi":5.16,"brillo_crema":4.59,"brillo_offset":4.46,"brillo_semi":5.18},"a5":{"pages":118,"mate_crema":6.16,"mate_offset":5.97,"mate_semi":6.86,"brillo_crema":5.95,"brillo_offset":5.85,"brillo_semi":6.83},"mediano_blanda":{"pages":118,"mate_crema":6.42,"mate_offset":6.22,"mate_semi":7.14,"brillo_crema":6.18,"brillo_offset":6.08,"brillo_semi":7.1},"mediano_dura":{"pages":118,"crema":12.71,"offset":12.51,"semi":13.43},"grande_dura":{"pages":118,"crema":16.92,"offset":16.66,"semi":18.5}},"El Conflicto de los Siglos":{"bolsillo":{"pages":654,"mate_crema":9.1,"mate_offset":8.97,"mate_semi":9.69,"brillo_crema":9.12,"brillo_offset":8.99,"brillo_semi":9.71},"a5":{"pages":654,"mate_crema":10.69,"mate_offset":10.5,"mate_semi":11.39,"brillo_crema":10.49,"brillo_offset":10.38,"brillo_semi":11.36},"mediano_blanda":{"pages":654,"mate_crema":10.95,"mate_offset":10.75,"mate_semi":11.67,"brillo_crema":10.71,"brillo_offset":10.61,"brillo_semi":11.63},"mediano_dura":{"pages":654,"crema":17.78,"offset":17.58,"semi":18.5},"grande_dura":{"pages":654,"crema":21.99,"offset":21.73,"semi":23.57}},"El Cristo Triunfante":{"bolsillo":{"pages":390,"mate_crema":6.87,"mate_offset":6.74,"mate_semi":7.46,"brillo_crema":6.89,"brillo_offset":6.76,"brillo_semi":7.48},"a5":{"pages":390,"mate_crema":8.46,"mate_offset":8.27,"mate_semi":9.16,"brillo_crema":8.25,"brillo_offset":8.15,"brillo_semi":9.13},"mediano_blanda":{"pages":390,"mate_crema":8.72,"mate_offset":8.52,"mate_semi":9.44,"brillo_crema":8.48,"brillo_offset":8.38,"brillo_semi":9.4},"mediano_dura":{"pages":390,"crema":15.28,"offset":15.08,"semi":16.0},"grande_dura":{"pages":390,"crema":19.49,"offset":19.23,"semi":21.07}},"El Deseado de Todas las Gentes":{"bolsillo":{"pages":782,"mate_crema":10.19,"mate_offset":10.06,"mate_semi":10.78,"brillo_crema":10.21,"brillo_offset":10.08,"brillo_semi":10.8},"a5":{"pages":782,"mate_crema":11.77,"mate_offset":11.58,"mate_semi":12.47,"brillo_crema":11.57,"brillo_offset":11.47,"brillo_semi":12.44},"mediano_blanda":{"pages":782,"mate_crema":12.04,"mate_offset":11.84,"mate_semi":12.76,"brillo_crema":11.8,"brillo_offset":11.7,"brillo_semi":12.72},"mediano_dura":{"pages":782,"crema":18.99,"offset":18.79,"semi":19.71},"grande_dura":{"pages":782,"crema":23.2,"offset":22.94,"semi":24.78}},"El Discurso Maestro de Jesucristo":{"bolsillo":{"pages":120,"mate_crema":4.59,"mate_offset":4.46,"mate_semi":5.18,"brillo_crema":4.61,"brillo_offset":4.48,"brillo_semi":5.2},"a5":{"pages":120,"mate_crema":6.17,"mate_offset":5.98,"mate_semi":6.87,"brillo_crema":5.97,"brillo_offset":5.87,"brillo_semi":6.84},"mediano_blanda":{"pages":120,"mate_crema":6.44,"mate_offset":6.24,"mate_semi":7.16,"brillo_crema":6.2,"brillo_offset":6.1,"brillo_semi":7.12},"mediano_dura":{"pages":120,"crema":12.73,"offset":12.53,"semi":13.45},"grande_dura":{"pages":120,"crema":16.94,"offset":16.68,"semi":18.52}},"El Evangelismo":{"bolsillo":{"pages":579,"mate_crema":8.47,"mate_offset":8.34,"mate_semi":9.06,"brillo_crema":8.49,"brillo_offset":8.36,"brillo_semi":9.08},"a5":{"pages":579,"mate_crema":10.06,"mate_offset":9.87,"mate_semi":10.76,"brillo_crema":9.85,"brillo_offset":9.75,"brillo_semi":10.73},"mediano_blanda":{"pages":579,"mate_crema":10.32,"mate_offset":10.12,"mate_semi":11.04,"brillo_crema":10.08,"brillo_offset":9.98,"brillo_semi":11.0},"mediano_dura":{"pages":579,"crema":17.07,"offset":16.87,"semi":17.79},"grande_dura":{"pages":579,"crema":21.28,"offset":21.02,"semi":22.86}},"El Hogar Cristiano":{"bolsillo":{"pages":452,"mate_crema":7.4,"mate_offset":7.27,"mate_semi":7.99,"brillo_crema":7.42,"brillo_offset":7.29,"brillo_semi":8.01},"a5":{"pages":452,"mate_crema":8.98,"mate_offset":8.79,"mate_semi":9.68,"brillo_crema":8.78,"brillo_offset":8.67,"brillo_semi":9.65},"mediano_blanda":{"pages":452,"mate_crema":9.25,"mate_offset":9.05,"mate_semi":9.97,"brillo_crema":9.01,"brillo_offset":8.91,"brillo_semi":9.93},"mediano_dura":{"pages":452,"crema":15.87,"offset":15.67,"semi":16.59},"grande_dura":{"pages":452,"crema":20.08,"offset":19.82,"semi":21.66}},"El Ministerio Médico":{"bolsillo":{"pages":601,"mate_crema":8.66,"mate_offset":8.53,"mate_semi":9.25,"brillo_crema":8.68,"brillo_offset":8.55,"brillo_semi":9.27},"a5":{"pages":601,"mate_crema":10.24,"mate_offset":10.05,"mate_semi":10.94,"brillo_crema":10.04,"brillo_offset":9.93,"brillo_semi":10.91},"mediano_blanda":{"pages":601,"mate_crema":10.51,"mate_offset":10.31,"mate_semi":11.23,"brillo_crema":10.27,"brillo_offset":10.17,"brillo_semi":11.19},"mediano_dura":{"pages":601,"crema":17.28,"offset":17.08,"semi":18.0},"grande_dura":{"pages":601,"crema":21.49,"offset":21.23,"semi":23.07}},"El Ministerio Pastoral":{"bolsillo":{"pages":322,"mate_crema":6.3,"mate_offset":6.17,"mate_semi":6.89,"brillo_crema":6.32,"brillo_offset":6.19,"brillo_semi":6.91},"a5":{"pages":322,"mate_crema":7.88,"mate_offset":7.69,"mate_semi":8.58,"brillo_crema":7.68,"brillo_offset":7.57,"brillo_semi":8.55},"mediano_blanda":{"pages":322,"mate_crema":8.15,"mate_offset":7.95,"mate_semi":8.87,"brillo_crema":7.91,"brillo_offset":7.81,"brillo_semi":8.83},"mediano_dura":{"pages":322,"crema":14.64,"offset":14.44,"semi":15.36},"grande_dura":{"pages":322,"crema":18.85,"offset":18.59,"semi":20.43}},"El Ministerio de Curación":{"bolsillo":{"pages":368,"mate_crema":6.68,"mate_offset":6.55,"mate_semi":7.27,"brillo_crema":6.7,"brillo_offset":6.57,"brillo_semi":7.29},"a5":{"pages":368,"mate_crema":8.27,"mate_offset":8.08,"mate_semi":8.97,"brillo_crema":8.07,"brillo_offset":7.96,"brillo_semi":8.94},"mediano_blanda":{"pages":368,"mate_crema":8.53,"mate_offset":8.33,"mate_semi":9.25,"brillo_crema":8.29,"brillo_offset":8.19,"brillo_semi":9.21},"mediano_dura":{"pages":368,"crema":15.08,"offset":14.88,"semi":15.8},"grande_dura":{"pages":368,"crema":19.29,"offset":19.03,"semi":20.87}},"El Ministerio de Publicaciones":{"bolsillo":{"pages":389,"mate_crema":6.86,"mate_offset":6.73,"mate_semi":7.45,"brillo_crema":6.88,"brillo_offset":6.75,"brillo_semi":7.47},"a5":{"pages":389,"mate_crema":8.45,"mate_offset":8.26,"mate_semi":9.15,"brillo_crema":8.25,"brillo_offset":8.14,"brillo_semi":9.12},"mediano_blanda":{"pages":389,"mate_crema":8.71,"mate_offset":8.51,"mate_semi":9.43,"brillo_crema":8.47,"brillo_offset":8.37,"brillo_semi":9.39},"mediano_dura":{"pages":389,"crema":15.27,"offset":15.07,"semi":15.99},"grande_dura":{"pages":389,"crema":19.48,"offset":19.22,"semi":21.06}},"El Ministerio de la Bondad":{"bolsillo":{"pages":281,"mate_crema":5.95,"mate_offset":5.82,"mate_semi":6.54,"brillo_crema":5.97,"brillo_offset":5.84,"brillo_semi":6.56},"a5":{"pages":281,"mate_crema":7.53,"mate_offset":7.34,"mate_semi":8.24,"brillo_crema":7.33,"brillo_offset":7.23,"brillo_semi":8.2},"mediano_blanda":{"pages":281,"mate_crema":7.8,"mate_offset":7.6,"mate_semi":8.52,"brillo_crema":7.56,"brillo_offset":7.46,"brillo_semi":8.48},"mediano_dura":{"pages":281,"crema":14.25,"offset":14.05,"semi":14.97},"grande_dura":{"pages":281,"crema":18.46,"offset":18.2,"semi":20.04}},"El otro Poder":{"bolsillo":{"pages":133,"mate_crema":4.7,"mate_offset":4.57,"mate_semi":5.29,"brillo_crema":4.72,"brillo_offset":4.59,"brillo_semi":5.31},"a5":{"pages":133,"mate_crema":6.28,"mate_offset":6.09,"mate_semi":6.98,"brillo_crema":6.08,"brillo_offset":5.98,"brillo_semi":6.95},"mediano_blanda":{"pages":133,"mate_crema":6.55,"mate_offset":6.35,"mate_semi":7.27,"brillo_crema":6.31,"brillo_offset":6.21,"brillo_semi":7.23},"mediano_dura":{"pages":133,"crema":12.85,"offset":12.65,"semi":13.57},"grande_dura":{"pages":133,"crema":17.06,"offset":16.8,"semi":18.64}},"En el Desierto de la Tentación":{"bolsillo":{"pages":96,"mate_crema":4.38,"mate_offset":4.25,"mate_semi":4.97,"brillo_crema":4.4,"brillo_offset":4.27,"brillo_semi":4.99},"a5":{"pages":96,"mate_crema":5.97,"mate_offset":5.78,"mate_semi":6.67,"brillo_crema":5.77,"brillo_offset":5.66,"brillo_semi":6.64},"mediano_blanda":{"pages":96,"mate_crema":6.23,"mate_offset":6.03,"mate_semi":6.95,"brillo_crema":5.99,"brillo_offset":5.89,"brillo_semi":6.91},"mediano_dura":{"pages":96,"crema":12.5,"offset":12.3,"semi":13.22},"grande_dura":{"pages":96,"crema":16.71,"offset":16.45,"semi":18.29}},"En los Lugares Celestiales":{"bolsillo":{"pages":388,"mate_crema":6.85,"mate_offset":6.72,"mate_semi":7.44,"brillo_crema":6.87,"brillo_offset":6.74,"brillo_semi":7.46},"a5":{"pages":388,"mate_crema":8.44,"mate_offset":8.25,"mate_semi":9.14,"brillo_crema":8.24,"brillo_offset":8.13,"brillo_semi":9.11},"mediano_blanda":{"pages":388,"mate_crema":8.7,"mate_offset":8.5,"mate_semi":9.42,"brillo_crema":8.46,"brillo_offset":8.36,"brillo_semi":9.38},"mediano_dura":{"pages":388,"crema":15.27,"offset":15.07,"semi":15.99},"grande_dura":{"pages":388,"crema":19.48,"offset":19.22,"semi":21.06}},"Eventos de los Últimos Días":{"bolsillo":{"pages":242,"mate_crema":5.62,"mate_offset":5.49,"mate_semi":6.21,"brillo_crema":5.64,"brillo_offset":5.51,"brillo_semi":6.23},"a5":{"pages":242,"mate_crema":7.2,"mate_offset":7.01,"mate_semi":7.91,"brillo_crema":7.0,"brillo_offset":6.9,"brillo_semi":7.87},"mediano_blanda":{"pages":242,"mate_crema":7.47,"mate_offset":7.27,"mate_semi":8.19,"brillo_crema":7.23,"brillo_offset":7.13,"brillo_semi":8.15},"mediano_dura":{"pages":242,"crema":13.88,"offset":13.68,"semi":14.6},"grande_dura":{"pages":242,"crema":18.09,"offset":17.83,"semi":19.67}},"Exaltad a Jesús":{"bolsillo":{"pages":398,"mate_crema":6.94,"mate_offset":6.81,"mate_semi":7.53,"brillo_crema":6.96,"brillo_offset":6.83,"brillo_semi":7.55},"a5":{"pages":398,"mate_crema":8.52,"mate_offset":8.33,"mate_semi":9.23,"brillo_crema":8.32,"brillo_offset":8.22,"brillo_semi":9.19},"mediano_blanda":{"pages":398,"mate_crema":8.79,"mate_offset":8.59,"mate_semi":9.51,"brillo_crema":8.55,"brillo_offset":8.45,"brillo_semi":9.47},"mediano_dura":{"pages":398,"crema":15.36,"offset":15.16,"semi":16.08},"grande_dura":{"pages":398,"crema":19.57,"offset":19.31,"semi":21.15}},"Fe y Obras":{"bolsillo":{"pages":107,"mate_crema":4.48,"mate_offset":4.35,"mate_semi":5.07,"brillo_crema":4.5,"brillo_offset":4.37,"brillo_semi":5.09},"a5":{"pages":107,"mate_crema":6.06,"mate_offset":5.87,"mate_semi":6.76,"brillo_crema":5.86,"brillo_offset":5.76,"brillo_semi":6.73},"mediano_blanda":{"pages":107,"mate_crema":6.33,"mate_offset":6.13,"mate_semi":7.05,"brillo_crema":6.09,"brillo_offset":5.99,"brillo_semi":7.01},"mediano_dura":{"pages":107,"crema":12.61,"offset":12.41,"semi":13.33},"grande_dura":{"pages":107,"crema":16.82,"offset":16.56,"semi":18.4}},"Hijas de Dios":{"bolsillo":{"pages":281,"mate_crema":5.95,"mate_offset":5.82,"mate_semi":6.54,"brillo_crema":5.97,"brillo_offset":5.84,"brillo_semi":6.56},"a5":{"pages":281,"mate_crema":7.53,"mate_offset":7.34,"mate_semi":8.24,"brillo_crema":7.33,"brillo_offset":7.23,"brillo_semi":8.2},"mediano_blanda":{"pages":281,"mate_crema":7.8,"mate_offset":7.6,"mate_semi":8.52,"brillo_crema":7.56,"brillo_offset":7.46,"brillo_semi":8.48},"mediano_dura":{"pages":281,"crema":14.25,"offset":14.05,"semi":14.97},"grande_dura":{"pages":281,"crema":18.46,"offset":18.2,"semi":20.04}},"Hijos e Hijas de Dios":{"bolsillo":{"pages":396,"mate_crema":6.92,"mate_offset":6.79,"mate_semi":7.51,"brillo_crema":6.94,"brillo_offset":6.81,"brillo_semi":7.53},"a5":{"pages":396,"mate_crema":8.51,"mate_offset":8.32,"mate_semi":9.21,"brillo_crema":8.3,"brillo_offset":8.2,"brillo_semi":9.18},"mediano_blanda":{"pages":396,"mate_crema":8.77,"mate_offset":8.57,"mate_semi":9.49,"brillo_crema":8.53,"brillo_offset":8.43,"brillo_semi":9.45},"mediano_dura":{"pages":396,"crema":15.34,"offset":15.14,"semi":16.06},"grande_dura":{"pages":396,"crema":19.55,"offset":19.29,"semi":21.13}},"Historia de los Patriarcas y Profetas":{"bolsillo":{"pages":728,"mate_crema":9.73,"mate_offset":9.6,"mate_semi":10.32,"brillo_crema":9.75,"brillo_offset":9.62,"brillo_semi":10.34},"a5":{"pages":728,"mate_crema":11.32,"mate_offset":11.13,"mate_semi":12.02,"brillo_crema":11.11,"brillo_offset":11.01,"brillo_semi":11.99},"mediano_blanda":{"pages":728,"mate_crema":11.58,"mate_offset":11.38,"mate_semi":12.3,"brillo_crema":11.34,"brillo_offset":11.24,"brillo_semi":12.26},"mediano_dura":{"pages":728,"crema":18.48,"offset":18.28,"semi":19.2},"grande_dura":{"pages":728,"crema":22.69,"offset":22.43,"semi":24.27}},"Joyas de los Testimonios 1":{"bolsillo":{"pages":565,"mate_crema":8.35,"mate_offset":8.22,"mate_semi":8.94,"brillo_crema":8.37,"brillo_offset":8.24,"brillo_semi":8.96},"a5":{"pages":565,"mate_crema":9.94,"mate_offset":9.75,"mate_semi":10.64,"brillo_crema":9.73,"brillo_offset":9.63,"brillo_semi":10.61},"mediano_blanda":{"pages":565,"mate_crema":10.2,"mate_offset":10.0,"mate_semi":10.92,"brillo_crema":9.96,"brillo_offset":9.86,"brillo_semi":10.88},"mediano_dura":{"pages":565,"crema":16.94,"offset":16.74,"semi":17.66},"grande_dura":{"pages":565,"crema":21.15,"offset":20.89,"semi":22.73}},"Joyas de los Testimonios 2":{"bolsillo":{"pages":529,"mate_crema":8.05,"mate_offset":7.92,"mate_semi":8.64,"brillo_crema":8.07,"brillo_offset":7.94,"brillo_semi":8.66},"a5":{"pages":529,"mate_crema":9.63,"mate_offset":9.44,"mate_semi":10.33,"brillo_crema":9.43,"brillo_offset":9.33,"brillo_semi":10.3},"mediano_blanda":{"pages":529,"mate_crema":9.9,"mate_offset":9.7,"mate_semi":10.62,"brillo_crema":9.66,"brillo_offset":9.56,"brillo_semi":10.58},"mediano_dura":{"pages":529,"crema":16.6,"offset":16.4,"semi":17.32},"grande_dura":{"pages":529,"crema":20.81,"offset":20.55,"semi":22.39}},"Joyas de los Testimonios 3":{"bolsillo":{"pages":415,"mate_crema":7.08,"mate_offset":6.95,"mate_semi":7.67,"brillo_crema":7.1,"brillo_offset":6.97,"brillo_semi":7.69},"a5":{"pages":415,"mate_crema":8.67,"mate_offset":8.48,"mate_semi":9.37,"brillo_crema":8.47,"brillo_offset":8.36,"brillo_semi":9.34},"mediano_blanda":{"pages":415,"mate_crema":8.93,"mate_offset":8.73,"mate_semi":9.65,"brillo_crema":8.69,"brillo_offset":8.59,"brillo_semi":9.61},"mediano_dura":{"pages":415,"crema":15.52,"offset":15.32,"semi":16.24},"grande_dura":{"pages":415,"crema":19.73,"offset":19.47,"semi":21.31}},"La Edificación del Carácter":{"bolsillo":{"pages":79,"mate_crema":4.24,"mate_offset":4.11,"mate_semi":4.83,"brillo_crema":4.26,"brillo_offset":4.13,"brillo_semi":4.85},"a5":{"pages":79,"mate_crema":5.83,"mate_offset":5.64,"mate_semi":6.53,"brillo_crema":5.62,"brillo_offset":5.52,"brillo_semi":6.5},"mediano_blanda":{"pages":79,"mate_crema":6.09,"mate_offset":5.89,"mate_semi":6.81,"brillo_crema":5.85,"brillo_offset":5.75,"brillo_semi":6.77},"mediano_dura":{"pages":79,"crema":12.34,"offset":12.14,"semi":13.06},"grande_dura":{"pages":79,"crema":16.55,"offset":16.29,"semi":18.13}},"La Educación":{"bolsillo":{"pages":260,"mate_crema":5.77,"mate_offset":5.64,"mate_semi":6.36,"brillo_crema":5.79,"brillo_offset":5.66,"brillo_semi":6.38},"a5":{"pages":260,"mate_crema":7.36,"mate_offset":7.17,"mate_semi":8.06,"brillo_crema":7.15,"brillo_offset":7.05,"brillo_semi":8.03},"mediano_blanda":{"pages":260,"mate_crema":7.62,"mate_offset":7.42,"mate_semi":8.34,"brillo_crema":7.38,"brillo_offset":7.28,"brillo_semi":8.3},"mediano_dura":{"pages":260,"crema":14.05,"offset":13.85,"semi":14.77},"grande_dura":{"pages":260,"crema":18.26,"offset":18.0,"semi":19.84}},"La Educación Cristiana":{"bolsillo":{"pages":453,"mate_crema":7.4,"mate_offset":7.27,"mate_semi":7.99,"brillo_crema":7.42,"brillo_offset":7.29,"brillo_semi":8.01},"a5":{"pages":453,"mate_crema":8.99,"mate_offset":8.8,"mate_semi":9.69,"brillo_crema":8.79,"brillo_offset":8.68,"brillo_semi":9.66},"mediano_blanda":{"pages":453,"mate_crema":9.25,"mate_offset":9.05,"mate_semi":9.97,"brillo_crema":9.01,"brillo_offset":8.91,"brillo_semi":9.93},"mediano_dura":{"pages":453,"crema":15.88,"offset":15.68,"semi":16.6},"grande_dura":{"pages":453,"crema":20.09,"offset":19.83,"semi":21.67}},"La Fe por la Cual Vivo":{"bolsillo":{"pages":390,"mate_crema":6.87,"mate_offset":6.74,"mate_semi":7.46,"brillo_crema":6.89,"brillo_offset":6.76,"brillo_semi":7.48},"a5":{"pages":390,"mate_crema":8.46,"mate_offset":8.27,"mate_semi":9.16,"brillo_crema":8.25,"brillo_offset":8.15,"brillo_semi":9.13},"mediano_blanda":{"pages":390,"mate_crema":8.72,"mate_offset":8.52,"mate_semi":9.44,"brillo_crema":8.48,"brillo_offset":8.38,"brillo_semi":9.4},"mediano_dura":{"pages":390,"crema":15.28,"offset":15.08,"semi":16.0},"grande_dura":{"pages":390,"crema":19.49,"offset":19.23,"semi":21.07}},"La Historia de la Redención":{"bolsillo":{"pages":356,"mate_crema":6.58,"mate_offset":6.45,"mate_semi":7.17,"brillo_crema":6.6,"brillo_offset":6.47,"brillo_semi":7.19},"a5":{"pages":356,"mate_crema":8.17,"mate_offset":7.98,"mate_semi":8.87,"brillo_crema":7.97,"brillo_offset":7.86,"brillo_semi":8.84},"mediano_blanda":{"pages":356,"mate_crema":8.43,"mate_offset":8.23,"mate_semi":9.15,"brillo_crema":8.19,"brillo_offset":8.09,"brillo_semi":9.11},"mediano_dura":{"pages":356,"crema":14.96,"offset":14.76,"semi":15.68},"grande_dura":{"pages":356,"crema":19.17,"offset":18.91,"semi":20.75}},"La Iglesia Remanente":{"bolsillo":{"pages":74,"mate_crema":4.2,"mate_offset":4.07,"mate_semi":4.79,"brillo_crema":4.22,"brillo_offset":4.09,"brillo_semi":4.81},"a5":{"pages":74,"mate_crema":5.78,"mate_offset":5.59,"mate_semi":6.48,"brillo_crema":5.58,"brillo_offset":5.48,"brillo_semi":6.45},"mediano_blanda":{"pages":74,"mate_crema":6.05,"mate_offset":5.85,"mate_semi":6.77,"brillo_crema":5.81,"brillo_offset":5.71,"brillo_semi":6.73},"mediano_dura":{"pages":74,"crema":12.29,"offset":12.09,"semi":13.01},"grande_dura":{"pages":74,"crema":16.5,"offset":16.24,"semi":18.08}},"La Maravillosa Gracia de Dios":{"bolsillo":{"pages":390,"mate_crema":6.87,"mate_offset":6.74,"mate_semi":7.46,"brillo_crema":6.89,"brillo_offset":6.76,"brillo_semi":7.48},"a5":{"pages":390,"mate_crema":8.46,"mate_offset":8.27,"mate_semi":9.16,"brillo_crema":8.25,"brillo_offset":8.15,"brillo_semi":9.13},"mediano_blanda":{"pages":390,"mate_crema":8.72,"mate_offset":8.52,"mate_semi":9.44,"brillo_crema":8.48,"brillo_offset":8.38,"brillo_semi":9.4},"mediano_dura":{"pages":390,"crema":15.28,"offset":15.08,"semi":16.0},"grande_dura":{"pages":390,"crema":19.49,"offset":19.23,"semi":21.07}},"La Música":{"bolsillo":{"pages":70,"mate_crema":4.16,"mate_offset":4.03,"mate_semi":4.75,"brillo_crema":4.18,"brillo_offset":4.05,"brillo_semi":4.77},"a5":{"pages":70,"mate_crema":5.75,"mate_offset":5.56,"mate_semi":6.45,"brillo_crema":5.55,"brillo_offset":5.44,"brillo_semi":6.42},"mediano_blanda":{"pages":70,"mate_crema":6.01,"mate_offset":5.81,"mate_semi":6.73,"brillo_crema":5.77,"brillo_offset":5.67,"brillo_semi":6.69},"mediano_dura":{"pages":70,"crema":12.26,"offset":12.06,"semi":12.98},"grande_dura":{"pages":70,"crema":16.47,"offset":16.21,"semi":18.05}},"La Oración":{"bolsillo":{"pages":337,"mate_crema":6.42,"mate_offset":6.29,"mate_semi":7.01,"brillo_crema":6.44,"brillo_offset":6.31,"brillo_semi":7.03},"a5":{"pages":337,"mate_crema":8.01,"mate_offset":7.82,"mate_semi":8.71,"brillo_crema":7.81,"brillo_offset":7.7,"brillo_semi":8.68},"mediano_blanda":{"pages":337,"mate_crema":8.27,"mate_offset":8.07,"mate_semi":8.99,"brillo_crema":8.03,"brillo_offset":7.93,"brillo_semi":8.95},"mediano_dura":{"pages":337,"crema":14.78,"offset":14.58,"semi":15.5},"grande_dura":{"pages":337,"crema":18.99,"offset":18.73,"semi":20.57}},"La Segunda Venida y el Cielo":{"bolsillo":{"pages":143,"mate_crema":4.78,"mate_offset":4.65,"mate_semi":5.37,"brillo_crema":4.8,"brillo_offset":4.67,"brillo_semi":5.39},"a5":{"pages":143,"mate_crema":6.37,"mate_offset":6.18,"mate_semi":7.07,"brillo_crema":6.16,"brillo_offset":6.06,"brillo_semi":7.04},"mediano_blanda":{"pages":143,"mate_crema":6.63,"mate_offset":6.43,"mate_semi":7.35,"brillo_crema":6.39,"brillo_offset":6.29,"brillo_semi":7.31},"mediano_dura":{"pages":143,"crema":12.95,"offset":12.75,"semi":13.67},"grande_dura":{"pages":143,"crema":17.16,"offset":16.9,"semi":18.74}},"La Temperancia":{"bolsillo":{"pages":306,"mate_crema":6.16,"mate_offset":6.03,"mate_semi":6.75,"brillo_crema":6.18,"brillo_offset":6.05,"brillo_semi":6.77},"a5":{"pages":306,"mate_crema":7.75,"mate_offset":7.56,"mate_semi":8.45,"brillo_crema":7.54,"brillo_offset":7.44,"brillo_semi":8.42},"mediano_blanda":{"pages":306,"mate_crema":8.01,"mate_offset":7.81,"mate_semi":8.73,"brillo_crema":7.77,"brillo_offset":7.67,"brillo_semi":8.69},"mediano_dura":{"pages":306,"crema":14.49,"offset":14.29,"semi":15.21},"grande_dura":{"pages":306,"crema":18.7,"offset":18.44,"semi":20.28}},"La Verdad acerca de los Ángeles":{"bolsillo":{"pages":226,"mate_crema":5.48,"mate_offset":5.35,"mate_semi":6.07,"brillo_crema":5.5,"brillo_offset":5.37,"brillo_semi":6.09},"a5":{"pages":226,"mate_crema":7.07,"mate_offset":6.88,"mate_semi":7.77,"brillo_crema":6.87,"brillo_offset":6.76,"brillo_semi":7.74},"mediano_blanda":{"pages":226,"mate_crema":7.33,"mate_offset":7.13,"mate_semi":8.05,"brillo_crema":7.09,"brillo_offset":6.99,"brillo_semi":8.01},"mediano_dura":{"pages":226,"crema":13.73,"offset":13.53,"semi":14.45},"grande_dura":{"pages":226,"crema":17.94,"offset":17.68,"semi":19.52}},"La Voz, Su Educación y Uso Correcto":{"bolsillo":{"pages":342,"mate_crema":6.46,"mate_offset":6.33,"mate_semi":7.05,"brillo_crema":6.48,"brillo_offset":6.35,"brillo_semi":7.07},"a5":{"pages":342,"mate_crema":8.05,"mate_offset":7.86,"mate_semi":8.75,"brillo_crema":7.85,"brillo_offset":7.74,"brillo_semi":8.72},"mediano_blanda":{"pages":342,"mate_crema":8.31,"mate_offset":8.11,"mate_semi":9.03,"brillo_crema":8.07,"brillo_offset":7.97,"brillo_semi":8.99},"mediano_dura":{"pages":342,"crema":14.83,"offset":14.63,"semi":15.55},"grande_dura":{"pages":342,"crema":19.04,"offset":18.78,"semi":20.62}},"La Única Esperanza":{"bolsillo":{"pages":121,"mate_crema":4.6,"mate_offset":4.47,"mate_semi":5.19,"brillo_crema":4.62,"brillo_offset":4.49,"brillo_semi":5.21},"a5":{"pages":121,"mate_crema":6.18,"mate_offset":5.99,"mate_semi":6.88,"brillo_crema":5.98,"brillo_offset":5.87,"brillo_semi":6.85},"mediano_blanda":{"pages":121,"mate_crema":6.45,"mate_offset":6.25,"mate_semi":7.17,"brillo_crema":6.21,"brillo_offset":6.11,"brillo_semi":7.13},"mediano_dura":{"pages":121,"crema":12.74,"offset":12.54,"semi":13.46},"grande_dura":{"pages":121,"crema":16.95,"offset":16.69,"semi":18.53}},"Liderazgo Cristiano":{"bolsillo":{"pages":109,"mate_crema":4.49,"mate_offset":4.36,"mate_semi":5.08,"brillo_crema":4.51,"brillo_offset":4.38,"brillo_semi":5.1},"a5":{"pages":109,"mate_crema":6.08,"mate_offset":5.89,"mate_semi":6.78,"brillo_crema":5.88,"brillo_offset":5.77,"brillo_semi":6.75},"mediano_blanda":{"pages":109,"mate_crema":6.34,"mate_offset":6.14,"mate_semi":7.06,"brillo_crema":6.1,"brillo_offset":6.0,"brillo_semi":7.02},"mediano_dura":{"pages":109,"crema":12.63,"offset":12.43,"semi":13.35},"grande_dura":{"pages":109,"crema":16.84,"offset":16.58,"semi":18.42}},"Los Hechos de los Apóstoles":{"bolsillo":{"pages":422,"mate_crema":7.14,"mate_offset":7.01,"mate_semi":7.73,"brillo_crema":7.16,"brillo_offset":7.03,"brillo_semi":7.75},"a5":{"pages":422,"mate_crema":8.73,"mate_offset":8.54,"mate_semi":9.43,"brillo_crema":8.52,"brillo_offset":8.42,"brillo_semi":9.4},"mediano_blanda":{"pages":422,"mate_crema":8.99,"mate_offset":8.79,"mate_semi":9.71,"brillo_crema":8.75,"brillo_offset":8.65,"brillo_semi":9.67},"mediano_dura":{"pages":422,"crema":15.59,"offset":15.39,"semi":16.31},"grande_dura":{"pages":422,"crema":19.8,"offset":19.54,"semi":21.38}},"Maranata, El Señor Viene":{"bolsillo":{"pages":396,"mate_crema":6.92,"mate_offset":6.79,"mate_semi":7.51,"brillo_crema":6.94,"brillo_offset":6.81,"brillo_semi":7.53},"a5":{"pages":396,"mate_crema":8.51,"mate_offset":8.32,"mate_semi":9.21,"brillo_crema":8.3,"brillo_offset":8.2,"brillo_semi":9.18},"mediano_blanda":{"pages":396,"mate_crema":8.77,"mate_offset":8.57,"mate_semi":9.49,"brillo_crema":8.53,"brillo_offset":8.43,"brillo_semi":9.45},"mediano_dura":{"pages":396,"crema":15.34,"offset":15.14,"semi":16.06},"grande_dura":{"pages":396,"crema":19.55,"offset":19.29,"semi":21.13}},"Mensajes Selectos Tomo 1":{"bolsillo":{"pages":415,"mate_crema":7.08,"mate_offset":6.95,"mate_semi":7.67,"brillo_crema":7.1,"brillo_offset":6.97,"brillo_semi":7.69},"a5":{"pages":415,"mate_crema":8.67,"mate_offset":8.48,"mate_semi":9.37,"brillo_crema":8.47,"brillo_offset":8.36,"brillo_semi":9.34},"mediano_blanda":{"pages":415,"mate_crema":8.93,"mate_offset":8.73,"mate_semi":9.65,"brillo_crema":8.69,"brillo_offset":8.59,"brillo_semi":9.61},"mediano_dura":{"pages":415,"crema":15.52,"offset":15.32,"semi":16.24},"grande_dura":{"pages":415,"crema":19.73,"offset":19.47,"semi":21.31}},"Mensajes Selectos Tomo 2":{"bolsillo":{"pages":506,"mate_crema":7.85,"mate_offset":7.72,"mate_semi":8.44,"brillo_crema":7.87,"brillo_offset":7.74,"brillo_semi":8.46},"a5":{"pages":506,"mate_crema":9.44,"mate_offset":9.25,"mate_semi":10.14,"brillo_crema":9.24,"brillo_offset":9.13,"brillo_semi":10.11},"mediano_blanda":{"pages":506,"mate_crema":9.7,"mate_offset":9.5,"mate_semi":10.42,"brillo_crema":9.46,"brillo_offset":9.36,"brillo_semi":10.38},"mediano_dura":{"pages":506,"crema":16.38,"offset":16.18,"semi":17.1},"grande_dura":{"pages":506,"crema":20.59,"offset":20.33,"semi":22.17}},"Mensajes Selectos Tomo 3":{"bolsillo":{"pages":448,"mate_crema":7.36,"mate_offset":7.23,"mate_semi":7.95,"brillo_crema":7.38,"brillo_offset":7.25,"brillo_semi":7.97},"a5":{"pages":448,"mate_crema":8.95,"mate_offset":8.76,"mate_semi":9.65,"brillo_crema":8.74,"brillo_offset":8.64,"brillo_semi":9.62},"mediano_blanda":{"pages":448,"mate_crema":9.21,"mate_offset":9.01,"mate_semi":9.93,"brillo_crema":8.97,"brillo_offset":8.87,"brillo_semi":9.89},"mediano_dura":{"pages":448,"crema":15.83,"offset":15.63,"semi":16.55},"grande_dura":{"pages":448,"crema":20.04,"offset":19.78,"semi":21.62}},"Mensajes para los Jóvenes":{"bolsillo":{"pages":431,"mate_crema":7.22,"mate_offset":7.09,"mate_semi":7.81,"brillo_crema":7.24,"brillo_offset":7.11,"brillo_semi":7.83},"a5":{"pages":431,"mate_crema":8.8,"mate_offset":8.61,"mate_semi":9.5,"brillo_crema":8.6,"brillo_offset":8.5,"brillo_semi":9.47},"mediano_blanda":{"pages":431,"mate_crema":9.07,"mate_offset":8.87,"mate_semi":9.79,"brillo_crema":8.83,"brillo_offset":8.73,"brillo_semi":9.75},"mediano_dura":{"pages":431,"crema":15.67,"offset":15.47,"semi":16.39},"grande_dura":{"pages":431,"crema":19.88,"offset":19.62,"semi":21.46}},"Mente, Carácter y Personalidad 1":{"bolsillo":{"pages":399,"mate_crema":6.95,"mate_offset":6.82,"mate_semi":7.54,"brillo_crema":6.97,"brillo_offset":6.84,"brillo_semi":7.56},"a5":{"pages":399,"mate_crema":8.53,"mate_offset":8.34,"mate_semi":9.23,"brillo_crema":8.33,"brillo_offset":8.23,"brillo_semi":9.2},"mediano_blanda":{"pages":399,"mate_crema":8.8,"mate_offset":8.6,"mate_semi":9.52,"brillo_crema":8.56,"brillo_offset":8.46,"brillo_semi":9.48},"mediano_dura":{"pages":399,"crema":15.37,"offset":15.17,"semi":16.09},"grande_dura":{"pages":399,"crema":19.58,"offset":19.32,"semi":21.16}},"Mente, Carácter y Personalidad 2":{"bolsillo":{"pages":483,"mate_crema":7.66,"mate_offset":7.53,"mate_semi":8.25,"brillo_crema":7.68,"brillo_offset":7.55,"brillo_semi":8.27},"a5":{"pages":483,"mate_crema":9.24,"mate_offset":9.05,"mate_semi":9.94,"brillo_crema":9.04,"brillo_offset":8.94,"brillo_semi":9.91},"mediano_blanda":{"pages":483,"mate_crema":9.51,"mate_offset":9.31,"mate_semi":10.23,"brillo_crema":9.27,"brillo_offset":9.17,"brillo_semi":10.19},"mediano_dura":{"pages":483,"crema":16.16,"offset":15.96,"semi":16.88},"grande_dura":{"pages":483,"crema":20.37,"offset":20.11,"semi":21.95}},"Mi Vida Hoy":{"bolsillo":{"pages":389,"mate_crema":6.86,"mate_offset":6.73,"mate_semi":7.45,"brillo_crema":6.88,"brillo_offset":6.75,"brillo_semi":7.47},"a5":{"pages":389,"mate_crema":8.45,"mate_offset":8.26,"mate_semi":9.15,"brillo_crema":8.25,"brillo_offset":8.14,"brillo_semi":9.12},"mediano_blanda":{"pages":389,"mate_crema":8.71,"mate_offset":8.51,"mate_semi":9.43,"brillo_crema":8.47,"brillo_offset":8.37,"brillo_semi":9.39},"mediano_dura":{"pages":389,"crema":15.27,"offset":15.07,"semi":15.99},"grande_dura":{"pages":389,"crema":19.48,"offset":19.22,"semi":21.06}},"Notas biográficas de Elena G. de White":{"bolsillo":{"pages":414,"mate_crema":7.07,"mate_offset":6.94,"mate_semi":7.66,"brillo_crema":7.09,"brillo_offset":6.96,"brillo_semi":7.68},"a5":{"pages":414,"mate_crema":8.66,"mate_offset":8.47,"mate_semi":9.36,"brillo_crema":8.46,"brillo_offset":8.35,"brillo_semi":9.33},"mediano_blanda":{"pages":414,"mate_crema":8.92,"mate_offset":8.72,"mate_semi":9.64,"brillo_crema":8.68,"brillo_offset":8.58,"brillo_semi":9.6},"mediano_dura":{"pages":414,"crema":15.51,"offset":15.31,"semi":16.23},"grande_dura":{"pages":414,"crema":19.72,"offset":19.46,"semi":21.3}},"Nuestra Elevada Vocación":{"bolsillo":{"pages":390,"mate_crema":6.87,"mate_offset":6.74,"mate_semi":7.46,"brillo_crema":6.89,"brillo_offset":6.76,"brillo_semi":7.48},"a5":{"pages":390,"mate_crema":8.46,"mate_offset":8.27,"mate_semi":9.16,"brillo_crema":8.25,"brillo_offset":8.15,"brillo_semi":9.13},"mediano_blanda":{"pages":390,"mate_crema":8.72,"mate_offset":8.52,"mate_semi":9.44,"brillo_crema":8.48,"brillo_offset":8.38,"brillo_semi":9.4},"mediano_dura":{"pages":390,"crema":15.28,"offset":15.08,"semi":16.0},"grande_dura":{"pages":390,"crema":19.49,"offset":19.23,"semi":21.07}},"Obreros Evangélicos":{"bolsillo":{"pages":463,"mate_crema":7.49,"mate_offset":7.36,"mate_semi":8.08,"brillo_crema":7.51,"brillo_offset":7.38,"brillo_semi":8.1},"a5":{"pages":463,"mate_crema":9.07,"mate_offset":8.88,"mate_semi":9.78,"brillo_crema":8.87,"brillo_offset":8.77,"brillo_semi":9.74},"mediano_blanda":{"pages":463,"mate_crema":9.34,"mate_offset":9.14,"mate_semi":10.06,"brillo_crema":9.1,"brillo_offset":9.0,"brillo_semi":10.02},"mediano_dura":{"pages":463,"crema":15.97,"offset":15.77,"semi":16.69},"grande_dura":{"pages":463,"crema":20.18,"offset":19.92,"semi":21.76}},"Oscuridad antes del Amanecer":{"bolsillo":{"pages":89,"mate_crema":4.32,"mate_offset":4.19,"mate_semi":4.91,"brillo_crema":4.34,"brillo_offset":4.21,"brillo_semi":4.93},"a5":{"pages":89,"mate_crema":5.91,"mate_offset":5.72,"mate_semi":6.61,"brillo_crema":5.71,"brillo_offset":5.6,"brillo_semi":6.58},"mediano_blanda":{"pages":89,"mate_crema":6.17,"mate_offset":5.97,"mate_semi":6.89,"brillo_crema":5.93,"brillo_offset":5.83,"brillo_semi":6.85},"mediano_dura":{"pages":89,"crema":12.44,"offset":12.24,"semi":13.16},"grande_dura":{"pages":89,"crema":16.65,"offset":16.39,"semi":18.23}},"Palabras de Vida del Gran Maestro":{"bolsillo":{"pages":295,"mate_crema":6.07,"mate_offset":5.94,"mate_semi":6.66,"brillo_crema":6.09,"brillo_offset":5.96,"brillo_semi":6.68},"a5":{"pages":295,"mate_crema":7.65,"mate_offset":7.46,"mate_semi":8.35,"brillo_crema":7.45,"brillo_offset":7.35,"brillo_semi":8.32},"mediano_blanda":{"pages":295,"mate_crema":7.92,"mate_offset":7.72,"mate_semi":8.64,"brillo_crema":7.68,"brillo_offset":7.58,"brillo_semi":8.6},"mediano_dura":{"pages":295,"crema":14.39,"offset":14.19,"semi":15.11},"grande_dura":{"pages":295,"crema":18.6,"offset":18.34,"semi":20.18}},"Primeros Escritos":{"bolsillo":{"pages":315,"mate_crema":6.24,"mate_offset":6.11,"mate_semi":6.83,"brillo_crema":6.26,"brillo_offset":6.13,"brillo_semi":6.85},"a5":{"pages":315,"mate_crema":7.82,"mate_offset":7.63,"mate_semi":8.52,"brillo_crema":7.62,"brillo_offset":7.51,"brillo_semi":8.49},"mediano_blanda":{"pages":315,"mate_crema":8.09,"mate_offset":7.89,"mate_semi":8.81,"brillo_crema":7.85,"brillo_offset":7.75,"brillo_semi":8.77},"mediano_dura":{"pages":315,"crema":14.57,"offset":14.37,"semi":15.29},"grande_dura":{"pages":315,"crema":18.78,"offset":18.52,"semi":20.36}},"Profetas y Reyes":{"bolsillo":{"pages":483,"mate_crema":7.66,"mate_offset":7.53,"mate_semi":8.25,"brillo_crema":7.68,"brillo_offset":7.55,"brillo_semi":8.27},"a5":{"pages":483,"mate_crema":9.24,"mate_offset":9.05,"mate_semi":9.94,"brillo_crema":9.04,"brillo_offset":8.94,"brillo_semi":9.91},"mediano_blanda":{"pages":483,"mate_crema":9.51,"mate_offset":9.31,"mate_semi":10.23,"brillo_crema":9.27,"brillo_offset":9.17,"brillo_semi":10.19},"mediano_dura":{"pages":483,"crema":16.16,"offset":15.96,"semi":16.88},"grande_dura":{"pages":483,"crema":20.37,"offset":20.11,"semi":21.95}},"Reavivamientos Modernos":{"bolsillo":{"pages":65,"mate_crema":4.12,"mate_offset":3.99,"mate_semi":4.71,"brillo_crema":4.14,"brillo_offset":4.01,"brillo_semi":4.73},"a5":{"pages":65,"mate_crema":5.71,"mate_offset":5.52,"mate_semi":6.41,"brillo_crema":5.5,"brillo_offset":5.4,"brillo_semi":6.38},"mediano_blanda":{"pages":65,"mate_crema":5.97,"mate_offset":5.77,"mate_semi":6.69,"brillo_crema":5.73,"brillo_offset":5.63,"brillo_semi":6.65},"mediano_dura":{"pages":65,"crema":12.21,"offset":12.01,"semi":12.93},"grande_dura":{"pages":65,"crema":16.42,"offset":16.16,"semi":18.0}},"Recibiréis Poder":{"bolsillo":{"pages":390,"mate_crema":6.87,"mate_offset":6.74,"mate_semi":7.46,"brillo_crema":6.89,"brillo_offset":6.76,"brillo_semi":7.48},"a5":{"pages":390,"mate_crema":8.46,"mate_offset":8.27,"mate_semi":9.16,"brillo_crema":8.25,"brillo_offset":8.15,"brillo_semi":9.13},"mediano_blanda":{"pages":390,"mate_crema":8.72,"mate_offset":8.52,"mate_semi":9.44,"brillo_crema":8.48,"brillo_offset":8.38,"brillo_semi":9.4},"mediano_dura":{"pages":390,"crema":15.28,"offset":15.08,"semi":16.0},"grande_dura":{"pages":390,"crema":19.49,"offset":19.23,"semi":21.07}},"Reflejemos a Jesús":{"bolsillo":{"pages":388,"mate_crema":6.85,"mate_offset":6.72,"mate_semi":7.44,"brillo_crema":6.87,"brillo_offset":6.74,"brillo_semi":7.46},"a5":{"pages":388,"mate_crema":8.44,"mate_offset":8.25,"mate_semi":9.14,"brillo_crema":8.24,"brillo_offset":8.13,"brillo_semi":9.11},"mediano_blanda":{"pages":388,"mate_crema":8.7,"mate_offset":8.5,"mate_semi":9.42,"brillo_crema":8.46,"brillo_offset":8.36,"brillo_semi":9.38},"mediano_dura":{"pages":388,"crema":15.27,"offset":15.07,"semi":15.99},"grande_dura":{"pages":388,"crema":19.48,"offset":19.22,"semi":21.06}},"Ser Semejante a Jesús":{"bolsillo":{"pages":390,"mate_crema":6.87,"mate_offset":6.74,"mate_semi":7.46,"brillo_crema":6.89,"brillo_offset":6.76,"brillo_semi":7.48},"a5":{"pages":390,"mate_crema":8.46,"mate_offset":8.27,"mate_semi":9.16,"brillo_crema":8.25,"brillo_offset":8.15,"brillo_semi":9.13},"mediano_blanda":{"pages":390,"mate_crema":8.72,"mate_offset":8.52,"mate_semi":9.44,"brillo_crema":8.48,"brillo_offset":8.38,"brillo_semi":9.4},"mediano_dura":{"pages":390,"crema":15.28,"offset":15.08,"semi":16.0},"grande_dura":{"pages":390,"crema":19.49,"offset":19.23,"semi":21.07}},"Servicio Cristiano":{"bolsillo":{"pages":292,"mate_crema":6.04,"mate_offset":5.91,"mate_semi":6.63,"brillo_crema":6.06,"brillo_offset":5.93,"brillo_semi":6.65},"a5":{"pages":292,"mate_crema":7.63,"mate_offset":7.44,"mate_semi":8.33,"brillo_crema":7.42,"brillo_offset":7.32,"brillo_semi":8.3},"mediano_blanda":{"pages":292,"mate_crema":7.89,"mate_offset":7.69,"mate_semi":8.61,"brillo_crema":7.65,"brillo_offset":7.55,"brillo_semi":8.57},"mediano_dura":{"pages":292,"crema":14.36,"offset":14.16,"semi":15.08},"grande_dura":{"pages":292,"crema":18.57,"offset":18.31,"semi":20.15}},"Testimonios Acerca de Conducta Sexual, Adulterio y Divorcio":{"bolsillo":{"pages":255,"mate_crema":5.73,"mate_offset":5.6,"mate_semi":6.32,"brillo_crema":5.75,"brillo_offset":5.62,"brillo_semi":6.34},"a5":{"pages":255,"mate_crema":7.31,"mate_offset":7.12,"mate_semi":8.02,"brillo_crema":7.11,"brillo_offset":7.01,"brillo_semi":7.98},"mediano_blanda":{"pages":255,"mate_crema":7.58,"mate_offset":7.38,"mate_semi":8.3,"brillo_crema":7.34,"brillo_offset":7.24,"brillo_semi":8.26},"mediano_dura":{"pages":255,"crema":14.01,"offset":13.81,"semi":14.73},"grande_dura":{"pages":255,"crema":18.22,"offset":17.96,"semi":19.8}},"Testimonios Selectos Tomo 1":{"bolsillo":{"pages":203,"mate_crema":5.29,"mate_offset":5.16,"mate_semi":5.88,"brillo_crema":5.31,"brillo_offset":5.18,"brillo_semi":5.9},"a5":{"pages":203,"mate_crema":6.87,"mate_offset":6.68,"mate_semi":7.58,"brillo_crema":6.67,"brillo_offset":6.57,"brillo_semi":7.54},"mediano_blanda":{"pages":203,"mate_crema":7.14,"mate_offset":6.94,"mate_semi":7.86,"brillo_crema":6.9,"brillo_offset":6.8,"brillo_semi":7.82},"mediano_dura":{"pages":203,"crema":13.51,"offset":13.31,"semi":14.23},"grande_dura":{"pages":203,"crema":17.72,"offset":17.46,"semi":19.3}},"Testimonios Selectos Tomo 2":{"bolsillo":{"pages":207,"mate_crema":5.32,"mate_offset":5.19,"mate_semi":5.91,"brillo_crema":5.34,"brillo_offset":5.21,"brillo_semi":5.93},"a5":{"pages":207,"mate_crema":6.91,"mate_offset":6.72,"mate_semi":7.61,"brillo_crema":6.71,"brillo_offset":6.6,"brillo_semi":7.58},"mediano_blanda":{"pages":207,"mate_crema":7.17,"mate_offset":6.97,"mate_semi":7.89,"brillo_crema":6.93,"brillo_offset":6.83,"brillo_semi":7.85},"mediano_dura":{"pages":207,"crema":13.55,"offset":13.35,"semi":14.27},"grande_dura":{"pages":207,"crema":17.76,"offset":17.5,"semi":19.34}},"Testimonios Selectos Tomo 3":{"bolsillo":{"pages":355,"mate_crema":6.57,"mate_offset":6.44,"mate_semi":7.16,"brillo_crema":6.59,"brillo_offset":6.46,"brillo_semi":7.18},"a5":{"pages":355,"mate_crema":8.16,"mate_offset":7.97,"mate_semi":8.86,"brillo_crema":7.96,"brillo_offset":7.85,"brillo_semi":8.83},"mediano_blanda":{"pages":355,"mate_crema":8.42,"mate_offset":8.22,"mate_semi":9.14,"brillo_crema":8.18,"brillo_offset":8.08,"brillo_semi":9.1},"mediano_dura":{"pages":355,"crema":14.95,"offset":14.75,"semi":15.67},"grande_dura":{"pages":355,"crema":19.16,"offset":18.9,"semi":20.74}},"Testimonios Selectos Tomo 4":{"bolsillo":{"pages":392,"mate_crema":6.89,"mate_offset":6.76,"mate_semi":7.48,"brillo_crema":6.91,"brillo_offset":6.78,"brillo_semi":7.5},"a5":{"pages":392,"mate_crema":8.47,"mate_offset":8.28,"mate_semi":9.17,"brillo_crema":8.27,"brillo_offset":8.17,"brillo_semi":9.14},"mediano_blanda":{"pages":392,"mate_crema":8.74,"mate_offset":8.54,"mate_semi":9.46,"brillo_crema":8.5,"brillo_offset":8.4,"brillo_semi":9.42},"mediano_dura":{"pages":392,"crema":15.3,"offset":15.1,"semi":16.02},"grande_dura":{"pages":392,"crema":19.51,"offset":19.25,"semi":21.09}},"Testimonios Selectos Tomo 5":{"bolsillo":{"pages":149,"mate_crema":4.83,"mate_offset":4.7,"mate_semi":5.42,"brillo_crema":4.85,"brillo_offset":4.72,"brillo_semi":5.44},"a5":{"pages":149,"mate_crema":6.42,"mate_offset":6.23,"mate_semi":7.12,"brillo_crema":6.21,"brillo_offset":6.11,"brillo_semi":7.09},"mediano_blanda":{"pages":149,"mate_crema":6.68,"mate_offset":6.48,"mate_semi":7.4,"brillo_crema":6.44,"brillo_offset":6.34,"brillo_semi":7.36},"mediano_dura":{"pages":149,"crema":13.0,"offset":12.8,"semi":13.72},"grande_dura":{"pages":149,"crema":17.21,"offset":16.95,"semi":18.79}},"Testimonios para la Iglesia, Tomo 1":{"bolsillo":{"pages":739,"mate_crema":9.82,"mate_offset":9.69,"mate_semi":10.41,"brillo_crema":9.84,"brillo_offset":9.71,"brillo_semi":10.43},"a5":{"pages":739,"mate_crema":11.41,"mate_offset":11.22,"mate_semi":12.11,"brillo_crema":11.21,"brillo_offset":11.1,"brillo_semi":12.08},"mediano_blanda":{"pages":739,"mate_crema":11.67,"mate_offset":11.47,"mate_semi":12.39,"brillo_crema":11.43,"brillo_offset":11.33,"brillo_semi":12.35},"mediano_dura":{"pages":739,"crema":18.59,"offset":18.39,"semi":19.31},"grande_dura":{"pages":739,"crema":22.8,"offset":22.54,"semi":24.38}},"Testimonios para la Iglesia, Tomo 2":{"bolsillo":{"pages":657,"mate_crema":9.13,"mate_offset":9.0,"mate_semi":9.72,"brillo_crema":9.15,"brillo_offset":9.02,"brillo_semi":9.74},"a5":{"pages":657,"mate_crema":10.72,"mate_offset":10.53,"mate_semi":11.42,"brillo_crema":10.51,"brillo_offset":10.41,"brillo_semi":11.39},"mediano_blanda":{"pages":657,"mate_crema":10.98,"mate_offset":10.78,"mate_semi":11.7,"brillo_crema":10.74,"brillo_offset":10.64,"brillo_semi":11.66},"mediano_dura":{"pages":657,"crema":17.81,"offset":17.61,"semi":18.53},"grande_dura":{"pages":657,"crema":22.02,"offset":21.76,"semi":23.6}},"Testimonios para la Iglesia, Tomo 3":{"bolsillo":{"pages":591,"mate_crema":8.57,"mate_offset":8.44,"mate_semi":9.16,"brillo_crema":8.59,"brillo_offset":8.46,"brillo_semi":9.18},"a5":{"pages":591,"mate_crema":10.16,"mate_offset":9.97,"mate_semi":10.86,"brillo_crema":9.95,"brillo_offset":9.85,"brillo_semi":10.83},"mediano_blanda":{"pages":591,"mate_crema":10.42,"mate_offset":10.22,"mate_semi":11.14,"brillo_crema":10.18,"brillo_offset":10.08,"brillo_semi":11.1},"mediano_dura":{"pages":591,"crema":17.19,"offset":16.99,"semi":17.91},"grande_dura":{"pages":591,"crema":21.4,"offset":21.14,"semi":22.98}},"Testimonios para la Iglesia, Tomo 4":{"bolsillo":{"pages":648,"mate_crema":9.05,"mate_offset":8.92,"mate_semi":9.64,"brillo_crema":9.07,"brillo_offset":8.94,"brillo_semi":9.66},"a5":{"pages":648,"mate_crema":10.64,"mate_offset":10.45,"mate_semi":11.34,"brillo_crema":10.44,"brillo_offset":10.33,"brillo_semi":11.31},"mediano_blanda":{"pages":648,"mate_crema":10.9,"mate_offset":10.7,"mate_semi":11.62,"brillo_crema":10.66,"brillo_offset":10.56,"brillo_semi":11.58},"mediano_dura":{"pages":648,"crema":17.72,"offset":17.52,"semi":18.44},"grande_dura":{"pages":648,"crema":21.93,"offset":21.67,"semi":23.51}},"Testimonios para la Iglesia, Tomo 5":{"bolsillo":{"pages":736,"mate_crema":9.8,"mate_offset":9.67,"mate_semi":10.39,"brillo_crema":9.82,"brillo_offset":9.69,"brillo_semi":10.41},"a5":{"pages":736,"mate_crema":11.38,"mate_offset":11.19,"mate_semi":12.09,"brillo_crema":11.18,"brillo_offset":11.08,"brillo_semi":12.05},"mediano_blanda":{"pages":736,"mate_crema":11.65,"mate_offset":11.45,"mate_semi":12.37,"brillo_crema":11.41,"brillo_offset":11.31,"brillo_semi":12.33},"mediano_dura":{"pages":736,"crema":18.56,"offset":18.36,"semi":19.28},"grande_dura":{"pages":736,"crema":22.77,"offset":22.51,"semi":24.35}},"Testimonios para la Iglesia, Tomo 6":{"bolsillo":{"pages":447,"mate_crema":7.35,"mate_offset":7.22,"mate_semi":7.94,"brillo_crema":7.37,"brillo_offset":7.24,"brillo_semi":7.96},"a5":{"pages":447,"mate_crema":8.94,"mate_offset":8.75,"mate_semi":9.64,"brillo_crema":8.74,"brillo_offset":8.63,"brillo_semi":9.61},"mediano_blanda":{"pages":447,"mate_crema":9.2,"mate_offset":9.0,"mate_semi":9.92,"brillo_crema":8.96,"brillo_offset":8.86,"brillo_semi":9.88},"mediano_dura":{"pages":447,"crema":15.82,"offset":15.62,"semi":16.54},"grande_dura":{"pages":447,"crema":20.03,"offset":19.77,"semi":21.61}},"Testimonios para la Iglesia, Tomo 7":{"bolsillo":{"pages":293,"mate_crema":6.05,"mate_offset":5.92,"mate_semi":6.64,"brillo_crema":6.07,"brillo_offset":5.94,"brillo_semi":6.66},"a5":{"pages":293,"mate_crema":7.64,"mate_offset":7.45,"mate_semi":8.34,"brillo_crema":7.43,"brillo_offset":7.33,"brillo_semi":8.31},"mediano_blanda":{"pages":293,"mate_crema":7.9,"mate_offset":7.7,"mate_semi":8.62,"brillo_crema":7.66,"brillo_offset":7.56,"brillo_semi":8.58},"mediano_dura":{"pages":293,"crema":14.37,"offset":14.17,"semi":15.09},"grande_dura":{"pages":293,"crema":18.58,"offset":18.32,"semi":20.16}},"Testimonios para la Iglesia, Tomo 8":{"bolsillo":{"pages":330,"mate_crema":6.36,"mate_offset":6.23,"mate_semi":6.95,"brillo_crema":6.38,"brillo_offset":6.25,"brillo_semi":6.97},"a5":{"pages":330,"mate_crema":7.95,"mate_offset":7.76,"mate_semi":8.65,"brillo_crema":7.75,"brillo_offset":7.64,"brillo_semi":8.62},"mediano_blanda":{"pages":330,"mate_crema":8.21,"mate_offset":8.01,"mate_semi":8.93,"brillo_crema":7.97,"brillo_offset":7.87,"brillo_semi":8.89},"mediano_dura":{"pages":330,"crema":14.72,"offset":14.52,"semi":15.44},"grande_dura":{"pages":330,"crema":18.93,"offset":18.67,"semi":20.51}},"Testimonios para la Iglesia, Tomo 9":{"bolsillo":{"pages":260,"mate_crema":5.77,"mate_offset":5.64,"mate_semi":6.36,"brillo_crema":5.79,"brillo_offset":5.66,"brillo_semi":6.38},"a5":{"pages":260,"mate_crema":7.36,"mate_offset":7.17,"mate_semi":8.06,"brillo_crema":7.15,"brillo_offset":7.05,"brillo_semi":8.03},"mediano_blanda":{"pages":260,"mate_crema":7.62,"mate_offset":7.42,"mate_semi":8.34,"brillo_crema":7.38,"brillo_offset":7.28,"brillo_semi":8.3},"mediano_dura":{"pages":260,"crema":14.05,"offset":13.85,"semi":14.77},"grande_dura":{"pages":260,"crema":18.26,"offset":18.0,"semi":19.84}},"Testimonios para los Ministros":{"bolsillo":{"pages":450,"mate_crema":7.38,"mate_offset":7.25,"mate_semi":7.97,"brillo_crema":7.4,"brillo_offset":7.27,"brillo_semi":7.99},"a5":{"pages":450,"mate_crema":8.96,"mate_offset":8.77,"mate_semi":9.67,"brillo_crema":8.76,"brillo_offset":8.66,"brillo_semi":9.63},"mediano_blanda":{"pages":450,"mate_crema":9.23,"mate_offset":9.03,"mate_semi":9.95,"brillo_crema":8.99,"brillo_offset":8.89,"brillo_semi":9.91},"mediano_dura":{"pages":450,"crema":15.85,"offset":15.65,"semi":16.57},"grande_dura":{"pages":450,"crema":20.06,"offset":19.8,"semi":21.64}},"Sermones Escogidos Tomo 1":{"bolsillo":{"pages":351,"mate_crema":6.54,"mate_offset":6.41,"mate_semi":7.13,"brillo_crema":6.56,"brillo_offset":6.43,"brillo_semi":7.15},"a5":{"pages":351,"mate_crema":8.13,"mate_offset":7.94,"mate_semi":8.83,"brillo_crema":7.92,"brillo_offset":7.82,"brillo_semi":8.8},"mediano_blanda":{"pages":351,"mate_crema":8.39,"mate_offset":8.19,"mate_semi":9.11,"brillo_crema":8.15,"brillo_offset":8.05,"brillo_semi":9.07},"mediano_dura":{"pages":351,"crema":14.92,"offset":14.72,"semi":15.64},"grande_dura":{"pages":351,"crema":19.13,"offset":18.87,"semi":20.71}},"Sermones Escogidos Tomo 2":{"bolsillo":{"pages":431,"mate_crema":7.22,"mate_offset":7.09,"mate_semi":7.81,"brillo_crema":7.24,"brillo_offset":7.11,"brillo_semi":7.83},"a5":{"pages":431,"mate_crema":8.8,"mate_offset":8.61,"mate_semi":9.5,"brillo_crema":8.6,"brillo_offset":8.5,"brillo_semi":9.47},"mediano_blanda":{"pages":431,"mate_crema":9.07,"mate_offset":8.87,"mate_semi":9.79,"brillo_crema":8.83,"brillo_offset":8.73,"brillo_semi":9.75},"mediano_dura":{"pages":431,"crema":15.67,"offset":15.47,"semi":16.39},"grande_dura":{"pages":431,"crema":19.88,"offset":19.62,"semi":21.46}},"Un Llamado a Ser Diferente":{"bolsillo":{"pages":113,"mate_crema":4.53,"mate_offset":4.4,"mate_semi":5.12,"brillo_crema":4.55,"brillo_offset":4.42,"brillo_semi":5.14},"a5":{"pages":113,"mate_crema":6.11,"mate_offset":5.92,"mate_semi":6.81,"brillo_crema":5.91,"brillo_offset":5.81,"brillo_semi":6.78},"mediano_blanda":{"pages":113,"mate_crema":6.38,"mate_offset":6.18,"mate_semi":7.1,"brillo_crema":6.14,"brillo_offset":6.04,"brillo_semi":7.06},"mediano_dura":{"pages":113,"crema":12.66,"offset":12.46,"semi":13.38},"grande_dura":{"pages":113,"crema":16.87,"offset":16.61,"semi":18.45}}};
+<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+<header class="site-header">
+  <div class="container header-top">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">L</span>
+      <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+    </a>
 
-window.EW_BOOK_DEFAULTS = {"el-conflicto-de-los-siglos":{"title":"El Conflicto de los Siglos","price":20.04,"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","pdfTitle":"El Conflicto de los Siglos"},"el-deseado-de-todas-las-gentes":{"title":"El Deseado de Todas las Gentes","price":14.7,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Deseado de Todas las Gentes","extra":[{"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","price":18.08}]},"historia-de-los-patriarcas-y-profetas":{"title":"Historia de los Patriarcas y Profetas","price":26.7,"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","pdfTitle":"Historia de los Patriarcas y Profetas"},"profetas-y-reyes":{"title":"Profetas y Reyes","price":12.33,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Profetas y Reyes"},"la-fe-por-la-cual-vivo":{"title":"La Fe por la Cual Vivo","price":9.64,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Fe por la Cual Vivo"},"la-educacion":{"title":"La Educación","price":8.55,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Educación"},"edificacion-del-caracter":{"title":"Edificación del Carácter","price":7.02,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Edificación del Carácter"},"hijos-e-hijas-de-dios":{"title":"Hijos e Hijas de Dios","price":9.71,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Hijos e Hijas de Dios"},"exaltad-a-jesus":{"title":"Exaltad a Jesús","price":9.72,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Exaltad a Jesús"},"en-los-lugares-celestiales":{"title":"En los Lugares Celestiales","price":9.62,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"En los Lugares Celestiales"},"fe-y-obras":{"title":"Fe y Obras","price":7.25,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Fe y Obras"},"el-otro-poder":{"title":"El Otro Poder","price":7.53,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El otro Poder"},"el-ministerio-pastoral":{"title":"El Ministerio Pastoral","price":9.07,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Ministerio Pastoral"},"el-deseado-de-todas-las-gentes-tapa-blanda":{"title":"El Deseado de Todas las Gentes","price":10.82,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Deseado de Todas las Gentes"},"el-ministerio-de-publicaciones":{"title":"El Ministerio de Publicaciones","price":9.64,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Ministerio de Publicaciones"},"el-ministerio-de-la-bondad":{"title":"El Ministerio de la Bondad","price":8.73,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Ministerio de la Bondad"},"el-ministerio-medico":{"title":"El Ministerio Médico","price":11.44,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Ministerio Médico"},"el-hogar-cristiano":{"title":"El Hogar Cristiano","price":10.18,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Hogar Cristiano"},"el-evangelismo":{"title":"El Evangelismo","price":11.26,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Evangelismo"},"el-conflicto-inminente":{"title":"El Conflicto Inminente","price":7.34,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Conflicto Inminente"},"el-colportor-evangelico":{"title":"El Colportor Evangélico","price":7.99,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Colportor Evangélico"},"dios-nos-cuida":{"title":"Dios Nos Cuida","price":9.81,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Dios nos Cuida"},"de-la-ciudad-al-campo":{"title":"De la Ciudad al Campo","price":7.13,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"De la Cuidad al Campo"},"la-pasion-del-amor":{"title":"La Pasión del Amor","price":8.51,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":null},"cristo-nuestro-salvador":{"title":"Cristo Nuestro Salvador","price":7.43,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Cristo Nuestro Salvador"},"cristo-en-su-santuario":{"title":"Cristo en Su Santuario","price":7.43,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Cristo en Su Santuario"},"el-deseado-de-todas-las-gentes-tapa-dura":{"title":"El Deseado de Todas las Gentes","price":18.08,"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","pdfTitle":"El Deseado de Todas las Gentes"},"consejos-sobre-la-mayordomia-cristiana":{"title":"Consejos sobre la Mayordomía Cristiana","price":9.01,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Consejos sobre Mayordomía Cristiana"},"consejos-sobre-la-obra-de-escuela-sabatica":{"title":"Consejos sobre la Obra de Escuela Sabática","price":8.19,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Consejos Sobre la Obra de la Escuela Sabática"},"consejos-para-los-maestros":{"title":"Consejos para los Maestros","price":10.15,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Consejos para los Maestros"},"consejos-para-la-iglesia":{"title":"Consejos para la Iglesia","price":10.46,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Consejos para la Iglesia"},"cada-dia-con-dios":{"title":"Cada Día con Dios","price":9.63,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Cada Día con Dios"},"el-poder-de-la-oracion":{"title":"El Poder Increíble de la Oración","price":7.26,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":null},"alza-tus-ojos":{"title":"Alza Tus Ojos","price":9.62,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Alza tus Ojos"},"a-fin-de-conocerle":{"title":"A Fin de Conocerle","price":9.7,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"A Fin de Conocerle"},"review-and-herald":{"title":"Review and Herald","price":16.24,"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","pdfTitle":null},"la-verdad-acerca-de-los-angeles":{"title":"La Verdad Acerca de los Ángeles","price":8.4,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Verdad acerca de los Ángeles"},"la-historia-de-la-redencion":{"title":"La Historia de la Redención","price":10.36,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Historia de la Redención"},"la-iglesia-remanente":{"title":"La Iglesia Remanente","price":6.98,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Iglesia Remanente"},"la-maravillosa-gracia-de-dios":{"title":"La Maravillosa Gracia de Dios","price":9.65,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Maravillosa Gracia de Dios"},"la-musica":{"title":"La Música","price":6.94,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Música"},"la-segunda-venida-y-el-cielo":{"title":"La Segunda Venida y el Cielo","price":7.55,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Segunda Venida y el Cielo"},"la-temperancia":{"title":"La Temperancia","price":8.94,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Temperancia"},"la-unica-esperanza":{"title":"La Única Esperanza","price":7.38,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Única Esperanza"},"la-verdad-acerca-de-los-angeles-2":{"title":"La Verdad Acerca de los Ángeles","price":8.26,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Verdad acerca de los Ángeles"},"la-voz-su-educacion-y-uso-correcto":{"title":"La Voz, su Educación y Uso Correcto","price":9.25,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Voz, Su Educación y Uso Correcto"},"los-hechos-de-los-apostoles":{"title":"Los Hechos de los Apóstoles","price":16.9,"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","pdfTitle":"Los Hechos de los Apóstoles","extra":[{"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","price":9.89}]},"los-hechos-de-los-apostoles-tapa-blanda":{"title":"Los Hechos de los Apóstoles","price":9.89,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Los Hechos de los Apóstoles"},"palabras-de-vida-del-gran-maestro":{"title":"Palabras de Vida del Gran Maestro","price":9,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Palabras de Vida del Gran Maestro"},"primeros-escritos":{"title":"Primeros Escritos","price":9.18,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Primeros Escritos","extra":[{"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","price":16.07}]},"primeros-escritos-tapa-dura":{"title":"Primeros Escritos","price":16.07,"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","pdfTitle":"Primeros Escritos"},"testimonios-para-la-iglesia-tomo-2":{"title":"Testimonios para la Iglesia, Tomo 2","price":12.2,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para la Iglesia, Tomo 2"},"testimonios-para-la-iglesia-tomo-3":{"title":"Testimonios para la Iglesia, Tomo 3","price":10.3,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para la Iglesia, Tomo 3"},"testimonios-para-la-iglesia-tomo-4":{"title":"Testimonios para la Iglesia, Tomo 4","price":12.11,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para la Iglesia, Tomo 4"},"testimonios-para-la-iglesia-tomo-6":{"title":"Testimonios para la Iglesia, Tomo 6","price":10.33,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para la Iglesia, Tomo 6"},"testimonios-para-la-iglesia-tomo-7":{"title":"Testimonios para la Iglesia, Tomo 7","price":8.98,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para la Iglesia, Tomo 7"},"testimonios-para-la-iglesia-tomo-8":{"title":"Testimonios para la Iglesia, Tomo 8","price":9.3,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para la Iglesia, Tomo 8"},"testimonios-para-la-iglesia-tomo-9":{"title":"Testimonios para la Iglesia, Tomo 9","price":8.69,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para la Iglesia, Tomo 9"},"eventos-de-los-ultimos-dias":{"title":"Eventos de los Últimos Días","price":8.37,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Eventos de los Últimos Días"},"testimonios-selectos-tomo-i":{"title":"Testimonios Selectos, Tomo I","price":8.18,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios Selectos Tomo 1"},"testimonios-selectos-tomo-ii":{"title":"Testimonios Selectos, Tomo II","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios Selectos Tomo 2"},"testimonios-selectos-tomo-iii":{"title":"Testimonios Selectos, Tomo III","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios Selectos Tomo 3"},"testimonios-selectos-tomo-iv":{"title":"Testimonios Selectos, Tomo IV","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios Selectos Tomo 4"},"testimonios-selectos-tomo-v":{"title":"Testimonios Selectos, Tomo V","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios Selectos Tomo 5"},"testimonios-para-la-iglesia-tomo-1":{"title":"Testimonios para la Iglesia, Tomo 1","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para la Iglesia, Tomo 1"},"testimonios-para-la-iglesia-tomo-5":{"title":"Testimonios para la Iglesia, Tomo 5","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para la Iglesia, Tomo 5"},"testimonios-para-los-ministros":{"title":"Testimonios para los Ministros","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios para los Ministros"},"testimonios-conducta-sexual-adulterio-divorcio":{"title":"Testimonios acerca de Conducta Sexual, Adulterio y Divorcio","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Testimonios Acerca de Conducta Sexual, Adulterio y Divorcio"},"sermones-escogidos-1":{"title":"Sermones Escogidos 1","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Sermones Escogidos Tomo 1"},"sermones-escogidos-2":{"title":"Sermones Escogidos 2","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Sermones Escogidos Tomo 2"},"servicio-cristiano":{"title":"Servicio Cristiano","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Servicio Cristiano"},"ser-semejante-a-jesus":{"title":"Ser Semejante a Jesús","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Ser Semejante a Jesús"},"un-llamado-a-ser-diferente":{"title":"Un Llamado a Ser Diferente","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Un Llamado a Ser Diferente"},"liderazgo-cristiano":{"title":"Liderazgo Cristiano","price":7.27,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Liderazgo Cristiano"},"maranatha-el-senor-viene":{"title":"Maranatha, el Señor Viene","price":9.71,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Maranata, El Señor Viene"},"mensajes-selectos-tomo-i":{"title":"Mensajes Selectos, Tomo I","price":9.86,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Mensajes Selectos Tomo 1"},"mensajes-selectos-tomo-ii":{"title":"Mensajes Selectos, Tomo II","price":10.63,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Mensajes Selectos Tomo 2"},"mensajes-selectos-tomo-iii":{"title":"Mensajes Selectos, Tomo III","price":10.14,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Mensajes Selectos Tomo 3"},"discurso-maestro-de-jesucristo":{"title":"El Discurso Maestro de Jesucristo","price":7.34,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Discurso Maestro de Jesucristo","extra":[{"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","price":14.16}]},"discurso-maestro-de-jesucristo-tapa-dura":{"title":"El Discurso Maestro de Jesucristo","price":14.16,"tipo":"dura","tamano":"mediano","acabado":"brillo","papel":"offset","pdfTitle":"El Discurso Maestro de Jesucristo"},"el-camino-a-cristo":{"title":"El Camino a Cristo","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Camino a Cristo"},"desde-el-corazon":{"title":"Desde el Corazón","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Desde el Corazón"},"leyes-de-la-salud":{"title":"Leyes de la Salud","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":null},"leyes-sobre-el-regimen-alimenticio":{"title":"Leyes sobre el Régimen Alimenticio","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":null},"conflicto-y-valor":{"title":"Conflicto y Valor","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Conflicto y Valor"},"conduccion-del-nino":{"title":"Conducción del Niño","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Conducción del Niño"},"coleccion-kress":{"title":"Colección Kress","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Colección Kress"},"cartas-a-jovenes-enamorados":{"title":"Cartas a Jóvenes Enamorados","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Cartas a Jóvenes Enamorados"},"hijas-de-dios":{"title":"Hijas de Dios","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Hijas de Dios"},"en-el-desierto-de-la-tentacion":{"title":"En el Desierto de la Tentación","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"En el Desierto de la Tentación"},"el-ministerio-de-curacion":{"title":"El Ministerio de Curación","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Ministerio de Curación"},"el-cristo-triunfante":{"title":"El Cristo Triunfante","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Cristo Triunfante"},"la-oracion":{"title":"La Oración","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Oración"},"la-educacion-cristiana":{"title":"La Educación Cristiana","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"La Educación Cristiana"},"joyas-de-los-testimonios-1":{"title":"Joyas de los Testimonios 1","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Joyas de los Testimonios 1"},"joyas-de-los-testimonios-2":{"title":"Joyas de los Testimonios 2","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Joyas de los Testimonios 2"},"joyas-de-los-testimonios-3":{"title":"Joyas de los Testimonios 3","price":null,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Joyas de los Testimonios 3"}};
+    <form class="search-form" role="search" aria-label="Buscar libros" action="categoria.html" method="get">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" name="q" placeholder="Buscar por título, autor o tema…" aria-label="Buscar libros">
+      <button type="submit">Buscar</button>
+    </form>
 
-// ==========================================================================
-// AÑADIDO — «Las Bellas Historias de la Biblia» (Arthur S. Maxwell), 10 tomos.
-// No están en el PDF de 99 títulos, así que sus precios de fábrica se calculan
-// con la MISMA fórmula del proveedor: el PDF es lineal en las páginas
-// (precio = a·páginas + b, distinto para cada tamaño/papel/acabado; la fórmula
-// reproduce los 99 títulos del PDF al céntimo). Por defecto: tapa blanda A5,
-// brillo, papel blanco offset = precio de fábrica + 1,50 € (igual que el resto).
-// Formato BOLSILLO NO DISPONIBLE: estos tomos no tienen la clave "bolsillo",
-// así que el configurador no lo ofrece y el servidor lo rechaza.
-// Si el PDF del proveedor trae precios reales para estos tomos, sustituye las
-// cifras de aquí (y las de functions/ew-pricing.js) por las del PDF.
-// ==========================================================================
-Object.assign(window.EW_PRICE_TABLE, {"Las Bellas Historias de la Biblia, Tomo 1":{"a5":{"pages":172,"mate_crema":6.61,"mate_offset":6.42,"mate_semi":7.31,"brillo_crema":6.41,"brillo_offset":6.31,"brillo_semi":7.28},"mediano_blanda":{"pages":172,"mate_crema":6.88,"mate_offset":6.68,"mate_semi":7.6,"brillo_crema":6.64,"brillo_offset":6.54,"brillo_semi":7.56},"mediano_dura":{"pages":172,"crema":13.22,"offset":13.02,"semi":13.94},"grande_dura":{"pages":172,"crema":17.43,"offset":17.17,"semi":19.01}},"Las Bellas Historias de la Biblia, Tomo 2":{"a5":{"pages":190,"mate_crema":6.76,"mate_offset":6.57,"mate_semi":7.47,"brillo_crema":6.56,"brillo_offset":6.46,"brillo_semi":7.43},"mediano_blanda":{"pages":190,"mate_crema":7.03,"mate_offset":6.83,"mate_semi":7.75,"brillo_crema":6.79,"brillo_offset":6.69,"brillo_semi":7.71},"mediano_dura":{"pages":190,"crema":13.39,"offset":13.19,"semi":14.11},"grande_dura":{"pages":190,"crema":17.6,"offset":17.34,"semi":19.18}},"Las Bellas Historias de la Biblia, Tomo 3":{"a5":{"pages":192,"mate_crema":6.78,"mate_offset":6.59,"mate_semi":7.48,"brillo_crema":6.58,"brillo_offset":6.47,"brillo_semi":7.45},"mediano_blanda":{"pages":192,"mate_crema":7.05,"mate_offset":6.85,"mate_semi":7.77,"brillo_crema":6.81,"brillo_offset":6.71,"brillo_semi":7.73},"mediano_dura":{"pages":192,"crema":13.41,"offset":13.21,"semi":14.13},"grande_dura":{"pages":192,"crema":17.62,"offset":17.36,"semi":19.2}},"Las Bellas Historias de la Biblia, Tomo 4":{"a5":{"pages":193,"mate_crema":6.79,"mate_offset":6.6,"mate_semi":7.49,"brillo_crema":6.59,"brillo_offset":6.48,"brillo_semi":7.46},"mediano_blanda":{"pages":193,"mate_crema":7.05,"mate_offset":6.85,"mate_semi":7.77,"brillo_crema":6.81,"brillo_offset":6.71,"brillo_semi":7.73},"mediano_dura":{"pages":193,"crema":13.42,"offset":13.22,"semi":14.14},"grande_dura":{"pages":193,"crema":17.63,"offset":17.37,"semi":19.21}},"Las Bellas Historias de la Biblia, Tomo 5":{"a5":{"pages":193,"mate_crema":6.79,"mate_offset":6.6,"mate_semi":7.49,"brillo_crema":6.59,"brillo_offset":6.48,"brillo_semi":7.46},"mediano_blanda":{"pages":193,"mate_crema":7.05,"mate_offset":6.85,"mate_semi":7.77,"brillo_crema":6.81,"brillo_offset":6.71,"brillo_semi":7.73},"mediano_dura":{"pages":193,"crema":13.42,"offset":13.22,"semi":14.14},"grande_dura":{"pages":193,"crema":17.63,"offset":17.37,"semi":19.21}},"Las Bellas Historias de la Biblia, Tomo 6":{"a5":{"pages":193,"mate_crema":6.79,"mate_offset":6.6,"mate_semi":7.49,"brillo_crema":6.59,"brillo_offset":6.48,"brillo_semi":7.46},"mediano_blanda":{"pages":193,"mate_crema":7.05,"mate_offset":6.85,"mate_semi":7.77,"brillo_crema":6.81,"brillo_offset":6.71,"brillo_semi":7.73},"mediano_dura":{"pages":193,"crema":13.42,"offset":13.22,"semi":14.14},"grande_dura":{"pages":193,"crema":17.63,"offset":17.37,"semi":19.21}},"Las Bellas Historias de la Biblia, Tomo 7":{"a5":{"pages":193,"mate_crema":6.79,"mate_offset":6.6,"mate_semi":7.49,"brillo_crema":6.59,"brillo_offset":6.48,"brillo_semi":7.46},"mediano_blanda":{"pages":193,"mate_crema":7.05,"mate_offset":6.85,"mate_semi":7.77,"brillo_crema":6.81,"brillo_offset":6.71,"brillo_semi":7.73},"mediano_dura":{"pages":193,"crema":13.42,"offset":13.22,"semi":14.14},"grande_dura":{"pages":193,"crema":17.63,"offset":17.37,"semi":19.21}},"Las Bellas Historias de la Biblia, Tomo 8":{"a5":{"pages":193,"mate_crema":6.79,"mate_offset":6.6,"mate_semi":7.49,"brillo_crema":6.59,"brillo_offset":6.48,"brillo_semi":7.46},"mediano_blanda":{"pages":193,"mate_crema":7.05,"mate_offset":6.85,"mate_semi":7.77,"brillo_crema":6.81,"brillo_offset":6.71,"brillo_semi":7.73},"mediano_dura":{"pages":193,"crema":13.42,"offset":13.22,"semi":14.14},"grande_dura":{"pages":193,"crema":17.63,"offset":17.37,"semi":19.21}},"Las Bellas Historias de la Biblia, Tomo 9":{"a5":{"pages":193,"mate_crema":6.79,"mate_offset":6.6,"mate_semi":7.49,"brillo_crema":6.59,"brillo_offset":6.48,"brillo_semi":7.46},"mediano_blanda":{"pages":193,"mate_crema":7.05,"mate_offset":6.85,"mate_semi":7.77,"brillo_crema":6.81,"brillo_offset":6.71,"brillo_semi":7.73},"mediano_dura":{"pages":193,"crema":13.42,"offset":13.22,"semi":14.14},"grande_dura":{"pages":193,"crema":17.63,"offset":17.37,"semi":19.21}},"Las Bellas Historias de la Biblia, Tomo 10":{"a5":{"pages":209,"mate_crema":6.93,"mate_offset":6.74,"mate_semi":7.63,"brillo_crema":6.72,"brillo_offset":6.62,"brillo_semi":7.6},"mediano_blanda":{"pages":209,"mate_crema":7.19,"mate_offset":6.99,"mate_semi":7.91,"brillo_crema":6.95,"brillo_offset":6.85,"brillo_semi":7.87},"mediano_dura":{"pages":209,"crema":13.57,"offset":13.37,"semi":14.29},"grande_dura":{"pages":209,"crema":17.78,"offset":17.52,"semi":19.36}}});
-Object.assign(window.EW_BOOK_DEFAULTS, {"las-bellas-historias-de-la-biblia-1":{"title":"Las Bellas Historias de la Biblia, Tomo 1","price":14.31,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 1"},"las-bellas-historias-de-la-biblia-2":{"title":"Las Bellas Historias de la Biblia, Tomo 2","price":14.46,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 2"},"las-bellas-historias-de-la-biblia-3":{"title":"Las Bellas Historias de la Biblia, Tomo 3","price":14.47,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 3"},"las-bellas-historias-de-la-biblia-4":{"title":"Las Bellas Historias de la Biblia, Tomo 4","price":14.48,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 4"},"las-bellas-historias-de-la-biblia-5":{"title":"Las Bellas Historias de la Biblia, Tomo 5","price":14.48,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 5"},"las-bellas-historias-de-la-biblia-6":{"title":"Las Bellas Historias de la Biblia, Tomo 6","price":14.48,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 6"},"las-bellas-historias-de-la-biblia-7":{"title":"Las Bellas Historias de la Biblia, Tomo 7","price":14.48,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 7"},"las-bellas-historias-de-la-biblia-8":{"title":"Las Bellas Historias de la Biblia, Tomo 8","price":14.48,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 8"},"las-bellas-historias-de-la-biblia-9":{"title":"Las Bellas Historias de la Biblia, Tomo 9","price":14.48,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 9"},"las-bellas-historias-de-la-biblia-10":{"title":"Las Bellas Historias de la Biblia, Tomo 10","price":14.62,"surcharge":8,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Las Bellas Historias de la Biblia, Tomo 10"}});
+    <div class="header-actions">
+      <a class="icon-btn" href="cuenta.html" aria-label="Iniciar sesión" data-account-link>
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <a class="icon-btn" href="carrito.html" aria-label="Carrito de compra">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de categorías" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
 
-// ==========================================================================
-// AÑADIDO — «El Buey Adventista» (222 pág.), «Un Soldado sin Descanso» (295 pág.)
-// y «Un Viaje a lo Sobrenatural» (138 pág.). No están en el PDF de 99 títulos:
-// precios de fábrica calculados con la MISMA fórmula lineal del proveedor
-// (reproduce los 99 títulos del PDF al céntimo). Cada combinación que elija el
-// cliente (tamaño, tapa, acabado, papel) = precio de fábrica + 5,00 € (surcharge).
-// ==========================================================================
-Object.assign(window.EW_PRICE_TABLE, {"El Buey Adventista":{"bolsillo":{"pages":222,"mate_crema":5.45,"mate_offset":5.32,"mate_semi":6.04,"brillo_crema":5.47,"brillo_offset":5.34,"brillo_semi":6.06},"a5":{"pages":222,"mate_crema":7.04,"mate_offset":6.85,"mate_semi":7.74,"brillo_crema":6.83,"brillo_offset":6.73,"brillo_semi":7.71},"mediano_blanda":{"pages":222,"mate_crema":7.3,"mate_offset":7.1,"mate_semi":8.02,"brillo_crema":7.06,"brillo_offset":6.96,"brillo_semi":7.98},"mediano_dura":{"pages":222,"crema":13.69,"offset":13.49,"semi":14.41},"grande_dura":{"pages":222,"crema":17.9,"offset":17.64,"semi":19.48}},"Un Soldado sin Descanso":{"bolsillo":{"pages":295,"mate_crema":6.07,"mate_offset":5.94,"mate_semi":6.66,"brillo_crema":6.09,"brillo_offset":5.96,"brillo_semi":6.68},"a5":{"pages":295,"mate_crema":7.65,"mate_offset":7.46,"mate_semi":8.35,"brillo_crema":7.45,"brillo_offset":7.35,"brillo_semi":8.32},"mediano_blanda":{"pages":295,"mate_crema":7.92,"mate_offset":7.72,"mate_semi":8.64,"brillo_crema":7.68,"brillo_offset":7.58,"brillo_semi":8.6},"mediano_dura":{"pages":295,"crema":14.38,"offset":14.18,"semi":15.1},"grande_dura":{"pages":295,"crema":18.59,"offset":18.33,"semi":20.17}},"Un Viaje a lo Sobrenatural":{"bolsillo":{"pages":138,"mate_crema":4.74,"mate_offset":4.61,"mate_semi":5.33,"brillo_crema":4.76,"brillo_offset":4.63,"brillo_semi":5.35},"a5":{"pages":138,"mate_crema":6.33,"mate_offset":6.14,"mate_semi":7.03,"brillo_crema":6.12,"brillo_offset":6.02,"brillo_semi":7},"mediano_blanda":{"pages":138,"mate_crema":6.59,"mate_offset":6.39,"mate_semi":7.31,"brillo_crema":6.35,"brillo_offset":6.25,"brillo_semi":7.27},"mediano_dura":{"pages":138,"crema":12.9,"offset":12.7,"semi":13.62},"grande_dura":{"pages":138,"crema":17.11,"offset":16.85,"semi":18.69}}});
-Object.assign(window.EW_BOOK_DEFAULTS, {"el-buey-adventista":{"title":"El Buey Adventista","price":11.73,"surcharge":5,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"El Buey Adventista"},"un-soldado-sin-descanso":{"title":"Un Soldado sin Descanso","price":12.35,"surcharge":5,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Un Soldado sin Descanso"},"un-viaje-a-lo-sobrenatural":{"title":"Un Viaje a lo Sobrenatural","price":11.02,"surcharge":5,"tipo":"blanda","tamano":"a5","acabado":"brillo","papel":"offset","pdfTitle":"Un Viaje a lo Sobrenatural"}});
+  <nav class="category-nav" id="categoryNav" aria-label="Categorías">
+    <div class="container">
+      <ul class="category-list">
+        <li><a href="categoria.html" class="is-active">Todo el catálogo</a></li>
+        <li><a href="categoria.html?cat=biblias">Biblias</a></li>
+        <li><a href="categoria.html?cat=elena-white">Elena G. White</a></li>
+        <li><a href="categoria.html?cat=infantil">Infantil y juvenil</a></li>
+        <li><a href="categoria.html?cat=doctrina">Doctrina y creencias</a></li>
+        <li><a href="categoria.html?cat=novedades">Novedades</a></li>
+        <li><a href="categoria.html?cat=otros-idiomas">Otros idiomas</a></li>
+        <li><a href="confeccion-manual.html">Confección manual <span class="nav-soon-tag">Próximamente</span></a></li>
+        <li class="nav-highlight"><a href="asistente.html">¿No sabes qué elegir?</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
 
-// Tamaños disponibles según el tipo de tapa (solo los que tienen precio
-// calculado en el PDF; el proveedor ofrece más tamaños, pero no se han
-// pedido precios para todos, así que no se muestran en la tienda).
-window.EW_SIZES_BY_TIPO = {
-  blanda: [
-    { slug: 'bolsillo', label: 'Bolsillo', dims: '110 x 180 mm' },
-    { slug: 'a5',       label: 'A5',       dims: '148 x 210 mm' },
-    { slug: 'mediano',  label: 'Mediano',  dims: '155 x 235 mm' }
-  ],
-  dura: [
-    { slug: 'mediano',  label: 'Mediano',  dims: '155 x 235 mm' },
-    { slug: 'grande',   label: 'Grande',   dims: '193 x 260 mm' }
-  ]
-};
+<main id="main-content">
+  <div class="container product-page">
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      <a href="index.html">Inicio</a>
+      <span>/</span>
+      <a href="categoria.html" id="breadcrumbCategory">Catálogo</a>
+      <span>/</span>
+      <span class="breadcrumb-current" id="breadcrumbTitle">Ficha de producto</span>
+    </nav>
 
-window.EW_PAPERS = [
-  { slug: 'crema',  label: 'Papel crema' },
-  { slug: 'offset', label: 'Papel blanco (Offset)' },
-  { slug: 'semi',   label: 'Papel blanco semi brillante' }
-];
+    <!-- Se muestra si la URL no trae ?id= o el id no existe en el catálogo -->
+    <div id="productNotFound" class="empty-results" hidden>
+      No se ha encontrado este libro. <a href="categoria.html">Volver al catálogo</a>.
+    </div>
 
-window.EW_FINISHES = [
-  { slug: 'mate',   label: 'Mate' },
-  { slug: 'brillo', label: 'Brillo' }
-];
+    <div class="product-layout" id="productLayout" hidden>
+      <div class="product-gallery">
+        <div class="product-cover-photo">
+          <span class="badge" id="productBadge" hidden></span>
+          <span class="binding-tag" id="productBinding" hidden></span>
+          <img id="productCoverImg" src="" alt="">
+        </div>
+      </div>
 
-// Tamaños de un tipo de tapa que de verdad tienen precio PARA ESE LIBRO.
-// Para casi todos son todos; p. ej. «Las Bellas Historias de la Biblia» no
-// tiene «bolsillo», así que ahí solo salen A5 y Mediano.
-window.getEWSizes = function (bookId, tipo) {
-  var all = window.EW_SIZES_BY_TIPO[tipo] || [];
-  if (!bookId || typeof window.getEWPrice !== 'function') return all;
-  return all.filter(function (s) { return window.getEWPrice(bookId, tipo, s.slug, 'brillo', 'offset') !== null; });
-};
+      <div class="product-info-block" data-product-block>
+        <span class="book-category" id="productCategory">Categoría</span>
+        <h1 class="product-title" id="productTitle">Título del libro</h1>
+        <p class="product-author" id="productAuthor">Autor</p>
 
-// Combinación por defecto cuando el cliente no elige nada (o para libros
-// nuevos sin publicar aún): Tapa blanda, A5, Brillo, Blanco offset.
-window.EW_DEFAULT_SELECTION = { tipo: 'blanda', tamano: 'a5', acabado: 'brillo', papel: 'offset' };
+        <div class="product-rating" id="productRating" hidden>
+          <span class="stars" id="productStars" aria-hidden="true">★★★★★</span>
+          <span class="rating-count" id="productRatingCount">0 valoraciones</span>
+        </div>
 
-// Recargo aplicado a cualquier combinación que NO sea una de las ya
-// publicadas para ese libro (ni la de por defecto ni ninguna de "extra").
-window.EW_PDF_SURCHARGE = 1.50;
+        <p class="product-price" id="productPrice">0,00&nbsp;€ <small id="productPriceNote">IVA incluido</small></p>
 
-// --- Helpers internos --------------------------------------------------
-function ewTableKey(tipo, tamano) {
-  if (tipo === 'blanda') {
-    if (tamano === 'bolsillo') return 'bolsillo';
-    if (tamano === 'a5') return 'a5';
-    if (tamano === 'mediano') return 'mediano_blanda';
-  } else if (tipo === 'dura') {
-    if (tamano === 'mediano') return 'mediano_dura';
-    if (tamano === 'grande') return 'grande_dura';
-  }
-  return null;
-}
+        <span class="stock-badge" id="productStock" role="status" hidden></span>
 
-function ewColumnKey(tipo, acabado, papel) {
-  if (tipo === 'blanda') {
-    var ac = (acabado === 'mate') ? 'mate' : 'brillo';
-    var pa = (papel === 'crema') ? 'crema' : (papel === 'semi') ? 'semi' : 'offset';
-    return ac + '_' + pa;
-  }
-  // tapa dura: el acabado no afecta al precio
-  return (papel === 'crema') ? 'crema' : (papel === 'semi') ? 'semi' : 'offset';
-}
+        <p class="product-desc" id="productDesc">Descripción del libro.</p>
 
-function ewComboMatches(a, tipo, tamano, acabado, papel) {
-  return a.tipo === tipo && a.tamano === tamano && a.acabado === acabado && a.papel === papel;
-}
+        <div class="product-actions">
+          <div class="qty-stepper">
+            <button type="button" class="qty-btn" data-qty-decrease aria-label="Restar cantidad">−</button>
+            <input type="number" class="qty-input" data-qty-input value="1" min="1" max="600" aria-label="Cantidad">
+            <button type="button" class="qty-btn" data-qty-increase aria-label="Sumar cantidad">+</button>
+          </div>
+          <button type="button" class="btn btn--primary" id="addToCartBtn" data-add-to-cart>Añadir al carrito</button>
+          <a href="carrito.html" class="btn btn--outline">Comprar ahora</a>
+          <button type="button" class="btn btn--outline product-fav" id="productFavBtn" data-fav-toggle aria-pressed="false" aria-label="Añadir a mi lista de deseos">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+            <span>Lista de deseos</span>
+          </button>
+        </div>
 
-// Precio de fábrica (PDF, sin el euro extra) para un título exacto del PDF.
-window.getEWRawPrice = function (pdfTitle, tipo, tamano, acabado, papel) {
-  var byTitle = window.EW_PRICE_TABLE[pdfTitle];
-  if (!byTitle) return null;
-  var sizeKey = ewTableKey(tipo, tamano);
-  if (!sizeKey) return null;
-  var sizeData = byTitle[sizeKey];
-  if (!sizeData) return null;
-  var col = ewColumnKey(tipo, acabado, papel);
-  var v = sizeData[col];
-  return (typeof v === 'number') ? v : null;
-};
+        <ul class="product-trust">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Envío a España, Portugal, Francia, Alemania, Países Bajos y Reino Unido</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Ediciones garantizadas, textos fieles y cuidados</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Pago 100% seguro con tarjeta o Bizum</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v5h5"/></svg> Devoluciones fáciles en 14 días</li>
+        </ul>
 
-// Precio final a cobrar (ya con la regla de "precio ya publicado se queda
-// igual" / "+1€ para el resto") para un libro de la tienda (por su id).
-window.getEWPrice = function (bookId, tipo, tamano, acabado, papel) {
-  var def = window.EW_BOOK_DEFAULTS[bookId];
-  if (!def || !def.pdfTitle) return null;
+        <div class="product-tabs">
+          <div class="tab-buttons" role="tablist">
+            <button type="button" class="tab-btn is-active" role="tab" data-tab="descripcion">Descripción</button>
+            <button type="button" class="tab-btn" role="tab" data-tab="detalles">Detalles</button>
+            <button type="button" class="tab-btn" role="tab" data-tab="opiniones">Opiniones <span id="tabReviewCount"></span></button>
+            <button type="button" class="tab-btn" role="tab" data-tab="envio">Envío y devoluciones</button>
+          </div>
 
-  if (ewComboMatches(def, tipo, tamano, acabado, papel)) return def.price;
+          <div class="tab-panel is-active" data-tab-panel="descripcion">
+            <p id="productDescLong">Descripción del libro.</p>
+          </div>
+          <div class="tab-panel" data-tab-panel="detalles">
+            <ul class="spec-list" id="productSpecList"></ul>
+          </div>
+          <div class="tab-panel" data-tab-panel="opiniones">
+            <div id="reviewSummary" class="review-summary" hidden>
+              <span class="review-summary-value" id="reviewAvgValue">0.0</span>
+              <div>
+                <span class="stars" id="reviewAvgStars" aria-hidden="true">★★★★★</span>
+                <span class="rating-count" id="reviewAvgCount">0 valoraciones</span>
+              </div>
+            </div>
 
-  if (def.extra) {
-    for (var i = 0; i < def.extra.length; i++) {
-      if (ewComboMatches(def.extra[i], tipo, tamano, acabado, papel)) return def.extra[i].price;
-    }
-  }
+            <div id="reviewsList" class="reviews-list"></div>
+            <p id="reviewsEmpty" class="reviews-empty">Todavía no hay opiniones sobre este libro. ¡Sé el primero en dejar la tuya!</p>
 
-  var raw = window.getEWRawPrice(def.pdfTitle, tipo, tamano, acabado, papel);
-  if (raw === null) return null;
-  return Math.round((raw + (typeof def.surcharge === 'number' ? def.surcharge : window.EW_PDF_SURCHARGE)) * 100) / 100;
-};
+            <div id="reviewLoginNotice" class="review-login-notice" hidden>
+              <a href="cuenta.html">Inicia sesión</a> para dejar tu opinión sobre este libro.
+            </div>
 
-// ¿Tiene este libro tabla de precios de impresión (configurador) o es un
-// libro con precio fijo (no está en el PDF de 99 títulos)?
-window.hasEWPrintOptions = function (bookId) {
-  var def = window.EW_BOOK_DEFAULTS[bookId];
-  if (!def || !def.pdfTitle) return false;
-  // Solo hay configurador si de verdad existe precio para la combinación por
-  // defecto. Si no, el libro se vende como libro de precio fijo (el de la web),
-  // igual en el navegador y en el servidor, y así nunca se puede pedir algo
-  // que el servidor luego rechace.
-  var p = window.getEWPrice(bookId, def.tipo, def.tamano, def.acabado, def.papel);
-  return p !== null && p !== undefined;
-};
+            <form id="reviewForm" class="review-form" hidden>
+              <h3 class="account-subheading">Deja tu opinión</h3>
+              <div class="review-stars-input" role="radiogroup" aria-label="Valoración">
+                <button type="button" class="review-star-btn" data-star="1" aria-label="1 estrella">★</button>
+                <button type="button" class="review-star-btn" data-star="2" aria-label="2 estrellas">★</button>
+                <button type="button" class="review-star-btn" data-star="3" aria-label="3 estrellas">★</button>
+                <button type="button" class="review-star-btn" data-star="4" aria-label="4 estrellas">★</button>
+                <button type="button" class="review-star-btn" data-star="5" aria-label="5 estrellas">★</button>
+              </div>
+              <input type="hidden" name="valoracion" id="reviewRatingInput" value="0" required>
+              <textarea name="comentario" id="reviewComment" aria-label="Tu opinión sobre el libro" placeholder="Cuéntanos qué te ha parecido este libro…" rows="3" required maxlength="600"></textarea>
+              <div class="review-photos-field">
+                <label class="review-photos-label" for="reviewPhotos">Añade fotos (opcional, máx. 4)</label>
+                <input type="file" id="reviewPhotos" accept="image/jpeg,image/png,image/webp" multiple>
+                <div class="review-photos-preview" id="reviewPhotosPreview"></div>
+              </div>
+              <p class="auth-error" id="reviewError" role="alert" hidden></p>
+              <p class="auth-success" id="reviewSuccess" role="status" hidden></p>
+              <button type="submit" class="btn btn--primary">Publicar opinión</button>
+            </form>
+          </div>
+          <div class="tab-panel" data-tab-panel="envio">
+            <p>Envíos con seguimiento a España, Portugal, Francia, Alemania, Países Bajos y Reino Unido. El coste de envío depende del país y del nº total de ejemplares del pedido (cuantos más ejemplares, menos pagas por libro); lo ves exacto en el carrito, antes de pagar. <a href="envios.html">Ver tarifas de envío</a>. Dispones de 14 días naturales desde la recepción del pedido para solicitar una devolución o un cambio, siempre que el libro se encuentre en su estado original.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-// Fichas antiguas que se han fusionado dentro de otra: id antiguo → id
-// canónico + el "tipo" (tapa) que representaba, para poder redirigir
-// automáticamente (ver js/product.js) y no romper enlaces ya compartidos.
-window.EW_MERGED_REDIRECTS = {
-  'el-deseado-de-todas-las-gentes-tapa-blanda': { id: 'el-deseado-de-todas-las-gentes', tipo: 'blanda' },
-  'el-deseado-de-todas-las-gentes-tapa-dura': { id: 'el-deseado-de-todas-las-gentes', tipo: 'dura' },
-  'los-hechos-de-los-apostoles-tapa-blanda': { id: 'los-hechos-de-los-apostoles', tipo: 'blanda' },
-  'primeros-escritos-tapa-dura': { id: 'primeros-escritos', tipo: 'dura' },
-  'discurso-maestro-de-jesucristo-tapa-dura': { id: 'discurso-maestro-de-jesucristo', tipo: 'dura' }
-};
+    <section class="related-products" id="relatedSection" hidden>
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">También te puede interesar</span>
+          <h2 class="section-title">Productos relacionados</h2>
+        </div>
+      </div>
+      <div class="book-grid" id="relatedGrid"></div>
+    </section>
 
-// ==========================================================================
-// COLECCIONES: un "libro" cuyo precio es la SUMA de los libros que lo forman,
-// con la misma combinación de tapa, tamaño, acabado y papel, multiplicada por EW_COLLECTION_FACTOR
-// (Tesoros de Vida: ×1,3047 → 79,99 € en tapa blanda A5; Las Bellas Historias: ×0,69).
-// Así la colección ofrece el mismo configurador que el resto de libros.
-// Debe ser idéntico en functions/ew-pricing.js.
-// ==========================================================================
-// Descuento por llevarse la colección completa (multiplicador sobre la suma de los tomos).
-// Igual en functions/ew-pricing.js.
-// Puede ser un número (igual para todos los formatos) o un objeto con «default» y
-// excepciones por 'tipo/tamaño'. Tesoros de Vida: tapa dura con factor propio para
-// quedar en 105,40 € (mediano) y 120,06 € (grande) con brillo + offset.
-window.EW_COLLECTION_FACTOR = {
-  'coleccion-las-bellas-historias-de-la-biblia': 0.69,
-  'coleccion-tesoros-de-vida': { 'default': 1.3047, 'dura/mediano': 1.0627, 'dura/grande': 1.05085 }
-};
-window.getEWCollectionFactor = function (bookId, tipo, tamano) {
-  var f = window.EW_COLLECTION_FACTOR[bookId];
-  if (f && typeof f === 'object') return f[tipo + '/' + tamano] || f['default'] || 1;
-  return f || 1;
-};
-window.EW_COLLECTIONS = {
-  'coleccion-las-bellas-historias-de-la-biblia': ["las-bellas-historias-de-la-biblia-1", "las-bellas-historias-de-la-biblia-2", "las-bellas-historias-de-la-biblia-3", "las-bellas-historias-de-la-biblia-4", "las-bellas-historias-de-la-biblia-5", "las-bellas-historias-de-la-biblia-6", "las-bellas-historias-de-la-biblia-7", "las-bellas-historias-de-la-biblia-8", "las-bellas-historias-de-la-biblia-9", "las-bellas-historias-de-la-biblia-10"],
-  'coleccion-tesoros-de-vida': ["historia-de-los-patriarcas-y-profetas","profetas-y-reyes","el-deseado-de-todas-las-gentes","los-hechos-de-los-apostoles","el-conflicto-de-los-siglos"]
-};
-window.EW_BOOK_DEFAULTS['coleccion-las-bellas-historias-de-la-biblia'] = {
-  title: 'Colección Las Bellas Historias de la Biblia', price: 99.87, tipo: 'blanda', tamano: 'a5',
-  acabado: 'brillo', papel: 'offset', pdfTitle: 'Colección Las Bellas Historias de la Biblia'
-};
-window.EW_BOOK_DEFAULTS['coleccion-tesoros-de-vida'] = {
-  title: 'Colección Tesoros de Vida', price: 79.99, tipo: 'blanda', tamano: 'a5',
-  acabado: 'brillo', papel: 'offset', pdfTitle: 'Colección Tesoros de Vida'
-};
-(function () {
-  var precioIndividual = window.getEWPrice;
-  window.getEWPrice = function (bookId, tipo, tamano, acabado, papel) {
-    var partes = window.EW_COLLECTIONS[bookId];
-    if (!partes) return precioIndividual(bookId, tipo, tamano, acabado, papel);
-    var total = 0;
-    for (var i = 0; i < partes.length; i++) {
-      var p = precioIndividual(partes[i], tipo, tamano, acabado, papel);
-      if (p === null || p === undefined) return null;
-      total += p;
-    }
-    return Math.round(total * window.getEWCollectionFactor(bookId, tipo, tamano) * 100) / 100;
-  };
-})();
-</file>
+    <section class="related-products" id="recentSection" hidden>
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Tu historial</span>
+          <h2 class="section-title">Vistos recientemente</h2>
+        </div>
+      </div>
+      <div class="book-grid" id="recentGrid"></div>
+    </section>
+  </div>
+</main>
 
-<file path="index.html">
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">L</span>
+        <span class="brand-name">Librería<span>tu mayor tesoro</span></span>
+      </a>
+      <p class="footer-about">Biblias, obras de Elena G. White y literatura afín, seleccionadas para acompañar tu estudio y tu vida de fe.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/libreriatumayortesoro/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/34711273238" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Institucional</h5>
+      <ul class="footer-links">
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="nuestra-mision.html">Nuestra misión</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+        <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda para elegir</h5>
+      <ul class="footer-links">
+        <li><a href="asistente.html">Asistente de recomendación</a></li>
+        <li><a href="consejo.html">Pide consejo a nuestro librero</a></li>
+        <li><a href="recursos.html">Recursos de lectura</a></li>
+        <li><a href="glosario.html">Glosario de términos</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Ayuda</h5>
+      <ul class="footer-links">
+        <li><a href="envios.html">Envíos y entregas</a></li>
+        <li><a href="devoluciones.html">Devoluciones</a></li>
+        <li><a href="terminos.html">Términos y condiciones</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Contacto</h5>
+      <ul class="footer-contact">
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Alicante, España
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.2a2 2 0 0 1 2.11-.45c.86.3 1.75.51 2.65.63A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+34711273238" class="footer-tel-link">WhatsApp / Teléfono +34 711 27 32 38</a>
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          <a href="mailto:libreriamayortesoro@gmail.com" class="footer-tel-link">libreriamayortesoro@gmail.com</a>
+        </li>
+        <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Horario de atención - Todos los días excepto sábados y domingos, de 8:00 a 15:00 h
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="footer-contact-banner">
+    <div class="container">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+      <span>¿Tienes preguntas o dudas con tu pedido? Contáctanos a través de la siguiente dirección de Gmail: <a href="mailto:libreriamayortesoro@gmail.com">libreriamayortesoro@gmail.com</a></span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Librería tu mayor tesoro. Todos los derechos reservados.</span>
+    <div class="legal-links">
+      <a href="privacidad.html">Privacidad </a>
+      <a href="terminos.html">Términos</a>
+      <a href="#" onclick="return window.reopenCookieBanner(event)">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-storage-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/gift-options.js"></script>
+<script src="js/books-data.js"></script>
+<script src="js/ew-pricing.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/product.js"></script>
+<script src="js/cover-carousel.js"></script>
+<script src="js/gift-product.js"></script>
+<script src="js/search.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+````
+
+## File: sitemap.xml
+````xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://libreriatumayortesoro.com/</loc><lastmod>2026-09-20</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/categoria.html</loc><lastmod>2026-09-20</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/categoria.html?cat=doctrina</loc><lastmod>2026-09-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/categoria.html?cat=elena-white</loc><lastmod>2026-09-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/quienes-somos.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/nuestra-mision.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/nuestro-compromiso.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/preguntas-frecuentes.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/blog.html</loc><lastmod>2026-09-20</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/quien-fue-elena-g-white.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/como-elegir-tu-primera-biblia.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/glosario.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/recursos.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/por-donde-empezar-elena-g-white.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/que-regalar-en-un-bautismo-cristiano.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/que-es-el-conflicto-de-los-siglos.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/que-es-el-deseado-de-todas-las-gentes.html</loc><lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/que-es-el-camino-a-cristo.html</loc><lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/envios.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/devoluciones.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/personalizado.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/confeccion-manual.html</loc><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/seguimiento.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/trabaja-con-nosotros.html</loc><lastmod>2026-09-20</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/terminos.html</loc><lastmod>2026-09-20</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/privacidad.html</loc><lastmod>2026-09-20</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-conflicto-de-los-siglos</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-deseado-de-todas-las-gentes</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=historia-de-los-patriarcas-y-profetas</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=profetas-y-reyes</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-fe-por-la-cual-vivo</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-educacion</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=edificacion-del-caracter</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=hijos-e-hijas-de-dios</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=exaltad-a-jesus</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=en-los-lugares-celestiales</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=fe-y-obras</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-otro-poder</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-ministerio-pastoral</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-ministerio-de-publicaciones</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-ministerio-de-la-bondad</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-ministerio-medico</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-hogar-cristiano</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-evangelismo</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-conflicto-inminente</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-colportor-evangelico</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=dios-nos-cuida</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=de-la-ciudad-al-campo</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-pasion-del-amor</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=cristo-nuestro-salvador</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=cristo-en-su-santuario</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=consejos-sobre-la-mayordomia-cristiana</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=consejos-sobre-la-obra-de-escuela-sabatica</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=consejos-para-los-maestros</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=alza-tus-ojos</loc><lastmod>2026-09-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=consejos-sobre-la-obra-de-la-escuela-sabatica</loc><lastmod>2026-09-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=consejos-sobre-mayordomia-cristiana</loc><lastmod>2026-09-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=consejos-para-la-iglesia</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=cada-dia-con-dios</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=creencias-de-los-adventistas-del-septimo-dia</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=a-fin-de-conocerle</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=review-and-herald</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-verdad-acerca-de-los-angeles</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-historia-de-la-redencion</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-iglesia-remanente</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-maravillosa-gracia-de-dios</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-musica</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-segunda-venida-y-el-cielo</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-temperancia</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-unica-esperanza</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-voz-su-educacion-y-uso-correcto</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=los-hechos-de-los-apostoles</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=palabras-de-vida-del-gran-maestro</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=primeros-escritos</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-la-iglesia-tomo-2</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-la-iglesia-tomo-3</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-la-iglesia-tomo-4</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-la-iglesia-tomo-6</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-la-iglesia-tomo-7</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-la-iglesia-tomo-8</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-la-iglesia-tomo-9</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=eventos-de-los-ultimos-dias</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-selectos-tomo-i</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-selectos-tomo-ii</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-selectos-tomo-iii</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-selectos-tomo-iv</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-selectos-tomo-v</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-la-iglesia-tomo-1</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-la-iglesia-tomo-5</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-los-ministros</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-conducta-sexual-adulterio-divorcio</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=sermones-escogidos-1</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=sermones-escogidos-2</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=servicio-cristiano</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=un-llamado-a-ser-diferente</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=liderazgo-cristiano</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=maranatha-el-senor-viene</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=mensajes-selectos-tomo-i</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=mensajes-selectos-tomo-ii</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=mensajes-selectos-tomo-iii</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=discurso-maestro-de-jesucristo</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-camino-a-cristo</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=desde-el-corazon</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=leyes-de-la-salud</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=leyes-sobre-el-regimen-alimenticio</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=conflicto-y-valor</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=conduccion-del-nino</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=coleccion-kress</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=cartas-a-jovenes-enamorados</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=hijas-de-dios</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=en-el-desierto-de-la-tentacion</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-ministerio-de-curacion</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-cristo-triunfante</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-oracion</loc><lastmod>2026-09-26</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-educacion-cristiana</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=joyas-de-los-testimonios-1</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=joyas-de-los-testimonios-2</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=joyas-de-los-testimonios-3</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=ser-semejante-a-jesus</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=mensajes-para-los-jovenes</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=mente-caracter-y-personalidad-1</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=mente-caracter-y-personalidad-2</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=mi-vida-hoy</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=notas-biograficas-de-elena-g-de-white</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=nuestra-elevada-vocacion</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=obreros-evangelicos</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=oscuridad-antes-del-amanecer</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=reavivamientos-modernos</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=recibireis-poder</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=reflejemos-a-jesus</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=coleccion-las-bellas-historias-de-la-biblia</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-1</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-2</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-3</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-4</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-5</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-6</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-7</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-8</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-9</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-10</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=un-viaje-a-lo-sobrenatural</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-buey-adventista</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://libreriatumayortesoro.com/producto.html?id=un-soldado-sin-descanso</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>
+````
+
+## File: index.html
+````html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19476,7 +19163,7 @@ window.EW_BOOK_DEFAULTS['coleccion-tesoros-de-vida'] = {
           <a href="#destacados" class="btn btn--outline btn--outline-light">Ver libros destacados</a>
         </div>
         <div class="hero-stats">
-          <div><strong>24–48h</strong><span>Preparación del pedido</span></div>
+          <div><strong>Envío ágil</strong><span>Preparación del pedido</span></div>
           <div><strong>14 días</strong><span>Para cambios y devoluciones</span></div>
         </div>
       </div>
@@ -19747,7 +19434,7 @@ window.EW_BOOK_DEFAULTS['coleccion-tesoros-de-vida'] = {
     <div class="trust-strip">
       <div class="trust-item">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        <div><h4>Envíos a toda España</h4><p>Recíbelo en casa en pocos días</p></div>
+        <div><h4>Envíos a España y Europa</h4><p>Envío ágil a tu casa</p></div>
       </div>
       <div class="trust-item">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -19889,159 +19576,10 @@ window.EW_BOOK_DEFAULTS['coleccion-tesoros-de-vida'] = {
 <script src="js/main.js"></script>
 </body>
 </html>
-</file>
+````
 
-<file path="sitemap.xml">
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://libreriatumayortesoro.com/</loc><lastmod>2026-09-20</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/categoria.html</loc><lastmod>2026-09-20</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/categoria.html?cat=doctrina</loc><lastmod>2026-09-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/categoria.html?cat=elena-white</loc><lastmod>2026-09-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/quienes-somos.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/nuestra-mision.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/nuestro-compromiso.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/preguntas-frecuentes.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/blog.html</loc><lastmod>2026-09-20</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/quien-fue-elena-g-white.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/como-elegir-tu-primera-biblia.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/glosario.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/recursos.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/por-donde-empezar-elena-g-white.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/que-regalar-en-un-bautismo-cristiano.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/que-es-el-conflicto-de-los-siglos.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/que-es-el-deseado-de-todas-las-gentes.html</loc><lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/que-es-el-camino-a-cristo.html</loc><lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/envios.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/devoluciones.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/personalizado.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/confeccion-manual.html</loc><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/seguimiento.html</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/trabaja-con-nosotros.html</loc><lastmod>2026-09-20</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/terminos.html</loc><lastmod>2026-09-20</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/privacidad.html</loc><lastmod>2026-09-20</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-conflicto-de-los-siglos</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-deseado-de-todas-las-gentes</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=historia-de-los-patriarcas-y-profetas</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=profetas-y-reyes</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-fe-por-la-cual-vivo</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-educacion</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=edificacion-del-caracter</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=hijos-e-hijas-de-dios</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=exaltad-a-jesus</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=en-los-lugares-celestiales</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=fe-y-obras</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-otro-poder</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-ministerio-pastoral</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-ministerio-de-publicaciones</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-ministerio-de-la-bondad</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-ministerio-medico</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-hogar-cristiano</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-evangelismo</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-conflicto-inminente</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-colportor-evangelico</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=dios-nos-cuida</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=de-la-ciudad-al-campo</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-pasion-del-amor</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=cristo-nuestro-salvador</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=cristo-en-su-santuario</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=consejos-sobre-la-mayordomia-cristiana</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=consejos-sobre-la-obra-de-escuela-sabatica</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=consejos-para-los-maestros</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=alza-tus-ojos</loc><lastmod>2026-09-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=consejos-sobre-la-obra-de-la-escuela-sabatica</loc><lastmod>2026-09-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=consejos-sobre-mayordomia-cristiana</loc><lastmod>2026-09-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=consejos-para-la-iglesia</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=cada-dia-con-dios</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=creencias-de-los-adventistas-del-septimo-dia</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=a-fin-de-conocerle</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=review-and-herald</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-verdad-acerca-de-los-angeles</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-historia-de-la-redencion</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-iglesia-remanente</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-maravillosa-gracia-de-dios</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-musica</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-segunda-venida-y-el-cielo</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-temperancia</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-unica-esperanza</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-voz-su-educacion-y-uso-correcto</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=los-hechos-de-los-apostoles</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=palabras-de-vida-del-gran-maestro</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=primeros-escritos</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-la-iglesia-tomo-2</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-la-iglesia-tomo-3</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-la-iglesia-tomo-4</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-la-iglesia-tomo-6</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-la-iglesia-tomo-7</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-la-iglesia-tomo-8</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-la-iglesia-tomo-9</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=eventos-de-los-ultimos-dias</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-selectos-tomo-i</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-selectos-tomo-ii</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-selectos-tomo-iii</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-selectos-tomo-iv</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-selectos-tomo-v</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-la-iglesia-tomo-1</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-la-iglesia-tomo-5</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-para-los-ministros</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=testimonios-conducta-sexual-adulterio-divorcio</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=sermones-escogidos-1</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=sermones-escogidos-2</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=servicio-cristiano</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=un-llamado-a-ser-diferente</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=liderazgo-cristiano</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=maranatha-el-senor-viene</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=mensajes-selectos-tomo-i</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=mensajes-selectos-tomo-ii</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=mensajes-selectos-tomo-iii</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=discurso-maestro-de-jesucristo</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-camino-a-cristo</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=desde-el-corazon</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=leyes-de-la-salud</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=leyes-sobre-el-regimen-alimenticio</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=conflicto-y-valor</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=conduccion-del-nino</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=coleccion-kress</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=cartas-a-jovenes-enamorados</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=hijas-de-dios</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=en-el-desierto-de-la-tentacion</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-ministerio-de-curacion</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-cristo-triunfante</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-oracion</loc><lastmod>2026-09-26</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=la-educacion-cristiana</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=joyas-de-los-testimonios-1</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=joyas-de-los-testimonios-2</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=joyas-de-los-testimonios-3</loc><lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=ser-semejante-a-jesus</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=mensajes-para-los-jovenes</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=mente-caracter-y-personalidad-1</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=mente-caracter-y-personalidad-2</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=mi-vida-hoy</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=notas-biograficas-de-elena-g-de-white</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=nuestra-elevada-vocacion</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=obreros-evangelicos</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=oscuridad-antes-del-amanecer</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=reavivamientos-modernos</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=recibireis-poder</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=reflejemos-a-jesus</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=coleccion-las-bellas-historias-de-la-biblia</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-1</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-2</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-3</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-4</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-5</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-6</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-7</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-8</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-9</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=las-bellas-historias-de-la-biblia-10</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=un-viaje-a-lo-sobrenatural</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=el-buey-adventista</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://libreriatumayortesoro.com/producto.html?id=un-soldado-sin-descanso</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-</urlset>
-</file>
-
-<file path="css/styles.css">
+## File: css/styles.css
+````css
 /* ==========================================================================
    Librería — hoja de estilos
    Paleta y tipografía heredadas de la app de estudio (navy / gold / parchment,
@@ -24743,9 +24281,75 @@ body { overflow-x: clip; }
 @media (max-width: 900px) {
   .hero-collection { max-width: 340px; }
 }
-</file>
 
-<file path="functions/index.js">
+
+/* ==========================================================================
+   Envíos por país: selector en el carrito y tabla de tarifas (envios.html)
+   ========================================================================== */
+.cart-summary-country { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; font-size: 0.85rem; font-weight: 600; color: var(--foreground); }
+.cart-summary-country select,
+.shipping-form select,
+.account-form select {
+  font: inherit;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--background);
+  color: var(--foreground);
+}
+.account-form label select { font-weight: 400; }
+.shipping-form select:focus-visible,
+.account-form select:focus-visible,
+.cart-summary-country select:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+
+.shipping-rates { max-width: 980px; margin: 0 0 3rem; }
+.shipping-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+}
+.shipping-table { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 0.95rem; }
+.shipping-table thead th {
+  background: var(--navy);
+  color: var(--parchment);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  padding: 0.95rem 0.75rem;
+}
+.shipping-table thead th:first-child { text-align: left; padding-left: 1.25rem; }
+.shipping-table tbody tr { background: var(--card); }
+.shipping-table tbody tr:nth-child(even) { background: var(--muted); }
+.shipping-table tbody th {
+  position: sticky;
+  left: 0;
+  background: inherit;
+  text-align: left;
+  padding: 0.9rem 0.75rem 0.9rem 1.25rem;
+  white-space: nowrap;
+  font-weight: 600;
+  color: var(--foreground);
+}
+.shipping-table td {
+  text-align: center;
+  padding: 0.9rem 0.75rem;
+  color: var(--foreground);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.shipping-country { display: inline-flex; align-items: center; gap: 0.75rem; }
+.shipping-country small { display: block; font-weight: 400; font-size: 0.76rem; color: var(--muted-foreground); }
+.shipping-flag { width: 30px; height: 20px; flex: none; border-radius: 3px; box-shadow: 0 0 0 1px var(--border); }
+.shipping-table-note { font-size: 0.85rem; color: var(--muted-foreground); line-height: 1.6; margin: 0.9rem 0 0; }
+````
+
+## File: functions/index.js
+````javascript
 // ==========================================================================
 // Cloud Functions — Librería tu mayor tesoro
 //
@@ -24776,6 +24380,7 @@ const { initializeApp } = require("firebase-admin/app");
 const { getFirestore, FieldValue } = require("firebase-admin/firestore");
 const { getAuth } = require("firebase-admin/auth");
 const { hasEWPrintOptions, resolverImpresion } = require("./ew-pricing");
+const ShippingRates = require("./shipping-rates");
 
 initializeApp();
 const db = getFirestore();
@@ -26332,21 +25937,15 @@ const LIBROS_POR_COLECCION = {
   "coleccion-las-bellas-historias-de-la-biblia": 10,
 };
 const MAX_ITEMS = 30;
-const MAX_QTY = 20;
-const SHIPPING_COST = 6; // (ya no se usa: ver TRAMOS_ENVIO)
+const MAX_QTY = 600; // por línea del carrito (pedidos grandes: hay tarifas de envío hasta 500+ ejemplares)
 
-// Envío por nº TOTAL de libros del pedido (los extras de regalo no cuentan;
-// cada colección cuenta como sus libros: Tesoros de Vida 5, Las Bellas Historias 10). Debe coincidir con js/cart.js.
-const TRAMOS_ENVIO = [
-  { max: 5, coste: 6 },
-  { max: 10, coste: 10 },
-  { max: 16, coste: 15 },
-  { max: 21, coste: 16 },
-];
-const MAX_LIBROS_PEDIDO = 21;
-function costeEnvio(numLibros) {
-  for (const t of TRAMOS_ENVIO) if (numLibros <= t.max) return t.coste;
-  return TRAMOS_ENVIO[TRAMOS_ENVIO.length - 1].coste;
+// Envío por PAÍS y nº TOTAL de ejemplares del pedido (los extras de regalo no
+// cuentan; cada colección cuenta como sus libros: Tesoros de Vida 5, Las Bellas
+// Historias 10). Las tarifas viven en shipping-rates.js (idéntico a
+// js/shipping-rates.js): coste del transportista + 1,10 €.
+const MAX_LIBROS_PEDIDO = 1000;
+function costeEnvio(pais, numLibros) {
+  return ShippingRates.costeEnvio(pais, numLibros);
 }
 // Descuento por cantidad del MISMO libro y edición (€ por ejemplar).
 // Cambia estos números si quieres más/menos margen. Debe coincidir con js/cart.js.
@@ -26444,15 +26043,19 @@ exports.crearPedido = onCall(async (request) => {
   ) {
     throw new HttpsError("invalid-argument", "Faltan datos de envío, o son demasiado largos.");
   }
-  // Código postal: 5 cifras y solo península y Baleares (lo que dice envios.html).
-  // Canarias (35, 38), Ceuta (51) y Melilla (52) no se sirven con la tarifa de 6 €.
-  const cpLimpio = String(envio.cp).trim().replace(/\s+/g, "");
-  if (!/^\d{5}$/.test(cpLimpio) || Number(cpLimpio.slice(0, 2)) < 1 || Number(cpLimpio.slice(0, 2)) > 52) {
-    throw new HttpsError("invalid-argument", "El código postal no es válido (5 cifras).");
+  // País de envío (si no llega, se asume España: direcciones guardadas antiguas)
+  // y código postal según el país. Cada país tiene su formato; en España solo
+  // península y Baleares, en Portugal solo continental y en Francia solo
+  // metropolitana (ver js/shipping-rates.js).
+  const paisEnvio = typeof envio.pais === "string" && envio.pais ? envio.pais.trim().toUpperCase() : "ES";
+  if (!ShippingRates.paisValido(paisEnvio)) {
+    throw new HttpsError("invalid-argument", "Ahora mismo no enviamos a ese país. Escríbenos a libreriamayortesoro@gmail.com y lo miramos.");
   }
-  if (["35", "38", "51", "52"].includes(cpLimpio.slice(0, 2))) {
-    throw new HttpsError("invalid-argument", "Ahora mismo solo enviamos a la península y Baleares. Escríbenos a libreriamayortesoro@gmail.com y lo miramos.");
+  const resultadoCP = ShippingRates.validarCP(paisEnvio, envio.cp);
+  if (!resultadoCP.ok) {
+    throw new HttpsError("invalid-argument", resultadoCP.mensaje);
   }
+  const cpLimpio = resultadoCP.cp;
   // El teléfono es opcional (así se indica en el formulario): solo se
   // valida su longitud si el cliente ha escrito algo.
   if (envio.telefono && !textoValido(envio.telefono, 40)) {
@@ -26541,9 +26144,10 @@ exports.crearPedido = onCall(async (request) => {
   }
   descuentoCantidad = Math.round(descuentoCantidad * 100) / 100;
   // Envío gratis solo si TODOS los libros del pedido lo llevan incluido
-  // (mismo criterio que en js/cart.js); si no, se cobran los 6€ habituales.
-  const todosEnvioGratis = itemsFinales.every((it) => it.envioGratis);
-  const gastosEnvio = todosEnvioGratis ? 0 : costeEnvio(numLibros);
+  // (mismo criterio que en js/cart.js); si no, se cobra el envío según país y nº de ejemplares.
+  // Solo a España (así se prometió en las fichas): a otros países se cobra la tarifa.
+  const todosEnvioGratis = paisEnvio === "ES" && itemsFinales.every((it) => it.envioGratis);
+  const gastosEnvio = todosEnvioGratis ? 0 : costeEnvio(paisEnvio, numLibros);
   const subtotalRedondeado = Math.round(subtotal * 100) / 100;
 
   // Nombre y correo del cliente: se leen de la cuenta autenticada, no del
@@ -26576,6 +26180,10 @@ exports.crearPedido = onCall(async (request) => {
   // (pago manual, verificado a mano desde el panel de administración). Si
   // llega cualquier otro valor, se asume "tarjeta" por seguridad.
   const metodoPago = data.metodoPago === "bizum" ? "bizum" : "tarjeta";
+  // Bizum solo funciona con cuentas españolas.
+  if (metodoPago === "bizum" && paisEnvio !== "ES") {
+    throw new HttpsError("invalid-argument", "Bizum solo está disponible para envíos a España. Elige pago con tarjeta.");
+  }
 
   function construirPedido() {
     const total = Math.max(0, Math.round((subtotalRedondeado + gastosEnvio - descuentoCantidad - descuento) * 100) / 100);
@@ -26589,6 +26197,7 @@ exports.crearPedido = onCall(async (request) => {
         direccion: envio.direccion.trim(),
         ciudad: envio.ciudad.trim(),
         cp: cpLimpio,
+        pais: paisEnvio,
         telefono: envio.telefono ? envio.telefono.trim() : "",
       },
       items: itemsFinales,
@@ -26950,7 +26559,8 @@ async function enviarCorreosPedidoPagado(p) {
   const transporter = crearTransporterGmail();
   const from = '"Librería tu mayor tesoro" <' + GMAIL_USER.value().trim() + ">";
   const envio = p.envio || {};
-  const direccion = escapeHtml([envio.direccion, [envio.cp, envio.ciudad].filter(Boolean).join(" ")].filter(Boolean).join(", "));
+  const nombrePais = (ShippingRates.PAISES[envio.pais] || ShippingRates.PAISES.ES).nombre;
+  const direccion = escapeHtml([envio.direccion, [envio.cp, envio.ciudad].filter(Boolean).join(" "), nombrePais].filter(Boolean).join(", "));
   const enlace = SITE_URL + "/seguimiento.html?numero=" + encodeURIComponent(p.numero || "");
   const marco = (titulo, cuerpo) =>
     '<div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;color:#2b2b2b"><h2 style="color:#20304f;margin-bottom:4px">' + titulo + "</h2>" + cuerpo +
@@ -27174,6 +26784,7 @@ exports.buscarPedidoPublico = onCall(async (request) => {
       direccion: (pedido.envio && pedido.envio.direccion) || "",
       ciudad: (pedido.envio && pedido.envio.ciudad) || "",
       cp: (pedido.envio && pedido.envio.cp) || "",
+      pais: (pedido.envio && pedido.envio.pais) || "ES",
     },
   };
 });
@@ -27627,8 +27238,7 @@ exports.avisoCambioEstado = onDocumentUpdated(
     const saludo = despues.clienteNombre ? "Hola, " + escapeHtml(despues.clienteNombre) + ":" : "Hola:";
     const esEnviado = despues.estado === "enviado";
     const cuerpo = esEnviado
-      ? "<p>¡Buenas noticias! Tu pedido <strong>" + numero + "</strong> ya está <strong>enviado</strong>. " +
-        "Lo recibirás en 2–5 días laborables.</p>" +
+      ? "<p>¡Buenas noticias! Tu pedido <strong>" + numero + "</strong> ya está <strong>enviado</strong>.</p>" +
         '<p style="text-align:center;margin:26px 0"><a href="' + enlace + '" style="background:#20304f;color:#f6efe2;padding:12px 26px;border-radius:6px;text-decoration:none;font-weight:bold">Ver el estado de mi pedido</a></p>' +
         "<p>Cuando lo tengas en tus manos, puedes confirmarlo en <em>Mi cuenta → Mis pedidos</em>.</p>"
       : "<p>Tu pedido <strong>" + numero + "</strong> figura como <strong>entregado</strong>. Esperamos que lo disfrutes.</p>" +
@@ -27891,9 +27501,10 @@ exports.verificarCodigoCorreo = onCall(async (request) => {
   await ref.delete().catch(() => {});
   return { ok: true };
 });
-</file>
+````
 
-<file path="js/books-data.js">
+## File: js/books-data.js
+````javascript
 // ==========================================================================
 // Catálogo de libros — ÚNICA fuente de datos de producto para toda la web.
 // Se usa en: categoria.html (listado/filtros/buscador), producto.html
@@ -31779,6 +31390,4 @@ window.portadaMiniaturaHTML = function (it, esc) {
   return '<span class="order-cover"><img src="' + esc(p.file) + '" alt="' + esc(p.label) + '" width="44" height="66" loading="lazy">' +
     '<span>' + esc(p.label) + '</span></span>';
 };
-</file>
-
-</files>
+````

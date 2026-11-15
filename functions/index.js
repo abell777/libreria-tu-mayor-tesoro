@@ -127,6 +127,136 @@ const PORTADAS_VALIDAS = {
 // Twitter muestran el título, la portada y el resumen reales del libro al
 // compartir un enlace, en vez de los genéricos de la home.
 const CATALOGO = {
+  "en-the-spirit-of-prophecy-vol-4": {
+      "title": "The Spirit of Prophecy, Vol. 4",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 14.13,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-the-spirit-of-prophecy-vol-4.jpg",
+      "description": "Volume 4 of the four-volume work on the great controversy between Christ and Satan (first edition 1884): from the destruction of Jerusalem to the end of the great controversy and the new earth."
+  },
+  "en-the-spirit-of-prophecy-vol-3": {
+      "title": "The Spirit of Prophecy, Vol. 3",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 13.17,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-the-spirit-of-prophecy-vol-3.jpg",
+      "description": "Volume 3 of the four-volume work on the great controversy between Christ and Satan (first edition 1878): the death, resurrection and ascension of Jesus, and the early church to the time of Paul and Silas."
+  },
+  "en-the-spirit-of-prophecy-vol-2": {
+      "title": "The Spirit of Prophecy, Vol. 2",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 13.22,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-the-spirit-of-prophecy-vol-2.jpg",
+      "description": "Volume 2 of the four-volume work on the great controversy between Christ and Satan (first edition 1877): the life, teachings and miracles of Jesus, from His first advent to the entry into Jerusalem."
+  },
+  "en-the-spirit-of-prophecy-vol-1": {
+      "title": "The Spirit of Prophecy, Vol. 1",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 13.35,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-the-spirit-of-prophecy-vol-1.jpg",
+      "description": "Volume 1 of the four-volume work on the great controversy between Christ and Satan (first edition 1870): from creation to the time of Solomon."
+  },
+  "en-sketches-from-the-life-of-paul": {
+      "title": "Sketches from the Life of Paul",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 12.68,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-sketches-from-the-life-of-paul.jpg",
+      "description": "A portrait of the apostle Paul — his conversion, journeys, letters and imprisonment — written as a study of devotion and character."
+  },
+  "en-the-colporteur-evangelist": {
+      "title": "The Colporteur Evangelist",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 10.72,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-the-colporteur-evangelist.jpg",
+      "description": "Counsel on the work of the book evangelist, with encouragement for those who share the printed page."
+  },
+  "en-counsels-to-parents-teachers-and-students": {
+      "title": "Counsels to Parents, Teachers, and Students",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 14.55,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-counsels-to-parents-teachers-and-students.jpg",
+      "description": "Counsel on Christian education in the home, the school and the church, with practical guidance for parents, teachers and students."
+  },
+  "en-education": {
+      "title": "Education",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 12.46,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-education.jpg",
+      "description": "A landmark work on the harmonious development of mind, body and spirit, which sees education as preparation for service in this world and the next."
+  },
+  "en-christian-education": {
+      "title": "Christian Education",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 11.95,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-christian-education.jpg",
+      "description": "Counsel on the purpose and principles of true education, for parents, teachers and church schools."
+  },
+  "en-an-appeal-to-the-youth": {
+      "title": "An Appeal to the Youth",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 10.53,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-an-appeal-to-the-youth.jpg",
+      "description": "A pamphlet of counsel and encouragement for young people on character, conduct and faith, published in 1864."
+  },
+  "en-spiritual-gifts-vol-2": {
+      "title": "Spiritual Gifts, Vol. 2",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 12.42,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-spiritual-gifts-vol-2.jpg",
+      "description": "My Christian Experience, Views and Labours in Connection with the Rise and Progress of the Third Angel's Message: her own story of the early years of the movement."
+  },
+  "en-the-acts-of-the-apostles": {
+      "title": "The Acts of the Apostles",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 15.2,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-the-acts-of-the-apostles.jpg",
+      "description": "The story of the early Christian church, from Pentecost through the missionary journeys of Paul and the other apostles, with inspiring lessons for mission and service today."
+  },
+  "en-prophets-and-kings": {
+      "title": "Prophets and Kings",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 16.05,
+      "author": "Ellen G. White",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-prophets-and-kings.jpg",
+      "description": "The history of Israel's kings and prophets, from Solomon through the captivity in Babylon and the restoration, to the close of the Old Testament, with lessons for the church today."
+  },
   "un-soldado-sin-descanso": {
       "title": "Un Soldado sin Descanso",
       "format": "Tapa blanda, 148 x 210 mm",
