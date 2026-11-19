@@ -127,6 +127,96 @@ const PORTADAS_VALIDAS = {
 // Twitter muestran el título, la portada y el resumen reales del libro al
 // compartir un enlace, en vez de los genéricos de la home.
 const CATALOGO = {
+  "en-morning-and-evening-readings": {
+      "title": "Morning and Evening Readings",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 14.4,
+      "author": "Charles Haddon Spurgeon",
+      "category": "otros-idiomas",
+      "categoryLabel": "Otros idiomas",
+      "cover": "img/en-morning-and-evening-readings.jpg",
+      "description": "Charles Haddon Spurgeon's classic devotional: a short reading for the morning and another for the evening, to start and end each day in the company of the Bible."
+  },
+  "imitacion-de-cristo": {
+      "title": "Imitación de Cristo",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 10.81,
+      "author": "Tomás de Kempis",
+      "category": "doctrina",
+      "categoryLabel": "Doctrina y creencias",
+      "cover": "img/imitacion-de-cristo.jpg",
+      "description": "El clásico devocional de Tomás de Kempis: pensamientos breves y sencillos para una vida interior humilde, tranquila y centrada en seguir a Jesús."
+  },
+  "el-santuario-y-su-servicio": {
+      "title": "El Santuario y su servicio",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 12.15,
+      "author": "M. L. Andreasen",
+      "category": "doctrina",
+      "categoryLabel": "Doctrina y creencias",
+      "cover": "img/el-santuario-y-su-servicio.jpg",
+      "description": "M. L. Andreasen explica el santuario del Antiguo Testamento, sus servicios y su significado, y cómo todo ello señala a la obra de Cristo. Una guía clara para entender uno de los temas centrales de la Biblia."
+  },
+  "daniel-y-el-apocalipsis": {
+      "title": "Daniel y el Apocalipsis",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 13.82,
+      "author": "Urías Smith",
+      "category": "doctrina",
+      "categoryLabel": "Doctrina y creencias",
+      "cover": "img/daniel-y-el-apocalipsis.jpg",
+      "description": "La obra clásica de Urías Smith que recorre las profecías de Daniel y del Apocalipsis, explicadas con detalle y con el texto bíblico siempre delante. Para quien quiere estudiar la profecía a fondo."
+  },
+  "el-libro-de-los-martires": {
+      "title": "El libro de los mártires",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 12.2,
+      "author": "Juan Fox",
+      "category": "doctrina",
+      "categoryLabel": "Doctrina y creencias",
+      "cover": "img/el-libro-de-los-martires.jpg",
+      "description": "El clásico de Juan Fox sobre la fe y el valor de los cristianos que atravesaron la persecución a lo largo de los siglos. Historias reales que sacuden y animan a mantenerse firme."
+  },
+  "el-tesoro-de-david": {
+      "title": "El tesoro de David: Devocional sobre los Salmos",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 16.18,
+      "author": "Charles Spurgeon",
+      "category": "doctrina",
+      "categoryLabel": "Doctrina y creencias",
+      "cover": "img/el-tesoro-de-david.jpg",
+      "description": "Charles Spurgeon acompaña al lector por los Salmos con reflexiones devocionales que consuelan, animan y llevan a la oración. Una obra para leer con calma, salmo a salmo."
+  },
+  "el-progreso-del-peregrino": {
+      "title": "El progreso del peregrino",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 11.37,
+      "author": "Juan Bunyan",
+      "category": "doctrina",
+      "categoryLabel": "Doctrina y creencias",
+      "cover": "img/el-progreso-del-peregrino.jpg",
+      "description": "La gran alegoría de Juan Bunyan: el viaje de Cristiano desde la Ciudad de Destrucción hasta la Ciudad Celestial, con sus tentaciones, sus amigos y sus pruebas. Un clásico de la fe que se lee como una aventura."
+  },
+  "cristo-y-su-justicia": {
+      "title": "Cristo y Su justicia",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 10.36,
+      "author": "E. J. Waggoner",
+      "category": "doctrina",
+      "categoryLabel": "Doctrina y creencias",
+      "cover": "img/cristo-y-su-justicia.jpg",
+      "description": "Un texto breve y directo de E. J. Waggoner sobre la justicia que viene por la fe en Cristo. Una lectura corta, pensada para detenerse en cada página y volver sobre ella."
+  },
+  "cristo-justicia-nuestra": {
+      "title": "Cristo, justicia nuestra",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 11.15,
+      "author": "Arthur G. Daniells",
+      "category": "doctrina",
+      "categoryLabel": "Doctrina y creencias",
+      "cover": "img/cristo-justicia-nuestra.jpg",
+      "description": "Arthur G. Daniells recorre el mensaje de la justicia de Cristo y de la justificación por la fe: qué significa que Cristo sea nuestra justicia y cómo ese mensaje cambia la vida cotidiana del creyente."
+  },
   "en-the-spirit-of-prophecy-vol-4": {
       "title": "The Spirit of Prophecy, Vol. 4",
       "format": "Tapa blanda, 148 x 210 mm",
@@ -448,26 +538,6 @@ const CATALOGO = {
       "description": "El relato autobiográfico de un hombre que participó en el espiritismo y el ocultismo antes de su conversión, y el testimonio de cómo encontró la fe cristiana."
   },
   // ---- Libros añadidos automáticamente desde js/books-data.js (ver verificar-catalogo.js) ----
-  "consejos-sobre-la-obra-de-la-escuela-sabatica": {
-      "title": "Consejos sobre la Obra de la Escuela Sabática",
-      "format": "Tapa blanda, 148 x 210 mm",
-      "price": 7.24,
-      "author": "Elena G. White",
-      "category": "elena-white",
-      "categoryLabel": "Elena G. White",
-      "cover": "img/consejos-sobre-la-obra-de-la-escuela-sabatica-clasica.jpg",
-      "description": "Orientación práctica para quienes enseñan y organizan la escuela sabática, con principios sobre cómo preparar la clase y acompañar el estudio de la Biblia en la iglesia."
-  },
-  "consejos-sobre-mayordomia-cristiana": {
-      "title": "Consejos sobre Mayordomía Cristiana",
-      "format": "Tapa blanda, 148 x 210 mm",
-      "price": 8.11,
-      "author": "Elena G. White",
-      "category": "elena-white",
-      "categoryLabel": "Elena G. White",
-      "cover": "img/consejos-sobre-mayordomia-cristiana-clasica.jpg",
-      "description": "Principios sobre el manejo cristiano del tiempo, los talentos y los recursos materiales, entendidos como algo confiado por Dios y no como una posesión absoluta."
-  },
   "la-temperancia": {
       "title": "La Temperancia",
       "format": "Tapa blanda, 148 x 210 mm",
