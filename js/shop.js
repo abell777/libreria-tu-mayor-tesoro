@@ -69,7 +69,7 @@
     // portada. Al pulsar, la ficha se abre ya con esa tapa seleccionada
     // (el resto de opciones —tamaño, papel, acabado— se eligen dentro).
     var printToggleHTML = '';
-    if (window.hasEWPrintOptions && window.hasEWPrintOptions(book.id)) {
+    if (!comingSoon && window.hasEWPrintOptions && window.hasEWPrintOptions(book.id)) {
       var ewDefault = window.EW_BOOK_DEFAULTS[book.id];
       printToggleHTML =
         '<div class="card-binding-toggle" role="group" aria-label="Disponible en tapa blanda y tapa dura">' +
