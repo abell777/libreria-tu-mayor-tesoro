@@ -162,7 +162,7 @@
   if (comingSoon) {
     priceEl.childNodes[0].textContent = 'Precio próximamente ';
     priceEl.classList.add('product-price--soon');
-    priceNoteEl.textContent = 'Estamos preparando esta edición';
+    priceNoteEl.textContent = book.avisame ? 'No disponible por el momento' : 'Estamos preparando esta edición';
   } else {
     priceEl.childNodes[0].textContent = fmtPrice(book.price) + '\u00A0€ ';
     priceNoteEl.textContent = book.priceNote;
@@ -836,9 +836,11 @@
     if (infoBlock && actionsEl) {
       var soonNotice = document.createElement('p');
       soonNotice.className = 'coming-soon-notice';
-      soonNotice.innerHTML =
-        '<strong>Edición en preparación.</strong> Este título estará disponible muy pronto en nuestra librería. ' +
-        'Añádelo a tu lista de deseos y lo tendrás a mano en cuanto podamos confirmar precio y fecha de envío.';
+      soonNotice.innerHTML = book.avisame
+        ? '<strong>No disponible por el momento.</strong> Escríbenos y te avisamos en cuanto lo tengamos. ' +
+          '<a href="mailto:libreriamayortesoro@gmail.com?subject=' + encodeURIComponent('Avísame cuando esté disponible: ' + book.title) + '">Avísame cuando esté disponible</a>'
+        : '<strong>Edición en preparación.</strong> Este título estará disponible muy pronto en nuestra librería. ' +
+          'Añádelo a tu lista de deseos y lo tendrás a mano en cuanto podamos confirmar precio y fecha de envío.';
       infoBlock.insertBefore(soonNotice, actionsEl);
     }
     var qtyStepper = document.querySelector('[data-product-block] .qty-stepper');
