@@ -52,12 +52,16 @@
       ? '<span class="stock-badge stock-badge--' + stock.estado + '">' + escapeHTML(stock.texto) + '</span>'
       : '';
     var addBtnHTML = comingSoon
-      ? '<button class="btn btn--outline btn--sm" disabled>Próximamente</button>'
+      ? (book.avisame
+        ? '<a class="btn btn--outline btn--sm" href="mailto:libreriamayortesoro@gmail.com?subject=' + encodeURIComponent('Consulta sobre: ' + book.title) + '">Consultar</a>'
+        : '<button class="btn btn--outline btn--sm" disabled>Próximamente</button>')
       : (agotado
         ? '<button class="btn btn--outline btn--sm" disabled>Agotado</button>'
         : '<button class="btn btn--primary btn--sm">Añadir</button>');
     var priceHTML = comingSoon
-      ? '<span class="book-price book-price--soon">Próximamente<small>Precio por confirmar</small></span>'
+      ? (book.avisame
+        ? '<span class="book-price book-price--soon">Consultar<small>Te indicamos dónde conseguirlo</small></span>'
+        : '<span class="book-price book-price--soon">Próximamente<small>Precio por confirmar</small></span>')
       : '<span class="book-price">' + fmtPrice(book.price) + '&nbsp;€<small>' + escapeHTML(book.priceNote) + '</small></span>';
     // Colección Elena G. White con tabla de precios de impresión: antes de
     // entrar a la ficha, dejamos claro que el libro existe en tapa blanda

@@ -127,6 +127,26 @@ const PORTADAS_VALIDAS = {
 // Twitter muestran el título, la portada y el resumen reales del libro al
 // compartir un enlace, en vez de los genéricos de la home.
 const CATALOGO = {
+  "consejos-sobre-mayordomia-cristiana": {
+      "title": "Consejos sobre Mayordomía Cristiana",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 8.11,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/consejos-sobre-mayordomia-cristiana-clasica.jpg",
+      "description": "Principios sobre el manejo cristiano del tiempo, los talentos y los recursos materiales, entendidos como algo confiado por Dios y no como una posesión absoluta."
+  },
+  "consejos-sobre-la-obra-de-la-escuela-sabatica": {
+      "title": "Consejos sobre la Obra de la Escuela Sabática",
+      "format": "Tapa blanda, 148 x 210 mm",
+      "price": 7.24,
+      "author": "Elena G. White",
+      "category": "elena-white",
+      "categoryLabel": "Elena G. White",
+      "cover": "img/consejos-sobre-la-obra-de-la-escuela-sabatica-clasica.jpg",
+      "description": "Orientación práctica para quienes enseñan y organizan la escuela sabática, con principios sobre cómo preparar la clase y acompañar el estudio de la Biblia en la iglesia."
+  },
   "en-morning-and-evening-readings": {
       "title": "Morning and Evening Readings",
       "format": "Tapa blanda, 148 x 210 mm",
@@ -1585,7 +1605,7 @@ const CATALOGO = {
   "creencias-de-los-adventistas-del-septimo-dia": {
     title: "Creencias de los Adventistas del Séptimo Día",
     format: "Tapa blanda, 148 x 210 mm",
-    price: 10.02,
+    price: null,
     author: "Iglesia Adventista del Séptimo Día",
     category: "doctrina",
     categoryLabel: "Doctrina y creencias",

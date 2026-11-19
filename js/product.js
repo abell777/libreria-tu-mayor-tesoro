@@ -160,9 +160,9 @@
   var priceEl = document.getElementById('productPrice');
   var priceNoteEl = document.getElementById('productPriceNote');
   if (comingSoon) {
-    priceEl.childNodes[0].textContent = 'Precio próximamente ';
+    priceEl.childNodes[0].textContent = book.avisame ? 'Consultar precio ' : 'Precio próximamente ';
     priceEl.classList.add('product-price--soon');
-    priceNoteEl.textContent = book.avisame ? 'No disponible por el momento' : 'Estamos preparando esta edición';
+    priceNoteEl.textContent = book.avisame ? 'Te indicamos dónde conseguirlo' : 'Estamos preparando esta edición';
   } else {
     priceEl.childNodes[0].textContent = fmtPrice(book.price) + '\u00A0€ ';
     priceNoteEl.textContent = book.priceNote;
@@ -434,7 +434,7 @@
     addBtn.dataset.cover = book.cover;
     if (comingSoon) {
       addBtn.disabled = true;
-      addBtn.textContent = 'Disponible próximamente';
+      addBtn.textContent = book.avisame ? 'Consultar disponibilidad' : 'Disponible próximamente';
     } else if (agotado) {
       addBtn.disabled = true;
       addBtn.textContent = 'Agotado';
@@ -837,8 +837,8 @@
       var soonNotice = document.createElement('p');
       soonNotice.className = 'coming-soon-notice';
       soonNotice.innerHTML = book.avisame
-        ? '<strong>No disponible por el momento.</strong> Escríbenos y te avisamos en cuanto lo tengamos. ' +
-          '<a href="mailto:libreriamayortesoro@gmail.com?subject=' + encodeURIComponent('Avísame cuando esté disponible: ' + book.title) + '">Avísame cuando esté disponible</a>'
+        ? '<strong>Este título no se vende directamente en nuestra tienda.</strong> Escríbenos y te indicamos dónde conseguirlo. ' +
+          '<a href="mailto:libreriamayortesoro@gmail.com?subject=' + encodeURIComponent('Consulta sobre: ' + book.title) + '">Escríbenos para consultarlo</a>'
         : '<strong>Edición en preparación.</strong> Este título estará disponible muy pronto en nuestra librería. ' +
           'Añádelo a tu lista de deseos y lo tendrás a mano en cuanto podamos confirmar precio y fecha de envío.';
       infoBlock.insertBefore(soonNotice, actionsEl);
