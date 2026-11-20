@@ -84,3 +84,20 @@ La pestaña activa del menú la marca `js/core/main.js` según la página.
 Hero → Novedades → Libros destacados → Categorías → ¿Qué busca tu alma hoy? → Guías para empezar →
 Pedido personalizado. Cada sección es un bloque `<section>` independiente en `index.html`: para
 reordenar, corta y pega el bloque entero.
+
+## Seguridad — capas y pendientes
+
+Capas activas: reglas de Firestore/Storage (cada cliente solo toca lo suyo; campos y enlaces validados),
+precios y pedidos recalculados en el servidor, firma del webhook de Stripe, claves en Secret Manager,
+límite de intentos por IP/cuenta (`comprobarLimite`), moderación de opiniones, CSP + HSTS + cabeceras en
+`firebase.json`, `security.txt`.
+
+Pendiente de TI (consola, no se puede hacer desde el código):
+1. **App Check obligatorio**: `EXIGIR_APPCHECK` en `functions/index.js` (instrucciones allí) + «Enforce» en
+   Firestore y Storage desde la consola de App Check.
+2. **Restringir la clave de API** (Google Cloud → APIs y servicios → Credenciales): solo referentes
+   `libreriatumayortesoro.com/*` y `libreria-tu-mayor-tesoro.firebaseapp.com/*`.
+3. **Verificación en 2 pasos** en la cuenta de Google del administrador (la que tiene el UID de admin) y en la de Gmail.
+4. **Authentication → Configuración**: activar «protección contra enumeración de correos» y política de contraseñas.
+5. **Alertas de presupuesto** en Google Cloud (Facturación → Presupuestos) para enterarte si un bot dispara el gasto.
+6. **Stripe Radar**: revisar reglas (bloquear tarjetas con CVC/CP incorrectos) y activar avisos de disputas.

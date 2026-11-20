@@ -4,5 +4,7 @@ Allow: /
 Disallow: /admin.html
 Disallow: /carrito.html
 Disallow: /cuenta.html
+Disallow: /seguimiento.html
+Disallow: /producto-app.html
 
 Sitemap: https://libreriatumayortesoro.com/sitemap.xml

@@ -19,6 +19,29 @@ service cloud.firestore {
       return value is string && value.size() > 0 && value.size() <= maxLen;
     }
 
+    // Texto opcional: si el campo existe, debe ser texto y no pasar de "max".
+    function textoOpcional(datos, campo, max) {
+      return !(campo in datos) || (datos[campo] is string && datos[campo].size() <= max);
+    }
+
+    // Enlace a un archivo de ESTE proyecto en Firebase Storage. Es lo único que
+    // se acepta como foto/portada: así nadie puede guardar un «javascript:» ni
+    // una web externa que luego se pinte en la ficha o en el panel de admin.
+    function esUrlStorage(v) {
+      return v is string && v.size() <= 1000 &&
+        v.matches('https://firebasestorage[.]googleapis[.]com/v0/b/libreria-tu-mayor-tesoro[^/]*/o/.*');
+    }
+
+    // Hasta 4 fotos, todas con enlace válido de Storage (las reglas no tienen
+    // bucles, por eso se comprueban las 4 posiciones una a una).
+    function fotosValidas(f) {
+      return f is list && f.size() <= 4 &&
+        (f.size() < 1 || esUrlStorage(f[0])) &&
+        (f.size() < 2 || esUrlStorage(f[1])) &&
+        (f.size() < 3 || esUrlStorage(f[2])) &&
+        (f.size() < 4 || esUrlStorage(f[3]));
+    }
+
     // ---- usuarios/{uid} — perfil y direcciones guardadas ------------------
     // Solo el propio usuario puede leer o escribir su documento. Se limita
     // el tamaño de "direcciones" para que nadie pueda usar el documento
@@ -26,6 +49,8 @@ service cloud.firestore {
     match /usuarios/{uid} {
       allow read: if isSignedIn() && request.auth.uid == uid;
       allow write: if isSignedIn() && request.auth.uid == uid &&
+        // Solo estos tres campos (nadie puede inventarse otros).
+        request.resource.data.keys().hasOnly(['nombre', 'telefono', 'direcciones']) &&
         (!('direcciones' in request.resource.data) ||
           (request.resource.data.direcciones is list &&
            request.resource.data.direcciones.size() <= 10)) &&
@@ -97,12 +122,23 @@ service cloud.firestore {
         isReasonableString(request.resource.data.libroTitulo, 200) &&
         isReasonableString(request.resource.data.clienteNombre, 140) &&
         isReasonableString(request.resource.data.clienteEmail, 200) &&
-        isReasonableString(request.resource.data.portadaUrl, 1000) &&
-        request.resource.data.cantidad is number &&
+        esUrlStorage(request.resource.data.portadaUrl) &&
+        // Solo los campos que envía personalizado.html; nada más.
+        request.resource.data.keys().hasOnly(['uid', 'estado', 'createdAt', 'libroId', 'libroTitulo',
+          'cantidad', 'encuadernacion', 'tamano', 'acabado', 'papel', 'textoPortada', 'notas',
+          'clienteNombre', 'clienteEmail', 'clienteTelefono', 'portadaUrl', 'portadaPath']) &&
+        textoOpcional(request.resource.data, 'libroId', 120) &&
+        textoOpcional(request.resource.data, 'encuadernacion', 100) &&
+        textoOpcional(request.resource.data, 'tamano', 100) &&
+        textoOpcional(request.resource.data, 'acabado', 100) &&
+        textoOpcional(request.resource.data, 'papel', 100) &&
+        textoOpcional(request.resource.data, 'clienteTelefono', 40) &&
+        textoOpcional(request.resource.data, 'portadaPath', 300) &&
+        request.resource.data.cantidad is int &&
         request.resource.data.cantidad >= 1 &&
         request.resource.data.cantidad <= 50 &&
-        (!('notas' in request.resource.data) || request.resource.data.notas.size() <= 800) &&
-        (!('textoPortada' in request.resource.data) || request.resource.data.textoPortada.size() <= 120) &&
+        textoOpcional(request.resource.data, 'notas', 800) &&
+        textoOpcional(request.resource.data, 'textoPortada', 120) &&
         !('precioFinal' in request.resource.data);
 
       // El administrador solo puede tocar el estado, el precio final y un
@@ -145,8 +181,10 @@ service cloud.firestore {
         request.resource.data.valoracion >= 1 &&
         request.resource.data.valoracion <= 5 &&
         isReasonableString(request.resource.data.comentario, 600) &&
-        (!('fotos' in request.resource.data) ||
-          (request.resource.data.fotos is list && request.resource.data.fotos.size() <= 4));
+        (!('fotos' in request.resource.data) || fotosValidas(request.resource.data.fotos)) &&
+        // Solo estos campos: así nadie puede nacer con un "utilesCount" inventado.
+        request.resource.data.keys().hasOnly(['productId', 'bookTitle', 'uid', 'nombre', 'valoracion',
+          'comentario', 'estado', 'createdAt', 'fotos']);
 
       // Dos formas de actualizar una opinión:
       // 1) El admin, solo para aprobarla o rechazarla desde el panel — no
@@ -170,6 +208,7 @@ service cloud.firestore {
           request.resource.data.valoracion >= 1 &&
           request.resource.data.valoracion <= 5 &&
           isReasonableString(request.resource.data.comentario, 600) &&
+          (!('fotos' in request.resource.data) || fotosValidas(request.resource.data.fotos)) &&
           request.resource.data.diff(resource.data).affectedKeys().hasOnly(['valoracion', 'comentario', 'fotos', 'estado']));
       allow delete: if isSignedIn() && resource.data.uid == request.auth.uid;
 

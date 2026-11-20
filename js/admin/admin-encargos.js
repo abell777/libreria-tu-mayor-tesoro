@@ -28,6 +28,8 @@
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   }
+  // Solo enlaces https a Firebase Storage (ver firestore.rules): nada de «javascript:» ni webs externas.
+  function urlSegura(u) { return typeof u === 'string' && u.indexOf('https://firebasestorage.googleapis.com/') === 0; }
   function fmtEUR(n) { return (n || 0).toFixed(2).replace('.', ',') + '\u00A0€'; }
 
   function encargoHTML(e) {
@@ -58,7 +60,7 @@
         '</div>' +
         '<div class="admin-order-col">' +
           '<h4>Imagen para la portada</h4>' +
-          (e.portadaUrl
+          (urlSegura(e.portadaUrl)
             ? '<a href="' + esc(e.portadaUrl) + '" target="_blank" rel="noopener noreferrer">' +
                 '<img src="' + esc(e.portadaUrl) + '" alt="Imagen enviada por el cliente" class="admin-encargo-img">' +
               '</a>' +

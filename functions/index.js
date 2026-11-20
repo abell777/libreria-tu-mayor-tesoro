@@ -35,12 +35,23 @@ const db = getFirestore();
 
 setGlobalOptions({ region: "us-central1", maxInstances: 10 });
 
-// App Check: una vez lo actives siguiendo las instrucciones de
-// js/core/config.js y confirmes en la consola de Firebase que el tráfico real
-// llega verificado, puedes exigirlo aquí añadiendo "enforceAppCheck: true"
-// dentro de las llaves de cada "onCall(...)" de este archivo (por ejemplo
-// "onCall({ enforceAppCheck: true }, async (request) => {"). No se activa
-// por defecto para no bloquear pedidos reales antes de haberlo probado.
+// ==========================================================================
+// APP CHECK — el interruptor que frena a bots y scripts
+// --------------------------------------------------------------------------
+// La web ya envía el «sello» de App Check (js/core/auth.js + APPCHECK_SITE_KEY).
+// Con EXIGIR_APPCHECK = true, TODAS las funciones que llama la web
+// (crearPedido, validarPromo, pagos, seguimiento, códigos de verificación…)
+// rechazan cualquier petición que no venga de tu web real: un script que las
+// llame directamente (spam de pedidos, fuerza bruta de códigos…) ya no pasa.
+//
+// CÓMO ACTIVARLO SIN BLOQUEAR CLIENTES:
+//   1. Firebase Console → App Check → mira «Cloud Functions»: la columna
+//      «Verificadas» debe ser ~100 % durante 1-2 días de tráfico real.
+//   2. Entonces pon  EXIGIR_APPCHECK = true  y haz  firebase deploy --only functions.
+//   3. Haz un pedido de prueba. Si algo fallara, vuelve a false y despliega.
+// ==========================================================================
+const EXIGIR_APPCHECK = false;
+const OPCIONES_LLAMADA = { enforceAppCheck: EXIGIR_APPCHECK };
 
 // URL pública del sitio (se usa aquí y también más abajo en "productoMeta").
 const SITE_URL = "https://libreriatumayortesoro.com";
@@ -2131,14 +2142,24 @@ async function comprobarLimite(clave, maxIntentos, ventanaMs) {
 // origen las funciones que no requieren sesión iniciada). En Cloud
 // Functions v2, detrás del balanceador de Google, la IP real del
 // visitante va en la cabecera "x-forwarded-for" (la primera de la lista).
-function ipDeLaPeticion(request) {
-  const req = request.rawRequest;
+//
+// OJO: se usa la ÚLTIMA IP de la lista, no la primera. La primera la puede
+// escribir el propio atacante (cabecera inventada) y así se saltaría el límite
+// de intentos cambiando de «IP» en cada petición; la última la añade Google y
+// no se puede falsear.
+function ipDesdeCabeceras(req) {
   const cabecera = req && req.headers && req.headers["x-forwarded-for"];
-  if (cabecera) return String(cabecera).split(",")[0].trim();
+  if (cabecera) {
+    const lista = String(cabecera).split(",").map((s) => s.trim()).filter(Boolean);
+    if (lista.length) return lista[lista.length - 1];
+  }
   return (req && req.ip) || "desconocida";
 }
+function ipDeLaPeticion(request) {
+  return ipDesdeCabeceras(request.rawRequest);
+}
 
-exports.crearPedido = onCall(async (request) => {
+exports.crearPedido = onCall(OPCIONES_LLAMADA, async (request) => {
   const auth = request.auth;
   if (!auth) {
     throw new HttpsError("unauthenticated", "Debes iniciar sesión para completar la compra.");
@@ -2437,7 +2458,7 @@ exports.crearPedido = onCall(async (request) => {
 // firestore.rules) — este es el único camino, aparte del webhook de
 // Stripe, y solo funciona para el UID del administrador.
 // ==========================================================================
-exports.marcarPedidoPagado = onCall(async (request) => {
+exports.marcarPedidoPagado = onCall(OPCIONES_LLAMADA, async (request) => {
   const auth = request.auth;
   const ADMIN_UIDS = ["EPkK3ItKBRhA5bNeqs9PKbM0svB3"];
   if (!auth || !ADMIN_UIDS.includes(auth.uid)) {
@@ -2474,7 +2495,7 @@ exports.marcarPedidoPagado = onCall(async (request) => {
 // "crearPedido"): nunca nos fiamos de un subtotal que mande el navegador,
 // para que la comprobación de "compra mínima" no se pueda falsear.
 // ==========================================================================
-exports.validarPromo = onCall(async (request) => {
+exports.validarPromo = onCall(OPCIONES_LLAMADA, async (request) => {
   // Máximo 20 códigos probados cada 10 minutos por IP: de sobra para
   // alguien tecleando un código a mano (incluso si se equivoca varias
   // veces), pero frena un intento de "adivinar" códigos por fuerza bruta.
@@ -2536,7 +2557,7 @@ exports.validarPromo = onCall(async (request) => {
 // "crearIntentPago" — crea un PaymentIntent en Stripe para procesar
 // el cobro nativo dentro de la propia web mediante Stripe Elements.
 // ==========================================================================
-exports.crearIntentPago = onCall({ secrets: [STRIPE_SECRET_KEY] }, async (request) => {
+exports.crearIntentPago = onCall({ ...OPCIONES_LLAMADA, secrets: [STRIPE_SECRET_KEY] }, async (request) => {
   const auth = request.auth;
   if (!auth) {
     throw new HttpsError("unauthenticated", "Debes iniciar sesión para pagar.");
@@ -2589,7 +2610,7 @@ exports.crearIntentPago = onCall({ secrets: [STRIPE_SECRET_KEY] }, async (reques
 // abre una sesión de pago redireccionada en Stripe Checkout. Se conserva
 // por compatibilidad con métodos de pago externos si los necesitas.
 // ==========================================================================
-exports.crearSesionPago = onCall({ secrets: [STRIPE_SECRET_KEY] }, async (request) => {
+exports.crearSesionPago = onCall({ ...OPCIONES_LLAMADA, secrets: [STRIPE_SECRET_KEY] }, async (request) => {
   const auth = request.auth;
   if (!auth) {
     throw new HttpsError("unauthenticated", "Debes iniciar sesión para pagar.");
@@ -2868,7 +2889,7 @@ exports.stripeWebhook = onRequest({ secrets: [STRIPE_SECRET_KEY, STRIPE_WEBHOOK_
 // Solo se devuelven los campos necesarios para mostrar el estado: nunca el
 // uid del cliente ni nada que no sea de ese pedido en concreto.
 // ==========================================================================
-exports.buscarPedidoPublico = onCall(async (request) => {
+exports.buscarPedidoPublico = onCall(OPCIONES_LLAMADA, async (request) => {
   // Esta función no exige sesión iniciada (funciona para invitados), así
   // que sin límite alguien podría probar miles de combinaciones de número
   // de pedido + email por fuerza bruta hasta acertar con una real. Máximo
@@ -3414,10 +3435,12 @@ exports.suscribirNewsletter = onRequest(
       return;
     }
 
-    const cabecera = req.headers["x-forwarded-for"];
-    const ip = cabecera ? String(cabecera).split(",")[0].trim() : (req.ip || "desconocida");
+    const ip = ipDesdeCabeceras(req);
     try {
       await comprobarLimite("newsletter:" + ip, 5, 60 * 60 * 1000);
+      // Tope global: aunque alguien reparta el abuso entre muchas IPs, nunca se
+      // mandarán más de 100 correos de bienvenida por hora (protege la cuota de Gmail).
+      await comprobarLimite("newsletter:global", 100, 60 * 60 * 1000);
     } catch (err) {
       res.status(429).json({ ok: false, error: "Demasiados intentos seguidos. Inténtalo más tarde." });
       return;
@@ -3535,7 +3558,7 @@ function plantillaCodigoVerificacion(codigo) {
 }
 
 exports.enviarCodigoVerificacion = onCall(
-  { secrets: [GMAIL_USER, GMAIL_APP_PASSWORD] },
+  { ...OPCIONES_LLAMADA, secrets: [GMAIL_USER, GMAIL_APP_PASSWORD] },
   async (request) => {
     const auth = request.auth;
     if (!auth) {
@@ -3593,7 +3616,7 @@ exports.enviarCodigoVerificacion = onCall(
   }
 );
 
-exports.verificarCodigoCorreo = onCall(async (request) => {
+exports.verificarCodigoCorreo = onCall(OPCIONES_LLAMADA, async (request) => {
   const auth = request.auth;
   if (!auth) {
     throw new HttpsError("unauthenticated", "Debes iniciar sesión.");

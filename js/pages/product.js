@@ -998,12 +998,20 @@
     return '★★★★★☆☆☆☆☆'.slice(5 - full, 10 - full);
   }
 
+  // Solo se aceptan fotos alojadas en Firebase Storage (https). Cualquier otra
+  // cosa guardada en "fotos" (p. ej. "javascript:…") se ignora: evita que una
+  // opinión maliciosa ejecute código en la ficha o en el panel de administración.
+  function fotoSegura(url) {
+    return typeof url === 'string' && url.indexOf('https://firebasestorage.googleapis.com/') === 0;
+  }
+
   function reviewCardHTML(r) {
     var fecha = r.createdAt && r.createdAt.toDate ? r.createdAt.toDate().toLocaleDateString('es-ES') : '';
     var fotosHTML = '';
     if (Array.isArray(r.fotos) && r.fotos.length) {
-      fotosHTML = '<div class="review-photos-grid">' + r.fotos.map(function (url) {
-        return '<a href="' + url + '" target="_blank" rel="noopener"><img src="' + url + '" alt="Foto añadida por quien opina" loading="lazy"></a>';
+      fotosHTML = '<div class="review-photos-grid">' + r.fotos.filter(fotoSegura).map(function (url) {
+        var u = escapeHTML(url);
+        return '<a href="' + u + '" target="_blank" rel="noopener noreferrer"><img src="' + u + '" alt="Foto añadida por quien opina" loading="lazy"></a>';
       }).join('') + '</div>';
     }
     var utilesCount = typeof r.utilesCount === 'number' && r.utilesCount > 0 ? r.utilesCount : 0;
