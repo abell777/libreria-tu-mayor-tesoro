@@ -1,0 +1,233 @@
+// ==========================================================================
+// Año del copyright del pie de página — se actualiza solo cada año en vez
+// de tener "© 2026" escrito a mano en las 29 páginas del sitio.
+// ==========================================================================
+(function () {
+  var span = document.querySelector('.footer-bottom span');
+  if (!span || span.textContent.indexOf('©') === -1) return;
+  span.textContent = span.textContent.replace(/\d{4}/, new Date().getFullYear());
+})();
+
+// ==========================================================================
+// Interacciones mínimas de la Home: menú de categorías en móvil.
+// ==========================================================================
+(function () {
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('categoryNav');
+
+  if (!toggle || !nav) return;
+
+  toggle.addEventListener('click', function () {
+    const isOpen = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  // Cierra el menú al elegir una categoría (solo relevante en móvil)
+  nav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+
+// ==========================================================================
+// Newsletter — se inyecta en el footer de todas las páginas (menos el panel
+// de administración) sin tocar el HTML de cada una. Guarda el email en
+// Firestore, colección "newsletter" (ver firestore.rules).
+// ==========================================================================
+(function () {
+  if (document.getElementById('adminGuard')) return; // no en admin.html
+  var footerBrand = document.querySelector('.footer-brand');
+  if (!footerBrand) return;
+
+  var wrap = document.createElement('div');
+  wrap.className = 'newsletter-signup';
+  wrap.innerHTML =
+    '<h5 class="footer-heading">Novedades y ofertas</h5>' +
+    '<p class="newsletter-text">Avísanos y te escribimos cuando lleguen títulos nuevos o haya alguna oferta.</p>' +
+    '<form class="newsletter-form" id="newsletterForm">' +
+      '<input type="email" name="email" placeholder="Tu correo electrónico" aria-label="Tu correo electrónico" required>' +
+      '<button type="submit" class="btn btn--gold btn--sm">Avísame</button>' +
+    '</form>' +
+    '<p class="newsletter-msg" id="newsletterMsg" hidden></p>';
+  footerBrand.appendChild(wrap);
+
+  var form = document.getElementById('newsletterForm');
+  var msg = document.getElementById('newsletterMsg');
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var NEWSLETTER_URL = 'https://us-central1-libreria-tu-mayor-tesoro.cloudfunctions.net/suscribirNewsletter';
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var input = form.querySelector('input[name="email"]');
+    var email = input.value.trim();
+    var btn = form.querySelector('button');
+
+    msg.hidden = true;
+    if (!EMAIL_RE.test(email)) {
+      msg.textContent = 'Escribe un correo válido.';
+      msg.className = 'newsletter-msg is-error';
+      msg.hidden = false;
+      return;
+    }
+    btn.disabled = true;
+
+    function ok(texto) {
+      form.reset();
+      msg.textContent = texto;
+      msg.className = 'newsletter-msg is-success';
+      msg.hidden = false;
+    }
+    function fallo(texto) {
+      msg.textContent = texto;
+      msg.className = 'newsletter-msg is-error';
+      msg.hidden = false;
+    }
+
+    // La Cloud Function guarda el alta y envía el correo de bienvenida (ver
+    // "suscribirNewsletter" en functions/index.js).
+    fetch(NEWSLETTER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (data) {
+        return { status: r.status, data: data };
+      });
+    }).then(function (res) {
+      if (res.status >= 200 && res.status < 300 && res.data.ok) {
+        ok(res.data.yaSuscrito
+          ? 'Este correo ya estaba apuntado. ¡Gracias!'
+          : '¡Listo! Te hemos enviado un correo de confirmación.');
+      } else if (res.status === 400 || res.status === 429) {
+        fallo(res.data.error || 'No se ha podido guardar. Inténtalo de nuevo.');
+      } else {
+        throw new Error('HTTP ' + res.status);
+      }
+    }).catch(function (err) {
+      // Si la función no está disponible (p. ej. aún no desplegada), no se
+      // pierde el alta: se guarda directamente como antes, aunque sin correo.
+      console.error('Newsletter: la función no respondió, se guarda sin correo', err);
+      if (!window.fbDb) { fallo('No se ha podido guardar. Inténtalo de nuevo.'); return; }
+      window.fbDb.collection('newsletter').add({
+        email: email,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      }).then(function () {
+        ok('¡Listo! Te avisaremos por correo.');
+      }).catch(function () {
+        fallo('No se ha podido guardar. Inténtalo de nuevo.');
+      });
+    }).finally(function () {
+      btn.disabled = false;
+    });
+  });
+})();
+
+// ==========================================================================
+// Red de seguridad para las portadas de los libros
+// --------------------------------------------------------------------------
+// Las portadas se piden primero en .webp y solo caen al .jpg gracias al
+// onerror="" de cada <img>. Si ese atributo no llega a ejecutarse (HTML
+// cacheado antiguo, contenido inyectado, extensión del navegador…), la
+// portada se queda rota. Este oyente global escucha los errores de carga de
+// cualquier imagen de la página — en fase de captura, porque el evento
+// "error" de <img> no burbujea — y reintenta con el .jpg original.
+// ==========================================================================
+(function () {
+  document.addEventListener('error', function (e) {
+    var img = e.target;
+    if (!img || img.tagName !== 'IMG') return;
+
+    var src = img.getAttribute('src') || '';
+
+    // 1er intento: .webp → .jpg
+    if (/\.webp(\?|$)/i.test(src) && img.dataset.fallbackDone !== '1') {
+      img.dataset.fallbackDone = '1';
+      img.onerror = null;
+      img.src = src.replace(/\.webp(\?|$)/i, '.jpg$1');
+      return;
+    }
+
+    // 2º intento fallido: ocultamos el icono roto y dejamos el fondo limpio.
+    img.classList.add('img-failed');
+  }, true);
+})();
+
+// ==========================================================================
+// Enlaces directos a las secciones de "Mi cuenta"
+// --------------------------------------------------------------------------
+// El menú de la cabecera enlaza a cuenta.html#pedidos, #deseos, etc.
+// Aquí abrimos la pestaña correspondiente del panel de cuenta.
+// ==========================================================================
+(function () {
+  function abrirPanelDesdeHash() {
+    var hash = (window.location.hash || '').replace('#', '');
+    if (!/^[a-z-]+$/.test(hash)) return;
+    var btn = document.querySelector('[data-account-panel="' + hash + '"]');
+    if (btn) btn.click();
+  }
+
+  if (document.querySelector('[data-account-panel]')) {
+    abrirPanelDesdeHash();
+    window.addEventListener('hashchange', abrirPanelDesdeHash);
+    // El panel se rellena cuando Firebase confirma la sesión; reintentamos.
+    setTimeout(abrirPanelDesdeHash, 800);
+  }
+})();
+
+// ==========================================================================
+// Pestaña activa del menú
+// --------------------------------------------------------------------------
+// El menú y el pie están escritos en el HTML de cada página (se editan en
+// scripts/plantillas/ y se copian con `npm run sincronizar`). Aquí solo se
+// marca como activa la pestaña de la página en la que estás:
+//   · categoria.html?cat=biblias → «Biblias»; categoria.html sin ?cat → «Todo el catálogo»
+//   · personalizado.html, confeccion-manual.html, asistente.html → su pestaña
+// ==========================================================================
+(function () {
+  var enlaces = document.querySelectorAll('.category-list a');
+  if (!enlaces.length) return;
+  var pagina = window.location.pathname.split('/').pop() || 'index.html';
+  var cat = new URLSearchParams(window.location.search).get('cat');
+  var activo = null;
+  enlaces.forEach(function (a) {
+    var partes = a.getAttribute('href').split('?');
+    if (partes[0] !== pagina) return;
+    var catEnlace = new URLSearchParams(partes[1] || '').get('cat');
+    if (pagina === 'categoria.html') {
+      if ((catEnlace || null) === (cat || null)) activo = a;
+    } else {
+      activo = a;
+    }
+  });
+  if (activo) {
+    activo.classList.add('is-active');
+    activo.setAttribute('aria-current', 'page');
+  }
+})();
+
+
+// ==========================================================================
+// Home: tira de «Novedades». Se rellena sola con window.NOVEDADES_IDS
+// (js/data/books-data.js): al añadir un libro nuevo y ponerlo en esa lista, sale aquí.
+// ==========================================================================
+(function () {
+  var strip = document.getElementById('novedadesStrip');
+  var sec = document.getElementById('novedades');
+  if (!strip || !sec || !window.BOOKS || !window.NOVEDADES_IDS) return;
+  var porId = {};
+  window.BOOKS.forEach(function (b) { porId[b.id] = b; });
+  var libros = window.NOVEDADES_IDS.map(function (id) { return porId[id]; }).filter(Boolean).slice(0, 12);
+  if (!libros.length) return;
+  function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
+  strip.innerHTML = libros.map(function (b) {
+    var sinPrecio = window.isComingSoon ? window.isComingSoon(b) : typeof b.price !== 'number';
+    var precio = sinPrecio ? 'Próximamente' : Number(b.price).toFixed(2).replace('.', ',') + '\u00a0€';
+    return '<a class="novedad-card" href="producto.html?id=' + encodeURIComponent(b.id) + '">' +
+      '<span class="novedad-cover"><img src="' + esc(b.cover) + '" alt="Portada de ' + esc(b.title) + '" width="200" height="300" loading="lazy" decoding="async"></span>' +
+      '<span class="novedad-title">' + esc(b.title) + '</span>' +
+      '<span class="novedad-price">' + precio + '</span></a>';
+  }).join('');
+  sec.hidden = false;
+})();

@@ -9,7 +9,15 @@
       ".firebaserc",
       "skills-lock.json",
       "README.md",
-      "verificar-catalogo.js",
+      "package.json",
+      "repomix.config.json",
+      "repomix-output.md",
+      "scripts/**",
+      "docs/**",
+      "_archivo/**",
+      "libros-nuevos/**",
+      "portadas-clasicas/**",
+      "**/*.bak*",
       "functions/**",
       ".claude/**",
       ".agents/**",
@@ -89,7 +97,7 @@
       }
     ],
     "predeploy": [
-      "node verificar-catalogo.js"
+      "node scripts/verificar-catalogo.js"
     ]
   },
   "storage": {
@@ -114,7 +122,7 @@
         "*.local"
       ],
       "predeploy": [
-        "node verificar-catalogo.js"
+        "node scripts/verificar-catalogo.js"
       ]
     }
   ]

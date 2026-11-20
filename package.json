@@ -1,5 +1,16 @@
 {
-  "dependencies": {
-    "firebase-functions": "^7.3.2"
+  "name": "libreria-tu-mayor-tesoro",
+  "private": true,
+  "description": "Web de Librería tu mayor tesoro (Firebase Hosting + Functions). HTML/CSS/JS sin build.",
+  "scripts": {
+    "verificar": "node scripts/verificar-catalogo.js",
+    "comprobar": "node scripts/comprobar-web.js",
+    "sincronizar": "node scripts/sincronizar-cabecera-pie.js",
+    "libros:anadir": "node scripts/anadir-libros.js",
+    "portadas:anadir": "node scripts/anadir-portadas.js",
+    "servir": "firebase emulators:start --only hosting",
+    "deploy": "firebase deploy",
+    "deploy:web": "firebase deploy --only hosting",
+    "deploy:functions": "firebase deploy --only functions"
   }
 }

@@ -2,14 +2,14 @@
 // Cloud Functions — Librería tu mayor tesoro
 //
 // "crearPedido" es la ÚNICA forma de crear un pedido a partir de ahora.
-// El cliente (js/checkout.js) ya no escribe directamente en Firestore:
+// El cliente (js/pages/checkout.js) ya no escribe directamente en Firestore:
 // solo manda el id y la cantidad de cada libro, y esta función recalcula
 // el precio real desde el catálogo de aquí abajo. Así da igual lo que
 // alguien manipule en la consola del navegador — el importe que se
 // guarda y el que se cobra son siempre el real.
 //
 // 👉 IMPORTANTE: si añades, quitas o cambias el precio de un libro en
-// js/books-data.js, actualiza también el objeto CATALOGO de aquí abajo.
+// js/data/books-data.js, actualiza también el objeto CATALOGO de aquí abajo.
 // Son dos copias de la misma información a propósito (una para pintar la
 // tienda rápido sin depender de la red, otra para que el servidor pueda
 // confiar en sí mismo). Si algún día te cansas de mantener las dos, se
@@ -36,7 +36,7 @@ const db = getFirestore();
 setGlobalOptions({ region: "us-central1", maxInstances: 10 });
 
 // App Check: una vez lo actives siguiendo las instrucciones de
-// js/config.js y confirmes en la consola de Firebase que el tráfico real
+// js/core/config.js y confirmes en la consola de Firebase que el tráfico real
 // llega verificado, puedes exigirlo aquí añadiendo "enforceAppCheck: true"
 // dentro de las llaves de cada "onCall(...)" de este archivo (por ejemplo
 // "onCall({ enforceAppCheck: true }, async (request) => {"). No se activa
@@ -64,7 +64,7 @@ const GMAIL_USER = defineSecret("GMAIL_USER");
 const GMAIL_APP_PASSWORD = defineSecret("GMAIL_APP_PASSWORD");
 
 // ---- Extras de regalo ("Regala con propósito") -------------------------
-// Copia de servidor de js/gift-options.js. SI CAMBIAS UN PRECIO ALLÍ,
+// Copia de servidor de js/core/gift-options.js. SI CAMBIAS UN PRECIO ALLÍ,
 // cámbialo también aquí: esta tabla es la que se cobra de verdad.
 //   precio  → euros
 //   porUnidad → true: se cobra por ejemplar del libro; false: una sola vez
@@ -106,7 +106,7 @@ function lineasDeRegalo(regalo, cantidadLibro, tituloLibro) {
   return lineas;
 }
 
-// ---- Portadas válidas (deben coincidir con COVER_STYLES de js/books-data.js) ----
+// ---- Portadas válidas (deben coincidir con COVER_STYLES de js/data/books-data.js) ----
 // Algunos libros existen con dos diseños de cubierta (el mismo libro, el
 // mismo precio). El navegador puede decir cuál quiere el cliente, pero solo
 // se acepta si está en esta lista: así nadie puede colar texto arbitrario
@@ -120,7 +120,7 @@ const PORTADAS_VALIDAS = {
   fotografica: "Portada fotográfica (cordero)",
 };
 
-// ---- Catálogo oficial (debe coincidir con js/books-data.js) ----
+// ---- Catálogo oficial (debe coincidir con js/data/books-data.js) ----
 // Incluye también description/cover/category/author porque "productoMeta"
 // (más abajo) los necesita para escribir los metadatos de cada ficha de
 // producto ANTES de que llegue al navegador — así WhatsApp, Facebook y
@@ -637,7 +637,7 @@ const CATALOGO = {
       "cover": "img/un-viaje-a-lo-sobrenatural.jpg",
       "description": "El relato autobiográfico de un hombre que participó en el espiritismo y el ocultismo antes de su conversión, y el testimonio de cómo encontró la fe cristiana."
   },
-  // ---- Libros añadidos automáticamente desde js/books-data.js (ver verificar-catalogo.js) ----
+  // ---- Libros añadidos automáticamente desde js/data/books-data.js (ver verificar-catalogo.js) ----
   "consejos-sobre-la-obra-de-la-escuela-sabatica": {
       "title": "Consejos sobre la Obra de la Escuela Sabática",
       "format": "Tapa blanda, 148 x 210 mm",
@@ -2059,7 +2059,7 @@ const CATALOGO = {
 };
 
 // Libros que contiene cada colección (cuentan como tantos libros para el envío
-// y no llevan descuento por cantidad). Debe coincidir con js/cart.js.
+// y no llevan descuento por cantidad). Debe coincidir con js/core/cart.js.
 const LIBROS_POR_COLECCION = {
   "coleccion-tesoros-de-vida": 5,
   "coleccion-las-bellas-historias-de-la-biblia": 10,
@@ -2070,13 +2070,13 @@ const MAX_QTY = 600; // por línea del carrito (pedidos grandes: hay tarifas de 
 // Envío por PAÍS y nº TOTAL de ejemplares del pedido (los extras de regalo no
 // cuentan; cada colección cuenta como sus libros: Tesoros de Vida 5, Las Bellas
 // Historias 10). Las tarifas viven en shipping-rates.js (idéntico a
-// js/shipping-rates.js): coste del transportista + 1,10 €.
+// js/data/shipping-rates.js): coste del transportista + 1,10 €.
 const MAX_LIBROS_PEDIDO = 1000;
 function costeEnvio(pais, numLibros) {
   return ShippingRates.costeEnvio(pais, numLibros);
 }
 // Descuento por cantidad del MISMO libro y edición (€ por ejemplar).
-// Cambia estos números si quieres más/menos margen. Debe coincidir con js/cart.js.
+// Cambia estos números si quieres más/menos margen. Debe coincidir con js/core/cart.js.
 function descuentoPorEjemplar(q) {
   if (q >= 10) return 0.5;
   if (q >= 3) return 0.25;
@@ -2174,7 +2174,7 @@ exports.crearPedido = onCall(async (request) => {
   // País de envío (si no llega, se asume España: direcciones guardadas antiguas)
   // y código postal según el país. Cada país tiene su formato; en España solo
   // península y Baleares, en Portugal solo continental y en Francia solo
-  // metropolitana (ver js/shipping-rates.js).
+  // metropolitana (ver js/data/shipping-rates.js).
   const paisEnvio = typeof envio.pais === "string" && envio.pais ? envio.pais.trim().toUpperCase() : "ES";
   if (!ShippingRates.paisValido(paisEnvio)) {
     throw new HttpsError("invalid-argument", "Ahora mismo no enviamos a ese país. Escríbenos a libreriamayortesoro@gmail.com y lo miramos.");
@@ -2275,7 +2275,7 @@ exports.crearPedido = onCall(async (request) => {
   }
   descuentoCantidad = Math.round(descuentoCantidad * 100) / 100;
   // Envío gratis solo si TODOS los libros del pedido lo llevan incluido
-  // (mismo criterio que en js/cart.js); si no, se cobra el envío según país y nº de ejemplares.
+  // (mismo criterio que en js/core/cart.js); si no, se cobra el envío según país y nº de ejemplares.
   // Solo a España (así se prometió en las fichas): a otros países se cobra la tarifa.
   const todosEnvioGratis = paisEnvio === "ES" && itemsFinales.every((it) => it.envioGratis);
   const gastosEnvio = todosEnvioGratis ? 0 : costeEnvio(paisEnvio, numLibros);
@@ -2430,7 +2430,7 @@ exports.crearPedido = onCall(async (request) => {
 
 // ==========================================================================
 // "marcarPedidoPagado" — el admin confirma a mano un pago por Bizum.
-// Solo la usa el panel de administración (js/admin.js) para los pedidos con
+// Solo la usa el panel de administración (js/admin/admin.js) para los pedidos con
 // metodoPago "bizum": tras comprobar en su propia app de banco que el
 // ingreso ha llegado, marca el pedido como pagado. Ni el cliente ni las
 // reglas de Firestore pueden tocar "pagado" directamente (ver
@@ -3008,7 +3008,7 @@ exports.productoMeta = onRequest(async (req, res) => {
 //
 //  1) Añadió libros al carrito pero nunca llegó a pulsar "Finalizar
 //     compra" → colección "carritosAbandonados" (la sincroniza
-//     js/cart.js mientras compras, solo si has iniciado sesión: sin
+//     js/core/cart.js mientras compras, solo si has iniciado sesión: sin
 //     sesión no tenemos email al que escribir).
 //  2) Sí llegó a pulsar "Finalizar compra" (existe un pedido real, con
 //     dirección de envío) pero el pago con Stripe no se completó → se lee
@@ -3237,7 +3237,7 @@ exports.seguimientoLectura = onSchedule(
 // --------------------------------------------------------------------------
 // Antes el formulario solo guardaba el correo en Firestore y mostraba
 // "¡Listo!": no se enviaba ningún correo a nadie. Ahora esta función (la
-// llama js/main.js) hace tres cosas:
+// llama js/core/main.js) hace tres cosas:
 //   1. Guarda el correo en la colección "newsletter" (una sola vez por correo).
 //   2. Envía un correo de bienvenida a quien se ha apuntado.
 //   3. Te avisa a ti (a la cuenta de Gmail de la tienda) de la nueva alta.
@@ -3276,7 +3276,7 @@ function plantillaBienvenidaNewsletter() {
 // ==========================================================================
 // "¿Te ha sido útil?" en las opiniones — contador en resenas/{id}.utilesCount
 // --------------------------------------------------------------------------
-// El navegador (js/product.js) solo crea o borra su propio voto en
+// El navegador (js/pages/product.js) solo crea o borra su propio voto en
 // resenas/{resenaId}/utiles/{uid} (un documento vacío, uno por persona).
 // Aquí mantenemos al día el contador que se muestra en la tarjeta, sin que
 // el cliente pueda escribirlo directamente (evita votos falsos).
@@ -3300,7 +3300,7 @@ exports.restarVotoUtil = onDocumentDeleted("resenas/{resenaId}/utiles/{uid}", as
 // "pedidos", campo "confirmadoCliente"). Manda un correo por Gmail
 // invitando a dejar su opinión sobre los libros del pedido; el aviso
 // dentro de la propia web (con enlaces directos a cada ficha) lo muestra
-// ya al momento js/account.js, sin esperar a este correo.
+// ya al momento js/pages/account.js, sin esperar a este correo.
 // ==========================================================================
 exports.avisoPedidoRecibido = onDocumentUpdated(
   { document: "pedidos/{pedidoId}", secrets: [GMAIL_USER, GMAIL_APP_PASSWORD] },

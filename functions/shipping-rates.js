@@ -1,7 +1,7 @@
 // ==========================================================================
 // Tarifas de envío por país y nº de ejemplares — Librería tu mayor tesoro
 //
-// 👉 ESTE ARCHIVO ES IDÉNTICO EN DOS SITIOS (js/shipping-rates.js para la web
+// 👉 ESTE ARCHIVO ES IDÉNTICO EN DOS SITIOS (js/data/shipping-rates.js para la web
 //    y functions/shipping-rates.js para el servidor). Si cambias algo, cámbialo
 //    en los dos (copia y pega el archivo entero). «node verificar-catalogo.js»
 //    —que se ejecuta solo antes de cada «firebase deploy»— PARA el despliegue

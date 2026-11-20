@@ -1,0 +1,615 @@
+// ==========================================================================
+// Página de listado/categoría: pinta el catálogo desde window.BOOKS y
+// aplica filtros, orden, chips activos, buscador y PAGINACIÓN sobre TODO
+// el catálogo. Solo se ejecuta si existe el grid de resultados (#bookGrid).
+// ==========================================================================
+(function () {
+  var grid = document.getElementById('bookGrid');
+  if (!grid || !window.BOOKS) return;
+
+  var CATEGORY_LABELS = {
+    biblias: 'Biblias',
+    'elena-white': 'Elena G. White',
+    salud: 'Salud y familia',
+    profecia: 'Profecía',
+    devocionales: 'Devocionales',
+    'vida-cristiana': 'Vida cristiana',
+    infantil: 'Infantil y juvenil',
+    doctrina: 'Doctrina y creencias',
+    regalos: 'Regalos y papelería',
+    'otros-idiomas': 'Otros idiomas'
+  };
+
+  var PER_PAGE_STORAGE_KEY = 'fundamento_per_page';
+  var DEFAULT_PAGE_SIZE = 20;
+
+  function fmtPrice(n) {
+    return n.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  var BINDING_ICON = {
+    'tapa-dura': '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h13a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3V4z"/><path d="M4 4v13a3 3 0 0 0 3 3h13"/><line x1="8" y1="8" x2="15" y2="8"/></svg>',
+    rustica: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5.5S5 4 12 6c7-2 10-0.5 10-0.5v13S19 17 12 19c-7-2-10-0.5-10-0.5z"/><line x1="12" y1="6" x2="12" y2="19"/></svg>'
+  };
+  var BINDING_LABEL = { 'tapa-dura': 'Tapa dura', rustica: 'Tapa blanda' };
+
+  function bookCardHTML(book) {
+    var bindingIcon = BINDING_ICON[book.formatSlug];
+    // Libros anunciados pero todavía sin precio ("comingSoon" en el
+    // catálogo): se ven igual, con su portada, pero sin importe y sin
+    // botón de compra — solo el aviso de que llegan muy pronto.
+    var comingSoon = window.isComingSoon ? window.isComingSoon(book) : false;
+    var subcatAttr = Array.isArray(book.subcategory) ? book.subcategory.join(' ') : '';
+    var lang = window.idiomaToLang ? window.idiomaToLang(book.idioma) : 'es';
+    var langAttr = lang !== 'es' ? ' lang="' + lang + '"' : '';
+    // Sello de idioma (EN, PT...) sobre la portada de los libros que no están en español.
+    var langTagHTML = lang !== 'es'
+      ? '<span class="lang-tag" title="Edición en ' + escapeHTML((book.idioma || '').toLowerCase()) + '">' + lang.toUpperCase() + '</span>'
+      : '';
+    var stock = window.stockInfo ? window.stockInfo(book) : null;
+    var agotado = !!(stock && stock.estado === 'agotado');
+    var stockBadgeHTML = stock && stock.texto
+      ? '<span class="stock-badge stock-badge--' + stock.estado + '">' + escapeHTML(stock.texto) + '</span>'
+      : '';
+    var addBtnHTML = comingSoon
+      ? (book.avisame
+        ? '<a class="btn btn--outline btn--sm" href="mailto:libreriamayortesoro@gmail.com?subject=' + encodeURIComponent('Consulta sobre: ' + book.title) + '">Consultar</a>'
+        : '<button class="btn btn--outline btn--sm" disabled>Próximamente</button>')
+      : (agotado
+        ? '<button class="btn btn--outline btn--sm" disabled>Agotado</button>'
+        : '<button class="btn btn--primary btn--sm">Añadir</button>');
+    var priceHTML = comingSoon
+      ? (book.avisame
+        ? '<span class="book-price book-price--soon">Consultar<small>Te indicamos dónde conseguirlo</small></span>'
+        : '<span class="book-price book-price--soon">Próximamente<small>Precio por confirmar</small></span>')
+      : '<span class="book-price">' + fmtPrice(book.price) + '&nbsp;€<small>' + escapeHTML(book.priceNote) + '</small></span>';
+    // Colección Elena G. White con tabla de precios de impresión: antes de
+    // entrar a la ficha, dejamos claro que el libro existe en tapa blanda
+    // Y en tapa dura, con un botón para cada una justo debajo de la
+    // portada. Al pulsar, la ficha se abre ya con esa tapa seleccionada
+    // (el resto de opciones —tamaño, papel, acabado— se eligen dentro).
+    var printToggleHTML = '';
+    if (!comingSoon && window.hasEWPrintOptions && window.hasEWPrintOptions(book.id)) {
+      var ewDefault = window.EW_BOOK_DEFAULTS[book.id];
+      printToggleHTML =
+        '<div class="card-binding-toggle" role="group" aria-label="Disponible en tapa blanda y tapa dura">' +
+          '<a href="producto.html?id=' + book.id + '&tipo=blanda" class="cbt-btn' + (ewDefault.tipo === 'blanda' ? ' is-current' : '') + '">Tapa blanda</a>' +
+          '<a href="producto.html?id=' + book.id + '&tipo=dura" class="cbt-btn' + (ewDefault.tipo === 'dura' ? ' is-current' : '') + '">Tapa dura</a>' +
+        '</div>';
+    }
+    return (
+      '<article class="book-card' + (agotado ? ' is-out-of-stock' : '') + (comingSoon ? ' is-coming-soon' : '') +
+      '" data-category="' + book.category + '" data-needs="' + escapeHTML((book.needs || []).join(' ')) +
+      '" data-price="' + (comingSoon ? 0 : book.price) +
+      '" data-format="' + book.formatSlug + '" data-author="' + book.authorSlug + '" data-product-id="' + book.id +
+      '" data-subcategory="' + escapeHTML(subcatAttr) +
+      '" data-idioma="' + escapeHTML(book.idioma || 'Español') +
+      '" data-bible-version="' + escapeHTML(book.bibleVersion || '') +
+      '" data-bible-edition="' + escapeHTML(book.bibleEdition || '') +
+      '" data-bible-closure="' + escapeHTML(book.bibleClosure || '') +
+      '" data-bible-color="' + escapeHTML(book.bibleColor || '') +
+      '" data-bible-size="' + escapeHTML(book.bibleSize || '') + '">' +
+        '<a href="producto.html?id=' + book.id + '" class="book-cover book-cover--photo">' +
+          (book.badge ? '<span class="badge">' + escapeHTML(book.badge) + '</span>' : '') +
+          (bindingIcon ? '<span class="binding-tag binding-tag--' + book.formatSlug + '">' + bindingIcon + '<span>' + BINDING_LABEL[book.formatSlug] + '</span></span>' : '') +
+          stockBadgeHTML +
+          langTagHTML +
+          '<img src="' + toWebp(book.cover) + '" onerror="this.onerror=null;this.src=\'' + book.cover + '\'" alt="Portada de «' + escapeHTML(book.title) + '», de ' + escapeHTML(book.author) + '" width="400" height="600" loading="lazy" decoding="async">' +
+        '</a>' +
+        printToggleHTML +
+        '<button type="button" class="book-fav" data-fav-toggle data-id="' + book.id + '" aria-pressed="false" aria-label="Añadir a mi lista de deseos">' +
+          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>' +
+        '</button>' +
+        '<div class="book-info">' +
+          '<span class="book-category">' + escapeHTML(book.categoryLabel) + '</span>' +
+          '<h3 class="book-title"' + langAttr + '><a href="producto.html?id=' + book.id + '">' + escapeHTML(book.title) + '</a></h3>' +
+          '<p class="book-author">' + escapeHTML(book.author) + ' · ' + escapeHTML(book.format) + '</p>' +
+          '<div class="book-footer">' +
+            priceHTML +
+            addBtnHTML +
+          '</div>' +
+        '</div>' +
+      '</article>'
+    );
+  }
+
+  grid.innerHTML = window.BOOKS.map(bookCardHTML).join('');
+  if (window.Wishlist) window.Wishlist.refresh();
+  document.addEventListener('wishlist:change', function () { if (window.Wishlist) window.Wishlist.refresh(); });
+
+  // ---- JSON-LD dinámico para SEO (lista de productos real) ----
+  var ld = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: window.BOOKS.filter(function (b) {
+      // Los libros "próximamente" no llevan precio todavía, así que se
+      // quedan fuera del listado estructurado (Google exige precio).
+      return !(window.isComingSoon && window.isComingSoon(b));
+    }).map(function (b, i) {
+      return {
+        '@type': 'Product',
+        position: i + 1,
+        name: b.title,
+        brand: { '@type': 'Brand', name: b.author },
+        offers: { '@type': 'Offer', priceCurrency: 'EUR', price: String(b.price), availability: 'https://schema.org/InStock' }
+      };
+    })
+  };
+  var ldScript = document.createElement('script');
+  ldScript.type = 'application/ld+json';
+  ldScript.textContent = JSON.stringify(ld);
+  document.head.appendChild(ldScript);
+
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.book-card'));
+
+  // Checkboxes "fijos" (categoría, precio, formato, autor) más los que
+  // shop.js va creando/destruyendo dinámicamente según la categoría activa
+  // (barra de subcategorías/edición + grupos extra de Biblias en el aside).
+  function allFilterInputs() {
+    return Array.prototype.slice.call(
+      document.querySelectorAll('#shopFilters input[type="checkbox"], #subcategoryBar input[type="checkbox"]')
+    );
+  }
+  // ---- Filtro "¿Qué busca tu alma hoy?" ----------------------------------
+  // Se pinta desde window.NEEDS (js/data/books-data.js) para no tener que
+  // mantener la misma lista en el HTML: si añades una necesidad allí,
+  // aparece aquí sola, con el número de libros que la cubren.
+  (function buildNeedFilter() {
+    var wrap = document.getElementById('needFilterGroup');
+    if (!wrap || !window.NEEDS) return;
+    var rows = window.NEEDS.map(function (need) {
+      var count = window.BOOKS.filter(function (b) {
+        return (b.needs || []).indexOf(need.slug) !== -1;
+      }).length;
+      if (!count) return '';
+      return '<label class="filter-check filter-check--need" title="' + escapeHTML(need.desc) + '">' +
+        '<input type="checkbox" name="need" value="' + need.slug + '">' +
+        '<span>' + escapeHTML(need.label) + ' <small class="filter-count">(' + count + ')</small></span>' +
+        '</label>';
+    }).join('');
+    if (!rows) return;
+    wrap.innerHTML = '<div class="filter-group filter-group--need">' +
+      '<h3>¿Qué busca tu alma hoy?</h3>' +
+      '<p class="filter-group-note">Elige el momento que estás viviendo y te mostramos los libros que acompañan en eso.</p>' +
+      rows + '</div>';
+  })();
+
+  // ---- Filtro «Idioma» -----------------------------------------------------
+  // Se pinta solo si el catálogo tiene libros en más de un idioma (hoy:
+  // español e inglés). Si añades uno en portugués, francés...: aparece solo.
+  function languagePairs(catSlug) {
+    var counts = {}, order = [];
+    window.BOOKS.forEach(function (b) {
+      if (catSlug && b.category !== catSlug) return;
+      var id = b.idioma || 'Español';
+      if (!counts[id]) { counts[id] = 0; order.push(id); }
+      counts[id]++;
+    });
+    var known = Object.keys(window.IDIOMA_LANG || {});
+    order.sort(function (a, b) {
+      var ia = known.indexOf(a), ib = known.indexOf(b);
+      return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+    });
+    return order.map(function (id) { return [id, id, counts[id]]; });
+  }
+  var languageGroupEl = document.getElementById('languageFilterGroup');
+  (function buildLanguageFilter() {
+    if (!languageGroupEl) return;
+    var pairs = languagePairs(null);
+    if (pairs.length < 2) { languageGroupEl.innerHTML = ''; return; }
+    languageGroupEl.innerHTML = checkGroupHTML('Idioma', 'idioma', pairs);
+  })();
+
+  var checkboxes = allFilterInputs();
+  var subcategoryBarEl = document.getElementById('subcategoryBar');
+  var dynamicGroupsEl = document.getElementById('dynamicFilterGroups');
+  var sortSelect = document.getElementById('sortSelect');
+  var perPageSelect = document.getElementById('perPageSelect');
+  var resultsCount = document.getElementById('resultsCount');
+  var emptyResults = document.getElementById('emptyResults');
+  var activeFiltersWrap = document.getElementById('activeFilters');
+  var clearBtn = document.getElementById('filtersClear');
+  var filterToggle = document.getElementById('filterToggle');
+  var filters = document.getElementById('shopFilters');
+  var applyMobileBtn = document.getElementById('filtersApplyMobile');
+  var shopTitle = document.querySelector('[data-shop-title]');
+  var breadcrumbCurrent = document.querySelector('[data-breadcrumb-current]');
+  var searchInput = document.querySelector('.search-form input[name="q"]');
+  var paginationNav = document.getElementById('pagination');
+
+  var currentPage = 1;
+  var soloNovedades = false; // ?cat=novedades: solo los libros de window.NOVEDADES_IDS
+
+  function readStoredPageSize() {
+    try {
+      var stored = parseInt(localStorage.getItem(PER_PAGE_STORAGE_KEY), 10);
+      if ([10, 20, 40, 60, 80, 100].indexOf(stored) !== -1) return stored;
+    } catch (e) {}
+    return DEFAULT_PAGE_SIZE;
+  }
+
+  if (perPageSelect) {
+    perPageSelect.value = String(readStoredPageSize());
+  }
+
+  function pageSize() {
+    return perPageSelect ? parseInt(perPageSelect.value, 10) || DEFAULT_PAGE_SIZE : DEFAULT_PAGE_SIZE;
+  }
+
+  function groupedChecks() {
+    var groups = {};
+    allFilterInputs().forEach(function (cb) {
+      if (!cb.checked) return;
+      groups[cb.name] = groups[cb.name] || [];
+      groups[cb.name].push(cb.value);
+    });
+    return groups;
+  }
+
+  // ---- Filtros dinámicos según la categoría activa -----------------------
+  // "Tema" (subcategoría) para Elena G. White; "Edición" como botones
+  // rápidos + "Versión", "Cierre" y "Color" en el aside para Biblias.
+  function countInCategory(field, value, catSlug) {
+    return window.BOOKS.filter(function (b) {
+      if (b.category !== catSlug) return false;
+      return Array.isArray(b[field]) ? b[field].indexOf(value) !== -1 : b[field] === value;
+    }).length;
+  }
+
+  function presentPairs(labels, field, catSlug) {
+    return Object.keys(labels || {})
+      .map(function (key) { return [key, labels[key], countInCategory(field, key, catSlug)]; })
+      .filter(function (p) { return p[2] > 0; });
+  }
+
+  function pillsHTML(name, pairs) {
+    return pairs.map(function (p) {
+      return '<label class="subcategory-pill"><input type="checkbox" name="' + name + '" value="' + p[0] + '">' +
+        '<span>' + escapeHTML(p[1]) + ' <small>(' + p[2] + ')</small></span></label>';
+    }).join('');
+  }
+
+  function checkGroupHTML(title, name, pairs) {
+    if (!pairs.length) return '';
+    var html = '<div class="filter-group"><h3>' + escapeHTML(title) + '</h3>';
+    pairs.forEach(function (p) {
+      html += '<label class="filter-check"><input type="checkbox" name="' + name + '" value="' + p[0] + '">' +
+        '<span>' + escapeHTML(p[1]) + ' <small class="filter-count">(' + p[2] + ')</small></span></label>';
+    });
+    html += '</div>';
+    return html;
+  }
+
+  var lastDynamicCategory; // undefined al inicio para forzar la primera construcción
+
+  function ensureDynamicFilters(catSlug) {
+    if (catSlug === lastDynamicCategory) return;
+    lastDynamicCategory = catSlug;
+
+    var barHTML = '';
+    var groupsHTML = '';
+
+    if (catSlug === 'elena-white') {
+      var subPairs = presentPairs(window.SUBCATEGORY_LABELS, 'subcategory', catSlug);
+      barHTML = pillsHTML('subcategory', subPairs);
+    } else if (catSlug === 'otros-idiomas') {
+      // Primero el idioma (Inglés, Portugués...) y debajo el tema del libro.
+      var langPairs = languagePairs('otros-idiomas');
+      var topicPairs = presentPairs(window.SUBCATEGORY_LABELS, 'subcategory', catSlug);
+      barHTML = '<div class="subcategory-row" aria-label="Idioma">' + pillsHTML('idioma', langPairs) + '</div>' +
+        '<div class="subcategory-row" aria-label="Tema">' + pillsHTML('subcategory', topicPairs) + '</div>';
+    } else if (catSlug === 'biblias') {
+      var edPairs = presentPairs(window.BIBLE_EDITION_LABELS, 'bibleEdition', catSlug);
+      barHTML = pillsHTML('bibleEdition', edPairs);
+
+      var verPairs = presentPairs(window.BIBLE_VERSION_LABELS, 'bibleVersion', catSlug);
+      var closPairs = presentPairs(window.BIBLE_CLOSURE_LABELS, 'bibleClosure', catSlug);
+      var colorPairs = presentPairs(window.BIBLE_COLOR_LABELS, 'bibleColor', catSlug);
+      if (verPairs.length > 1) groupsHTML += checkGroupHTML('Versión', 'bibleVersion', verPairs);
+      if (closPairs.length > 1) groupsHTML += checkGroupHTML('Cierre', 'bibleClosure', closPairs);
+      groupsHTML += checkGroupHTML('Color de cubierta', 'bibleColor', colorPairs);
+    }
+
+    if (subcategoryBarEl) {
+      subcategoryBarEl.innerHTML = barHTML;
+      subcategoryBarEl.hidden = !barHTML;
+    }
+    if (dynamicGroupsEl) dynamicGroupsEl.innerHTML = groupsHTML;
+    if (languageGroupEl) {
+      var hideAside = catSlug === 'otros-idiomas'; // la barra de arriba ya ofrece el idioma
+      languageGroupEl.hidden = hideAside;
+      if (hideAside) Array.prototype.slice.call(languageGroupEl.querySelectorAll('input')).forEach(function (cb) { cb.checked = false; });
+    }
+
+    // Los checkboxes recién creados necesitan su propio listener de cambio.
+    [subcategoryBarEl, dynamicGroupsEl].forEach(function (wrap) {
+      if (!wrap) return;
+      Array.prototype.slice.call(wrap.querySelectorAll('input[type="checkbox"]')).forEach(function (cb) {
+        cb.addEventListener('change', function () { currentPage = 1; render(); });
+      });
+    });
+  }
+
+  function priceInRange(price, range) {
+    var parts = range.split('-').map(Number);
+    return price >= parts[0] && price <= parts[1];
+  }
+
+  // Texto de título + autor + categoría de una tarjeta, en minúsculas, para buscar por coincidencia simple.
+  function cardText(card) {
+    var titleEl = card.querySelector('.book-title');
+    var authorEl = card.querySelector('.book-author');
+    var catEl = card.querySelector('.book-category');
+    return [
+      titleEl ? titleEl.textContent : '',
+      authorEl ? authorEl.textContent : '',
+      catEl ? catEl.textContent : ''
+    ].join(' ').toLowerCase();
+  }
+
+  function getMatches() {
+    var groups = groupedChecks();
+    var query = (searchInput && searchInput.value ? searchInput.value : '').trim().toLowerCase();
+
+    return cards.filter(function (card) {
+      var cat = card.dataset.category;
+      var price = parseFloat(card.dataset.price);
+      var format = card.dataset.format;
+      var author = card.dataset.author;
+      var subcats = (card.dataset.subcategory || '').split(' ');
+      var cardNeeds = (card.dataset.needs || '').split(' ');
+
+      var matchCategory = !groups.category || groups.category.indexOf(cat) !== -1;
+      var matchPrice = !groups.price || groups.price.some(function (r) { return priceInRange(price, r); });
+      var matchFormat = !groups.format || groups.format.indexOf(format) !== -1;
+      var matchAuthor = !groups.author || groups.author.indexOf(author) !== -1;
+      var matchSubcategory = !groups.subcategory || groups.subcategory.some(function (s) { return subcats.indexOf(s) !== -1; });
+      var matchIdioma = !groups.idioma || groups.idioma.indexOf(card.dataset.idioma) !== -1;
+      var matchNeed = !groups.need || groups.need.some(function (n) { return cardNeeds.indexOf(n) !== -1; });
+      var matchBibleVersion = !groups.bibleVersion || groups.bibleVersion.indexOf(card.dataset.bibleVersion) !== -1;
+      var matchBibleEdition = !groups.bibleEdition || groups.bibleEdition.indexOf(card.dataset.bibleEdition) !== -1;
+      var matchBibleClosure = !groups.bibleClosure || groups.bibleClosure.indexOf(card.dataset.bibleClosure) !== -1;
+      var matchBibleColor = !groups.bibleColor || groups.bibleColor.indexOf(card.dataset.bibleColor) !== -1;
+      var matchQuery = !query || cardText(card).indexOf(query) !== -1;
+      var matchNovedades = !soloNovedades || (window.NOVEDADES_IDS || []).indexOf(card.dataset.productId) !== -1;
+
+      return matchCategory && matchPrice && matchFormat && matchAuthor && matchSubcategory && matchIdioma && matchNeed &&
+        matchBibleVersion && matchBibleEdition && matchBibleClosure && matchBibleColor && matchQuery && matchNovedades;
+    });
+  }
+
+  function sortMatches(matches) {
+    var value = sortSelect ? sortSelect.value : 'relevance';
+    if (value === 'relevance') return matches;
+    return matches.slice().sort(function (a, b) {
+      if (value === 'price-asc') return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+      if (value === 'price-desc') return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+      if (value === 'title-asc') {
+        var ta = a.querySelector('.book-title').textContent.trim();
+        var tb = b.querySelector('.book-title').textContent.trim();
+        return ta.localeCompare(tb, 'es');
+      }
+      return 0;
+    });
+  }
+
+  function renderActiveChips() {
+    if (!activeFiltersWrap) return;
+    activeFiltersWrap.innerHTML = '';
+    var any = false;
+    allFilterInputs().forEach(function (cb) {
+      if (!cb.checked) return;
+      any = true;
+      var label = cb.nextElementSibling.textContent.replace(/\s*\(\d+\)\s*$/, '');
+      var chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'filter-chip';
+      chip.innerHTML = escapeHTML(label) + ' <span aria-hidden="true">×</span>';
+      chip.addEventListener('click', function () {
+        cb.checked = false;
+        currentPage = 1;
+        render();
+      });
+      activeFiltersWrap.appendChild(chip);
+    });
+    activeFiltersWrap.hidden = !any;
+  }
+
+  function updateTitle(activeCategories, query, activeNeeds) {
+    if (!shopTitle) return;
+    var ledeEl = document.querySelector('[data-shop-lede]');
+    if (ledeEl) { ledeEl.textContent = ''; ledeEl.hidden = true; }
+    // Si el cliente ha entrado por "¿Qué busca tu alma hoy?", el título
+    // habla de eso y no de la categoría: es lo que ha pedido de verdad.
+    if (!query && activeNeeds && activeNeeds.length === 1 && window.NEED_BY_SLUG) {
+      var need = window.NEED_BY_SLUG[activeNeeds[0]];
+      if (need) {
+        shopTitle.textContent = need.label;
+        if (breadcrumbCurrent) breadcrumbCurrent.textContent = need.label;
+        if (ledeEl) { ledeEl.textContent = need.desc; ledeEl.hidden = false; }
+        return;
+      }
+    }
+    if (query) {
+      shopTitle.textContent = 'Resultados para «' + query + '»';
+      if (breadcrumbCurrent) breadcrumbCurrent.textContent = 'Búsqueda';
+    } else if (soloNovedades && !(activeCategories && activeCategories.length)) {
+      shopTitle.textContent = 'Novedades';
+      if (breadcrumbCurrent) breadcrumbCurrent.textContent = 'Novedades';
+      if (ledeEl) { ledeEl.textContent = 'Lo último que hemos incorporado a la librería.'; ledeEl.hidden = false; }
+    } else if (activeCategories && activeCategories.length === 1) {
+      var label = CATEGORY_LABELS[activeCategories[0]] || 'Catálogo';
+      shopTitle.textContent = label;
+      if (breadcrumbCurrent) breadcrumbCurrent.textContent = label;
+      if (activeCategories[0] === 'otros-idiomas' && ledeEl) {
+        ledeEl.textContent = 'Nuestros libros en otros idiomas. Elige tu idioma y el tema que buscas.';
+        ledeEl.hidden = false;
+      }
+    } else {
+      shopTitle.textContent = 'Todos los libros';
+      if (breadcrumbCurrent) breadcrumbCurrent.textContent = 'Catálogo';
+    }
+  }
+
+  // ---- Paginación --------------------------------------------------------
+  function renderPagination(totalItems, totalPages) {
+    if (!paginationNav) return;
+    paginationNav.innerHTML = '';
+    if (totalPages <= 1) return;
+
+    function makeLink(label, page, opts) {
+      opts = opts || {};
+      var a = document.createElement('a');
+      a.href = '#';
+      a.className = 'page-link' + (opts.active ? ' is-active' : '') + (opts.disabled ? ' is-disabled' : '');
+      if (opts.disabled) a.setAttribute('aria-disabled', 'true');
+      if (opts.active) a.setAttribute('aria-current', 'page');
+      a.textContent = label;
+      if (!opts.disabled) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          currentPage = page;
+          render();
+          var shopResults = document.querySelector('.shop-results');
+          if (shopResults) shopResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+      return a;
+    }
+
+    paginationNav.appendChild(makeLink('‹ Anterior', currentPage - 1, { disabled: currentPage === 1 }));
+
+    // Números de página: si son muchas, se muestran los extremos + un
+    // rango alrededor de la página actual, con "…" para el resto.
+    var pagesToShow = [];
+    var windowSize = 2;
+    for (var p = 1; p <= totalPages; p++) {
+      if (p === 1 || p === totalPages || (p >= currentPage - windowSize && p <= currentPage + windowSize)) {
+        pagesToShow.push(p);
+      }
+    }
+
+    var lastShown = 0;
+    pagesToShow.forEach(function (p) {
+      if (lastShown && p - lastShown > 1) {
+        var ellipsis = document.createElement('span');
+        ellipsis.className = 'page-link is-disabled';
+        ellipsis.textContent = '…';
+        paginationNav.appendChild(ellipsis);
+      }
+      paginationNav.appendChild(makeLink(String(p), p, { active: p === currentPage }));
+      lastShown = p;
+    });
+
+    paginationNav.appendChild(makeLink('Siguiente ›', currentPage + 1, { disabled: currentPage === totalPages }));
+  }
+
+  // ---- Render principal: filtra, ordena, pagina y pinta ------------------
+  function render() {
+    var groups = groupedChecks();
+    var singleCategory = (groups.category && groups.category.length === 1) ? groups.category[0] : null;
+    ensureDynamicFilters(singleCategory);
+    // Vuelve a leer el estado: si la categoría cambió, los checkboxes
+    // dinámicos son otros (o han desaparecido) y hay que reflejarlo.
+    groups = groupedChecks();
+    var query = (searchInput && searchInput.value ? searchInput.value : '').trim().toLowerCase();
+
+    var matches = getMatches();
+    matches = sortMatches(matches);
+
+    var size = pageSize();
+    var totalItems = matches.length;
+    var totalPages = Math.max(1, Math.ceil(totalItems / size));
+    if (currentPage > totalPages) currentPage = totalPages;
+    if (currentPage < 1) currentPage = 1;
+
+    var start = (currentPage - 1) * size;
+    var pageItems = matches.slice(start, start + size);
+    var pageIdSet = {};
+    pageItems.forEach(function (card) { pageIdSet[card.dataset.productId] = true; });
+
+    // Oculta todo, muestra solo lo de esta página, y las reordena en el
+    // DOM según el orden ya calculado (relevancia u orden elegido).
+    cards.forEach(function (card) { card.hidden = !pageIdSet[card.dataset.productId]; });
+    pageItems.forEach(function (card) { grid.appendChild(card); });
+
+    if (resultsCount) {
+      if (totalItems === 0) {
+        resultsCount.textContent = '0 resultados';
+      } else {
+        var desde = start + 1;
+        var hasta = Math.min(start + size, totalItems);
+        resultsCount.textContent = totalItems === 1
+          ? '1 resultado'
+          : (desde + '–' + hasta + ' de ' + totalItems + ' resultados');
+      }
+    }
+    if (emptyResults) emptyResults.hidden = totalItems !== 0;
+
+    renderActiveChips();
+    updateTitle(groups.category, query, groups.need);
+    renderPagination(totalItems, totalPages);
+
+    // Avisa al carrusel de portadas (js/pages/cover-carousel.js) de que hay
+    // tarjetas nuevas en pantalla; las ya preparadas se ignoran.
+    document.dispatchEvent(new CustomEvent('catalog:rendered'));
+  }
+
+  function clearAllFilters() {
+    allFilterInputs().forEach(function (cb) { cb.checked = false; });
+    if (searchInput) searchInput.value = '';
+    soloNovedades = false;
+    currentPage = 1;
+    render();
+  }
+
+  checkboxes.forEach(function (cb) { cb.addEventListener('change', function () { currentPage = 1; render(); }); });
+  if (sortSelect) sortSelect.addEventListener('change', function () { currentPage = 1; render(); });
+  if (searchInput) searchInput.addEventListener('input', function () { currentPage = 1; render(); });
+  if (clearBtn) clearBtn.addEventListener('click', clearAllFilters);
+  if (perPageSelect) {
+    perPageSelect.addEventListener('change', function () {
+      currentPage = 1;
+      try { localStorage.setItem(PER_PAGE_STORAGE_KEY, perPageSelect.value); } catch (e) {}
+      render();
+    });
+  }
+  var emptyResultsClearBtn = document.getElementById('emptyResultsClear');
+  if (emptyResultsClearBtn) emptyResultsClearBtn.addEventListener('click', clearAllFilters);
+
+  if (filterToggle && filters) {
+    filterToggle.addEventListener('click', function () {
+      var isOpen = filters.classList.toggle('is-open');
+      filterToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('no-scroll', isOpen);
+    });
+  }
+  if (applyMobileBtn && filters) {
+    applyMobileBtn.addEventListener('click', function () {
+      filters.classList.remove('is-open');
+      if (filterToggle) filterToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('no-scroll');
+    });
+  }
+
+  // ---- Preselección desde la URL (?cat=biblias, ?q=texto) al llegar desde la Home o el buscador ----
+  var params = new URLSearchParams(window.location.search);
+  var catParam = params.get('cat');
+  var qParam = params.get('q');
+  if (catParam === 'novedades') soloNovedades = true;
+  if (catParam) {
+    var match = checkboxes.filter(function (c) { return c.name === 'category' && c.value === catParam; })[0];
+    if (match) match.checked = true;
+  }
+  if (qParam && searchInput) {
+    searchInput.value = qParam;
+  }
+  // Enlaces de la home: categoria.html?need=paz-interior
+  var needParam = params.get('need');
+  if (needParam) {
+    var needBox = allFilterInputs().filter(function (c) { return c.name === 'need' && c.value === needParam; })[0];
+    if (needBox) needBox.checked = true;
+  }
+
+  render();
+})();

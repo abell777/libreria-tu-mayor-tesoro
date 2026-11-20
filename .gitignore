@@ -70,3 +70,17 @@ node_modules/
 
 # Temporales de Office
 ~$*
+
+# Copias de seguridad y restos
+*.bak
+*.bak-*
+_archivo/
+
+# Salida de repomix y ficheros de sistema
+repomix-output.md
+.DS_Store
+Thumbs.db
+
+# Material de entrada de los scripts (se copia a img/ al ejecutarlos)
+libros-nuevos/
+portadas-clasicas/
